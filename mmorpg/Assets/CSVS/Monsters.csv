@@ -1,0 +1,792 @@
+Resistance;Race;Level;Stage;Name;Location;EXP
+;Animal;1;1;Hungry Stray Dog;Joan, Pyungmoo, Yongan;11
+;Animal;1;1;Wild Dog;Joan, Pyungmoo, Yongan;15
+;Animal;1;1;Wild Dog (Colony);Colony;4
+;Animal;3;1;Hungry Wolf;Joan, Pyungmoo, Yongan;27
+;Animal;3;1;Wolf;Joan, Pyungmoo, Yongan;39
+;Animal;3;1;Wild Boar (Colony);Colony;6
+;Animal;4;1;Alpha Wolf;Joan, Pyungmoo, Yongan;51
+;Animal;4;1;Hungry Alpha Wolf;Joan, Pyungmoo, Yongan;36
+;Animal;4;1;Bear (Colony);Colony;8
+;Animal;4;2;Red Wild Boar (Colony);Colony;9
+;Animal;5;2;Brown Bear (Colony);Colony;10
+;Animal;6;1;Hungry Blue Wolf;Joan, Pyungmoo, Yongan;53
+;Animal;6;1;Blue Wolf;Joan, Pyungmoo, Yongan;75
+;Animal;6;1;Black Bear (Colony);Colony;10
+;Animal;6;2;Hungry Brown Bear (Colony);Colony;12
+;Animal;7;1;Wild Boar;Joan, Pyungmoo, Yongan;87
+;Animal;7;1;Hungry Wild Boar;Joan, Pyungmoo, Yongan;61
+;Animal;7;1;Tiger (Colony);Colony;14
+;Animal;8;2;White Tiger (Colony);Colony;15
+;Animal;8;3;Cursed Wolf;Imha, Jungrang, Waryong, Snakefield;198
+;Animal;9;1;Alpha Blue Wolf;Joan, Pyungmoo, Yongan;111
+;Animal;9;1;Hungry Alpha Blue Wolf;Joan, Pyungmoo, Yongan;78
+;Animal;9;4;Cung-Mok;Joan, Pyungmoo, Yongan;100
+;Animal;9;4;Cursed Alpha Wolf;Imha, Jungrang, Waryong, Snakefield;444
+;Animal;10;2;Red Wild Boar;Joan, Pyungmoo, Yongan;148
+;Animal;10;2;Hungry Red Boar;Joan, Pyungmoo, Yongan;103
+;Animal;10;4;Jug-Hyul;Joan, Pyungmoo, Yongan;120
+;Animal;11;3;Cursed Blue Wolf;Imha, Jungrang, Waryong, Snakefield;270
+;Animal;12;1;Bear;Joan, Pyungmoo, Yongan;147
+;Animal;12;1;Hungry Bear;Joan, Pyungmoo, Yongan;103
+;Animal;13;1;Hungry Grey Wolf;Joan, Pyungmoo, Yongan;111
+;Animal;13;1;Grey Wolf;Joan, Pyungmoo, Yongan;159
+;Animal;14;4;Cursed Alpha Blue Wolf;Imha, Jungrang, Waryong, Snakefield;684
+;Animal;15;2;Hungry Grizzly;Joan, Pyungmoo, Yongan;154
+;Animal;15;2;Grizzly Bear;Joan, Pyungmoo, Yongan;220
+;Animal;15;4;Cursed Red Wild Boar;Joan, Pyungmoo, Yongan, Imha, Jungrang, Waryong, Snakefield;732
+;Animal;16;2;Hungry Alpha Grey Wolf;Joan, Pyungmoo, Yongan;164
+;Animal;16;2;Alpha Grey Wolf;Joan, Pyungmoo, Yongan;234
+;Animal;16;2;Mu-Rang;Joan, Pyungmoo, Yongan;200
+;Animal;17;3;Cursed Bear;Imha, Jungrang, Waryong, Snakefield;414
+;Animal;18;1;Hungry Tiger;Joan, Pyungmoo, Yongan;256
+;Animal;18;1;Tiger;Joan, Pyungmoo, Yongan;365
+;Half H.;18;1;White Oath Soldier;Joan, Pyungmoo, Yongan, Bokjung, Yayang, Bakra;365
+;Half H.;18;2;Craven White Oath Sold.;Joan, Pyungmoo, Yongan;256
+;Half H.;18;2;White Oath Soldier (Cursed);Bokjung, Yayang, Bakra;558
+;Animal;18;3;Cursed Grey Wolf;Imha, Jungrang, Waryong, Snakefield;438
+;Animal;19;1;Black Bear;Joan, Pyungmoo, Yongan;385
+;Animal;19;1;Hungry Black Bear;Joan, Pyungmoo, Yongan;249
+;Half H.;20;1;White Oath Archer;Joan, Pyungmoo, Yongan, Bokjung, Yayang, Bakra;445
+;Half H.;20;2;Craven White Oath Archer;Joan, Pyungmoo, Yongan, Bokjung, Yayang, Bakra;285
+;Half H.;20;2;White Oath Archer (Cursed);Bokjung, Yayang, Bakra;606
+;Animal;20;4;Cursed Grizzly Bear;Imha, Jungrang, Waryong, Snakefield;1429
+;Animal;21;2;Hungry Brown Bear;Joan, Pyungmoo, Yongan;357
+;Animal;21;2;Brown Bear;Joan, Pyungmoo, Yongan;510
+;Animal;21;4;Young-Ji;Joan, Pyungmoo, Yongan;220
+;Animal;21;4;Cursed Alpha Grey Wolf;Joan, Pyungmoo, Yongan;1020
+;Animal;22;1;Weak Ape Soldier;Hasun Dong;356
+;Half H.;23;4;Dispirited Mi-Jung;Joan, Pyungmoo, Yongan;1823
+;Half H.;23;4;Mi-Jung;Joan, Pyungmoo, Yongan;2604
+;Animal;24;2;White Tiger;Joan, Pyungmoo, Yongan;582
+;Animal;24;2;Hungry White Tiger;Joan, Pyungmoo, Yongan;407
+;Animal;24;3;Cursed Black Bear;Imha, Jungrang, Waryong, Snakefield;582
+;Animal;24;3;Cursed Tiger;Imha, Jungrang, Waryong, Snakefield;582
+;Animal;24;4;Li-An;Joan, Pyungmoo, Yongan;250
+;Half H.;25;2;White Oath General;Joan, Pyungmoo, Yongan;848
+;Half H.;25;2;White Oath Commander;Joan, Pyungmoo, Yongan;848
+;Animal;25;2;Weak Ape Thrower;Hasun Dong;487
+;Half H.;25;3;White Oath General (Cursed);Bokjung, Yayang, Bakra;1452
+;Half H.;25;3;White Oath Commander (Cursed);Bokjung, Yayang, Bakra;1452
+;Half H.;25;3;Craven Wh. Oath Com.;Joan, Pyungmoo, Yongan;594
+;Orc;26;1;Orc;Valley of Seungryong;1037
+Wind;Half H.;26;1;Black Wind Soldier;Bokjung, Yayang, Bakra;735
+Wind;Half H.;26;1;Evil Bl. Storm Soldier;Bokjung, Yayang, Bakra;514
+;Half H.;26;4;Dispirited Eun-Jung;Joan, Pyungmoo, Yongan;2058
+;Half H.;26;4;Eun-Jung;Joan, Pyungmoo, Yongan;2940
+;Animal;26;4;Cursed Brown Bear;Joan, Pyungmoo, Yongan;1260
+Wind;Half H.;27;1;Black Wind Maniac;Bokjung, Yayang, Bakra;763
+;Animal;27;3;Weak Ape Fighter;Hasun Dong;872
+;Half H.;28;4;Dispirited Se-Rang;Joan, Pyungmoo, Yongan;2215
+;Half H.;28;4;Se-Rang;Joan, Pyungmoo, Yongan;3164
+;Half H.;29;1;Savage Infantryman;Bokjung, Yayang, Bakra;819
+Wind;Half H.;29;1;Black Wind Archer;Bokjung, Yayang, Bakra;819
+;Half H.;29;1;Strong Savage Infantry;Bokjung, Yayang, Bakra;819
+Wind;Half H.;29;1;Evil Bl. Storm Archer;Bokjung, Yayang, Bakra;573
+;Orc;29;2;Orc Scout;Valley of Seungryong;1019
+;Animal;29;4;Cursed White Tiger;Joan, Pyungmoo, Yongan;1403
+;Animal;29;4;Weak Ape General;Hasun Dong;1872
+Wind;Half H.;30;2;Black Wind Jak-To;Bokjung, Yayang, Bakra;1016
+Wind;Half H.;30;2;Evil Bl. Storm Joh-Hwan;Bokjung, Yayang, Bakra;711
+;Animal;30;4;Lykos;Joan, Pyungmoo, Yongan;2420
+;Animal;30;Boss;Rock Ape;Hasun Dong;23104
+;Orc;31;2;Orc Fighter;Valley of Seungryong;1086
+Wind;Half H.;31;3;Black Storm Soldier;Bokjung, Yayang, Bakra;1900
+;Half H.;31;4;Dispirited Jin-Hee;Joan, Pyungmoo, Yongan;2450
+;Half H.;31;4;Jin-Hee;Joan, Pyungmoo, Yongan;3500
+;Animal;31;4;Scrofa;Joan, Pyungmoo, Yongan;2500
+;Half H.;32;1;Savage Minion;Bokjung, Yayang, Bakra;903
+;Half H.;32;1;Strong Savage Minion;Bokjung, Yayang, Bakra;903
+Wind;Half H.;32;4;Mahon;Bokjung, Yayang, Bakra;3612
+Wind;Half H.;33;2;Black Wind To-Su;Bokjung, Yayang, Bakra;1117
+Wind;Half H.;33;2;Evil Bl. Storm Kyuk-Jang;Bokjung, Yayang, Bakra;782
+;Orc;33;3;Orc Sorcerer;Valley of Seungryong;1110
+Wind;Half H.;33;3;Black Storm Maniac;Bokjung, Yayang, Bakra;798
+;Animal;33;4;Bera;Joan, Pyungmoo, Yongan;2660
+;Orc;34;1;Elite Orc;Valley of Seungryong;959
+;Orc;34;1;Bold Big Orc;Valley of Seungryong;670
+;Animal;35;1;Apesoldier;Jungsun Dong;564
+Wind;Mystic;35;1;Dark Fanatic;Valley of Seungryong;987
+Wind;Mystic;35;1;High Fanatic;Valley of Seungryong;691
+;Half H.;35;2;Savage Archer;Bokjung, Yayang, Bakra;1184
+Wind;Half H.;35;2;Black Wind Gu-Ryung;Bokjung, Yayang, Bakra;1184
+;Half H.;35;2;Strong Savage Archer;Bokjung, Yayang, Bakra;1184
+Wind;Half H.;35;2;Evil Bl. Storm Pho-Hwa;Bokjung, Yayang, Bakra;829
+;Half H.;35;3;Bestial Soldier;Bokjung, Yayang, Bakra, Valley of Seungryong;513
+Wind;Half H.;35;3;Black Storm Archer;Bokjung, Yayang, Bakra;946
+;Animal;35;4;Tigris;Joan, Pyungmoo, Yongan;2820
+;Orc;36;2;Elite Orc Scout;Valley of Seungryong;1218
+;Orc;36;2;Bold Big Orc Scout;Valley of Seungryong;853
+;Half H.;36;3;Savage General;Bokjung, Yayang, Bakra;2030
+;Half H.;36;3;Strong Savage General;Bokjung, Yayang, Bakra;2030
+Wind;Half H.;36;4;Black Storm Joh-Hwan;Bokjung, Yayang, Bakra;1740
+;Desert;37;2;Desert Flying Eye;Yongbi Desert;1252
+;Animal;37;2;Apethrower;Jungsun Dong;715
+;Half H.;37;3;Bestial Maniac;Bokjung, Yayang, Bakra, Valley of Seungryong;542
+Wind;Half H.;37;4;Bo;Bokjung, Yayang, Bakra;4172
+Wind;Mystic;38;2;Dark Arahan;Valley of Seungryong;1101
+Wind;Mystic;38;2;High Arahan;Valley of Seungryong;771
+Wind;Half H.;38;4;Black Storm Kyuk-Jang;Bokjung, Yayang, Bakra;3314
+;Orc;39;2;Elite Orc Fighter;Valley of Seungryong;1319
+;Desert;39;2;King Scorpion;Valley of Seungryong, Yongbi Desert;1319
+;Orc;39;2;Bold Big Orc Fighter;Valley of Seungryong;923
+;Animal;39;3;Apefighter;Jungsun Dong;1256
+Wind;Half H.;39;4;Goo-Pae;Bokjung, Yayang, Bakra;4396
+;Orc;40;3;Elite Orc Sorcerer;Valley of Seungryong;2254
+;Orc;40;3;Bold Big Orc Sorcerer;Valley of Seungryong;1578
+;Half H.;40;4;Bestial Archer;Bokjung, Yayang, Bakra, Valley of Seungryong;1171
+Wind;Half H.;40;4;Black Storm Pho-Hwan;Bokjung, Yayang, Bakra;1932
+;Animal;40;4;Apegeneral;Jungsun Dong;2576
+Wind;Mystic;41;2;Esoteric Arahan Fighter;Valley of Seungryong;1188
+Wind;Mystic;41;2;High Arahan Fighter;Valley of Seungryong;832
+;Animal;41;4;Stone Ape;Jungsun Dong;2640
+;Half H.;42;4;Bestial Specialist;Bokjung, Yayang, Bakra, Valley of Seungryong;1230
+;Half H.;42;Boss;Bestial Captain;Bokjung, Yayang, Bakra;20.280
+;Insect;43;1;Baby Spider;Yongbi Desert;1211
+;Insect;43;1;Mean Baby Poison Spider;Yongbi Desert;848
+;Animal;43;Boss;Walking Ape;Jungsun Dong;27.680
+;Orc;44;3;Elite Orc General;Valley of Seungryong;2478
+;Desert;44;3;Young Scorpion Man;Yongbi Desert;2478
+;Orc;44;3;Bold Big Orc General;Valley of Seungryong;1952
+Wind;Mystic;44;3;Chief Esoteric Arahan;Valley of Seungryong;1770
+Wind;Mystic;44;3;High Elite Arahan;Valley of Seungryong;1239
+;Insect;45;1;Poison Spider;Yongbi Desert;1267
+;Animal;45;1;Strong Ape Soldier;Sangsun Dong;724
+;Animal;45;1;Evil strong Apesoldier;Sangsun Dong;507
+;Insect;45;1;Mean Dead. Poison Spider;Yongbi Desert;887
+Wind;Half H.;45;4;Chuong;Bokjung, Yayang, Bakra;5068
+;Orc;46;4;Black Orc;Valley of Seungryong;5180
+;Orc;46;4;Bold Black Orc;Valley of Seungryong;3626
+;Animal;47;2;Strong Ape Thrower;Sangsun Dong;907
+;Animal;47;2;Evil strong Apethrower;Sangsun Dong;635
+;Desert;47;3;Scorpion Archer;Yongbi Desert;2646
+;Insect;48;2;Red Poison Spider;Yongbi Desert;1621
+Wind;Mystic;48;2;Esoteric Executioner;Valley of Seungryong;1158
+Wind;Mystic;48;2;High Deathsman;Valley of Seungryong;811
+;Insect;48;2;Mean Red Poison Spider;Yongbi Desert;1135
+;Desert;48;3;Snake Swordsman;Yongbi Desert;2702
+;Undead;49;2;Dead Body Ghost;Mount Sohan;946
+;Undead;49;2;Angry Dead Body Ghost;Mount Sohan;661
+;Animal;49;3;Strong Ape Fighter;Sangsun Dong;1576
+;Animal;49;3;Evil strong Apefighter;Sangsun Dong;1103
+;Orc;49;4;Black Orc Giant;Valley of Seungryong;5561
+;Orc;49;4;Bold Black Giant Orc;Valley of Seungryong;3861
+Wind;Mystic;49;4;Dark Tormentor;Valley of Seungryong;3940
+Wind;Mystic;49;4;High Tormentor;Valley of Seungryong;2758
+;Insect;50;2;Claw Spider;Yongbi Desert;1688
+;Insect;50;2;Mean Claw Poison Spider;Yongbi Desert;1182
+;Insect;50;3;Baby Poison Spider;Kuahlo Dong;2220
+;Orc;50;Boss;Chief Orc;Valley of Seungryong;20.422
+;Undead;51;2;Plagued Dog;Mount Sohan;917
+;Undead;51;2;Angry Plagued Dog;Mount Sohan;643
+;Insect;51;3;Snake Archer;Yongbi Desert;2869
+Wind;Mystic;51;4;Dark Summoner;Valley of Seungryong;4084
+Wind;Mystic;51;4;High Evocator;Valley of Seungryong;2869
+Wind;Mystic;52;1;Bestial Fanatic;Hwang Temple;732
+Wind;Mystic;51;1;Proud Dark Fanatic;Hwang Temple;1045
+;Insect;52;2;Soldier Spider;Yongbi Desert;1756
+;Insect;52;3;Deadly Poison Spider;Kuahlo Dong;2316
+;Animal;52;4;Strong Ape General;Sangsun Dong;3344
+;Animal;52;4;Evil strong Apegeneral;Sangsun Dong;2341
+Wind;Mystic;53;2;Bestial Arahan;Hwang Temple;895
+Wind;Mystic;53;2;Proud Dark Arahan;Hwang Temple;1278
+;Undead;53;2;Plagued Man;Mount Sohan;1021
+;Undead;53;2;Angry Plagued Man;Mount Sohan;715
+;Animal;53;4;Strong Stone Ape;Sangsun Dong;3360
+;Animal;53;4;Evil strong Stoneape;Sangsun Dong;2352
+Wind;Mystic;54;2;Bestial Arahan Fighter;Hwang Temple;910
+Wind;Mystic;54;2;Proud Dark Fighter;Hwang Temple;1301
+Wind;Mystic;54;3;Bestial Chief Arahan;Hwang Temple;1518
+Wind;Mystic;54;3;Proud Dark Colonel;Hwang Temple;2170
+;Insect;54;4;Red Angry Poison Spider;Kuahlo Dong;4824
+;Desert;54;4;Desert Outlaw;Yongbi Desert;6076
+;Animal;54;4;Strong Gold Ape;Sangsun Dong;3440
+;Desert;54;4;Strong Desert Outlaw;Yongbi Desert;4252
+;Animal;54;4;Evil strong Goldape;Sangsun Dong;2408
+Wind;Mystic;54;Boss;Dark Leader;Hwang Temple;8680
+Wind;Mystic;55;2;Bestial Deathsman;Hwang Temple;928
+Wind;Mystic;55;2;Proud Dark Rifleman;Hwang Temple;1325
+;Undead;55;3;Plagued Swordman;Mount Sohan;1767
+;Undead;55;3;Angry Plagued Fighter;Mount Sohan;1327
+;Animal;55;Boss;Ape Lord;Sangsun Dong;35.360
+Wind;Mystic;56;4;Bestial Tormentor;Hwang Temple;3150
+Wind;Mystic;56;4;Elite Esoteric Tormentor;Hwang Temple;4500
+;Insect;56;4;Claw Poison Spider;Kuahlo Dong;5016
+Darkness;Undead;57;2;Demon Soldier;Demon Tower;960
+Wind;;57;2;Tree Frog Soldier;Hwang Temple;1099
+Wind;Mystic;57;4;Bestial Evocator;Hwang Temple;5500
+Wind;Mystic;57;4;Elite Esoteric Summoner;Hwang Temple;4580
+Darkness;Undead;58;2;Demon Archer;Demon Tower;1083
+Wind;;58;2;Leflet Bogeyman;Hwang Temple;1117
+;Undead;58;3;Plagued Archer;Mount Sohan;2330
+;Undead;58;3;Plagued Spearman;Mount Sohan;1864
+;Undead;58;3;Angry Plagued Archer;Mount Sohan;1631
+;Undead;58;3;Angry Plagued Spearman;Mount Sohan;1304
+;Insect;58;4;Proud Soldier Spider;Kuahlo Dong;5208
+;Insect;58;4;Soldier Poison Spider;Kuahlo Dong;5208
+Darkness;Undead;59;2;Demon Spearman;Demon Tower;1182
+;Undead;59;4;Angry Plagued Leader;Mount Sohan;2654
+Wind;;59;4;Big Tree Frog Leader;Hwang Temple;2654
+;Undead;59;4;Plagued Leader;Mount Sohan;3792
+Wind;;59;4;Tree Frog Leader;Hwang Temple;3792
+Fire;Insect;60;1;Bestial Scorpion Man;Yongbi Desert;4956
+Fire;Insect;60;1;Small Poison Spider;Spider Dungeon 2;4440
+Fire;Insect;60;3;Best. Small Poison Spider;Spider Dungeon 3, Spider Queen's Nest;4771
+Darkness;Undead;60;3;Demon Shaman;Demon Tower;1640
+Wind;Insect;60;Boss;Queen Spider;Kuahlo Dong, Spider Dungeon 2;19.280
+Wind;;61;4;Bullfrog General;Hwang Temple;3920
+Fire;Insect;62;2;Deadly Poison Spider SD2;Spider Dungeon 2;4632
+Fire;Insect;62;2;Scorpion Archer SD2;Spider Dungeon 2;5292
+Ice;;62;2;Enchanted Ice;Mount Sohan;1315
+Fire;Insect;62;2;Best. Deadly Poi. Spider;Spider Dungeon 3, Spider Queen's Nest;4920
+Ice;;62;2;Mean Enchanted Ice;Mount Sohan;920
+Wind;Mystic;62;5;Dark-Ghost Leader;Hwang Temple;6905
+Ice;;63;2;Ice Killer Whale;Mount Sohan;1336
+Ice;;64;2;Ice Bug;Mount Sohan;679
+Fire;Insect;64;3;Red Deadly Poison Spider;Spider Dungeon 2;9648
+Fire;Insect;64;3;Snake Swordsman SD2;Spider Dungeon 2;5404
+Ice;;64;3;Ice Lion;Mount Sohan;1131
+Fire;Insect;64;4;Best. Red Poison Spider;Spider Dungeon 3, Spider Queen's Nest;9829
+Ice;;65;3;Frosty Ice Man;Mount Sohan;1149
+Lightning;;66;2;Destroyer;Snakefield, Land of Giants;???
+Fire;Insect;66;3;Snake Archer SD2;Spider Dungeon 2;5740
+Fire;Insect;66;3;Claw Poison Spider SD2;Spider Dungeon 2;10.031
+Ice;;66;3;Yeti;Mount Sohan;2476
+Fire;Insect;66;4;Best. Claw Poison Spider;Spider Dungeon 3, Spider Queen's Nest;10.108
+Ice;;66;4;Ice Golem;Mount Sohan;4664
+Darkness;Undead;67;3;Brutal Demon Soldier;Demon Tower;2152
+Darkness;Undead;67;3;Vile Demon Soldier;Demon Tower;2152
+Wind;Desert;67;Boss;Giant Tortoise;Yongbi Desert;21.520
+Fire;Insect;68;4;Best. Sold. Pois. Spider;Spider Dungeon 3, Spider Queen's Nest;10.200
+Fire;Insect;68;4;Best. Strg Poison Spider;Spider Queen's Nest;10.441
+Fire;Insect;68;4;Desert Outlaw SD2;Spider Dungeon 2;12.151
+Fire;Insect;68;4;Soldier Poison Spider SD2;Spider Dungeon 2;10.416
+Fire;;69;2;Fighting Tiger Minion;Doyyumhwan;997
+Fire;;69;2;Flame Ghost;Doyyumhwan;997
+Earth;;69;2;Stone Golem;Snakefield;???
+Darkness;Undead;69;3;Brutal Demon Archer;Demon Tower;2770
+Darkness;Undead;69;3;Vile Demon Archer;Demon Tower;2770
+Darkness;Undead;70;3;Brutal Demonspearman;Demon Tower;2248
+Fire;;70;3;Fighting Tiger;Doyyumhwan;1686
+Darkness;Undead;70;3;Vile Demon Spearman;Demon Tower;2248
+Earth;;71;1;Ghost Tree;Lungsam;1152
+Lightning;;71;1;Ogre Warrior;Land of Giants;???
+Darkness;Undead;71;3;Brutal Demon Shaman;Demon Tower;2280
+Fire;;71;3;Flame;Doyyumhwan;1710
+Darkness;Undead;71;3;Vile Demon Shaman;Demon Tower;2280
+Darkness;Undead;71;4;Vile Demon Leader;Demon Tower;4560
+Earth;;72;2;Stone Cruncher;Snakefield;???
+Darkness;Undead;72;3;Brutal Ghost of Grudge;Demon Tower;2312
+Darkness;Undead;72;3;Ghost of Grudge;Demon Tower;2312
+Fire;;72;4;Flame Warrior;Doyyumhwan;3468
+Darkness;Undead;72;4;Ghost Sword Master;Demon Tower;4624
+Darkness;Undead;72;4;Skull Sword Master;Demon Tower;4624
+Wind;Insect;72;5;Spider Baron;Spider Queen's Nest;208.800
+Ice;;72;Boss;Nine Tails;Mount Sohan;23.120
+Earth;;73;1;Ghost Stump;Lungsam;1204
+Lightning;;73;3;Axe Fighter;Snakefield, Land of Giants;???
+Darkness;Undead;73;3;Brutal Ghost of Chaos;Demon Tower;2344
+Darkness;Undead;73;3;Ghost of Chaos;Demon Tower;2344
+Lightning;;73;3;Ogre Butcher;Land of Giants;???
+Darkness;Undead;73;4;Brutal Flying Skull;Demon Tower;4688
+Darkness;Undead;73;4;Flying Skull;Demon Tower;4688
+Fire;;73;Boss;Flame King;Doyyumhwan;17.580
+Darkness;Undead;74;4;Immortal Ghost;Demon Tower;4752
+Earth;;75;2;Dryad;Lungsam;1546
+Lightning;;75;3;Ogre Berserk;Land of Giants;???
+Darkness;Undead;75;4;Demonic Beast;Demon Tower;4816
+Wind;Insect;75;5;Spider Baroness;Spider Queen's Nest;356.400
+Darkness;Undead;75;Boss;Demon King;Demon Tower;12.040
+Darkness;Undead;75;Boss;Proud Demon King;Demon Tower;24.080
+Wind;;75;Boss;Yellow Tiger Ghost;Hwang Temple;24.080
+Earth;;76;2;Ghost Willow;Lungsam;1587
+Earth;;76;3;Giant Rock Golem;Snakefield;???
+Earth;;77;3;Evil Tree;Lungsam;2749
+Lightning;;77;4;Thousand Fighter;Land of Giants;???
+Darkness;Undead;78;5;Death Reaper;Demon Tower;187.800
+Darkness;Undead;79;1;Evil Hell Warrior;Devil's Catacomb;739
+Darkness;Undead;79;1;Hell Warrior;Devil's Catacomb;739
+Darkness;Undead;79;1;Jellyfish of Hell;Devil's Catacomb;739
+Darkness;Undead;80;2;Evil Hell Archer;Devil's Catacomb;896
+Darkness;Undead;80;2;Hell Archer;Devil's Catacomb;896
+Darkness;Undead;80;2;Hell Hound;Devil's Catacomb;896
+Earth;;80;2;Red Ghost Tree;Red Forest;1603
+Darkness;Undead;81;2;Evil Hell Spearman;Devil's Catacomb;906
+Darkness;Undead;81;2;Hell Spearman;Devil's Catacomb;906
+Ice;;81;2;Underworld Ice Splinters;Grotto of Exile;5260
+Ice;;81;2;Underwrld IceKillerWhale;Grotto of Exile;5344
+Ice;;82;2;Underworld Ice Bug;Grotto of Exile;5428
+Darkness;Undead;81;2;Zombie;Devil's Catacomb;906
+Darkness;Undead;82;3;Evil Hell Priest;Devil's Catacomb;1526
+Darkness;Undead;82;3;Hell Officer;Devil's Catacomb;1526
+Darkness;Undead;82;3;Hell Priest;Devil's Catacomb;1526
+Earth;;82;3;Red Ghost Stump;Red Forest;2745
+Darkness;Undead;83;3;Evil Hell Major;Devil's Catacomb;1542
+Darkness;Undead;83;3;Hell Guard;Devil's Catacomb;1542
+Darkness;Undead;83;3;Hell Major;Devil's Catacomb;1542
+Earth;;83;3;Red Dryad;Red Forest;2781
+Ice;;83;3;Underworld Ice Lion;Grotto of Exile;9048
+Ice;;83;3;Underworld Ice Man;Grotto of Exile;9188
+Ice;;84;3;Underworld Yeti;Grotto of Exile;9328
+Darkness;Undead;84;4;Double-head Hell Archer;Devil's Catacomb;3116
+Darkness;Undead;84;4;Evil Hell Slaughterer;Devil's Catacomb;3116
+Darkness;Undead;84;4;Hell Slaughterer;Devil's Catacomb;3116
+Earth;;84;Boss;Giant Ghost Tree;Red Forest;27.236
+;;85;3;Gate of Perdition;Devil's Catacomb;3200
+Darkness;Undead;85;4;Infernal Claw;Devil's Catacomb;3148
+Ice;;85;4;Underworld Ice Golem;Grotto of Exile;18.656
+Darkness;Undead;86;4;Evil Hell General;Devil's Catacomb;3180
+Darkness;Undead;86;4;Hell General;Devil's Catacomb;3180
+Earth;;86;4;Red Ghost Willow;Red Forest;5778
+Lightning;Devil;87;1;Setaou Fighter;Grotto of Exile, Grotto of Exile V2;7050
+Earth;;88;4;Red Evil Tree;Red Forest;5922
+Lightning;Devil;88;4;Captain Huashin;Grotto of Exile V2;44.700
+Lightning;Devil;89;1;Setaou Hunter;Grotto of Exile, Grotto of Exile V2;7212
+Lightning;Devil;89;2;Setaou Mystic;Grotto of Exile, Grotto of Exile V2;8658
+Darkness;Undead;89;4;Azrael's Spawn;Devil's Catacomb;32.720
+Darkness;Undead;89;4;Erebos;Devil's Catacomb;32.720
+Darkness;Undead;89;4;Tartaros;Devil's Catacomb;32.720
+Ice;;89;Boss;Mighty Ice Witch;Grotto of Exile;324.800
+Lightning;Devil;90;2;Setaou Leader;Grotto of Exile V2, Dragon's Temple;8754
+Lightning;Devil;90;Boss;General Huashin;Grotto of Exile V2;456.600
+Lightning;Devil;91;2;Setaou Soldier;Grotto of Exile V2, Dragon's Temple;19.474
+Darkness;Undead;91;5;Azrael;Devil's Catacomb;333.600
+Darkness;Undead;91;5;Charon;Devil's Catacomb;333.600
+Lightning;Devil;93;3;Setaou Archer;Grotto of Exile V2, Dragon's Temple;19.920
+Lightning;Devil;93;4;Captain Yonghan;Grotto of Exile V2;44.700
+Earth;Animal;95;1;Gnoll Warrior;Cape Dragon Fire;1143
+Wind;Half H.;95;1;Red Thief Amazon;Cape Dragon Fire, Nephrite Bay;1143
+Lightning;Devil;95;3;Setaou Magistrate;Grotto of Exile V2, Dragon's Temple;20.354
+Lightning;Devil;95;Boss;General Yonghan;Grotto of Exile V2;456.600
+Ice;Devil;96;1;Crab Warrior;Nephrite Bay, Ship Defence;1155
+Wind;Animal;96;1;Manticore Warrior;Cape Dragon Fire;1155
+Ice;Devil;96;1;Tritonic Moray;Nephrite Bay;1155
+Earth;Animal;96;2;Gnoll Archer;Cape Dragon Fire;2772
+Wind;Half H.;96;2;Red Thief Assassin;Cape Dragon Fire, Nephrite Bay;2772
+Lightning;Half H.;97;1;Brutal Red Thief Amazon;Thunder Mountains;1167
+Ice;;97;1;Deep Sea Kappa;Ship Defence;0
+Fire;;97;1;Ember Flame Ghost;Red Dragon Fortress;1323
+Ice;;97;1;Frost Crystal;Nemere's Watchtower;1323
+Ice;;97;1;Kappa;Ship Defence;0
+Ice;;97;1;Lagoon Kappa;Ship Defence;0
+Wind;Devil;97;1;Lemures Warrior;Gautama Cliff;1167
+Fire;;97;1;Magma Yeti (Meley-Group);Meley's Lair (Group);0
+Earth;Animal;97;2;Gnoll Defender;Cape Dragon Fire;2800
+Wind;Animal;97;2;Manticore Soldier;Cape Dragon Fire;2800
+Wind;Half H.;97;2;Red Thief Magician;Cape Dragon Fire, Nephrite Bay;2800
+Ice;Devil;97;2;Scorpion Marksman;Nephrite Bay, Ship Defence;2800
+Ice;Devil;97;2;Shark Soldier;Nephrite Bay;2800
+Fire;;97;4;Idall's Minion;Meley's Lair;0
+Lightning;Devil;97;4;Setaou Commander;Grotto of Exile V2, Dragon's Temple;41.580
+Lightning;;97;5;Beran-Setaou;Dragon's Temple;3.564.000
+Wind;Devil;98;1;Ochao Warrior;Temple of the Ochao;9375
+Lightning;Orc;98;1;One-eyed Slugger;Thunder Mountains, Gautama Cliff;1179
+Lightning;Half H.;98;2;Brut. Red Thief Assassin;Thunder Mountains;2829
+Wind;Devil;98;2;Lemures Soldier;Gautama Cliff;2829
+Wind;Animal;98;2;Manticore Soldier;Cape Dragon Fire;2829
+Ice;Devil;98;2;Shrimp Soldier;Nephrite Bay, Ship Defence;2829
+Ice;Devil;98;2;Tritonic Magician;Nephrite Bay;2829
+Earth;Animal;98;3;Gnoll Magician;Cape Dragon Fire;1143
+Fire;;98;3;Magma Golem (Meley-Group);Meley's Lair (Group);0
+Wind;Half H.;98;3;Red Thief Executioner;Cape Dragon Fire, Nephrite Bay;8488
+Fire;;99;1;Ember Flame Tiger;Red Dragon Fortress;3207
+Ice;;99;1;Frost Bug;Nemere's Watchtower;3207
+Earth;Animal;99;1;Hangork;Gautama Cliff;1191
+Lightning;Half H.;99;2;Brut. Red Thief Magician;Thunder Mountains;2858
+Lightning;Orc;99;2;Cyclops Soldier;Thunder Mountains, Gautama Cliff;2858
+Wind;Devil;99;2;Lemures Magician;Gautama Cliff;2858
+Fire;;99;2;Magma Bug (Meley-Group);Meley's Lair (Group);0
+;Half H.;99;2;Moghu;Gautama Cliff;2858
+Wind;Devil;99;2;Ochao Soldier;Temple of the Ochao;11.255
+Ice;Devil;99;3;Diabolical Hermit;Nephrite Bay, Ship Defence;8575
+Wind;Animal;99;3;Manticore Executioner;Cape Dragon Fire;8575
+Ice;Devil;99;3;Tritonic Hunter;Nephrite Bay, Ship Defence;8575
+Wind;Half H.;99;4;Black General;Cape Dragon Fire, Nephrite Bay;20.485
+Earth;Animal;99;4;Gnoll Defender;Cape Dragon Fire;20.485
+Wind;Devil;100;1;En-Tai Warrior;Temple of the Ochao, Enchanted Forest;24.334
+Earth;Orc;100;1;Gigantic Biter;Thunder Mountains;1203
+Earth;Animal;100;2;Archie Ogre;Gautama Cliff;2887
+Lightning;Orc;100;2;Cyclops Magician;Thunder Mountains, Gautama Cliff;2887
+Fire;;100;2;Ember Flame;Red Dragon Fortress;3270
+Fire;;100;2;Ember Flame Warrior;Red Dragon Fortress;1320
+Ice;;100;2;Frost Man;Nemere's Watchtower;3270
+Ice;;100;2;Frost Yeti;Nemere's Watchtower;1320
+Wind;Devil;100;2;Ochao Magician;Temple of the Ochao;11.380
+Lightning;Half H.;100;3;Brut.RedThiefExecutioner;Thunder Mountains;8661
+;Half H.;100;3;Carnifex;Gautama Cliff;8661
+Fire;;100;3;Ember Flame King;Red Dragon Fortress;3207
+Wind;Devil;100;3;Lemures Executioner;Gautama Cliff;8661
+Earth;Animal;101;2;Brawl Ogre;Gautama Cliff;2916
+Earth;Orc;101;2;Gigantic Slaughterer;Thunder Mountains;2916
+;Orc;101;3;Captain Hooks (Level 101);Thunder Mountains;8748
+Lightning;Orc;101;3;Cyclops Executioner;Thunder Mountains, Gautama Cliff;8748
+Fire;;101;3;Magma Man (Meley-Group);Meley's Lair (Group);0
+Wind;Devil;101;3;Ochao Executioner;Temple of the Ochao;25.316
+Ice;Devil;101;4;Armoured Crab;Nephrite Bay, Ship Defence;20.898
+;Half H.;101;4;General Albus;Gautama Cliff;20.868
+Wind;Animal;101;4;General Cor;Cape Dragon Fire;20.898
+Wind;Devil;101;4;Lemures General;Gautama Cliff;20.898
+Ice;Devil;101;4;Tritonic Slasher;Nephrite Bay, Ship Defence;20.898
+Lightning;Half H.;101;4;White General;Thunder Mountains;20.898
+Wind;Devil;102;2;En-Tai Soldier;Enchanted Forest;28.934
+Earth;Animal;102;3;Ogre Magus;Gautama Cliff;8834
+Lightning;Orc;102;4;General Outis;Thunder Mountains, Gautama Cliff;21.104
+Wind;Devil;102;4;Ochao General;Temple of the Ochao;39.580
+Fire;;103;1;Magma Yeti (Meley-Guild);Meley's Lair (Guild);0
+Fire;;103;1;Magma Crystal;Meley's Lair;0
+Earth;Orc;103;2;Gigantic Magus;Thunder Mountains;2973
+Ice;;103;3;Deep Sea Moray Soldier;Ship Defence;0
+Fire;;103;3;Ember Flame Troll;Meley's Lair, Red Dragon Fortress;3270
+Ice;;103;3;Frost Golem;Nemere's Watchtower;3207
+Ice;;103;3;Frost Troll;Nemere's Watchtower;3270
+Ice;;103;3;Moray Soldier;Ship Defence;0
+Earth;Animal;103;4;General Ogg;Gautama Cliff;21.310
+Wind;Half H.;103;Boss;Bone Face;Cape Dragon Fire, Nephrite Bay;102.713
+Ice;Devil;103;Boss;General Kappa;Nephrite Bay;102.713
+Ice;Devil;103;Boss;General Lobster;Nephrite Bay;102.713
+Earth;Animal;103;Boss;Gnoll Lord;Cape Dragon Fire;102.713
+Wind;Devil;103;Boss;Lemures Prince;Gautama Cliff;102.713
+Wind;Devil;103;Boss;Ochao Lord;Temple of the Ochao;142.984
+Wind;Animal;103;Boss;Rakshasa;Cape Dragon Fire;102.713
+;Half H.;103;Boss;Skeletos;Gautama Cliff;102.713
+Wind;Devil;104;2;En-Tai Druid;Enchanted Forest;35.468
+Earth;Orc;104;3;Twiant;Thunder Mountains;9007
+Lightning;Orc;104;Boss;Arges;Thunder Mountains;103.707
+Fire;;105;2;Magma Bug (Meley-Guild);Meley's Lair (Guild);0
+Fire;;105;3;Ember Flame Beard;Meley's Lair, Red Dragon Fortress;9907
+Wind;Devil;105;3;En-Tai Healer;Enchanted Forest, Erebus;37.900
+Ice;;105;3;Frost Beard;Nemere's Watchtower;9907
+Fire;;105;3;Magma Man (Meley-Guild);Meley's Lair (Guild);0
+Earth;Orc;105;4;Captain Hooks (Level 105);Thunder Mountains;23.895
+Fire;;105;4;Ember Flame General;Meley's Lair, Red Dragon Fortress;23.895
+Ice;;105;4;Frost General;Nemere's Watchtower;23.895
+Ice;;105;4;Kappa Leader;Ship Defence;0
+Fire;;105;4;Magma Wyvern (Meley-Group);Meley's Lair (Group);0
+;;105;5;Hydra's Treasure;Ship Defence;584.702
+Ice;Devil;105;5;King Crab;Nephrite Bay;377.005
+Ice;Devil;105;5;Lemures Bodyguard;Gautama Cliff;377.005
+Wind;Animal;105;5;Martyaxwar;Cape Dragon Fire;377.005
+Earth;Half H.;105;5;Red Chief;Nephrite Bay;377.005
+Earth;Animal;105;5;Supreme Gnoll Guard;Cape Dragon Fire;377.005
+Ice;Devil;105;5;Triton;Nephrite Bay;377.005
+;Animal;105;Boss;Aku-Boku;Gautama Cliff;104.702
+;Animal;105;Boss;Arboretum;Gautama Cliff;104.702
+Earth;Animal;105;Boss;Captain Shruk;Gautama Cliff;104.702
+Lightning;Half H.;105;Boss;Brutal Bone Face;Thunder Mountains;104.702
+;Animal;105;Boss;Sycomore;Gautama Cliff;104.702
+Lightning;Orc;106;5;Polyphemos;Thunder Mountains;380.587
+Earth;Orc;106;Boss;Gargoyle;Thunder Mountains;105.697
+Wind;Devil;107;1;En-Tai Warrior (RX);Enchanted Forest (RX);29.200
+Wind;Devil;107;1;En-Tai Warrior (TR);Enchanted Forest (TR);36.501
+Fire;;107;3;Magma Golem (Meley-Guild);Meley's Lair (Guild);0
+Fire;;107;4;Ember Flame Chieftain;Meley's Lair, Red Dragon Fortress;116.266
+Ice;;107;4;Frost Lord;Nemere's Watchtower;116.266
+Fire;;107;4;Ignitor;Red Dragon Fortress;116.266
+Lightning;Half H.;107;5;Brutal Red Chief;Thunder Mountains;384.169
+Earth;Orc;107;5;King Wubba;Thunder Mountains;384.169
+Earth;Animal;107;5;The Great Ogre;Gautama Cliff;384.169
+Fire;;107;Boss;Dragon Watcher Idall (Meley-Group);Meley's Lair (Group);2.282.000
+Ice;;107;Boss;Szel;Nemere's Watchtower;116.266
+Lightning;Devil;108;1;Setaou Fighter (RX);Grotto of Exile (RX);8460
+Lightning;Devil;108;1;Setaou Fighter (TR);Grotto of Exile (TR);10.575
+Wind;Devil;108;4;En-Tai Destroyer;Enchanted Forest Erebus;53.214
+Ice;Devil;108;5;Ochao Bodyguard;Temple of the Ochao;514.705
+Ice;;108;Boss;Nemere;Nemere's Watchtower;422.585
+Fire;;108;Boss;Razador;Red Dragon Fortress;422.585
+Wind;Devil;109;2;En-Tai Soldier (RX);Enchanted Forest (RX);34.720
+Wind;Devil;109;2;En-Tai Soldier (TR);Enchanted Forest (TR);43.401
+Fire;;110;1;Ember Flame Ghost (RX);Red Dragon Fortress (RX);1587
+Fire;;110;1;Ember Flame Ghost (TR);Red Dragon Fortress (TR);1984
+Ice;;110;1;Frost Bug (RX);Nemere's Watchtower (RX);3848
+Ice;;110;1;Frost Bug (TR);Nemere's Watchtower (TR);4810
+Ice;;110;1;Frost Crystal (RX);Nemere's Watchtower (RX);1587
+Ice;;110;1;Frost Crystal (TR);Nemere's Watchtower (TR);1984
+Lightning;Devil;110;1;Setaou Hunter (RX);Grotto of Exile (RX);8654
+Lightning;Devil;110;1;Setaou Hunter (TR);Grotto of Exile (TR);10.818
+Wind;Devil;110;2;Ochao Healer;Erebus;9843
+Lightning;Devil;110;2;Setaou Mystic (RX);Grotto of Exile (RX);10.389
+Lightning;Devil;110;2;Setaou Mystic (TR);Grotto of Exile (TR);12.987
+Lightning;Devil;110;4;Captain Yongan (RX);Grotto of Exile (RX);53.640
+Lightning;Devil;110;4;Captain Yongan (TR);Grotto of Exile (TR);67.050
+Fire;;110;4;Magma Wyvern (Meley-Guild);Meley's Lair (Guild);0
+;Devil;110;5;Mu-Shu;Gautama Cliff;394.915
+;Devil;110;5;Yah-Ki;Gautama Cliff;394.915
+Ice;;110;Boss;Hydra's Spawn;Ship Defence;0
+Ice;;110;Boss;Siren Queen;Ship Defence;104.702
+Wind;Devil;111;2;En-Tai Druid (RX);Enchanted Forest (RX);42.561
+Wind;Devil;111;2;En-Tai Druid (TR);Enchanted Forest (TR);53.202
+Fire;;112;1;Ember Flame Tiger (RX);Red Dragon Fortress (RX);3848
+Fire;;112;1;Ember Flame Tiger (TR);Red Dragon Fortress (TR);4810
+Wind;Devil;112;3;En-Tai Healer (RX);Enchanted Forest (RX);45.480
+Wind;Devil;112;3;En-Tai Healer (TR);Enchanted Forest (TR);56.850
+Ice;Devil;112;Boss;En-Tai Sovereign;Enchanted Forest;517.920
+Fire;;113;2;Ember Flame (RX);Red Dragon Fortress (RX);3924
+Fire;;113;2;Ember Flame (TR);Red Dragon Fortress (TR);4905
+Fire;;113;2;Ember Flame Warrior (RX);Red Dragon Fortress (RX);1587
+Fire;;113;2;Ember Flame Warrior (TR);Red Dragon Fortress (TR);1984
+Ice;;113;2;Frost Man (RX);Nemere's Watchtower (RX);3924
+Ice;;113;2;Frost Man (TR);Nemere's Watchtower (TR);4905
+Ice;;113;2;Frost Yeti (RX);Nemere's Watchtower (RX);1587
+Ice;;113;2;Frost Yeti (TR);Nemere's Watchtower (TR);1984
+Wind;Devil;113;2;Ochao Healer (RX);Enchanted Forest (RX);11.811
+Wind;Devil;113;2;Ochao Healer (TR);Enchanted Forest (TR);14.764
+Wind;Devil;113;4;En-Tai Destroyer (RX);Enchanted Forest (RX);63.856
+Wind;Devil;113;4;En-Tai Destroyer (TR);Enchanted Forest (TR);79.821
+Fire;;113;Boss;Dragon Watcher Idall (Meley-Guild);Meley's Lair (Guild);4.564.000
+Lightning;Devil;114;2;Setaou Soldier (RX);Grotto of Exile (RX);23.368
+Lightning;Devil;114;2;Setaou Soldier (TR);Grotto of Exile (TR);29.211
+Wind;;115;1;Air Spirit;Elemental Realm;18.900
+Ice;;115;1;Electric Spirit;Elemental Realm;18.900
+Fire;;115;1;Flame Spirit;Elemental Realm;18.900
+Ice;;115;1;Frost Spirit;Elemental Realm;18.900
+Darkness;;115;1;Shadow Spirit;Elemental Realm;18.900
+Earth;;115;1;Stone Spirit;Elemental Realm;18.900
+Lightning;Devil;115;Boss;General Yongan (RX);Grotto of Exile (RX);547.920
+Lightning;Devil;116;4;Captain Yongan (RX);Grotto of Exile (RX);53.640
+Lightning;Devil;115;Boss;General Yongan (TR);Grotto of Exile (TR);684.900
+Fire;;116;3;Ember Flame King (RX);Red Dragon Fortress (RX);3848
+Fire;;116;3;Ember Flame King (TR);Red Dragon Fortress (TR);4810
+Fire;;116;3;Ember Flame Troll (RX);Red Dragon Fortress (RX);3924
+Fire;;116;3;Ember Flame Troll (TR);Red Dragon Fortress (TR);4905
+Ice;;116;3;Frost Golem (RX);Nemere's Watchtower (RX);3848
+Ice;;116;3;Frost Golem (TR);Nemere's Watchtower (TR);4810
+Ice;;116;3;Frost Troll (RX);Nemere's Watchtower (RX);3924
+Ice;;116;3;Frost Troll (TR);Nemere's Watchtower (TR);4905
+Lightning;Devil;116;3;Setaou Archer (RX);Grotto of Exile (RX);23.904
+Lightning;Devil;116;3;Setaou Archer (TR);Grotto of Exile (TR);29.880
+Lightning;Devil;116;4;Captain Yongan (TR);Grotto of Exile (TR);67.050
+Wind;Devil;117;1;Strong En-Tai Warrior;Enchanted Forest;27.334
+Wind;Devil;117;1;Strong Ochao Warrior;Temple of the Ochao;11.375
+Wind;Devil;117;2;Strong Ochao Soldier;Temple of the Ochao;15.255
+Wind;Devil;118;2;Strong En-Tai Druid;Enchanted Forest;38.468
+Wind;Devil;118;2;Strong En-Tai Soldier;Enchanted Forest;31.934
+Wind;Devil;118;2;Strong Ochao Magician;Temple of the Ochao;16.380
+Darkness;;118;3;Darkness Elemental;Elemental Realm;23.500
+Earth;;118;3;Earth Elemental;Elemental Realm;23.500
+Fire;;118;3;Ember Flame Beard (RX);Red Dragon Fortress (RX);11.888
+Fire;;118;3;Ember Flame Beard (TR);Red Dragon Fortress (TR);14.860
+Fire;;118;3;Fire Elemental;Elemental Realm;23.500
+Ice;;118;3;Frost Beard (RX);Nemere's Watchtower (RX);11.888
+Ice;;118;3;Frost Beard (TR);Nemere's Watchtower (TR);14.860
+Ice;;118;3;Ice Elemental;Elemental Realm;23.500
+Lightning;;118;3;Lightning Elemental;Elemental Realm;23.500
+Lightning;Devil;118;3;Setaou Magistrate (RX);Grotto of Exile (RX);24.424
+Lightning;Devil;118;3;Setaou Magistrate (TR);Grotto of Exile (TR);30.531
+Wind;Devil;118;3;Strong Ochao Executioner;Temple of the Ochao;29.316
+Wind;;118;3;Wind Elemental;Elemental Realm;23.500
+Fire;;118;4;Ember Flame General (RX);Red Dragon Fortress (RX);28.674
+Fire;;118;4;Ember Flame General (TR);Red Dragon Fortress (TR);35.842
+Ice;;118;4;Frost General (RX);Nemere's Watchtower (RX);35.842
+Ice;;118;4;Frost General (TR);Nemere's Watchtower (TR);35.842
+Wind;Devil;119;1;En-Tai Warrior (RX);Enchanted Forest (RX);32.800
+Wind;Devil;119;1;En-Tai Warrior (TR);Enchanted Forest (TR);41.001
+Earth;Animal;119;2;Gnoll Soldier;Gnoll Cave Level 2;30
+Earth;Animal;119;2;Gnoll Warrior (Yohara);Gnoll Cave Level 1;30
+Darkness;Animal;119;2;Hell Hound (Darkness);Abandoned Fortress, Dong Gwang Plain, Nam Gwang Chasm;27
+Fire;Animal;119;2;Hell Hound (Fire);Dong Gwang Plain, Nam Gwang Chasm;27
+Darkness;Half H.;119;2;Jin Bing (Darkness);Abandoned Fortress;23
+Ice;Half H.;119;2;Jin Bing (Ice);Abandoned Fortress;23
+Earth;Animal;119;3;Gnoll Spy;Gnoll Cave Level 2;30
+Earth;Desert;119;3;Quag Kovix (Earth);Seo Gwang Wastelands, Nam Gwang Chasm;29
+Wind;Desert;119;3;Quag Kovix (Wind);Nam Gwang Chasm;30
+Earth;Desert;119;3;Quag Worker (Earth);Seo Gwang Wastelands;30
+Wind;Desert;119;3;Quag Worker (Wind);Nam Gwang Chasm;30
+Darkness;Half H.;119;3;Soldier Ki (Darkness);Abandoned Fortress;24
+Ice;Half H.;119;3;Soldier Ki (Ice);Abandoned Fortress;24
+Wind;Devil;119;3;Strong En-Tai Healer;Enchanted Forest;40.900
+Darkness;Devil;119;3;Troll Soldier (Darkness);Dong Gwang Plain, Nam Gwang Chasm;28
+Darkness;Devil;119;3;Troll Soldier (Fire);Dong Gwang Plain, Nam Gwang Chasm;28
+Darkness;Devil;119;4;Mistreated Ghost;Dong Gwang Plain, Nam Gwang Chasm;28
+Wind;Devil;119;4;Strong Ochao General;Temple of the Ochao;42.580
+???;???;120;1;Tower Destroyer;Sung Mahi Tower;???
+Any;Devil;120/121/122;1;Tower Wolf;Sung Mahi Tower;33~36
+Darkness;Devil;120;2;Ahtrin Warrior;Gnoll Cave Level 2, Gnoll Cave Level 3;35
+Wind;Devil;120;2;En-Tai Druid (RX);Enchanted Forest (RX);46.161
+Wind;Devil;120;2;En-Tai Druid (TR);Enchanted Forest (TR);57.702
+Wind;Devil;120;2;En-Tai Soldier (RX);Enchanted Forest (RX);38.320
+Wind;Devil;120;2;En-Tai Soldier (TR);Enchanted Forest (TR);47.901
+Any;Devil;120/121/122;2;Tower Bruiser;Sung Mahi Tower;33~36
+Earth;Animal;120;3;Gnoll Scout;Gnoll Cave Level 1;30
+Darkness;Half H.;120;3;Soldier Mao (Darkness);Abandoned Fortress;24
+Ice;Half H.;120;3;Soldier Mao (Ice);Abandoned Fortress;24
+Any;Devil;120/121/122;3;Tower Berserker;Sung Mahi Tower;33~36
+Darkness;Devil;120;3;Troll Warrior (Darkness);Dong Gwang Plain, Nam Gwang Chasm;29
+Fire;Devil;120;3;Troll Warrior (Fire);Dong Gwang Plain, Nam Gwang Chasm;29
+;;120;4;Elemental Guardian;Elemental Realm;28.900
+Fire;;120;4;Ember Flame Chief. (RX);Red Dragon Fortress (RX);139.519
+Fire;;120;4;Ember Flame Chief. (TR);Red Dragon Fortress (TR);174.399
+Darkness;Half H.;120;4;Frontline Mage (Darkness);Abandoned Fortress;26
+Ice;Half H.;120;4;Frontline Mage (Ice);Abandoned Fortress;26
+Ice;;120;4;Frost Lord (RX);Nemere's Watchtower (RX);139.519
+Ice;;120;4;Frost Lord (TR);Nemere's Watchtower (TR);174.399
+Ice;;120;4;Glacier Lord;Elemental Realm;36.900
+Earth;Animal;120;4;Gnoll Magician (Yohara);Gnoll Cave Level 2;30
+Earth;Animal;120;4;Gnoll Sorcerer;Gnoll Cave Level 1;30
+Fire;;120;4;Ignitor (RX);Red Dragon Fortress (RX);139.519
+Fire;;120;4;Ignitor (TR);Red Dragon Fortress (TR);174.399
+Darkness;;120;4;Night Lord;Elemental Realm;36.900
+Earth;Desert;120;4;Quag Golem (Earth);Seo Gwang Wastelands;30
+Wind;Desert;120;4;Quag Golem (Wind);Nam Gwang Chasm;30
+Earth;Desert;120;4;Quag Sorcerer (Earth);Seo Gwang Wastelands, Nam Gwang Chasm;30
+Wind;Desert;120;4;Quag Sorcerer (Wind);Nam Gwang Chasm;30
+Earth;Desert;120;4;Quag Warrior (Earth);Seo Gwang Wastelands;30
+Wind;Desert;120;4;Quag Warrior (Wind);Nam Gwang Chasm;30
+Fire;;120;4;Scorch Lord;Elemental Realm;36.900
+Lightning;Devil;120;4;Setaou Commander (RX);Grotto of Exile (RX);49.896
+Lightning;Devil;120;4;Setaou Commander (TR);Grotto of Exile (TR);62.370
+Darkness;Half H.;120;4;Soldier Gong (Darkness);Abandoned Fortress;25
+Ice;Half H.;120;4;Soldier Gong (Ice);Abandoned Fortress;25
+Wind;;120;4;Storm Lord;Elemental Realm;36.900
+Wind;Devil;120;4;Strong En-Tai Destroyer;Enchanted Forest;56.214
+Earth;;120;4;Terra Lord;Elemental Realm;36.900
+Lightning;;120;4;Thunder Lord;Elemental Realm;36.900
+???;Devil;120;4;Tower Archer;Sung Mahi Tower;???
+Any;Devil;120/121/122;4;Tower Butcher;Sung Mahi Tower;33~36
+Any;Devil;120/121/122;4;Tower Warlock;Sung Mahi Tower;33~36
+Darkness;Devil;120;4;Troll Archer (Darkness);Dong Gwang Plain, Nam Gwang Chasm;29
+Fire;Devil;120;4;Troll Archer (Fire);Dong Gwang Plain, Nam Gwang Chasm;29
+Darkness;Devil;120;4;Troll Shaman (Darkness);Dong Gwang Plain, Nam Gwang Chasm;30
+Fire;Devil;120;4;Troll Shaman (Fire);Dong Gwang Plain;30
+Ice;;120;Boss;Szel (RX);Nemere's Watchtower (RX);139.519
+Ice;;120;Boss;Szel (TR);Nemere's Watchtower (TR);174.399
+Wind;Devil;120;5;En-Tai Guardian;Temple of the Ochao;9754
+Ice;;120;5;Hydra;Ship Defence;0
+Ice;Devil;120;5;Strong Ochao Bodyguard;Temple of the Ochao;584.705
+Ice;Devil;120;Boss;Bagjanamu;Erebus;1.154.705
+Wind;Devil;120;Boss;Strong Ochao Lord;Temple of the Ochao;182.984
+Darkness;Devil;121;3;Ahtrin Scout;Gnoll Cave Level 2;35
+Wind;Devil;121;3;En-Tai Healer (RX);Enchanted Forest (RX);49.080
+Wind;Devil;121;3;En-Tai Healer (TR);Enchanted Forest (TR);61.350
+Darkness;Devil;121;4;Ahtrin Sorcerer;Gnoll Cave Level 2;35
+Any;Devil;121/122/124;Boss;Tower Necromant;Sung Mahi Tower;53
+Darkness;Devil;122;2;Tainted Soldier (Darkness);Yilad Pass, Serpent Temple (Base Floor);32
+Earth;Devil;122;2;Tainted Soldier (Earth);Yilad Pass Serpent Temple (Base Floor);32
+Darkness;Devil;122;3;Tainted Skirmisher (Darkness);Yilad Pass Serpent Temple (Base Floor);32
+Earth;Devil;122;3;Tainted Skirmisher (Earth);Yilad Pass Serpent Temple (Base Floor);32
+Earth;Animal;122;4;Gnoll Marshal;Gnoll Cave Level 1;30
+Darkness;Devil;122;4;Tainted Warrior (Darkness);Yilad Pass Serpent Temple (Base Floor);33
+Earth;Devil;122;4;Tainted Warrior (Earth);Yilad Pass Serpent Temple (Base Floor);33
+Lightning;Devil;122;5;Beran-Setaou (RX);Grotto of Exile (RX);4.276.800
+Lightning;Devil;122;5;Beran-Setaou (TR);Grotto of Exile (TR);4.633.200
+Lightning;;123;2;Cursed Frost Deer;Soul Gorge;38
+Ice;;123;2;Frenzied Frost Deer;Soul Gorge;38
+Ice;;123;2;Frozen Fox;Northwind Canyon;37
+Wind;;123;2;Kappa Worker;Serpent Temple (Base Floor);35
+Darkness;;123;2;Serpent Scorpion (Darkness);Serpent Temple;40
+Earth;;123;2;Serpent Scorpion (Earth);Serpent Temple;40
+Lightning;;123;2;Soulless Fox;Northwind Canyon;37
+Darkness;Devil;123;3;Ahtrin Spy;Gnoll Cave Level 3;35
+Darkness;Half H.;123;3;Archer Gong (Darkness);Mysterious Dungeon;59
+Ice;Half H.;123;3;Archer Gong (Ice);Mysterious Dungeon;59
+Ice;;123;3;Frenzied Snow Leopard (Lightning);Soul Gorge;38
+Lightning;;123;3;Frenzied Snow Leopard (Lightning);Soul Gorge;38
+Ice;;123;3;Frozen Scout (Ice);Northwind Canyon;37
+Lightning;;123;3;Frozen Scout (Lightning);Northwind Canyon;37
+Wind;;123;3;Kappa Soldier (Level 123);Serpent Temple (Base Floor);35
+Fire;;123;3;Serpent Worker (Fire);Serpent Temple;41
+Ice;;123;3;Serpent Worker (Ice);Serpent Temple;41
+Darkness;Half H.;123;3;Spearmaster Ki (Darkness);Mysterious Dungeon;55
+Ice;Half H.;123;3;Spearmaster Ki (Ice);Mysterious Dungeon;55
+Darkness;Half H.;123;3;Spearmaster Mao (Darkness);Mysterious Dungeon;57
+Ice;Half H.;123;3;Spearmaster Mao (Ice);Mysterious Dungeon;57
+Darkness;Half H.;123;3;Sword Fighter Jin (Darkness);Mysterious Dungeon;53
+Ice;Half H.;123;3;Sword Fighter Jin (Ice);Mysterious Dungeon;53
+Darkness;Devil;123;4;Ahtrin Warlock;Gnoll Cave Level 3;35
+Earth;Animal;123;4;Gnoll Commander;Gnoll Cave Level 2;30
+Ice;;123;4;Frozen Warrior (Ice);Northwind Canyon;36
+Lightning;;123;4;Frozen Warrior (Lightning);Northwind Canyon;36
+Wind;;123;4;Kappa Hunter;Serpent Temple (Base Floor);36
+Wind;;123;4;Kappa Wizard;Serpent Temple (Base Floor);36
+Ice;;123;4;Northwind Yeti (Ice);Soul Gorge;37
+Lightning;;123;4;Northwind Yeti (Lightning);Soul Gorge;37
+Darkness;Devil;123;4;Tainted General (Darkness);Yilad Pass Serpent Temple (Base Floor);34
+Earth;Devil;123;4;Tainted General (Earth);Yilad Pass Serpent Temple (Base Floor);34
+Darkness;Devil;123;4;Tainted Monk (Darkness);Yilad Pass Serpent Temple (Base Floor);33
+Earth;Devil;123;4;Tainted Monk (Earth);Yilad Pass Serpent Temple (Base Floor);33
+;;123;5;Dragon Queen Meley;Meley's Lair;0
+Earth;Orc;123;5;Jotun Thrym;Erebus;4.564.000
+Earth;Devil;123/124;5;Tower Death Tyrant (Earth);Sung Mahi Tower;35
+Wind;Devil;123/124;5;Tower Death Tyrant (Wind);Sung Mahi Tower;35
+Darkness;Devil;123/124;5;Tower Master Warlock (Darkness);Sung Mahi Tower;35
+Fire;Devil;123/124;5;Tower Master Warlock (Fire);Sung Mahi Tower;33
+Ice;Devil;123/124;5;Tower Tyrant (Ice);Sung Mahi Tower;33
+Lightning;Devil;123/124;5;Tower Tyrant (Lightning);Sung Mahi Tower;34
+Darkness;Half H.;123;Boss;Kao (Darkness);Abandoned Fortress;27
+Ice;Half H.;123;Boss;Kao (Ice);Abandoned Fortress;27
+Darkness;Devil;123;Boss;Natanan (Darkness);Dong Gwang Plain;64
+Fire;Devil;123;Boss;Natanan (Fire);Dong Gwang Plain;64
+Earth;Desert;123;Boss;Quag Veteran (Earth);Seo Gwang Wastelands;66
+Wind;Desert;123;Boss;Quag Veteran (Wind);Nam Gwang Chasm;66
+Ice;;124;2;Northwind Sh. Soldier (Ice);Northwind Shelter, Northwind Deeps;44
+Ice;;124;3;Shelter Skirmisher (Ice);Northwind Shelter, Northwind Deeps;46
+Darkness;Devil;124;4;Ahtrin Commander;Gnoll Cave Level 2, Gnoll Cave Level 3;35
+Ice;;124;4;Frozen General (Ice);Northwind Canyon;37
+Lightning;;124;4;Frozen General (Lightning);Northwind Canyon;37
+Ice;;124;4;Frozen Hunter (Ice);Northwind Canyon;36
+Lightning;;124;4;Frozen Hunter (Lightning);Northwind Canyon;36
+Wind;;124;4;Mighty Kappa;Serpent Temple (Base Floor);76
+Ice;;124;4;Northwind Ghost (Ice);Soul Gorge;39
+Lightning;;124;4;Northwind Ghost (Lightning);Soul Gorge;39
+Ice;;124;4;Northwind Golem (Ice);Soul Gorge;38
+Lightning;;124;4;Northwind Golem (Lightning);Soul Gorge;38
+Ice;;124;4;Northwind Sh. Warrior (Ice);Northwind Shelter, Northwind Deeps;46
+Earth;;124;4;Serpent Ascetic;Serpent Temple;42
+Wind;;124;4;Serpent Butcher;Serpent Temple;42
+Ice;;124;4;Serpent Kappa (Ice);Serpent Temple;41
+Wind;;124;4;Serpent Kappa (Wind);Serpent Temple;41
+Earth;Animal;124;Boss;Gnoll Marshal;Gnoll Cave Level 1;35
+Wind;;124;Boss;Kappa Soldier (Level 124);Serpent Temple (Base Floor);36
+Darkness;Devil;124;Boss;Tainted Chief (Darkness);Yilad Pass;36
+Earth;Devil;124;Boss;Tainted Chief (Earth);Yilad Pass;36
+Ice, Lightning;;125;2;Northwind Sh. Soldier (Ice-Lightning);Northwind Descent, Northwind Deeps;48
+Ice, Lightning;;125;3;Shelter Skirmisher (Ice-Lightning);Northwind Descent, Northwind Deeps;50
+Wind;Devil;125;4;En-Tai Destroyer (RX);Enchanted Forest (RX);67.456
+Wind;Devil;125;4;En-Tai Destroyer (TR);Enchanted Forest (TR);84.321
+Ice;;125;4;Northwind Sh. General (Ice);Northwind Shelter, Northwind Deeps;49
+Ice;;125;4;Northwind Sh. Warlock (Ice);Northwind Shelter, Northwind Deeps;48
+Ice, Lightning;;125;4;Northwind Sh. Warlock (Ice-Lightning);Northwind Descent, Northwind Deeps;52
+Ice, Lightning;;125;4;Northwind Sh. Warrior (Ice-Lightning);Northwind Descent, Northwind Deeps;50
+Ice;;125;4;Serpent Soldier (Ice);Serpent Temple;41
+Wind;;125;4;Serpent Soldier (Wind);Serpent Temple;40
+Darkness;Half H.;125;4;Sword Fighter Kao (Darkness);Mysterious Dungeon;62
+Ice;Half H.;125;4;Sword Fighter Kao (Ice);Mysterious Dungeon;62
+Darkness;Devil;125;Boss;Argos (Darkness);Dong Gwang Plain;70
+Fire;Devil;125;Boss;Argos (Fire);Dong Gwang Plain;70
+Ice;;125;Boss;Bigfoot;Soul Gorge;80
+Ice;;125;Boss;Frozen Chief (Ice);Northwind Canyon;78
+Lightning;;125;Boss;Frozen Chief (Lightning);Northwind Canyon;78
+Earth;Animal;125;Boss;Gnoll Captain;Gnoll Cave Level 1;40
+Ice;Half H.;125;Boss;King Kao;Abandoned Fortress;64
+Darkness;Half H.;125;Boss;King Kao (Quest);Abandoned Fortress;1
+Earth;Desert;125;Boss;Quag Primus (Earth);Seo Gwang Wastelands;72
+Wind;Desert;125;Boss;Quag Primus (Wind);Nam Gwang Chasm;72
+Darkness;Devil;126;Boss;Ahtrin Captain (Level 126);Gnoll Cave Level 2;35
+Ice, Lightning;;126;4;Northwind Sh. General (Ice-Lightning);Northwind Descent, Northwind Deeps;53
+Darkness;Devil;126;Boss;Tainted War Chief (Darkness);Yilad Pass;77
+Earth;Devil;126;Boss;Tainted War Chief (Earth);Yilad Pass;77
+Darkness;Devil;127;Boss;Ahtrin Captain (Level 127);Gnoll Cave Level 2;45
+Ice;;127;Boss;Frozen War Chief (Ice);Northwind Canyon;82
+Lightning;;127;Boss;Frozen War Chief (Lightning);Northwind Canyon;82
+Darkness;Half H.;127;Boss;Mysterious Monk (Darkness);Mysterious Dungeon;120
+Ice;Half H.;127;Boss;Mysterious Monk (Ice);Mysterious Dungeon;120
+Ice;;127;Boss;Northwind War Chief (Ice);Soul Gorge;84
+Lightning;;127;Boss;Northwind War Chief (Lightning);Soul Gorge;84
+Earth;;128;4;Mighty Serpent Warrior (Earth);Serpent Temple;38
+Ice;;128;4;Mighty Serpent Warrior (Ice);Serpent Temple;43
+Wind;Devil;128;Boss;En-Tai Sovereign (RX);Enchanted Forest (RX);621.504
+Wind;Devil;128;Boss;En-Tai Sovereign (TR);Enchanted Forest (TR);776.880
+Darkness;Devil;129;Boss;Ahtrin Master;Gnoll Cave Level 3;40
+Earth;;129;Boss;Serpent Queen Nethis;Serpent Temple;168
+Darkness;Devil;130;Boss;Ahtrin Grand Master;Gnoll Cave Level 3;50
+Wind;Devil;130;Boss;Bagjanamu (RX);Enchanted Forest (RX);1.385.646
+Wind;Devil;130;Boss;Bagjanamu (TR);Enchanted Forest (TR);1.732.057
+Ice;;130;Boss;Nemere (RX);Nemere's Watchtower (RX);4.732.952
+Ice;;130;Boss;Nemere (TR);Nemere's Watchtower (TR);5.324.571
+Ice;;130;Boss;Northwind Sh. War Chief (Ice);Northwind Shelter, Northwind Deeps;106
+Fire;;130;Boss;Razador (RX);Red Dragon Fortress (RX);4.732.952
+Fire;;130;Boss;Razador (TR);Red Dragon Fortress (TR);5.324.571
+Ice, Lightning;;131;Boss;Northwind Sh. War Chief (Ice-Lightning);Northwind Descent, Northwind Deeps;119
+Ice;;135;5;Alastor (Easy);Northwind Deeps;256
+Ice;;135;5;Alastor (Hard);Northwind Deeps;548
+Wind;Orc;135;5;Jotun Thrym (RX);Enchanted Forest (RX);5.476.800
+Wind;Orc;135;5;Jotun Thrym (TR);Enchanted Forest (TR);5.933.200
