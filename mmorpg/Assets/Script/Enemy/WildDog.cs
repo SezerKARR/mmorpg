@@ -16,9 +16,9 @@ public class WildDog : EnemySkeleton
     {
        base.Update();
     }
-    public override void GenerateOutline()
+    public override void Outline(Material material)
     {
-        base.GenerateOutline();
+        base.Outline(material); 
     }
     public override void TakeDamage(float damage)
     {

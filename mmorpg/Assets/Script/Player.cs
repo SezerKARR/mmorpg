@@ -30,6 +30,10 @@ public class Player : MonoBehaviour
     public IState lastState;
     private float swordPhsichalDamage;
     public LineRenderer lineRenderer;
+    public GameObject selectedObject;
+    public Material outlineGreen;
+    public Material outlineRed;
+    private Material normalMaterial;
     private void Awake()
     {
         _mainCamera = Camera.main;
@@ -74,6 +78,25 @@ public class Player : MonoBehaviour
 {
    animator.SetFloat("AttackPos", 0);
 }*/
+    private void ChangeSelectedObjectOutline(GameObject selectedOb, Material material)
+    {
+        if (selectedObject != null)
+        {
+            //selectedObject.GetComponent<IOutlineAble>().Outline(Color.gray);
+            selectedObject.GetComponent<IOutlineAble>().Outline(normalMaterial);
+
+        }
+        selectedObject = selectedOb;
+        // Týklanan nesneyi al
+
+        // Kýrmýzý çerçeveyi çiz
+
+        //selectedObject.GetComponent<IOutlineAble>().Outline(Color.red);
+        normalMaterial = selectedObject.GetComponent<SpriteRenderer>().material;
+        selectedObject.GetComponent<IOutlineAble>().Outline(material);
+
+        print("Seçilen nesne: " + selectedObject.name);
+    }
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
@@ -83,15 +106,52 @@ public class Player : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
 
             // Eðer bir nesneye týklandýysa
-            if (hit.collider.tag == "Enemy")
+            if(hit.collider == null)
             {
-                // Týklanan nesneyi al
-                GameObject selectedObject = hit.collider.gameObject;
-                // Kýrmýzý çerçeveyi çiz
-                selectedObject.GetComponent<EnemySkeleton>().LineRendererForEnemyCreatures.DrawBoundary(selectedObject.GetComponent<PolygonCollider2D>()) ;
-                print("Seçilen nesne: " + selectedObject.name);
-            }
+                if (hit.collider.tag == "Enemy")
+                {
+                    ChangeSelectedObjectOutline(hit.collider.gameObject, outlineRed);
+                    /*if (selectedObject != null)
+                    {
+                        //selectedObject.GetComponent<IOutlineAble>().Outline(Color.gray);
+                        selectedObject.GetComponent<IOutlineAble>().Outline(normalMaterial);
 
+                    }
+                    selectedObject = hit.collider.gameObject;
+                    // Týklanan nesneyi al
+
+                    // Kýrmýzý çerçeveyi çiz
+
+                    //selectedObject.GetComponent<IOutlineAble>().Outline(Color.red);
+                    normalMaterial=selectedObject.GetComponent<SpriteRenderer>().material;
+                    selectedObject.GetComponent<IOutlineAble>().Outline(outlineRed);
+
+                    print("Seçilen nesne: " + selectedObject.name);*/
+
+                }
+                else if (hit.collider.tag == "Npc")
+                {
+                    ChangeSelectedObjectOutline(hit.collider.gameObject, outlineGreen);
+                    /*if (selectedObject != null)
+                    {
+                        //selectedObject.GetComponent<IOutlineAble>().Outline(Color.gray);
+                        selectedObject.GetComponent<IOutlineAble>().Outline(normalMaterial);
+
+                    }
+                    selectedObject = hit.collider.gameObject;
+                    // Týklanan nesneyi al
+
+                    // Kýrmýzý çerçeveyi çiz
+
+                    //selectedObject.GetComponent<IOutlineAble>().Outline(Color.red);
+                    normalMaterial = selectedObject.GetComponent<SpriteRenderer>().material;
+                    selectedObject.GetComponent<IOutlineAble>().Outline(outlineGreen);
+
+                    print("Seçilen nesne: " + selectedObject.name);
+                }*/
+                }
+            }
+            
         }
         if (currentState != null)
         {

@@ -8,7 +8,7 @@ public class InventoryPage : MonoBehaviour
     public ScriptableObject upgradeItemsSO;
     public Sprite sprite;
     public InventorObject[] inventorObjects;
-    private int x=5;
+   // private int x=5;
     private int y;
     private void Awake()
     {

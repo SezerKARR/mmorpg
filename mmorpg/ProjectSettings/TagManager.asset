@@ -7,6 +7,7 @@ TagManager:
   - DropItem
   - CreaturesGroup
   - Enemy
+  - Npc
   layers:
   - Default
   - TransparentFX

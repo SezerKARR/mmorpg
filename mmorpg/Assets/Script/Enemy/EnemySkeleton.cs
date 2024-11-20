@@ -9,7 +9,7 @@ public class ItemToDrop : System.Object
     public ScriptableObject itemToDrop;
     public float probability;
 }
-public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble
+public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
 {
     public EnemyHealthBar EnemyHealthBar;
     public int creaturesLevel;
@@ -22,23 +22,13 @@ public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble
     public float currentHealth;
     public CreaturesGroup creaturesGroup=null;
     public MonsterSO enemySO;
-    public LineRenderer lineRenderer;
     private PolygonCollider2D polygonCollider;
-    public LineRendererForEnemyCreatures LineRendererForEnemyCreatures;
-    // Start is called before the first frame update
-
-
+    public Material outlineRed;
+    private Material normalMaterial;
+    
     public virtual void  Start()
     {
-        // Çizgi rengi, kalýnlýðý ve döngü ayarlarý
-        lineRenderer.startColor = Color.red;
-        lineRenderer.endColor = Color.red;
-        lineRenderer.startWidth = 0.05f;
-        lineRenderer.loop = true;
-        // Baþlangýçta gizli tut
-        lineRenderer.positionCount = 0;
-        // LineRenderer bileþenini al
-
+        normalMaterial = GetComponent<SpriteRenderer>().material;
         polygonCollider = GetComponent<PolygonCollider2D>();
 
        
@@ -47,32 +37,24 @@ public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble
         enemyName.SetText($"<color=yellow> Lv. {enemySO.level}</color><color=red> {enemySO.monsterName}</color>" );
 
     }
+    
     public virtual void Update()
     {
         transform.position += new Vector3(0.1f, 0.1f, 0f)  * Time.deltaTime;
     }
-    public virtual void GenerateOutline( )
+
+    /*public virtual void Outline(Color color)
     {
-
+        if (color == Color.red)
         {
-            // Polygon collider'dan köþe noktalarýný al
-            Vector2[] points = polygonCollider.points;
-
-            // LineRenderer için nokta sayýsýný ayarla
-            lineRenderer.positionCount = points.Length + 1; // Ýlk ve son nokta ayný olmalý
-
-            // Her bir noktayý dünya koordinatlarýna dönüþtür ve ayarla
-            for (int i = 0; i < points.Length; i++)
-            {
-                Vector3 worldPos = transform.TransformPoint(points[i]);
-                worldPos.z = -0.1f; // Z pozisyonunu 0 yap
-                lineRenderer.SetPosition(i, worldPos);
-            }
-
-            // Çizgiyi kapatmak için ilk noktayý sonuna ekleyin
-            lineRenderer.SetPosition(points.Length, lineRenderer.GetPosition(0));
+            this.GetComponent<SpriteRenderer>().material = outlineRed;
         }
-    }
+        else if (color == Color.gray)
+        {
+
+            this.GetComponent<SpriteRenderer>().material = normalMaterial;
+        }
+    }*/
     public virtual void TakeDamage(float damage)
     {
         // todo: belirli bir cana kadar vuran oyunculara drop atacak bu drop için rastgele aralarýndan bir player seçilecek
@@ -111,4 +93,8 @@ public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble
         return new Vector3(position.x, position.y, 0);
     }
 
+    public virtual void Outline(Material material)
+    {
+        this.GetComponent<SpriteRenderer>().material = material;
+    }
 }

@@ -11,7 +11,7 @@ public  abstract class Bone
     }
 
     // Update is called once per frame
-    void Update()
+    public virtual void Update()
     {
         
     }
