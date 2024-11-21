@@ -46,7 +46,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""Interact"",
+                    ""name"": ""PickUpFromGround"",
                     ""type"": ""Button"",
                     ""id"": ""285dcc64-ca8b-4129-ae1c-f19495b6bea8"",
                     ""expectedControlType"": ""Button"",
@@ -138,7 +138,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Interact"",
+                    ""action"": ""PickUpFromGround"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -162,7 +162,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
-        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        m_Player_PickUpFromGround = m_Player.FindAction("PickUpFromGround", throwIfNotFound: true);
         m_Player_ClickLeft = m_Player.FindAction("ClickLeft", throwIfNotFound: true);
     }
 
@@ -227,7 +227,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Shoot;
-    private readonly InputAction m_Player_Interact;
+    private readonly InputAction m_Player_PickUpFromGround;
     private readonly InputAction m_Player_ClickLeft;
     public struct PlayerActions
     {
@@ -235,7 +235,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public PlayerActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
-        public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        public InputAction @PickUpFromGround => m_Wrapper.m_Player_PickUpFromGround;
         public InputAction @ClickLeft => m_Wrapper.m_Player_ClickLeft;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
@@ -252,9 +252,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
-            @Interact.started += instance.OnInteract;
-            @Interact.performed += instance.OnInteract;
-            @Interact.canceled += instance.OnInteract;
+            @PickUpFromGround.started += instance.OnPickUpFromGround;
+            @PickUpFromGround.performed += instance.OnPickUpFromGround;
+            @PickUpFromGround.canceled += instance.OnPickUpFromGround;
             @ClickLeft.started += instance.OnClickLeft;
             @ClickLeft.performed += instance.OnClickLeft;
             @ClickLeft.canceled += instance.OnClickLeft;
@@ -268,9 +268,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
-            @Interact.started -= instance.OnInteract;
-            @Interact.performed -= instance.OnInteract;
-            @Interact.canceled -= instance.OnInteract;
+            @PickUpFromGround.started -= instance.OnPickUpFromGround;
+            @PickUpFromGround.performed -= instance.OnPickUpFromGround;
+            @PickUpFromGround.canceled -= instance.OnPickUpFromGround;
             @ClickLeft.started -= instance.OnClickLeft;
             @ClickLeft.performed -= instance.OnClickLeft;
             @ClickLeft.canceled -= instance.OnClickLeft;
@@ -295,7 +295,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
-        void OnInteract(InputAction.CallbackContext context);
+        void OnPickUpFromGround(InputAction.CallbackContext context);
         void OnClickLeft(InputAction.CallbackContext context);
     }
 }

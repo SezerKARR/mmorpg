@@ -1,4 +1,4 @@
-using Microsoft.Unity.VisualStudio.Editor;
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +16,7 @@ public class InventoryPage : MonoBehaviour
     }
     private void OnMouseDown()
     {
-        print("geldi");
+        //print("geldi");
     }
     /*private void Start()
     {
@@ -68,7 +68,7 @@ public class InventoryPage : MonoBehaviour
             }
             catch
             {
-                print("envanter dolu");
+                //print("envanter dolu");
             }
             y++;
       }

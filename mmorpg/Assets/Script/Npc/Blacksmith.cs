@@ -19,4 +19,8 @@ public class Blacksmith : NpcBone
     {
         base.Outline(material);
     }
+    public override void InteractPanel()
+    {
+        base.InteractPanel();
+    }
 }

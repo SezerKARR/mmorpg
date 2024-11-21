@@ -2,9 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-public class ItemDropWithOutName : MonoBehaviour
+public class ItemDropWithOutName : MonoBehaviour,IPickedUpAble
 {
     public TMP_Text itemName;
+
+    public GameObject GetGameObject()
+    {
+        return this.gameObject;
+    }
+
     private void Start()
     {
         StartCoroutine(WaitAndDestroy());

@@ -10,7 +10,7 @@ public class CsvToSo
     private static string UpgradeItemsCSVPath = "/CSVS/UpgradeItems.csv";
     private static string MonstersCSVPath = "/CSVS/Monsters.csv";
     private static string ExpCsvPath = "/CSVS/Exp.csv";
-    
+    private static string ExpPerLevelCsvPath = "/CSVS/ExpPerLevel.csv";
     [MenuItem("Utilities/Generate Upgrade Items")]
     private static void CsvToSoUpgradeItems()
     {
@@ -109,5 +109,29 @@ public class CsvToSo
         }
         AssetDatabase.SaveAssets();
 
+    }
+    [MenuItem("Utilities/Generate ExpPerLevel")]
+    private static void CsvFromSoExpPerLevel()
+    {
+        int i=0;
+        string[] allLines = File.ReadAllLines(Application.dataPath + ExpPerLevelCsvPath);
+        foreach (string line in allLines.Skip(1))
+        {
+            string[] splitData = line.Split(";");
+            Debug.Log(line);
+            ExpPerLevelSO ExpPerLevelSO = ScriptableObject.CreateInstance<ExpPerLevelSO>();
+
+            ExpPerLevelSO.levelDiff = splitData[0].Replace("<","").Replace(">","").Replace("=","");
+            ExpPerLevelSO.expRate = splitData[1].Replace("%", "");
+
+            string filePath = $"Assets/ScriptableObjects/ExpPerLevel";
+
+
+            string name =i.ToString();
+
+            AssetDatabase.CreateAsset(ExpPerLevelSO, $"{filePath}/{name}.asset");
+            i++;
+        }
+        AssetDatabase.SaveAssets();
     }
 }

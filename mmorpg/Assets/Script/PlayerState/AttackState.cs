@@ -7,7 +7,7 @@ public class AttackState :  IState
     
     public void EnterState(Player player)
     {
-        MonoBehaviour.print("attackstate");
+        //MonoBehaviour.print("attackstate");
     }
 
    

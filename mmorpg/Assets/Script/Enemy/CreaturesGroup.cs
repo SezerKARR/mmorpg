@@ -23,7 +23,7 @@ public class CreaturesGroup : MonoBehaviour
         parentObject = this.transform.parent.gameObject;
         holder = parentObject.gameObject.GetComponent<CreaturesGroupsHolder>();
 
-        print(holder.groupReturnsTime);
+        //print(holder.groupReturnsTime);
         CreateGroupCreatures();
         totalCreatures = creaturesNumber.Count;
     }
@@ -62,13 +62,13 @@ public class CreaturesGroup : MonoBehaviour
         if (!coroutineStart)
         {
             coroutineStart = true;
-            print("yeniden grup oluþturma aþamasýnda");
+            //print("yeniden grup oluþturma aþamasýnda");
 
             if (gameObject.tag != "boss")
             {
 
                 yield return new WaitForSeconds(5);
-                print("zaman geçti");
+                //print("zaman geçti");
                 CreateGroupCreatures();
             }
             else

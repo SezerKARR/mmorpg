@@ -4,9 +4,13 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
-using static UnityEditor.Timeline.TimelinePlaybackControls;
 using UnityEngine.InputSystem;
 
+public enum groupType
+{
+    level,
+    even
+}
 public class Player : MonoBehaviour
 {
     
@@ -25,7 +29,7 @@ public class Player : MonoBehaviour
     private InteractionDetector InteractionDetector;
     Vector2 inputWalkVector;
     float inputShootFloat;
-    float inputInteractFloat;
+    float inputPickUpFromGroundFloat;
     float inputClickFloat;
     public IState lastState;
     private float swordPhsichalDamage;
@@ -34,6 +38,10 @@ public class Player : MonoBehaviour
     public Material outlineGreen;
     public Material outlineRed;
     private Material normalMaterial;
+    public int level;
+    public int exp;
+    public bool haveGroup;
+    public groupType groupType;
     private void Awake()
     {
         _mainCamera = Camera.main;
@@ -95,7 +103,7 @@ public class Player : MonoBehaviour
         normalMaterial = selectedObject.GetComponent<SpriteRenderer>().material;
         selectedObject.GetComponent<IOutlineAble>().Outline(material);
 
-        print("Seçilen nesne: " + selectedObject.name);
+        //print("Seçilen nesne: " + selectedObject.name);
     }
     private void Update()
     {
@@ -106,7 +114,7 @@ public class Player : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
 
             // Eðer bir nesneye týklandýysa
-            if(hit.collider == null)
+            if(hit.collider != null)
             {
                 if (hit.collider.tag == "Enemy")
                 {
@@ -126,7 +134,7 @@ public class Player : MonoBehaviour
                     normalMaterial=selectedObject.GetComponent<SpriteRenderer>().material;
                     selectedObject.GetComponent<IOutlineAble>().Outline(outlineRed);
 
-                    print("Seçilen nesne: " + selectedObject.name);*/
+                    //print("Seçilen nesne: " + selectedObject.name);*/
 
                 }
                 else if (hit.collider.tag == "Npc")
@@ -147,7 +155,7 @@ public class Player : MonoBehaviour
                     normalMaterial = selectedObject.GetComponent<SpriteRenderer>().material;
                     selectedObject.GetComponent<IOutlineAble>().Outline(outlineGreen);
 
-                    print("Seçilen nesne: " + selectedObject.name);
+                    //print("Seçilen nesne: " + selectedObject.name);
                 }*/
                 }
             }
@@ -164,7 +172,7 @@ public class Player : MonoBehaviour
             inputClickFloat = playerInput.Player.ClickLeft.ReadValue<float>();
             inputWalkVector = playerInput.Player.Move.ReadValue<Vector2>();
             inputShootFloat = playerInput.Player.Shoot.ReadValue<float>();
-            inputInteractFloat=playerInput.Player.Interact.ReadValue<float>();
+            inputPickUpFromGroundFloat=playerInput.Player.PickUpFromGround.ReadValue<float>();
             //shoot=playerInput.Player.Shoot.ReadValue<Butt
             //shoot = playerInput.Player.Shoot.ReadValue<Button>();
         }
@@ -173,10 +181,11 @@ public class Player : MonoBehaviour
             playerInput = new PlayerInput();
             playerInput.Player.Enable();
         }
-        if (inputInteractFloat == 1f)
+        if (inputPickUpFromGroundFloat == 1f)
         {
             InteractionDetector.Interact();
         }
+        
         /*if (inputClickFloat == 1f)
         {
             
@@ -184,14 +193,14 @@ public class Player : MonoBehaviour
             var rayHit = Physics2D.GetRayIntersection(_mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue()));
             if (!rayHit.collider) return;
 
-            print(rayHit.collider.gameObject.name);
+            //print(rayHit.collider.gameObject.name);
         }*/
 
     }
    public void GetDropObject(GameObject gameObject)
     {
         // todo: destroy gameobject ýnventory al
-        print(gameObject.name);
+        //print(gameObject.name);
     }
     public void CanChangeStateToAttack()
     {
@@ -293,9 +302,22 @@ public class Player : MonoBehaviour
         CanChangeStateToIdle();
         wait = false;
     }
+    private int creatureExp;
     public void GiveDamage(IDamageAble damageAble)
     {
-        damageAble.TakeDamage(swordPhsichalDamage);
+       damageAble.TakeDamage(swordPhsichalDamage,this);
+       
     }
+    public  void ExpCalculator(int exp,int creatureLevel)
+    {
+        print( GameManager.ExpRateCalculate(creatureLevel - level));
+        /*if (!haveGroup)
+        {
 
+        }
+        else
+        {
+
+        }*/
+    }
 }

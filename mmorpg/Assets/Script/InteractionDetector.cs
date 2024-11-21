@@ -17,6 +17,7 @@ public class InteractionDetector : MonoBehaviour
             }
         }
     }
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         var interactable = collision.GetComponent<IInteractable>();

@@ -24,6 +24,11 @@ public abstract class NpcBone : MonoBehaviour,IOutlineAble
     {
         
     }
+    public virtual void InteractPanel()
+    {
+
+    }
+    
     /*public virtual void Outline(Color color)
     {
         if (color == Color.green)

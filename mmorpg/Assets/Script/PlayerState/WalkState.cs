@@ -6,7 +6,7 @@ public class WalkState : IState
 {
      public void EnterState(Player player)
     {
-        MonoBehaviour.print("walkstate");
+        //MonoBehaviour.print("walkstate");
     }
     public void UpdateState(Player player)
     {

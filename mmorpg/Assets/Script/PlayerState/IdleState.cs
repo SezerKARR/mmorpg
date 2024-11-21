@@ -6,13 +6,13 @@ public class IdleState :  IState
 {
     public void EnterState(Player player)
     {
-        MonoBehaviour.print("idlestate");
+        //MonoBehaviour.print("idlestate");
     
     }
 
     public void ExitState(Player player)
     {
-        MonoBehaviour.print("geldi");
+        //MonoBehaviour.print("geldi");
     }
 
     public void UpdateState(Player player)

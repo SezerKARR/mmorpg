@@ -3,15 +3,21 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ItemDropGameObject : MonoBehaviour
+public class ItemDropGameObject : MonoBehaviour,IPickedUpAble
 {
     public TMP_Text Playername;
     public TMP_Text itemName;
     public GameObject itemDropWithOutName;
-    
+    public ScriptableObject ScriptableObject;
+
+    public GameObject GetGameObject()
+    {
+        return this.gameObject;
+    }
 
     private void Start()
     {
+        itemName.text = ScriptableObject.name;
         StartCoroutine(WaitAndDeleteName());
     }
     

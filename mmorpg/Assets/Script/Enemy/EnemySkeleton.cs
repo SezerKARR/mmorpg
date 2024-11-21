@@ -55,26 +55,32 @@ public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
             this.GetComponent<SpriteRenderer>().material = normalMaterial;
         }
     }*/
-    public virtual void TakeDamage(float damage)
+    public virtual void TakeDamage(float damage, Player p)
     {
         // todo: belirli bir cana kadar vuran oyunculara drop atacak bu drop için rastgele aralarýndan bir player seçilecek
         //todo: iki kat eþya için droplar ayarlanacak her player için ayrý ayrý
         print(currentHealth + "absstractt");
         currentHealth -= damage;
-        if (currentHealth <= 0) Death();
-        print("hasar aldý þimdiki can:" + currentHealth);
+        if (currentHealth <= 0)
+        {
+            Death(p);
+        }
+        ////print("hasar aldý þimdiki can:" + currentHealth);
+        
+
     }
-    public virtual void Death()
+    public virtual void Death(Player p)
     { 
+        
         foreach(var item in itemToDrops)
         {
             float random = Random.Range(0f, 1f);
-            print(random);
+            //print(random);
             if(random < item.probability)
             {
                 GameObject drop = Instantiate(itemDrop, RandomPositionByObjectCircle(), Quaternion.identity);
                 drop.GetComponent<ItemDropGameObject>().Playername.text = "player";
-                drop.GetComponent<ItemDropGameObject>().itemName.text = item.itemToDrop.name;
+                drop.GetComponent<ItemDropGameObject>().ScriptableObject = item.itemToDrop;
             }
             
         }
@@ -84,6 +90,7 @@ public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
 
             creaturesGroup.CreateEnemy();
         }
+        p.ExpCalculator(int.Parse(enemySO.exp),int.Parse(enemySO.level));
         Destroy(gameObject);
         
     }

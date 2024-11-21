@@ -20,14 +20,14 @@ public class WildDog : EnemySkeleton
     {
         base.Outline(material); 
     }
-    public override void TakeDamage(float damage)
+    public override void TakeDamage(float damage, Player p)
     {
-        print(currentHealth);
-        base.TakeDamage(damage);
+        //print(currentHealth);
+        base.TakeDamage(damage,p);
         //EnemyHealthBar.ChangeBarScale(currentHealth/maxHealth);
     }
-    public override void Death()
+    public override void Death(Player p)
     {
-        base.Death();
+        base.Death(p);
     }
 }
