@@ -80,7 +80,7 @@ public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
             {
                 GameObject drop = Instantiate(itemDrop, RandomPositionByObjectCircle(), Quaternion.identity);
                 drop.GetComponent<ItemDropGameObject>().Playername.text = "player";
-                drop.GetComponent<ItemDropGameObject>().ScriptableObject = item.itemToDrop;
+                drop.GetComponent<ItemDropGameObject>().scriptableObject = item.itemToDrop;
             }
             
         }

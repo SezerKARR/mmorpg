@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     private InteractionDetector InteractionDetector;
     Vector2 inputWalkVector;
     float inputShootFloat;
-    float inputPickUpFromGroundFloat;
+    bool inputPickUpFromGroundFloat;
     float inputClickFloat;
     public IState lastState;
     private float swordPhsichalDamage;
@@ -172,20 +172,26 @@ public class Player : MonoBehaviour
             inputClickFloat = playerInput.Player.ClickLeft.ReadValue<float>();
             inputWalkVector = playerInput.Player.Move.ReadValue<Vector2>();
             inputShootFloat = playerInput.Player.Shoot.ReadValue<float>();
-            inputPickUpFromGroundFloat=playerInput.Player.PickUpFromGround.ReadValue<float>();
+            inputPickUpFromGroundFloat= playerInput.Player.PickUpFromGround.WasPressedThisFrame();
             //shoot=playerInput.Player.Shoot.ReadValue<Butt
             //shoot = playerInput.Player.Shoot.ReadValue<Button>();
+            
         }
         catch
         {
             playerInput = new PlayerInput();
             playerInput.Player.Enable();
         }
-        if (inputPickUpFromGroundFloat == 1f)
+        if (inputPickUpFromGroundFloat)
         {
+            print("geldi");
             InteractionDetector.Interact();
         }
-        
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            print("geldi");
+            InteractionDetector.Interact();
+        }
         /*if (inputClickFloat == 1f)
         {
             

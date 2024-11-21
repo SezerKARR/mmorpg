@@ -2,18 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-public class ItemDropWithOutName : MonoBehaviour,IPickedUpAble
+public class ItemDropWithOutName : ItemDrop
 {
-    public TMP_Text itemName;
 
-    public GameObject GetGameObject()
+    public override void DestroyObject()
     {
-        return this.gameObject;
+        base.DestroyObject();
     }
 
-    private void Start()
+    public override GameObject GetGameObject()
     {
+        return base.GetGameObject();
+    }
+
+    public override void Update()
+    {
+        base.Update();
+    }
+
+    public override void Start()
+    {
+
         StartCoroutine(WaitAndDestroy());
+        base.Start();
+
     }
 
     IEnumerator WaitAndDestroy()

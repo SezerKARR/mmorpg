@@ -18675,7 +18675,7 @@ MonoBehaviour:
   animator: {fileID: 0}
   moveSpeed: 5
   animValue: 0
-  InteractionDetector: {fileID: 0}
+  InteractionDetector: {fileID: 1661459853}
   lineRenderer: {fileID: 0}
   selectedObject: {fileID: 0}
   outlineGreen: {fileID: 2100000, guid: d9db3f74e1c6ff54ab798ab77cff18ce, type: 2}
@@ -28817,6 +28817,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b956632b5e6b1bc428ddf6ab8ec4335c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pickedCount: 0
 --- !u!1001 &1674956506
 PrefabInstance:
   m_ObjectHideFlags: 0

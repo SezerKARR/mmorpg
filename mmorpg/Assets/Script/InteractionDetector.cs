@@ -5,9 +5,14 @@ using UnityEngine;
 public class InteractionDetector : MonoBehaviour
 {
     private List<IInteractable> _interactablesInRange = new List<IInteractable>();
-    public void Interact()
+    
+    private List<IPickedUpAble> _pickedUpAbles = new List<IPickedUpAble>();
+    public int pickedCount;//silinecek
+    private float minDistance;
+    private ScriptableObject selectedScriptableObject;
+    public ScriptableObject Interact()
     {
-        if(_interactablesInRange.Count > 0)
+        /*if(_interactablesInRange.Count > 0)
         {
             var interactable = _interactablesInRange[0];
             interactable.Interact(); 
@@ -15,23 +20,49 @@ public class InteractionDetector : MonoBehaviour
             {
                 _interactablesInRange.Remove(interactable);
             }
+        }*/
+
+        if (_pickedUpAbles.Count > 0)
+        {
+            foreach (var pickedable in _pickedUpAbles)
+            {
+                if (Vector2.Distance(new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y),
+                    new Vector2(pickedable.GetGameObject().transform.position.x, pickedable.GetGameObject().transform.position.y)) < minDistance)
+                {
+                    selectedScriptableObject = pickedable.GetScriptableObject();
+                }
+                Destroy(pickedable.GetGameObject());
+                return selectedScriptableObject;
+            }
+            print("geldi");
+            
         }
+
+        return null;
     }
-    
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        var interactable = collision.GetComponent<IInteractable>();
+        /*var interactable = collision.GetComponent<IInteractable>();
         if(interactable != null && interactable.CanInteract())
         {
             _interactablesInRange.Add(interactable);
+        }*/
+        var interactable = collision.GetComponent<IPickedUpAble>();
+        if (interactable != null)
+        {
+            _pickedUpAbles.Add(interactable);
+            pickedCount++;
+            print(_pickedUpAbles.Count);
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        var interactable=collision.GetComponent<IInteractable>();
-        if (_interactablesInRange.Contains(interactable))
+        var interactable = collision.GetComponent<IPickedUpAble>();
+        if (_pickedUpAbles.Contains(interactable))
         {
-            _interactablesInRange.Remove(interactable);
+            _pickedUpAbles.Remove(interactable);
+            pickedCount--;
         }
     }
 }

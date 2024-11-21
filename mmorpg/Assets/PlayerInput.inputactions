@@ -24,18 +24,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "PickUpFromGround",
+                    "name": "ClickLeft",
                     "type": "Button",
-                    "id": "285dcc64-ca8b-4129-ae1c-f19495b6bea8",
+                    "id": "22a3be65-8d6f-40d9-8333-3cab32b6f89e",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
                 },
                 {
-                    "name": "ClickLeft",
+                    "name": "PickUpFromGround",
                     "type": "Button",
-                    "id": "22a3be65-8d6f-40d9-8333-3cab32b6f89e",
+                    "id": "70a12946-c5d3-42e8-a87f-1b41f55e006f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -111,8 +111,19 @@
                 },
                 {
                     "name": "",
-                    "id": "9af08f52-8248-4735-b424-e00c96ea4337",
-                    "path": "<Keyboard>/e",
+                    "id": "e1232551-5945-4c15-80b8-23db13885f4d",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ClickLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "849246bf-33a6-4f27-a6dc-f855bf5c22cc",
+                    "path": "<Keyboard>/backquote",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -122,12 +133,12 @@
                 },
                 {
                     "name": "",
-                    "id": "e1232551-5945-4c15-80b8-23db13885f4d",
-                    "path": "<Mouse>/leftButton",
+                    "id": "54203088-b8a4-4346-96a7-32c0f1c32ca9",
+                    "path": "<Keyboard>/e",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "ClickLeft",
+                    "action": "PickUpFromGround",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

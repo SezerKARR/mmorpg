@@ -3,22 +3,34 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ItemDropGameObject : MonoBehaviour,IPickedUpAble
+public class ItemDropGameObject : ItemDrop
 {
     public TMP_Text Playername;
-    public TMP_Text itemName;
+    
     public GameObject itemDropWithOutName;
-    public ScriptableObject ScriptableObject;
+    
 
-    public GameObject GetGameObject()
+    public override void DestroyObject()
     {
-        return this.gameObject;
+        base.DestroyObject();
     }
 
-    private void Start()
+    public override GameObject GetGameObject()
     {
-        itemName.text = ScriptableObject.name;
+        return base.GetGameObject();
+        
+    }
+
+    public override void Update()
+    {
+        base.Update();
+    }
+
+    public override void Start()
+    {
+        itemName.text = scriptableObject.name;
         StartCoroutine(WaitAndDeleteName());
+        base.Start();
     }
     
     IEnumerator WaitAndDeleteName()

@@ -46,18 +46,18 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""PickUpFromGround"",
+                    ""name"": ""ClickLeft"",
                     ""type"": ""Button"",
-                    ""id"": ""285dcc64-ca8b-4129-ae1c-f19495b6bea8"",
+                    ""id"": ""22a3be65-8d6f-40d9-8333-3cab32b6f89e"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""ClickLeft"",
+                    ""name"": ""PickUpFromGround"",
                     ""type"": ""Button"",
-                    ""id"": ""22a3be65-8d6f-40d9-8333-3cab32b6f89e"",
+                    ""id"": ""70a12946-c5d3-42e8-a87f-1b41f55e006f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -133,8 +133,19 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""9af08f52-8248-4735-b424-e00c96ea4337"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""id"": ""e1232551-5945-4c15-80b8-23db13885f4d"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ClickLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""849246bf-33a6-4f27-a6dc-f855bf5c22cc"",
+                    ""path"": ""<Keyboard>/backquote"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
@@ -144,12 +155,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""e1232551-5945-4c15-80b8-23db13885f4d"",
-                    ""path"": ""<Mouse>/leftButton"",
+                    ""id"": ""54203088-b8a4-4346-96a7-32c0f1c32ca9"",
+                    ""path"": ""<Keyboard>/e"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""ClickLeft"",
+                    ""action"": ""PickUpFromGround"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -162,8 +173,8 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
-        m_Player_PickUpFromGround = m_Player.FindAction("PickUpFromGround", throwIfNotFound: true);
         m_Player_ClickLeft = m_Player.FindAction("ClickLeft", throwIfNotFound: true);
+        m_Player_PickUpFromGround = m_Player.FindAction("PickUpFromGround", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -227,16 +238,16 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Shoot;
-    private readonly InputAction m_Player_PickUpFromGround;
     private readonly InputAction m_Player_ClickLeft;
+    private readonly InputAction m_Player_PickUpFromGround;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
         public PlayerActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
-        public InputAction @PickUpFromGround => m_Wrapper.m_Player_PickUpFromGround;
         public InputAction @ClickLeft => m_Wrapper.m_Player_ClickLeft;
+        public InputAction @PickUpFromGround => m_Wrapper.m_Player_PickUpFromGround;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -252,12 +263,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Shoot.started += instance.OnShoot;
             @Shoot.performed += instance.OnShoot;
             @Shoot.canceled += instance.OnShoot;
-            @PickUpFromGround.started += instance.OnPickUpFromGround;
-            @PickUpFromGround.performed += instance.OnPickUpFromGround;
-            @PickUpFromGround.canceled += instance.OnPickUpFromGround;
             @ClickLeft.started += instance.OnClickLeft;
             @ClickLeft.performed += instance.OnClickLeft;
             @ClickLeft.canceled += instance.OnClickLeft;
+            @PickUpFromGround.started += instance.OnPickUpFromGround;
+            @PickUpFromGround.performed += instance.OnPickUpFromGround;
+            @PickUpFromGround.canceled += instance.OnPickUpFromGround;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -268,12 +279,12 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Shoot.started -= instance.OnShoot;
             @Shoot.performed -= instance.OnShoot;
             @Shoot.canceled -= instance.OnShoot;
-            @PickUpFromGround.started -= instance.OnPickUpFromGround;
-            @PickUpFromGround.performed -= instance.OnPickUpFromGround;
-            @PickUpFromGround.canceled -= instance.OnPickUpFromGround;
             @ClickLeft.started -= instance.OnClickLeft;
             @ClickLeft.performed -= instance.OnClickLeft;
             @ClickLeft.canceled -= instance.OnClickLeft;
+            @PickUpFromGround.started -= instance.OnPickUpFromGround;
+            @PickUpFromGround.performed -= instance.OnPickUpFromGround;
+            @PickUpFromGround.canceled -= instance.OnPickUpFromGround;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -295,7 +306,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnShoot(InputAction.CallbackContext context);
-        void OnPickUpFromGround(InputAction.CallbackContext context);
         void OnClickLeft(InputAction.CallbackContext context);
+        void OnPickUpFromGround(InputAction.CallbackContext context);
     }
 }
