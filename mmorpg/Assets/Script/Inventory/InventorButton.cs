@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventorObject : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
+public class InventorButton : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
 {
     public GameObject ScriptableObjectScreener;
     public ScriptableObject scriptableObject;

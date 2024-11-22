@@ -184,23 +184,14 @@ public class Player : MonoBehaviour
         }
         if (inputPickUpFromGroundFloat)
         {
-            print("geldi");
-            InteractionDetector.Interact();
-        }
-        if (Input.GetKeyDown(KeyCode.H))
-        {
-            print("geldi");
-            InteractionDetector.Interact();
-        }
-        /*if (inputClickFloat == 1f)
-        {
             
-
-            var rayHit = Physics2D.GetRayIntersection(_mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue()));
-            if (!rayHit.collider) return;
-
-            //print(rayHit.collider.gameObject.name);
-        }*/
+            InventoryPage.Instance.add(InteractionDetector.PickUp());
+            
+            
+            
+        }
+        
+        
 
     }
    public void GetDropObject(GameObject gameObject)

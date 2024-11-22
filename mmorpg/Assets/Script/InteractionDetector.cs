@@ -8,9 +8,10 @@ public class InteractionDetector : MonoBehaviour
     
     private List<IPickedUpAble> _pickedUpAbles = new List<IPickedUpAble>();
     public int pickedCount;//silinecek
-    private float minDistance;
-    private ScriptableObject selectedScriptableObject;
-    public ScriptableObject Interact()
+    private float minDistance=int.MaxValue;
+    private ScriptableObject selectedScriptableObje;
+    private GameObject selectedGameObject;
+    public ScriptableObject PickUp()
     {
         /*if(_interactablesInRange.Count > 0)
         {
@@ -24,17 +25,22 @@ public class InteractionDetector : MonoBehaviour
 
         if (_pickedUpAbles.Count > 0)
         {
+            print(_pickedUpAbles.Count);
             foreach (var pickedable in _pickedUpAbles)
             {
                 if (Vector2.Distance(new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y),
                     new Vector2(pickedable.GetGameObject().transform.position.x, pickedable.GetGameObject().transform.position.y)) < minDistance)
                 {
-                    selectedScriptableObject = pickedable.GetScriptableObject();
+                    selectedGameObject = pickedable.GetGameObject();
+                    selectedScriptableObje = pickedable.GetScriptableObject();
+                    
                 }
-                Destroy(pickedable.GetGameObject());
-                return selectedScriptableObject;
+
+                
             }
-            print("geldi");
+            Destroy(selectedGameObject);
+            return selectedScriptableObje;
+            
             
         }
 
