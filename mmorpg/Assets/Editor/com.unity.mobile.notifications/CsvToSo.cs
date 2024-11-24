@@ -255,7 +255,7 @@ public class CsvToSo
     [MenuItem("Utilities/a")]
     public static void a()
     {
-        
+        AssetDatabase.Refresh();
 
     }
     

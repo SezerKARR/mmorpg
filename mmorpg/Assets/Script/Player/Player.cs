@@ -18,10 +18,8 @@ public class Player : MonoBehaviour
     public PolygonCollider2D[] attackColliderNormalSword;
     public SwordSO sword;
     public Animator animator;
-    public float moveSpeed = 7f;
     private PlayerInput playerInput;
-    [SerializeField]
-    public IState currentState;
+    public float moveSpeed = 7f;
     [HideInInspector]
     public int animValue;
     //public Sprite[] playerIdleSprite;
@@ -42,12 +40,16 @@ public class Player : MonoBehaviour
     public int exp;
     public bool haveGroup;
     public groupType groupType;
+    [SerializeField]
+    public IState currentState;
     private void Awake()
     {
-        _mainCamera = Camera.main;
+        
+            playerInput = new PlayerInput();
+            playerInput.Player.Enable();
+            _mainCamera = Camera.main;
         animator = gameObject.GetComponent<Animator>();
-        playerInput = new PlayerInput();
-        playerInput.Player.Enable();
+        
     }
     private void Start()
     {
@@ -55,6 +57,7 @@ public class Player : MonoBehaviour
         animValue = 1;
         currentState = new IdleState();
         currentState.EnterState(this);
+
     }
 
     public void GenerateOutline(PolygonCollider2D polygonCollider2D)
@@ -80,7 +83,32 @@ public class Player : MonoBehaviour
         }
     }
 
-
+    public void GetDropObject(GameObject gameObject)
+    {
+        // todo: destroy gameobject ýnventory al
+        //print(gameObject.name);
+    }
+    public void CanChangeStateToAttack()
+    {
+        if (inputShootFloat == 1.0f)
+        {
+            ChangeState(new AttackState());
+        }
+    }
+    public void CanChangeStateToWalk()
+    {
+        if (inputWalkVector != Vector2.zero)
+        {
+            ChangeState(new WalkState());
+        }
+    }
+    public void CanChangeStateToIdle()
+    {
+        if (inputWalkVector == Vector2.zero && inputShootFloat != 1.0f)
+        {
+            ChangeState(new IdleState());
+        }
+    }
 
     /*public void AttackCompleted()
 {
@@ -196,32 +224,7 @@ public class Player : MonoBehaviour
         
 
     }
-   public void GetDropObject(GameObject gameObject)
-    {
-        // todo: destroy gameobject ýnventory al
-        //print(gameObject.name);
-    }
-    public void CanChangeStateToAttack()
-    {
-        if(inputShootFloat == 1.0f)
-        {
-            ChangeState(new AttackState());
-        }
-    }
-    public void CanChangeStateToWalk()
-    {
-        if (inputWalkVector != Vector2.zero)
-        {
-            ChangeState(new WalkState());
-        }
-    }
-    public void CanChangeStateToIdle()
-    {
-        if (inputWalkVector == Vector2.zero&& inputShootFloat != 1.0f)
-        {
-            ChangeState(new IdleState());
-        }
-    }
+   
     public void ChangeState(IState newState)
     {
         currentState.ExitState(this);
