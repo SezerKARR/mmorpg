@@ -9,12 +9,13 @@ public class InventoryPage : MonoBehaviour
     public static InventoryPage Instance;
     public ScriptableObject upgradeItemsSO;
     public static Sprite sprite;
-    public GameObject[] inventoryButton;
+    public InventorButton[] inventoryButton;
     public List<ScriptableObject> itemsInInventory = new List<ScriptableObject>();
     
     private int buttonCount;
     private int inventoryColumnCount;
     private int inventoryRowCount;
+    
     //public static 
     // private int x=5;
     private static int y;
@@ -65,7 +66,16 @@ public class InventoryPage : MonoBehaviour
     {
         if (getObject is UpgradeItemsSO upgradeItem)
         {
-            Debug.Log($"Upgrade Item Detected: {upgradeItem.info}");
+            itemsInInventory.Add(upgradeItem);
+            foreach (var button in inventoryButton)
+            {
+                if (button.Image.sprite == null)
+                {
+                    changeSprite(1, upgradeItem.Image, button);
+                   
+                    return;
+                }
+            }
         }
         else if (getObject is SwordSO sword)
         {
@@ -76,16 +86,6 @@ public class InventoryPage : MonoBehaviour
         {
             Debug.Log($"Unknown Item Type: {getObject.GetType()}");
         }
-        /*
-        itemsInInventory.Add(getObject.GetScriptableObject());
-        foreach(var button in inventoryButton)
-        {
-            if (button.GetComponent<InventorButton>().Image == null)
-            {
-                button.GetComponent<InventorButton>().Image.sprite =getObject.GetSprite();
-                
-            }
-        }*/
         /*
       foreach(var item in inventorObjects)
       {
@@ -110,11 +110,23 @@ public class InventoryPage : MonoBehaviour
     }*/
 
     }
-
-
+    private void changeSprite(int spriteLength,Sprite sprite,InventorButton button)
+    {
+        button.ChangeSprite(spriteLength, sprite);
+    }
+    public void ChangeLocationInventoryObject(ScriptableObject scriptableObject)
+    {
+        remove(scriptableObject);
+        add(scriptableObject);
+    }
     public void remove(ScriptableObject getObject)
     {
-        itemsInInventory.Remove(getObject);
+        if(getObject is UpgradeItemsSO upgradeItem) 
+        { 
+            itemsInInventory.Remove(getObject);  
+            return; 
+        }
+        
     }
 
 }

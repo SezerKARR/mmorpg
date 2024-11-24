@@ -12,6 +12,8 @@ public class MonsterSO : ScriptableObject
     public string stage;
     public string monsterName;
     public string location;
+    public string[] monsterLocations;
     public string exp;
+    public List<ScriptableObject> canDrop=new List<ScriptableObject>();
 
 }

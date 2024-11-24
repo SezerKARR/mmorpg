@@ -14,6 +14,7 @@ public class InventorButton : MonoBehaviour,IPointerEnterHandler,IPointerExitHan
     public int howMany;
     public void ChangeSprite(int spriteLenght,Sprite sprite)
     {
+
         if (spriteLenght == 2)
         {
             print(Image.rectTransform.localScale.x / 2);
@@ -23,6 +24,13 @@ public class InventorButton : MonoBehaviour,IPointerEnterHandler,IPointerExitHan
             Image.rectTransform.localScale = new Vector2(Image.rectTransform.localScale.x, Image.rectTransform.localScale.y * 2);
             Image.sprite =sprite;
             Image.enabled = true;
+            return;
+        }
+        else if (spriteLenght == 1)
+        {
+            Image.sprite = sprite;
+            Image.enabled = true;
+            return;
         }
     }
 

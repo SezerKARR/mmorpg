@@ -21,7 +21,8 @@ public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
     [HideInInspector]
     public float currentHealth;
     public CreaturesGroup creaturesGroup=null;
-    public MonsterSO enemySO;
+    [SerializeField]
+    private MonsterSO enemySO;
     private PolygonCollider2D polygonCollider;
     public Material outlineRed;
     private Material normalMaterial;
@@ -70,20 +71,9 @@ public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
 
     }
     public virtual void Death(Player p)
-    { 
+    {
+        DropItem();
         
-        foreach(var item in itemToDrops)
-        {
-            float random = Random.Range(0f, 1f);
-            //print(random);
-            if(random < item.probability)
-            {
-                GameObject drop = Instantiate(itemDrop, RandomPositionByObjectCircle(), Quaternion.identity);
-                drop.GetComponent<ItemDropGameObject>().Playername.text = "player";
-                drop.GetComponent<ItemDropGameObject>().scriptableObject = item.itemToDrop;
-            }
-            
-        }
         creaturesGroup.currentCreaturesNumber -= 1;
         if (creaturesGroup.currentCreaturesNumber <= 0)
         {
@@ -93,6 +83,22 @@ public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
         p.ExpCalculator(int.Parse(enemySO.exp),int.Parse(enemySO.level));
         Destroy(gameObject);
         
+    }
+
+    public virtual void DropItem()
+    {
+        foreach (var item in itemToDrops)
+        {
+            float random = Random.Range(0f, 1f);
+            //print(random);
+            if (random < item.probability)
+            {
+                GameObject drop = Instantiate(itemDrop, RandomPositionByObjectCircle(), Quaternion.identity);
+                drop.GetComponent<ItemDropGameObject>().Playername.text = "player";
+                drop.GetComponent<ItemDropGameObject>().scriptableObject = item.itemToDrop;
+            }
+
+        }
     }
     Vector3 RandomPositionByObjectCircle()
     {
