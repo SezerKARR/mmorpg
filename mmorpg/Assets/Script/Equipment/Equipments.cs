@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Equipment : MonoBehaviour
+public class Equipments : MonoBehaviour
 {
+    private 
     // Start is called before the first frame update
     void Start()
     {
