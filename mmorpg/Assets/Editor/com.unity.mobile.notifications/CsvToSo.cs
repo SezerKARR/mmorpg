@@ -5,12 +5,14 @@ using System.IO;
 using UnityEditor;
 using System;
 using System.Linq;
+using System.Xml.Serialization;
 public class CsvToSo
 {
     private static string UpgradeItemsCSVPath = "/CSVS/UpgradeItems.csv";
     private static string MonstersCSVPath = "/CSVS/Monsters.csv";
     private static string ExpCsvPath = "/CSVS/Exp.csv";
     private static string ExpPerLevelCsvPath = "/CSVS/ExpPerLevel.csv";
+    private static string BonusesCsvPath = "/CSVS/Bonuses.csv";
     [MenuItem("Utilities/Generate Upgrade Items")]
     private static void CsvToSoUpgradeItems()
     {
@@ -148,8 +150,8 @@ public class CsvToSo
         }
         AssetDatabase.SaveAssets();
     }
-    [MenuItem("Utilities/UpdateMonster")]
-    private static void UpdateMonster()
+    [MenuItem("Utilities/ExpPerLevelSO")]
+    private static void ExpPerLevelSO()
     {
         int i = 0;
         string[] allLines = File.ReadAllLines(Application.dataPath + ExpPerLevelCsvPath);
@@ -173,8 +175,8 @@ public class CsvToSo
         AssetDatabase.SaveAssets();
     }
 
-    [MenuItem("Utilities/Load All Scriptable Objects")]
-    public static void LoadAllScriptableObjects()
+    [MenuItem("Utilities/UpdateMonsterCanDropForUPItems")]
+    public static void UpdateMonsterCanDropForUPItems()
     {
         string monsterpath = "Assets/ScriptableObjects/Monsters";
         string[] monsterGuids = AssetDatabase.FindAssets("t:MonsterSO", new[] { monsterpath });
@@ -233,8 +235,8 @@ public class CsvToSo
         AssetDatabase.Refresh();
 
     }
-    [MenuItem("Utilities/b")]
-    public static void b()
+    [MenuItem("Utilities/DeleteMonsterCanDrop")]
+    public static void DeleteMonsterCanDrop()
     {
         string monsterpath = "Assets/ScriptableObjects/Monsters";
         string[] monsterGuids = AssetDatabase.FindAssets("t:MonsterSO", new[] { monsterpath });
@@ -251,38 +253,6 @@ public class CsvToSo
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
 
-    }
-    [MenuItem("Utilities/a")]
-    public static void a()
-    {
-        AssetDatabase.Refresh();
-
-    }
-    
-    public static int LevenshteinsDistance(string s1, string s2)
-    {
-        int len1 = s1.Length;
-        int len2 = s2.Length;
-        int[,] dp = new int[len1 + 1, len2 + 1];
-
-        for (int i = 0; i <= len1; i++)
-            dp[i, 0] = i;
-        for (int j = 0; j <= len2; j++)
-            dp[0, j] = j;
-
-        for (int i = 1; i <= len1; i++)
-        {
-            for (int j = 1; j <= len2; j++)
-            {
-                int cost = s1[i - 1] == s2[j - 1] ? 0 : 1;
-                dp[i, j] = Math.Min(
-                    Math.Min(dp[i - 1, j] + 1, dp[i, j - 1] + 1),
-                    dp[i - 1, j - 1] + cost
-                );
-            }
-        }
-
-        return dp[len1, len2];
     }
     public static bool SimilarityAlgorthm(string sentence1,string sentence2)
     {
@@ -318,17 +288,69 @@ public class CsvToSo
         // Noktalama işaretlerini temizle, sadece kelimelerle çalış
         return sentence;
     }
-    public static bool AreSentencesSimilar(string sentence1, string sentence2, double threshold = 0.6)
+    [MenuItem("Utilities/Generate Bonuses")]
+    public static void CsvToBonuses()
     {
-        
-        
-        int maxLen = Math.Max(sentence1.Length, sentence2.Length);
-        int distance = LevenshteinsDistance(sentence1, sentence2);
-        double similarity = 1.0 - (double)distance / maxLen;
-        
-        
+        string bonusesPath = "Assets/ScriptableObjects/Bonuses";
+        BonusForAttackSO bonusForAttackSO = ScriptableObject.CreateInstance<BonusForAttackSO>();
+        BonusForDefenceSO bonusForDefenceSO = ScriptableObject.CreateInstance<BonusForDefenceSO>();
+        BonusOtherSO bonusOtherSO = ScriptableObject.CreateInstance<BonusOtherSO>();
+        string[] allLines=File.ReadAllLines(Application.dataPath + BonusesCsvPath);
+        //AssetDatabase.CreateAsset(bonusForAttackSO, $"{bonusesPath}/BonusForAttackSO.asset");
+        foreach (string line in allLines)
+        {
+            string[] splitData=line.Split(";");
+            if (splitData[0].Length>0)
+            {
+                GiveBonuses(bonusForAttackSO, splitData,0);
 
-        return similarity >= threshold;
+            }
+            if (splitData[4].Length > 0)
+            {
+                GiveBonuses(bonusForDefenceSO, splitData, 4);
+
+            }
+            if (splitData[8].Length > 0)
+            {
+                GiveBonuses(bonusOtherSO, splitData, 8);
+
+            }
+
+        }
+        AssetDatabase.CreateAsset(bonusForAttackSO, $"{bonusesPath}/BonusForAttackSO.asset");
+        AssetDatabase.CreateAsset(bonusForDefenceSO, $"{bonusesPath}/BonusForDefenceSO.asset");
+        AssetDatabase.CreateAsset(bonusOtherSO, $"{bonusesPath}/BonusOtherSO.asset");
+        AssetDatabase.SaveAssets();
     }
+    public static BonusSO GiveBonuses( BonusSO bonusSO, string[] splitData,int i)
+    {
+        Bonus bonus = new Bonus();
+        bonus.bonusName = splitData[i+2];
+        Debug.Log(splitData[i + 3]+ splitData[i]);
+        Debug.Log(splitData[i].Length);
+        bonus.maxBonusRate = float.Parse(splitData[i+3]);
+        bonus.bonusRates = BonusRatesCalculate(float.Parse(splitData[i+3]));
+        bonusSO.AddObject(bonus);
+        return null; 
+    }
+
+    public static List<float> BonusRatesCalculate(float maxBonusRates)
+    {
+        if (maxBonusRates == 12) return new List<float> { 2, 4, 6, 8, 10, 12 };
+        else if (maxBonusRates == 15) return new List<float> { 5, 8, 10, 12, 15 };
+        else if (maxBonusRates == 10) return new List<float> { 2, 5, 8, 10 };
+        else if (maxBonusRates == 2000) return new List<float> { 500, 1000, 1500, 2000 };
+        else if (maxBonusRates == 8) return new List<float> { 2, 3, 5, 8 };
+        else if (maxBonusRates == 20) return new List<float> { 5, 10, 15, 20 };
+        else if (maxBonusRates == 50) return new List<float> { 15, 35, 50 };
+        else if (maxBonusRates == 5) return new List<float> { 1, 3, 5 };
+        else if (maxBonusRates == 1) return new List<float> { 1 };
+        else if (maxBonusRates == 30) return new List<float> { 8, 16, 30 };
+        else if (maxBonusRates == 80) return new List<float> { 25, 50, 80 };
+        else return new List<float> { maxBonusRates/5,maxBonusRates/2,maxBonusRates};
+
+    }
+    
+   
 
 }

@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63c5664cd0540b54786880418c17128e, type: 3}
+  m_Name: BonusForDefenceSO
+  m_EditorClassIdentifier: 
+  bonuses:
+  - bonusName: Magic Resistance
+    maxBonusRate: 15
+    bonusRates:
+    - 5
+    - 8
+    - 10
+    - 12
+    - 15
+  - bonusName: Lightning Resistance
+    maxBonusRate: 15
+    bonusRates:
+    - 5
+    - 8
+    - 10
+    - 12
+    - 15
+  - bonusName: Wind Resistance
+    maxBonusRate: 15
+    bonusRates:
+    - 5
+    - 8
+    - 10
+    - 12
+    - 15
+  - bonusName: Fire Resistance
+    maxBonusRate: 15
+    bonusRates:
+    - 5
+    - 8
+    - 10
+    - 12
+    - 15
+  - bonusName: Sword Defence
+    maxBonusRate: 15
+    bonusRates:
+    - 5
+    - 8
+    - 10
+    - 12
+    - 15
+  - bonusName: Two-Handed Defence
+    maxBonusRate: 15
+    bonusRates:
+    - 5
+    - 8
+    - 10
+    - 12
+    - 15
+  - bonusName: Dagger Defence
+    maxBonusRate: 15
+    bonusRates:
+    - 5
+    - 8
+    - 10
+    - 12
+    - 15
+  - bonusName: Bell Defence
+    maxBonusRate: 15
+    bonusRates:
+    - 5
+    - 8
+    - 10
+    - 12
+    - 15
+  - bonusName: Fan Defence
+    maxBonusRate: 15
+    bonusRates:
+    - 5
+    - 8
+    - 10
+    - 12
+    - 15
+  - bonusName: Arrow Resistance
+    maxBonusRate: 15
+    bonusRates:
+    - 5
+    - 8
+    - 10
+    - 12
+    - 15
+  - bonusName: 'Defence chance against claws '
+    maxBonusRate: 15
+    bonusRates:
+    - 5
+    - 8
+    - 10
+    - 12
+    - 15
+  - bonusName: Defence against Blackou
+    maxBonusRate: 1
+    bonusRates:
+    - 1
+  - bonusName: Defence against Slowi
+    maxBonusRate: 1
+    bonusRates:
+    - 1

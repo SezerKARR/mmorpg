@@ -15,9 +15,10 @@ public class SwordSO : ScriptableItemsAbstact
     public Vector2 minAndMaxMagicalAttackValue;
     public int attackSpeed;
     public TypeWeapon typeWeapon;
-    //public List<canUseCharacter> canUseCharacters;
+    public List<string> canUseCharacters;
     
     public float maxAttackRange;
+    public string[] bonuses;
     
     [System.Serializable]
     public class UpgradeValueWithLevel
