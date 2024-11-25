@@ -350,7 +350,16 @@ public class CsvToSo
         else return new List<float> { maxBonusRates/5,maxBonusRates/2,maxBonusRates};
 
     }
-    
-   
+
+    [MenuItem("Tools/Save Layout Overwrite")]
+    public static void SaveLayoutOverWrite()
+    {
+        string layoutPath = "Library/Layout.dwlt";  // Layout dosyasının yolu
+
+        // Mevcut layout'u kaydedip üzerine yaz
+        EditorApplication.ExecuteMenuItem("Window/Layouts/Save Layout...");  // Save Layout menüsünü çalıştır
+        EditorApplication.ExecuteMenuItem("Save");
+        Debug.Log("Layout overwritten: " + layoutPath);
+    }
 
 }
