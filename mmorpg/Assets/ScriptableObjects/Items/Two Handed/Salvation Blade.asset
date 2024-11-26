@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
+  m_Name: Salvation Blade
+  m_EditorClassIdentifier: 
+  Image: {fileID: 0}
+  level: 55
+  minAndMaxAttackValue:
+  - {x: 86, y: 154}
+  - {x: 91, y: 159}
+  - {x: 96, y: 164}
+  - {x: 101, y: 169}
+  - {x: 106, y: 174}
+  - {x: 113, y: 181}
+  - {x: 121, y: 189}
+  - {x: 130, y: 198}
+  - {x: 140, y: 208}
+  - {x: 151, y: 219}
+  minAndMaxMagicalAttackValue: []
+  attackSpeed:
+  - 20
+  - 20
+  - 20
+  - 20
+  - 20
+  - 20
+  - 20
+  - 20
+  - 20
+  - 20
+  typeWeapon: 0
+  canUseCharacters: []
+  sockets: 3
+  maxAttackRange: 0
+  bonuses: []
+  swordBonuses: []
+  swordName: Salvation Blade
+  price: 0
+  WithLevel:
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0

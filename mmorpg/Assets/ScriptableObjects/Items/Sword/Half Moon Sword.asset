@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
+  m_Name: Half Moon Sword
+  m_EditorClassIdentifier: 
+  Image: {fileID: 0}
+  level: 60
+  minAndMaxAttackValue:
+  - {x: 72, y: 108}
+  - {x: 77, y: 113}
+  - {x: 82, y: 118}
+  - {x: 87, y: 123}
+  - {x: 92, y: 128}
+  - {x: 99, y: 135}
+  - {x: 107, y: 143}
+  - {x: 116, y: 152}
+  - {x: 126, y: 162}
+  - {x: 137, y: 173}
+  minAndMaxMagicalAttackValue:
+  - {x: 74, y: 100}
+  - {x: 79, y: 105}
+  - {x: 84, y: 110}
+  - {x: 89, y: 115}
+  - {x: 94, y: 120}
+  - {x: 101, y: 127}
+  - {x: 109, y: 135}
+  - {x: 118, y: 144}
+  - {x: 128, y: 154}
+  - {x: 139, y: 165}
+  attackSpeed:
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  typeWeapon: 0
+  canUseCharacters: []
+  sockets: 3
+  maxAttackRange: 0
+  bonuses: []
+  swordBonuses: []
+  swordName: Half Moon Sword
+  price: 0
+  WithLevel:
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0

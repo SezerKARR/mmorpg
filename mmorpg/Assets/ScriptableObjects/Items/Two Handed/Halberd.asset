@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
+  m_Name: Halberd
+  m_EditorClassIdentifier: 
+  Image: {fileID: 0}
+  level: 36
+  minAndMaxAttackValue:
+  - {x: 60, y: 96}
+  - {x: 66, y: 102}
+  - {x: 72, y: 108}
+  - {x: 78, y: 114}
+  - {x: 84, y: 120}
+  - {x: 92, y: 128}
+  - {x: 101, y: 137}
+  - {x: 111, y: 147}
+  - {x: 122, y: 158}
+  - {x: 134, y: 170}
+  minAndMaxMagicalAttackValue: []
+  attackSpeed:
+  - 21
+  - 21
+  - 21
+  - 21
+  - 21
+  - 21
+  - 21
+  - 21
+  - 21
+  - 21
+  typeWeapon: 0
+  canUseCharacters: []
+  sockets: 2
+  maxAttackRange: 0
+  bonuses: []
+  swordBonuses: []
+  swordName: Halberd
+  price: 0
+  WithLevel:
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0

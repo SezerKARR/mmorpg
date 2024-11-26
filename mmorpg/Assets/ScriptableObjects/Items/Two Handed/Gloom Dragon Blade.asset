@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
+  m_Name: Gloom Dragon Blade
+  m_EditorClassIdentifier: 
+  Image: {fileID: 0}
+  level: 96
+  minAndMaxAttackValue:
+  - {x: 226, y: 314}
+  - {x: 236, y: 324}
+  - {x: 239, y: 327}
+  - {x: 245, y: 333}
+  - {x: 253, y: 341}
+  - {x: 266, y: 354}
+  - {x: 284, y: 372}
+  - {x: 314, y: 400}
+  - {x: 344, y: 432}
+  - {x: 406, y: 494}
+  - {x: 436, y: 528}
+  - {x: 451, y: 543}
+  - {x: 446, y: 558}
+  - {x: 481, y: 573}
+  - {x: 496, y: 588}
+  - {x: 526, y: 618}
+  minAndMaxMagicalAttackValue: []
+  attackSpeed:
+  - 16
+  - 16
+  - 17
+  - 17
+  - 18
+  - 18
+  - 19
+  - 19
+  - 19
+  - 21
+  - 23
+  - 25
+  - 26
+  - 28
+  - 30
+  - 33
+  typeWeapon: 0
+  canUseCharacters: []
+  sockets: 0
+  maxAttackRange: 0
+  bonuses: []
+  swordBonuses: []
+  swordName: Gloom Dragon Blade
+  price: 0
+  WithLevel:
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0

@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
+  m_Name: Bamboo Sword
+  m_EditorClassIdentifier: 
+  Image: {fileID: 0}
+  level: 15
+  minAndMaxAttackValue:
+  - {x: 22, y: 26}
+  - {x: 29, y: 33}
+  - {x: 36, y: 38}
+  - {x: 43, y: 48}
+  - {x: 50, y: 54}
+  - {x: 57, y: 61}
+  - {x: 64, y: 68}
+  - {x: 71, y: 75}
+  - {x: 78, y: 82}
+  - {x: 85, y: 89}
+  minAndMaxMagicalAttackValue:
+  - {x: 25, y: 35}
+  - {x: 32, y: 42}
+  - {x: 39, y: 49}
+  - {x: 46, y: 56}
+  - {x: 53, y: 63}
+  - {x: 60, y: 70}
+  - {x: 67, y: 77}
+  - {x: 74, y: 84}
+  - {x: 81, y: 91}
+  - {x: 88, y: 98}
+  attackSpeed:
+  - 21
+  - 21
+  - 21
+  - 21
+  - 21
+  - 21
+  - 21
+  - 21
+  - 21
+  - 21
+  typeWeapon: 0
+  canUseCharacters: []
+  sockets: 1
+  maxAttackRange: 0
+  bonuses: []
+  swordBonuses: []
+  swordName: Bamboo Sword
+  price: 0
+  WithLevel:
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0
+  - attackValue: 0
+    magicalAttackValue: 0
+    attackSpeed: 0

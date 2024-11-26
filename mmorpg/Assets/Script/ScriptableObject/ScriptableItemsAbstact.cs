@@ -9,13 +9,7 @@ public  class ScriptableItemsAbstact : ScriptableObject
     {
         Warrior,Shaman,Sura,Ninja
     }*/
-    [System.Serializable]
-    public  class Upgrade
-    {
-        public ScriptableObject[] itemsRequirementForUpgrade;
-        public int moneyRequirementForUpgrade;
-        
-    }
+    public List<(ScriptableObject upgradeItem, int howMany, float upgradeMoney,int level)> Requirement = new List<(ScriptableObject upgradeItem, int howMany, float upgradeMoney, int level)>();
 
     public Sprite Image;
     public int level;

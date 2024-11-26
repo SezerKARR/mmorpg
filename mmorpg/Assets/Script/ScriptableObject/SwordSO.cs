@@ -11,19 +11,21 @@ public class SwordSO : ScriptableItemsAbstact
     {
         Swords, TwoHandedWeapons, Blades, Fans, Bells, Daggers, Bows
     }
-    public Vector2 minAndMaxAttackValue;
-    public Vector2 minAndMaxMagicalAttackValue;
-    public int attackSpeed;
+    public List<Vector2> minAndMaxAttackValue=new List<Vector2>();
+    public List<Vector2> minAndMaxMagicalAttackValue = new List<Vector2>();
+    public List<float> attackSpeed = new List<float>();
     public TypeWeapon typeWeapon;
     public List<string> canUseCharacters;
-    
+    public int sockets;
     public float maxAttackRange;
-    public string[] bonuses;
-    
+    public List<string> bonuses;
+    public List<string> swordBonuses;
+    public string swordName;
+    public float price;
     [System.Serializable]
     public class UpgradeValueWithLevel
     {
-        public Upgrade Requirement;
+        
         [Header("UpgradeWalue")]
         public int attackValue;
         public int magicalAttackValue;
