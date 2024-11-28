@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Gloom Dragon Sabre
   m_EditorClassIdentifier: 
   levelWithPlus: 0
+  canUseCharacters: 01000000
   Requirements:
   - upgradeItems:
     - upgradeItemName: {fileID: 11400000, guid: 7e43096a89ea1974784a8a1f70b9277e, type: 2}
@@ -166,8 +167,7 @@ MonoBehaviour:
   - 27
   - 30
   typeWeapon: 2
-  canUseCharacters: 01000000
-  sockets: 0
+  sockets: 3
   bonuses: []
   swordName: Gloom Dragon Sabre
   price: 0

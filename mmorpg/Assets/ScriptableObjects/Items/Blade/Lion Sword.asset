@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Lion Sword
   m_EditorClassIdentifier: 
   levelWithPlus: 0
+  canUseCharacters: 01000000
   Requirements:
   - upgradeItems: []
     upgradeMoney: 1200
@@ -84,7 +85,6 @@ MonoBehaviour:
   - 25
   - 26
   typeWeapon: 2
-  canUseCharacters: 01000000
   sockets: 3
   bonuses: []
   swordName: Lion Sword

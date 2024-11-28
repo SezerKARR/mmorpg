@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
+  m_Name: Thorn Leaf Bow
+  m_EditorClassIdentifier: 
+  levelWithPlus: 0
+  canUseCharacters: 02000000
+  Requirements:
+  - upgradeItems: []
+    upgradeMoney: 1200
+  - upgradeItems: []
+    upgradeMoney: 2500
+  - upgradeItems: []
+    upgradeMoney: 5000
+  - upgradeItems: []
+    upgradeMoney: 10000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 757136833b92e5042988fb14867f9499, type: 2}
+      howMany: 1
+    upgradeMoney: 20000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 02aae9da33fb39b4680495048e9c2a7f, type: 2}
+      howMany: 1
+    upgradeMoney: 30000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 677c8f22978b0f94794c4d45f2a575ed, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: 2ff81923e87756b4d8966800a56d4209, type: 2}
+      howMany: 1
+    upgradeMoney: 45000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: dfefda7c8c0d16044bfc7fc8019d7266, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: 3e872b5506bd91e43b541929ba7f27f8, type: 2}
+      howMany: 1
+    upgradeMoney: 90000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: d7948492087a9b74590917a5d4ff5c96, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: b527f055fe6af974bb9e7ea059877de1, type: 2}
+      howMany: 1
+    upgradeMoney: 150000
+  Image: {fileID: 0}
+  level: 45
+  minAndMaxAttackValue:
+  - {x: 106, y: 206}
+  - {x: 112, y: 212}
+  - {x: 118, y: 218}
+  - {x: 124, y: 224}
+  - {x: 130, y: 231}
+  - {x: 138, y: 238}
+  - {x: 147, y: 247}
+  - {x: 157, y: 257}
+  - {x: 168, y: 268}
+  - {x: 180, y: 280}
+  minAndMaxMagicalAttackValue: []
+  attackSpeed:
+  - 24
+  - 24
+  - 24
+  - 24
+  - 24
+  - 24
+  - 24
+  - 24
+  - 24
+  - 24
+  typeWeapon: 6
+  sockets: 3
+  bonuses: []
+  swordName: Thorn Leaf Bow
+  price: 0

@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
+  m_Name: Green Wolf Fang
+  m_EditorClassIdentifier: 
+  levelWithPlus: 0
+  canUseCharacters: 04000000
+  Requirements:
+  - upgradeItems: []
+    upgradeMoney: 120000
+  - upgradeItems: []
+    upgradeMoney: 140000
+  - upgradeItems: []
+    upgradeMoney: 170000
+  - upgradeItems: []
+    upgradeMoney: 200000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: de83d2063276c624eb4b9fab42efbc78, type: 2}
+      howMany: 1
+    upgradeMoney: 240000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 30a0dccd2d8f7b84198f924325980fa4, type: 2}
+      howMany: 1
+    upgradeMoney: 290000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 21f784bf79df73d48b7987be4ce3ef19, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: 2ff81923e87756b4d8966800a56d4209, type: 2}
+      howMany: 1
+    upgradeMoney: 340000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 3df6fc69fef882b40bfed333c14aaf0d, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: 3e872b5506bd91e43b541929ba7f27f8, type: 2}
+      howMany: 1
+    upgradeMoney: 410000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: ca3e156234ad5bd40b1ca95d46a784a5, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: b527f055fe6af974bb9e7ea059877de1, type: 2}
+      howMany: 1
+    upgradeMoney: 500000
+  Image: {fileID: 0}
+  level: 80
+  minAndMaxAttackValue:
+  - {x: 192, y: 245}
+  - {x: 203, y: 256}
+  - {x: 262, y: 315}
+  - {x: 262, y: 315}
+  - {x: 262, y: 315}
+  - {x: 272, y: 325}
+  - {x: 282, y: 335}
+  - {x: 282, y: 335}
+  - {x: 292, y: 345}
+  - {x: 302, y: 355}
+  minAndMaxMagicalAttackValue: []
+  attackSpeed:
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  typeWeapon: 7
+  sockets: 3
+  bonuses: []
+  swordName: Green Wolf Fang
+  price: 0

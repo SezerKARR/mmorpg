@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Bastard Sword
   m_EditorClassIdentifier: 
   levelWithPlus: 0
+  canUseCharacters: 
   Requirements:
   - upgradeItems: []
     upgradeMoney: 1000
@@ -84,7 +85,6 @@ MonoBehaviour:
   - 21
   - 21
   typeWeapon: 0
-  canUseCharacters: 010000000000000002000000
   sockets: 2
   bonuses: []
   swordName: Bastard Sword

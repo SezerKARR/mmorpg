@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Battle Pitchfork
   m_EditorClassIdentifier: 
   levelWithPlus: 0
+  canUseCharacters: 00000000
   Requirements:
   - upgradeItems: []
     upgradeMoney: 1000
@@ -74,7 +75,6 @@ MonoBehaviour:
   - 24
   - 24
   typeWeapon: 1
-  canUseCharacters: 00000000
   sockets: 2
   bonuses: []
   swordName: Battle Pitchfork

@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
+  m_Name: Golden Bell
+  m_EditorClassIdentifier: 
+  levelWithPlus: 0
+  canUseCharacters: 03000000
+  Requirements:
+  - upgradeItems: []
+    upgradeMoney: 600
+  - upgradeItems: []
+    upgradeMoney: 1200
+  - upgradeItems: []
+    upgradeMoney: 2500
+  - upgradeItems: []
+    upgradeMoney: 5000
+  - upgradeItems: []
+    upgradeMoney: 10000
+  - upgradeItems: []
+    upgradeMoney: 20000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 01c7607e9cb77ec4ba6189e39b33b10f, type: 2}
+      howMany: 2
+    upgradeMoney: 30000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 80b738ce23c3091478aa03b5bd744dcf, type: 2}
+      howMany: 2
+    upgradeMoney: 45000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 7e5fc29b8dc64ac42bf1122090e3741d, type: 2}
+      howMany: 2
+    upgradeMoney: 75000
+  Image: {fileID: 0}
+  level: 20
+  minAndMaxAttackValue:
+  - {x: 25, y: 35}
+  - {x: 32, y: 42}
+  - {x: 39, y: 49}
+  - {x: 46, y: 56}
+  - {x: 53, y: 63}
+  - {x: 60, y: 70}
+  - {x: 67, y: 77}
+  - {x: 74, y: 84}
+  - {x: 81, y: 91}
+  - {x: 88, y: 98}
+  minAndMaxMagicalAttackValue:
+  - {x: 19, y: 27}
+  - {x: 26, y: 34}
+  - {x: 33, y: 41}
+  - {x: 40, y: 48}
+  - {x: 47, y: 55}
+  - {x: 54, y: 62}
+  - {x: 61, y: 69}
+  - {x: 68, y: 76}
+  - {x: 75, y: 83}
+  - {x: 82, y: 90}
+  attackSpeed:
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  typeWeapon: 4
+  sockets: 1
+  bonuses: []
+  swordName: Golden Bell
+  price: 0

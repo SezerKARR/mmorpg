@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Red Iron Blade
   m_EditorClassIdentifier: 
   levelWithPlus: 0
+  canUseCharacters: 00000000
   Requirements:
   - upgradeItems: []
     upgradeMoney: 3000
@@ -58,7 +59,6 @@ MonoBehaviour:
   - 15
   - 15
   typeWeapon: 1
-  canUseCharacters: 00000000
   sockets: 2
   bonuses: []
   swordName: Red Iron Blade

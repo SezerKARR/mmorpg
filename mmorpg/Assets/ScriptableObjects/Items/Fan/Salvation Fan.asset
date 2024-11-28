@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
+  m_Name: Salvation Fan
+  m_EditorClassIdentifier: 
+  levelWithPlus: 0
+  canUseCharacters: 03000000
+  Requirements:
+  - upgradeItems: []
+    upgradeMoney: 1200
+  - upgradeItems: []
+    upgradeMoney: 2500
+  - upgradeItems: []
+    upgradeMoney: 5000
+  - upgradeItems: []
+    upgradeMoney: 10000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 06cf2a83b7b7ac64e9fe1356e869314f, type: 2}
+      howMany: 2
+    upgradeMoney: 20000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 30a0dccd2d8f7b84198f924325980fa4, type: 2}
+      howMany: 2
+    upgradeMoney: 30000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: d8494dd840aac8045aa168158be9bafc, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: 2ff81923e87756b4d8966800a56d4209, type: 2}
+      howMany: 1
+    upgradeMoney: 45000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 4323c072b630000468635959983d4220, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: 3e872b5506bd91e43b541929ba7f27f8, type: 2}
+      howMany: 1
+    upgradeMoney: 90000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 84fd789a84c0d9843916d3ace82fdc1c, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: b527f055fe6af974bb9e7ea059877de1, type: 2}
+      howMany: 1
+    upgradeMoney: 120000
+  Image: {fileID: 0}
+  level: 65
+  minAndMaxAttackValue:
+  - {x: 69, y: 91}
+  - {x: 75, y: 97}
+  - {x: 82, y: 104}
+  - {x: 90, y: 112}
+  - {x: 99, y: 121}
+  - {x: 109, y: 131}
+  - {x: 120, y: 142}
+  - {x: 132, y: 154}
+  - {x: 145, y: 167}
+  - {x: 159, y: 181}
+  minAndMaxMagicalAttackValue:
+  - {x: 95, y: 115}
+  - {x: 101, y: 121}
+  - {x: 108, y: 128}
+  - {x: 116, y: 136}
+  - {x: 125, y: 145}
+  - {x: 135, y: 155}
+  - {x: 146, y: 166}
+  - {x: 158, y: 178}
+  - {x: 171, y: 191}
+  - {x: 185, y: 205}
+  attackSpeed:
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  typeWeapon: 3
+  sockets: 3
+  bonuses: []
+  swordName: Salvation Fan
+  price: 0

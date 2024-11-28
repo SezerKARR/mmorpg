@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Sting Sword
   m_EditorClassIdentifier: 
   levelWithPlus: 0
+  canUseCharacters: 
   Requirements:
   - upgradeItems: []
     upgradeMoney: 1200
@@ -84,8 +85,7 @@ MonoBehaviour:
   - 15
   - 15
   typeWeapon: 0
-  canUseCharacters: 010000000000000002000000
-  sockets: 0
+  sockets: 3
   bonuses: []
   swordName: Sting Sword
   price: 0

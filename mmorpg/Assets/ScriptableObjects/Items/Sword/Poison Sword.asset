@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Poison Sword
   m_EditorClassIdentifier: 
   levelWithPlus: 0
+  canUseCharacters: 
   Requirements:
   - upgradeItems: []
     upgradeMoney: 1200
@@ -74,7 +75,6 @@ MonoBehaviour:
   - 25
   - 26
   typeWeapon: 0
-  canUseCharacters: 010000000000000002000000
   sockets: 3
   bonuses: []
   swordName: Poison Sword

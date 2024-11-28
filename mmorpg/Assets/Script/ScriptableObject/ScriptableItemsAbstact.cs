@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
+public enum Character
+{
+    Warrior, Sura, Ninja, Shaman, Lycan
+}
 [System.Serializable]
 public class UpgradeItem
 {
@@ -26,27 +30,8 @@ public  class ScriptableItemsAbstact : ScriptableObject
     {
         Warrior,Shaman,Sura,Ninja
     }*/
-
+    public List<Character> canUseCharacters = new List<Character>();
     public RequirementClass[] Requirements =new RequirementClass[0];
-
-    public void AddObject(UpgradeItem upgradeItem,int swordPlus)
-    {
-        
-        Array.Resize(ref Requirements[swordPlus].upgradeItems, Requirements[swordPlus].upgradeItems.Length + 1);
-        Requirements[swordPlus].upgradeItems[Requirements[swordPlus].upgradeItems.Length - 1] = upgradeItem;
-        Debug.Log(Requirements[swordPlus].upgradeItems[Requirements[swordPlus].upgradeItems.Length - 1].upgradeItemName);
-    }
-    public void AddObject(float money)
-    {
-        Array.Resize(ref Requirements, Requirements.Length + 1);
-        RequirementClass requirementClass = new RequirementClass();
-        requirementClass.upgradeMoney = money;
-        Requirements[Requirements.Length - 1] = requirementClass;
-    }
-    
-    
-
-
     public Sprite Image;
     public int level;
 }

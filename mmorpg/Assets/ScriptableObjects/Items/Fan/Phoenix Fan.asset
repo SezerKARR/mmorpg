@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
+  m_Name: Phoenix Fan
+  m_EditorClassIdentifier: 
+  levelWithPlus: 0
+  canUseCharacters: 03000000
+  Requirements:
+  - upgradeItems: []
+    upgradeMoney: 1200
+  - upgradeItems: []
+    upgradeMoney: 2500
+  - upgradeItems: []
+    upgradeMoney: 5000
+  - upgradeItems: []
+    upgradeMoney: 10000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 06cf2a83b7b7ac64e9fe1356e869314f, type: 2}
+      howMany: 2
+    upgradeMoney: 20000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 30a0dccd2d8f7b84198f924325980fa4, type: 2}
+      howMany: 2
+    upgradeMoney: 30000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: d8494dd840aac8045aa168158be9bafc, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: 2ff81923e87756b4d8966800a56d4209, type: 2}
+      howMany: 1
+    upgradeMoney: 45000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 4323c072b630000468635959983d4220, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: 3e872b5506bd91e43b541929ba7f27f8, type: 2}
+      howMany: 1
+    upgradeMoney: 90000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 84fd789a84c0d9843916d3ace82fdc1c, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: b527f055fe6af974bb9e7ea059877de1, type: 2}
+      howMany: 1
+    upgradeMoney: 120000
+  Image: {fileID: 0}
+  level: 45
+  minAndMaxAttackValue:
+  - {x: 50, y: 64}
+  - {x: 55, y: 69}
+  - {x: 60, y: 74}
+  - {x: 65, y: 79}
+  - {x: 70, y: 84}
+  - {x: 77, y: 91}
+  - {x: 85, y: 99}
+  - {x: 94, y: 108}
+  - {x: 104, y: 118}
+  - {x: 115, y: 129}
+  minAndMaxMagicalAttackValue:
+  - {x: 59, y: 89}
+  - {x: 64, y: 94}
+  - {x: 69, y: 99}
+  - {x: 74, y: 104}
+  - {x: 79, y: 109}
+  - {x: 86, y: 116}
+  - {x: 94, y: 124}
+  - {x: 103, y: 133}
+  - {x: 113, y: 143}
+  - {x: 124, y: 154}
+  attackSpeed:
+  - 28
+  - 28
+  - 28
+  - 28
+  - 28
+  - 28
+  - 28
+  - 28
+  - 28
+  - 28
+  typeWeapon: 3
+  sockets: 3
+  bonuses: []
+  swordName: Phoenix Fan
+  price: 0

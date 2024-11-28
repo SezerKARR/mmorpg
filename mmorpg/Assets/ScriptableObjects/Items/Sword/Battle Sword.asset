@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Battle Sword
   m_EditorClassIdentifier: 
   levelWithPlus: 0
+  canUseCharacters: 
   Requirements:
   - upgradeItems: []
     upgradeMoney: 1200
@@ -84,7 +85,6 @@ MonoBehaviour:
   - 15
   - 15
   typeWeapon: 0
-  canUseCharacters: 010000000000000002000000
   sockets: 3
   bonuses: []
   swordName: Battle Sword

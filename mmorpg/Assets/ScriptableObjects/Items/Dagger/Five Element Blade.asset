@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
+  m_Name: Five Element Blade
+  m_EditorClassIdentifier: 
+  levelWithPlus: 0
+  canUseCharacters: 02000000
+  Requirements:
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}
+      howMany: 10
+    upgradeMoney: 100000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}
+      howMany: 15
+    upgradeMoney: 125000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}
+      howMany: 20
+    upgradeMoney: 150000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}
+      howMany: 30
+    upgradeMoney: 180000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}
+      howMany: 45
+    upgradeMoney: 225000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}
+      howMany: 65
+    upgradeMoney: 270000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}
+      howMany: 95
+    upgradeMoney: 320000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}
+      howMany: 140
+    upgradeMoney: 400000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}
+      howMany: 200
+    upgradeMoney: 500000
+  Image: {fileID: 0}
+  level: 87
+  minAndMaxAttackValue:
+  - {x: 116, y: 136}
+  - {x: 128, y: 148}
+  - {x: 133, y: 153}
+  - {x: 143, y: 163}
+  - {x: 159, y: 177}
+  - {x: 179, y: 199}
+  - {x: 209, y: 229}
+  - {x: 255, y: 275}
+  - {x: 326, y: 349}
+  - {x: 431, y: 451}
+  minAndMaxMagicalAttackValue: []
+  attackSpeed:
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  typeWeapon: 5
+  sockets: 3
+  bonuses: []
+  swordName: Five Element Blade
+  price: 0

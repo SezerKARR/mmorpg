@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
+  m_Name: Jade Bell
+  m_EditorClassIdentifier: 
+  levelWithPlus: 0
+  canUseCharacters: 03000000
+  Requirements:
+  - upgradeItems: []
+    upgradeMoney: 1000
+  - upgradeItems: []
+    upgradeMoney: 2000
+  - upgradeItems: []
+    upgradeMoney: 4000
+  - upgradeItems: []
+    upgradeMoney: 8000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 587739980e29fc64da3b669cb947e49f, type: 2}
+      howMany: 2
+    upgradeMoney: 13000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: f88876174113eb14db515a748b267ace, type: 2}
+      howMany: 2
+    upgradeMoney: 20000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: a7f94e65a65e70e47b7ed147d6cf1e58, type: 2}
+      howMany: 1
+    - upgradeItemName: {fileID: 11400000, guid: bed618e825224204d8e9054505ca4b86, type: 2}
+      howMany: 1
+    upgradeMoney: 40000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 2b2e08b89c6f78540b10ca3d5ff39039, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: d6fd3e7c7ce66f142be3013f1eb7c234, type: 2}
+      howMany: 1
+    upgradeMoney: 70000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: cdc98090912866a41bcc5c411fcf4540, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: d6fd3e7c7ce66f142be3013f1eb7c234, type: 2}
+      howMany: 1
+    upgradeMoney: 120000
+  Image: {fileID: 0}
+  level: 32
+  minAndMaxAttackValue:
+  - {x: 29, y: 39}
+  - {x: 35, y: 45}
+  - {x: 41, y: 51}
+  - {x: 47, y: 57}
+  - {x: 53, y: 63}
+  - {x: 61, y: 71}
+  - {x: 70, y: 80}
+  - {x: 80, y: 90}
+  - {x: 91, y: 101}
+  - {x: 103, y: 113}
+  minAndMaxMagicalAttackValue:
+  - {x: 30, y: 38}
+  - {x: 36, y: 44}
+  - {x: 42, y: 50}
+  - {x: 48, y: 58}
+  - {x: 54, y: 62}
+  - {x: 62, y: 70}
+  - {x: 71, y: 79}
+  - {x: 81, y: 89}
+  - {x: 82, y: 100}
+  - {x: 104, y: 112}
+  attackSpeed:
+  - 30
+  - 30
+  - 30
+  - 30
+  - 30
+  - 30
+  - 30
+  - 30
+  - 30
+  - 30
+  typeWeapon: 4
+  sockets: 2
+  bonuses: []
+  swordName: Jade Bell
+  price: 0

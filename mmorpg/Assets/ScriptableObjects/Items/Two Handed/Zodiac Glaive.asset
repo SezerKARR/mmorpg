@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Zodiac Glaive
   m_EditorClassIdentifier: 
   levelWithPlus: 0
+  canUseCharacters: 00000000
   Requirements:
   - upgradeItems:
     - upgradeItemName: {fileID: 11400000, guid: 3e4508791cac136419a25df877db101a, type: 2}
@@ -92,7 +93,6 @@ MonoBehaviour:
   - 16
   - 17
   typeWeapon: 1
-  canUseCharacters: 00000000
   sockets: 3
   bonuses: []
   swordName: Zodiac Glaive

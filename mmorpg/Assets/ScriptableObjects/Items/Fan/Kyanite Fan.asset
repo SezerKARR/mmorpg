@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
+  m_Name: Kyanite Fan
+  m_EditorClassIdentifier: 
+  levelWithPlus: 0
+  canUseCharacters: 03000000
+  Requirements:
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 0673cb18afdcb7242a3faf2ef676e97f, type: 2}
+      howMany: 1
+    - upgradeItemName: {fileID: 11400000, guid: da2c7a6a2bf522946976fad548d742de, type: 2}
+      howMany: 1
+    upgradeMoney: 330000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 0673cb18afdcb7242a3faf2ef676e97f, type: 2}
+      howMany: 1
+    - upgradeItemName: {fileID: 11400000, guid: da2c7a6a2bf522946976fad548d742de, type: 2}
+      howMany: 1
+    upgradeMoney: 425000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 0673cb18afdcb7242a3faf2ef676e97f, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: da2c7a6a2bf522946976fad548d742de, type: 2}
+      howMany: 2
+    upgradeMoney: 540000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 0673cb18afdcb7242a3faf2ef676e97f, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: da2c7a6a2bf522946976fad548d742de, type: 2}
+      howMany: 2
+    upgradeMoney: 720000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 0673cb18afdcb7242a3faf2ef676e97f, type: 2}
+      howMany: 3
+    - upgradeItemName: {fileID: 11400000, guid: da2c7a6a2bf522946976fad548d742de, type: 2}
+      howMany: 3
+    upgradeMoney: 800000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 5e22b87ea115cc94090c2402075e57a3, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: da2c7a6a2bf522946976fad548d742de, type: 2}
+      howMany: 3
+    upgradeMoney: 900000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 5e22b87ea115cc94090c2402075e57a3, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: 2ff81923e87756b4d8966800a56d4209, type: 2}
+      howMany: 1
+    upgradeMoney: 950000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 5e22b87ea115cc94090c2402075e57a3, type: 2}
+      howMany: 3
+    - upgradeItemName: {fileID: 11400000, guid: 3e872b5506bd91e43b541929ba7f27f8, type: 2}
+      howMany: 1
+    upgradeMoney: 1300000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 68592e3dcb2055346bddbe475d3188ae, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: b527f055fe6af974bb9e7ea059877de1, type: 2}
+      howMany: 1
+    upgradeMoney: 1500000
+  Image: {fileID: 0}
+  level: 105
+  minAndMaxAttackValue:
+  - {x: 226, y: 286}
+  - {x: 232, y: 292}
+  - {x: 236, y: 296}
+  - {x: 240, y: 300}
+  - {x: 244, y: 304}
+  - {x: 250, y: 310}
+  - {x: 255, y: 320}
+  - {x: 262, y: 327}
+  - {x: 294, y: 359}
+  - {x: 356, y: 421}
+  minAndMaxMagicalAttackValue:
+  - {x: 300, y: 380}
+  - {x: 320, y: 400}
+  - {x: 330, y: 410}
+  - {x: 330, y: 410}
+  - {x: 340, y: 420}
+  - {x: 350, y: 430}
+  - {x: 370, y: 450}
+  - {x: 390, y: 470}
+  - {x: 400, y: 480}
+  - {x: 410, y: 490}
+  attackSpeed:
+  - 15
+  - 16
+  - 17
+  - 18
+  - 19
+  - 20
+  - 22
+  - 24
+  - 27
+  - 30
+  typeWeapon: 3
+  sockets: 3
+  bonuses: []
+  swordName: Kyanite Fan
+  price: 0

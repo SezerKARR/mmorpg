@@ -9,6 +9,7 @@ using System.Xml.Serialization;
 using Unity.Collections.LowLevel.Unsafe;
 using Codice.CM.Client.Differences;
 using UnityEditor.Experimental.GraphView;
+using UnityEngine.TextCore.Text;
 public class CsvToSo
 {
     private static string UpgradeItemsCSVPath = "/CSVS/UpgradeItems.csv";
@@ -19,6 +20,11 @@ public class CsvToSo
     private static string SwordCsvPath = "/CSVS/Swords.csv";
     private static string TwoHanded = "/CSVS/Two Handed.csv";
     private static string Blade = "/CSVS/Blade.csv";
+    private static string fanCsvPath = "/CSVS/Fan.csv";
+    private static string BellCsvPath = "/CSVS/Bell.csv";
+    private static string ClawCsvPath = "/CSVS/Claw.csv";
+    private static string DaggerCsvPath = "/CSVS/Dagger.csv";
+    private static string BowCsvPath = "/CSVS/Bow.csv";
     /*//[MenuItem("Utilities/Generate Upgrade Items")]
     //private static void CsvToSoUpgradeItems()
     //{
@@ -289,68 +295,68 @@ public class CsvToSo
     //    return sentence;
     //}
 
-   /* [MenuItem("Utilities/Generate Bonuses")]
-    public static void CsvToBonuses()
-    {
-        string bonusesPath = "Assets/ScriptableObjects/Bonuses";
-        BonusForAttackSO bonusForAttackSO = ScriptableObject.CreateInstance<BonusForAttackSO>();
-        BonusForDefenceSO bonusForDefenceSO = ScriptableObject.CreateInstance<BonusForDefenceSO>();
-        BonusOtherSO bonusOtherSO = ScriptableObject.CreateInstance<BonusOtherSO>();
-        string[] allLines = File.ReadAllLines(Application.dataPath + BonusesCsvPath);
-        //AssetDatabase.CreateAsset(bonusForAttackSO, $"{bonusesPath}/BonusForAttackSO.asset");
-        foreach (string line in allLines)
-        {
-            string[] splitData = line.Split(";");
-            if (splitData[0].Length > 0)
-            {
-                GiveBonuses(bonusForAttackSO, splitData, 0);
+    /* [MenuItem("Utilities/Generate Bonuses")]
+     public static void CsvToBonuses()
+     {
+         string bonusesPath = "Assets/ScriptableObjects/Bonuses";
+         BonusForAttackSO bonusForAttackSO = ScriptableObject.CreateInstance<BonusForAttackSO>();
+         BonusForDefenceSO bonusForDefenceSO = ScriptableObject.CreateInstance<BonusForDefenceSO>();
+         BonusOtherSO bonusOtherSO = ScriptableObject.CreateInstance<BonusOtherSO>();
+         string[] allLines = File.ReadAllLines(Application.dataPath + BonusesCsvPath);
+         //AssetDatabase.CreateAsset(bonusForAttackSO, $"{bonusesPath}/BonusForAttackSO.asset");
+         foreach (string line in allLines)
+         {
+             string[] splitData = line.Split(";");
+             if (splitData[0].Length > 0)
+             {
+                 GiveBonuses(bonusForAttackSO, splitData, 0);
 
-            }
-            if (splitData[4].Length > 0)
-            {
-                GiveBonuses(bonusForDefenceSO, splitData, 4);
+             }
+             if (splitData[4].Length > 0)
+             {
+                 GiveBonuses(bonusForDefenceSO, splitData, 4);
 
-            }
-            if (splitData[8].Length > 0)
-            {
-                GiveBonuses(bonusOtherSO, splitData, 8);
+             }
+             if (splitData[8].Length > 0)
+             {
+                 GiveBonuses(bonusOtherSO, splitData, 8);
 
-            }
+             }
 
-        }
-        AssetDatabase.CreateAsset(bonusForAttackSO, $"{bonusesPath}/BonusForAttackSO.asset");
-        AssetDatabase.CreateAsset(bonusForDefenceSO, $"{bonusesPath}/BonusForDefenceSO.asset");
-        AssetDatabase.CreateAsset(bonusOtherSO, $"{bonusesPath}/BonusOtherSO.asset");
-        AssetDatabase.SaveAssets();
-    }
-    public static BonusSO GiveBonuses(BonusSO bonusSO, string[] splitData, int i)
-    {
-        Bonus bonus = new Bonus();
-        bonus.bonusName = splitData[i + 2];
-        Debug.Log(splitData[i + 3] + splitData[i]);
-        Debug.Log(splitData[i].Length);
-        bonus.maxBonusRate = float.Parse(splitData[i + 3]);
-        bonus.bonusRates = BonusRatesCalculate(float.Parse(splitData[i + 3]));
-        bonusSO.AddObject(bonus);
-        return null;
-    }
+         }
+         AssetDatabase.CreateAsset(bonusForAttackSO, $"{bonusesPath}/BonusForAttackSO.asset");
+         AssetDatabase.CreateAsset(bonusForDefenceSO, $"{bonusesPath}/BonusForDefenceSO.asset");
+         AssetDatabase.CreateAsset(bonusOtherSO, $"{bonusesPath}/BonusOtherSO.asset");
+         AssetDatabase.SaveAssets();
+     }
+     public static BonusSO GiveBonuses(BonusSO bonusSO, string[] splitData, int i)
+     {
+         Bonus bonus = new Bonus();
+         bonus.bonusName = splitData[i + 2];
+         Debug.Log(splitData[i + 3] + splitData[i]);
+         Debug.Log(splitData[i].Length);
+         bonus.maxBonusRate = float.Parse(splitData[i + 3]);
+         bonus.bonusRates = BonusRatesCalculate(float.Parse(splitData[i + 3]));
+         bonusSO.AddObject(bonus);
+         return null;
+     }
 
-    public static List<float> BonusRatesCalculate(float maxBonusRates)
-    {
-        if (maxBonusRates == 12) return new List<float> { 2, 4, 6, 8, 10, 12 };
-        else if (maxBonusRates == 15) return new List<float> { 5, 8, 10, 12, 15 };
-        else if (maxBonusRates == 10) return new List<float> { 2, 5, 8, 10 };
-        else if (maxBonusRates == 2000) return new List<float> { 500, 1000, 1500, 2000 };
-        else if (maxBonusRates == 8) return new List<float> { 2, 3, 5, 8 };
-        else if (maxBonusRates == 20) return new List<float> { 5, 10, 15, 20 };
-        else if (maxBonusRates == 50) return new List<float> { 15, 35, 50 };
-        else if (maxBonusRates == 5) return new List<float> { 1, 3, 5 };
-        else if (maxBonusRates == 1) return new List<float> { 1 };
-        else if (maxBonusRates == 30) return new List<float> { 8, 16, 30 };
-        else if (maxBonusRates == 80) return new List<float> { 25, 50, 80 };
-        else return new List<float> { maxBonusRates / 5, maxBonusRates / 2, maxBonusRates };
+     public static List<float> BonusRatesCalculate(float maxBonusRates)
+     {
+         if (maxBonusRates == 12) return new List<float> { 2, 4, 6, 8, 10, 12 };
+         else if (maxBonusRates == 15) return new List<float> { 5, 8, 10, 12, 15 };
+         else if (maxBonusRates == 10) return new List<float> { 2, 5, 8, 10 };
+         else if (maxBonusRates == 2000) return new List<float> { 500, 1000, 1500, 2000 };
+         else if (maxBonusRates == 8) return new List<float> { 2, 3, 5, 8 };
+         else if (maxBonusRates == 20) return new List<float> { 5, 10, 15, 20 };
+         else if (maxBonusRates == 50) return new List<float> { 15, 35, 50 };
+         else if (maxBonusRates == 5) return new List<float> { 1, 3, 5 };
+         else if (maxBonusRates == 1) return new List<float> { 1 };
+         else if (maxBonusRates == 30) return new List<float> { 8, 16, 30 };
+         else if (maxBonusRates == 80) return new List<float> { 25, 50, 80 };
+         else return new List<float> { maxBonusRates / 5, maxBonusRates / 2, maxBonusRates };
 
-    }*/
+     }*/
     /*[MenuItem("a/deneme")]
     public static void deneme()
     {
@@ -363,12 +369,25 @@ public class CsvToSo
         {
             Debug.Log(line.Length);
         } }*/
-    [MenuItem("tools/createSword")]
+    [MenuItem("tools/CreateWeapon/ALL WEAPON/ALL")]
+    public static void CreateAllWeapon()
+    {
+        CsvToBell();
+        CsvToBlade();
+        CsvToBow();
+        CsvToClaw();
+        CsvToDagger();
+        CsvToFan();
+        CsvToSword();
+        CsvToTwoHanded();
+    }
+    
+    [MenuItem("tools/CreateWeapon/Sword")]
     public static void CsvToSword()
     {
         CreateSword("Sword", SwordCsvPath);
     }
-    [MenuItem("tools/createTwoHanded")]
+    [MenuItem("tools/CreateWeapon/TwoHanded")]
     public static void CsvToTwoHanded()
     {
         CreateSword("Two Handed", TwoHanded);
@@ -379,9 +398,39 @@ public class CsvToSo
 
         CreateSword("Blade", Blade);
     }
+
+    [MenuItem("tools/CreateWeapon/Fan")]
+    public static void CsvToFan()
+    {
+
+        CreateSword("Fan", fanCsvPath);
+    }
+    [MenuItem("tools/CreateWeapon/Bell")]
+    public static void CsvToBell()
+    {
+
+        CreateSword("Bell", BellCsvPath);
+    }
+    [MenuItem("tools/CreateWeapon/Claw")]
+    public static void CsvToClaw()
+    {
+
+        CreateSword("Claw", ClawCsvPath);
+    }
+    [MenuItem("tools/CreateWeapon/Dagger")]
+    public static void CsvToDagger()
+    {
+
+        CreateSword("Dagger", DaggerCsvPath);
+    }
+    [MenuItem("tools/CreateWeapon/Bow")]
+    public static void CsvToBow()
+    {
+
+        CreateSword("Bow", BowCsvPath);
+    }
     public static void CreateSword(string swordType,string swordPath)
     {
-        
         string BonusesPath = "Assets/ScriptableObjects/Bonuses";
         string[] bonusGuids = AssetDatabase.FindAssets("t:BonusSO", new[] { BonusesPath });
         List<BonusSO> bonusSO = new List<BonusSO>();
@@ -414,18 +463,17 @@ public class CsvToSo
         {
             Directory.CreateDirectory(path);
         }
-        
         foreach (string line in allLines)
         {
             string[] splitData = line.Split(';');
-            Debug.Log(splitData[0]);
             if (splitData[0].Contains("Level") && splitData[0].Contains(swordType))
             {
                
                 if (swordSO != null)
                 {
-
+                    
                     AssetDatabase.CreateAsset(swordSO, $"{path}/{swordSO.swordName}.asset");
+                    
                     upgradeMoney.Clear();
                     upgradeItemRequire.Clear();
                     upgradeLevel.Clear();
@@ -434,7 +482,7 @@ public class CsvToSo
                 swordSO = ScriptableObject.CreateInstance<SwordSO>();
                 swordSO.level = int.Parse((splitData[0].Replace("Level ", "").Replace(" "+swordType, "").Split("-"))[0]);
                 
-                swordSO.SetSwordType(swordType);
+                SetSwordType(swordType,swordSO);
             }
             else if (splitData[1].Equals("Level :"))
             {
@@ -453,17 +501,22 @@ public class CsvToSo
 
                 }
             }
+            else if (splitData[1].Contains("BoardNewM.png"))
+            {
+                swordSO.swordName = splitData[0].Replace(".png", "");
+                
+            }
             else if (splitData[1].Contains("Attack Value") && !splitData[1].Contains("Magical"))
             {
-                Debug.Log(splitData[0]);
-                swordSO.swordName = splitData[0].Replace(".png", "");
+                
                 for (int j = 0; j < splitData.Length - 2; j++)
                 {
                     if (splitData[j + 2].Length == 0)
                     {
                         break;
                     }
-                    string[] floats = splitData[j + 2].Split("-");
+                    string[] floats = splitData[j + 2].Split((new char[] { '-', '�' }));
+                    
                     swordSO.minAndMaxAttackValue.Add(new Vector2(float.Parse(floats[0]), float.Parse(floats[1])));
 
                 }
@@ -530,7 +583,7 @@ public class CsvToSo
                     {
                         break;
                     }
-                    swordSO.AddObject((splitData[j + 2].Contains("%")) ? float.Parse(splitData[j + 2].Replace(".", "").Replace("%", "")) / 100 : float.Parse(splitData[j + 2].Replace(".", "")));
+                    AddObject(ref swordSO.Requirements, (splitData[j + 2].Contains("%")) ? float.Parse(splitData[j + 2].Replace(".", "").Replace("%", "")) / 100 : float.Parse(splitData[j + 2].Replace(".", "")));
                     upgradeMoney.Add((splitData[j + 2].Contains("%"))?float.Parse(splitData[j + 2].Replace(".", "").Replace("%",""))/100 : float.Parse(splitData[j + 2].Replace(".", "")));
                     
 
@@ -580,7 +633,7 @@ public class CsvToSo
                                 UpgradeItem upgradeItem = new UpgradeItem();
                                 upgradeItem.upgradeItemName = upgradeItemSO;
                                 upgradeItem.howMany = upgradeItemRequire[j - 1];
-                                swordSO.AddObject(upgradeItem, j - 1);
+                                AddObject(ref swordSO.Requirements,upgradeItem, j - 1);
                                 break;
                             }
                             if (conditionMet)
@@ -613,13 +666,80 @@ public class CsvToSo
             {
                 swordSO.price = int.Parse(splitData[0].Replace("Not available at NPC", "0").Replace(" Yang", ""));
             }
-            else if (splitData[0].Contains("Sockets"))
+            if (splitData[0].Contains("Sockets"))
             {
                 swordSO.sockets = int.Parse(splitData[0].Replace("Sockets:", ""));
             }
         }
         AssetDatabase.SaveAssets();
     }
+    public static void AddObject(ref RequirementClass[] Requirements, UpgradeItem upgradeItem, int swordPlus)
+    {
+        Array.Resize(ref Requirements[swordPlus].upgradeItems, Requirements[swordPlus].upgradeItems.Length + 1);
+        Requirements[swordPlus].upgradeItems[Requirements[swordPlus].upgradeItems.Length - 1] = upgradeItem;
+
+    }
+    public static void AddObject(ref RequirementClass[] Requirements, float money)
+    {
+        Array.Resize(ref Requirements, Requirements.Length + 1);
+        RequirementClass requirementClass = new RequirementClass();
+        requirementClass.upgradeMoney = money;
+        Requirements[Requirements.Length - 1] = requirementClass;
+    }
+   
+    public static void SetSwordType(string swordType,SwordSO swordSO)
+    {
+        if (swordType.Equals("Swords"))
+        {
+            swordSO.typeWeapon = TypeWeapon.Swords;
+            SetCanUseCharacter(Character.Sura,swordSO);
+            SetCanUseCharacter(Character.Warrior,swordSO);
+            SetCanUseCharacter(Character.Ninja,swordSO);
+
+        }
+        else if (swordType.Equals("Two Handed"))
+        {
+            swordSO.typeWeapon = TypeWeapon.TwoHandedWeapons;
+            SetCanUseCharacter(Character.Warrior,swordSO);
+
+        }
+        else if (swordType.Equals("Blade"))
+        {
+            swordSO.typeWeapon = TypeWeapon.Blades;
+            SetCanUseCharacter(Character.Sura, swordSO);
+        }
+        else if (swordType.Equals("Fan"))
+        {
+            swordSO.typeWeapon = TypeWeapon.Fans;
+            SetCanUseCharacter(Character.Shaman, swordSO);
+        }
+        else if (swordType.Equals("Bell"))
+        {
+            swordSO.typeWeapon = TypeWeapon.Bells;
+            SetCanUseCharacter(Character.Shaman, swordSO);
+        }
+        else if (swordType.Equals("Claw"))
+        {
+            swordSO.typeWeapon = TypeWeapon.Claws;
+            SetCanUseCharacter(Character.Lycan, swordSO);
+        }
+        else if (swordType.Equals("Dagger"))
+        {
+            swordSO.typeWeapon = TypeWeapon.Daggers;
+            SetCanUseCharacter(Character.Ninja, swordSO);
+        }
+        else if (swordType.Equals("Bow"))
+        {
+            swordSO.typeWeapon = TypeWeapon.Bows;
+            SetCanUseCharacter(Character.Ninja, swordSO);
+        }
+
+    }
+    public static void SetCanUseCharacter(Character character,ScriptableItemsAbstact scriptableObject)
+    {
+        scriptableObject.canUseCharacters.Add(character);
+    }
+        
     /*[MenuItem("Tools/Generate Sword")]
     public static void CsvTOSword()
     {

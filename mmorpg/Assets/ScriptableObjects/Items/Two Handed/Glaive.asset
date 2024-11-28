@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Glaive
   m_EditorClassIdentifier: 
   levelWithPlus: 0
+  canUseCharacters: 00000000
   Requirements:
   - upgradeItems: []
     upgradeMoney: 600
@@ -64,7 +65,6 @@ MonoBehaviour:
   - 26
   - 26
   typeWeapon: 1
-  canUseCharacters: 00000000
   sockets: 1
   bonuses: []
   swordName: Glaive

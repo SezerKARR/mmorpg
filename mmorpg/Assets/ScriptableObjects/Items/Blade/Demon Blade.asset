@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Demon Blade
   m_EditorClassIdentifier: 
   levelWithPlus: 0
+  canUseCharacters: 01000000
   Requirements:
   - upgradeItems: []
     upgradeMoney: 1200
@@ -84,8 +85,7 @@ MonoBehaviour:
   - 15
   - 15
   typeWeapon: 2
-  canUseCharacters: 01000000
-  sockets: 0
+  sockets: 3
   bonuses: []
   swordName: Demon Blade
   price: 0
