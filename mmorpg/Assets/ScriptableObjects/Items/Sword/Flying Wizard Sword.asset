@@ -12,6 +12,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: Flying Wizard Sword
   m_EditorClassIdentifier: 
+  levelWithPlus: 0
+  Requirements:
+  - upgradeItems: []
+    upgradeMoney: 1200
+  - upgradeItems: []
+    upgradeMoney: 2500
+  - upgradeItems: []
+    upgradeMoney: 5000
+  - upgradeItems: []
+    upgradeMoney: 10000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 757136833b92e5042988fb14867f9499, type: 2}
+      howMany: 1
+    upgradeMoney: 20000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 02aae9da33fb39b4680495048e9c2a7f, type: 2}
+      howMany: 1
+    upgradeMoney: 30000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 57f3a460759598e488f7ea249cab97de, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: 2ff81923e87756b4d8966800a56d4209, type: 2}
+      howMany: 1
+    upgradeMoney: 45000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: f8479da07f9f35d4294cf469fdc025ff, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: 3e872b5506bd91e43b541929ba7f27f8, type: 2}
+      howMany: 1
+    upgradeMoney: 90000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: d7948492087a9b74590917a5d4ff5c96, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: b527f055fe6af974bb9e7ea059877de1, type: 2}
+      howMany: 1
+    upgradeMoney: 150000
   Image: {fileID: 0}
   level: 55
   minAndMaxAttackValue:
@@ -48,38 +84,8 @@ MonoBehaviour:
   - 17
   - 17
   typeWeapon: 0
-  canUseCharacters: []
+  canUseCharacters: 010000000000000002000000
   sockets: 3
-  maxAttackRange: 0
   bonuses: []
-  swordBonuses: []
   swordName: Flying Wizard Sword
   price: 0
-  WithLevel:
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0

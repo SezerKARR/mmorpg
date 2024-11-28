@@ -12,6 +12,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: Giant Axe
   m_EditorClassIdentifier: 
+  levelWithPlus: 0
+  Requirements:
+  - upgradeItems: []
+    upgradeMoney: 1000
+  - upgradeItems: []
+    upgradeMoney: 2000
+  - upgradeItems: []
+    upgradeMoney: 4000
+  - upgradeItems: []
+    upgradeMoney: 8000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: dfb692f0e7a592a45a90ac0fe6e95aa2, type: 2}
+      howMany: 2
+    upgradeMoney: 13000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: edddb8fc3aa3e3a40952369ddb8aac03, type: 2}
+      howMany: 2
+    upgradeMoney: 20000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 90392df0c52aa394192210904292c5bc, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: bed618e825224204d8e9054505ca4b86, type: 2}
+      howMany: 1
+    upgradeMoney: 40000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: a0561bc29fa71374f9de2af96458568a, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: d6fd3e7c7ce66f142be3013f1eb7c234, type: 2}
+      howMany: 1
+    upgradeMoney: 70000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 06f3ef5adbe46ca49aa497cd09b4c076, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: d6fd3e7c7ce66f142be3013f1eb7c234, type: 2}
+      howMany: 1
+    upgradeMoney: 120000
   Image: {fileID: 0}
   level: 40
   minAndMaxAttackValue:
@@ -37,39 +73,9 @@ MonoBehaviour:
   - 15
   - 15
   - 15
-  typeWeapon: 0
-  canUseCharacters: []
+  typeWeapon: 1
+  canUseCharacters: 00000000
   sockets: 2
-  maxAttackRange: 0
   bonuses: []
-  swordBonuses: []
   swordName: Giant Axe
   price: 0
-  WithLevel:
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0

@@ -7,6 +7,8 @@ using System;
 using System.Linq;
 using System.Xml.Serialization;
 using Unity.Collections.LowLevel.Unsafe;
+using Codice.CM.Client.Differences;
+using UnityEditor.Experimental.GraphView;
 public class CsvToSo
 {
     private static string UpgradeItemsCSVPath = "/CSVS/UpgradeItems.csv";
@@ -16,6 +18,7 @@ public class CsvToSo
     private static string BonusesCsvPath = "/CSVS/Bonuses.csv";
     private static string SwordCsvPath = "/CSVS/Swords.csv";
     private static string TwoHanded = "/CSVS/Two Handed.csv";
+    private static string Blade = "/CSVS/Blade.csv";
     /*//[MenuItem("Utilities/Generate Upgrade Items")]
     //private static void CsvToSoUpgradeItems()
     //{
@@ -182,14 +185,13 @@ public class CsvToSo
     //[MenuItem("Utilities/UpdateMonsterCanDropForUPItems")]
     //public static void UpdateMonsterCanDropForUPItems()
     //{
-    //    string monsterpath = "Assets/ScriptableObjects/Monsters";
-    //    string[] monsterGuids = AssetDatabase.FindAssets("t:MonsterSO", new[] { monsterpath });
+
     //    Debug.Log($"Found {monsterGuids.Length} monster SOs");
     //    string upgradeItemsPath = "Assets/ScriptableObjects/UpgradeItem";
     //    string[] upgradeItemsGuids = AssetDatabase.FindAssets("t:UpgradeItemsSO", new[] { upgradeItemsPath });
     //    Debug.Log($"Found {upgradeItemsGuids.Length} upgrade item SOs");
     //    List<UpgradeItemsSO> upgradeItemSO = new List<UpgradeItemsSO>();
-    //    List<MonsterSO> monsterSO = new List<MonsterSO>();
+
 
     //    foreach (string upgradeItemsguid in upgradeItemsGuids)
     //    {
@@ -197,14 +199,7 @@ public class CsvToSo
     //        upgradeItemSO.Add(AssetDatabase.LoadAssetAtPath<UpgradeItemsSO>(upgradePath));
 
     //    }
-    //    foreach (string monsterGuid in monsterGuids)
-    //    {
-    //        string monsterpaths = AssetDatabase.GUIDToAssetPath(monsterGuid);
-    //        MonsterSO addedablemonsterso = AssetDatabase.LoadAssetAtPath<MonsterSO>(monsterpaths);
-    //        monsterSO.Add(addedablemonsterso);
 
-
-    //    }
     //    foreach (UpgradeItemsSO upgradeItem in upgradeItemSO)
     //    {
     //        string[] dropfroms = upgradeItem.dropsFrom.Replace(", ", ",").Split(',');
@@ -293,68 +288,69 @@ public class CsvToSo
     //    // Noktalama işaretlerini temizle, sadece kelimelerle çalış
     //    return sentence;
     //}
-    //[MenuItem("Utilities/Generate Bonuses")]
-    //public static void CsvToBonuses()
-    //{
-    //    string bonusesPath = "Assets/ScriptableObjects/Bonuses";
-    //    BonusForAttackSO bonusForAttackSO = ScriptableObject.CreateInstance<BonusForAttackSO>();
-    //    BonusForDefenceSO bonusForDefenceSO = ScriptableObject.CreateInstance<BonusForDefenceSO>();
-    //    BonusOtherSO bonusOtherSO = ScriptableObject.CreateInstance<BonusOtherSO>();
-    //    string[] allLines=File.ReadAllLines(Application.dataPath + BonusesCsvPath);
-    //    //AssetDatabase.CreateAsset(bonusForAttackSO, $"{bonusesPath}/BonusForAttackSO.asset");
-    //    foreach (string line in allLines)
-    //    {
-    //        string[] splitData=line.Split(";");
-    //        if (splitData[0].Length>0)
-    //        {
-    //            GiveBonuses(bonusForAttackSO, splitData,0);
 
-    //        }
-    //        if (splitData[4].Length > 0)
-    //        {
-    //            GiveBonuses(bonusForDefenceSO, splitData, 4);
+   /* [MenuItem("Utilities/Generate Bonuses")]
+    public static void CsvToBonuses()
+    {
+        string bonusesPath = "Assets/ScriptableObjects/Bonuses";
+        BonusForAttackSO bonusForAttackSO = ScriptableObject.CreateInstance<BonusForAttackSO>();
+        BonusForDefenceSO bonusForDefenceSO = ScriptableObject.CreateInstance<BonusForDefenceSO>();
+        BonusOtherSO bonusOtherSO = ScriptableObject.CreateInstance<BonusOtherSO>();
+        string[] allLines = File.ReadAllLines(Application.dataPath + BonusesCsvPath);
+        //AssetDatabase.CreateAsset(bonusForAttackSO, $"{bonusesPath}/BonusForAttackSO.asset");
+        foreach (string line in allLines)
+        {
+            string[] splitData = line.Split(";");
+            if (splitData[0].Length > 0)
+            {
+                GiveBonuses(bonusForAttackSO, splitData, 0);
 
-    //        }
-    //        if (splitData[8].Length > 0)
-    //        {
-    //            GiveBonuses(bonusOtherSO, splitData, 8);
+            }
+            if (splitData[4].Length > 0)
+            {
+                GiveBonuses(bonusForDefenceSO, splitData, 4);
 
-    //        }
+            }
+            if (splitData[8].Length > 0)
+            {
+                GiveBonuses(bonusOtherSO, splitData, 8);
 
-    //    }
-    //    AssetDatabase.CreateAsset(bonusForAttackSO, $"{bonusesPath}/BonusForAttackSO.asset");
-    //    AssetDatabase.CreateAsset(bonusForDefenceSO, $"{bonusesPath}/BonusForDefenceSO.asset");
-    //    AssetDatabase.CreateAsset(bonusOtherSO, $"{bonusesPath}/BonusOtherSO.asset");
-    //    AssetDatabase.SaveAssets();
-    //}
-    //public static BonusSO GiveBonuses( BonusSO bonusSO, string[] splitData,int i)
-    //{
-    //    Bonus bonus = new Bonus();
-    //    bonus.bonusName = splitData[i+2];
-    //    Debug.Log(splitData[i + 3]+ splitData[i]);
-    //    Debug.Log(splitData[i].Length);
-    //    bonus.maxBonusRate = float.Parse(splitData[i+3]);
-    //    bonus.bonusRates = BonusRatesCalculate(float.Parse(splitData[i+3]));
-    //    bonusSO.AddObject(bonus);
-    //    return null; 
-    //}
+            }
 
-    //public static List<float> BonusRatesCalculate(float maxBonusRates)
-    //{
-    //    if (maxBonusRates == 12) return new List<float> { 2, 4, 6, 8, 10, 12 };
-    //    else if (maxBonusRates == 15) return new List<float> { 5, 8, 10, 12, 15 };
-    //    else if (maxBonusRates == 10) return new List<float> { 2, 5, 8, 10 };
-    //    else if (maxBonusRates == 2000) return new List<float> { 500, 1000, 1500, 2000 };
-    //    else if (maxBonusRates == 8) return new List<float> { 2, 3, 5, 8 };
-    //    else if (maxBonusRates == 20) return new List<float> { 5, 10, 15, 20 };
-    //    else if (maxBonusRates == 50) return new List<float> { 15, 35, 50 };
-    //    else if (maxBonusRates == 5) return new List<float> { 1, 3, 5 };
-    //    else if (maxBonusRates == 1) return new List<float> { 1 };
-    //    else if (maxBonusRates == 30) return new List<float> { 8, 16, 30 };
-    //    else if (maxBonusRates == 80) return new List<float> { 25, 50, 80 };
-    //    else return new List<float> { maxBonusRates/5,maxBonusRates/2,maxBonusRates};
+        }
+        AssetDatabase.CreateAsset(bonusForAttackSO, $"{bonusesPath}/BonusForAttackSO.asset");
+        AssetDatabase.CreateAsset(bonusForDefenceSO, $"{bonusesPath}/BonusForDefenceSO.asset");
+        AssetDatabase.CreateAsset(bonusOtherSO, $"{bonusesPath}/BonusOtherSO.asset");
+        AssetDatabase.SaveAssets();
+    }
+    public static BonusSO GiveBonuses(BonusSO bonusSO, string[] splitData, int i)
+    {
+        Bonus bonus = new Bonus();
+        bonus.bonusName = splitData[i + 2];
+        Debug.Log(splitData[i + 3] + splitData[i]);
+        Debug.Log(splitData[i].Length);
+        bonus.maxBonusRate = float.Parse(splitData[i + 3]);
+        bonus.bonusRates = BonusRatesCalculate(float.Parse(splitData[i + 3]));
+        bonusSO.AddObject(bonus);
+        return null;
+    }
 
-    //}
+    public static List<float> BonusRatesCalculate(float maxBonusRates)
+    {
+        if (maxBonusRates == 12) return new List<float> { 2, 4, 6, 8, 10, 12 };
+        else if (maxBonusRates == 15) return new List<float> { 5, 8, 10, 12, 15 };
+        else if (maxBonusRates == 10) return new List<float> { 2, 5, 8, 10 };
+        else if (maxBonusRates == 2000) return new List<float> { 500, 1000, 1500, 2000 };
+        else if (maxBonusRates == 8) return new List<float> { 2, 3, 5, 8 };
+        else if (maxBonusRates == 20) return new List<float> { 5, 10, 15, 20 };
+        else if (maxBonusRates == 50) return new List<float> { 15, 35, 50 };
+        else if (maxBonusRates == 5) return new List<float> { 1, 3, 5 };
+        else if (maxBonusRates == 1) return new List<float> { 1 };
+        else if (maxBonusRates == 30) return new List<float> { 8, 16, 30 };
+        else if (maxBonusRates == 80) return new List<float> { 25, 50, 80 };
+        else return new List<float> { maxBonusRates / 5, maxBonusRates / 2, maxBonusRates };
+
+    }*/
     /*[MenuItem("a/deneme")]
     public static void deneme()
     {
@@ -370,62 +366,99 @@ public class CsvToSo
     [MenuItem("tools/createSword")]
     public static void CsvToSword()
     {
-        CreateSword("sword", SwordCsvPath);
+        CreateSword("Sword", SwordCsvPath);
     }
     [MenuItem("tools/createTwoHanded")]
     public static void CsvToTwoHanded()
     {
         CreateSword("Two Handed", TwoHanded);
     }
+    [MenuItem("tools/CreateWeapon/Blade")]
+    public static void CsvToBlade()
+    {
+
+        CreateSword("Blade", Blade);
+    }
     public static void CreateSword(string swordType,string swordPath)
     {
+        
+        string BonusesPath = "Assets/ScriptableObjects/Bonuses";
+        string[] bonusGuids = AssetDatabase.FindAssets("t:BonusSO", new[] { BonusesPath });
+        List<BonusSO> bonusSO = new List<BonusSO>();
+        List<string> bonusesName = new List<string>();
+        foreach (string bonusGuid in bonusGuids)
+        {
+            string bonusPaths = AssetDatabase.GUIDToAssetPath(bonusGuid);
+            BonusSO addedableBonusSO = AssetDatabase.LoadAssetAtPath<BonusSO>(bonusPaths);
+            bonusSO.Add(addedableBonusSO);
+            foreach (var bonus in addedableBonusSO.bonuses)
+            {
+                bonusesName.Add(bonus.bonusName);
+            }
+            
+
+        }
         bool upgradeUPItem = false;
+        bool haveSwordBonus = false;
         string[] allLines = File.ReadAllLines(Application.dataPath + swordPath);
         SwordSO swordSO = null;
         List<float> upgradeMoney = new List<float>();
         List<int> upgradeItemRequire = new List<int>();
         List<int> upgradeLevel = new List<int>();
+        string path = $"Assets/ScriptableObjects/Items/{swordType}";
+        string statPath = "Assets/ScriptableObjects/Stat/StatSo.asset"; // Doğru yolu belirtin.
+        StatSo bonusCantFind = AssetDatabase.LoadAssetAtPath<StatSo>(statPath);
+        
+         
+        if (!Directory.Exists(path))
+        {
+            Directory.CreateDirectory(path);
+        }
+        
         foreach (string line in allLines)
         {
             string[] splitData = line.Split(';');
-            Debug.Log(line);
+            Debug.Log(splitData[0]);
             if (splitData[0].Contains("Level") && splitData[0].Contains(swordType))
             {
-                Debug.Log("geldi");
+               
                 if (swordSO != null)
                 {
 
-                    AssetDatabase.CreateAsset(swordSO, $"Assets/ScriptableObjects/Items/{swordType}/{swordSO.swordName}.asset");
+                    AssetDatabase.CreateAsset(swordSO, $"{path}/{swordSO.swordName}.asset");
                     upgradeMoney.Clear();
                     upgradeItemRequire.Clear();
                     upgradeLevel.Clear();
                 }
+                
                 swordSO = ScriptableObject.CreateInstance<SwordSO>();
                 swordSO.level = int.Parse((splitData[0].Replace("Level ", "").Replace(" "+swordType, "").Split("-"))[0]);
+                
+                swordSO.SetSwordType(swordType);
             }
             else if (splitData[1].Equals("Level :"))
             {
                 upgradeLevel.Clear();
-                Debug.Log(splitData[2]);
+                
 
-                Debug.Log(splitData.Length);
                 for (int j = 1; j < splitData.Length - 2; j++)
                 {
                     if (splitData[j + 2].Length == 0)
                     {
                         break;
                     }
+                    swordSO.levelWithPlus=int.Parse(splitData[j + 2].Replace(".", ""));
                     upgradeLevel.Add(int.Parse(splitData[j + 2].Replace(".", "")));
-                    Debug.Log(upgradeLevel[j - 1]);
+                    
 
                 }
             }
             else if (splitData[1].Contains("Attack Value") && !splitData[1].Contains("Magical"))
             {
+                Debug.Log(splitData[0]);
                 swordSO.swordName = splitData[0].Replace(".png", "");
                 for (int j = 0; j < splitData.Length - 2; j++)
                 {
-                    Debug.Log(splitData[j + 2]);
                     if (splitData[j + 2].Length == 0)
                     {
                         break;
@@ -443,9 +476,7 @@ public class CsvToSo
                     {
                         break;
                     }
-                    Debug.Log(splitData[j + 2]);
                     string[] floats = splitData[j + 2].Split("-");
-                    Debug.Log(new Vector2(float.Parse(floats[0]), float.Parse(floats[1])));
                     swordSO.minAndMaxMagicalAttackValue.Add(new Vector2(float.Parse(floats[0]), float.Parse(floats[1])));
                 }
             }
@@ -459,25 +490,49 @@ public class CsvToSo
                     }
                     float attackSpeed = float.Parse(splitData[j + 2].Replace("%", ""));
 
-                    Debug.Log(attackSpeed);
                     swordSO.attackSpeed.Add(attackSpeed);
                 }
+                haveSwordBonus = true;
             }
-            else if (splitData[1].Contains("Upgrade Yang"))
+            else if( haveSwordBonus&& !splitData[1].Contains("Upgrade Yang"))
             {
-                upgradeMoney.Clear();
-                Debug.Log(splitData[2]);
-
-                
-                for (int j = 1; j < splitData.Length - 2; j++)
+                List<float> bonusValues = new List<float>();
+                for (int j = 0; j < splitData.Length - 2; j++)
                 {
-                    Debug.Log(splitData[j + 2]);
                     if (splitData[j + 2].Length == 0)
                     {
                         break;
                     }
+                    float bonusValue = float.Parse(splitData[j + 2].Replace("%", ""));
+                    //new string(splitData[j + 2].Where(char.IsDigit).ToArray());
+                    bonusValues.Add(bonusValue);    
+                    
+                }
+                swordSO.swordBonuses.Add((splitData[1], bonusValues));
+
+                if (!bonusCantFind.GetStats().Contains(splitData[1].Replace("�", "")))
+                {
+                    StatClass stat = new StatClass();
+                    stat.statName = splitData[1].Replace("�", "");
+                    stat.statValue = 0f;
+                    bonusCantFind.AddObject(stat);
+                }
+            }
+            else if (splitData[1].Contains("Upgrade Yang"))
+            {
+                haveSwordBonus = false;
+                upgradeMoney.Clear();
+
+                
+                for (int j = 1; j < splitData.Length - 2; j++)
+                {
+                    if (splitData[j + 2].Length == 0)
+                    {
+                        break;
+                    }
+                    swordSO.AddObject((splitData[j + 2].Contains("%")) ? float.Parse(splitData[j + 2].Replace(".", "").Replace("%", "")) / 100 : float.Parse(splitData[j + 2].Replace(".", "")));
                     upgradeMoney.Add((splitData[j + 2].Contains("%"))?float.Parse(splitData[j + 2].Replace(".", "").Replace("%",""))/100 : float.Parse(splitData[j + 2].Replace(".", "")));
-                    Debug.Log(upgradeMoney[j - 1]);
+                    
 
                 }
             }
@@ -488,12 +543,12 @@ public class CsvToSo
 
                 for (int j = 1; j < splitData.Length - 2; j++)
                 {
-                    if (splitData[j + 2].Length == 0)
+                    if (splitData[j + 2].Length != 0)
                     {
-                        break;
+                        upgradeItemRequire.Add(int.Parse(splitData[j + 2].Replace("-", "0").Replace("x", "")));
                     }
-                    upgradeItemRequire.Add(int.Parse(splitData[j + 2].Replace("-", "0").Replace("x", "")));
-                    Debug.Log(upgradeItemRequire[j - 1]);
+                    
+                    
 
                 }
                 upgradeUPItem = true;
@@ -514,32 +569,38 @@ public class CsvToSo
                 {
                     bool conditionMet = false;
 
-                    if (splitData[j + 2].Length == 0)
+                    if (splitData[j + 2].Length != 0)
                     {
-                        break;
-                    }
-                    Debug.Log(splitData[j + 2].Replace("-", "0").Replace("x", ""));
-                    foreach (UpgradeItemsSO upgradeItemSO in upgradeItemSOs)
-                    {
-                        if (splitData[j + 2].Replace(".png", "") == upgradeItemSO.name)
+                        foreach (UpgradeItemsSO upgradeItemSO in upgradeItemSOs)
                         {
-                            conditionMet = true;
-                            Debug.Log("geldi");
-                            swordSO.Requirement.Add((upgradeItemSO, upgradeItemRequire[j - 1], upgradeMoney[j - 1], (upgradeLevel == null) ? upgradeLevel[j-1]:swordSO.level));
-                            break;
+                            if (splitData[j + 2].Replace(".png", "") == upgradeItemSO.name)
+                            {
+                                conditionMet = true;
+                                //swordSO.AddObject(new RequirementClass(upgradeItemSO, upgradeItemRequire[j - 1], upgradeMoney[j - 1], (upgradeLevel == null) ? upgradeLevel[j-1]:swordSO.level));
+                                UpgradeItem upgradeItem = new UpgradeItem();
+                                upgradeItem.upgradeItemName = upgradeItemSO;
+                                upgradeItem.howMany = upgradeItemRequire[j - 1];
+                                swordSO.AddObject(upgradeItem, j - 1);
+                                break;
+                            }
+                            if (conditionMet)
+                            {
+                                Debug.Log("buldu ama devam etti");
+                            }
                         }
-                        if (conditionMet)
+                        if (!conditionMet)
                         {
-                            Debug.Log("buldu ama devam etti");
+                            UpgradeItemsSO upgradesItemSO = ScriptableObject.CreateInstance<UpgradeItemsSO>();
+                            upgradesItemSO.upgradeName = splitData[j + 2].Replace(".png", "");
+                            AssetDatabase.CreateAsset(upgradesItemSO, $"Assets/ScriptableObjects/UpgradeItem/{upgradesItemSO.upgradeName}.asset");
+                            
                         }
                     }
+                    
                     /* upgradeItemRequire.Add(int.Parse(splitData[j + 2].Replace("-", "0").Replace("x", "")));
                      //swordSO.Requirement.Add()
                      Debug.Log(upgradeItemRequire[j - 1]);*/
-                    if (!conditionMet)
-                    {
-                        throw new System.Exception($"Hiçbir eşleşme bulunamadı! splitData: {splitData[j + 2]}");
-                    }
+                   
 
 
 

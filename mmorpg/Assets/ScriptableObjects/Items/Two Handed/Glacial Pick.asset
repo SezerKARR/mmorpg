@@ -12,6 +12,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: Glacial Pick
   m_EditorClassIdentifier: 
+  levelWithPlus: 0
+  Requirements:
+  - upgradeItems: []
+    upgradeMoney: 1200
+  - upgradeItems: []
+    upgradeMoney: 2500
+  - upgradeItems: []
+    upgradeMoney: 5000
+  - upgradeItems: []
+    upgradeMoney: 10000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 7a298623f60ee4d43baa10dd0a5c86cb, type: 2}
+      howMany: 2
+    upgradeMoney: 20000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 42921973942d73a46a653d605f13a444, type: 2}
+      howMany: 2
+    upgradeMoney: 30000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 687de7ad5a3d61546bf1cb8fc34b86d1, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: 2ff81923e87756b4d8966800a56d4209, type: 2}
+      howMany: 1
+    upgradeMoney: 45000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 13116d1125a01e54cac9866b6c941195, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: 3e872b5506bd91e43b541929ba7f27f8, type: 2}
+      howMany: 1
+    upgradeMoney: 90000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: a041469c6b4925f43a87c033afa094e4, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: b527f055fe6af974bb9e7ea059877de1, type: 2}
+      howMany: 1
+    upgradeMoney: 150000
   Image: {fileID: 0}
   level: 45
   minAndMaxAttackValue:
@@ -37,39 +73,9 @@ MonoBehaviour:
   - 30
   - 30
   - 30
-  typeWeapon: 0
-  canUseCharacters: []
+  typeWeapon: 1
+  canUseCharacters: 00000000
   sockets: 3
-  maxAttackRange: 0
   bonuses: []
-  swordBonuses: []
   swordName: Glacial Pick
   price: 0
-  WithLevel:
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0

@@ -12,6 +12,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: Silver Sword
   m_EditorClassIdentifier: 
+  levelWithPlus: 0
+  Requirements:
+  - upgradeItems: []
+    upgradeMoney: 1000
+  - upgradeItems: []
+    upgradeMoney: 2000
+  - upgradeItems: []
+    upgradeMoney: 4000
+  - upgradeItems: []
+    upgradeMoney: 8000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 3457b4a42f55a1845882691c6bb14b7c, type: 2}
+      howMany: 2
+    upgradeMoney: 13000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 321cd403006f5554386069548fd589f1, type: 2}
+      howMany: 2
+    upgradeMoney: 20000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 1128d7430be684947b2daf7e6309aa72, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: bed618e825224204d8e9054505ca4b86, type: 2}
+      howMany: 1
+    upgradeMoney: 40000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 7e04cd2dff757a94186455fc2dabaa50, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: d6fd3e7c7ce66f142be3013f1eb7c234, type: 2}
+      howMany: 1
+    upgradeMoney: 70000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: f01f51b15b444f542a87e8fca936a284, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: d6fd3e7c7ce66f142be3013f1eb7c234, type: 2}
+      howMany: 1
+    upgradeMoney: 120000
   Image: {fileID: 0}
   level: 25
   minAndMaxAttackValue:
@@ -48,38 +84,8 @@ MonoBehaviour:
   - 30
   - 30
   typeWeapon: 0
-  canUseCharacters: []
+  canUseCharacters: 010000000000000002000000
   sockets: 2
-  maxAttackRange: 0
   bonuses: []
-  swordBonuses: []
   swordName: Silver Sword
   price: 0
-  WithLevel:
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0

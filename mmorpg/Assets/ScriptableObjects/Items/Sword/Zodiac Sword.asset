@@ -12,6 +12,60 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: Zodiac Sword
   m_EditorClassIdentifier: 
+  levelWithPlus: 0
+  Requirements:
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 3e4508791cac136419a25df877db101a, type: 2}
+      howMany: 1
+    upgradeMoney: 10000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 3e4508791cac136419a25df877db101a, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: 6a2d14dfd7e96c44a800be97c26382d2, type: 2}
+      howMany: 1
+    upgradeMoney: 20000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 3e4508791cac136419a25df877db101a, type: 2}
+      howMany: 4
+    - upgradeItemName: {fileID: 11400000, guid: 6a2d14dfd7e96c44a800be97c26382d2, type: 2}
+      howMany: 1
+    upgradeMoney: 40000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 3e4508791cac136419a25df877db101a, type: 2}
+      howMany: 8
+    - upgradeItemName: {fileID: 11400000, guid: 6a2d14dfd7e96c44a800be97c26382d2, type: 2}
+      howMany: 2
+    upgradeMoney: 80000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 3e4508791cac136419a25df877db101a, type: 2}
+      howMany: 16
+    - upgradeItemName: {fileID: 11400000, guid: 6a2d14dfd7e96c44a800be97c26382d2, type: 2}
+      howMany: 2
+    upgradeMoney: 160000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 3e4508791cac136419a25df877db101a, type: 2}
+      howMany: 32
+    - upgradeItemName: {fileID: 11400000, guid: 6a2d14dfd7e96c44a800be97c26382d2, type: 2}
+      howMany: 3
+    upgradeMoney: 320000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 3e4508791cac136419a25df877db101a, type: 2}
+      howMany: 64
+    - upgradeItemName: {fileID: 11400000, guid: 6c17fe9d10f45b547b6f3acd979f439a, type: 2}
+      howMany: 1
+    upgradeMoney: 640000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 3e4508791cac136419a25df877db101a, type: 2}
+      howMany: 128
+    - upgradeItemName: {fileID: 11400000, guid: 3bf62d1ab4c6d19468f1a85f779b9fd6, type: 2}
+      howMany: 1
+    upgradeMoney: 1280000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 3e4508791cac136419a25df877db101a, type: 2}
+      howMany: 200
+    - upgradeItemName: {fileID: 11400000, guid: 127f243f2dd69f440b9094d27a7a74d5, type: 2}
+      howMany: 1
+    upgradeMoney: 2560000
   Image: {fileID: 0}
   level: 105
   minAndMaxAttackValue:
@@ -38,38 +92,8 @@ MonoBehaviour:
   - 26
   - 27
   typeWeapon: 0
-  canUseCharacters: []
+  canUseCharacters: 010000000000000002000000
   sockets: 3
-  maxAttackRange: 0
   bonuses: []
-  swordBonuses: []
   swordName: Zodiac Sword
   price: 0
-  WithLevel:
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0

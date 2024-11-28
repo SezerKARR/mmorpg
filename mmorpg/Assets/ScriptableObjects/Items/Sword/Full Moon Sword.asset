@@ -12,6 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: Full Moon Sword
   m_EditorClassIdentifier: 
+  levelWithPlus: 0
+  Requirements:
+  - upgradeItems: []
+    upgradeMoney: 3000
+  - upgradeItems: []
+    upgradeMoney: 6000
+  - upgradeItems: []
+    upgradeMoney: 12000
+  - upgradeItems: []
+    upgradeMoney: 25000
+  - upgradeItems: []
+    upgradeMoney: 40000
+  - upgradeItems: []
+    upgradeMoney: 60000
+  - upgradeItems: []
+    upgradeMoney: 90000
+  - upgradeItems: []
+    upgradeMoney: 120000
+  - upgradeItems: []
+    upgradeMoney: 150000
   Image: {fileID: 0}
   level: 30
   minAndMaxAttackValue:
@@ -48,38 +68,8 @@ MonoBehaviour:
   - 15
   - 15
   typeWeapon: 0
-  canUseCharacters: []
+  canUseCharacters: 010000000000000002000000
   sockets: 2
-  maxAttackRange: 0
   bonuses: []
-  swordBonuses: []
   swordName: Full Moon Sword
   price: 0
-  WithLevel:
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
