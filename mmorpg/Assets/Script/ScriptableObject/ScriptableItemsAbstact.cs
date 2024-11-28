@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 public enum Character
@@ -23,9 +24,13 @@ public class RequirementClass
     
 }
 
-public  class ScriptableItemsAbstact : ScriptableObject
+public abstract  class ScriptableItemsAbstact : ScriptableObject
 {
+    public List<string> bonuses;
+    public List<(string bonusName, List<float> bonusValue)> ItemBonuses = new List<(string bonusName, List<float> bonusValue)>();
+    public string ItemName;
     public int levelWithPlus;
+    public int currentPlus = 0;
     /*public enum canUseCharacter
     {
         Warrior,Shaman,Sura,Ninja
@@ -34,4 +39,5 @@ public  class ScriptableItemsAbstact : ScriptableObject
     public RequirementClass[] Requirements =new RequirementClass[0];
     public Sprite Image;
     public int level;
+
 }

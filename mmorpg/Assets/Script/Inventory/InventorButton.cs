@@ -48,6 +48,6 @@ public class InventorButton : MonoBehaviour,IPointerEnterHandler,IPointerExitHan
     public void ScreenerSetActive()
     {
         ScriptableObjectScreener.gameObject.SetActive(true);
-        ScriptableObjectScreener.GetComponent<UpgradeItemScreener>().Screen(scriptableObject);
+        //ScriptableObjectScreener.GetComponent<UpgradeItemScreener>().Screen(scriptableObject);
     }
 }

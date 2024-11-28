@@ -21,11 +21,12 @@ public class InventoryPage : MonoBehaviour
     private static int y;
     private void Awake()
     {
+        Instance = this;
         buttonCount = inventoryButton.Length;
         inventoryColumnCount = GetComponent<GridLayoutGroup>().constraintCount;
         inventoryRowCount = buttonCount / inventoryColumnCount;
         print((buttonCount, inventoryColumnCount, inventoryRowCount));
-        Instance = this;
+        
     }
     private void OnMouseDown()
     {

@@ -472,7 +472,7 @@ public class CsvToSo
                 if (swordSO != null)
                 {
                     
-                    AssetDatabase.CreateAsset(swordSO, $"{path}/{swordSO.swordName}.asset");
+                    AssetDatabase.CreateAsset(swordSO, $"{path}/{swordSO.ItemName}.asset");
                     
                     upgradeMoney.Clear();
                     upgradeItemRequire.Clear();
@@ -503,7 +503,7 @@ public class CsvToSo
             }
             else if (splitData[1].Contains("BoardNewM.png"))
             {
-                swordSO.swordName = splitData[0].Replace(".png", "");
+                swordSO.ItemName = splitData[0].Replace(".png", "");
                 
             }
             else if (splitData[1].Contains("Attack Value") && !splitData[1].Contains("Magical"))
@@ -561,7 +561,7 @@ public class CsvToSo
                     bonusValues.Add(bonusValue);    
                     
                 }
-                swordSO.swordBonuses.Add((splitData[1], bonusValues));
+                swordSO.ItemBonuses.Add((splitData[1], bonusValues));
 
                 if (!bonusCantFind.GetStats().Contains(splitData[1].Replace("�", "")))
                 {
@@ -689,7 +689,7 @@ public class CsvToSo
    
     public static void SetSwordType(string swordType,SwordSO swordSO)
     {
-        if (swordType.Equals("Swords"))
+        if (swordType.Equals("Sword"))
         {
             swordSO.typeWeapon = TypeWeapon.Swords;
             SetCanUseCharacter(Character.Sura,swordSO);

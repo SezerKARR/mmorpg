@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -44,7 +43,6 @@ public class Player : MonoBehaviour
     public IState currentState;
     private void Awake()
     {
-        
             playerInput = new PlayerInput();
             playerInput.Player.Enable();
             _mainCamera = Camera.main;
@@ -60,6 +58,98 @@ public class Player : MonoBehaviour
 
     }
 
+    private void Update()
+    {
+       
+        if (Input.GetMouseButtonDown(0))
+        {
+            // Fare pozisyonundan bir ray oluþtur
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+
+            // Eðer bir nesneye týklandýysa
+            if (hit.collider != null)
+            {
+                if (hit.collider.tag == "Enemy")
+                {
+                    ChangeSelectedObjectOutline(hit.collider.gameObject, outlineRed);
+                    /*if (selectedObject != null)
+                    {
+                        //selectedObject.GetComponent<IOutlineAble>().Outline(Color.gray);
+                        selectedObject.GetComponent<IOutlineAble>().Outline(normalMaterial);
+
+                    }
+                    selectedObject = hit.collider.gameObject;
+                    // Týklanan nesneyi al
+
+                    // Kýrmýzý çerçeveyi çiz
+
+                    //selectedObject.GetComponent<IOutlineAble>().Outline(Color.red);
+                    normalMaterial=selectedObject.GetComponent<SpriteRenderer>().material;
+                    selectedObject.GetComponent<IOutlineAble>().Outline(outlineRed);
+
+                    //print("Seçilen nesne: " + selectedObject.name);*/
+
+                }
+                else if (hit.collider.tag == "Npc")
+                {
+                    ChangeSelectedObjectOutline(hit.collider.gameObject, outlineGreen);
+                    /*if (selectedObject != null)
+                    {
+                        //selectedObject.GetComponent<IOutlineAble>().Outline(Color.gray);
+                        selectedObject.GetComponent<IOutlineAble>().Outline(normalMaterial);
+
+                    }
+                    selectedObject = hit.collider.gameObject;
+                    // Týklanan nesneyi al
+
+                    // Kýrmýzý çerçeveyi çiz
+
+                    //selectedObject.GetComponent<IOutlineAble>().Outline(Color.red);
+                    normalMaterial = selectedObject.GetComponent<SpriteRenderer>().material;
+                    selectedObject.GetComponent<IOutlineAble>().Outline(outlineGreen);
+
+                    //print("Seçilen nesne: " + selectedObject.name);
+                }*/
+                }
+            }
+
+        }
+        if (currentState != null)
+        {
+            currentState.UpdateState(this);
+        }
+
+        try
+        {
+            //todo: burasý deðiþecek playerInput.Player.move.performed+=ctx=>(ctx.readvalue<vector2>
+            inputClickFloat = playerInput.Player.ClickLeft.ReadValue<float>();
+            inputWalkVector = playerInput.Player.Move.ReadValue<Vector2>();
+            inputShootFloat = playerInput.Player.Shoot.ReadValue<float>();
+            inputPickUpFromGroundFloat = playerInput.Player.PickUpFromGround.WasPressedThisFrame();
+            //shoot=playerInput.Player.Shoot.ReadValue<Butt
+            //shoot = playerInput.Player.Shoot.ReadValue<Button>();
+
+        }
+        catch
+        {
+            playerInput = new PlayerInput();
+            playerInput.Player.Enable();
+        }
+        if (inputPickUpFromGroundFloat)
+        {
+            ScriptableObject scriptableObject = InteractionDetector.PickUp();
+            if (scriptableObject != null)
+            {
+                InventoryPage.Instance.add(scriptableObject);
+            }
+
+
+        }
+
+
+
+    }
     public void GenerateOutline(PolygonCollider2D polygonCollider2D)
     {
 
@@ -132,97 +222,6 @@ public class Player : MonoBehaviour
         selectedObject.GetComponent<IOutlineAble>().Outline(material);
 
         //print("Seçilen nesne: " + selectedObject.name);
-    }
-    private void Update()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            // Fare pozisyonundan bir ray oluþtur
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
-
-            // Eðer bir nesneye týklandýysa
-            if(hit.collider != null)
-            {
-                if (hit.collider.tag == "Enemy")
-                {
-                    ChangeSelectedObjectOutline(hit.collider.gameObject, outlineRed);
-                    /*if (selectedObject != null)
-                    {
-                        //selectedObject.GetComponent<IOutlineAble>().Outline(Color.gray);
-                        selectedObject.GetComponent<IOutlineAble>().Outline(normalMaterial);
-
-                    }
-                    selectedObject = hit.collider.gameObject;
-                    // Týklanan nesneyi al
-
-                    // Kýrmýzý çerçeveyi çiz
-
-                    //selectedObject.GetComponent<IOutlineAble>().Outline(Color.red);
-                    normalMaterial=selectedObject.GetComponent<SpriteRenderer>().material;
-                    selectedObject.GetComponent<IOutlineAble>().Outline(outlineRed);
-
-                    //print("Seçilen nesne: " + selectedObject.name);*/
-
-                }
-                else if (hit.collider.tag == "Npc")
-                {
-                    ChangeSelectedObjectOutline(hit.collider.gameObject, outlineGreen);
-                    /*if (selectedObject != null)
-                    {
-                        //selectedObject.GetComponent<IOutlineAble>().Outline(Color.gray);
-                        selectedObject.GetComponent<IOutlineAble>().Outline(normalMaterial);
-
-                    }
-                    selectedObject = hit.collider.gameObject;
-                    // Týklanan nesneyi al
-
-                    // Kýrmýzý çerçeveyi çiz
-
-                    //selectedObject.GetComponent<IOutlineAble>().Outline(Color.red);
-                    normalMaterial = selectedObject.GetComponent<SpriteRenderer>().material;
-                    selectedObject.GetComponent<IOutlineAble>().Outline(outlineGreen);
-
-                    //print("Seçilen nesne: " + selectedObject.name);
-                }*/
-                }
-            }
-            
-        }
-        if (currentState != null)
-        {
-            currentState.UpdateState(this);
-        }
-
-        try
-        {
-            //todo: burasý deðiþecek playerInput.Player.move.performed+=ctx=>(ctx.readvalue<vector2>
-            inputClickFloat = playerInput.Player.ClickLeft.ReadValue<float>();
-            inputWalkVector = playerInput.Player.Move.ReadValue<Vector2>();
-            inputShootFloat = playerInput.Player.Shoot.ReadValue<float>();
-            inputPickUpFromGroundFloat= playerInput.Player.PickUpFromGround.WasPressedThisFrame();
-            //shoot=playerInput.Player.Shoot.ReadValue<Butt
-            //shoot = playerInput.Player.Shoot.ReadValue<Button>();
-            
-        }
-        catch
-        {
-            playerInput = new PlayerInput();
-            playerInput.Player.Enable();
-        }
-        if (inputPickUpFromGroundFloat)
-        {
-            ScriptableObject scriptableObject = InteractionDetector.PickUp();
-            if (scriptableObject != null)
-            {
-                InventoryPage.Instance.add(scriptableObject);
-            }
-            
-            
-        }
-        
-        
-
     }
    
     public void ChangeState(IState newState)

@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: Orchid Sword
   m_EditorClassIdentifier: 
+  bonuses: []
+  ItemName: Orchid Sword
   levelWithPlus: 0
-  canUseCharacters: 
+  currentPlus: 0
+  canUseCharacters: 010000000000000002000000
   Requirements:
   - upgradeItems: []
     upgradeMoney: 1000
@@ -86,6 +89,4 @@ MonoBehaviour:
   - 27
   typeWeapon: 0
   sockets: 2
-  bonuses: []
-  swordName: Orchid Sword
   price: 0

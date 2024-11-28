@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: Zodiac Sword
   m_EditorClassIdentifier: 
+  bonuses: []
+  ItemName: Zodiac Sword
   levelWithPlus: 0
-  canUseCharacters: 
+  currentPlus: 0
+  canUseCharacters: 010000000000000002000000
   Requirements:
   - upgradeItems:
     - upgradeItemName: {fileID: 11400000, guid: 3e4508791cac136419a25df877db101a, type: 2}
@@ -94,6 +97,4 @@ MonoBehaviour:
   - 27
   typeWeapon: 0
   sockets: 3
-  bonuses: []
-  swordName: Zodiac Sword
   price: 0

@@ -1,71 +1,84 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 
-public class TooltipManager : MonoBehaviour, IScreenAble
+public class TooltipManager : MonoBehaviour
 {
     public static TooltipManager instance;
-    public GameObject tooltip;
-    public TextMeshProUGUI swordNameText;
-    public TextMeshProUGUI attackValueText;
-    public TextMeshProUGUI magicalValueText;
-    public TextMeshProUGUI attackSpeedText;
-    public TextMeshProUGUI levelText;
-    public TextMeshProUGUI[] bonusesText;
-    public TextMeshProUGUI wearAbleText;
-    public ScriptableObject sword;
+    public ToolTip tooltip;
+    
+    public ScriptableObject swords;
     private void Awake()
     {
         instance = this;
     }
     private void Start()
     {
-        
-        screenUp(sword);   
+        Debug.Log(tooltip.GameObject().activeSelf);
+              
     }
-    public void screenUp(ScriptableObject scriptableObject)
+    private void Update() {
+        if (UIManager.Instance.GetUIElementUnderPointer() != null&&tooltip.GameObject().activeSelf==false)
+        {
+            if (UIManager.Instance.GetUIElementUnderPointer().GetComponent<IWiewable>() != null)
+            {
+                
+                Screen(swords);
+            }
+        }
+    }
+
+    /*public void screen(ScriptableObject scriptableObject)
     {
-        tooltip.SetActive(true);
+        tooltip.enabled = true;
         if (scriptableObject is UpgradeItemsSO sword)
         { 
-            swordNameText.text = sword.name;
-            attackValueText.text = sword.info;
-            swordNameText.enabled = true;
-            attackValueText.enabled = true;
+            tooltip.swordNameText.text = sword.name;
+            tooltip.attackValueText.text = sword.info;
+            tooltip.swordNameText.enabled = true;
+            tooltip.attackValueText.enabled = true;
         }
-        this.gameObject.SetActive(true);
-    }
+        
+    }*/
     public void Screen(ScriptableObject scriptableObject)
     {
+        tooltip.GameObject().SetActive(true);
         if(scriptableObject is SwordSO sword)
         {
-            swordNameText.text = sword.name;
-            attackValueText.text = ("Attack Value " + sword.minAndMaxAttackValue.ToString());
-            magicalValueText.text = ("Magic Attack Value " + sword.minAndMaxMagicalAttackValue.ToString());
-            attackSpeedText.text = ("Attack Speed " + sword.attackSpeed.ToString());
-            levelText.text=("From level"+ sword.level.ToString());
-            foreach (var bonus in sword.bonuses)
+
+            Debug.Log(scriptableObject);
+            tooltip.swordNameText.text = sword.name;
+            tooltip.attackValueText.text = ("Attack Value " + sword.minAndMaxAttackValue[sword.currentPlus].ToString());
+            tooltip.magicalValueText.text = ("Magic Attack Value " + sword.minAndMaxMagicalAttackValue[sword.currentPlus].ToString());
+            tooltip.attackSpeedText.text = ("Attack Speed " + sword.attackSpeed[sword.currentPlus].ToString());
+            tooltip.levelText.text=("From level"+ sword.level.ToString());
+            /*foreach (var bonus in sword.bonuses)
             {
                 int i = 0;
                 if (bonus != null)
                 {
-                    bonusesText[i].text = bonus;
+                    tooltip.bonusesText[i].text = bonus;
                 }
                 else if (bonus != null) {
                     return;
                 }
+            }*/
+            string b = "";
+            foreach(Character character in sword.canUseCharacters)
+            {
+                b += character.ToString()+" ";
             }
-            wearAbleText.text = sword.canUseCharacters[0].ToString();
-
+            Debug.Log(b);
+            tooltip.wearAbleText.text = b;
         }
         
-        this.gameObject.SetActive(true);
     }
-    public void Hide()
+    private void Hide()
     {
-        this.gameObject.SetActive(false);
+        tooltip.GameObject().SetActive(false);
     }
 
     

@@ -4,7 +4,7 @@ using UnityEngine;
 [InitializeOnLoad]
 public class AutoLayoutSwitcher
 {
-    static AutoLayoutSwitcher()
+    /*static AutoLayoutSwitcher()
     {
         // Play mode'a geçildiðinde çalýþacak bir callback ekliyoruz
         EditorApplication.playModeStateChanged += SwitchLayoutOnPlayMode;
@@ -27,5 +27,5 @@ public class AutoLayoutSwitcher
             // Play Mode'dan çýkýldýðýnda, orijinal Layout'u tekrar seçebilirsiniz
             
         }
-    }
+    }*/
 }

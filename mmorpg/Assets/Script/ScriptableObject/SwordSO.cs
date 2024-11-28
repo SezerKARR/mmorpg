@@ -20,9 +20,9 @@ public class SwordSO : ScriptableItemsAbstact
     public TypeWeapon typeWeapon;
     
     public int sockets;
-    public List<string> bonuses;
-    public List<(string bonusName,List<float> bonusValue)> swordBonuses=new List<(string bonusName, List<float> bonusValue)>();
-    public string swordName;
-    public float price;
    
+    
+    public float price;
+    
+    
 }

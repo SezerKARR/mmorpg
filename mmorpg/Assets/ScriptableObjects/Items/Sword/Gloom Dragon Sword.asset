@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: Gloom Dragon Sword
   m_EditorClassIdentifier: 
+  bonuses: []
+  ItemName: Gloom Dragon Sword
   levelWithPlus: 0
-  canUseCharacters: 
+  currentPlus: 0
+  canUseCharacters: 010000000000000002000000
   Requirements:
   - upgradeItems:
     - upgradeItemName: {fileID: 11400000, guid: 7e43096a89ea1974784a8a1f70b9277e, type: 2}
@@ -152,6 +155,4 @@ MonoBehaviour:
   - 30
   typeWeapon: 0
   sockets: 3
-  bonuses: []
-  swordName: Gloom Dragon Sword
   price: 0
