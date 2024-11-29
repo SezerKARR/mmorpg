@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
+  m_Name: 25 Short Knife
+  m_EditorClassIdentifier: 
+  weightInInventory: 1
+  bonuses: []
+  ItemName: Short Knife
+  levelWithPlus: 0
+  currentPlus: 0
+  canUseCharacters: 02000000
+  Requirements:
+  - upgradeItems: []
+    upgradeMoney: 1000
+  - upgradeItems: []
+    upgradeMoney: 2000
+  - upgradeItems: []
+    upgradeMoney: 4000
+  - upgradeItems: []
+    upgradeMoney: 8000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 579ebc03d6085eb44a818a7f5634a33a, type: 2}
+      howMany: 1
+    upgradeMoney: 13000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 913d02aa1835c3e43b30c553dd23310f, type: 2}
+      howMany: 2
+    upgradeMoney: 20000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 24c71bb1e2cf50948b06e7331e6858b7, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: bed618e825224204d8e9054505ca4b86, type: 2}
+      howMany: 1
+    upgradeMoney: 40000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 2b2e08b89c6f78540b10ca3d5ff39039, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: d6fd3e7c7ce66f142be3013f1eb7c234, type: 2}
+      howMany: 1
+    upgradeMoney: 70000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 5e92908d81b42c046b1600d5b1ef9867, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: d6fd3e7c7ce66f142be3013f1eb7c234, type: 2}
+      howMany: 1
+    upgradeMoney: 120000
+  Image: {fileID: 0}
+  level: 25
+  minAndMaxAttackValue:
+  - {x: 28, y: 32}
+  - {x: 31, y: 35}
+  - {x: 34, y: 38}
+  - {x: 37, y: 41}
+  - {x: 40, y: 44}
+  - {x: 45, y: 49}
+  - {x: 51, y: 55}
+  - {x: 58, y: 62}
+  - {x: 66, y: 70}
+  - {x: 75, y: 79}
+  minAndMaxMagicalAttackValue: []
+  attackSpeed:
+  - 27
+  - 27
+  - 27
+  - 27
+  - 27
+  - 27
+  - 27
+  - 27
+  - 27
+  - 27
+  typeWeapon: 5
+  sockets: 2
+  price: 0

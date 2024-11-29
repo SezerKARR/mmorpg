@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
+  m_Name: 60 Half Moon Sword
+  m_EditorClassIdentifier: 
+  weightInInventory: 2
+  bonuses: []
+  ItemName: Half Moon Sword
+  levelWithPlus: 0
+  currentPlus: 0
+  canUseCharacters: 010000000000000002000000
+  Requirements:
+  - upgradeItems: []
+    upgradeMoney: 1200
+  - upgradeItems: []
+    upgradeMoney: 2500
+  - upgradeItems: []
+    upgradeMoney: 5000
+  - upgradeItems: []
+    upgradeMoney: 10000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 757136833b92e5042988fb14867f9499, type: 2}
+      howMany: 1
+    upgradeMoney: 20000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 02aae9da33fb39b4680495048e9c2a7f, type: 2}
+      howMany: 1
+    upgradeMoney: 30000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 57f3a460759598e488f7ea249cab97de, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: 2ff81923e87756b4d8966800a56d4209, type: 2}
+      howMany: 1
+    upgradeMoney: 45000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: f8479da07f9f35d4294cf469fdc025ff, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: 3e872b5506bd91e43b541929ba7f27f8, type: 2}
+      howMany: 1
+    upgradeMoney: 90000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: d7948492087a9b74590917a5d4ff5c96, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: b527f055fe6af974bb9e7ea059877de1, type: 2}
+      howMany: 1
+    upgradeMoney: 150000
+  Image: {fileID: 0}
+  level: 60
+  minAndMaxAttackValue:
+  - {x: 72, y: 108}
+  - {x: 77, y: 113}
+  - {x: 82, y: 118}
+  - {x: 87, y: 123}
+  - {x: 92, y: 128}
+  - {x: 99, y: 135}
+  - {x: 107, y: 143}
+  - {x: 116, y: 152}
+  - {x: 126, y: 162}
+  - {x: 137, y: 173}
+  minAndMaxMagicalAttackValue:
+  - {x: 74, y: 100}
+  - {x: 79, y: 105}
+  - {x: 84, y: 110}
+  - {x: 89, y: 115}
+  - {x: 94, y: 120}
+  - {x: 101, y: 127}
+  - {x: 109, y: 135}
+  - {x: 118, y: 144}
+  - {x: 128, y: 154}
+  - {x: 139, y: 165}
+  attackSpeed:
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  typeWeapon: 0
+  sockets: 3
+  price: 0

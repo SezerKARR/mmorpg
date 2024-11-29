@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
+using UnityEngine.UIElements;
 
 public class UIManager : MonoBehaviour
 {
@@ -33,8 +34,24 @@ public class UIManager : MonoBehaviour
 
         if (raycastResults.Count > 0)
         {
+            
             return raycastResults[0].gameObject;
         }
         return null;
+    }
+    public bool IsPointerOutsideUI(RectTransform uiPanel)
+    {
+        Vector2 mousePosition = Input.mousePosition;
+        Rect worldRect = RectTransformUtility.PixelAdjustRect(uiPanel, uiPanel.GetComponentInParent<Canvas>());
+
+        // Dünya uzayýnda kontrol
+        Vector3[] corners = new Vector3[4];
+        uiPanel.GetWorldCorners(corners);
+
+        Rect worldSpaceRect = new Rect(corners[0].x, corners[0].y,
+                                       corners[2].x - corners[0].x,
+                                       corners[2].y - corners[0].y);
+
+        return !worldSpaceRect.Contains(mousePosition);
     }
 }

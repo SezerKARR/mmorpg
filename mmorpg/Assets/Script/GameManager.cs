@@ -3,38 +3,38 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public  class GameManager : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public ExpPerLevelSO[] expPer;
-    [SerializeField]
-    static public ExpPerLevelSO[] expPerLevelSOs;
+    public  ExpPerLevelSO expPer;
+    public static GameManager instance;
     private void Awake()
     {
-        expPerLevelSOs = expPer;
+        instance = this;
     }
     //public  void Wiev
-    public static float ExpRateCalculate(int levelDiff)
+    public  float ExpRateCalculate(int levelDiff)
     {
-        if (levelDiff >= int.Parse(expPerLevelSOs[0].levelDiff))
+        if (levelDiff >= expPer.levelDiff[0])
         {
-            return float.Parse(expPerLevelSOs[0].expRate);
+            return expPer.expRate[0];
         }
-        else if (levelDiff <= int.Parse(expPerLevelSOs[expPerLevelSOs.Length - 1].levelDiff))
+        else if (levelDiff <= expPer.levelDiff[expPer.levelDiff.Length - 1])
         {
-            return float.Parse(expPerLevelSOs[expPerLevelSOs.Length - 1].expRate);
+            return expPer.expRate[expPer.expRate.Length - 1];
         }
         else
         {
-            foreach (var exp in expPerLevelSOs.Skip(1).Take(expPerLevelSOs.Length - 2))
+            int i = 0;
+            foreach (var exp in expPer.levelDiff.Skip(1).Take(expPer.levelDiff.Length - 2))
             {
-                if (levelDiff == int.Parse(exp.levelDiff))
+                if (levelDiff == exp)
                 {
-                    return float.Parse(exp.expRate);
+                    return expPer.expRate[i];
                 }
-                
-                
+                i++;
+
             }
         }
-        return float.Parse(expPerLevelSOs[expPerLevelSOs.Length - 1].expRate);
+        return expPer.expRate[expPer.expRate.Length - 1];
     }
 }

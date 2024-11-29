@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
+  m_Name: 55 Eyebrow Fan
+  m_EditorClassIdentifier: 
+  weightInInventory: 1
+  bonuses: []
+  ItemName: Eyebrow Fan
+  levelWithPlus: 0
+  currentPlus: 0
+  canUseCharacters: 03000000
+  Requirements:
+  - upgradeItems: []
+    upgradeMoney: 1200
+  - upgradeItems: []
+    upgradeMoney: 2500
+  - upgradeItems: []
+    upgradeMoney: 5000
+  - upgradeItems: []
+    upgradeMoney: 10000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 06cf2a83b7b7ac64e9fe1356e869314f, type: 2}
+      howMany: 2
+    upgradeMoney: 20000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 30a0dccd2d8f7b84198f924325980fa4, type: 2}
+      howMany: 2
+    upgradeMoney: 30000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: d8494dd840aac8045aa168158be9bafc, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: 2ff81923e87756b4d8966800a56d4209, type: 2}
+      howMany: 1
+    upgradeMoney: 45000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 4323c072b630000468635959983d4220, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: 3e872b5506bd91e43b541929ba7f27f8, type: 2}
+      howMany: 1
+    upgradeMoney: 90000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 84fd789a84c0d9843916d3ace82fdc1c, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: b527f055fe6af974bb9e7ea059877de1, type: 2}
+      howMany: 1
+    upgradeMoney: 120000
+  Image: {fileID: 0}
+  level: 55
+  minAndMaxAttackValue:
+  - {x: 52, y: 78}
+  - {x: 57, y: 83}
+  - {x: 62, y: 88}
+  - {x: 67, y: 93}
+  - {x: 72, y: 98}
+  - {x: 79, y: 105}
+  - {x: 87, y: 113}
+  - {x: 96, y: 122}
+  - {x: 106, y: 132}
+  - {x: 117, y: 143}
+  minAndMaxMagicalAttackValue:
+  - {x: 70, y: 100}
+  - {x: 75, y: 105}
+  - {x: 80, y: 110}
+  - {x: 85, y: 115}
+  - {x: 90, y: 120}
+  - {x: 97, y: 127}
+  - {x: 105, y: 135}
+  - {x: 114, y: 144}
+  - {x: 124, y: 154}
+  - {x: 135, y: 165}
+  attackSpeed:
+  - 19
+  - 19
+  - 19
+  - 19
+  - 19
+  - 19
+  - 19
+  - 19
+  - 19
+  - 19
+  typeWeapon: 3
+  sockets: 3
+  price: 0

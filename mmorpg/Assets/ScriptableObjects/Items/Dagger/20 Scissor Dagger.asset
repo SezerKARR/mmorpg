@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
+  m_Name: 20 Scissor Dagger
+  m_EditorClassIdentifier: 
+  weightInInventory: 1
+  bonuses: []
+  ItemName: Scissor Dagger
+  levelWithPlus: 0
+  currentPlus: 0
+  canUseCharacters: 02000000
+  Requirements:
+  - upgradeItems: []
+    upgradeMoney: 600
+  - upgradeItems: []
+    upgradeMoney: 1200
+  - upgradeItems: []
+    upgradeMoney: 2500
+  - upgradeItems: []
+    upgradeMoney: 5000
+  - upgradeItems: []
+    upgradeMoney: 10000
+  - upgradeItems: []
+    upgradeMoney: 20000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 7a13670bd3faf5341a95d6b0dd005a18, type: 2}
+      howMany: 2
+    upgradeMoney: 30000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: c4a01e2f3f0caec4d8a6f2126f366f39, type: 2}
+      howMany: 2
+    upgradeMoney: 45000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 7e5fc29b8dc64ac42bf1122090e3741d, type: 2}
+      howMany: 2
+    upgradeMoney: 75000
+  Image: {fileID: 0}
+  level: 20
+  minAndMaxAttackValue:
+  - {x: 15, y: 19}
+  - {x: 19, y: 23}
+  - {x: 23, y: 27}
+  - {x: 27, y: 31}
+  - {x: 31, y: 35}
+  - {x: 35, y: 39}
+  - {x: 39, y: 43}
+  - {x: 43, y: 47}
+  - {x: 47, y: 51}
+  - {x: 51, y: 55}
+  minAndMaxMagicalAttackValue: []
+  attackSpeed:
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  typeWeapon: 5
+  sockets: 1
+  price: 0

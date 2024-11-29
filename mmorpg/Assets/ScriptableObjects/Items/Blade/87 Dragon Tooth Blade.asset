@@ -1,0 +1,95 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
+  m_Name: 87 Dragon Tooth Blade
+  m_EditorClassIdentifier: 
+  weightInInventory: 2
+  bonuses: []
+  ItemName: Dragon Tooth Blade
+  levelWithPlus: 0
+  currentPlus: 0
+  canUseCharacters: 01000000
+  Requirements:
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}
+      howMany: 10
+    upgradeMoney: 100000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}
+      howMany: 15
+    upgradeMoney: 125000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}
+      howMany: 20
+    upgradeMoney: 150000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}
+      howMany: 30
+    upgradeMoney: 180000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}
+      howMany: 45
+    upgradeMoney: 225000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}
+      howMany: 65
+    upgradeMoney: 270000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}
+      howMany: 95
+    upgradeMoney: 320000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}
+      howMany: 140
+    upgradeMoney: 400000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}
+      howMany: 200
+    upgradeMoney: 500000
+  Image: {fileID: 0}
+  level: 87
+  minAndMaxAttackValue:
+  - {x: 116, y: 164}
+  - {x: 126, y: 174}
+  - {x: 130, y: 178}
+  - {x: 138, y: 186}
+  - {x: 149, y: 197}
+  - {x: 166, y: 214}
+  - {x: 190, y: 238}
+  - {x: 227, y: 275}
+  - {x: 283, y: 331}
+  - {x: 366, y: 414}
+  minAndMaxMagicalAttackValue:
+  - {x: 149, y: 211}
+  - {x: 159, y: 221}
+  - {x: 163, y: 225}
+  - {x: 171, y: 233}
+  - {x: 182, y: 244}
+  - {x: 199, y: 261}
+  - {x: 223, y: 285}
+  - {x: 260, y: 322}
+  - {x: 316, y: 378}
+  - {x: 399, y: 461}
+  attackSpeed:
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  typeWeapon: 2
+  sockets: 3
+  price: 0

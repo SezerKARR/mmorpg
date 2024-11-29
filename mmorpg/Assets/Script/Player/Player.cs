@@ -311,7 +311,7 @@ public class Player : MonoBehaviour
     }
     public  void ExpCalculator(int exp,int creatureLevel)
     {
-        print( GameManager.ExpRateCalculate(creatureLevel - level));
+        print( GameManager.instance.ExpRateCalculate(creatureLevel - level));
         /*if (!haveGroup)
         {
 

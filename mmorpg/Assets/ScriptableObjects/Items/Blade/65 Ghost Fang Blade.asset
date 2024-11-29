@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
+  m_Name: 65 Ghost Fang Blade
+  m_EditorClassIdentifier: 
+  weightInInventory: 2
+  bonuses: []
+  ItemName: Ghost Fang Blade
+  levelWithPlus: 0
+  currentPlus: 0
+  canUseCharacters: 01000000
+  Requirements:
+  - upgradeItems: []
+    upgradeMoney: 1200
+  - upgradeItems: []
+    upgradeMoney: 2500
+  - upgradeItems: []
+    upgradeMoney: 5000
+  - upgradeItems: []
+    upgradeMoney: 10000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: a7f94e65a65e70e47b7ed147d6cf1e58, type: 2}
+      howMany: 1
+    upgradeMoney: 20000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 02aae9da33fb39b4680495048e9c2a7f, type: 2}
+      howMany: 1
+    upgradeMoney: 30000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 24b8cf87d1762dc48b82329c9ea8ba73, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: 2ff81923e87756b4d8966800a56d4209, type: 2}
+      howMany: 1
+    upgradeMoney: 45000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: f8479da07f9f35d4294cf469fdc025ff, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: 3e872b5506bd91e43b541929ba7f27f8, type: 2}
+      howMany: 1
+    upgradeMoney: 90000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: d7948492087a9b74590917a5d4ff5c96, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: b527f055fe6af974bb9e7ea059877de1, type: 2}
+      howMany: 1
+    upgradeMoney: 150000
+  Image: {fileID: 0}
+  level: 65
+  minAndMaxAttackValue:
+  - {x: 77, y: 105}
+  - {x: 82, y: 110}
+  - {x: 87, y: 117}
+  - {x: 96, y: 126}
+  - {x: 105, y: 136}
+  - {x: 113, y: 146}
+  - {x: 119, y: 157}
+  - {x: 123, y: 167}
+  - {x: 134, y: 184}
+  - {x: 142, y: 206}
+  minAndMaxMagicalAttackValue:
+  - {x: 90, y: 110}
+  - {x: 98, y: 118}
+  - {x: 107, y: 127}
+  - {x: 117, y: 137}
+  - {x: 128, y: 148}
+  - {x: 140, y: 160}
+  - {x: 153, y: 173}
+  - {x: 167, y: 187}
+  - {x: 192, y: 212}
+  - {x: 227, y: 247}
+  attackSpeed:
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  - 15
+  typeWeapon: 2
+  sockets: 3
+  price: 0

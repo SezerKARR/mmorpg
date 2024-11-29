@@ -1,0 +1,73 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
+  m_Name: 1 Glaive
+  m_EditorClassIdentifier: 
+  weightInInventory: 3
+  bonuses: []
+  ItemName: Glaive
+  levelWithPlus: 0
+  currentPlus: 0
+  canUseCharacters: 00000000
+  Requirements:
+  - upgradeItems: []
+    upgradeMoney: 600
+  - upgradeItems: []
+    upgradeMoney: 1200
+  - upgradeItems: []
+    upgradeMoney: 2500
+  - upgradeItems: []
+    upgradeMoney: 5000
+  - upgradeItems: []
+    upgradeMoney: 10000
+  - upgradeItems: []
+    upgradeMoney: 20000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 0a4d706b080875a4fbd935752d41a7ea, type: 2}
+      howMany: 2
+    upgradeMoney: 30000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 44604148b64b96c4fa1782e3dd0a5f81, type: 2}
+      howMany: 2
+    upgradeMoney: 45000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 18d6e77189fc65c4d8b95ddbadc059c3, type: 2}
+      howMany: 2
+    upgradeMoney: 75000
+  Image: {fileID: 0}
+  level: 1
+  minAndMaxAttackValue:
+  - {x: 14, y: 22}
+  - {x: 22, y: 30}
+  - {x: 30, y: 38}
+  - {x: 38, y: 46}
+  - {x: 46, y: 54}
+  - {x: 54, y: 62}
+  - {x: 62, y: 70}
+  - {x: 70, y: 78}
+  - {x: 78, y: 86}
+  - {x: 86, y: 94}
+  minAndMaxMagicalAttackValue: []
+  attackSpeed:
+  - 26
+  - 26
+  - 26
+  - 26
+  - 26
+  - 26
+  - 26
+  - 26
+  - 26
+  - 26
+  typeWeapon: 1
+  sockets: 1
+  price: 0

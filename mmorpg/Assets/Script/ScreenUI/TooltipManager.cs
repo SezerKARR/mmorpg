@@ -9,11 +9,13 @@ public class TooltipManager : MonoBehaviour
 {
     public static TooltipManager instance;
     public ToolTip tooltip;
-    
-    public ScriptableObject swords;
+    [SerializeField]
+    private ScriptableObject swords;
+    public RectTransform rectTransform;
     private void Awake()
     {
         instance = this;
+        Hide();
     }
     private void Start()
     {
@@ -25,8 +27,15 @@ public class TooltipManager : MonoBehaviour
         {
             if (UIManager.Instance.GetUIElementUnderPointer().GetComponent<IWiewable>() != null)
             {
-                
-                Screen(swords);
+                rectTransform=UIManager.Instance.GetUIElementUnderPointer().GetComponent<RectTransform>();
+                Screen(UIManager.Instance.GetUIElementUnderPointer().GetComponent<IWiewable>().GetScriptableObject());
+            }
+        }
+        if (tooltip.GameObject().activeSelf == true) {
+            if (UIManager.Instance.IsPointerOutsideUI(rectTransform))
+            {
+                Debug.Log(rectTransform.gameObject.name);
+                Hide();
             }
         }
     }
@@ -43,43 +52,18 @@ public class TooltipManager : MonoBehaviour
         }
         
     }*/
+
     public void Screen(ScriptableObject scriptableObject)
     {
         tooltip.GameObject().SetActive(true);
-        if(scriptableObject is SwordSO sword)
-        {
+        tooltip.Screen(scriptableObject);
 
-            Debug.Log(scriptableObject);
-            tooltip.swordNameText.text = sword.name;
-            tooltip.attackValueText.text = ("Attack Value " + sword.minAndMaxAttackValue[sword.currentPlus].ToString());
-            tooltip.magicalValueText.text = ("Magic Attack Value " + sword.minAndMaxMagicalAttackValue[sword.currentPlus].ToString());
-            tooltip.attackSpeedText.text = ("Attack Speed " + sword.attackSpeed[sword.currentPlus].ToString());
-            tooltip.levelText.text=("From level"+ sword.level.ToString());
-            /*foreach (var bonus in sword.bonuses)
-            {
-                int i = 0;
-                if (bonus != null)
-                {
-                    tooltip.bonusesText[i].text = bonus;
-                }
-                else if (bonus != null) {
-                    return;
-                }
-            }*/
-            string b = "";
-            foreach(Character character in sword.canUseCharacters)
-            {
-                b += character.ToString()+" ";
-            }
-            Debug.Log(b);
-            tooltip.wearAbleText.text = b;
-        }
+    }
+    public void Hide()
+    {
+        tooltip.hide();
+        tooltip.GameObject().SetActive(false);
         
     }
-    private void Hide()
-    {
-        tooltip.GameObject().SetActive(false);
-    }
 
-    
 }

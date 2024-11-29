@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
+  m_Name: 87 Dragon Lord
+  m_EditorClassIdentifier: 
+  weightInInventory: 1
+  bonuses: []
+  ItemName: Dragon Lord
+  levelWithPlus: 0
+  currentPlus: 0
+  canUseCharacters: 04000000
+  Requirements:
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}
+      howMany: 10
+    upgradeMoney: 100000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}
+      howMany: 15
+    upgradeMoney: 125000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}
+      howMany: 20
+    upgradeMoney: 150000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}
+      howMany: 30
+    upgradeMoney: 180000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}
+      howMany: 45
+    upgradeMoney: 225000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}
+      howMany: 65
+    upgradeMoney: 270000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}
+      howMany: 95
+    upgradeMoney: 320000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}
+      howMany: 140
+    upgradeMoney: 400000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}
+      howMany: 200
+    upgradeMoney: 500000
+  Image: {fileID: 0}
+  level: 87
+  minAndMaxAttackValue:
+  - {x: 122, y: 165}
+  - {x: 132, y: 175}
+  - {x: 136, y: 179}
+  - {x: 144, y: 187}
+  - {x: 155, y: 198}
+  - {x: 172, y: 215}
+  - {x: 196, y: 239}
+  - {x: 233, y: 276}
+  - {x: 289, y: 332}
+  - {x: 372, y: 415}
+  minAndMaxMagicalAttackValue: []
+  attackSpeed:
+  - 15
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  - 0
+  typeWeapon: 7
+  sockets: 3
+  price: 0

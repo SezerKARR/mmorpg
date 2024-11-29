@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
+  m_Name: 75 Thorned Claw
+  m_EditorClassIdentifier: 
+  weightInInventory: 1
+  bonuses: []
+  ItemName: Thorned Claw
+  levelWithPlus: 0
+  currentPlus: 0
+  canUseCharacters: 04000000
+  Requirements:
+  - upgradeItems: []
+    upgradeMoney: 1200
+  - upgradeItems: []
+    upgradeMoney: 2500
+  - upgradeItems: []
+    upgradeMoney: 5000
+  - upgradeItems: []
+    upgradeMoney: 10000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: de83d2063276c624eb4b9fab42efbc78, type: 2}
+      howMany: 1
+    upgradeMoney: 20000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 30a0dccd2d8f7b84198f924325980fa4, type: 2}
+      howMany: 1
+    upgradeMoney: 30000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 21f784bf79df73d48b7987be4ce3ef19, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: 2ff81923e87756b4d8966800a56d4209, type: 2}
+      howMany: 1
+    upgradeMoney: 45000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 3df6fc69fef882b40bfed333c14aaf0d, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: 3e872b5506bd91e43b541929ba7f27f8, type: 2}
+      howMany: 1
+    upgradeMoney: 90000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: ca3e156234ad5bd40b1ca95d46a784a5, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: b527f055fe6af974bb9e7ea059877de1, type: 2}
+      howMany: 1
+    upgradeMoney: 150000
+  Image: {fileID: 0}
+  level: 75
+  minAndMaxAttackValue:
+  - {x: 81, y: 110}
+  - {x: 87, y: 116}
+  - {x: 94, y: 123}
+  - {x: 102, y: 131}
+  - {x: 111, y: 140}
+  - {x: 121, y: 150}
+  - {x: 132, y: 161}
+  - {x: 144, y: 173}
+  - {x: 157, y: 186}
+  - {x: 171, y: 200}
+  minAndMaxMagicalAttackValue: []
+  attackSpeed:
+  - 17
+  - 18
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 27
+  typeWeapon: 7
+  sockets: 3
+  price: 0

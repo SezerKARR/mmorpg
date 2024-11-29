@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
+  m_Name: 105 Zodiac Fan
+  m_EditorClassIdentifier: 
+  weightInInventory: 1
+  bonuses: []
+  ItemName: Zodiac Fan
+  levelWithPlus: 0
+  currentPlus: 0
+  canUseCharacters: 03000000
+  Requirements:
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 3e4508791cac136419a25df877db101a, type: 2}
+      howMany: 1
+    upgradeMoney: 10000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 3e4508791cac136419a25df877db101a, type: 2}
+      howMany: 2
+    - upgradeItemName: {fileID: 11400000, guid: 6a2d14dfd7e96c44a800be97c26382d2, type: 2}
+      howMany: 1
+    upgradeMoney: 20000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 3e4508791cac136419a25df877db101a, type: 2}
+      howMany: 4
+    - upgradeItemName: {fileID: 11400000, guid: 6a2d14dfd7e96c44a800be97c26382d2, type: 2}
+      howMany: 1
+    upgradeMoney: 40000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 3e4508791cac136419a25df877db101a, type: 2}
+      howMany: 8
+    - upgradeItemName: {fileID: 11400000, guid: 6a2d14dfd7e96c44a800be97c26382d2, type: 2}
+      howMany: 2
+    upgradeMoney: 80000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 3e4508791cac136419a25df877db101a, type: 2}
+      howMany: 16
+    - upgradeItemName: {fileID: 11400000, guid: 6a2d14dfd7e96c44a800be97c26382d2, type: 2}
+      howMany: 2
+    upgradeMoney: 160000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 3e4508791cac136419a25df877db101a, type: 2}
+      howMany: 32
+    - upgradeItemName: {fileID: 11400000, guid: 6a2d14dfd7e96c44a800be97c26382d2, type: 2}
+      howMany: 3
+    upgradeMoney: 320000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 3e4508791cac136419a25df877db101a, type: 2}
+      howMany: 64
+    - upgradeItemName: {fileID: 11400000, guid: 6c17fe9d10f45b547b6f3acd979f439a, type: 2}
+      howMany: 1
+    upgradeMoney: 640000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 3e4508791cac136419a25df877db101a, type: 2}
+      howMany: 128
+    - upgradeItemName: {fileID: 11400000, guid: 3bf62d1ab4c6d19468f1a85f779b9fd6, type: 2}
+      howMany: 1
+    upgradeMoney: 1280000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 3e4508791cac136419a25df877db101a, type: 2}
+      howMany: 200
+    - upgradeItemName: {fileID: 11400000, guid: 127f243f2dd69f440b9094d27a7a74d5, type: 2}
+      howMany: 1
+    upgradeMoney: 2560000
+  Image: {fileID: 0}
+  level: 105
+  minAndMaxAttackValue:
+  - {x: 115, y: 173}
+  - {x: 123, y: 181}
+  - {x: 126, y: 184}
+  - {x: 132, y: 190}
+  - {x: 141, y: 199}
+  - {x: 155, y: 213}
+  - {x: 174, y: 232}
+  - {x: 203, y: 261}
+  - {x: 248, y: 306}
+  - {x: 315, y: 373}
+  minAndMaxMagicalAttackValue:
+  - {x: 160, y: 240}
+  - {x: 168, y: 248}
+  - {x: 171, y: 251}
+  - {x: 177, y: 257}
+  - {x: 186, y: 266}
+  - {x: 200, y: 280}
+  - {x: 219, y: 299}
+  - {x: 248, y: 328}
+  - {x: 393, y: 373}
+  - {x: 360, y: 440}
+  attackSpeed:
+  - 19
+  - 20
+  - 21
+  - 22
+  - 23
+  - 24
+  - 25
+  - 27
+  - 28
+  - 30
+  typeWeapon: 3
+  sockets: 3
+  price: 0

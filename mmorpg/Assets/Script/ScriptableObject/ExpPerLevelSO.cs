@@ -6,7 +6,7 @@ using UnityEngine;
 public class ExpPerLevelSO : ScriptableObject
 {
     
-    public string levelDiff;
-    public string expRate;
+    public int[] levelDiff=new int[30];
+    public float[] expRate=new float[30];
 
 }

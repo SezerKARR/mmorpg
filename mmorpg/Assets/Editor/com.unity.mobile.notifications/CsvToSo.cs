@@ -139,30 +139,38 @@ public class CsvToSo
     //    AssetDatabase.SaveAssets();
 
     //}
-    //[MenuItem("Utilities/Generate ExpPerLevel")]
-    //private static void CsvFromSoExpPerLevel()
-    //{
-    //    int i = 0;
-    //    string[] allLines = File.ReadAllLines(Application.dataPath + ExpPerLevelCsvPath);
-    //    foreach (string line in allLines.Skip(1))
-    //    {
-    //        string[] splitData = line.Split(";");
-    //        Debug.Log(line);
-    //        ExpPerLevelSO ExpPerLevelSO = ScriptableObject.CreateInstance<ExpPerLevelSO>();
+    [MenuItem("Utilities/Generate ExpPerLevel")]
+    private static void CsvFromSoExpPerLevel()
+    {
+        int i = 0;
+        string[] allLines = File.ReadAllLines(Application.dataPath + ExpPerLevelCsvPath);
+        ExpPerLevelSO ExpPerLevelSO = ScriptableObject.CreateInstance<ExpPerLevelSO>();
+        string filePath = $"Assets/ScriptableObjects/ExpPerLevel";
+        int[] levelDiff = new int[30];
+        float[] expRate = new float[30]; 
+        foreach (string line in allLines.Skip(1))
+        {
+            string[] splitData = line.Split(";");
+            Debug.Log(line);
+            
 
-    //        ExpPerLevelSO.levelDiff = splitData[0].Replace("<", "").Replace(">", "").Replace("=", "");
-    //        ExpPerLevelSO.expRate = splitData[1].Replace("%", "");
+            levelDiff[i] =int.Parse( splitData[0].Replace("<", "").Replace(">", "").Replace("=", ""));
+            expRate[i] = float.Parse(splitData[1].Replace("%", ""));
 
-    //        string filePath = $"Assets/ScriptableObjects/ExpPerLevel";
+            
 
 
-    //        string name = i.ToString();
+            string name = i.ToString();
 
-    //        AssetDatabase.CreateAsset(ExpPerLevelSO, $"{filePath}/{name}.asset");
-    //        i++;
-    //    }
-    //    AssetDatabase.SaveAssets();
-    //}
+            
+            i++;
+        }
+        ExpPerLevelSO.levelDiff = levelDiff;
+        ExpPerLevelSO.expRate = expRate;
+        
+        AssetDatabase.CreateAsset(ExpPerLevelSO, $"{filePath}/ExpPerLevel.asset");
+        AssetDatabase.SaveAssets();
+    }
     //[MenuItem("Utilities/ExpPerLevelSO")]
     //private static void ExpPerLevelSO()
     //{
@@ -472,7 +480,7 @@ public class CsvToSo
                 if (swordSO != null)
                 {
                     
-                    AssetDatabase.CreateAsset(swordSO, $"{path}/{swordSO.ItemName}.asset");
+                    AssetDatabase.CreateAsset(swordSO, $"{path}/{swordSO.level+" "+ swordSO.ItemName}.asset");
                     
                     upgradeMoney.Clear();
                     upgradeItemRequire.Clear();
@@ -691,6 +699,7 @@ public class CsvToSo
     {
         if (swordType.Equals("Sword"))
         {
+            swordSO.weightInInventory = 2;
             swordSO.typeWeapon = TypeWeapon.Swords;
             SetCanUseCharacter(Character.Sura,swordSO);
             SetCanUseCharacter(Character.Warrior,swordSO);
@@ -699,37 +708,44 @@ public class CsvToSo
         }
         else if (swordType.Equals("Two Handed"))
         {
+            swordSO.weightInInventory = 3;
             swordSO.typeWeapon = TypeWeapon.TwoHandedWeapons;
             SetCanUseCharacter(Character.Warrior,swordSO);
 
         }
         else if (swordType.Equals("Blade"))
         {
+            swordSO.weightInInventory = 2;
             swordSO.typeWeapon = TypeWeapon.Blades;
             SetCanUseCharacter(Character.Sura, swordSO);
         }
         else if (swordType.Equals("Fan"))
         {
+            swordSO.weightInInventory = 1;
             swordSO.typeWeapon = TypeWeapon.Fans;
             SetCanUseCharacter(Character.Shaman, swordSO);
         }
         else if (swordType.Equals("Bell"))
         {
+            swordSO.weightInInventory = 1;
             swordSO.typeWeapon = TypeWeapon.Bells;
             SetCanUseCharacter(Character.Shaman, swordSO);
         }
         else if (swordType.Equals("Claw"))
         {
+            swordSO.weightInInventory = 1;
             swordSO.typeWeapon = TypeWeapon.Claws;
             SetCanUseCharacter(Character.Lycan, swordSO);
         }
         else if (swordType.Equals("Dagger"))
         {
+            swordSO.weightInInventory = 1;
             swordSO.typeWeapon = TypeWeapon.Daggers;
             SetCanUseCharacter(Character.Ninja, swordSO);
         }
         else if (swordType.Equals("Bow"))
         {
+            swordSO.weightInInventory = 1;
             swordSO.typeWeapon = TypeWeapon.Bows;
             SetCanUseCharacter(Character.Ninja, swordSO);
         }

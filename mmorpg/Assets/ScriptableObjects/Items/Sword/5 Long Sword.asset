@@ -1,0 +1,83 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
+  m_Name: 5 Long Sword
+  m_EditorClassIdentifier: 
+  weightInInventory: 2
+  bonuses: []
+  ItemName: Long Sword
+  levelWithPlus: 0
+  currentPlus: 0
+  canUseCharacters: 010000000000000002000000
+  Requirements:
+  - upgradeItems: []
+    upgradeMoney: 600
+  - upgradeItems: []
+    upgradeMoney: 1200
+  - upgradeItems: []
+    upgradeMoney: 2500
+  - upgradeItems: []
+    upgradeMoney: 5000
+  - upgradeItems: []
+    upgradeMoney: 10000
+  - upgradeItems: []
+    upgradeMoney: 20000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: c4a01e2f3f0caec4d8a6f2126f366f39, type: 2}
+      howMany: 1
+    upgradeMoney: 30000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: 10d51a25e8ac28b408a252af1743d02d, type: 2}
+      howMany: 2
+    upgradeMoney: 45000
+  - upgradeItems:
+    - upgradeItemName: {fileID: 11400000, guid: b15699c4af6728e4897bc8d3bb24621e, type: 2}
+      howMany: 2
+    upgradeMoney: 75000
+  Image: {fileID: 0}
+  level: 5
+  minAndMaxAttackValue:
+  - {x: 15, y: 19}
+  - {x: 22, y: 26}
+  - {x: 29, y: 33}
+  - {x: 36, y: 40}
+  - {x: 43, y: 47}
+  - {x: 50, y: 54}
+  - {x: 57, y: 61}
+  - {x: 64, y: 68}
+  - {x: 71, y: 75}
+  - {x: 78, y: 82}
+  minAndMaxMagicalAttackValue:
+  - {x: 13, y: 15}
+  - {x: 20, y: 22}
+  - {x: 27, y: 29}
+  - {x: 34, y: 36}
+  - {x: 41, y: 43}
+  - {x: 48, y: 50}
+  - {x: 55, y: 57}
+  - {x: 62, y: 64}
+  - {x: 69, y: 71}
+  - {x: 76, y: 78}
+  attackSpeed:
+  - 27
+  - 27
+  - 27
+  - 27
+  - 27
+  - 27
+  - 27
+  - 27
+  - 27
+  - 27
+  typeWeapon: 0
+  sockets: 1
+  price: 0
