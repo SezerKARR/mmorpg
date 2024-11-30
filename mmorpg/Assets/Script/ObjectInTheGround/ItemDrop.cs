@@ -6,14 +6,14 @@ using UnityEngine;
 public abstract class ItemDrop : MonoBehaviour, IPickedUpAble
 {
     public TMP_Text itemName;
-    public ScriptableObject scriptableObject;
+    public IWiewable IWievableScriptableObject;
     public virtual GameObject GetGameObject()
     {
         return this.gameObject;
     }
-    public ScriptableObject GetScriptableObject()
+    public IWiewable GetIWievAble()
     {
-        return this.scriptableObject;
+        return this.IWievableScriptableObject;
     }
     public virtual void DestroyObject()
     {

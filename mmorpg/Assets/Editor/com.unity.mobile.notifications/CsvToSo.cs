@@ -43,103 +43,100 @@ public class CsvToSo
     //    }
     //    AssetDatabase.SaveAssets();
     }*/
-    /*//[MenuItem("Utilities/Generate Monsters")]
-    //private static void CsvToSoMonsters()
-    //{
-    //    string[] allLines = File.ReadAllLines(Application.dataPath + MonstersCSVPath);
-    //    foreach (string line in allLines.Skip(1))
-    //    {
-    //        string[] splitData = line.Split(";");
+    [MenuItem("Utilities/Generate Monsters")]
+    private static void CsvToSoMonsters()
+    {
+        string[] allLines = File.ReadAllLines(Application.dataPath + MonstersCSVPath);
+        foreach (string line in allLines.Skip(1))
+        {
+            string[] splitData = line.Split(";");
 
-    //        MonsterSO monsterSO = ScriptableObject.CreateInstance<MonsterSO>();
-    //        monsterSO.location = splitData[5].Replace("�", "");
-    //        monsterSO.monsterLocations = monsterSO.location.Split(",");
+            MonsterSO monsterSO = ScriptableObject.CreateInstance<MonsterSO>();
+            monsterSO.location = splitData[5].Replace("�", "");
+            monsterSO.monsterLocations = monsterSO.location.Split(",");
 
-    //        if (monsterSO.monsterLocations.Length >= 5)
-    //        {
-    //            monsterSO.Resistance = splitData[0].Split(",");
-    //            monsterSO.race = splitData[1];
-    //            monsterSO.level = splitData[2];
-    //            monsterSO.stage = splitData[3];
-    //            monsterSO.monsterName = splitData[4];
-    
-    //            monsterSO.exp = splitData[6].Replace(".", "");
+            if (monsterSO.monsterLocations.Length >= 5)
+            {
+                monsterSO.Resistance = splitData[0].Split(",");
+                monsterSO.race = splitData[1];
+                monsterSO.level = splitData[2].Split("/")[0];
+                monsterSO.stage = splitData[3];
+                monsterSO.monsterName = splitData[4];
 
-    //            string filePath = $"Assets/ScriptableObjects/Monsters/{monsterSO.monsterLocations[4]}";
-    //            if (!Directory.Exists(filePath))
-    //            {
-    //                Directory.CreateDirectory(filePath);
-    //            }
+                monsterSO.exp = splitData[6].Replace(".", "");
 
-    //            string name = monsterSO.location + " " + monsterSO.monsterName;
-    //            if (!File.Exists($"{filePath}/{name}.asset"))
-    //            {
-    //                AssetDatabase.CreateAsset(monsterSO, $"{filePath}/{monsterSO.monsterName}.asset");
-    //            }
-    //        }
-    
+                string filePath = $"Assets/ScriptableObjects/Monsters/{monsterSO.monsterLocations[4]}";
+                if (!Directory.Exists(filePath))
+                {
+                    Directory.CreateDirectory(filePath);
+                }
 
+                string name = monsterSO.location + " " + monsterSO.monsterName;
+                if (!File.Exists($"{filePath}/{name}.asset"))
+                {
+                    AssetDatabase.CreateAsset(monsterSO, $"{filePath}/{monsterSO.level+" "+monsterSO.monsterName}.asset");
+                }
+            }
+            /*
+            //foreach (string line in allLines)
+            //{
+            //    string[] splitData = line.Split(";");
 
+            //    MonsterSO monsterSO = ScriptableObject.CreateInstance<MonsterSO>();
 
-    
-    //        foreach (string line in allLines)
-    //        {
-    //            string[] splitData = line.Split(";");
+            //    monsterSO.Resistance = splitData[0].Split(",");
+            //    monsterSO.race = splitData[1];
+            //    monsterSO.level = splitData[2];
+            //    monsterSO.stage = splitData[3];
+            //    monsterSO.monsterName = splitData[4];
+            //    monsterSO.location = splitData[5].Split(",");
+            //    monsterSO.exp = splitData[6];
 
-    //            MonsterSO monsterSO = ScriptableObject.CreateInstance<MonsterSO>();
-
-    //            monsterSO.Resistance = splitData[0].Split(",");
-    //            monsterSO.race=splitData[1];
-    //            monsterSO.level = splitData[2];
-    //            monsterSO.stage = splitData[3];
-    //            monsterSO.monsterName = splitData[4];
-    //            monsterSO.location = splitData[5].Split(",");
-    //            monsterSO.exp=splitData[6];
-
-    //            foreach (string location in monsterSO.location)
-    //            {
-    //                i
-    //                string locationx = location.Replace(" ", "");
-    //                locationx = locationx.Replace("�", "");
-    //                string filePath = $"Assets/ScriptableObjects/Monsters";
-    //                Debug.Log(locationx);
-    //                string name = locationx + " " + monsterSO.monsterName;
-    //                Debug.Log(name);
-    //                AssetDatabase.CreateAsset(monsterSO, $"{filePath}/{locationx + " " + monsterSO.monsterName}.asset");
-    
-
-    //            }
-    //            AssetDatabase.CreateAsset(monsterSO, $"Assets/ScriptableObjects/Monsters/{monsterSO.monsterName}.asset");
-    //    }
-    //    AssetDatabase.SaveAssets();
-
-    //}
-    */
-    //[MenuItem("Utilities/Generate Exp")]
-    //private static void CsvToSoExp()
-    //{
-    //    string[] allLines = File.ReadAllLines(Application.dataPath + ExpCsvPath);
-    //    foreach (string line in allLines.Skip(100))
-    //    {
-    //        string[] splitData = line.Split(";");
-    //        Debug.Log(line);
-    //        ExpSO expSO = ScriptableObject.CreateInstance<ExpSO>();
-
-    //        expSO.level = int.Parse(splitData[0]);
-    //        expSO.exp = long.Parse(splitData[1].Replace(".", ""));
-
-    //        string filePath = $"Assets/ScriptableObjects/Exp";
+            //    foreach (string location in monsterSO.location)
+            //    {
+            //        i
+            //        string locationx = location.Replace(" ", "");
+            //        locationx = locationx.Replace("�", "");
+            //        string filePath = $"Assets/ScriptableObjects/Monsters";
+            //        Debug.Log(locationx);
+            //        string name = locationx + " " + monsterSO.monsterName;
+            //        Debug.Log(name);
+            //        AssetDatabase.CreateAsset(monsterSO, $"{filePath}/{locationx + " " + monsterSO.monsterName}.asset");
 
 
-    //        string name = expSO.level.ToString();
+            //    }
+            //    AssetDatabase.CreateAsset(monsterSO, $"Assets/ScriptableObjects/Monsters/{monsterSO.monsterName}.asset");
+            //}
+            */
+            AssetDatabase.SaveAssets();
 
-    //        AssetDatabase.CreateAsset(expSO, $"{filePath}/{name}.asset");
+        }
+    }
+        //[MenuItem("Utilities/Generate Exp")]
+        //private static void CsvToSoExp()
+        //{
+        //    string[] allLines = File.ReadAllLines(Application.dataPath + ExpCsvPath);
+        //    foreach (string line in allLines.Skip(100))
+        //    {
+        //        string[] splitData = line.Split(";");
+        //        Debug.Log(line);
+        //        ExpSO expSO = ScriptableObject.CreateInstance<ExpSO>();
 
-    //    }
-    //    AssetDatabase.SaveAssets();
+        //        expSO.level = int.Parse(splitData[0]);
+        //        expSO.exp = long.Parse(splitData[1].Replace(".", ""));
 
-    //}
-    [MenuItem("Utilities/Generate ExpPerLevel")]
+        //        string filePath = $"Assets/ScriptableObjects/Exp";
+
+
+        //        string name = expSO.level.ToString();
+
+        //        AssetDatabase.CreateAsset(expSO, $"{filePath}/{name}.asset");
+
+        //    }
+        //    AssetDatabase.SaveAssets();
+
+        //}
+        /*[MenuItem("Utilities/Generate ExpPerLevel")]
     private static void CsvFromSoExpPerLevel()
     {
         int i = 0;
@@ -170,7 +167,7 @@ public class CsvToSo
         
         AssetDatabase.CreateAsset(ExpPerLevelSO, $"{filePath}/ExpPerLevel.asset");
         AssetDatabase.SaveAssets();
-    }
+    }*/
     //[MenuItem("Utilities/ExpPerLevelSO")]
     //private static void ExpPerLevelSO()
     //{
@@ -376,7 +373,8 @@ public class CsvToSo
         foreach (string line in allLines)
         {
             Debug.Log(line.Length);
-        } }*/
+        } }
+    */
     [MenuItem("tools/CreateWeapon/ALL WEAPON/ALL")]
     public static void CreateAllWeapon()
     {

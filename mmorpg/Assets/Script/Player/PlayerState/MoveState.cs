@@ -42,7 +42,6 @@ public class MoveState : PlayerState
                 break;
         }
         moveDirection = moveDirection.normalized;
-        Debug.Log(moveDirection);
         stateManager.transform.position += new Vector3(moveDirection.x, moveDirection.y, 0f) * moveSpeed * Time.deltaTime;
     }
     public void PlayerWalk(int animvalue)

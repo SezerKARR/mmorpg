@@ -12,6 +12,10 @@ public abstract class NpcBone : MonoBehaviour,IOutlineAble
     {
         this.GetComponent<SpriteRenderer>().material = material;
     }
+    public virtual Material GetMaterial()
+    {
+        return this.GetComponent<SpriteRenderer>().material;
+    }
 
     // Start is called before the first frame update
     public virtual void Start()

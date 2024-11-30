@@ -137,7 +137,7 @@ MonoBehaviour:
   ScriptableObjectScreener: {fileID: 6185269066375397098, guid: 593d0928d6d011d4d8c9bc1831afd873, type: 3}
   scriptableObject: {fileID: 0}
   swordso: {fileID: 11400000, guid: 89971d4a68f536648a8f4e44733136ef, type: 2}
-  Image: {fileID: 0}
+  Image: {fileID: 7129366382840673813}
   howMany: 0
 --- !u!114 &419774072311891762
 MonoBehaviour:

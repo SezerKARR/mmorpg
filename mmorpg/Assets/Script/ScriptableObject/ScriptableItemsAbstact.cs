@@ -24,7 +24,7 @@ public class RequirementClass
     
 }
 
-public abstract  class ScriptableItemsAbstact : ScriptableObject
+public abstract  class ScriptableItemsAbstact : ScriptableObject,IWiewable
 {
     public int weightInInventory;
     public List<string> bonuses;
@@ -41,4 +41,28 @@ public abstract  class ScriptableItemsAbstact : ScriptableObject
     public Sprite Image;
     public int level;
 
+    public string GetInfo()
+    {
+        return "weapon";
+    }
+
+    public string GetName()
+    {
+        return this.ItemName;
+    }
+
+    public ScriptableObject GetScriptableObject()
+    {
+        return this;
+    }
+
+    public Sprite GetSprite()
+    {
+        return this.Image;
+    }
+
+    public int GetWeightInInventory()
+    {
+        return weightInInventory;
+    }
 }

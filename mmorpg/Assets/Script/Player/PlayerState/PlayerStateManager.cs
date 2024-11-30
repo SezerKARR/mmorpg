@@ -20,7 +20,7 @@ public class PlayerStateManager : MonoBehaviour
     void Start()
     {
         // Durumlarý oluþtur
-       
+
         //states.Add(PlayerStateType.Jump, new JumpState(this));
         //states.Add(PlayerStateType.Dodge, new DodgeState(this));
 
@@ -30,11 +30,15 @@ public class PlayerStateManager : MonoBehaviour
     }
     private void Update()
     {
+        if (currentState == null)
+        {
+            currentState = new IdleState(this);
+            currentState.EnterState();
+        }
         currentState.UpdateState();
     }
     public void CanChangeStateToMove(Vector2 walkDirection)
     {
-        Debug.Log(walkDirection);
         ChangeState(new MoveState(this, walkDirection));
     }
     public void CanChangeStateToIdle()

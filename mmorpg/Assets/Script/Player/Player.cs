@@ -54,34 +54,7 @@ public class Player : MonoBehaviour
        
        
     }
-    public void GenerateOutline(PolygonCollider2D polygonCollider2D)
-    {
 
-        {
-            // Polygon collider'dan köþe noktalarýný al
-            Vector2[] points = polygonCollider2D.points;
-
-            // LineRenderer için nokta sayýsýný ayarla
-            lineRenderer.positionCount = points.Length + 1; // Ýlk ve son nokta ayný olmalý
-
-            // Her bir noktayý dünya koordinatlarýna dönüþtür ve ayarla
-            for (int i = 0; i < points.Length; i++)
-            {
-                Vector3 worldPos = transform.TransformPoint(points[i]);
-                worldPos.z = -0.1f; // Z pozisyonunu 0 yap
-                lineRenderer.SetPosition(i, worldPos);
-            }
-
-            // Çizgiyi kapatmak için ilk noktayý sonuna ekleyin
-            lineRenderer.SetPosition(points.Length, lineRenderer.GetPosition(0));
-        }
-    }
-
-    public void GetDropObject(GameObject gameObject)
-    {
-        // todo: destroy gameobject ýnventory al
-        //print(gameObject.name);
-    }
 
     private int creatureExp;
     public void GiveDamage(IDamageAble damageAble)

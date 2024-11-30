@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class InteractionDetector : MonoBehaviour
@@ -9,7 +10,7 @@ public class InteractionDetector : MonoBehaviour
     private List<IPickedUpAble> _pickedUpAbles = new List<IPickedUpAble>();
     public int pickedCount;//silinecek
     private float minDistance=int.MaxValue;
-    private ScriptableObject selectedScriptableObje;
+    private IWiewable selectedIWievable;
     private GameObject selectedGameObject;
     private void Awake()
     {
@@ -17,6 +18,7 @@ public class InteractionDetector : MonoBehaviour
     }
     public void PickUp()
     {
+        
         /*if(_interactablesInRange.Count > 0)
         {
             var interactable = _interactablesInRange[0];
@@ -29,6 +31,7 @@ public class InteractionDetector : MonoBehaviour
         
         if (_pickedUpAbles.Count > 0)
         {
+            
             print(_pickedUpAbles.Count);
             foreach (var pickedable in _pickedUpAbles)
             {
@@ -36,13 +39,19 @@ public class InteractionDetector : MonoBehaviour
                     new Vector2(pickedable.GetGameObject().transform.position.x, pickedable.GetGameObject().transform.position.y)) < minDistance)
                 {
                     selectedGameObject = pickedable.GetGameObject();
-                    selectedScriptableObje = pickedable.GetScriptableObject();
+                    selectedIWievable = pickedable.GetIWievAble();
                     
                 }
 
-                
+                Debug.Log("i" );
             }
-            InventoryPage.Instance.add(selectedScriptableObje);
+            
+            if (!InventroyManager.Instance.add(selectedIWievable))
+            {
+                Debug.Log("yer yok");
+            } 
+                
+
             Destroy(selectedGameObject); 
             
 

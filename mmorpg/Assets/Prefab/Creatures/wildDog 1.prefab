@@ -105,14 +105,12 @@ MonoBehaviour:
   enemyName: {fileID: 7004869230975399455}
   itemDrop: {fileID: 1958407190808054159, guid: 46e6b05667f8fe04a8059d19655c6ce5, type: 3}
   itemToDrops:
-  - itemToDrop: {fileID: 11400000, guid: c4a01e2f3f0caec4d8a6f2126f366f39, type: 2}
-    probability: 1
-  - itemToDrop: {fileID: 11400000, guid: 89971d4a68f536648a8f4e44733136ef, type: 2}
-    probability: 0
+  - probability: 1
+  - probability: 0
   maxHealth: 100
   currentHealth: 0
   creaturesGroup: {fileID: 0}
-  enemySO: {fileID: 11400000, guid: c70b6b0ca35df95478a3f361a3ccd186, type: 2}
+  enemySO: {fileID: 11400000, guid: 17cd98c53c3d738428dcf27355080a08, type: 2}
   outlineRed: {fileID: 2100000, guid: ac30ba44525ba294d998682cbd894ca1, type: 2}
 --- !u!60 &6634918246019571590
 PolygonCollider2D:

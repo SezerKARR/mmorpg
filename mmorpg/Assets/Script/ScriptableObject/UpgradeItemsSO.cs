@@ -21,11 +21,16 @@ public class UpgradeItemsSO : ScriptableObject,IWiewable
 
     public ScriptableObject GetScriptableObject()
     {
-        return this.GetScriptableObject();
+        return this;
     }
 
     string IWiewable.GetInfo()
     {
         return info;
+    }
+
+    public int GetWeightInInventory()
+    {
+        return 1;
     }
 }

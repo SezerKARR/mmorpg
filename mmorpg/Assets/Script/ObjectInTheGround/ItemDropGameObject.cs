@@ -28,7 +28,7 @@ public class ItemDropGameObject : ItemDrop
 
     public override void Start()
     {
-        itemName.text = scriptableObject.name;
+        itemName.text =IWievableScriptableObject.GetName() ;
         StartCoroutine(WaitAndDeleteName());
         base.Start();
     }

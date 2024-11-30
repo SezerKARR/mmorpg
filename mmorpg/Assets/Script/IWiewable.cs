@@ -6,4 +6,5 @@ public interface IWiewable
     public ScriptableObject GetScriptableObject();
     public Sprite GetSprite();
     public string GetName();
+    public int GetWeightInInventory();
 }

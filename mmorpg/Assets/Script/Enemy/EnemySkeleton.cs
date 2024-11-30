@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEditor.Progress;
 [System.Serializable]
 public class ItemToDrop : System.Object
 {
-    public ScriptableObject itemToDrop;
+    public IWiewable itemToDrop;
     public float probability;
 }
 public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
@@ -87,18 +88,19 @@ public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
 
     public virtual void DropItem()
     {
-        foreach (var item in itemToDrops)
+        if (0 < 1)
+        {
+            GameObject drop = Instantiate(itemDrop, RandomPositionByObjectCircle(), Quaternion.identity);
+            drop.GetComponent<ItemDropGameObject>().Playername.text = "player";
+            drop.GetComponent<ItemDropGameObject>().IWievableScriptableObject = (enemySO.canDrop[0] is IWiewable wiewable) ? wiewable : null;
+        }
+        /*foreach (var item in itemToDrops)
         {
             float random = Random.Range(0f, 1f);
             //print(random);
-            if (random < item.probability)
-            {
-                GameObject drop = Instantiate(itemDrop, RandomPositionByObjectCircle(), Quaternion.identity);
-                drop.GetComponent<ItemDropGameObject>().Playername.text = "player";
-                drop.GetComponent<ItemDropGameObject>().scriptableObject = item.itemToDrop;
-            }
+            
 
-        }
+        }*/
     }
     Vector3 RandomPositionByObjectCircle()
     {
@@ -109,5 +111,9 @@ public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
     public virtual void Outline(Material material)
     {
         this.GetComponent<SpriteRenderer>().material = material;
+    }
+    public virtual Material GetMaterial()
+    {
+        return this.GetComponent<SpriteRenderer>().material;
     }
 }

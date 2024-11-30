@@ -4,7 +4,6 @@ public abstract class PlayerState
 {
     
     protected Animator animator;
-    bool CanTransition = true;
     protected PlayerStateManager stateManager;
     
 

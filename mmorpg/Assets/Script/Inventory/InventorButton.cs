@@ -12,26 +12,53 @@ public class InventorButton : MonoBehaviour
     public SwordSO swordso;
     public Image Image;
     public int howMany;
-    public void ChangeSprite(int spriteLenght,Sprite sprite)
+    private float buttonLenght;
+    public void SetScriptableObject(IWiewable wiewable)
     {
 
-        if (spriteLenght == 2)
+        scriptableObject=wiewable.GetScriptableObject();
+    }
+    public void ChangeSprite(IWiewable wiewable)
+    {
+        scriptableObject = wiewable.GetScriptableObject();
+        buttonLenght =this.gameObject.GetComponent<RectTransform>().rect.height;
+        int spriteLenght=wiewable.GetWeightInInventory();
+        if (spriteLenght == 3)
+        {
+            print(Image.rectTransform.localScale.x / 3);
+
+
+            Image.rectTransform.anchoredPosition = new Vector2(Image.rectTransform.anchoredPosition.x, (Image.rectTransform.anchoredPosition.y - buttonLenght/3));
+            Image.rectTransform.localScale = new Vector2(Image.rectTransform.localScale.x, Image.rectTransform.localScale.y * 3);
+            Image.sprite = wiewable.GetSprite();
+            Image.enabled = true;
+            return;
+        }
+        else if (spriteLenght == 2)
         {
             print(Image.rectTransform.localScale.x / 2);
             
 
-            Image.rectTransform.anchoredPosition = new Vector2(Image.rectTransform.anchoredPosition.x,  (Image.rectTransform.anchoredPosition.y-35));
+            Image.rectTransform.anchoredPosition = new Vector2(Image.rectTransform.anchoredPosition.x,  (Image.rectTransform.anchoredPosition.y/2));
             Image.rectTransform.localScale = new Vector2(Image.rectTransform.localScale.x, Image.rectTransform.localScale.y * 2);
-            Image.sprite =sprite;
+            Image.sprite = wiewable.GetSprite();
             Image.enabled = true;
             return;
         }
         else if (spriteLenght == 1)
         {
-            Image.sprite = sprite;
-            Image.enabled = true;
+            if (wiewable.GetSprite() != null)
+            {
+                Image.sprite = wiewable.GetSprite();
+            }
+
+                Image.enabled = true;
             return;
         }
+    }
+    public void TakeScriptableObject(ScriptableObject takedScriptableObject)
+    {
+        scriptableObject = takedScriptableObject;
     }
 /*
     public void OnPointerEnter(PointerEventData eventData)
