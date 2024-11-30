@@ -4,21 +4,19 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public IState lastState;
+    public PlayerState lastState;
     [SerializeField]
-    public IState currentState;
-    public float moveSpeed = 7f;
-    // Start is called before the first frame update
-    void Start()
-    {
-        currentState = new IdleState();
-        //currentState.EnterState(this);
-    }
+    public PlayerState currentState;
+    
+    
+    
+    
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
+
+    
+
+    
+    
     
 }

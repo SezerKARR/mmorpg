@@ -24,8 +24,8 @@ public class CustomGridLayout : MonoBehaviour
         float height = rectTransform.rect.height;
 
         // Hücre boyutlarýný hesaplýyoruz
-        float cellWidth = width / columns;
-        float cellHeight = height / rows;
+        float cellWidth = width / rows;
+        float cellHeight = height / columns;
         gridLayoutGroup.cellSize = new Vector2(cellWidth, cellHeight);
     }
 }

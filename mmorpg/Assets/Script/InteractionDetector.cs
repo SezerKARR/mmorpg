@@ -11,7 +11,11 @@ public class InteractionDetector : MonoBehaviour
     private float minDistance=int.MaxValue;
     private ScriptableObject selectedScriptableObje;
     private GameObject selectedGameObject;
-    public ScriptableObject PickUp()
+    private void Awake()
+    {
+        InputPlayer.OnPickUpPressed += PickUp;
+    }
+    public void PickUp()
     {
         /*if(_interactablesInRange.Count > 0)
         {
@@ -22,7 +26,7 @@ public class InteractionDetector : MonoBehaviour
                 _interactablesInRange.Remove(interactable);
             }
         }*/
-
+        
         if (_pickedUpAbles.Count > 0)
         {
             print(_pickedUpAbles.Count);
@@ -38,13 +42,13 @@ public class InteractionDetector : MonoBehaviour
 
                 
             }
-            Destroy(selectedGameObject);
-            return selectedScriptableObje;
+            InventoryPage.Instance.add(selectedScriptableObje);
+            Destroy(selectedGameObject); 
             
-            
-        }
 
-        return null;
+
+        }
+        else { Debug.Log("alýnabilecek hiç bir eþya yok"); }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

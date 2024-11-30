@@ -11,7 +11,7 @@ public class ToolTipUISystem : MonoBehaviour
     {
         Instance = this;
     }
-    public static void Show(ScriptableObject scriptableObject)
+   /* public static void Show(ScriptableObject scriptableObject)
     {
         Instance.scriptableObjectScreeners[0].GetComponent<IScreenAble>().Screen(scriptableObject);
     }
@@ -23,7 +23,7 @@ public class ToolTipUISystem : MonoBehaviour
     public static void Hide(int numberScreeners)
     {
         Instance.scriptableObjectScreeners[numberScreeners].GetComponent<IScreenAble>().Hide();
-    }
+    }*/
     // Update is called once per frame
     void Update()
     {

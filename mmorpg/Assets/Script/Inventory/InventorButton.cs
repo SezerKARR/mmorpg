@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventorButton : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler
+public class InventorButton : MonoBehaviour
 {
     public GameObject ScriptableObjectScreener;
     public ScriptableObject scriptableObject;
@@ -33,17 +33,17 @@ public class InventorButton : MonoBehaviour,IPointerEnterHandler,IPointerExitHan
             return;
         }
     }
-
+/*
     public void OnPointerEnter(PointerEventData eventData)
     {
         print("mouseover");
-        ToolTipUISystem.Show(scriptableObject, 1);
+        //ToolTipUISystem.Show(scriptableObject, 1);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        ToolTipUISystem.Hide( 1);
-    }
+        //ToolTipUISystem.Hide( 1);
+    }*/
 
     public void ScreenerSetActive()
     {
