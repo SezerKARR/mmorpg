@@ -22,7 +22,7 @@ public class ItemDropWithOutName : ItemDrop
 
     public override void Start()
     {
-
+        Debug.Log(IWievableScriptableObject);
         StartCoroutine(WaitAndDestroy());
         base.Start();
 

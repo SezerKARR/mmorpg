@@ -20,6 +20,7 @@ public class ItemDropGameObject : ItemDrop
         return base.GetGameObject();
         
     }
+    
 
     public override void Update()
     {
@@ -28,7 +29,8 @@ public class ItemDropGameObject : ItemDrop
 
     public override void Start()
     {
-        itemName.text =IWievableScriptableObject.GetName() ;
+        this.howMany = 1;
+        itemName.text =IWievableScriptableObject.GetName()+" x"+this.howMany ;
         StartCoroutine(WaitAndDeleteName());
         base.Start();
     }
@@ -38,8 +40,11 @@ public class ItemDropGameObject : ItemDrop
         // suspend execution for 5 seconds
         yield return new WaitForSeconds(5);
         this.gameObject.SetActive(false);
-        Instantiate(itemDropWithOutName, this.transform.position, Quaternion.identity);
-        itemDropWithOutName.GetComponent<ItemDropWithOutName>().itemName.text= this.itemName.text;
+        GameObject newItemDrop = Instantiate(itemDropWithOutName, this.transform.position, Quaternion.identity);
+        ItemDropWithOutName itemDropComponent = newItemDrop.GetComponent<ItemDropWithOutName>();
+        itemDropComponent.itemName.text = this.itemName.text;
+        itemDropComponent.howMany = this.howMany;
+        itemDropComponent.IWievableScriptableObject = this.IWievableScriptableObject;
         Destroy(this.gameObject);
     }
 }

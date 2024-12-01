@@ -1,6 +1,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -9,7 +10,7 @@ public class InventoryPage : MonoBehaviour
     public ScriptableObject upgradeItemsSO;
     public static Sprite sprite;
     private InventorButton[] inventoryButton;
-    public List<ScriptableObject> itemsInPage = new List<ScriptableObject>();
+    public List<(ScriptableObject scriptableObject, int howMany)> itemsInPage = new List<(ScriptableObject scriptableObject, int howMany)>();
 
     private int buttonCount;
     private int inventoryColumnCount;
@@ -27,7 +28,7 @@ public class InventoryPage : MonoBehaviour
         print((buttonCount, inventoryColumnCount, inventoryRowCount));
 
     }
-    public bool CanGetObject(IWiewable wiewable)
+    public bool CanGetObject(IWiewable wiewable,int howMany)
     {
         
         int i = 0;
@@ -37,13 +38,14 @@ public class InventoryPage : MonoBehaviour
 
         foreach (InventorButton button in inventoryButton)
         {
-           
+            
 
             if (button.scriptableObject == null)
             {
+                
                 if (weightInInventory == 1)
                 {
-                    AddScriptableObjectInPage(wiewable, inventoryButton[i]);
+                    AddScriptableObjectInPage(wiewable,howMany, inventoryButton[i]);
 
                     
                     return true;
@@ -53,25 +55,47 @@ public class InventoryPage : MonoBehaviour
 
                     if (weightInInventory == 2)
                     {
-                        AddScriptableObjectInPage(wiewable, inventoryButton[i]);
+                        AddScriptableObjectInPage(wiewable,howMany, inventoryButton[i]);
                         return true;
                     }
                     else if (weightInInventory == 3 && inventoryButton[i + inventoryColumnCount * 2].scriptableObject == null)
                     {
-                        AddScriptableObjectInPage(wiewable, inventoryButton[i]);
+                        AddScriptableObjectInPage(wiewable,howMany, inventoryButton[i]);
                         return true;
                     }
                 }
             }
-            i++;
+            else if (button.scriptableObject == wiewable.GetScriptableObject())
+            {
+
+            }
+                i++;
             
         }
         return false;
     }
-    public void AddScriptableObjectInPage(IWiewable wiewable,InventorButton inventorButton)
+    public bool AddStack(IWiewable wiewable, int howMany)
+    {
+        foreach (var itemSlot in itemsInPage.Where(item => item.scriptableObject == wiewable.GetScriptableObject()))
+        {
+            int newCount = itemSlot.howMany + howMany;
+            Debug.Log(itemSlot.howMany + " " + howMany);
+
+            if (newCount <= wiewable.StackLimit())
+            {
+                int index = itemsInPage.IndexOf(itemSlot);
+                itemsInPage[index] = (itemSlot.scriptableObject, newCount); // Güncelleme
+
+                return true; // Ýlk eþleþen item için iþlem yapýlýr
+            }
+        }
+
+        return false;
+    }
+    public void AddScriptableObjectInPage(IWiewable wiewable,int howMany,InventorButton inventorButton)
     {
         Debug.Log("pivk upbastý2");
-        itemsInPage.Add(wiewable.GetScriptableObject());
+        itemsInPage.Add((wiewable.GetScriptableObject(),howMany));
 
         inventorButton.ChangeSprite( wiewable);
     }
@@ -95,7 +119,7 @@ public class InventoryPage : MonoBehaviour
     {
         if (getObject is UpgradeItemsSO upgradeItem)
         {
-            itemsInPage.Remove(getObject);
+            //itemsInPage.Remove((getObject,));
             return;
         }
 

@@ -12,6 +12,7 @@ public class InteractionDetector : MonoBehaviour
     private float minDistance=int.MaxValue;
     private IWiewable selectedIWievable;
     private GameObject selectedGameObject;
+    private int selectedSoHowMany;
     private void Awake()
     {
         InputPlayer.OnPickUpPressed += PickUp;
@@ -40,13 +41,13 @@ public class InteractionDetector : MonoBehaviour
                 {
                     selectedGameObject = pickedable.GetGameObject();
                     selectedIWievable = pickedable.GetIWievAble();
-                    
+                    selectedSoHowMany = pickedable.GetHowMany();
                 }
 
                 Debug.Log("i" );
             }
             
-            if (!InventroyManager.Instance.add(selectedIWievable))
+            if (!InventroyManager.Instance.add(selectedIWievable, selectedSoHowMany))
             {
                 Debug.Log("yer yok");
             } 

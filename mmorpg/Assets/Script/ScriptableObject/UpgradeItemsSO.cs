@@ -28,6 +28,10 @@ public class UpgradeItemsSO : ScriptableObject,IWiewable
     {
         return info;
     }
+    public int StackLimit()
+    { 
+        return 200; 
+    }
 
     public int GetWeightInInventory()
     {

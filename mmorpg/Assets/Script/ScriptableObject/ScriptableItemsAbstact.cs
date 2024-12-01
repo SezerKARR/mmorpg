@@ -40,7 +40,8 @@ public abstract  class ScriptableItemsAbstact : ScriptableObject,IWiewable
     public RequirementClass[] Requirements =new RequirementClass[0];
     public Sprite Image;
     public int level;
-
+    public int StackLimit()
+    { return 1; }
     public string GetInfo()
     {
         return "weapon";

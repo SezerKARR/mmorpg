@@ -7,6 +7,7 @@ public abstract class ItemDrop : MonoBehaviour, IPickedUpAble
 {
     public TMP_Text itemName;
     public IWiewable IWievableScriptableObject;
+    public int howMany=1;
     public virtual GameObject GetGameObject()
     {
         return this.gameObject;
@@ -15,6 +16,11 @@ public abstract class ItemDrop : MonoBehaviour, IPickedUpAble
     {
         return this.IWievableScriptableObject;
     }
+    public int GetHowMany()
+    {
+        return this.howMany;
+    }
+    
     public virtual void DestroyObject()
     {
 

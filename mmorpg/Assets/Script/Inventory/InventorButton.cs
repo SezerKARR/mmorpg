@@ -51,8 +51,22 @@ public class InventorButton : MonoBehaviour
             {
                 Image.sprite = wiewable.GetSprite();
             }
-
+            howMany++;
                 Image.enabled = true;
+            return;
+        }
+    }
+    public void ChangeSprite(IWiewable wiewable,int howMany)
+    {
+       
+       if (wiewable.GetWeightInInventory() == 1)
+        {
+            if (wiewable.GetSprite() != null)
+            {
+                Image.sprite = wiewable.GetSprite();
+            }
+            this.howMany += howMany;
+            Image.enabled = true;
             return;
         }
     }
