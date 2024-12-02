@@ -11,51 +11,52 @@ public class InventorButton : MonoBehaviour
     public ScriptableObject scriptableObject;
     public SwordSO swordso;
     public Image Image;
-    public int howMany;
-    private float buttonLenght;
+    public int howMany=1;
+    private float buttonOrginalHeight;
+    private RectTransform button;
+    private void Awake()
+    {
+        button = this.gameObject.GetComponent<RectTransform>();
+        buttonOrginalHeight = button.rect.height;
+    }
     public void SetScriptableObject(IWiewable wiewable)
     {
 
         scriptableObject=wiewable.GetScriptableObject();
     }
+    
     public void ChangeSprite(IWiewable wiewable)
     {
+
         scriptableObject = wiewable.GetScriptableObject();
-        buttonLenght =this.gameObject.GetComponent<RectTransform>().rect.height;
-        int spriteLenght=wiewable.GetWeightInInventory();
-        if (spriteLenght == 3)
-        {
-            print(Image.rectTransform.localScale.x / 3);
 
-
-            Image.rectTransform.anchoredPosition = new Vector2(Image.rectTransform.anchoredPosition.x, (Image.rectTransform.anchoredPosition.y - buttonLenght/3));
-            Image.rectTransform.localScale = new Vector2(Image.rectTransform.localScale.x, Image.rectTransform.localScale.y * 3);
-            Image.sprite = wiewable.GetSprite();
-            Image.enabled = true;
-            return;
-        }
-        else if (spriteLenght == 2)
+        int spriteLenght = wiewable.GetWeightInInventory();
+        ButtonChangeSize(spriteLenght);
+        Image.sprite = wiewable.GetSprite();
+        Image.enabled = true;
+        if (wiewable.StackLimit() > 1)
         {
-            print(Image.rectTransform.localScale.x / 2);
-            
-
-            Image.rectTransform.anchoredPosition = new Vector2(Image.rectTransform.anchoredPosition.x,  (Image.rectTransform.anchoredPosition.y/2));
-            Image.rectTransform.localScale = new Vector2(Image.rectTransform.localScale.x, Image.rectTransform.localScale.y * 2);
-            Image.sprite = wiewable.GetSprite();
-            Image.enabled = true;
-            return;
-        }
-        else if (spriteLenght == 1)
-        {
-            if (wiewable.GetSprite() != null)
-            {
-                Image.sprite = wiewable.GetSprite();
-            }
             howMany++;
-                Image.enabled = true;
-            return;
         }
+        return;
+
     }
+
+    public void ResetButtonSize()
+    {
+        button.sizeDelta = new Vector2(button.sizeDelta.x, buttonOrginalHeight);
+
+        button.anchoredPosition = new Vector2(button.anchoredPosition.x, button.anchoredPosition.y + (buttonOrginalHeight));
+    }
+    public void ButtonChangeSize(int spriteHeight)
+    {
+        float newHeight = buttonOrginalHeight * spriteHeight;
+        button.sizeDelta = new Vector2(button.sizeDelta.x, newHeight);
+        float heightDifference = (newHeight - buttonOrginalHeight) / 2f;
+        button.anchoredPosition = new Vector2(button.anchoredPosition.x, button.anchoredPosition.y - heightDifference);
+    }
+   
+    /*
     public void ChangeSprite(IWiewable wiewable,int howMany)
     {
        
@@ -69,7 +70,7 @@ public class InventorButton : MonoBehaviour
             Image.enabled = true;
             return;
         }
-    }
+    }*/
     public void TakeScriptableObject(ScriptableObject takedScriptableObject)
     {
         scriptableObject = takedScriptableObject;

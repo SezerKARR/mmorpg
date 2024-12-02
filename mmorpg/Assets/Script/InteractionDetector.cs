@@ -47,7 +47,7 @@ public class InteractionDetector : MonoBehaviour
                 Debug.Log("i" );
             }
             
-            if (!InventroyManager.Instance.add(selectedIWievable, selectedSoHowMany))
+            if (!InventoryManager.Instance.add(selectedIWievable, selectedSoHowMany))
             {
                 Debug.Log("yer yok");
             } 

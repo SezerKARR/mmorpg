@@ -106,7 +106,8 @@ MonoBehaviour:
   itemDrop: {fileID: 1958407190808054159, guid: 46e6b05667f8fe04a8059d19655c6ce5, type: 3}
   itemToDrops:
   - probability: 1
-  - probability: 0
+  - probability: 1
+  - probability: 1
   maxHealth: 100
   currentHealth: 0
   creaturesGroup: {fileID: 0}

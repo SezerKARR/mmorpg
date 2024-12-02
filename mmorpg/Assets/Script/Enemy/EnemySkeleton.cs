@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using static UnityEditor.Progress;
 [System.Serializable]
 public class ItemToDrop : System.Object
 {
@@ -92,7 +91,13 @@ public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
         {
             GameObject drop = Instantiate(itemDrop, RandomPositionByObjectCircle(), Quaternion.identity);
             drop.GetComponent<ItemDropGameObject>().Playername.text = "player";
-            drop.GetComponent<ItemDropGameObject>().IWievableScriptableObject = (enemySO.canDrop[0] is IWiewable wiewable) ? wiewable : null;
+            drop.GetComponent<ItemDropGameObject>().IWievableScriptableObject = (enemySO.canDrop[1] is IWiewable wiewable) ? wiewable : null;
+            GameObject drop1 = Instantiate(itemDrop, RandomPositionByObjectCircle(), Quaternion.identity);
+            drop1.GetComponent<ItemDropGameObject>().Playername.text = "player";
+            drop1.GetComponent<ItemDropGameObject>().IWievableScriptableObject = (enemySO.canDrop[0] is IWiewable wiewable1) ? wiewable1 : null;
+            GameObject drop2 = Instantiate(itemDrop, RandomPositionByObjectCircle(), Quaternion.identity);
+            drop2.GetComponent<ItemDropGameObject>().Playername.text = "player";
+            drop2.GetComponent<ItemDropGameObject>().IWievableScriptableObject = (enemySO.canDrop[2] is IWiewable wiewable2) ? wiewable2 : null;
         }
         /*foreach (var item in itemToDrops)
         {

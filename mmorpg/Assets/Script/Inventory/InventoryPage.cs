@@ -7,25 +7,35 @@ using UnityEngine.UI;
 
 public class InventoryPage : MonoBehaviour
 {
-    public ScriptableObject upgradeItemsSO;
     public static Sprite sprite;
-    private InventorButton[] inventoryButton;
+    private InventorButton[] inventorButton;
     public List<(ScriptableObject scriptableObject, int howMany)> itemsInPage = new List<(ScriptableObject scriptableObject, int howMany)>();
 
     private int buttonCount;
     private int inventoryColumnCount;
     private int inventoryRowCount;
-
+    private float leftValueRatio = 59.33333333333333f;
+    private float rightValueRatio = 59.33333333333333f;
+    private float cellSizeRatio = 5.085714285714286f;
     //public static 
     // private int x=5;
     private static int y;
     private void Awake()
     {
-        inventoryButton = GetComponentsInChildren<InventorButton>();
-        buttonCount = inventoryButton.Length;
+        RectTransform rectTransform = this.GetComponent<RectTransform>();
+
+        // Boyutlarý alýyoruz
+        float width = rectTransform.rect.width;
+        float height = rectTransform.rect.height;
+
+        Debug.Log("Width: " + width + " Height: " + height);
+        inventorButton = GetComponentsInChildren<InventorButton>();
+        
+        buttonCount = inventorButton.Length;
         inventoryColumnCount = GetComponent<GridLayoutGroup>().constraintCount;
         inventoryRowCount = buttonCount / inventoryColumnCount;
         print((buttonCount, inventoryColumnCount, inventoryRowCount));
+        GetComponent<GridLayoutGroup>().cellSize = new Vector2(width / cellSizeRatio, width / cellSizeRatio);
 
     }
     public bool CanGetObject(IWiewable wiewable,int howMany)
@@ -36,39 +46,47 @@ public class InventoryPage : MonoBehaviour
         Debug.Log("pivk upbastý");
 
 
-        foreach (InventorButton button in inventoryButton)
+        foreach (InventorButton button in inventorButton)
         {
-            
 
+            if (weightInInventory + i > buttonCount)
+            {
+                return false;
+            }
             if (button.scriptableObject == null)
             {
                 
                 if (weightInInventory == 1)
                 {
-                    AddScriptableObjectInPage(wiewable,howMany, inventoryButton[i]);
+                    AddScriptableObjectInPage(wiewable,howMany, inventorButton[i]);
 
                     
                     return true;
                 }
-                else if (inventoryButton[i + inventoryColumnCount].scriptableObject == null)
+                else if (inventorButton[i + 1].scriptableObject == null)
                 {
-
-                    if (weightInInventory == 2)
-                    {
-                        AddScriptableObjectInPage(wiewable,howMany, inventoryButton[i]);
-                        return true;
+                    if ((i + 1) % 9 != 0) {
+                        if (weightInInventory == 2)
+                        {
+                            AddScriptableObjectInButton(wiewable, inventorButton[i + 1]);
+                            AddScriptableObjectInPage(wiewable, howMany, inventorButton[i]);
+                            return true;
+                        }
+                        if ((i + 2) % 9 != 0)
+                        {
+                            if (weightInInventory == 3 && inventorButton[i + 2].scriptableObject == null)
+                            {
+                                AddScriptableObjectInButton(wiewable, inventorButton[i + 1]);
+                                AddScriptableObjectInButton(wiewable, inventorButton[i + 2]); ;
+                                AddScriptableObjectInPage(wiewable, howMany, inventorButton[i]);
+                                return true;
+                            } 
+                        }
                     }
-                    else if (weightInInventory == 3 && inventoryButton[i + inventoryColumnCount * 2].scriptableObject == null)
-                    {
-                        AddScriptableObjectInPage(wiewable,howMany, inventoryButton[i]);
-                        return true;
-                    }
+                    
                 }
             }
-            else if (button.scriptableObject == wiewable.GetScriptableObject())
-            {
-
-            }
+            
                 i++;
             
         }
@@ -102,8 +120,8 @@ public class InventoryPage : MonoBehaviour
     public void AddScriptableObjectInButton(IWiewable wiewable,InventorButton inventorButton)
     {
         Debug.Log("pivk upbastý23");
-
-        inventorButton.SetScriptableObject(wiewable);
+        inventorButton.scriptableObject=wiewable.GetScriptableObject();
+        inventorButton.gameObject.SetActive(false);
     }
 
     private void changeSprite(int spriteLength, Sprite sprite, InventorButton button)
