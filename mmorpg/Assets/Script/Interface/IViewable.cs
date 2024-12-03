@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public interface IWiewable
+public interface IViewable
 {
     public string GetInfo();
     public ScriptableObject GetScriptableObject();

@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 [System.Serializable]
 public class ItemToDrop : System.Object
 {
-    public IWiewable itemToDrop;
+    public IViewable itemToDrop;
     public float probability;
 }
 public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
@@ -91,13 +91,13 @@ public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
         {
             GameObject drop = Instantiate(itemDrop, RandomPositionByObjectCircle(), Quaternion.identity);
             drop.GetComponent<ItemDropGameObject>().Playername.text = "player";
-            drop.GetComponent<ItemDropGameObject>().IWievableScriptableObject = (enemySO.canDrop[1] is IWiewable wiewable) ? wiewable : null;
+            drop.GetComponent<ItemDropGameObject>().IWievableScriptableObject = (enemySO.canDrop[1] is IViewable wiewable) ? wiewable : null;
             GameObject drop1 = Instantiate(itemDrop, RandomPositionByObjectCircle(), Quaternion.identity);
             drop1.GetComponent<ItemDropGameObject>().Playername.text = "player";
-            drop1.GetComponent<ItemDropGameObject>().IWievableScriptableObject = (enemySO.canDrop[0] is IWiewable wiewable1) ? wiewable1 : null;
+            drop1.GetComponent<ItemDropGameObject>().IWievableScriptableObject = (enemySO.canDrop[0] is IViewable wiewable1) ? wiewable1 : null;
             GameObject drop2 = Instantiate(itemDrop, RandomPositionByObjectCircle(), Quaternion.identity);
             drop2.GetComponent<ItemDropGameObject>().Playername.text = "player";
-            drop2.GetComponent<ItemDropGameObject>().IWievableScriptableObject = (enemySO.canDrop[2] is IWiewable wiewable2) ? wiewable2 : null;
+            drop2.GetComponent<ItemDropGameObject>().IWievableScriptableObject = (enemySO.canDrop[2] is IViewable wiewable2) ? wiewable2 : null;
         }
         /*foreach (var item in itemToDrops)
         {

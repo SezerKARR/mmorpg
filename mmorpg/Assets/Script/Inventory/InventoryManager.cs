@@ -4,9 +4,20 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Unity.VisualScripting;
+using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
-
+using UnityEngine.UIElements;
+public class SelectedButton
+{
+    public InventorButton inventorButton;
+    public Vector2Int pos;
+    public SelectedButton(InventorButton button, Vector2Int pos)
+    {
+        inventorButton = button;
+        this.pos = pos;
+    }
+}
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
@@ -15,18 +26,21 @@ public class InventoryManager : MonoBehaviour
     public  List<(ScriptableObject scriptableObject, int howMany)> itemsInInventory = new List<(ScriptableObject scriptableObject, int howMany)>();
     [SerializeField]
     private PageChangeButton[] pageChangeButton;
+    public SelectedButton selectedButton=null;
     private int activePage;
     private void Awake()
     {
         Instance = this;
-        
+        for (int i = 0; i < inventoryPage.Length; i++) {
+            inventoryPage[i].GiveNumber(i);
+        }
     }
     // Start is called before the first frame update
     void Start()
     {
         OpenPage(0);
     }
-    public bool add(IWiewable wiewable,int howMany)
+    public bool add(IViewable wiewable,int howMany)
     {
         
 
@@ -55,16 +69,28 @@ public class InventoryManager : MonoBehaviour
         return false;
 
     }
+    public void ChangeIViewableInventoryPosition(int  newButtonPos)
+    {
+        if ( inventoryPage[activePage].CanChangePosition(newButtonPos))
+        {
+            inventoryPage[activePage].inventorButtons[newButtonPos].Screen();
+            inventoryPage[this.selectedButton.pos.x].ResetButtons(selectedButton);
+            this.selectedButton = null;
+        }
+        
+    }
+
     public void ChangePage(int page)
     {
         ClosePage(activePage);
         OpenPage(page);
+        
     }
     public void ClosePage(int page)
     {
         inventoryPage[page].GetComponent<CanvasGroup>().alpha = 0;       // Görünür yap
         inventoryPage[page].GetComponent<CanvasGroup>().interactable = false; // Etkileþimli yap
-        inventoryPage[page].GetComponent<CanvasGroup>().blocksRaycasts = true; // Raycastlarý engelleme
+        inventoryPage[page].GetComponent<CanvasGroup>().blocksRaycasts = false; // Raycastlarý engelleme
 
         pageChangeButton[page].ChangeColorForNormal();
     }
@@ -73,8 +99,14 @@ public class InventoryManager : MonoBehaviour
         activePage = page;
         inventoryPage[page].GetComponent<CanvasGroup>().alpha = 1;       // Görünür yap
         inventoryPage[page].GetComponent<CanvasGroup>().interactable = true; // Etkileþimli yap
-        inventoryPage[page].GetComponent<CanvasGroup>().blocksRaycasts = false; // Raycastlarý engelleme
+        inventoryPage[page].GetComponent<CanvasGroup>().blocksRaycasts = true; // Raycastlarý engelleme
         pageChangeButton[page].ChangeColorForPressed();
+    }
+    public void CloseInventory()
+    {
+        this.GetComponent<CanvasGroup>().alpha = 0;       // Görünür yap
+        this.GetComponent<CanvasGroup>().interactable = false; // Etkileþimli yap
+        this.GetComponent<CanvasGroup>().blocksRaycasts = true; // Raycastlarý engelleme
     }
     // Update is called once per frame
     void Update()

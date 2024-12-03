@@ -13,7 +13,7 @@ public class ToolTip : MonoBehaviour
     public TextMeshProUGUI[] bonusesText;
     public TextMeshProUGUI wearableLayer;
     public TextMeshProUGUI wearAbleText;
-    public void Screen(ScriptableObject scriptableObject)
+    public void Screen(IViewable scriptableObject)
     {
         
         if (scriptableObject is SwordSO sword)
@@ -22,7 +22,10 @@ public class ToolTip : MonoBehaviour
             Debug.Log(scriptableObject);
             SetText(swordNameText, sword.name);
             SetText(attackValueText, ("Attack Value " + sword.minAndMaxAttackValue[sword.currentPlus].ToString())) ;
-            SetText(magicalValueText, ("Magic Attack Value " + sword.minAndMaxMagicalAttackValue[sword.currentPlus].ToString())) ;
+            if (sword.minAndMaxMagicalAttackValue[sword.currentPlus].ToString() != ""){
+                SetText(magicalValueText, ("Magic Attack Value " + sword.minAndMaxMagicalAttackValue[sword.currentPlus].ToString()));
+            }
+            
             SetText(attackSpeedText, ("Attack Speed " + sword.attackSpeed[sword.currentPlus].ToString())) ;
             SetText(levelText, ("From level" + sword.level.ToString())) ;
             

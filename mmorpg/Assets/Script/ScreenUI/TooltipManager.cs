@@ -7,14 +7,14 @@ using UnityEngine;
 
 public class TooltipManager : MonoBehaviour
 {
-    public static TooltipManager instance;
+    public static TooltipManager Instance;
     public ToolTip tooltip;
     [SerializeField]
     private ScriptableObject swords;
     public RectTransform rectTransform;
     private void Awake()
     {
-        instance = this;
+        Instance = this;
         Hide();
     }
     private void Start()
@@ -23,12 +23,12 @@ public class TooltipManager : MonoBehaviour
               
     }
     private void Update() {
-        if (UIManager.Instance.GetUIElementUnderPointer() != null&&tooltip.GameObject().activeSelf==false)
+        /*if (UIManager.Instance.GetUIElementUnderPointer() != null&&tooltip.GameObject().activeSelf==false)
         {
-            if (UIManager.Instance.GetUIElementUnderPointer().GetComponent<IWiewable>() != null)
+            if (UIManager.Instance.GetUIElementUnderPointer().GetComponent<IViewable>() != null)
             {
                 rectTransform=UIManager.Instance.GetUIElementUnderPointer().GetComponent<RectTransform>();
-                Screen(UIManager.Instance.GetUIElementUnderPointer().GetComponent<IWiewable>().GetScriptableObject());
+                Screen(UIManager.Instance.GetUIElementUnderPointer().GetComponent<IViewable>());
             }
         }
         if (tooltip.GameObject().activeSelf == true) {
@@ -37,7 +37,7 @@ public class TooltipManager : MonoBehaviour
                 Debug.Log(rectTransform.gameObject.name);
                 Hide();
             }
-        }
+        }*/
     }
 
     /*public void screen(ScriptableObject scriptableObject)
@@ -53,8 +53,9 @@ public class TooltipManager : MonoBehaviour
         
     }*/
 
-    public void Screen(ScriptableObject scriptableObject)
+    public void Screen(IViewable scriptableObject)
     {
+        
         tooltip.GameObject().SetActive(true);
         tooltip.Screen(scriptableObject);
 

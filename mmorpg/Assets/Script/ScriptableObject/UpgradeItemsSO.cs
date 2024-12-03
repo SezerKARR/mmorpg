@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObject/UpgradeItem")]
-public class UpgradeItemsSO : ScriptableObject,IWiewable
+public class UpgradeItemsSO : ScriptableObject,IViewable
 {
     public Sprite Image;
     public string upgradeName;
@@ -24,7 +24,7 @@ public class UpgradeItemsSO : ScriptableObject,IWiewable
         return this;
     }
 
-    string IWiewable.GetInfo()
+    string IViewable.GetInfo()
     {
         return info;
     }

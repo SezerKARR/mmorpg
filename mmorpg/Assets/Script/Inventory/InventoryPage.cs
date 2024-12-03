@@ -1,4 +1,5 @@
 
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,14 +9,13 @@ using UnityEngine.UI;
 public class InventoryPage : MonoBehaviour
 {
     public static Sprite sprite;
-    private InventorButton[] inventorButton;
+    public  InventorButton[] inventorButtons;
+   
     public List<(ScriptableObject scriptableObject, int howMany)> itemsInPage = new List<(ScriptableObject scriptableObject, int howMany)>();
-
+    private int pageCount;
     private int buttonCount;
     private int inventoryColumnCount;
     private int inventoryRowCount;
-    private float leftValueRatio = 59.33333333333333f;
-    private float rightValueRatio = 59.33333333333333f;
     private float cellSizeRatio = 5.085714285714286f;
     //public static 
     // private int x=5;
@@ -29,80 +29,111 @@ public class InventoryPage : MonoBehaviour
         float height = rectTransform.rect.height;
 
         Debug.Log("Width: " + width + " Height: " + height);
-        inventorButton = GetComponentsInChildren<InventorButton>();
         
-        buttonCount = inventorButton.Length;
+        
+        buttonCount = inventorButtons.Length;
         inventoryColumnCount = GetComponent<GridLayoutGroup>().constraintCount;
         inventoryRowCount = buttonCount / inventoryColumnCount;
         print((buttonCount, inventoryColumnCount, inventoryRowCount));
         GetComponent<GridLayoutGroup>().cellSize = new Vector2(width / cellSizeRatio, width / cellSizeRatio);
 
     }
-    public bool CanGetObject(IWiewable wiewable,int howMany)
+    public void GiveNumber(int number)
+    {
+        inventorButtons = GetComponentsInChildren<InventorButton>();
+        this.pageCount = number;
+        for (int i = 0; i < inventorButtons.Length; i++)
+        {
+            inventorButtons[i].ButtonCount = new Vector2Int(number, i);
+
+        }
+    }
+    public bool CanGetObject(IViewable viewable,int howMany)
     {
         
-        int i = 0;
-        int weightInInventory = wiewable.GetWeightInInventory();
+        
         Debug.Log("pivk upbastý");
 
 
-        foreach (InventorButton button in inventorButton)
+        for (int i = 0; i < inventorButtons.Length; i++)
         {
+            if( ControlCanAdd(i, viewable, howMany))
+                return true;
 
-            if (weightInInventory + i > buttonCount)
-            {
-                return false;
-            }
-            if (button.scriptableObject == null)
-            {
-                
-                if (weightInInventory == 1)
-                {
-                    AddScriptableObjectInPage(wiewable,howMany, inventorButton[i]);
-
-                    
-                    return true;
-                }
-                else if (inventorButton[i + 1].scriptableObject == null)
-                {
-                    if ((i + 1) % 9 != 0) {
-                        if (weightInInventory == 2)
-                        {
-                            AddScriptableObjectInButton(wiewable, inventorButton[i + 1]);
-                            AddScriptableObjectInPage(wiewable, howMany, inventorButton[i]);
-                            return true;
-                        }
-                        if ((i + 2) % 9 != 0)
-                        {
-                            if (weightInInventory == 3 && inventorButton[i + 2].scriptableObject == null)
-                            {
-                                AddScriptableObjectInButton(wiewable, inventorButton[i + 1]);
-                                AddScriptableObjectInButton(wiewable, inventorButton[i + 2]); ;
-                                AddScriptableObjectInPage(wiewable, howMany, inventorButton[i]);
-                                return true;
-                            } 
-                        }
-                    }
-                    
-                }
-            }
-            
-                i++;
             
         }
         return false;
     }
-    public bool AddStack(IWiewable wiewable, int howMany)
+    public bool CanChangePosition(int inventorButtonPos)
     {
-        foreach (var itemSlot in itemsInPage.Where(item => item.scriptableObject == wiewable.GetScriptableObject()))
+        return ControlCanAdd(inventorButtonPos, InventoryManager.Instance.selectedButton.inventorButton.scriptableObjectIWiewable, InventoryManager.Instance.selectedButton.inventorButton.howMany);
+    }
+    public bool ControlCanAdd(int i, IViewable viewable,int howMany)
+    {
+        int weightInInventory = viewable.GetWeightInInventory();
+        if (weightInInventory + i > buttonCount)
         {
+            return false;
+        }
+        if (inventorButtons[i].scriptableObjectIWiewable == null)
+        {
+            if (weightInInventory == 1)
+            {
+                AddScriptableObjectInPage(viewable, howMany, inventorButtons[i]);
+                return true;
+            }
+            else if (i + 1 < inventorButtons.Length && inventorButtons[i + 1].scriptableObjectIWiewable == null)
+            {
+                if ((i + 1) % 9 != 0)
+                {
+                    if (weightInInventory == 2)
+                    {
+                        AddScriptableObjectInButton(viewable, inventorButtons[i + 1]);
+                        AddScriptableObjectInPage(viewable, howMany, inventorButtons[i]);
+                        return true;
+                    }
+
+                    if (i + 2 < inventorButtons.Length && (i + 2) % 9 != 0)
+                    {
+                        if (weightInInventory == 3 && inventorButtons[i + 2].scriptableObjectIWiewable == null)
+                        {
+                            AddScriptableObjectInButton(viewable, inventorButtons[i + 1]);
+                            AddScriptableObjectInButton(viewable, inventorButtons[i + 2]);
+                            AddScriptableObjectInPage(viewable, howMany, inventorButtons[i]);
+                            return true;
+                        }
+                    }
+                }
+            }
+        }
+        return false;
+    }
+    public void FindButton(InventorButton inventorButton)
+    {
+        int pos = Array.FindIndex(inventorButtons, button => button == inventorButton);
+    }
+    public void ResetButtons(SelectedButton selectedButton)
+    {
+        int pos = selectedButton.pos.y;
+        int t = selectedButton.inventorButton.scriptableObjectIWiewable.GetWeightInInventory();
+        for (int i = pos; i< pos+ t; i++)
+        {
+            inventorButtons[i].ResetButton();
+        }
+       
+    }
+    public bool AddStack(IViewable wiewable, int howMany)
+    {
+        int i = 0;
+        foreach (var itemSlot in inventorButtons.Where(item => item.scriptableObjectIWiewable == wiewable))
+        {
+            i++;
             int newCount = itemSlot.howMany + howMany;
-            Debug.Log(itemSlot.howMany + " " + howMany);
 
             if (newCount <= wiewable.StackLimit())
             {
-                int index = itemsInPage.IndexOf(itemSlot);
-                itemsInPage[index] = (itemSlot.scriptableObject, newCount); // Güncelleme
+
+                itemSlot.AddStack(newCount); // Güncelleme lazým todo
 
                 return true; // Ýlk eþleþen item için iþlem yapýlýr
             }
@@ -110,20 +141,21 @@ public class InventoryPage : MonoBehaviour
 
         return false;
     }
-    public void AddScriptableObjectInPage(IWiewable wiewable,int howMany,InventorButton inventorButton)
+    public void AddScriptableObjectInPage(IViewable wiewable,int howMany,InventorButton inventorButton)
     {
         Debug.Log("pivk upbastý2");
         itemsInPage.Add((wiewable.GetScriptableObject(),howMany));
 
         inventorButton.ChangeSprite( wiewable);
     }
-    public void AddScriptableObjectInButton(IWiewable wiewable,InventorButton inventorButton)
+    public void AddScriptableObjectInButton(IViewable wiewable,InventorButton inventorButton)
     {
         Debug.Log("pivk upbastý23");
-        inventorButton.scriptableObject=wiewable.GetScriptableObject();
-        inventorButton.gameObject.SetActive(false);
+        inventorButton.SetScriptableObject(wiewable);
+        
+        
     }
-
+    
     private void changeSprite(int spriteLength, Sprite sprite, InventorButton button)
     {
             //button.ChangeSprite(spriteLength, sprite);

@@ -24,7 +24,7 @@ public class RequirementClass
     
 }
 
-public abstract  class ScriptableItemsAbstact : ScriptableObject,IWiewable
+public abstract  class ScriptableItemsAbstact : ScriptableObject,IViewable
 {
     public int weightInInventory;
     public List<string> bonuses;

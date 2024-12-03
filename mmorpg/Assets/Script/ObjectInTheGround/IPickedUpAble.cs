@@ -5,7 +5,7 @@ using UnityEngine;
 public interface IPickedUpAble
 {
     GameObject GetGameObject();
-    IWiewable GetIWievAble();
+    IViewable GetIWievAble();
     int GetHowMany();
 }
 

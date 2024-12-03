@@ -1,59 +1,81 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventorButton : MonoBehaviour
+public class InventorButton : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPointerClickHandler,IScreenAble
 {
-    public GameObject ScriptableObjectScreener;
-    public ScriptableObject scriptableObject;
-    public SwordSO swordso;
-    public Image Image;
-    public int howMany=1;
+    public Vector2Int ButtonCount;
+    //public GameObject ScriptableObjectScreener;
+    public IViewable scriptableObjectIWiewable;
+    //public SwordSO swordso;
+    public Image image;
+    public int howMany=0;
     private float buttonOrginalHeight;
-    private RectTransform button;
+    private RectTransform imageRectTransform;
+    public TextMeshProUGUI howManyText;
     private void Awake()
     {
-        button = this.gameObject.GetComponent<RectTransform>();
-        buttonOrginalHeight = button.rect.height;
+        imageRectTransform = this.image.GameObject().GetComponent<RectTransform>();
+        buttonOrginalHeight = imageRectTransform.rect.height;
     }
-    public void SetScriptableObject(IWiewable wiewable)
+    public void AddStack(int newValue)
+    {
+        howMany=newValue;
+        howManyText.text = howMany.ToString();
+    }
+    public void SetScriptableObject(IViewable wiewable)
     {
 
-        scriptableObject=wiewable.GetScriptableObject();
+        scriptableObjectIWiewable=wiewable;
+        image.enabled = false;
     }
     
-    public void ChangeSprite(IWiewable wiewable)
+    public void ChangeSprite(IViewable wiewable)
     {
 
-        scriptableObject = wiewable.GetScriptableObject();
+        scriptableObjectIWiewable = wiewable;
 
-        int spriteLenght = wiewable.GetWeightInInventory();
-        ButtonChangeSize(spriteLenght);
-        Image.sprite = wiewable.GetSprite();
-        Image.enabled = true;
+        ImageChangeSize(wiewable.GetWeightInInventory());
+        image.sprite = wiewable.GetSprite();
+        image.color = new Color(image.color.r,image.color.g,image.color.b,1f);
         if (wiewable.StackLimit() > 1)
         {
+            Debug.Log(howMany);
             howMany++;
+            howManyText.text=howMany.ToString();
         }
         return;
 
     }
-
-    public void ResetButtonSize()
+    public void ResetButton()
     {
-        button.sizeDelta = new Vector2(button.sizeDelta.x, buttonOrginalHeight);
 
-        button.anchoredPosition = new Vector2(button.anchoredPosition.x, button.anchoredPosition.y + (buttonOrginalHeight));
+        howMany = 0;
+        
+        howManyText.gameObject.SetActive(false);
+        image.sprite = null;
+        image.color = new Color(image.color.r, image.color.g, image.color.b, 0f);
+        image.enabled = true;
+        ResetImageSize();
+        scriptableObjectIWiewable =null;
+        ImageUnderCursor.Instance.GameObject().SetActive(false);
     }
-    public void ButtonChangeSize(int spriteHeight)
+    public void ResetImageSize()
+    {
+        imageRectTransform.sizeDelta = new Vector2(imageRectTransform.sizeDelta.x, buttonOrginalHeight);
+
+        imageRectTransform.anchoredPosition = new Vector2(0,0);
+    }
+    public void ImageChangeSize(int spriteHeight)
     {
         float newHeight = buttonOrginalHeight * spriteHeight;
-        button.sizeDelta = new Vector2(button.sizeDelta.x, newHeight);
+        imageRectTransform.sizeDelta = new Vector2(imageRectTransform.sizeDelta.x, newHeight);
         float heightDifference = (newHeight - buttonOrginalHeight) / 2f;
-        button.anchoredPosition = new Vector2(button.anchoredPosition.x, button.anchoredPosition.y - heightDifference);
+        imageRectTransform.anchoredPosition = new Vector2(imageRectTransform.anchoredPosition.x, imageRectTransform.anchoredPosition.y - heightDifference);
     }
    
     /*
@@ -71,25 +93,70 @@ public class InventorButton : MonoBehaviour
             return;
         }
     }*/
-    public void TakeScriptableObject(ScriptableObject takedScriptableObject)
+    /*public void TakeScriptableObject(ScriptableObject takedScriptableObject)
     {
-        scriptableObject = takedScriptableObject;
-    }
-/*
+        scriptableObjectIWiewable = takedScriptableObject;
+    }*/
+
     public void OnPointerEnter(PointerEventData eventData)
     {
-        print("mouseover");
-        //ToolTipUISystem.Show(scriptableObject, 1);
+        if(this.scriptableObjectIWiewable != null)
+        {
+            Screen();
+        }
+        
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        //ToolTipUISystem.Hide( 1);
-    }*/
+        Hide();
+    }
 
-    public void ScreenerSetActive()
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (InventoryManager.Instance.selectedButton == null&&this.scriptableObjectIWiewable!=null)
+        {
+            Debug.Log(this.gameObject.name);
+            ImageUnderCursor.Instance.GetComponent<Image>().sprite = this.scriptableObjectIWiewable.GetSprite();
+            ImageUnderCursor.Instance.GameObject().SetActive(true);
+            InventoryManager.Instance.selectedButton=new SelectedButton(this, ButtonCount);
+            return;
+        }
+        else if(InventoryManager.Instance.selectedButton != null)
+        {
+            Debug.Log(ButtonCount.y);
+            InventoryManager.Instance.ChangeIViewableInventoryPosition(ButtonCount.y);
+            
+        }
+        
+
+
+    }
+    
+    public void Screen()
+    {
+        TooltipManager.Instance.Screen(this.scriptableObjectIWiewable);
+    }
+
+    public void Hide()
+    {
+        TooltipManager.Instance.Hide();
+    }
+    /*
+public void OnPointerEnter(PointerEventData eventData)
+{
+print("mouseover");
+//ToolTipUISystem.Show(scriptableObject, 1);
+}
+
+public void OnPointerExit(PointerEventData eventData)
+{
+//ToolTipUISystem.Hide( 1);
+}*/
+
+    /*public void ScreenerSetActive()
     {
         ScriptableObjectScreener.gameObject.SetActive(true);
         //ScriptableObjectScreener.GetComponent<UpgradeItemScreener>().Screen(scriptableObject);
-    }
+    }*/
 }
