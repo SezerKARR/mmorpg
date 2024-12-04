@@ -26,7 +26,8 @@ public class RequirementClass
 
 public abstract  class ScriptableItemsAbstact : ScriptableObject,IViewable
 {
-    public int weightInInventory;
+    public float price;
+    public int weightInInventory=1;
     public List<string> bonuses;
     public List<(string bonusName, List<float> bonusValue)> ItemBonuses = new List<(string bonusName, List<float> bonusValue)>();
     public string ItemName;

@@ -1,5 +1,5 @@
 public interface IEquipmentAble
 {
-    void Equip();
+    void Equip(ScriptableItemsAbstact ScriptableItemsAbstact);
     void Unequip();
 }

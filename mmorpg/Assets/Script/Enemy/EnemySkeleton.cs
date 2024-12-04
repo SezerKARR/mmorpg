@@ -91,13 +91,20 @@ public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
         {
             GameObject drop = Instantiate(itemDrop, RandomPositionByObjectCircle(), Quaternion.identity);
             drop.GetComponent<ItemDropGameObject>().Playername.text = "player";
+            
             drop.GetComponent<ItemDropGameObject>().IWievableScriptableObject = (enemySO.canDrop[1] is IViewable wiewable) ? wiewable : null;
             GameObject drop1 = Instantiate(itemDrop, RandomPositionByObjectCircle(), Quaternion.identity);
             drop1.GetComponent<ItemDropGameObject>().Playername.text = "player";
             drop1.GetComponent<ItemDropGameObject>().IWievableScriptableObject = (enemySO.canDrop[0] is IViewable wiewable1) ? wiewable1 : null;
+                drop1.GetComponent<ItemDropGameObject>().howMany = 75;
             GameObject drop2 = Instantiate(itemDrop, RandomPositionByObjectCircle(), Quaternion.identity);
+            
             drop2.GetComponent<ItemDropGameObject>().Playername.text = "player";
             drop2.GetComponent<ItemDropGameObject>().IWievableScriptableObject = (enemySO.canDrop[2] is IViewable wiewable2) ? wiewable2 : null;
+            GameObject drop3 = Instantiate(itemDrop, RandomPositionByObjectCircle(), Quaternion.identity);
+
+            drop3.GetComponent<ItemDropGameObject>().Playername.text = "player";
+            drop3.GetComponent<ItemDropGameObject>().IWievableScriptableObject = (enemySO.canDrop[3] is IViewable wiewable3) ? wiewable3 : null; 
         }
         /*foreach (var item in itemToDrops)
         {
@@ -107,6 +114,7 @@ public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
 
         }*/
     }
+    
     Vector3 RandomPositionByObjectCircle()
     {
         Vector2 position = new Vector2(Random.Range(transform.position.x - 1f, transform.position.x + 1f), Random.Range(transform.position.y - 1f, transform.position.y + 1f));
@@ -120,5 +128,10 @@ public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
     public virtual Material GetMaterial()
     {
         return this.GetComponent<SpriteRenderer>().material;
+    }
+
+    public Vector2 GetPosition()
+    {
+        return new Vector2( this.transform.position.x,this.transform.position.y);
     }
 }

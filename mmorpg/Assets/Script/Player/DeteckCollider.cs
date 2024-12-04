@@ -10,7 +10,7 @@ public class DeteckCollider : MonoBehaviour
         //print(collision.gameObject.GetComponent<IDamageAble>() != null);
         if (collision.gameObject.GetComponent<IDamageAble>() != null)
         {
-            player.GiveDamage(collision.gameObject.GetComponent<IDamageAble>());
+            player.GiveNormalDamage(collision.gameObject.GetComponent<IDamageAble>());
             
         }
         

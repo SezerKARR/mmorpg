@@ -28,7 +28,6 @@ public class InventoryPage : MonoBehaviour
         float width = rectTransform.rect.width;
         float height = rectTransform.rect.height;
 
-        Debug.Log("Width: " + width + " Height: " + height);
         
         
         buttonCount = inventorButtons.Length;
@@ -52,7 +51,6 @@ public class InventoryPage : MonoBehaviour
     {
         
         
-        Debug.Log("pivk upbastý");
 
 
         for (int i = 0; i < inventorButtons.Length; i++)
@@ -108,17 +106,18 @@ public class InventoryPage : MonoBehaviour
         }
         return false;
     }
-    public void FindButton(InventorButton inventorButton)
+    public int FindButton(InventorButton inventorButton)
     {
-        int pos = Array.FindIndex(inventorButtons, button => button == inventorButton);
+        return Array.FindIndex(inventorButtons, button => button == inventorButton);
     }
-    public void ResetButtons(SelectedButton selectedButton)
+   
+    public void ResetButtons(int ResetButtonIndex)
     {
-        int pos = selectedButton.pos.y;
-        int t = selectedButton.inventorButton.scriptableObjectIWiewable.GetWeightInInventory();
-        for (int i = pos; i< pos+ t; i++)
+        
+        int t = inventorButtons[ResetButtonIndex].scriptableObjectIWiewable.GetWeightInInventory();
+        for (int i = ResetButtonIndex; i< ResetButtonIndex + t; i++)
         {
-            inventorButtons[i].ResetButton();
+            inventorButtons[ResetButtonIndex].ResetButton();
         }
        
     }
@@ -146,11 +145,11 @@ public class InventoryPage : MonoBehaviour
         Debug.Log("pivk upbastý2");
         itemsInPage.Add((wiewable.GetScriptableObject(),howMany));
 
-        inventorButton.ChangeSprite( wiewable);
+        inventorButton.ChangeSprite( wiewable,howMany);
     }
     public void AddScriptableObjectInButton(IViewable wiewable,InventorButton inventorButton)
     {
-        Debug.Log("pivk upbastý23");
+        
         inventorButton.SetScriptableObject(wiewable);
         
         

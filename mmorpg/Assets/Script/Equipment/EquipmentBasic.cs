@@ -2,16 +2,23 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
-public abstract class EquipmentBasic : MonoBehaviour,IEquipmentAble
+public abstract class EquipmentBasic : ScreenAbleButtonAbstract,IEquipmentAble
 {
-    public virtual void Equip()
+    private ScriptableItemsAbstact ScriptableItemsAbstact;
+    private Image image;
+    public virtual void Equip(ScriptableItemsAbstact ScriptableItemsAbstact)
     {
-
+        this.ScriptableItemsAbstact = ScriptableItemsAbstact;
+        this.image.sprite = ScriptableItemsAbstact.Image;
+        this.image.color=new Color(this.image.color.a,this.image.color.g,this.image.color.b,255);
     }
     public virtual void Unequip()
     {
-
+        this.image.sprite = null;
+        this.image.color = new Color(this.image.color.a, this.image.color.g, this.image.color.b, 0);
     }
 
     // Start is called before the first frame update
@@ -25,4 +32,10 @@ public abstract class EquipmentBasic : MonoBehaviour,IEquipmentAble
     {
         
     }
+    public ScriptableItemsAbstact GetSOItem()
+    {
+        return ScriptableItemsAbstact;
+    }
+
+   
 }

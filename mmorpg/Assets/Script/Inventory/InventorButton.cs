@@ -6,11 +6,11 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventorButton : MonoBehaviour,IPointerEnterHandler,IPointerExitHandler,IPointerClickHandler,IScreenAble
+public class InventorButton : ScreenAbleButtonAbstract
 {
     public Vector2Int ButtonCount;
     //public GameObject ScriptableObjectScreener;
-    public IViewable scriptableObjectIWiewable;
+    
     //public SwordSO swordso;
     public Image image;
     public int howMany=0;
@@ -24,6 +24,7 @@ public class InventorButton : MonoBehaviour,IPointerEnterHandler,IPointerExitHan
     }
     public void AddStack(int newValue)
     {
+        Debug.Log("geldi");
         howMany=newValue;
         howManyText.text = howMany.ToString();
     }
@@ -34,7 +35,7 @@ public class InventorButton : MonoBehaviour,IPointerEnterHandler,IPointerExitHan
         image.enabled = false;
     }
     
-    public void ChangeSprite(IViewable wiewable)
+    public void ChangeSprite(IViewable wiewable,int howMany)
     {
 
         scriptableObjectIWiewable = wiewable;
@@ -42,11 +43,10 @@ public class InventorButton : MonoBehaviour,IPointerEnterHandler,IPointerExitHan
         ImageChangeSize(wiewable.GetWeightInInventory());
         image.sprite = wiewable.GetSprite();
         image.color = new Color(image.color.r,image.color.g,image.color.b,1f);
-        if (wiewable.StackLimit() > 1)
+        if (this.howMany+howMany< wiewable.StackLimit() )
         {
-            Debug.Log(howMany);
-            howMany++;
-            howManyText.text=howMany.ToString();
+            this.howMany+=howMany;
+            howManyText.text= this.howMany.ToString();
         }
         return;
 
@@ -62,7 +62,7 @@ public class InventorButton : MonoBehaviour,IPointerEnterHandler,IPointerExitHan
         image.enabled = true;
         ResetImageSize();
         scriptableObjectIWiewable =null;
-        ImageUnderCursor.Instance.GameObject().SetActive(false);
+        
     }
     public void ResetImageSize()
     {
@@ -78,85 +78,30 @@ public class InventorButton : MonoBehaviour,IPointerEnterHandler,IPointerExitHan
         imageRectTransform.anchoredPosition = new Vector2(imageRectTransform.anchoredPosition.x, imageRectTransform.anchoredPosition.y - heightDifference);
     }
    
-    /*
-    public void ChangeSprite(IWiewable wiewable,int howMany)
+    public override void OnPointerClick(PointerEventData eventData)
     {
-       
-       if (wiewable.GetWeightInInventory() == 1)
+        if (eventData.button == PointerEventData.InputButton.Left)
         {
-            if (wiewable.GetSprite() != null)
+            if (InventoryManager.Instance.selectedButton == null && this.scriptableObjectIWiewable != null)
             {
-                Image.sprite = wiewable.GetSprite();
+                Debug.Log(this.gameObject.name);
+                ImageUnderCursor.Instance.GetComponent<Image>().sprite = this.scriptableObjectIWiewable.GetSprite();
+                ImageUnderCursor.Instance.GameObject().SetActive(true);
+                InventoryManager.Instance.selectedButton = this;
+                return;
             }
-            this.howMany += howMany;
-            Image.enabled = true;
-            return;
-        }
-    }*/
-    /*public void TakeScriptableObject(ScriptableObject takedScriptableObject)
-    {
-        scriptableObjectIWiewable = takedScriptableObject;
-    }*/
+            else if (InventoryManager.Instance.selectedButton != null)
+            {
+                InventoryManager.Instance.ChangeIViewableInventoryPosition(ButtonCount.y);
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        if(this.scriptableObjectIWiewable != null)
-        {
-            Screen();
+            }
         }
         
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        Hide();
-    }
-
-    public void OnPointerClick(PointerEventData eventData)
-    {
-        if (InventoryManager.Instance.selectedButton == null&&this.scriptableObjectIWiewable!=null)
+        if (eventData.button == PointerEventData.InputButton.Right)
         {
-            Debug.Log(this.gameObject.name);
-            ImageUnderCursor.Instance.GetComponent<Image>().sprite = this.scriptableObjectIWiewable.GetSprite();
-            ImageUnderCursor.Instance.GameObject().SetActive(true);
-            InventoryManager.Instance.selectedButton=new SelectedButton(this, ButtonCount);
-            return;
+            InventoryManager.Instance.EquipThisItem(this);
         }
-        else if(InventoryManager.Instance.selectedButton != null)
-        {
-            Debug.Log(ButtonCount.y);
-            InventoryManager.Instance.ChangeIViewableInventoryPosition(ButtonCount.y);
-            
-        }
-        
 
 
     }
-    
-    public void Screen()
-    {
-        TooltipManager.Instance.Screen(this.scriptableObjectIWiewable);
-    }
-
-    public void Hide()
-    {
-        TooltipManager.Instance.Hide();
-    }
-    /*
-public void OnPointerEnter(PointerEventData eventData)
-{
-print("mouseover");
-//ToolTipUISystem.Show(scriptableObject, 1);
-}
-
-public void OnPointerExit(PointerEventData eventData)
-{
-//ToolTipUISystem.Hide( 1);
-}*/
-
-    /*public void ScreenerSetActive()
-    {
-        ScriptableObjectScreener.gameObject.SetActive(true);
-        //ScriptableObjectScreener.GetComponent<UpgradeItemScreener>().Screen(scriptableObject);
-    }*/
 }

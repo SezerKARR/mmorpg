@@ -29,8 +29,7 @@ public class ItemDropGameObject : ItemDrop
 
     public override void Start()
     {
-        this.howMany = 1;
-        itemName.text =IWievableScriptableObject.GetName()+" x"+this.howMany ;
+       
         StartCoroutine(WaitAndDeleteName());
         base.Start();
     }

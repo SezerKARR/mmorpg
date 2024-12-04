@@ -12,6 +12,7 @@ public class TooltipManager : MonoBehaviour
     [SerializeField]
     private ScriptableObject swords;
     public RectTransform rectTransform;
+    public GameObject confirm;
     private void Awake()
     {
         Instance = this;
@@ -19,7 +20,7 @@ public class TooltipManager : MonoBehaviour
     }
     private void Start()
     {
-        Debug.Log(tooltip.GameObject().activeSelf);
+        
               
     }
     private void Update() {

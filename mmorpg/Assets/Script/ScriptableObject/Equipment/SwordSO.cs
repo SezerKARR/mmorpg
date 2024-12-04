@@ -22,7 +22,7 @@ public class SwordSO : ScriptableItemsAbstact
     public int sockets;
    
     
-    public float price;
+    
     
     
 }

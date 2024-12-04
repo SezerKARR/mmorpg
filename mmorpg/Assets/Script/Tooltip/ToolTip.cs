@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class ToolTip : MonoBehaviour
+public class ToolTip : MonoBehaviour,ITooltipAble
+
 {
     public TextMeshProUGUI swordNameText;
     public TextMeshProUGUI attackValueText;
@@ -19,7 +20,6 @@ public class ToolTip : MonoBehaviour
         if (scriptableObject is SwordSO sword)
         {
 
-            Debug.Log(scriptableObject);
             SetText(swordNameText, sword.name);
             SetText(attackValueText, ("Attack Value " + sword.minAndMaxAttackValue[sword.currentPlus].ToString())) ;
             if (sword.minAndMaxMagicalAttackValue[sword.currentPlus].ToString() != ""){
@@ -31,7 +31,6 @@ public class ToolTip : MonoBehaviour
             
             foreach (var bonus in sword.bonuses)
             {
-                Debug.Log(bonus);
                 int i = 0;
                 if (bonus != null)
                 {
@@ -44,7 +43,7 @@ public class ToolTip : MonoBehaviour
             {
                 b += character.ToString() + " ";
             }
-            Debug.Log(b);
+            
             SetText(wearAbleText, b);
             wearableLayer.gameObject.SetActive(wearAbleText.gameObject.activeSelf);
         }

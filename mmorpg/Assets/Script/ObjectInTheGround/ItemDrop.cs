@@ -28,7 +28,7 @@ public abstract class ItemDrop : MonoBehaviour, IPickedUpAble
     // Start is called before the first frame update
     public virtual void Start()
     {
-        
+        itemName.text = IWievableScriptableObject.GetName() + " x" + this.howMany;
     }
 
     // Update is called once per frame

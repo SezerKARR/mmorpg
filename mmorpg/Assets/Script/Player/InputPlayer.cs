@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class InputPlayer : MonoBehaviour
@@ -28,11 +29,7 @@ public class InputPlayer : MonoBehaviour
     {
         playerNewInput = new PlayerInput();
         playerNewInput.Player.Enable();
-        OnClickLeftPressed += ChangeSelectedObjectOutline;
-        
-    }
-    void OnEnable()
-    {
+        OnClickLeftPressed += LeftClickClicked;
         playerNewInput.Player.Enable();
         playerNewInput.Player.Move.canceled += context => OnIdlePerformed?.Invoke();
         playerNewInput.Player.Shoot.canceled += context => OnIdlePerformed?.Invoke();
@@ -41,6 +38,10 @@ public class InputPlayer : MonoBehaviour
         playerNewInput.Player.ClickLeft.performed += context => OnClickLeftPressed?.Invoke();
         playerNewInput.Player.Shoot.performed += context => OnNormalAttackPressed?.Invoke();
         playerNewInput.Player.Move.performed += context => OnMovePressed?.Invoke(context.ReadValue<Vector2>());
+    }
+    void OnEnable()
+    {
+       
         
 
     }
@@ -81,72 +82,71 @@ public class InputPlayer : MonoBehaviour
         }
     }
  
-    private void ChangeSelectedObjectOutline()
-
-    {// Fare pozisyonundan bir ray oluþtur
-        
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
-
-        // Eðer bir nesneye týklandýysa
-        if (hit.collider == null) return;
-        if (hit.collider.GetComponent<IOutlineAble>()!= null)
+    private void LeftClickClicked()
+    {
+        if (!EventSystem.current.IsPointerOverGameObject())
         {
-            if (selectedObject != null)
-            {
-                //selectedObject.GetComponent<IOutlineAble>().Outline(Color.gray);
-                selectedObject.GetComponent<IOutlineAble>().Outline(normalMaterial);
+            // Eðer fare UI'nin üzerinde deðilse, tilemap'e týklamaya devam edebiliriz
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            }
-            selectedObject = hit.collider.gameObject;
-
-            normalMaterial = hit.collider.GetComponent<IOutlineAble>().GetMaterial();
-            if (hit.collider.tag == "Enemy")
+            // Raycast ile tilemap üzerinde kontrol yapýyoruz
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+            Debug.Log(hit.collider);
+            // Eðer tilemap objesiyle çarpýþma varsa, iþlem yapýlýr
+            if (hit.collider != null && hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
-               
-                selectedObject.GetComponent<IOutlineAble>().Outline(outlineRed);
-                /*if (selectedObject != null)
+                if (InventoryManager.Instance.selectedButton != null)
                 {
-                    //selectedObject.GetComponent<IOutlineAble>().Outline(Color.gray);
-                    selectedObject.GetComponent<IOutlineAble>().Outline(normalMaterial);
-
+                    TooltipManager.Instance.confirm.SetActive(true);
                 }
-                selectedObject = hit.collider.gameObject;
-                // Týklanan nesneyi al
-
-                // Kýrmýzý çerçeveyi çiz
-
-                //selectedObject.GetComponent<IOutlineAble>().Outline(Color.red);
-                normalMaterial=selectedObject.GetComponent<SpriteRenderer>().material;
-                selectedObject.GetComponent<IOutlineAble>().Outline(outlineRed);
-
-                //print("Seçilen nesne: " + selectedObject.name);*/
-
             }
-            else if (hit.collider.tag == "Npc")
+            else if (hit.collider != null)
             {
-                
-                selectedObject.GetComponent<IOutlineAble>().Outline(outlineGreen);
-                /*if (selectedObject != null)
-                {
-                    //selectedObject.GetComponent<IOutlineAble>().Outline(Color.gray);
-                    selectedObject.GetComponent<IOutlineAble>().Outline(normalMaterial);
-
-                }
-                selectedObject = hit.collider.gameObject;
-                // Týklanan nesneyi al
-
-                // Kýrmýzý çerçeveyi çiz
-
-                //selectedObject.GetComponent<IOutlineAble>().Outline(Color.red);
-                normalMaterial = selectedObject.GetComponent<SpriteRenderer>().material;
-                selectedObject.GetComponent<IOutlineAble>().Outline(outlineGreen);
-
-                //print("Seçilen nesne: " + selectedObject.name);
-            }*/
+                Debug.Log(hit.collider.gameObject);
+            }
+            else
+            {
+                Debug.Log("UI öðesi üzerine týklanýyor veya baþka bir nesne");
             }
         }
-        
+
        
+        //Collider2D hitCollider = hit.collider;
+        //// Eðer bir nesneye týklandýysa
+        //if (hitCollider == null) return;
+        //else if (hitCollider.GetComponent<IOutlineAble>() != null)
+        //{
+        //    ChangeSelectedObjectOutline(hitCollider);
+        //}
+        // if (hitCollider.CompareTag("Ground"))
+        //{
+        //    
+        //}
+    }
+    private void ChangeSelectedObjectOutline(Collider2D collider)
+
+    {
+        if (selectedObject != null)
+        {
+
+            selectedObject.GetComponent<IOutlineAble>().Outline(normalMaterial);
+
+        }
+        selectedObject = collider.gameObject;
+
+        normalMaterial = collider.GetComponent<IOutlineAble>().GetMaterial();
+        if (collider.tag == "Enemy")
+        {
+
+            selectedObject.GetComponent<IOutlineAble>().Outline(outlineRed);
+
+
+        }
+        else if (collider.tag == "Npc")
+        {
+
+            selectedObject.GetComponent<IOutlineAble>().Outline(outlineGreen);
+
+        }
     }
 }

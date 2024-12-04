@@ -8,7 +8,6 @@ public class ImageUnderCursor : MonoBehaviour
     RectTransform rectTransform;
     private void Awake()
     {
-        
         Instance = this;
         rectTransform = GetComponent<RectTransform>();
         rectTransform.position = Input.mousePosition;

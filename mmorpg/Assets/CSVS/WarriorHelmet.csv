@@ -1,0 +1,81 @@
+Level 0 Helmet;;;;;;;;;;;;;;;;;
+Traditional Helmet;BoardNewM.png;0;1;2;3;4;5;6;7;8;9;;;;;;
+Traditional Helmet.png;Defence :;5;9;13;17;21;25;29;33;37;41;;;;;;
+UL nativelook.png;Upgrade Yang :;-;600;1.200;2.500;5.000;10.000;20.000;30.000;45.000;75.000;;;;;;
+UR nativelook.png;Upgrade Item 1 :;-;-;-;-;-;-;-;2 x;2 x;2 x;;;;;;
+DL nativelook.png;;;;;;;;;White Hairband.png;White Hairband+.png;Face Cream.png;;;;;;
+DR nativelook.png;;;;;;;;;;;;;;;;;
+Price;;;;;;;;;;;;;;;;;
+500 Yang;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;
+Level 21 Helmet;;;;;;;;;;;;;;;;;
+Iron Helmet;BoardNewM.png;0;1;2;3;4;5;6;7;8;9;;;;;;
+Iron Helmet.png;Defence :;9;13;17;21;25;33;41;49;57;65;;;;;;
+UL nativelook.png;Upgrade Yang :;-;1.000;2.000;4.000;8.000;13.000;20.000;30.000;70.000;120.000;;;;;;
+UR nativelook.png;Upgrade Item 1 :;-;-;-;-;-;2 x;2 x;2 x;2 x;2 x;;;;;;
+DL nativelook.png;;;;;;;Flag.png;Scorpion Tail.png;Spider Web.png;Spider Poison Sack.png;Spider Egg Sack.png;;;;;;
+DR nativelook.png;Upgrade Item 2 :;-;-;-;-;-;-;-;1 x;1 x;1 x;;;;;;
+Price;;;;;;;;;Fishbones.png;Clam.png;Clam.png;;;;;;
+Not available at NPC;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;
+Level 41 Helmet;;;;;;;;;;;;;;;;;
+Ghost Mask Sallet;BoardNewM.png;0;1;2;3;4;5;6;7;8;9;;;;;;
+Ghost Mask Sallet.png;Defence :;13;17;21;25;29;39;49;59;69;79;;;;;;
+UL nativelook.png;Upgrade Yang :;-;1.200;2.500;5.000;10.000;20.000;30.000;40.000;90.000;120.000;;;;;;
+UR nativelook.png;Upgrade Item 1 :;-;-;-;-;-;2 x;2 x;2 x;2 x;2 x;;;;;;
+DL nativelook.png;;;;;;;Unknown Medicine+.png;Frog Tongue.png;Frog's Legs.png;Piece of Ice+.png;Flaming Mane.png;;;;;;
+DR nativelook.png;Upgrade Item 2 :;-;-;-;-;-;-;-;2 x;4 x;8 x;;;;;;
+Price;;;;;;;;;Finger Bones.png;Finger Bones.png;Finger Bones.png;;;;;;
+Not available at NPC;;;;;;;;;;;;;;;;;
+;;;;;;;;;;;;;;;;;
+Level 60 Helmet;;;;;;;;;;;;;;;;;
+Fear Mask;BoardNewM.png;0;1;2;3;4;5;6;7;8;9;;;;;;
+Fear Mask.png;Defence :;17;21;25;29;39;49;59;69;79;89;;;;;;
+UL nativelook.png;Block Attack :;1%;2%;3%;4%;5%;6%;7%;8%;9%;10%;;;;;;
+UR nativelook.png;Upgrade Yang :;-;1.200;2.500;5.000;10.000;20.000;30.000;40.000;90.000;120.000;;;;;;
+DL nativelook.png;Upgrade Item 1 :;-;-;-;-;-;2 x;2 x;2 x;2 x;2 x;;;;;;
+DR nativelook.png;;;;;;;Unknown Medicine+.png;Frog Tongue.png;Frog's Legs.png;Piece of Ice+.png;Flaming Mane.png;;;;;;
+Price;Upgrade Item 2 :;-;-;-;-;-;-;-;2 x;4 x;8 x;;;;;;
+Not available at NPC;;;;;;;;;Finger Bones.png;Finger Bones.png;Finger Bones.png;;;;;;
+;;;;;;;;;;;;;;;;;
+Level 80 Helmet;;;;;;;;;;;;;;;;;
+War Master Helmet;BoardNewM.png;0;1;2;3;4;5;6;7;8;9;;;;;;
+War Master Helmet.png;Defence :;21;25;29;39;49;59;69;79;89;99;;;;;;
+UL nativelook.png;Avoid Arrow :;1%;2%;3%;4%;5%;6%;7%;8%;10%;12%;;;;;;
+UR nativelook.png;Upgrade Yang :;-;1.200;2.500;5.000;10.000;20.000;30.000;40.000;90.000;120.000;;;;;;
+DL nativelook.png;Upgrade Item 1 :;-;-;-;-;-;2 x;2 x;2 x;2 x;2 x;;;;;;
+DR nativelook.png;;;;;;;Unknown Medicine+.png;Frog Tongue.png;Frog's Legs.png;Piece of Ice+.png;Flaming Mane.png;;;;;;
+Price;Upgrade Item 2 :;-;-;-;-;-;-;-;2 x;4 x;8 x;;;;;;
+Not available at NPC;;;;;;;;;Finger Bones.png;Finger Bones.png;Finger Bones.png;;;;;;
+;;;;;;;;;;;;;;;;;
+Level 96 Helmet;;;;;;;;;;;;;;;;;
+Gloom Dragon Helmet;BoardNewM.png;0;1;2;3;4;5;6;7;8;9;10;11;12;13;14;15
+Gloom Dragon Helmet.png;Defence :;25;29;33;43;53;63;73;83;95;105;107;109;113;117;121;125
+UL nativelook.png;Avg Dmg Resistance :;1%;1%;1%;1%;2%;2%;2%;2%;3%;3%;4%;4%;5%;6%;8%;10%
+UR nativelook.png;Upgrade Yang :;-;450.000;530.000;640.000;770.000;1.550.000;3.330.000;5.670.000;7.010.000;8.350.000;9.690.000;11.100.000;12.500.000;14.300.000;16.000.000;19.200.000
+DL nativelook.png;Upgrade Item 1 :;-;5 x;5 x;10 x;10 x;15 x;15 x;2 x;2 x;2 x;2 x;2 x;3 x;3 x;5 x;5 x
+DR nativelook.png;;;Strong Twine.png;Strong Twine.png;Strong Twine.png;Strong Twine.png;Strong Twine.png;Strong Twine.png;Dragon Skull.png;Razador's Horn.png;Nemere's Horn.png;Silk.png;Silk.png;Shards.png;Shards.png;Sharp Thorns.png;Sharp Thorns.png
+Price;Upgrade Item 2 :;-;-;-;3 x;3 x;5 x;5 x;1 x;1 x;1 x;1 x;2 x;1 x;2 x;1 x;2 x
+Not available at NPC;;;;;Steel.png;Steel.png;Steel.png;Steel.png;White Pearl.png;Blue Pearl.png;Blood-Red Pearl.png;Regular Dye.png;Regular Dye.png;Improved Dye.png;Improved Dye.png;Special Dye.png;Special Dye.png
+;Upgrade Item 3 :;-;-;-;-;-;-;-;-;-;-;1 x;1 x;1 x;1 x;1 x;1 x
+;;;;;;;;;;;;Regular Chaos Stone.png;Regular Chaos Stone.png;Intermediate Chaos Stone.png;Intermediate Chaos Stone.png;Epic Chaos Stone.png;Epic Chaos Stone.png
+;;;;;;;;;;;;;;;;;
+Level 100 Helmet;;;;;;;;;;;;;;;;;
+Dragon Steel Helm;BoardNewM.png;0;1;2;3;4;5;6;7;8;9;;;;;;
+Dragon Steel Helm.png;Defence :;23;27;31;41;51;61;71;81;91;101;;;;;;
+UL nativelook.png;Magic/Melee Attack :;1%;1%;2%;2%;3%;3%;4%;5%;6%;8%;;;;;;
+UR nativelook.png;Upgrade Yang :;-;1.200;2.500;5.000;10.000;20.000;30.000;45.000;90.000;150.000;;;;;;
+DL nativelook.png;Upgrade Item 1 :;-;-;-;-;-;2 x;2 x;2 x;2 x;2 x;;;;;;
+DR nativelook.png;;;;;;;Unknown Medicine+.png;Frog Tongue.png;Frog's Legs.png;Piece of Ice+.png;Flaming Mane.png;;;;;;
+Price;Upgrade Item 2 :;-;-;-;-;-;-;-;2 x;4 x;8 x;;;;;;
+Not available at NPC;;;;;;;;;Finger Bones.png;Finger Bones.png;Finger Bones.png;;;;;;
+;;;;;;;;;;;;;;;;;
+Level 100 Helmet;;;;;;;;;;;;;;;;;
+Dragoneer Steel Helm;BoardNewM.png;0;1;2;3;4;5;6;7;8;9;;;;;;
+Dragoneer Steel Helm.png;Defence :;23;27;31;41;51;61;71;81;91;101;;;;;;
+UL nativelook.png;Skill Res :;1%;1%;1%;2%;3%;4%;5%;6%;8%;10%;;;;;;
+UR nativelook.png;Upgrade Yang :;-;1.200;2.500;5.000;10.000;20.000;30.000;45.000;90.000;150.000;;;;;;
+DL nativelook.png;Upgrade Item 1 :;-;-;-;-;-;2 x;2 x;2 x;2 x;2 x;;;;;;
+DR nativelook.png;;;;;;;Unknown Medicine+.png;Frog Tongue.png;Frog's Legs.png;Piece of Ice+.png;Flaming Mane.png;;;;;;
+Price;Upgrade Item 2 :;-;-;-;-;-;-;-;2 x;4 x;8 x;;;;;;
+Not available at NPC;;;;;;;;;Finger Bones.png;Finger Bones.png;Finger Bones.png;;;;;;

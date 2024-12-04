@@ -10,19 +10,25 @@ public enum groupType
     level,
     even
 }
+public enum DamageType
+{
+    normal,
+    crit,
+    magical
+}
 public class Player : MonoBehaviour
 {
-    
+    public static Player instance;
     private Camera _mainCamera;
     public PolygonCollider2D[] attackColliderNormalSword;
     public SwordSO sword;
     private PlayerInput playerInput;
     public float moveSpeed = 7f;
-    
+    public GameObject ItemDropWithOutName;
     //public Sprite[] playerIdleSprite;
-    
-    
-    
+
+
+
     private float swordPhsichalDamage;
     public LineRenderer lineRenderer;
     
@@ -31,9 +37,9 @@ public class Player : MonoBehaviour
     public int exp;
     public bool haveGroup;
     public groupType groupType;
-    
     private void Awake()
     {
+        instance = this;
             playerInput = new PlayerInput();
             playerInput.Player.Enable();
             _mainCamera = Camera.main;
@@ -47,7 +53,11 @@ public class Player : MonoBehaviour
         
 
     }
-
+    public void DropItem()
+    {
+        GameObject itemDrop = Instantiate(ItemDropWithOutName,transform.position,Quaternion.identity);
+        itemDrop.GetComponent<ItemDropWithOutName>().IWievableScriptableObject=InventoryManager.Instance.selectedButton.inventorButton.scriptableObjectIWiewable;
+    }
     private void Update()
     {
        
@@ -57,9 +67,21 @@ public class Player : MonoBehaviour
 
 
     private int creatureExp;
-    public void GiveDamage(IDamageAble damageAble)
-    {
-       damageAble.TakeDamage(swordPhsichalDamage,this);
+    public void GiveNormalDamage(IDamageAble damageAble)
+    { 
+        bool crit = false;
+        //todo: crit oraný hesaplama
+        if (crit)
+        {
+            damageAble.TakeDamage(swordPhsichalDamage*2, this);
+            DamageTextManager.instance.CreateDamageText((swordPhsichalDamage * 2).ToString(), damageAble.GetPosition(),DamageType.crit);
+        }
+        else
+        {
+            damageAble.TakeDamage(swordPhsichalDamage , this);
+            DamageTextManager.instance.CreateDamageText((swordPhsichalDamage ).ToString(), damageAble.GetPosition(), DamageType.normal);
+        }
+       
        
     }
     public  void ExpCalculator(int exp,int creatureLevel)
