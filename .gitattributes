@@ -1,3 +1,4 @@
 inventory button ayaralanacak
 //todo
 //if(canusecharacter&&levelyetiyosa)
+*.psd filter=lfs diff=lfs merge=lfs -text
