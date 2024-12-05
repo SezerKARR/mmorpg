@@ -1,40 +1,52 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public abstract class EquipmentBasic : ScreenAbleButtonAbstract,IEquipmentAble
+public  class EquipmentBasic : ScreenAbleButtonAbstract,IEquipmentAble
 {
-    private ScriptableItemsAbstact ScriptableItemsAbstact;
-    private Image image;
-    public virtual void Equip(ScriptableItemsAbstact ScriptableItemsAbstact)
+    
+    
+    public override void Awake()
     {
-        this.ScriptableItemsAbstact = ScriptableItemsAbstact;
+
+        base.Awake();
+    }
+    public  void Equip(ScriptableItemsAbstact ScriptableItemsAbstact)
+    {
+        if (NeedUnEquip())
+        {
+            if (!InventoryManager.Instance.add(this.scriptableObjectIWiewable,1))
+            {
+                return;
+            }
+            UnEquip();
+        }
+        this.scriptableObjectIWiewable = ScriptableItemsAbstact;
         this.image.sprite = ScriptableItemsAbstact.Image;
         this.image.color=new Color(this.image.color.a,this.image.color.g,this.image.color.b,255);
     }
-    public virtual void Unequip()
+    public  void UnEquip()
     {
-        this.image.sprite = null;
-        this.image.color = new Color(this.image.color.a, this.image.color.g, this.image.color.b, 0);
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
+        if (InventoryManager.Instance.add(this.scriptableObjectIWiewable, 1))
+        {
+            this.scriptableObjectIWiewable = null;
+            this.image.sprite = null;
+            this.image.color = new Color(this.image.color.a, this.image.color.g, this.image.color.b, 0);
+        }
+        else { Debug.Log("giyilemez"); }
         
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public  bool NeedUnEquip() { 
+        if(this.scriptableObjectIWiewable != null) return true;
+        return false;        
     }
-    public ScriptableItemsAbstact GetSOItem()
+    public IViewable GetSOItem()
     {
-        return ScriptableItemsAbstact;
+        return scriptableObjectIWiewable;
     }
 
    

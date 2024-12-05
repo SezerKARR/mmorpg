@@ -6,68 +6,54 @@ public class EquipmentManager : MonoBehaviour
 {
     public static EquipmentManager Instance;
     
-    public SwordSO swordSO;
-    public HelmetSo helmetSO;
+    public EquipmentBasic swordEquipment;
+    public EquipmentBasic helmetEquipment;
 
     private void Awake()
     {
         Instance = this;
         
     }
+    public bool IsCharacterMatch(List<Character> canUseCharacter)
+    {
+        return canUseCharacter.Contains(Player.instance.playerCharecterType);
+    }
+    public bool IsLevelEnough(int itemLevel)
+    {
+        return Player.instance.level>=itemLevel;
+    }
+
+    public bool ControlCanEquip(IViewable scriptableIViewable)
+    {
+        if (scriptableIViewable is ScriptableItemsAbstact item)
+        {
+            if (IsLevelEnough(item.level) && IsCharacterMatch(item.canUseCharacters))
+            {
+                EquipItem(item);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    private void EquipItem(ScriptableItemsAbstact item)
+    {
+        switch (item)
+        {
+            case SwordSO :
+                swordEquipment.Equip(item);
+                break;
+
+            case HelmetSo:
+                helmetEquipment.Equip(item);
+                break;
+
+            default:
+                Debug.Log("Unknown item type");
+                break;
+        }
+    }
+
+ 
     
-
-    public void ControlCanEquip(ScriptableItemsAbstact scriptableItemsAbstact)
-    {
-        switch (scriptableItemsAbstact)
-        {
-            case SwordSO sword:
-                HandleEquipment(sword, ref swordSO);
-                break;
-
-            case HelmetSo helmet:
-                HandleEquipment(helmet, ref helmetSO);
-                break;
-
-            default:
-                Debug.Log("Unknown item type");
-                break;
-        }
-    }
-
-    private void HandleEquipment<T>(T item, ref T currentItem) where T : ScriptableItemsAbstact
-    {
-        if (currentItem == null)
-        {
-            Equip(item);
-        }
-        else
-        {
-            UnEquip(currentItem);
-            Equip(item);
-        }
-        currentItem = item;
-    }
-    public void Equip(ScriptableItemsAbstact scriptableItemsAbstact)
-    {
-
-    } 
-    public void UnEquip(ScriptableItemsAbstact scriptableItemsAbstact)
-    {
-        switch (scriptableItemsAbstact)
-        {
-            case SwordSO swordSO:
-                Debug.Log(swordSO.ToString());
-                break;
-
-            case HelmetSo helmetSO:
-                Debug.Log(helmetSO.ToString());
-                break;
-
-            // Add more cases as needed
-            default:
-                Debug.Log("Unknown item type");
-                break;
-        }
-
-    }
 }

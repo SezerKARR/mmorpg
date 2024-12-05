@@ -64,7 +64,7 @@ public class InventoryPage : MonoBehaviour
     }
     public bool CanChangePosition(int inventorButtonPos)
     {
-        return ControlCanAdd(inventorButtonPos, InventoryManager.Instance.selectedButton.inventorButton.scriptableObjectIWiewable, InventoryManager.Instance.selectedButton.inventorButton.howMany);
+        return ControlCanAdd(inventorButtonPos, InventoryManager.Instance.selectedButton.scriptableObjectIWiewable, InventoryManager.Instance.selectedButton.howMany);
     }
     public bool ControlCanAdd(int i, IViewable viewable,int howMany)
     {
@@ -117,7 +117,7 @@ public class InventoryPage : MonoBehaviour
         int t = inventorButtons[ResetButtonIndex].scriptableObjectIWiewable.GetWeightInInventory();
         for (int i = ResetButtonIndex; i< ResetButtonIndex + t; i++)
         {
-            inventorButtons[ResetButtonIndex].ResetButton();
+            inventorButtons[i].ResetButton();
         }
        
     }

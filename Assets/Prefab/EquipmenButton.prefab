@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1725256312322181242}
   - component: {fileID: 7129366382840673813}
   - component: {fileID: 973602729054945876}
+  - component: {fileID: 7671735208781593410}
   m_Layer: 5
   m_Name: EquipmenButton
   m_TagString: Untagged
@@ -119,16 +120,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7129366382840673813}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 6105497246562809690}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
+--- !u!114 &7671735208781593410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6105497246562809690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a65d4aa781b783f41baeee582fbc35d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttonOrginalHeight: 0
+  imageRectTransform: {fileID: 412625701236992332}
+  image: {fileID: 7129366382840673813}

@@ -12,16 +12,15 @@ public class InventorButton : ScreenAbleButtonAbstract
     //public GameObject ScriptableObjectScreener;
     
     //public SwordSO swordso;
-    public Image image;
+    
     public int howMany=0;
-    private float buttonOrginalHeight;
-    private RectTransform imageRectTransform;
+    
     public TextMeshProUGUI howManyText;
-    private void Awake()
+    public override void Awake()
     {
-        imageRectTransform = this.image.GameObject().GetComponent<RectTransform>();
-        buttonOrginalHeight = imageRectTransform.rect.height;
+        base.Awake();
     }
+    
     public void AddStack(int newValue)
     {
         Debug.Log("geldi");
@@ -35,28 +34,14 @@ public class InventorButton : ScreenAbleButtonAbstract
         image.enabled = false;
     }
     
-    public void ChangeSprite(IViewable wiewable,int howMany)
-    {
-
-        scriptableObjectIWiewable = wiewable;
-
-        ImageChangeSize(wiewable.GetWeightInInventory());
-        image.sprite = wiewable.GetSprite();
-        image.color = new Color(image.color.r,image.color.g,image.color.b,1f);
-        if (this.howMany+howMany< wiewable.StackLimit() )
-        {
-            this.howMany+=howMany;
-            howManyText.text= this.howMany.ToString();
-        }
-        return;
-
-    }
+    
     public void ResetButton()
     {
 
         howMany = 0;
         
         howManyText.gameObject.SetActive(false);
+        Debug.Log(image);
         image.sprite = null;
         image.color = new Color(image.color.r, image.color.g, image.color.b, 0f);
         image.enabled = true;
@@ -64,20 +49,27 @@ public class InventorButton : ScreenAbleButtonAbstract
         scriptableObjectIWiewable =null;
         
     }
-    public void ResetImageSize()
+    public override void ResetImageSize()
     {
-        imageRectTransform.sizeDelta = new Vector2(imageRectTransform.sizeDelta.x, buttonOrginalHeight);
+        base.ResetImageSize();
+    }
+    public override void ImageChangeSize(int spriteHeight)
+    {
+        base.ImageChangeSize(spriteHeight);
+    }
+    public override void ChangeSprite(IViewable wiewable, int howMany)
+    {
 
-        imageRectTransform.anchoredPosition = new Vector2(0,0);
+       base.ChangeSprite(wiewable, howMany);
+        if (this.howMany + howMany <= wiewable.StackLimit())
+        {
+            this.howMany += howMany;
+            howManyText.text = this.howMany.ToString();
+        }
+        return;
+
     }
-    public void ImageChangeSize(int spriteHeight)
-    {
-        float newHeight = buttonOrginalHeight * spriteHeight;
-        imageRectTransform.sizeDelta = new Vector2(imageRectTransform.sizeDelta.x, newHeight);
-        float heightDifference = (newHeight - buttonOrginalHeight) / 2f;
-        imageRectTransform.anchoredPosition = new Vector2(imageRectTransform.anchoredPosition.x, imageRectTransform.anchoredPosition.y - heightDifference);
-    }
-   
+
     public override void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Left)

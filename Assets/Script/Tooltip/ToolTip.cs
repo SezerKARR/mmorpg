@@ -22,7 +22,7 @@ public class ToolTip : MonoBehaviour,ITooltipAble
 
             SetText(swordNameText, sword.name);
             SetText(attackValueText, ("Attack Value " + sword.minAndMaxAttackValue[sword.currentPlus].ToString())) ;
-            if (sword.minAndMaxMagicalAttackValue[sword.currentPlus].ToString() != ""){
+            if (sword.minAndMaxMagicalAttackValue.Count>0){
                 SetText(magicalValueText, ("Magic Attack Value " + sword.minAndMaxMagicalAttackValue[sword.currentPlus].ToString()));
             }
             

@@ -44,6 +44,6 @@ MonoBehaviour:
     - upgradeItemName: {fileID: 11400000, guid: 18d6e77189fc65c4d8b95ddbadc059c3, type: 2}
       howMany: 2
     upgradeMoney: 75000
-  Image: {fileID: 0}
+  Image: {fileID: 21300000, guid: c0cb1e8115025b443b41d6b3eba1d354, type: 3}
   level: 0
   defence: 05000000090000000d0000001100000015000000190000001d000000210000002500000029000000

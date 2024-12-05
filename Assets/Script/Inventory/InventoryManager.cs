@@ -60,16 +60,26 @@ public class InventoryManager : MonoBehaviour
     }
     private void ReduceObjectInInventoryList(InventorButton selectedButton)
     {
-        int howMany= selectedButton.howMany;
-        inventoryPage[selectedButton.ButtonCount.x].ResetButtons(selectedButton.ButtonCount.y);
+        int howMany = selectedButton.howMany;
+
+
+        Debug.Log(selectedButton.scriptableObjectIWiewable);
         int index = itemsInInventory.FindIndex(item => item.IViewable == selectedButton.scriptableObjectIWiewable);
-        if (itemsInInventory[index].howMany - howMany > 0) {
+        if (itemsInInventory[index].howMany - howMany > 0)
+        {
             itemsInInventory[index] = (itemsInInventory[index].IViewable, itemsInInventory[index].howMany - howMany);
         }
-        if (itemsInInventory[index].howMany - howMany == 0)
+        else if (itemsInInventory[index].howMany - howMany == 0)
         {
             itemsInInventory.Remove(itemsInInventory[index]);
+            ResetButtons(selectedButton.ButtonCount);
         }
+        else {Debug.Log("hata var"); }
+        
+    }
+    private void ResetButtons(Vector2Int buttonPos)
+    {
+        inventoryPage[buttonPos.x].ResetButtons(buttonPos.y);
     }
     public bool add(IViewable wiewable,int howMany)
     {
@@ -121,9 +131,9 @@ public class InventoryManager : MonoBehaviour
     }
     public void ClosePage(int page)
     {
-        inventoryPage[page].GetComponent<CanvasGroup>().alpha = 0;       // Görünür yap
-        inventoryPage[page].GetComponent<CanvasGroup>().interactable = false; // Etkileþimli yap
-        inventoryPage[page].GetComponent<CanvasGroup>().blocksRaycasts = false; // Raycastlarý engelleme
+        inventoryPage[page].GetComponent<CanvasGroup>().alpha = 0;
+        inventoryPage[page].GetComponent<CanvasGroup>().interactable = false; 
+        inventoryPage[page].GetComponent<CanvasGroup>().blocksRaycasts = false; 
 
         pageChangeButton[page].ChangeColorForNormal();
     }
@@ -135,19 +145,25 @@ public class InventoryManager : MonoBehaviour
     public void OpenPage(int page)
     {
         activePage = page;
-        inventoryPage[page].GetComponent<CanvasGroup>().alpha = 1;       // Görünür yap
-        inventoryPage[page].GetComponent<CanvasGroup>().interactable = true; // Etkileþimli yap
-        inventoryPage[page].GetComponent<CanvasGroup>().blocksRaycasts = true; // Raycastlarý engelleme
+        inventoryPage[page].GetComponent<CanvasGroup>().alpha = 1;      
+        inventoryPage[page].GetComponent<CanvasGroup>().interactable = true; 
+        inventoryPage[page].GetComponent<CanvasGroup>().blocksRaycasts = true; 
         pageChangeButton[page].ChangeColorForPressed();
     }
     public void CloseInventory()
     {
-        this.GetComponent<CanvasGroup>().alpha = 0;       // Görünür yap
-        this.GetComponent<CanvasGroup>().interactable = false; // Etkileþimli yap
-        this.GetComponent<CanvasGroup>().blocksRaycasts = true; // Raycastlarý engelleme
+        this.GetComponent<CanvasGroup>().alpha = 0; 
+        this.GetComponent<CanvasGroup>().interactable = false;
+        this.GetComponent<CanvasGroup>().blocksRaycasts = true; 
     }
     public void EquipThisItem(InventorButton selectedButton)
     {
-        ReduceObjectInInventoryList(selectedButton);
+        
+        if (EquipmentManager.Instance.ControlCanEquip(selectedButton.scriptableObjectIWiewable))
+        {
+            ReduceObjectInInventoryList(selectedButton);
+            
+        }
+        
     }
 }
