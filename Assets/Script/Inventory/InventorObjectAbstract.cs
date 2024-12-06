@@ -5,9 +5,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public abstract class ScreenAbleButtonAbstract : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IScreenAble
+public abstract class InventorObjectAbstract : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IScreenAble
 {
-    public IViewable scriptableObjectIWiewable;
+    public IInventorObjectAble inventorObjectAble;
     
     public float buttonOrginalHeight;
     public RectTransform imageRectTransform;
@@ -20,7 +20,7 @@ public abstract class ScreenAbleButtonAbstract : MonoBehaviour, IPointerEnterHan
    
     public virtual void OnPointerEnter(PointerEventData eventData)
     {
-        if (this.scriptableObjectIWiewable != null)
+        if (this.inventorObjectAble != null)
         {
             Screen();
         }
@@ -33,13 +33,13 @@ public abstract class ScreenAbleButtonAbstract : MonoBehaviour, IPointerEnterHan
         float heightDifference = (newHeight - buttonOrginalHeight) / 2f;
         imageRectTransform.anchoredPosition = new Vector2(imageRectTransform.anchoredPosition.x, imageRectTransform.anchoredPosition.y - heightDifference);
     }
-    public virtual void ChangeSprite(IViewable wiewable, int howMany)
+    public virtual void ChangeSprite(IInventorObjectAble inventorObjectAble, int howMany)
     {
 
-        scriptableObjectIWiewable = wiewable;
+        this.inventorObjectAble = inventorObjectAble;
 
-        ImageChangeSize(wiewable.GetWeightInInventory());
-        image.sprite = wiewable.GetSprite();
+        ImageChangeSize(inventorObjectAble.GetWeightInInventory());
+        image.sprite = inventorObjectAble.GetSprite();
         image.color = new Color(image.color.r, image.color.g, image.color.b, 1f);
         
 
@@ -58,14 +58,11 @@ public abstract class ScreenAbleButtonAbstract : MonoBehaviour, IPointerEnterHan
     public virtual void OnPointerClick(PointerEventData eventData)
     {
         
-
-
-
     }
 
     public void Screen()
     {
-        TooltipManager.Instance.Screen(this.scriptableObjectIWiewable);
+        TooltipManager.Instance.Screen(this.inventorObjectAble);
     }
 
     public void Hide()

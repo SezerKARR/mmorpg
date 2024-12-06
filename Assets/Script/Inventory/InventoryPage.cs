@@ -30,24 +30,26 @@ public class InventoryPage : MonoBehaviour
 
         
         
-        buttonCount = inventorButtons.Length;
-        inventoryColumnCount = GetComponent<GridLayoutGroup>().constraintCount;
-        inventoryRowCount = buttonCount / inventoryColumnCount;
-        print((buttonCount, inventoryColumnCount, inventoryRowCount));
+       
         GetComponent<GridLayoutGroup>().cellSize = new Vector2(width / cellSizeRatio, width / cellSizeRatio);
 
     }
     public void GiveNumber(int number)
     {
         inventorButtons = GetComponentsInChildren<InventorButton>();
+
+        buttonCount = inventorButtons.Length;
+        inventoryColumnCount = GetComponent<GridLayoutGroup>().constraintCount;
+        inventoryRowCount = buttonCount / inventoryColumnCount;
+        print((buttonCount, inventoryColumnCount, inventoryRowCount));
         this.pageCount = number;
         for (int i = 0; i < inventorButtons.Length; i++)
         {
-            inventorButtons[i].ButtonCount = new Vector2Int(number, i);
+            inventorButtons[i].ButtonPos = new Vector2Int(number, i);
 
         }
     }
-    public bool CanGetObject(IViewable viewable,int howMany)
+    public bool CanGetObject(ItemViewable viewable,int howMany)
     {
         
         
@@ -62,25 +64,25 @@ public class InventoryPage : MonoBehaviour
         }
         return false;
     }
-    public bool CanChangePosition(int inventorButtonPos)
+    public bool CanChangePosition(int inventorButtonPos,ItemViewable selectedButtonscriptableObjectIWiewable,int selectedButtonhowMany)
     {
-        return ControlCanAdd(inventorButtonPos, InventoryManager.Instance.selectedButton.scriptableObjectIWiewable, InventoryManager.Instance.selectedButton.howMany);
+        return ControlCanAdd(inventorButtonPos, selectedButtonscriptableObjectIWiewable, selectedButtonhowMany);
     }
-    public bool ControlCanAdd(int i, IViewable viewable,int howMany)
+    public bool ControlCanAdd(int i, ItemViewable viewable,int howMany)
     {
         int weightInInventory = viewable.GetWeightInInventory();
         if (weightInInventory + i > buttonCount)
         {
             return false;
         }
-        if (inventorButtons[i].scriptableObjectIWiewable == null)
+        if (inventorButtons[i].inventorObjectAble == null)
         {
             if (weightInInventory == 1)
             {
                 AddScriptableObjectInPage(viewable, howMany, inventorButtons[i]);
                 return true;
             }
-            else if (i + 1 < inventorButtons.Length && inventorButtons[i + 1].scriptableObjectIWiewable == null)
+            else if (i + 1 < inventorButtons.Length && inventorButtons[i + 1].inventorObjectAble == null)
             {
                 if ((i + 1) % 9 != 0)
                 {
@@ -93,7 +95,7 @@ public class InventoryPage : MonoBehaviour
 
                     if (i + 2 < inventorButtons.Length && (i + 2) % 9 != 0)
                     {
-                        if (weightInInventory == 3 && inventorButtons[i + 2].scriptableObjectIWiewable == null)
+                        if (weightInInventory == 3 && inventorButtons[i + 2].inventorObjectAble == null)
                         {
                             AddScriptableObjectInButton(viewable, inventorButtons[i + 1]);
                             AddScriptableObjectInButton(viewable, inventorButtons[i + 2]);
@@ -114,22 +116,22 @@ public class InventoryPage : MonoBehaviour
     public void ResetButtons(int ResetButtonIndex)
     {
         
-        int t = inventorButtons[ResetButtonIndex].scriptableObjectIWiewable.GetWeightInInventory();
+        int t = inventorButtons[ResetButtonIndex].inventorObjectAble.GetWeightInInventory();
         for (int i = ResetButtonIndex; i< ResetButtonIndex + t; i++)
         {
             inventorButtons[i].ResetButton();
         }
        
     }
-    public bool AddStack(IViewable wiewable, int howMany)
+    public bool AddStack(IInventorObjectAble inventorObjectAble, int howMany)
     {
         int i = 0;
-        foreach (var itemSlot in inventorButtons.Where(item => item.scriptableObjectIWiewable == wiewable))
+        foreach (var itemSlot in inventorButtons.Where(item => item.inventorObjectAble == inventorObjectAble))
         {
             i++;
             int newCount = itemSlot.howMany + howMany;
 
-            if (newCount <= wiewable.StackLimit())
+            if (newCount <= inventorObjectAble.GetStackLimit())
             {
 
                 itemSlot.AddStack(newCount); // Güncelleme lazým todo
@@ -140,14 +142,14 @@ public class InventoryPage : MonoBehaviour
 
         return false;
     }
-    public void AddScriptableObjectInPage(IViewable wiewable,int howMany,InventorButton inventorButton)
+    public void AddScriptableObjectInPage(IInventorObjectAble inventorObjectAble,int howMany,InventorButton inventorButton)
     {
         Debug.Log("pivk upbastý2");
-        itemsInPage.Add((wiewable.GetScriptableObject(),howMany));
+        itemsInPage.Add((inventorObjectAble.GetScriptableObject(),howMany));
 
-        inventorButton.ChangeSprite( wiewable,howMany);
+        inventorButton.ChangeSprite( inventorObjectAble,howMany);
     }
-    public void AddScriptableObjectInButton(IViewable wiewable,InventorButton inventorButton)
+    public void AddScriptableObjectInButton(ItemViewable wiewable,InventorButton inventorButton)
     {
         
         inventorButton.SetScriptableObject(wiewable);

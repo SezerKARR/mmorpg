@@ -6,15 +6,15 @@ using UnityEngine;
 public abstract class ItemDrop : MonoBehaviour, IPickedUpAble
 {
     public TMP_Text itemName;
-    public IViewable IWievableScriptableObject;
+    public IInventorObjectAble inventorObjectAble;
     public int howMany=1;
     public virtual GameObject GetGameObject()
     {
         return this.gameObject;
     }
-    public IViewable GetIWievAble()
+    public IInventorObjectAble GetInventorObjectAble()
     {
-        return this.IWievableScriptableObject;
+        return this.inventorObjectAble;
     }
     public int GetHowMany()
     {
@@ -28,7 +28,7 @@ public abstract class ItemDrop : MonoBehaviour, IPickedUpAble
     // Start is called before the first frame update
     public virtual void Start()
     {
-        itemName.text = IWievableScriptableObject.GetName() + " x" + this.howMany;
+        itemName.text = inventorObjectAble.GetName() + " x" + this.howMany;
     }
 
     // Update is called once per frame
@@ -37,5 +37,4 @@ public abstract class ItemDrop : MonoBehaviour, IPickedUpAble
         
     }
 
-    
 }

@@ -57,7 +57,7 @@ public class Player : MonoBehaviour
     public void DropItem()
     {
         GameObject itemDrop = Instantiate(ItemDropWithOutName,transform.position,Quaternion.identity);
-        itemDrop.GetComponent<ItemDropWithOutName>().IWievableScriptableObject=InventoryManager.Instance.selectedButton.scriptableObjectIWiewable;
+        itemDrop.GetComponent<ItemDropWithOutName>().IWievableScriptableObject=InventoryManager.Instance.selectedButton.inventorObjectAble;
     }
     private void Update()
     {
@@ -87,7 +87,7 @@ public class Player : MonoBehaviour
     }
     public  void ExpCalculator(int exp,int creatureLevel)
     {
-        print( GameManager.instance.ExpRateCalculate(creatureLevel - level));
+       // print( GameManager.instance.ExpRateCalculate(creatureLevel - level));
         /*if (!haveGroup)
         {
 

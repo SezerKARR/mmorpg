@@ -10,7 +10,7 @@ public class InteractionDetector : MonoBehaviour
     private List<IPickedUpAble> _pickedUpAbles = new List<IPickedUpAble>();
     public int pickedCount;//silinecek
     private float minDistance=int.MaxValue;
-    private IViewable selectedIWievable;
+    private IInventorObjectAble selectedInventorObjectable;
     private GameObject selectedGameObject;
     private int selectedSoHowMany;
     private void Awake()
@@ -33,23 +33,22 @@ public class InteractionDetector : MonoBehaviour
         if (_pickedUpAbles.Count > 0)
         {
             
-            print(_pickedUpAbles.Count);
             foreach (var pickedable in _pickedUpAbles)
             {
                 if (Vector2.Distance(new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y),
                     new Vector2(pickedable.GetGameObject().transform.position.x, pickedable.GetGameObject().transform.position.y)) < minDistance)
                 {
                     selectedGameObject = pickedable.GetGameObject();
-                    selectedIWievable = pickedable.GetIWievAble();
+                    selectedInventorObjectable = pickedable.GetInventorObjectAble();
                     selectedSoHowMany = pickedable.GetHowMany();
                 }
 
-                Debug.Log("i" );
             }
             
-            if (!InventoryManager.Instance.add(selectedIWievable, selectedSoHowMany))
+            if (!InventoryManager.Instance.add(selectedInventorObjectable, selectedSoHowMany))
             {
                 Debug.Log("yer yok");
+                return;
             } 
                 
 
@@ -73,7 +72,7 @@ public class InteractionDetector : MonoBehaviour
         {
             _pickedUpAbles.Add(interactable);
             pickedCount++;
-            print(_pickedUpAbles.Count);
+            
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

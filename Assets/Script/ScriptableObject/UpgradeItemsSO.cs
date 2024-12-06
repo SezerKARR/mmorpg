@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObject/UpgradeItem")]
-public class UpgradeItemsSO : ScriptableObject,IViewable
+public class UpgradeItemsSO : ScriptableObject,IInventorObjectAble
 {
     public Sprite Image;
     public string upgradeName;
@@ -24,17 +24,13 @@ public class UpgradeItemsSO : ScriptableObject,IViewable
         return this;
     }
 
-    string IViewable.GetInfo()
-    {
-        return info;
-    }
-    public int StackLimit()
-    { 
-        return 200; 
-    }
-
     public int GetWeightInInventory()
     {
         return 1;
+    }
+
+    public int GetStackLimit()
+    {
+        return 200;
     }
 }

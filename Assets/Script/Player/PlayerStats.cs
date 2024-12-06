@@ -17,14 +17,13 @@ public class PlayerStats : CharacterStats
     {
 
         base.Start();
-        //EquipmentManager.instance.onEquipmentChanged += OnEquipmentChanged;
+        EquipmentManager.Instance.OnEquipmentChanged += OnEquipmentChanged;
     }
-
-    /*void OnEquipmentChanged(Equipment newItem, Equipment oldItem)
+    void OnEquipmentChanged(ScriptableItemsAbstact newItem, ScriptableItemsAbstact oldItem)
     {
-        if (newItem != null)
+        /*if (newItem != null)
         {
-            armor.AddModifier(newItem.armorModifier);
+            armor.AddModifier(newItem.armorModifier());
             damage.AddModifier(newItem.damageModifier);
         }
 
@@ -32,9 +31,10 @@ public class PlayerStats : CharacterStats
         {
             armor.RemoveModifier(oldItem.armorModifier);
             damage.RemoveModifier(oldItem.armorModifier);
-        }
+        }*/
 
-    }*/
+    }
+
 
 
 

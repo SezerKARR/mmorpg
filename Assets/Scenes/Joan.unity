@@ -2535,7 +2535,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8701799367366713677, guid: d7d570c2f9038f64f96fe0122ec90d36, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.19760132
+      value: -0.19763184
       objectReference: {fileID: 0}
     - target: {fileID: 8701799367366713677, guid: d7d570c2f9038f64f96fe0122ec90d36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -19012,7 +19012,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8348969, y: 0.6458181}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00012207031, y: 0}
+  m_AnchoredPosition: {x: -0.00024414062, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &919758193
@@ -19067,6 +19067,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swordEquipment: {fileID: 1875281330}
   helmetEquipment: {fileID: 1217790552}
+  selectedButton: {fileID: 0}
 --- !u!1001 &923654175
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21309,7 +21310,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1131422568}
-  - component: {fileID: 1131422569}
   m_Layer: 5
   m_Name: ToolTipUISystem
   m_TagString: Untagged
@@ -21338,18 +21338,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1131422569
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1131422567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76138be7d610441469f3fca385d34c31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1134240344
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23439,7 +23427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8701799367366713677, guid: d7d570c2f9038f64f96fe0122ec90d36, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.19760132
+      value: -0.19763184
       objectReference: {fileID: 0}
     - target: {fileID: 8701799367366713677, guid: d7d570c2f9038f64f96fe0122ec90d36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -27205,7 +27193,6 @@ GameObject:
   - component: {fileID: 1870167205}
   - component: {fileID: 1870167204}
   - component: {fileID: 1870167206}
-  - component: {fileID: 1870167207}
   m_Layer: 6
   m_Name: Tilemap
   m_TagString: Ground
@@ -96717,18 +96704,6 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
---- !u!114 &1870167207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1870167202}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc11b9396563aba418818063b3c60a94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1871017547
 GameObject:
   m_ObjectHideFlags: 0
@@ -97655,7 +97630,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.8348969, y: 0.048134103}
   m_AnchorMax: {x: 1, y: 0.6458181}
-  m_AnchoredPosition: {x: 0.30603027, y: -24.540985}
+  m_AnchoredPosition: {x: 0.3059082, y: -24.540985}
   m_SizeDelta: {x: -0.612, y: 54.888}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2002890848
@@ -97719,6 +97694,8 @@ MonoBehaviour:
   - {fileID: 1372703653}
   - {fileID: 608123617}
   selectedButton: {fileID: 0}
+  EquipButton: {fileID: 0}
+  lastTakedButton: {fileID: 0}
 --- !u!225 &2002890851
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -99411,7 +99388,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8701799367366713677, guid: d7d570c2f9038f64f96fe0122ec90d36, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.19760132
+      value: -0.19763184
       objectReference: {fileID: 0}
     - target: {fileID: 8701799367366713677, guid: d7d570c2f9038f64f96fe0122ec90d36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -100809,11 +100786,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1435113752359786749, guid: d7d570c2f9038f64f96fe0122ec90d36, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1749251187446776245, guid: d7d570c2f9038f64f96fe0122ec90d36, type: 3}
       propertyPath: m_Name
       value: InventoryPage
+      objectReference: {fileID: 0}
+    - target: {fileID: 1749251187446776245, guid: d7d570c2f9038f64f96fe0122ec90d36, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1998248686271126939, guid: d7d570c2f9038f64f96fe0122ec90d36, type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -100917,7 +100898,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8701799367366713677, guid: d7d570c2f9038f64f96fe0122ec90d36, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -0.19760132
+      value: -0.19763184
       objectReference: {fileID: 0}
     - target: {fileID: 8701799367366713677, guid: d7d570c2f9038f64f96fe0122ec90d36, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

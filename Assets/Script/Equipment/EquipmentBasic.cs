@@ -6,48 +6,56 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public  class EquipmentBasic : ScreenAbleButtonAbstract,IEquipmentAble
+public class EquipmentBasic : InventorObjectAbstract, IEquipmentAble
 {
-    
-    
+
+
     public override void Awake()
     {
 
         base.Awake();
     }
-    public  void Equip(ScriptableItemsAbstact ScriptableItemsAbstact)
+    public int armorModifier()
+    {
+        return 0;
+    }
+    public bool Equip(ScriptableItemsAbstact scriptableItemsAbstact)
     {
         if (NeedUnEquip())
         {
-            if (!InventoryManager.Instance.add(this.scriptableObjectIWiewable,1))
+            if(!UnEquip())
             {
-                return;
+                return false;
             }
-            UnEquip();
+
         }
-        this.scriptableObjectIWiewable = ScriptableItemsAbstact;
-        this.image.sprite = ScriptableItemsAbstact.Image;
-        this.image.color=new Color(this.image.color.a,this.image.color.g,this.image.color.b,255);
+        EquipmentManager.Instance.a(scriptableItemsAbstact, this.inventorObjectAble.GetScriptableItemsAbstact());
+        this.inventorObjectAble = scriptableItemsAbstact;
+        this.image.sprite = scriptableItemsAbstact.Image;
+        this.image.color = new Color(this.image.color.r, this.image.color.g, this.image.color.b, 255);
+        return true;
     }
-    public  void UnEquip()
-    {
-        if (InventoryManager.Instance.add(this.scriptableObjectIWiewable, 1))
+    public bool UnEquip()
+    {   //yer var mý diye kontrol ediyor
+        if (!EquipmentManager.Instance.NeedUnequip(this.inventorObjectAble))
         {
-            this.scriptableObjectIWiewable = null;
-            this.image.sprite = null;
-            this.image.color = new Color(this.image.color.a, this.image.color.g, this.image.color.b, 0);
+            return false;
+
         }
-        else { Debug.Log("giyilemez"); }
-        
+        this.inventorObjectAble = null;
+        this.image.sprite = null;
+        this.image.color = new Color(this.image.color.r, this.image.color.g, this.image.color.b, 0);
+        return true;
     }
-    public  bool NeedUnEquip() { 
-        if(this.scriptableObjectIWiewable != null) return true;
-        return false;        
-    }
-    public IViewable GetSOItem()
+    public bool NeedUnEquip()
     {
-        return scriptableObjectIWiewable;
+        if (this.inventorObjectAble != null) return true;
+        return false;
+    }
+    public ItemViewable GetSOItem()
+    {
+        return inventorObjectAble;
     }
 
-   
+
 }

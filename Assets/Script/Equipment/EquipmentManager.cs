@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,11 +9,10 @@ public class EquipmentManager : MonoBehaviour
     
     public EquipmentBasic swordEquipment;
     public EquipmentBasic helmetEquipment;
-
+    public event Action<ScriptableItemsAbstact, ScriptableItemsAbstact> OnEquipmentChanged;
     private void Awake()
     {
         Instance = this;
-        
     }
     public bool IsCharacterMatch(List<Character> canUseCharacter)
     {
@@ -22,10 +22,13 @@ public class EquipmentManager : MonoBehaviour
     {
         return Player.instance.level>=itemLevel;
     }
-
-    public bool ControlCanEquip(IViewable scriptableIViewable)
+    public void a(ScriptableItemsAbstact a,ScriptableItemsAbstact b)
     {
-        if (scriptableIViewable is ScriptableItemsAbstact item)
+        OnEquipmentChanged?.Invoke(a, b);
+    }
+    public bool ControlCanEquip(InventorButton selectedButton)
+    {
+        if (selectedButton.inventorObjectAble is ScriptableItemsAbstact item)
         {
             if (IsLevelEnough(item.level) && IsCharacterMatch(item.canUseCharacters))
             {
@@ -35,22 +38,34 @@ public class EquipmentManager : MonoBehaviour
         }
         return false;
     }
-
-    private void EquipItem(ScriptableItemsAbstact item)
+    public void SamePos()
+    {
+        /*if (InventoryManager.Instance.ChangeIViewableInventoryPosition())                )
+            if (!InventoryManager.Instance.add(this.scriptableObjectIWiewable, 1))
+        {
+            return;
+        }*/
+    }
+    public bool NeedUnequip(ItemViewable UnequipIviewable)
+    {
+        return InventoryManager.Instance.NeedUnequip(UnequipIviewable);
+        
+    }
+    private bool EquipItem(ScriptableItemsAbstact item)
     {
         switch (item)
         {
             case SwordSO :
-                swordEquipment.Equip(item);
-                break;
+                return swordEquipment.Equip(item);
+                
 
             case HelmetSo:
-                helmetEquipment.Equip(item);
-                break;
+                return helmetEquipment.Equip(item);
+                
 
             default:
-                Debug.Log("Unknown item type");
-                break;
+                return false;
+                
         }
     }
 

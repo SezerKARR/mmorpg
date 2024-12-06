@@ -6,9 +6,9 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class InventorButton : ScreenAbleButtonAbstract
+public class InventorButton : InventorObjectAbstract
 {
-    public Vector2Int ButtonCount;
+    public Vector2Int ButtonPos;
     //public GameObject ScriptableObjectScreener;
     
     //public SwordSO swordso;
@@ -27,10 +27,10 @@ public class InventorButton : ScreenAbleButtonAbstract
         howMany=newValue;
         howManyText.text = howMany.ToString();
     }
-    public void SetScriptableObject(IViewable wiewable)
+    public void SetScriptableObject(IInventorObjectAble inventorObjectAble)
     {
 
-        scriptableObjectIWiewable=wiewable;
+        this.inventorObjectAble= inventorObjectAble;
         image.enabled = false;
     }
     
@@ -46,7 +46,7 @@ public class InventorButton : ScreenAbleButtonAbstract
         image.color = new Color(image.color.r, image.color.g, image.color.b, 0f);
         image.enabled = true;
         ResetImageSize();
-        scriptableObjectIWiewable =null;
+        inventorObjectAble =null;
         
     }
     public override void ResetImageSize()
@@ -57,15 +57,16 @@ public class InventorButton : ScreenAbleButtonAbstract
     {
         base.ImageChangeSize(spriteHeight);
     }
-    public override void ChangeSprite(IViewable wiewable, int howMany)
+    public override void ChangeSprite(IInventorObjectAble inventorObjectAble, int howMany)
     {
 
-       base.ChangeSprite(wiewable, howMany);
-        if (this.howMany + howMany <= wiewable.StackLimit())
+       base.ChangeSprite(inventorObjectAble, howMany);
+        if (this.howMany + howMany <= inventorObjectAble.GetStackLimit())
         {
             this.howMany += howMany;
             howManyText.text = this.howMany.ToString();
         }
+        InventoryManager.Instance.lastTakedButton = this;
         return;
 
     }
@@ -74,23 +75,24 @@ public class InventorButton : ScreenAbleButtonAbstract
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            if (InventoryManager.Instance.selectedButton == null && this.scriptableObjectIWiewable != null)
+            if (InventoryManager.Instance.selectedButton == null && this.inventorObjectAble != null)
             {
                 Debug.Log(this.gameObject.name);
-                ImageUnderCursor.Instance.GetComponent<Image>().sprite = this.scriptableObjectIWiewable.GetSprite();
+                ImageUnderCursor.Instance.GetComponent<Image>().sprite = this.inventorObjectAble.GetSprite();
                 ImageUnderCursor.Instance.GameObject().SetActive(true);
                 InventoryManager.Instance.selectedButton = this;
                 return;
             }
             else if (InventoryManager.Instance.selectedButton != null)
             {
-                InventoryManager.Instance.ChangeIViewableInventoryPosition(ButtonCount.y);
+                InventoryManager.Instance.ChangeIViewableInventoryPosition(ButtonPos.y, InventoryManager.Instance.selectedButton);
 
             }
         }
         
         if (eventData.button == PointerEventData.InputButton.Right)
         {
+            
             InventoryManager.Instance.EquipThisItem(this);
         }
 

@@ -15,12 +15,14 @@ public class InventoryManager : MonoBehaviour
     public static InventoryManager Instance;
     [SerializeField]
     private InventoryPage[] inventoryPage;
-    public  List<(IViewable IViewable, int howMany)> itemsInInventory = new List<(IViewable IViewable, int howMany)>();
+    public  List<(ItemViewable IViewable, int howMany)> itemsInInventory = new List<(ItemViewable IViewable, int howMany)>();
     [SerializeField]
     private PageChangeButton[] pageChangeButton;
     public InventorButton selectedButton=null;
     private int activePage;
-    
+    public InventorButton EquipButton;
+    bool reduce = true;
+    public InventorButton lastTakedButton;
     private void Awake()
     {
         Instance = this;
@@ -63,8 +65,8 @@ public class InventoryManager : MonoBehaviour
         int howMany = selectedButton.howMany;
 
 
-        Debug.Log(selectedButton.scriptableObjectIWiewable);
-        int index = itemsInInventory.FindIndex(item => item.IViewable == selectedButton.scriptableObjectIWiewable);
+        Debug.Log(selectedButton.inventorObjectAble);
+        int index = itemsInInventory.FindIndex(item => item.IViewable == selectedButton.inventorObjectAble);
         if (itemsInInventory[index].howMany - howMany > 0)
         {
             itemsInInventory[index] = (itemsInInventory[index].IViewable, itemsInInventory[index].howMany - howMany);
@@ -72,7 +74,7 @@ public class InventoryManager : MonoBehaviour
         else if (itemsInInventory[index].howMany - howMany == 0)
         {
             itemsInInventory.Remove(itemsInInventory[index]);
-            ResetButtons(selectedButton.ButtonCount);
+            ResetButtons(selectedButton.ButtonPos);
         }
         else {Debug.Log("hata var"); }
         
@@ -81,18 +83,38 @@ public class InventoryManager : MonoBehaviour
     {
         inventoryPage[buttonPos.x].ResetButtons(buttonPos.y);
     }
-    public bool add(IViewable wiewable,int howMany)
+    private bool SomePos(ItemViewable unEquipItem,InventorButton newButton)
     {
         
+        ResetButtons(newButton.ButtonPos);
+
+
+        return inventoryPage[activePage].CanChangePosition(newButton.ButtonPos.y, unEquipItem, 1);
+    }
+    public bool NeedUnequip(ItemViewable ScriptableItemIviewable)
+    {
+        reduce = false;
+        if (SomePos(ScriptableItemIviewable, this.EquipButton))return true;
+        if (add(ScriptableItemIviewable, 1))
+        {
+            
+            return true;
+        }
+        return false;
+    }
+    public bool add(IInventorObjectAble inventorObjectAble,int howMany)
+    {
+        
+        Debug.Log(inventoryPage.Length );
 
         foreach (InventoryPage page in inventoryPage)
         {
 
-            if (wiewable.StackLimit() > 1)
+            if (inventorObjectAble.GetStackLimit() > 1)
             {
-                if(page.AddStack(wiewable, howMany))
+                if(page.AddStack(inventorObjectAble, howMany))
                 {
-                    int index = itemsInInventory.FindIndex(x => x.Item1 == wiewable);
+                    int index = itemsInInventory.FindIndex(x => x.Item1 == inventorObjectAble);
                     if (index != -1)
                     {
                         itemsInInventory[index] = (itemsInInventory[index].IViewable, itemsInInventory[index].howMany + howMany);
@@ -100,29 +122,35 @@ public class InventoryManager : MonoBehaviour
                     return true;
                 }
             }
-            Debug.Log("pivk upbastý3");
-            if (page.CanGetObject(wiewable, howMany)) {
+            if (page.CanGetObject(inventorObjectAble, howMany)) {
 
-                itemsInInventory.Add((wiewable, howMany));
+                itemsInInventory.Add((inventorObjectAble, howMany));
                 return true;
             }
         }
         return false;
 
     }
-    public void ChangeIViewableInventoryPosition(int  newButtonPos)
+    public bool ChangeIViewableInventoryPosition(int  newButtonPos,InventorButton selectedButton)
     {
-        if ( inventoryPage[activePage].CanChangePosition(newButtonPos))
+        if (CanChange(newButtonPos, selectedButton))
         {
             CloseImageUnderCursor();
             inventoryPage[activePage].inventorButtons[newButtonPos].Screen();
-           
-            inventoryPage[this.selectedButton.ButtonCount.x].ResetButtons(this.selectedButton.ButtonCount.y);
-            this.selectedButton = null;
+            
+                inventoryPage[selectedButton.ButtonPos.x].ResetButtons(selectedButton.ButtonPos.y);
+                this.selectedButton = null;
+            
+            
+            return true;
         }
-        
+        return false;
     }
-
+    public bool CanChange(int newButtonPos,InventorButton selectedButton)
+    {
+        return inventoryPage[activePage].CanChangePosition(newButtonPos,selectedButton.inventorObjectAble,selectedButton.howMany);
+    }
+    
     public void ChangePage(int page)
     {
         ClosePage(activePage);
@@ -158,12 +186,12 @@ public class InventoryManager : MonoBehaviour
     }
     public void EquipThisItem(InventorButton selectedButton)
     {
-        
-        if (EquipmentManager.Instance.ControlCanEquip(selectedButton.scriptableObjectIWiewable))
+        this.EquipButton = selectedButton;
+        if (EquipmentManager.Instance.ControlCanEquip(selectedButton)&&reduce)
         {
-            ReduceObjectInInventoryList(selectedButton);
-            
+            ReduceObjectInInventoryList(selectedButton);    
         }
-        
+        reduce = true;
+
     }
 }

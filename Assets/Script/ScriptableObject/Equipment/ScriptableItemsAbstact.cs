@@ -24,7 +24,7 @@ public class RequirementClass
     
 }
 
-public abstract  class ScriptableItemsAbstact : ScriptableObject,IViewable
+public abstract  class ScriptableItemsAbstact : ScriptableObject,ItemViewable,IInventorObjectAble,
 {
     public float price;
     public int weightInInventory=1;
@@ -41,19 +41,14 @@ public abstract  class ScriptableItemsAbstact : ScriptableObject,IViewable
     public RequirementClass[] Requirements =new RequirementClass[0];
     public Sprite Image;
     public int level;
-    public int StackLimit()
-    { return 1; }
-    public string GetInfo()
-    {
-        return "weapon";
-    }
+   
 
     public string GetName()
     {
         return this.ItemName;
     }
 
-    public ScriptableObject GetScriptableObject()
+    public ScriptableItemsAbstact GetScriptableItemsAbstact()
     {
         return this;
     }
@@ -67,4 +62,13 @@ public abstract  class ScriptableItemsAbstact : ScriptableObject,IViewable
     {
         return weightInInventory;
     }
+
+    public ScriptableObject GetScriptableObject()
+    {
+        throw new NotImplementedException();
+    }
+
+
+    public int GetStackLimit()
+    { return 1; }
 }
