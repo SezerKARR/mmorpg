@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObject/UpgradeItem")]
-public class UpgradeItemsSO : ScriptableObject,IInventorObjectAble
+public class UpgradeItemsSO : ScriptableObject,IDropable
 {
     public Sprite Image;
     public string upgradeName;
@@ -32,5 +32,13 @@ public class UpgradeItemsSO : ScriptableObject,IInventorObjectAble
     public int GetStackLimit()
     {
         return 200;
+    }
+
+    public string GetDropName()
+    {
+        
+        
+            return upgradeName;
+        
     }
 }

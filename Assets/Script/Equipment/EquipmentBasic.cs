@@ -29,8 +29,11 @@ public class EquipmentBasic : InventorObjectAbstract, IEquipmentAble
             }
 
         }
-        EquipmentManager.Instance.a(scriptableItemsAbstact, this.inventorObjectAble.GetScriptableItemsAbstact());
+        
+        EquipmentManager.Instance.a(scriptableItemsAbstact, scriptableItemsAbstact);
         this.inventorObjectAble = scriptableItemsAbstact;
+        this.currentItem = scriptableItemsAbstact;
+        this.currentItem.SetNewStats();
         this.image.sprite = scriptableItemsAbstact.Image;
         this.image.color = new Color(this.image.color.r, this.image.color.g, this.image.color.b, 255);
         return true;
@@ -42,6 +45,7 @@ public class EquipmentBasic : InventorObjectAbstract, IEquipmentAble
             return false;
 
         }
+        this.currentItem.SetOldStats();
         this.inventorObjectAble = null;
         this.image.sprite = null;
         this.image.color = new Color(this.image.color.r, this.image.color.g, this.image.color.b, 0);
@@ -52,10 +56,10 @@ public class EquipmentBasic : InventorObjectAbstract, IEquipmentAble
         if (this.inventorObjectAble != null) return true;
         return false;
     }
-    public ItemViewable GetSOItem()
+    /*public ScriptableItemsAbstact GetSOItem()
     {
         return inventorObjectAble;
-    }
+    }*/
 
 
 }

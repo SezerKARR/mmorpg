@@ -54,17 +54,21 @@ public class TooltipManager : MonoBehaviour
         
     }*/
 
-    public void Screen(ItemViewable scriptableObject)
+    public void Screen(IInventorObjectable scriptableObject)
     {
         
         tooltip.GameObject().SetActive(true);
-        tooltip.Screen(scriptableObject);
+        //tooltip.Screen(scriptableObject);
 
     }
     public void Hide()
     {
-        tooltip.hide();
-        tooltip.GameObject().SetActive(false);
+        if (tooltip.GameObject().activeSelf)
+        {
+            tooltip.hide();
+            tooltip.GameObject().SetActive(false);
+        }
+            
         
     }
 

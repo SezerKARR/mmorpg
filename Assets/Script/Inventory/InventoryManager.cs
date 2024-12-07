@@ -5,17 +5,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Unity.VisualScripting;
-using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.UIElements;
 
 public class InventoryManager : MonoBehaviour
 {
     public static InventoryManager Instance;
     [SerializeField]
     private InventoryPage[] inventoryPage;
-    public  List<(ItemViewable IViewable, int howMany)> itemsInInventory = new List<(ItemViewable IViewable, int howMany)>();
+    public  List<(IInventorObjectable inventorObject, int howMany)> itemsInInventory = new List<(IInventorObjectable inventorObject, int howMany)>();
     [SerializeField]
     private PageChangeButton[] pageChangeButton;
     public InventorButton selectedButton=null;
@@ -23,8 +21,10 @@ public class InventoryManager : MonoBehaviour
     public InventorButton EquipButton;
     bool reduce = true;
     public InventorButton lastTakedButton;
+    public Button ConfirmYesToDrop;
     private void Awake()
     {
+        ConfirmYesToDrop.onClick.AddListener(drop);
         Instance = this;
         for (int i = 0; i < inventoryPage.Length; i++) {
             inventoryPage[i].GiveNumber(i);
@@ -35,9 +35,17 @@ public class InventoryManager : MonoBehaviour
     {
         OpenPage(0);
     }
-    public void DropItemYes()
+    public void drop()
     {
-        Player.instance.DropItem();
+        if (selectedButton.inventorObjectAble is IDropable dropable)
+        {
+            DropItemYes(dropable);
+        }
+    }
+    public void DropItemYes(IDropable dropable)
+    {
+        Player.instance.DropItem(dropable);
+
         ReduceObjectInInventoryList( selectedButton);
         
         CloseImageUnderCursor();
@@ -65,11 +73,10 @@ public class InventoryManager : MonoBehaviour
         int howMany = selectedButton.howMany;
 
 
-        Debug.Log(selectedButton.inventorObjectAble);
-        int index = itemsInInventory.FindIndex(item => item.IViewable == selectedButton.inventorObjectAble);
+        int index = itemsInInventory.FindIndex(item => item.inventorObject == selectedButton.inventorObjectAble);
         if (itemsInInventory[index].howMany - howMany > 0)
         {
-            itemsInInventory[index] = (itemsInInventory[index].IViewable, itemsInInventory[index].howMany - howMany);
+            itemsInInventory[index] = (itemsInInventory[index].inventorObject, itemsInInventory[index].howMany - howMany);
         }
         else if (itemsInInventory[index].howMany - howMany == 0)
         {
@@ -83,7 +90,7 @@ public class InventoryManager : MonoBehaviour
     {
         inventoryPage[buttonPos.x].ResetButtons(buttonPos.y);
     }
-    private bool SomePos(ItemViewable unEquipItem,InventorButton newButton)
+    private bool SomePos(IInventorObjectable unEquipItem,InventorButton newButton)
     {
         
         ResetButtons(newButton.ButtonPos);
@@ -91,21 +98,20 @@ public class InventoryManager : MonoBehaviour
 
         return inventoryPage[activePage].CanChangePosition(newButton.ButtonPos.y, unEquipItem, 1);
     }
-    public bool NeedUnequip(ItemViewable ScriptableItemIviewable)
+    public bool NeedUnequip(IInventorObjectable inventorObjectAble)
     {
         reduce = false;
-        if (SomePos(ScriptableItemIviewable, this.EquipButton))return true;
-        if (add(ScriptableItemIviewable, 1))
+        if (SomePos(inventorObjectAble, this.EquipButton))return true;
+        if (add(inventorObjectAble, 1))
         {
             
             return true;
         }
         return false;
     }
-    public bool add(IInventorObjectAble inventorObjectAble,int howMany)
+    public bool add(IInventorObjectable inventorObjectAble,int howMany)
     {
         
-        Debug.Log(inventoryPage.Length );
 
         foreach (InventoryPage page in inventoryPage)
         {
@@ -117,7 +123,7 @@ public class InventoryManager : MonoBehaviour
                     int index = itemsInInventory.FindIndex(x => x.Item1 == inventorObjectAble);
                     if (index != -1)
                     {
-                        itemsInInventory[index] = (itemsInInventory[index].IViewable, itemsInInventory[index].howMany + howMany);
+                        itemsInInventory[index] = (itemsInInventory[index].inventorObject, itemsInInventory[index].howMany + howMany);
                     }
                     return true;
                 }

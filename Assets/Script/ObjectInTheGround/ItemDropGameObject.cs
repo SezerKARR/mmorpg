@@ -43,7 +43,7 @@ public class ItemDropGameObject : ItemDrop
         ItemDropWithOutName itemDropComponent = newItemDrop.GetComponent<ItemDropWithOutName>();
         itemDropComponent.itemName.text = this.itemName.text;
         itemDropComponent.howMany = this.howMany;
-        itemDropComponent.IWievableScriptableObject = this.IWievableScriptableObject;
+        itemDropComponent.dropable = this.dropable;
         Destroy(this.gameObject);
     }
 }

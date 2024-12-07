@@ -3115,19 +3115,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 236434931}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2002890850}
-        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
-        m_MethodName: DropItemYes
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &236434931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19067,7 +19055,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   swordEquipment: {fileID: 1875281330}
   helmetEquipment: {fileID: 1217790552}
-  selectedButton: {fileID: 0}
 --- !u!1001 &923654175
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21133,19 +21120,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1090218040}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2002890850}
-        m_TargetAssemblyTypeName: InventoryManager, Assembly-CSharp
-        m_MethodName: DropItemNo
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1090218040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97696,6 +97671,7 @@ MonoBehaviour:
   selectedButton: {fileID: 0}
   EquipButton: {fileID: 0}
   lastTakedButton: {fileID: 0}
+  ConfirmYesToDrop: {fileID: 236434930}
 --- !u!225 &2002890851
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -100277,8 +100253,7 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -23.115
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 7796841123550994201, guid: 1e3e6a0b3c1b6334fbafe9886a0ea05b, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:

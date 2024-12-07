@@ -24,7 +24,7 @@ public class RequirementClass
     
 }
 
-public abstract  class ScriptableItemsAbstact : ScriptableObject,ItemViewable,IInventorObjectAble,
+public abstract  class ScriptableItemsAbstact : ScriptableObject,IItemable,IInventorObjectable,IDropable
 {
     public float price;
     public int weightInInventory=1;
@@ -42,7 +42,10 @@ public abstract  class ScriptableItemsAbstact : ScriptableObject,ItemViewable,II
     public Sprite Image;
     public int level;
    
-
+    public string GetCurrentPlus()
+    {
+        return currentPlus.ToString();
+    }
     public string GetName()
     {
         return this.ItemName;
@@ -65,10 +68,58 @@ public abstract  class ScriptableItemsAbstact : ScriptableObject,ItemViewable,II
 
     public ScriptableObject GetScriptableObject()
     {
-        throw new NotImplementedException();
+        return this;
     }
 
 
     public int GetStackLimit()
     { return 1; }
+
+    public string GetDropName()
+    {
+        if(bonuses.Count > 0)
+        {
+            return $"{ItemName}<color=yellow>+{currentPlus}</color>";
+        }
+        else
+        {
+            return $"{ItemName}<color=red>+{currentPlus}</color>";
+        }
+    }
+
+    public abstract Dictionary<StatType, float> GetStats();
+    public void SetNewStats()
+    {
+        var modifiers = GetStats();
+        foreach (var modifier in modifiers)
+        {
+            
+            Player.instance.EquipmentStat.AddModifier(modifier.Key, modifier.Value);
+        }
+    }
+
+    public void SetOldStats()
+    {
+        var modifiers = GetStats();
+        foreach (var modifier in modifiers)
+        {
+            Player.instance.EquipmentStat.RemoveModifier(modifier.Key, modifier.Value);
+        }
+    }
+    public void GetBonus()
+    {
+        throw new NotImplementedException();
+    }
+
+   
+
+    public void SetNewBonus()
+    {
+        throw new NotImplementedException();
+    }
+
+    public void SetOldBonus()
+    {
+        throw new NotImplementedException();
+    }
 }

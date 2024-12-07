@@ -6,7 +6,7 @@ using UnityEngine.InputSystem;
 [System.Serializable]
 public class ItemToDrop : System.Object
 {
-    public ItemViewable itemToDrop;
+    public IItemable itemToDrop;
     public float probability;
 }
 public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
@@ -92,19 +92,19 @@ public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
             GameObject drop = Instantiate(itemDrop, RandomPositionByObjectCircle(), Quaternion.identity);
             drop.GetComponent<ItemDropGameObject>().Playername.text = "player";
             
-            drop.GetComponent<ItemDropGameObject>().IWievableScriptableObject = (enemySO.canDrop[1] is ItemViewable wiewable) ? wiewable : null;
+            drop.GetComponent<ItemDropGameObject>().dropable = (enemySO.canDrop[1] is IDropable wiewable) ? wiewable : null;
             GameObject drop1 = Instantiate(itemDrop, RandomPositionByObjectCircle(), Quaternion.identity);
             drop1.GetComponent<ItemDropGameObject>().Playername.text = "player";
-            drop1.GetComponent<ItemDropGameObject>().IWievableScriptableObject = (enemySO.canDrop[0] is ItemViewable wiewable1) ? wiewable1 : null;
+            drop1.GetComponent<ItemDropGameObject>().dropable = (enemySO.canDrop[0] is IDropable wiewable1) ? wiewable1 : null;
                 drop1.GetComponent<ItemDropGameObject>().howMany = 75;
             GameObject drop2 = Instantiate(itemDrop, RandomPositionByObjectCircle(), Quaternion.identity);
             
             drop2.GetComponent<ItemDropGameObject>().Playername.text = "player";
-            drop2.GetComponent<ItemDropGameObject>().IWievableScriptableObject = (enemySO.canDrop[2] is ItemViewable wiewable2) ? wiewable2 : null;
+            drop2.GetComponent<ItemDropGameObject>().dropable = (enemySO.canDrop[2] is IDropable wiewable2) ? wiewable2 : null;
             GameObject drop3 = Instantiate(itemDrop, RandomPositionByObjectCircle(), Quaternion.identity);
 
             drop3.GetComponent<ItemDropGameObject>().Playername.text = "player";
-            drop3.GetComponent<ItemDropGameObject>().IWievableScriptableObject = (enemySO.canDrop[3] is ItemViewable wiewable3) ? wiewable3 : null; 
+            drop3.GetComponent<ItemDropGameObject>().dropable = (enemySO.canDrop[3] is IDropable wiewable3) ? wiewable3 : null; 
         }
         /*foreach (var item in itemToDrops)
         {

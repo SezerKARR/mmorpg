@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 1224945133474784485}
   - component: {fileID: 8735694181129415657}
   - component: {fileID: 1959834802811902033}
-  - component: {fileID: 7796841123550994201}
   m_Layer: 5
   m_Name: Tooltip For Sword
   m_TagString: Untagged
@@ -147,31 +146,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &7796841123550994201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 786994492552361263}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2774d3a91a5f1974fbabd5ae8f9a41c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  swordNameText: {fileID: 8860384741664973930}
-  attackValueText: {fileID: 8343931190632916168}
-  magicalValueText: {fileID: 384572715460016802}
-  attackSpeedText: {fileID: 5612400345903854898}
-  levelText: {fileID: 6504242005808297888}
-  bonusesText:
-  - {fileID: 14772883964764563}
-  - {fileID: 5521571782460371456}
-  - {fileID: 7529467508172693915}
-  - {fileID: 5517651377067759998}
-  - {fileID: 6508610426605774060}
-  wearAbleText: {fileID: 2838345473935665914}
-  sword: {fileID: 11400000, guid: 68f92146e49d035458c35761d65be08d, type: 2}
 --- !u!1 &1914899590423633338
 GameObject:
   m_ObjectHideFlags: 0

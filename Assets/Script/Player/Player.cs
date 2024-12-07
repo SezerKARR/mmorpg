@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     //public Sprite[] playerIdleSprite;
 
 
-
+    public EquipmentStat EquipmentStat = new EquipmentStat();
     private float swordPhsichalDamage;
     public LineRenderer lineRenderer;
     
@@ -54,10 +54,13 @@ public class Player : MonoBehaviour
         
 
     }
-    public void DropItem()
+    public void DropItem(IDropable dropable)
     {
-        GameObject itemDrop = Instantiate(ItemDropWithOutName,transform.position,Quaternion.identity);
-        itemDrop.GetComponent<ItemDropWithOutName>().IWievableScriptableObject=InventoryManager.Instance.selectedButton.inventorObjectAble;
+       
+            GameObject itemDrop = Instantiate(ItemDropWithOutName, transform.position, Quaternion.identity);
+            itemDrop.GetComponent<ItemDropWithOutName>().dropable = dropable;
+        
+        
     }
     private void Update()
     {

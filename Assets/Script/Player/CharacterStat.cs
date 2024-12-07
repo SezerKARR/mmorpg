@@ -5,17 +5,18 @@ using UnityEngine;
 public class CharacterStats : MonoBehaviour
 {
 
-    public Stat maxHealth;          // Maximum amount of health
+    public int maxHealth;
+    
     public int currentHealth { get; protected set; }    // Current amount of health
 
-    public Stat damage;
-    public Stat armor;
+    public int damage;
+    public int armor;
 
     public event System.Action OnHealthReachedZero;
 
     public virtual void Awake()
     {
-        currentHealth = maxHealth.GetValue();
+        currentHealth = maxHealth;
     }
 
     // Start with max HP.
@@ -28,7 +29,7 @@ public class CharacterStats : MonoBehaviour
     public void TakeDamage(int damage)
     {
         // Subtract the armor value - Make sure damage doesn't go below 0.
-        damage -= armor.GetValue();
+        damage -= armor;
         damage = Mathf.Clamp(damage, 0, int.MaxValue);
 
         // Subtract damage from health
@@ -49,7 +50,7 @@ public class CharacterStats : MonoBehaviour
     public void Heal(int amount)
     {
         currentHealth += amount;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth.GetValue());
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
     }
 
 

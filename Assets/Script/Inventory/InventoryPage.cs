@@ -11,7 +11,6 @@ public class InventoryPage : MonoBehaviour
     public static Sprite sprite;
     public  InventorButton[] inventorButtons;
    
-    public List<(ScriptableObject scriptableObject, int howMany)> itemsInPage = new List<(ScriptableObject scriptableObject, int howMany)>();
     private int pageCount;
     private int buttonCount;
     private int inventoryColumnCount;
@@ -49,7 +48,7 @@ public class InventoryPage : MonoBehaviour
 
         }
     }
-    public bool CanGetObject(ItemViewable viewable,int howMany)
+    public bool CanGetObject(IInventorObjectable inventorObjectable,int howMany)
     {
         
         
@@ -57,20 +56,20 @@ public class InventoryPage : MonoBehaviour
 
         for (int i = 0; i < inventorButtons.Length; i++)
         {
-            if( ControlCanAdd(i, viewable, howMany))
+            if( ControlCanAdd(i, inventorObjectable, howMany))
                 return true;
 
             
         }
         return false;
     }
-    public bool CanChangePosition(int inventorButtonPos,ItemViewable selectedButtonscriptableObjectIWiewable,int selectedButtonhowMany)
+    public bool CanChangePosition(int inventorButtonPos,IInventorObjectable inventorObjectable,int selectedButtonhowMany)
     {
-        return ControlCanAdd(inventorButtonPos, selectedButtonscriptableObjectIWiewable, selectedButtonhowMany);
+        return ControlCanAdd(inventorButtonPos, inventorObjectable, selectedButtonhowMany);
     }
-    public bool ControlCanAdd(int i, ItemViewable viewable,int howMany)
+    public bool ControlCanAdd(int i, IInventorObjectable inventorObjectable,int howMany)
     {
-        int weightInInventory = viewable.GetWeightInInventory();
+        int weightInInventory = inventorObjectable.GetWeightInInventory();
         if (weightInInventory + i > buttonCount)
         {
             return false;
@@ -79,7 +78,7 @@ public class InventoryPage : MonoBehaviour
         {
             if (weightInInventory == 1)
             {
-                AddScriptableObjectInPage(viewable, howMany, inventorButtons[i]);
+                AddScriptableObjectInPage(inventorObjectable, howMany, inventorButtons[i]);
                 return true;
             }
             else if (i + 1 < inventorButtons.Length && inventorButtons[i + 1].inventorObjectAble == null)
@@ -88,8 +87,8 @@ public class InventoryPage : MonoBehaviour
                 {
                     if (weightInInventory == 2)
                     {
-                        AddScriptableObjectInButton(viewable, inventorButtons[i + 1]);
-                        AddScriptableObjectInPage(viewable, howMany, inventorButtons[i]);
+                        AddScriptableObjectInButton(inventorObjectable, inventorButtons[i + 1]);
+                        AddScriptableObjectInPage(inventorObjectable, howMany, inventorButtons[i]);
                         return true;
                     }
 
@@ -97,9 +96,9 @@ public class InventoryPage : MonoBehaviour
                     {
                         if (weightInInventory == 3 && inventorButtons[i + 2].inventorObjectAble == null)
                         {
-                            AddScriptableObjectInButton(viewable, inventorButtons[i + 1]);
-                            AddScriptableObjectInButton(viewable, inventorButtons[i + 2]);
-                            AddScriptableObjectInPage(viewable, howMany, inventorButtons[i]);
+                            AddScriptableObjectInButton(inventorObjectable, inventorButtons[i + 1]);
+                            AddScriptableObjectInButton(inventorObjectable, inventorButtons[i + 2]);
+                            AddScriptableObjectInPage(inventorObjectable, howMany, inventorButtons[i]);
                             return true;
                         }
                     }
@@ -123,7 +122,7 @@ public class InventoryPage : MonoBehaviour
         }
        
     }
-    public bool AddStack(IInventorObjectAble inventorObjectAble, int howMany)
+    public bool AddStack(IInventorObjectable inventorObjectAble, int howMany)
     {
         int i = 0;
         foreach (var itemSlot in inventorButtons.Where(item => item.inventorObjectAble == inventorObjectAble))
@@ -142,17 +141,15 @@ public class InventoryPage : MonoBehaviour
 
         return false;
     }
-    public void AddScriptableObjectInPage(IInventorObjectAble inventorObjectAble,int howMany,InventorButton inventorButton)
+    public void AddScriptableObjectInPage(IInventorObjectable inventorObjectAble,int howMany,InventorButton inventorButton)
     {
-        Debug.Log("pivk upbastý2");
-        itemsInPage.Add((inventorObjectAble.GetScriptableObject(),howMany));
 
         inventorButton.ChangeSprite( inventorObjectAble,howMany);
     }
-    public void AddScriptableObjectInButton(ItemViewable wiewable,InventorButton inventorButton)
+    public void AddScriptableObjectInButton(IInventorObjectable inventorObjectAble, InventorButton inventorButton)
     {
         
-        inventorButton.SetScriptableObject(wiewable);
+        inventorButton.SetScriptableObject(inventorObjectAble);
         
         
     }

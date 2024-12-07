@@ -1,7 +1,7 @@
 
 using UnityEngine;
 
-public interface IInventorObjectAble
+public interface IInventorObjectable
 {
     public ScriptableObject GetScriptableObject();
     public int GetWeightInInventory();

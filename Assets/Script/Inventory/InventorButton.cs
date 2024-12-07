@@ -27,7 +27,7 @@ public class InventorButton : InventorObjectAbstract
         howMany=newValue;
         howManyText.text = howMany.ToString();
     }
-    public void SetScriptableObject(IInventorObjectAble inventorObjectAble)
+    public void SetScriptableObject(IInventorObjectable inventorObjectAble)
     {
 
         this.inventorObjectAble= inventorObjectAble;
@@ -41,7 +41,6 @@ public class InventorButton : InventorObjectAbstract
         howMany = 0;
         
         howManyText.gameObject.SetActive(false);
-        Debug.Log(image);
         image.sprite = null;
         image.color = new Color(image.color.r, image.color.g, image.color.b, 0f);
         image.enabled = true;
@@ -57,7 +56,7 @@ public class InventorButton : InventorObjectAbstract
     {
         base.ImageChangeSize(spriteHeight);
     }
-    public override void ChangeSprite(IInventorObjectAble inventorObjectAble, int howMany)
+    public override void ChangeSprite(IInventorObjectable inventorObjectAble, int howMany)
     {
 
        base.ChangeSprite(inventorObjectAble, howMany);
@@ -92,8 +91,11 @@ public class InventorButton : InventorObjectAbstract
         
         if (eventData.button == PointerEventData.InputButton.Right)
         {
+            if(this.inventorObjectAble is ScriptableItemsAbstact)
+            {
+                InventoryManager.Instance.EquipThisItem(this);
+            }
             
-            InventoryManager.Instance.EquipThisItem(this);
         }
 
 

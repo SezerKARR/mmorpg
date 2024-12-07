@@ -5,6 +5,7 @@ using System.Linq;
 using Unity.Collections.LowLevel.Unsafe;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 public enum TypeWeapon
 {
     Swords, TwoHandedWeapons, Blades, Fans, Bells, Daggers, Bows, Claws
@@ -20,9 +21,21 @@ public class SwordSO : ScriptableItemsAbstact
     public TypeWeapon typeWeapon;
     
     public int sockets;
-   
+
+    public override Dictionary<StatType, float> GetStats()
+    {
+        Dictionary<StatType, float> stats= new Dictionary<StatType, float>();
+        if (minAndMaxMagicalAttackValue.Count > 0)
+        {
+            stats.Add(StatType.MinMagicAttack, minAndMaxMagicalAttackValue[currentPlus].x);
+            stats.Add(StatType.MaxMagicAttack, minAndMaxMagicalAttackValue[currentPlus].y);
+        }
+        stats.Add(StatType.MinAttack, minAndMaxAttackValue[currentPlus].x);
+        stats.Add(StatType.MaxAttack, minAndMaxAttackValue[currentPlus].y);
+        stats.Add(StatType.AttackSpeed, attackSpeed[currentPlus]);
+        return stats;
+    }
+
     
-    
-    
-    
+
 }

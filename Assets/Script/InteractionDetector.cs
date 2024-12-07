@@ -10,7 +10,7 @@ public class InteractionDetector : MonoBehaviour
     private List<IPickedUpAble> _pickedUpAbles = new List<IPickedUpAble>();
     public int pickedCount;//silinecek
     private float minDistance=int.MaxValue;
-    private IInventorObjectAble selectedInventorObjectable;
+    private IInventorObjectable selectedInventorObjectable;
     private GameObject selectedGameObject;
     private int selectedSoHowMany;
     private void Awake()

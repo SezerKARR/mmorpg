@@ -91,14 +91,18 @@ public class InputPlayer : MonoBehaviour
 
             // Raycast ile tilemap üzerinde kontrol yapýyoruz
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
-            Debug.Log(hit.collider);
             // Eðer tilemap objesiyle çarpýþma varsa, iþlem yapýlýr
             if (hit.collider != null && hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
             {
                 if (InventoryManager.Instance.selectedButton != null)
                 {
-                    TooltipManager.Instance.confirm.SetActive(true);
+                    if(InventoryManager.Instance.selectedButton is IDropable dropable)
+                    {
+                        TooltipManager.Instance.confirm.SetActive(true);
+                    }
+                    
                 }
+               
             }
             else if (hit.collider != null)
             {

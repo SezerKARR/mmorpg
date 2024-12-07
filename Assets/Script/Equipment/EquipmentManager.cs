@@ -46,7 +46,7 @@ public class EquipmentManager : MonoBehaviour
             return;
         }*/
     }
-    public bool NeedUnequip(ItemViewable UnequipIviewable)
+    public bool NeedUnequip(IInventorObjectable UnequipIviewable)
     {
         return InventoryManager.Instance.NeedUnequip(UnequipIviewable);
         

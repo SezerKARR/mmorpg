@@ -7,8 +7,8 @@ using UnityEngine.UI;
 
 public abstract class InventorObjectAbstract : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IScreenAble
 {
-    public IInventorObjectAble inventorObjectAble;
-    
+    public IInventorObjectable inventorObjectAble;
+    public IItemable currentItem;
     public float buttonOrginalHeight;
     public RectTransform imageRectTransform;
     public Image image;
@@ -33,7 +33,7 @@ public abstract class InventorObjectAbstract : MonoBehaviour, IPointerEnterHandl
         float heightDifference = (newHeight - buttonOrginalHeight) / 2f;
         imageRectTransform.anchoredPosition = new Vector2(imageRectTransform.anchoredPosition.x, imageRectTransform.anchoredPosition.y - heightDifference);
     }
-    public virtual void ChangeSprite(IInventorObjectAble inventorObjectAble, int howMany)
+    public virtual void ChangeSprite(IInventorObjectable inventorObjectAble, int howMany)
     {
 
         this.inventorObjectAble = inventorObjectAble;
@@ -67,6 +67,7 @@ public abstract class InventorObjectAbstract : MonoBehaviour, IPointerEnterHandl
 
     public void Hide()
     {
+        
         TooltipManager.Instance.Hide();
     }
 }
