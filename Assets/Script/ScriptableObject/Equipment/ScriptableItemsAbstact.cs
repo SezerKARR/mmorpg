@@ -41,7 +41,9 @@ public abstract  class ScriptableItemsAbstact : ScriptableObject,IItemable,IInve
     public RequirementClass[] Requirements =new RequirementClass[0];
     public Sprite Image;
     public int level;
-   
+
+    public bool playerCanDrop = true;
+    public bool canEveryBodyTake = true;
     public string GetCurrentPlus()
     {
         return currentPlus.ToString();
@@ -121,5 +123,14 @@ public abstract  class ScriptableItemsAbstact : ScriptableObject,IItemable,IInve
     public void SetOldBonus()
     {
         throw new NotImplementedException();
+    }
+    public bool GetPlayerCanDrop()
+    {
+        return playerCanDrop;
+    }
+
+    public bool GetCanEveryBodyTake()
+    {
+        return canEveryBodyTake;
     }
 }

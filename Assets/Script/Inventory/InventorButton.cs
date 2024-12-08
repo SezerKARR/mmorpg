@@ -19,6 +19,7 @@ public class InventorButton : InventorObjectAbstract
     public override void Awake()
     {
         base.Awake();
+        howManyText.gameObject.SetActive(false);
     }
     
     public void AddStack(int newValue)
@@ -26,6 +27,7 @@ public class InventorButton : InventorObjectAbstract
         Debug.Log("geldi");
         howMany=newValue;
         howManyText.text = howMany.ToString();
+        howManyText.gameObject.SetActive(true);
     }
     public void SetScriptableObject(IInventorObjectable inventorObjectAble)
     {

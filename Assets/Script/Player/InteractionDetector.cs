@@ -6,10 +6,10 @@ using UnityEngine;
 public class InteractionDetector : MonoBehaviour
 {
     private List<IInteractable> _interactablesInRange = new List<IInteractable>();
-    
+
     private List<IPickedUpAble> _pickedUpAbles = new List<IPickedUpAble>();
     public int pickedCount;//silinecek
-    private float minDistance=int.MaxValue;
+    private float minDistance = int.MaxValue;
     private IInventorObjectable selectedInventorObjectable;
     private GameObject selectedGameObject;
     private int selectedSoHowMany;
@@ -19,7 +19,7 @@ public class InteractionDetector : MonoBehaviour
     }
     public void PickUp()
     {
-        
+
         /*if(_interactablesInRange.Count > 0)
         {
             var interactable = _interactablesInRange[0];
@@ -29,10 +29,10 @@ public class InteractionDetector : MonoBehaviour
                 _interactablesInRange.Remove(interactable);
             }
         }*/
-        
+
         if (_pickedUpAbles.Count > 0)
         {
-            
+
             foreach (var pickedable in _pickedUpAbles)
             {
                 if (Vector2.Distance(new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y),
@@ -44,16 +44,16 @@ public class InteractionDetector : MonoBehaviour
                 }
 
             }
-            
+
             if (!InventoryManager.Instance.add(selectedInventorObjectable, selectedSoHowMany))
             {
                 Debug.Log("yer yok");
                 return;
-            } 
-                
+            }
 
-            Destroy(selectedGameObject); 
-            
+
+            Destroy(selectedGameObject);
+
 
 
         }
@@ -72,7 +72,7 @@ public class InteractionDetector : MonoBehaviour
         {
             _pickedUpAbles.Add(interactable);
             pickedCount++;
-            
+
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

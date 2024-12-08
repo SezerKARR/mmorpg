@@ -8,7 +8,8 @@ public class UpgradeItemsSO : ScriptableObject,IDropable
     public string upgradeName;
     public string dropsFrom;
     public string info;
-
+    public bool playerCanDrop = true;
+    public bool canEveryBodyTake=true;
     public string GetName()
     {
         return upgradeName;
@@ -40,5 +41,15 @@ public class UpgradeItemsSO : ScriptableObject,IDropable
         
             return upgradeName;
         
+    }
+
+    public bool GetPlayerCanDrop()
+    {
+        return playerCanDrop;
+    }
+
+    public bool GetCanEveryBodyTake()
+    {
+        return canEveryBodyTake;
     }
 }

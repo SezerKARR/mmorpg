@@ -58,7 +58,7 @@ public class InputPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        try
+        /*try
         {
             //todo: burasý deðiþecek playerInput.Player.move.performed+=ctx=>(ctx.readvalue<vector2>
             inputClickFloat = playerNewInput.Player.ClickLeft.ReadValue<float>();
@@ -79,7 +79,7 @@ public class InputPlayer : MonoBehaviour
         {
             
 
-        }
+        }*/
     }
  
     private void LeftClickClicked()
@@ -92,26 +92,35 @@ public class InputPlayer : MonoBehaviour
             // Raycast ile tilemap üzerinde kontrol yapýyoruz
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
             // Eðer tilemap objesiyle çarpýþma varsa, iþlem yapýlýr
-            if (hit.collider != null && hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
+            if(hit.collider != null)
             {
-                if (InventoryManager.Instance.selectedButton != null)
+                if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
                 {
-                    if(InventoryManager.Instance.selectedButton is IDropable dropable)
+                    if (InventoryManager.Instance.selectedButton != null)
                     {
-                        TooltipManager.Instance.confirm.SetActive(true);
+                        if (InventoryManager.Instance.selectedButton.inventorObjectAble is IDropable dropable)
+                        {
+                            if (dropable.GetPlayerCanDrop())
+                            {
+                                TooltipManager.Instance.confirm.SetActive(true);
+                            }
+                            else { Debug.Log("bu obje yere atýlamaz"); }
+                        }
+
                     }
-                    
+                    Debug.Log(hit.collider.gameObject);
                 }
-               
+                else if (hit.collider.gameObject.CompareTag("Equipment"))
+                {
+
+                }
+                else 
+                {
+                    ChangeSelectedObjectOutline(hit.collider);
+                    Debug.Log(hit.collider.gameObject);
+                }
             }
-            else if (hit.collider != null)
-            {
-                Debug.Log(hit.collider.gameObject);
-            }
-            else
-            {
-                Debug.Log("UI öðesi üzerine týklanýyor veya baþka bir nesne");
-            }
+            
         }
 
        

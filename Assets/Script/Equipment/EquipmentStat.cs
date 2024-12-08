@@ -19,7 +19,6 @@ public class EquipmentStat
         {
             Modifiers.Add(statType, modifierValue); // Yeni modifiye ekler
         }
-        UnityEngine.Debug.Log(Modifiers[statType]);
     }
 
     // Bir modifiyeri kaldýrýr

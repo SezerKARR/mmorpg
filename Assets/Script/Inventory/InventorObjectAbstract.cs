@@ -7,8 +7,9 @@ using UnityEngine.UI;
 
 public abstract class InventorObjectAbstract : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler, IScreenAble
 {
+    
     public IInventorObjectable inventorObjectAble;
-    public IItemable currentItem;
+    
     public float buttonOrginalHeight;
     public RectTransform imageRectTransform;
     public Image image;
@@ -55,7 +56,7 @@ public abstract class InventorObjectAbstract : MonoBehaviour, IPointerEnterHandl
         Hide();
     }
 
-    public virtual void OnPointerClick(PointerEventData eventData)
+    public abstract void OnPointerClick(PointerEventData eventData)
     {
         
     }

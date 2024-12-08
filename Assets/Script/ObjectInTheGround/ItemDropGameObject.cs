@@ -40,10 +40,14 @@ public class ItemDropGameObject : ItemDrop
         yield return new WaitForSeconds(5);
         this.gameObject.SetActive(false);
         GameObject newItemDrop = Instantiate(itemDropWithOutName, this.transform.position, Quaternion.identity);
-        ItemDropWithOutName itemDropComponent = newItemDrop.GetComponent<ItemDropWithOutName>();
-        itemDropComponent.itemName.text = this.itemName.text;
-        itemDropComponent.howMany = this.howMany;
-        itemDropComponent.dropable = this.dropable;
+        if (dropable.GetCanEveryBodyTake())
+        {
+            ItemDropWithOutName itemDropComponent = newItemDrop.GetComponent<ItemDropWithOutName>();
+            itemDropComponent.itemName.text = this.itemName.text;
+            itemDropComponent.howMany = this.howMany;
+            itemDropComponent.dropable = this.dropable;
+        }
+        
         Destroy(this.gameObject);
     }
 }
