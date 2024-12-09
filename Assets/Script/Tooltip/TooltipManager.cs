@@ -45,7 +45,7 @@ public class TooltipManager : MonoBehaviour
     {
         
         tooltip.GameObject().SetActive(true);
-        //tooltip.Screen(scriptableObject);
+        tooltip.Screen(scriptableObject);
 
     }
     public void Hide()

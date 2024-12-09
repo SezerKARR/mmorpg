@@ -4,17 +4,31 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+public enum EquipmentType
+{
+    Sword,
+    Helmet,
+    Armor,
+    Boots,
+    Shield
+}
 public class EquipmentManager : MonoBehaviour
 {
     public static EquipmentManager Instance;
-    
-    public EquipmentButton swordEquipment;
-    public EquipmentButton helmetEquipment;
-    public event Action<ScriptableItemsAbstact, ScriptableItemsAbstact> OnEquipmentChanged;
+    private Dictionary<EquipmentType, IEquipmentAble> equippedItems = new Dictionary<EquipmentType, IEquipmentAble>();
+//public EquipmentBasic swordEquipment;
+//    public EquipmentBasic helmetEquipment;
+    public event Action<IItemable, IItemable> OnEquipmentChanged;
     //public  event Action<ScriptableItemsAbstact> OnEquip;
     public  event Action OnUnEquip;
     private void Awake()
     {
+        IEquipmentAble[] equips = this.GetComponentsInChildren<IEquipmentAble>();
+        foreach(IEquipmentAble equip in equips)
+        {
+            equippedItems[equip.GetEquipmentType()]= equip;
+
+        }
         Instance = this;
     }
     public bool IsCharacterMatch(List<Character> canUseCharacter)
@@ -25,11 +39,11 @@ public class EquipmentManager : MonoBehaviour
     {
         return Player.instance.level>=itemLevel;
     }
-    public void a(ScriptableItemsAbstact a,ScriptableItemsAbstact b)
+    public void a(IItemable a,IItemable b)
     {
         OnEquipmentChanged?.Invoke(a, b);
     }
-    public bool ControlCanEquip(ScriptableItemsAbstact item)
+    public bool ControlCanEquip(IItemable item)
     {
         if (IsLevelEnough(item.GetLevel()) && IsCharacterMatch(item.GetCanUseCharacters()))
         {
@@ -51,39 +65,26 @@ public class EquipmentManager : MonoBehaviour
         return InventoryManager.Instance.NeedUnequip(UnequipIviewable);
         
     }
-    private bool HandleEquip(EquipmentButton equipment, ScriptableItemsAbstact item)
+    private bool HandleEquip(IEquipmentAble equipment, IItemable item)
     {
-        if (equipment.inventorObjectAble == null)
+        if (equipment.GetItemable() == null)
         {
             //OnEquip?.Invoke(item);
             equipment.Equip(item);
             return true;
         }
-        else if(CanUnequip(equipment))
+        else if (NeedUnequipForEquip(equipment.GetItemable()))
         {
-            //OnEquipmentChanged?.Invoke(equipment.inventorObjectAble, item);
+            OnEquipmentChanged?.Invoke(equipment.GetItemable(), item);
             equipment.UnEquip();
             equipment.Equip(item);
             return true;
         }
         return false;
     }
-    private bool EquipItem(ScriptableItemsAbstact item)
+    private bool EquipItem(IItemable item)
     {
-        switch (item)
-        {
-            case SwordSO :
-                return HandleEquip(swordEquipment, item);
-                
-
-            case HelmetSo:
-                return HandleEquip(helmetEquipment, item);
-
-
-            default:
-                return false;
-                
-        }
+        return HandleEquip(equippedItems[item.GetEquipmentType()], item);
     }
     /*private bool EquipItem(ScriptableItemsAbstact item)
     {
@@ -102,7 +103,7 @@ public class EquipmentManager : MonoBehaviour
 
         }
     }*/
-    private bool CanUnequip(EquipmentButton unequipItem)
+    private bool CanUnequip(EquipmentBasic unequipItem)
     {
         if (NeedUnequipForEquip(unequipItem.inventorObjectAble))
         {
@@ -111,7 +112,7 @@ public class EquipmentManager : MonoBehaviour
         }
         return false;
     }
-    public void Unequip(EquipmentButton unEquipItem)
+    public void Unequip(EquipmentBasic unEquipItem)
     {
         if (CanUnequip(unEquipItem))
         {

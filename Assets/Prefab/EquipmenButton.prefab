@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1725256312322181242}
   - component: {fileID: 7129366382840673813}
   - component: {fileID: 973602729054945876}
-  - component: {fileID: 7671735208781593410}
+  - component: {fileID: 4135977241287987874}
   m_Layer: 5
   m_Name: EquipmenButton
   m_TagString: Untagged
@@ -121,7 +121,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &7671735208781593410
+--- !u!114 &4135977241287987874
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -130,9 +130,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6105497246562809690}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a65d4aa781b783f41baeee582fbc35d3, type: 3}
+  m_Script: {fileID: 11500000, guid: b46af4a083ef823438988e6bdca78aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   buttonOrginalHeight: 0
-  imageRectTransform: {fileID: 412625701236992332}
-  image: {fileID: 7129366382840673813}
+  imageRectTransform: {fileID: 0}
+  image: {fileID: 0}

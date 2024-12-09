@@ -13,14 +13,19 @@ public enum TypeWeapon
 [CreateAssetMenu(menuName = "ScriptableObject/Weapon")]
 public class SwordSO : ScriptableItemsAbstact
 {
-    
-    
+
+    public EquipmentType equipmentType=EquipmentType.Sword;
     public List<Vector2> minAndMaxAttackValue=new List<Vector2>();
     public List<Vector2> minAndMaxMagicalAttackValue = new List<Vector2>();
     public List<float> attackSpeed = new List<float>();
     public TypeWeapon typeWeapon;
     
     public int sockets;
+
+    public override EquipmentType GetEquipmentType()
+    {
+        return equipmentType;
+    }
 
     public override Dictionary<StatType, float> GetStats()
     {
@@ -35,6 +40,7 @@ public class SwordSO : ScriptableItemsAbstact
         stats.Add(StatType.AttackSpeed, attackSpeed[currentPlus]);
         return stats;
     }
+
 
     
 

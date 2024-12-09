@@ -15,6 +15,7 @@ public abstract class InventorObjectAbstract : MonoBehaviour, IPointerEnterHandl
     public Image image;
     public virtual void Awake()
     {
+        
         imageRectTransform = this.image.GameObject().GetComponent<RectTransform>();
         buttonOrginalHeight = imageRectTransform.rect.height;
     }

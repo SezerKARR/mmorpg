@@ -1,5 +1,7 @@
 public interface IEquipmentAble
 {
-    bool Equip(ScriptableItemsAbstact ScriptableItemsAbstact);
-    bool UnEquip();
+    void Equip(IItemable ScriptableItemsAbstact);
+    void UnEquip();
+    EquipmentType GetEquipmentType();   
+    IItemable GetItemable();
 }

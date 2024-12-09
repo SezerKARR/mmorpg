@@ -12,4 +12,5 @@ public interface IItemable:IDropable
     public void SetOldBonus();
     public int GetLevel();
     public List<Character> GetCanUseCharacters();
+    public EquipmentType GetEquipmentType();
 }

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 
 
+
 public class EquipmentStat
 {
     public Dictionary<StatType, float> Modifiers { get; private set; } = new Dictionary<StatType, float>();
@@ -19,6 +20,7 @@ public class EquipmentStat
         {
             Modifiers.Add(statType, modifierValue); // Yeni modifiye ekler
         }
+        UnityEngine.Debug.Log(Modifiers[statType]+" " + statType.ToString());
     }
 
     // Bir modifiyeri kaldýrýr

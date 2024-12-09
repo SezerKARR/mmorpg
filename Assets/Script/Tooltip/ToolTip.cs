@@ -14,7 +14,7 @@ public class ToolTip : MonoBehaviour,ITooltipAble
     public TextMeshProUGUI[] bonusesText;
     public TextMeshProUGUI wearableLayer;
     public TextMeshProUGUI wearAbleText;
-    public void Screen(IItemable scriptableObject)
+    public void Screen(IInventorObjectable scriptableObject)
     {
         
         if (scriptableObject is SwordSO sword)

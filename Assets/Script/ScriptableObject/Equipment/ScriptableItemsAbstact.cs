@@ -26,6 +26,7 @@ public class RequirementClass
 
 public abstract  class ScriptableItemsAbstact : ScriptableObject,IItemable,IInventorObjectable,IDropable
 {
+    
     public float price;
     public int weightInInventory=1;
     public List<string> bonuses;
@@ -143,4 +144,7 @@ public abstract  class ScriptableItemsAbstact : ScriptableObject,IItemable,IInve
     {
         return canUseCharacters;
     }
+
+    public abstract EquipmentType GetEquipmentType();
+    
 }

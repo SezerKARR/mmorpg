@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Equipment : MonoBehaviour
+/*public class Equipment : MonoBehaviour,IEquipmentAble
 {
     public IItemable currentItem;
 
@@ -19,10 +19,7 @@ public class Equipment : MonoBehaviour
         this.currentItem = scriptableItemsAbstact;
         this.currentItem.SetNewStats();
        
-        
     }
-
-  
 
     public void UnEquip()
     {
@@ -35,7 +32,7 @@ public class Equipment : MonoBehaviour
     /*public ScriptableItemsAbstact GetSOItem()
     {
         return inventorObjectAble;
-    }*/
+    }
 
 
-}
+}*/
