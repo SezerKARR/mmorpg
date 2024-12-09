@@ -17,7 +17,7 @@ public class InputPlayer : MonoBehaviour
     private Material normalMaterial;
     public GameObject selectedObject;
     [SerializeField]
-    private InteractionDetector InteractionDetector;
+    private PickUpDetector InteractionDetector;
 
     public static event Action OnPickUpPressed;
     public static event Action OnNormalAttackPressed;
@@ -102,7 +102,8 @@ public class InputPlayer : MonoBehaviour
                         {
                             if (dropable.GetPlayerCanDrop())
                             {
-                                TooltipManager.Instance.confirm.SetActive(true);
+                                string confirmText = $"{dropable.GetDropName()} yere atmak istediðine emin misin";
+                                UIManager.Instance.OpenConfirm(confirmText, InventoryManager.Instance);
                             }
                             else { Debug.Log("bu obje yere atýlamaz"); }
                         }

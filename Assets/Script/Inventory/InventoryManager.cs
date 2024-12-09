@@ -8,7 +8,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class InventoryManager : MonoBehaviour
+public class InventoryManager : MonoBehaviour , IWaitConfirmable
 {
     public static InventoryManager Instance;
     [SerializeField]
@@ -21,10 +21,10 @@ public class InventoryManager : MonoBehaviour
     private InventorButton EquipButton;
     bool reduce = true;
     public InventorButton lastTakedButton;
-    public Button ConfirmYesToDrop;
+    
     private void Awake()
     {
-        ConfirmYesToDrop.onClick.AddListener(drop);
+        
         Instance = this;
         for (int i = 0; i < inventoryPage.Length; i++) {
             inventoryPage[i].GiveNumber(i);
@@ -35,13 +35,7 @@ public class InventoryManager : MonoBehaviour
     {
         OpenPage(0);
     }
-    public void drop()
-    {
-        if (selectedButton.inventorObjectAble is IDropable dropable)
-        {
-            DropItemYes(dropable);
-        }
-    }
+   
     public void DropItemYes(IDropable dropable)
     {
         Player.instance.DropItem(dropable);
@@ -49,15 +43,12 @@ public class InventoryManager : MonoBehaviour
         ReduceObjectInInventoryList( selectedButton);
         
         CloseImageUnderCursor();
-        CloseConfirm();
+        
         ResetSelectedObject();
         
         
     }
-    public void CloseConfirm()
-    {
-        TooltipManager.Instance.confirm.SetActive(false);
-    }
+    
     public void ResetSelectedObject()
     {
         this.selectedButton = null;
@@ -66,7 +57,7 @@ public class InventoryManager : MonoBehaviour
     {
         CloseImageUnderCursor();
         ResetSelectedObject();
-        CloseConfirm();
+        
     }
     private void ReduceObjectInInventoryList(InventorButton selectedButton)
     {
@@ -204,5 +195,29 @@ public class InventoryManager : MonoBehaviour
         }
         reduce = true;
         this.EquipButton = null;
+    }
+
+    public void ConfirmValue(bool confirmValue)
+    {
+        if (confirmValue)
+        {
+            ConfirmYesToDrop();
+        }
+        else
+        {
+            ConfirmNoToDrop();
+        }
+
+    }
+    private void ConfirmNoToDrop()
+    {
+        this.selectedButton = null;
+    }
+    private void ConfirmYesToDrop()
+    {
+        if (selectedButton.inventorObjectAble is IDropable dropable)
+        {
+            DropItemYes(dropable);
+        }
     }
 }

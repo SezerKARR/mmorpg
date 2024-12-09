@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class InteractionDetector : MonoBehaviour
+public class PickUpDetector : MonoBehaviour
 {
     private List<IInteractable> _interactablesInRange = new List<IInteractable>();
 

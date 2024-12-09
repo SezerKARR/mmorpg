@@ -49,15 +49,15 @@ public class ToolTip : MonoBehaviour,ITooltipAble
         }
 
     }
-    public void SetText(TextMeshProUGUI textMeshProUGUI,string writeText)
+    private void SetText(TextMeshProUGUI textMeshProUGUI,string writeText)
     {
         if (writeText != "")
         {
             textMeshProUGUI.gameObject.SetActive(true);
             textMeshProUGUI.text = writeText;
         }
-        }
-        public void hide()
+    }
+    public void hide()
     {
         foreach (var bonus in bonusesText)
         {

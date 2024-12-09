@@ -12,7 +12,6 @@ public class TooltipManager : MonoBehaviour
     [SerializeField]
     private ScriptableObject swords;
     public RectTransform rectTransform;
-    public GameObject confirm;
     private void Awake()
     {
         Instance = this;
@@ -41,18 +40,6 @@ public class TooltipManager : MonoBehaviour
         }*/
     }
 
-    /*public void screen(ScriptableObject scriptableObject)
-    {
-        tooltip.enabled = true;
-        if (scriptableObject is UpgradeItemsSO sword)
-        { 
-            tooltip.swordNameText.text = sword.name;
-            tooltip.attackValueText.text = sword.info;
-            tooltip.swordNameText.enabled = true;
-            tooltip.attackValueText.enabled = true;
-        }
-        
-    }*/
 
     public void Screen(IInventorObjectable scriptableObject)
     {

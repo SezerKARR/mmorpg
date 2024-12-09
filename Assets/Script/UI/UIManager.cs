@@ -1,15 +1,22 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
-using UnityEngine.UIElements;
-
+using UnityEngine.UI;
+using TMPro;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
-
+    public Confirm Confirm;
+    
     private void Awake()
     {
+       
         Instance = this;
+    }
+    
+    public void OpenConfirm(string confirmText,IWaitConfirmable waitConfirmable)
+    {
+        Confirm.OpenConfirm(confirmText, waitConfirmable);
     }
 
     public bool IsPointerOverUIElement()
