@@ -8,10 +8,10 @@ public class EquipmentManager : MonoBehaviour
 {
     public static EquipmentManager Instance;
     
-    public EquipmentBasic swordEquipment;
-    public EquipmentBasic helmetEquipment;
+    public EquipmentButton swordEquipment;
+    public EquipmentButton helmetEquipment;
     public event Action<ScriptableItemsAbstact, ScriptableItemsAbstact> OnEquipmentChanged;
-    public  event Action<ScriptableItemsAbstact> OnEquip;
+    //public  event Action<ScriptableItemsAbstact> OnEquip;
     public  event Action OnUnEquip;
     private void Awake()
     {
@@ -29,15 +29,12 @@ public class EquipmentManager : MonoBehaviour
     {
         OnEquipmentChanged?.Invoke(a, b);
     }
-    public bool ControlCanEquip(InventorButton selectedButton)
+    public bool ControlCanEquip(ScriptableItemsAbstact item)
     {
-        if (selectedButton.inventorObjectAble is ScriptableItemsAbstact item)
+        if (IsLevelEnough(item.GetLevel()) && IsCharacterMatch(item.GetCanUseCharacters()))
         {
-            if (IsLevelEnough(item.level) && IsCharacterMatch(item.canUseCharacters))
-            {
-                EquipItem(item);
-                return true;
-            }
+            EquipItem(item);
+            return true;
         }
         return false;
     }
@@ -49,22 +46,22 @@ public class EquipmentManager : MonoBehaviour
             return;
         }*/
     }
-    public bool NeedUnequipForEquip(IInventorObjectable UnequipIviewable)
+    private bool NeedUnequipForEquip(IInventorObjectable UnequipIviewable)
     {
         return InventoryManager.Instance.NeedUnequip(UnequipIviewable);
         
     }
-    private bool HandleEquip(EquipmentBasic equipment, ScriptableItemsAbstact item)
+    private bool HandleEquip(EquipmentButton equipment, ScriptableItemsAbstact item)
     {
-        if (equipment.currentItem == null)
+        if (equipment.inventorObjectAble == null)
         {
-            OnEquip?.Invoke(item);
+            //OnEquip?.Invoke(item);
             equipment.Equip(item);
             return true;
         }
-        else if(NeedUnequipForEquip(equipment.inventorObjectAble))
+        else if(CanUnequip(equipment))
         {
-            OnEquipmentChanged?.Invoke(equipment.currentItem, item);
+            //OnEquipmentChanged?.Invoke(equipment.inventorObjectAble, item);
             equipment.UnEquip();
             equipment.Equip(item);
             return true;
@@ -88,15 +85,39 @@ public class EquipmentManager : MonoBehaviour
                 
         }
     }
-    public bool Unequip(EquipmentBasic unequipItem)
+    /*private bool EquipItem(ScriptableItemsAbstact item)
+    {
+        switch (item)
+        {
+            case SwordSO:
+                return HandleEquip(swordEquipment, item);
+
+
+            case HelmetSo:
+                return HandleEquip(helmetEquipment, item);
+
+
+            default:
+                return false;
+
+        }
+    }*/
+    private bool CanUnequip(EquipmentButton unequipItem)
     {
         if (NeedUnequipForEquip(unequipItem.inventorObjectAble))
         {
-            OnUnEquip?.Invoke();
-            unequipItem.UnEquip();
+            //unequipItem.UnEquip();
             return true;
         }
         return false;
+    }
+    public void Unequip(EquipmentButton unEquipItem)
+    {
+        if (CanUnequip(unEquipItem))
+        {
+            OnUnEquip?.Invoke();
+            unEquipItem.UnEquip();
+        }
     }
 
  

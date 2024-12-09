@@ -133,4 +133,14 @@ public abstract  class ScriptableItemsAbstact : ScriptableObject,IItemable,IInve
     {
         return canEveryBodyTake;
     }
+
+    public int GetLevel()
+    {
+        return level;
+    }
+
+    public List<Character> GetCanUseCharacters()
+    {
+        return canUseCharacters;
+    }
 }

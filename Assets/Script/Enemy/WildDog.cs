@@ -16,9 +16,9 @@ public class WildDog : EnemySkeleton
     {
        base.Update();
     }
-    public override void Outline(Material material)
+    public override void Clicked(Material material)
     {
-        base.Outline(material); 
+        base.Clicked(material); 
     }
     public override void TakeDamage(float damage, Player p)
     {

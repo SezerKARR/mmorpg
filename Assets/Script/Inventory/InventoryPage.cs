@@ -144,7 +144,9 @@ public class InventoryPage : MonoBehaviour
     public void AddScriptableObjectInPage(IInventorObjectable inventorObjectAble,int howMany,InventorButton inventorButton)
     {
 
-        inventorButton.ChangeSprite( inventorObjectAble,howMany);
+        inventorButton.ChangeSprite(inventorObjectAble);
+        inventorButton.AddStack(howMany);
+
     }
     public void AddScriptableObjectInButton(IInventorObjectable inventorObjectAble, InventorButton inventorButton)
     {

@@ -34,7 +34,7 @@ public abstract class InventorObjectAbstract : MonoBehaviour, IPointerEnterHandl
         float heightDifference = (newHeight - buttonOrginalHeight) / 2f;
         imageRectTransform.anchoredPosition = new Vector2(imageRectTransform.anchoredPosition.x, imageRectTransform.anchoredPosition.y - heightDifference);
     }
-    public virtual void ChangeSprite(IInventorObjectable inventorObjectAble, int howMany)
+    public virtual void ChangeSprite(IInventorObjectable inventorObjectAble)
     {
 
         this.inventorObjectAble = inventorObjectAble;
@@ -56,10 +56,8 @@ public abstract class InventorObjectAbstract : MonoBehaviour, IPointerEnterHandl
         Hide();
     }
 
-    public abstract void OnPointerClick(PointerEventData eventData)
-    {
-        
-    }
+    public abstract void OnPointerClick(PointerEventData eventData);
+    
 
     public void Screen()
     {

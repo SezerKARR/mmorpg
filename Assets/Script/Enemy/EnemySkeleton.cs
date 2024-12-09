@@ -121,10 +121,11 @@ public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
         return new Vector3(position.x, position.y, 0);
     }
 
-    public virtual void Outline(Material material)
+    public virtual void Clicked(Material material)
     {
         this.GetComponent<SpriteRenderer>().material = material;
     }
+
     public virtual Material GetMaterial()
     {
         return this.GetComponent<SpriteRenderer>().material;
@@ -133,5 +134,10 @@ public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
     public Vector2 GetPosition()
     {
         return new Vector2( this.transform.position.x,this.transform.position.y);
+    }
+
+    public void ResetClicked()
+    {
+        throw new System.NotImplementedException();
     }
 }

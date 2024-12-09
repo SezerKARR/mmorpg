@@ -58,20 +58,16 @@ public class InventorButton : InventorObjectAbstract
     {
         base.ImageChangeSize(spriteHeight);
     }
-    public override void ChangeSprite(IInventorObjectable inventorObjectAble, int howMany)
+    public override void ChangeSprite(IInventorObjectable inventorObjectAble)
     {
 
-       base.ChangeSprite(inventorObjectAble, howMany);
-        if (this.howMany + howMany <= inventorObjectAble.GetStackLimit())
-        {
-            this.howMany += howMany;
-            howManyText.text = this.howMany.ToString();
-        }
+       base.ChangeSprite(inventorObjectAble);
         InventoryManager.Instance.lastTakedButton = this;
         return;
 
     }
 
+    
     public override void OnPointerClick(PointerEventData eventData)
     {
         if (eventData.button == PointerEventData.InputButton.Left)
@@ -93,11 +89,8 @@ public class InventorButton : InventorObjectAbstract
         
         if (eventData.button == PointerEventData.InputButton.Right)
         {
-            if(this.inventorObjectAble is ScriptableItemsAbstact)
-            {
-                InventoryManager.Instance.EquipThisItem(this);
-            }
-            
+            InventoryManager.Instance.EquipThisItem(this);
+
         }
 
 

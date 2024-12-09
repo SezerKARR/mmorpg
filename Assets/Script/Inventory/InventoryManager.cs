@@ -18,7 +18,7 @@ public class InventoryManager : MonoBehaviour
     private PageChangeButton[] pageChangeButton;
     public InventorButton selectedButton=null;
     private int activePage;
-    public InventorButton EquipButton;
+    private InventorButton EquipButton;
     bool reduce = true;
     public InventorButton lastTakedButton;
     public Button ConfirmYesToDrop;
@@ -101,7 +101,11 @@ public class InventoryManager : MonoBehaviour
     public bool NeedUnequip(IInventorObjectable inventorObjectAble)
     {
         reduce = false;
-        if (SomePos(inventorObjectAble, this.EquipButton))return true;
+        if (this.EquipButton != null)
+        {
+            if (SomePos(inventorObjectAble, this.EquipButton)) return true;
+        }
+       
         if (add(inventorObjectAble, 1))
         {
             
@@ -109,6 +113,7 @@ public class InventoryManager : MonoBehaviour
         }
         return false;
     }
+   
     public bool add(IInventorObjectable inventorObjectAble,int howMany)
     {
         
@@ -193,11 +198,11 @@ public class InventoryManager : MonoBehaviour
     public void EquipThisItem(InventorButton selectedButton)
     {
         this.EquipButton = selectedButton;
-        if (EquipmentManager.Instance.ControlCanEquip(selectedButton)&&reduce)
+        if (EquipmentManager.Instance.ControlCanEquip(selectedButton.inventorObjectAble is ScriptableItemsAbstact item ? item : null) &&reduce)
         {
             ReduceObjectInInventoryList(selectedButton);    
         }
         reduce = true;
-
+        this.EquipButton = null;
     }
 }

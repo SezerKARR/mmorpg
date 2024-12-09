@@ -19,7 +19,7 @@ public class PlayerStats : CharacterStats
         base.Start();
         EquipmentManager.Instance.OnEquipmentChanged += OnEquipmentChanged;
     }
-    void OnEquipmentChanged(ScriptableItemsAbstact newItem, ScriptableItemsAbstact oldItem)
+    void OnEquipmentChanged(IItemable newItem, IItemable oldItem)
     {
         /*if (newItem != null)
         {

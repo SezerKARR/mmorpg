@@ -114,7 +114,7 @@ public class InputPlayer : MonoBehaviour
                 {
 
                 }
-                else 
+                else if(hit.collider.gameObject.GetComponent<IOutlineAble>() != null)
                 {
                     ChangeSelectedObjectOutline(hit.collider);
                     Debug.Log(hit.collider.gameObject);
@@ -142,7 +142,8 @@ public class InputPlayer : MonoBehaviour
         if (selectedObject != null)
         {
 
-            selectedObject.GetComponent<IOutlineAble>().Outline(normalMaterial);
+            selectedObject.GetComponent<IOutlineAble>().Clicked(normalMaterial);
+            selectedObject.GetComponent<IOutlineAble>().ResetClicked();
 
         }
         selectedObject = collider.gameObject;
@@ -151,14 +152,14 @@ public class InputPlayer : MonoBehaviour
         if (collider.tag == "Enemy")
         {
 
-            selectedObject.GetComponent<IOutlineAble>().Outline(outlineRed);
+            selectedObject.GetComponent<IOutlineAble>().Clicked(outlineRed);
 
 
         }
         else if (collider.tag == "Npc")
         {
 
-            selectedObject.GetComponent<IOutlineAble>().Outline(outlineGreen);
+            selectedObject.GetComponent<IOutlineAble>().Clicked(outlineGreen);
 
         }
     }

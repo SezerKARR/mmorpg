@@ -15,12 +15,12 @@ public class Blacksmith : NpcBone
     {
         base.Update();
     }
-    public override void Outline(Material material)
+    public override void Clicked(Material material)
     {
-        base.Outline(material);
+        base.Clicked(material);
     }
     public override void InteractPanel()
     {
-        base.InteractPanel();
+        
     }
 }

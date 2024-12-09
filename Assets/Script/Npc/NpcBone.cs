@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class NpcBone : MonoBehaviour,IOutlineAble
+public abstract class NpcBone : MonoBehaviour,IOutlineAble, INpcAble
 {
     public string npcName;
     public Material outlineGreen;
     private Material normalMaterial;
 
-    public virtual void Outline(Material material)
+    public virtual void Clicked(Material material)
     {
         this.GetComponent<SpriteRenderer>().material = material;
+
     }
     public virtual Material GetMaterial()
     {
@@ -28,11 +29,15 @@ public abstract class NpcBone : MonoBehaviour,IOutlineAble
     {
         
     }
-    public virtual void InteractPanel()
-    {
-
-    }
+    public abstract void InteractPanel();
     
+    
+
+    public void ResetClicked()
+    {
+        throw new System.NotImplementedException();
+    }
+
     /*public virtual void Outline(Color color)
     {
         if (color == Color.green)
