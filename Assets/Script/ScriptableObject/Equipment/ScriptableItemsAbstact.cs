@@ -24,7 +24,7 @@ public class RequirementClass
     
 }
 
-public abstract  class ScriptableItemsAbstact : ScriptableObject,IItemable,IInventorObjectable,IDropable
+public abstract  class ScriptableItemsAbstact : ScriptableObject,IItemable
 {
     
     public float price;
@@ -146,5 +146,11 @@ public abstract  class ScriptableItemsAbstact : ScriptableObject,IItemable,IInve
     }
 
     public abstract EquipmentType GetEquipmentType();
+
     
+
+    public void RightClick(InventorButton inventorButton)
+    {
+        InventoryManager.Instance.EquipThisItem(inventorButton);
+    }
 }

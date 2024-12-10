@@ -167,7 +167,7 @@ public class InventoryPage : MonoBehaviour
     }
     public void remove(ScriptableObject getObject)
     {
-        if (getObject is UpgradeItemsSO upgradeItem)
+        if (getObject is ObjectAbstract upgradeItem)
         {
             //itemsInPage.Remove((getObject,));
             return;

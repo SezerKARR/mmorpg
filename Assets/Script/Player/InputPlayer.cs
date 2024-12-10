@@ -55,33 +55,7 @@ public class InputPlayer : MonoBehaviour
         //playerNewInput.Player.Move.canceled += context => OnMovePressed?.Invoke(Vector2.zero);
         playerNewInput.Player.PickUpFromGround.performed -= context => OnPickUpPressed?.Invoke();
     }
-    // Update is called once per frame
-    void Update()
-    {
-        /*try
-        {
-            //todo: burasý deðiþecek playerInput.Player.move.performed+=ctx=>(ctx.readvalue<vector2>
-            inputClickFloat = playerNewInput.Player.ClickLeft.ReadValue<float>();
-            inputWalkVector = playerNewInput.Player.Move.ReadValue<Vector2>();
-            inputShootFloat = playerNewInput.Player.Shoot.ReadValue<float>();
-            inputPickUpFromGroundFloat = playerNewInput.Player.PickUpFromGround.WasPressedThisFrame();
-            //shoot=playerInput.Player.Shoot.ReadValue<Butt
-            //shoot = playerInput.Player.Shoot.ReadValue<Button>();
-
-        }
-        catch
-        {
-            playerNewInput = new PlayerInput();
-            playerNewInput.Player.Enable();
-        }
-        
-        if (Input.GetMouseButtonDown(0))
-        {
-            
-
-        }*/
-    }
- 
+   
     private void LeftClickClicked()
     {
         if (!EventSystem.current.IsPointerOverGameObject())
@@ -124,18 +98,6 @@ public class InputPlayer : MonoBehaviour
             
         }
 
-       
-        //Collider2D hitCollider = hit.collider;
-        //// Eðer bir nesneye týklandýysa
-        //if (hitCollider == null) return;
-        //else if (hitCollider.GetComponent<IOutlineAble>() != null)
-        //{
-        //    ChangeSelectedObjectOutline(hitCollider);
-        //}
-        // if (hitCollider.CompareTag("Ground"))
-        //{
-        //    
-        //}
     }
     private void ChangeSelectedObjectOutline(Collider2D collider)
 

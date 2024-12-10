@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9abd6523e3deb504fa81aeefd1b7653c, type: 3}
+  m_Name: Scroll of War
+  m_EditorClassIdentifier: 
+  Image: {fileID: 0}
+  upgradeName: Scroll of War
+  dropsFrom: 
+  DropMetins: 
+  info: A scroll of war improves an article with assured success. But they can only
+    be applied on items from +0 to +3.
+  playerCanDrop: 1
+  canEveryBodyTake: 1
+  upResultTrue: 1
+  upResultFalse: -1
+  changeForUp: 0

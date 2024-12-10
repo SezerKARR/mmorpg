@@ -21,11 +21,9 @@ public class EquipmentBasic : InventorObjectAbstract,IEquipmentAble
 
 
         EquipmentManager.Instance.a(equipItem, equipItem);
-        this.inventorObjectAble = equipItem;
         this.currentItem = equipItem;
         this.currentItem.SetNewStats();
-        this.image.sprite = equipItem.GetSprite(); ;
-        this.image.color = new Color(this.image.color.r, this.image.color.g, this.image.color.b, 255);
+        base.ChangeSprite(equipItem);
 
     }
 
@@ -48,11 +46,10 @@ public class EquipmentBasic : InventorObjectAbstract,IEquipmentAble
 
     public void UnEquip()
     {
+        
         this.currentItem.SetOldStats();
-        this.inventorObjectAble = null;
-        this.image.sprite = null;
-        this.image.color = new Color(this.image.color.r, this.image.color.g, this.image.color.b, 0);
-
+        this.currentItem = null;
+        base.ResetButton();
     }
 
     /*public ScriptableItemsAbstact GetSOItem()

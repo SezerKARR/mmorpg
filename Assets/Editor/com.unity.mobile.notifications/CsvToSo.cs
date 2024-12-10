@@ -12,8 +12,8 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine.TextCore.Text;
 public class CsvToSo
 {
-    /*private static string UpgradeItemsCSVPath = "/CSVS/UpgradeItems.csv";
-    private static string MonstersCSVPath = "/CSVS/Monsters.csv";
+    private static string UpgradeItemsCSVPath = "/CSVS/UpgradeItems.csv";
+    /*private static string MonstersCSVPath = "/CSVS/Monsters.csv";
     private static string ExpCsvPath = "/CSVS/Exp.csv";
     private static string ExpPerLevelCsvPath = "/CSVS/ExpPerLevel.csv";
     private static string BonusesCsvPath = "/CSVS/Bonuses.csv";
@@ -26,24 +26,24 @@ public class CsvToSo
     private static string DaggerCsvPath = "/CSVS/Dagger.csv";
     private static string BowCsvPath = "/CSVS/Bow.csv";*/
     private static string WariorHelmetCsvPath = "/CSVS/WarriorHelmet.csv";
-    /*//[MenuItem("Utilities/Generate Upgrade Items")]
-    //private static void CsvToSoUpgradeItems()
-    //{
-    //    string[] allLines = File.ReadAllLines(Application.dataPath + UpgradeItemsCSVPath);
-    //    foreach (string line in allLines)
-    //    {
-    //        string[] splitData = line.Split(";");
+    [MenuItem("Utilities/Generate Upgrade Items")]
+    private static void CsvToSoUpgradeItems()
+    {
+        string[] allLines = File.ReadAllLines(Application.dataPath + UpgradeItemsCSVPath);
+        foreach (string line in allLines)
+        {
+            string[] splitData = line.Split(";");
 
-    //        UpgradeItemsSO upgradeItemsSO = ScriptableObject.CreateInstance<UpgradeItemsSO>();
+            UpgradeItemsSO upgradeItemsSO = ScriptableObject.CreateInstance<UpgradeItemsSO>();
 
-    //        upgradeItemsSO.upgradeName = splitData[0];
-    //        upgradeItemsSO.dropsFrom = splitData[1];
-    //        upgradeItemsSO.info = splitData[2];
+            upgradeItemsSO.upgradeName = splitData[0];
+            upgradeItemsSO.dropsFrom = splitData[1];
+            upgradeItemsSO.info = splitData[2];
 
-    //        AssetDatabase.CreateAsset(upgradeItemsSO, $"Assets/ScriptableObjects/UpgradeItem/{upgradeItemsSO.upgradeName}.asset");
-    //    }
-    //    AssetDatabase.SaveAssets();
-    }*/
+            AssetDatabase.CreateAsset(upgradeItemsSO, $"Assets/ScriptableObjects/UpgradeItem/{upgradeItemsSO.upgradeName}.asset");
+        }
+        AssetDatabase.SaveAssets();
+    }
     /*[MenuItem("Utilities/Generate Monsters")]
     private static void CsvToSoMonsters()
     {
@@ -842,11 +842,11 @@ private static void CsvFromSoExpPerLevel()
             {
                 string upgradeItemsPath = "Assets/ScriptableObjects/UpgradeItem";
                 string[] upgradeItemsGuids = AssetDatabase.FindAssets("t:UpgradeItemsSO", new[] { upgradeItemsPath });
-                List<UpgradeItemsSO> upgradeItemSOs = new List<UpgradeItemsSO>();
+                List<ObjectAbstract> upgradeItemSOs = new List<ObjectAbstract>();
                 foreach (string upgradeItemsguid in upgradeItemsGuids)
                 {
                     string upgradePath = AssetDatabase.GUIDToAssetPath(upgradeItemsguid);
-                    upgradeItemSOs.Add(AssetDatabase.LoadAssetAtPath<UpgradeItemsSO>(upgradePath));
+                    upgradeItemSOs.Add(AssetDatabase.LoadAssetAtPath<ObjectAbstract>(upgradePath));
 
                 }
                 for (int j = 1; j < splitData.Length - 2; j++)
@@ -855,7 +855,7 @@ private static void CsvFromSoExpPerLevel()
 
                     if (splitData[j + 2].Length != 0)
                     {
-                        foreach (UpgradeItemsSO upgradeItemSO in upgradeItemSOs)
+                        foreach (ObjectAbstract upgradeItemSO in upgradeItemSOs)
                         {
                             if (splitData[j + 2].Replace(".png", "") == upgradeItemSO.name)
                             {
@@ -874,7 +874,7 @@ private static void CsvFromSoExpPerLevel()
                         }
                         if (!conditionMet)
                         {
-                            UpgradeItemsSO upgradesItemSO = ScriptableObject.CreateInstance<UpgradeItemsSO>();
+                            ObjectAbstract upgradesItemSO = ScriptableObject.CreateInstance<ObjectAbstract>();
                             upgradesItemSO.upgradeName = splitData[j + 2].Replace(".png", "");
                             AssetDatabase.CreateAsset(upgradesItemSO, $"Assets/ScriptableObjects/UpgradeItem/{upgradesItemSO.upgradeName}.asset");
 

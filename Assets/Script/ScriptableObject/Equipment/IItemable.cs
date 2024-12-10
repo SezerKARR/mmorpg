@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IItemable:IDropable
+public interface IItemable:IDropable, IRightClickAble
 {
     public Dictionary<StatType, float> GetStats();
     

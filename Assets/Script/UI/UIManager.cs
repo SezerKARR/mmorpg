@@ -18,7 +18,10 @@ public class UIManager : MonoBehaviour
     {
         Confirm.OpenConfirm(confirmText, waitConfirmable);
     }
-
+    public void OpenUpgrade(IInventorObjectable inventorObjectable)
+    {
+        UpgradePanelManager.instance.Screen(inventorObjectable);
+    }
     public bool IsPointerOverUIElement()
     {
         PointerEventData pointerData = new PointerEventData(EventSystem.current)

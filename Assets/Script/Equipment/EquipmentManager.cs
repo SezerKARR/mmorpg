@@ -16,8 +16,8 @@ public class EquipmentManager : MonoBehaviour
 {
     public static EquipmentManager Instance;
     private Dictionary<EquipmentType, IEquipmentAble> equippedItems = new Dictionary<EquipmentType, IEquipmentAble>();
-//public EquipmentBasic swordEquipment;
-//    public EquipmentBasic helmetEquipment;
+    //public EquipmentBasic swordEquipment;
+    //    public EquipmentBasic helmetEquipment;
     public event Action<IItemable, IItemable> OnEquipmentChanged;
     //public  event Action<ScriptableItemsAbstact> OnEquip;
     public  event Action OnUnEquip;

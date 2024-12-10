@@ -52,6 +52,17 @@ public abstract class InventorObjectAbstract : MonoBehaviour, IPointerEnterHandl
 
         imageRectTransform.anchoredPosition = new Vector2(0, 0);
     }
+    public virtual void ResetButton()
+    {
+
+      
+        image.sprite = null;
+        image.color = new Color(image.color.r, image.color.g, image.color.b, 0f);
+        image.enabled = true;
+        ResetImageSize();
+        inventorObjectAble = null;
+
+    }
     public virtual void OnPointerExit(PointerEventData eventData)
     {
         Hide();

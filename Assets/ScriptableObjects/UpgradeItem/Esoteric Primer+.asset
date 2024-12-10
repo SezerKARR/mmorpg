@@ -9,10 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cee2beae07a29b44883b017b2b7c37b3, type: 3}
+  m_Script: {fileID: 11500000, guid: fd6364c4d80b0ec49a783f0ec466a98c, type: 3}
   m_Name: Esoteric Primer+
   m_EditorClassIdentifier: 
   Image: {fileID: 0}
   upgradeName: Esoteric Primer+
   dropsFrom: Dark Arahan, Esoteric Tormentor
+  DropMetins: 
   info: A beginner's handbook of esoteric doctrine.
+  playerCanDrop: 1
+  canEveryBodyTake: 1

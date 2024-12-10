@@ -1,4 +1,8 @@
 inventory button ayaralanacak
 //todo
 //if(canusecharacter&&levelyetiyosa)
-*.psd filter=lfs diff=lfs merge=lfs -text
+screnable özellliği düzeltilecek
+IInventorObjectable burdan screen değerleri halldedilecek string [1].color falan filan
+//item çıkarma equipment basic te yapılacak sağ tıklama ile
+silah tam oturmuyor ayaralanacak üstte kalıyor //önemsiz
+tooltip düzenlenecek//önemli

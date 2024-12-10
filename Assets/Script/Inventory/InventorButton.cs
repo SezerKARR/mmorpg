@@ -37,17 +37,14 @@ public class InventorButton : InventorObjectAbstract
     }
     
     
-    public void ResetButton()
+    public override void ResetButton()
     {
 
         howMany = 0;
         
         howManyText.gameObject.SetActive(false);
-        image.sprite = null;
-        image.color = new Color(image.color.r, image.color.g, image.color.b, 0f);
-        image.enabled = true;
-        ResetImageSize();
-        inventorObjectAble =null;
+        
+        base.ResetButton();
         
     }
     public override void ResetImageSize()
@@ -80,16 +77,27 @@ public class InventorButton : InventorObjectAbstract
                 InventoryManager.Instance.selectedButton = this;
                 return;
             }
-            else if (InventoryManager.Instance.selectedButton != null)
+            else if (InventoryManager.Instance.selectedButton != null && this.inventorObjectAble == null)
             {
                 InventoryManager.Instance.ChangeIViewableInventoryPosition(ButtonPos.y, InventoryManager.Instance.selectedButton);
-
+                return;
+            }
+            else if (InventoryManager.Instance.selectedButton != null && this.inventorObjectAble != null)
+            {
+                if (this.inventorObjectAble is IMakeJobable makeJobable)
+                {
+                    makeJobable.MakeJob(this);
+                }
+                return;
             }
         }
         
         if (eventData.button == PointerEventData.InputButton.Right)
         {
-            InventoryManager.Instance.EquipThisItem(this);
+            if (this.inventorObjectAble is IRightClickAble rightClickAble)
+            {
+                rightClickAble.RightClick(this);
+            }
 
         }
 

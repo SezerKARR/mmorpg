@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9abd6523e3deb504fa81aeefd1b7653c, type: 3}
+  m_Name: Magic Stone
+  m_EditorClassIdentifier: 
+  Image: {fileID: 0}
+  upgradeName: Magic Stone
+  dropsFrom: 
+  DropMetins: 
+  info: A chunk of the legendary metal can increase your chances when upgrading an
+    item. The upgraded item can then neither be destroyed nor downgraded.
+  playerCanDrop: 1
+  canEveryBodyTake: 1
+  upResultTrue: 1
+  upResultFalse: 0
+  changeForUp: 0
