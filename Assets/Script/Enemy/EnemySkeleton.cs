@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
+
 [System.Serializable]
 public class ItemToDrop : System.Object
 {
@@ -21,8 +23,8 @@ public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
     [HideInInspector]
     public float currentHealth;
     public CreaturesGroup creaturesGroup=null;
-    [SerializeField]
-    private MonsterSO enemySO;
+    [FormerlySerializedAs("enemySO")] [SerializeField]
+    private MonsterSO enemySo;
     private PolygonCollider2D polygonCollider;
     public Material outlineRed;
     private Material normalMaterial;
@@ -35,7 +37,7 @@ public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
        
         
         currentHealth = maxHealth;
-        enemyName.SetText($"<color=yellow> Lv. {enemySO.level}</color><color=red> {enemySO.monsterName}</color>" );
+        enemyName.SetText($"<color=yellow> Lv. {enemySo.level}</color><color=red> {enemySo.monsterName}</color>" );
 
     }
     
@@ -80,7 +82,7 @@ public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
 
             creaturesGroup.CreateEnemy();
         }
-        p.ExpCalculator(int.Parse(enemySO.exp),int.Parse(enemySO.level));
+        p.ExpCalculator(int.Parse(enemySo.exp),int.Parse(enemySo.level));
         Destroy(gameObject);
         
     }
@@ -92,19 +94,19 @@ public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
             GameObject drop = Instantiate(itemDrop, RandomPositionByObjectCircle(), Quaternion.identity);
             drop.GetComponent<ItemDropGameObject>().Playername.text = "player";
             
-            drop.GetComponent<ItemDropGameObject>().dropable = (enemySO.canDrop[1] is IDropable wiewable) ? wiewable : null;
+            drop.GetComponent<ItemDropGameObject>().dropable = (enemySo.canDrop[1] is IDropable wiewable) ? wiewable : null;
             GameObject drop1 = Instantiate(itemDrop, RandomPositionByObjectCircle(), Quaternion.identity);
             drop1.GetComponent<ItemDropGameObject>().Playername.text = "player";
-            drop1.GetComponent<ItemDropGameObject>().dropable = (enemySO.canDrop[0] is IDropable wiewable1) ? wiewable1 : null;
+            drop1.GetComponent<ItemDropGameObject>().dropable = (enemySo.canDrop[0] is IDropable wiewable1) ? wiewable1 : null;
                 drop1.GetComponent<ItemDropGameObject>().howMany = 75;
             GameObject drop2 = Instantiate(itemDrop, RandomPositionByObjectCircle(), Quaternion.identity);
             
             drop2.GetComponent<ItemDropGameObject>().Playername.text = "player";
-            drop2.GetComponent<ItemDropGameObject>().dropable = (enemySO.canDrop[2] is IDropable wiewable2) ? wiewable2 : null;
+            drop2.GetComponent<ItemDropGameObject>().dropable = (enemySo.canDrop[2] is IDropable wiewable2) ? wiewable2 : null;
             GameObject drop3 = Instantiate(itemDrop, RandomPositionByObjectCircle(), Quaternion.identity);
 
             drop3.GetComponent<ItemDropGameObject>().Playername.text = "player";
-            drop3.GetComponent<ItemDropGameObject>().dropable = (enemySO.canDrop[3] is IDropable wiewable3) ? wiewable3 : null; 
+            drop3.GetComponent<ItemDropGameObject>().dropable = (enemySo.canDrop[3] is IDropable wiewable3) ? wiewable3 : null; 
         }
         /*foreach (var item in itemToDrops)
         {

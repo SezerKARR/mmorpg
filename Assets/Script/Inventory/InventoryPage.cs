@@ -23,7 +23,7 @@ public class InventoryPage : MonoBehaviour
     {
         RectTransform rectTransform = this.GetComponent<RectTransform>();
 
-        // Boyutlarý alýyoruz
+        // Boyutlar? al?yoruz
         float width = rectTransform.rect.width;
         float height = rectTransform.rect.height;
 
@@ -50,10 +50,6 @@ public class InventoryPage : MonoBehaviour
     }
     public bool CanGetObject(IInventorObjectable inventorObjectable,int howMany)
     {
-        
-        
-
-
         for (int i = 0; i < inventorButtons.Length; i++)
         {
             if( ControlCanAdd(i, inventorObjectable, howMany))
@@ -133,9 +129,9 @@ public class InventoryPage : MonoBehaviour
             if (newCount <= inventorObjectAble.GetStackLimit())
             {
 
-                itemSlot.AddStack(newCount); // Güncelleme lazým todo
+                itemSlot.AddStack(newCount); // G?ncelleme laz?m todo
 
-                return true; // Ýlk eþleþen item için iþlem yapýlýr
+                return true; // ?lk e?le?en item i?in i?lem yap?l?r
             }
         }
 

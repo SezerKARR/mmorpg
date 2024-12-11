@@ -4,20 +4,19 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using Zenject;
 
 public class InputPlayer : MonoBehaviour
 {
-    Vector2 inputWalkVector;
-    float inputShootFloat;
-    bool inputPickUpFromGroundFloat;
-    float inputClickFloat;
-    private PlayerInput playerNewInput;
+    private Vector2 _inputWalkVector;
+    private float _inputShootFloat;
+    private bool _inputPickUpFromGroundFloat;
+    private float _inputClickFloat;
+    private PlayerInput _playerNewInput;
     public Material outlineGreen;
     public Material outlineRed;
-    private Material normalMaterial;
+    private Material _normalMaterial;
     public GameObject selectedObject;
-    [SerializeField]
-    private PickUpDetector InteractionDetector;
 
     public static event Action OnPickUpPressed;
     public static event Action OnNormalAttackPressed;
@@ -27,17 +26,17 @@ public class InputPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        playerNewInput = new PlayerInput();
-        playerNewInput.Player.Enable();
+        _playerNewInput = new PlayerInput();
+        _playerNewInput.Player.Enable();
         OnClickLeftPressed += LeftClickClicked;
-        playerNewInput.Player.Enable();
-        playerNewInput.Player.Move.canceled += context => OnIdlePerformed?.Invoke();
-        playerNewInput.Player.Shoot.canceled += context => OnIdlePerformed?.Invoke();
-        // Doðrudan event tetikleme
-        playerNewInput.Player.PickUpFromGround.performed += context => OnPickUpPressed?.Invoke();
-        playerNewInput.Player.ClickLeft.performed += context => OnClickLeftPressed?.Invoke();
-        playerNewInput.Player.Shoot.performed += context => OnNormalAttackPressed?.Invoke();
-        playerNewInput.Player.Move.performed += context => OnMovePressed?.Invoke(context.ReadValue<Vector2>());
+        _playerNewInput.Player.Enable();
+        _playerNewInput.Player.Move.canceled += context => OnIdlePerformed?.Invoke();
+        _playerNewInput.Player.Shoot.canceled += context => OnIdlePerformed?.Invoke();
+        // Doï¿½rudan event tetikleme
+        _playerNewInput.Player.PickUpFromGround.performed += context => OnPickUpPressed?.Invoke();
+        _playerNewInput.Player.ClickLeft.performed += context => OnClickLeftPressed?.Invoke();
+        _playerNewInput.Player.Shoot.performed += context => OnNormalAttackPressed?.Invoke();
+        _playerNewInput.Player.Move.performed += context => OnMovePressed?.Invoke(context.ReadValue<Vector2>());
     }
     void OnEnable()
     {
@@ -48,24 +47,24 @@ public class InputPlayer : MonoBehaviour
 
     void OnDisable()
     {
-        playerNewInput.Player.Disable();
-        playerNewInput.Player.PickUpFromGround.performed -= context => OnPickUpPressed?.Invoke();
-        playerNewInput.Player.Shoot.performed -= context => OnNormalAttackPressed?.Invoke();
-        playerNewInput.Player.Move.performed -= context => OnMovePressed?.Invoke(context.ReadValue<Vector2>());
+        _playerNewInput.Player.Disable();
+        _playerNewInput.Player.PickUpFromGround.performed -= context => OnPickUpPressed?.Invoke();
+        _playerNewInput.Player.Shoot.performed -= context => OnNormalAttackPressed?.Invoke();
+        _playerNewInput.Player.Move.performed -= context => OnMovePressed?.Invoke(context.ReadValue<Vector2>());
         //playerNewInput.Player.Move.canceled += context => OnMovePressed?.Invoke(Vector2.zero);
-        playerNewInput.Player.PickUpFromGround.performed -= context => OnPickUpPressed?.Invoke();
+        _playerNewInput.Player.PickUpFromGround.performed -= context => OnPickUpPressed?.Invoke();
     }
    
     private void LeftClickClicked()
     {
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            // Eðer fare UI'nin üzerinde deðilse, tilemap'e týklamaya devam edebiliriz
+            // Eï¿½er fare UI'nin ï¿½zerinde deï¿½ilse, tilemap'e tï¿½klamaya devam edebiliriz
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            // Raycast ile tilemap üzerinde kontrol yapýyoruz
+            // Raycast ile tilemap ï¿½zerinde kontrol yapï¿½yoruz
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
-            // Eðer tilemap objesiyle çarpýþma varsa, iþlem yapýlýr
+            // Eï¿½er tilemap objesiyle ï¿½arpï¿½ï¿½ma varsa, iï¿½lem yapï¿½lï¿½r
             if(hit.collider != null)
             {
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
@@ -76,10 +75,10 @@ public class InputPlayer : MonoBehaviour
                         {
                             if (dropable.GetPlayerCanDrop())
                             {
-                                string confirmText = $"{dropable.GetDropName()} yere atmak istediðine emin misin";
+                                string confirmText = $"{dropable.GetDropName()} yere atmak istediï¿½ine emin misin";
                                 UIManager.Instance.OpenConfirm(confirmText, InventoryManager.Instance);
                             }
-                            else { Debug.Log("bu obje yere atýlamaz"); }
+                            else { Debug.Log("bu obje yere atï¿½lamaz"); }
                         }
 
                     }
@@ -105,13 +104,13 @@ public class InputPlayer : MonoBehaviour
         if (selectedObject != null)
         {
 
-            selectedObject.GetComponent<IOutlineAble>().Clicked(normalMaterial);
+            selectedObject.GetComponent<IOutlineAble>().Clicked(_normalMaterial);
             selectedObject.GetComponent<IOutlineAble>().ResetClicked();
 
         }
         selectedObject = collider.gameObject;
 
-        normalMaterial = collider.GetComponent<IOutlineAble>().GetMaterial();
+        _normalMaterial = collider.GetComponent<IOutlineAble>().GetMaterial();
         if (collider.tag == "Enemy")
         {
 

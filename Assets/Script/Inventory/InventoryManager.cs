@@ -102,15 +102,20 @@ public class InventoryManager : MonoBehaviour , IWaitConfirmable
             if (SomePos(inventorObjectAble, this.EquipButton)) return true;
         }
        
-        if (add(inventorObjectAble, 1))
+        if (Add(inventorObjectAble, 1))
         {
             
             return true;
         }
         return false;
     }
-   
-    public bool add(IInventorObjectable inventorObjectAble,int howMany)
+
+    public void AddObject(IInventorObjectable inventorObjectAble,int howMany,GameObject destroyIfPickUp=null)
+    {
+        
+        if(Add(inventorObjectAble,howMany))Destroy(destroyIfPickUp);
+    }
+    public bool Add(IInventorObjectable inventorObjectAble,int howMany)
     {
         
 

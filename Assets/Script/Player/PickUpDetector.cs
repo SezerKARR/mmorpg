@@ -1,18 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
+using Script.Inventory.Ä°nventoryMVC;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class PickUpDetector : MonoBehaviour
 {
-    private List<IInteractable> _interactablesInRange = new List<IInteractable>();
 
-    private List<IPickedUpAble> _pickedUpAbles = new List<IPickedUpAble>();
-    public int pickedCount;//silinecek
-    private float minDistance = int.MaxValue;
-    private IInventorObjectable selectedInventorObjectable;
-    private GameObject selectedGameObject;
-    private int selectedSoHowMany;
+    private readonly List<IPickedUpAble> _pickedUpables = new List<IPickedUpAble>();
+    public int pickedCount;
+    private readonly float _minDistance = int.MaxValue;
+    private IInventorObjectable _selectedInventorObjectable;
+    private GameObject _selectedGameObject;
+    private int _selectedSoHowMany;
     private void Awake()
     {
         InputPlayer.OnPickUpPressed += PickUp;
@@ -20,44 +20,30 @@ public class PickUpDetector : MonoBehaviour
     public void PickUp()
     {
 
-        /*if(_interactablesInRange.Count > 0)
-        {
-            var interactable = _interactablesInRange[0];
-            interactable.Interact(); 
-            if(interactable.CanInteract())
-            {
-                _interactablesInRange.Remove(interactable);
-            }
-        }*/
-
-        if (_pickedUpAbles.Count > 0)
+        if (_pickedUpables.Count > 0)
         {
 
-            foreach (var pickedable in _pickedUpAbles)
+            foreach (IPickedUpAble pickedable in _pickedUpables)
             {
                 if (Vector2.Distance(new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y),
-                    new Vector2(pickedable.GetGameObject().transform.position.x, pickedable.GetGameObject().transform.position.y)) < minDistance)
+                    new Vector2(pickedable.GetGameObject().transform.position.x, pickedable.GetGameObject().transform.position.y)) < _minDistance)
                 {
-                    selectedGameObject = pickedable.GetGameObject();
-                    selectedInventorObjectable = pickedable.GetInventorObjectAble();
-                    selectedSoHowMany = pickedable.GetHowMany();
+                    _selectedGameObject = pickedable.GetGameObject();
+                    _selectedInventorObjectable = pickedable.GetInventorObjectAble();
+                    _selectedSoHowMany = pickedable.GetHowMany();
                 }
 
             }
-
-            if (!InventoryManager.Instance.add(selectedInventorObjectable, selectedSoHowMany))
-            {
-                Debug.Log("yer yok");
-                return;
-            }
+            ObjectEvents.OnPickUp?.Invoke(_selectedInventorObjectable,_selectedSoHowMany,_selectedGameObject);
+            
 
 
-            Destroy(selectedGameObject);
+            
 
 
 
         }
-        else { Debug.Log("alýnabilecek hiç bir eþya yok"); }
+        else { Debug.Log("alï¿½nabilecek hiï¿½ bir eï¿½ya yok"); }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -70,7 +56,7 @@ public class PickUpDetector : MonoBehaviour
         var interactable = collision.GetComponent<IPickedUpAble>();
         if (interactable != null)
         {
-            _pickedUpAbles.Add(interactable);
+            _pickedUpables.Add(interactable);
             pickedCount++;
 
         }
@@ -78,9 +64,9 @@ public class PickUpDetector : MonoBehaviour
     private void OnTriggerExit2D(Collider2D collision)
     {
         var interactable = collision.GetComponent<IPickedUpAble>();
-        if (_pickedUpAbles.Contains(interactable))
+        if (_pickedUpables.Contains(interactable))
         {
-            _pickedUpAbles.Remove(interactable);
+            _pickedUpables.Remove(interactable);
             pickedCount--;
         }
     }
