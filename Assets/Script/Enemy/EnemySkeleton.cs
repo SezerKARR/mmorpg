@@ -15,7 +15,7 @@ public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
     public int creaturesLevel;
     public TextMeshPro enemyName;
     public GameObject itemDrop;
-    private int canDropMaxÝtem;
+    private int _canDropMaxItem;
     public ItemToDrop[] itemToDrops;
     public float maxHealth;
     [HideInInspector]
@@ -58,15 +58,15 @@ public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
     }*/
     public virtual void TakeDamage(float damage, Player p)
     {
-        // todo: belirli bir cana kadar vuran oyunculara drop atacak bu drop için rastgele aralarýndan bir player seçilecek
-        //todo: iki kat eþya için droplar ayarlanacak her player için ayrý ayrý
+        // todo: belirli bir cana kadar vuran oyunculara drop atacak bu drop iï¿½in rastgele aralarï¿½ndan bir player seï¿½ilecek
+        //todo: iki kat eï¿½ya iï¿½in droplar ayarlanacak her player iï¿½in ayrï¿½ ayrï¿½
         print(currentHealth + "absstractt");
         currentHealth -= damage;
         if (currentHealth <= 0)
         {
             Death(p);
         }
-        ////print("hasar aldý þimdiki can:" + currentHealth);
+        ////print("hasar aldï¿½ ï¿½imdiki can:" + currentHealth);
         
 
     }

@@ -21,14 +21,19 @@ public class InventoryManager : MonoBehaviour , IWaitConfirmable
     private InventorButton EquipButton;
     bool reduce = true;
     public InventorButton lastTakedButton;
-    
+    public static Action<InventorButton> onButtonSelect;
     private void Awake()
     {
-        
+        onButtonSelect += ButtonSelect;
         Instance = this;
         for (int i = 0; i < inventoryPage.Length; i++) {
             inventoryPage[i].GiveNumber(i);
         }
+    }
+    private void ButtonSelect(InventorButton selectedButton)
+    {
+        InventoryManager.Instance.selectedButton = selectedButton;
+
     }
     // Start is called before the first frame update
     void Start()

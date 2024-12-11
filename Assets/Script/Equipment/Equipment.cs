@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-/*public class Equipment : MonoBehaviour,IEquipmentAble
+/*public class Equipment : MonoBehaviour//IEquipmentAble
 {
     public IItemable currentItem;
 

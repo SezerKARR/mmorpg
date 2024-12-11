@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ScrollOfWar : ObjectAbstract, IUpgradeItem
+public class ScrollOfWar : ObjectAbstract, IUpgradeItem, IMakeJobable
 {
 
     public int upResultTrue;
@@ -19,8 +19,8 @@ public class ScrollOfWar : ObjectAbstract, IUpgradeItem
 
     public int GetPlus(bool upResult) => upResult ? upResultTrue : upResultFalse;
 
-    public override void MakeJob(InventorButton inventorButton)
+    public  void MakeJob(InventorButton inventorButton)
     {
-        throw new System.NotImplementedException();
+        UIManager.OnUpgradePanelNeed?.Invoke(inventorButton.inventorObjectAble);
     }
 }

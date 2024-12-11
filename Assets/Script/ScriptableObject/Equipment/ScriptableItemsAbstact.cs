@@ -24,14 +24,14 @@ public class RequirementClass
     
 }
 
-public abstract  class ScriptableItemsAbstact : ScriptableObject,IItemable
+public abstract  class ScriptableItemsAbstact : ObjectAbstract, IItemable,IRightClickAble
 {
     
     public float price;
-    public int weightInInventory=1;
+    
     public List<string> bonuses;
     public List<(string bonusName, List<float> bonusValue)> ItemBonuses = new List<(string bonusName, List<float> bonusValue)>();
-    public string ItemName;
+  
     public int levelWithPlus;
     public int currentPlus = 0;
     /*public enum canUseCharacter
@@ -40,45 +40,19 @@ public abstract  class ScriptableItemsAbstact : ScriptableObject,IItemable
     }*/
     public List<Character> canUseCharacters = new List<Character>();
     public RequirementClass[] Requirements =new RequirementClass[0];
-    public Sprite Image;
+    
     public int level;
-
-    public bool playerCanDrop = true;
-    public bool canEveryBodyTake = true;
     public string GetCurrentPlus()
     {
         return currentPlus.ToString();
     }
-    public string GetName()
-    {
-        return this.ItemName;
-    }
+    
 
     public ScriptableItemsAbstact GetScriptableItemsAbstact()
     {
         return this;
     }
-
-    public Sprite GetSprite()
-    {
-        return this.Image;
-    }
-
-    public int GetWeightInInventory()
-    {
-        return weightInInventory;
-    }
-
-    public ScriptableObject GetScriptableObject()
-    {
-        return this;
-    }
-
-
-    public int GetStackLimit()
-    { return 1; }
-
-    public string GetDropName()
+    public override string GetDropName()
     {
         if(bonuses.Count > 0)
         {
@@ -125,16 +99,6 @@ public abstract  class ScriptableItemsAbstact : ScriptableObject,IItemable
     {
         throw new NotImplementedException();
     }
-    public bool GetPlayerCanDrop()
-    {
-        return playerCanDrop;
-    }
-
-    public bool GetCanEveryBodyTake()
-    {
-        return canEveryBodyTake;
-    }
-
     public int GetLevel()
     {
         return level;
@@ -149,7 +113,7 @@ public abstract  class ScriptableItemsAbstact : ScriptableObject,IItemable
 
     
 
-    public void RightClick(InventorButton inventorButton)
+    public  void RightClick(InventorButton inventorButton)
     {
         InventoryManager.Instance.EquipThisItem(inventorButton);
     }

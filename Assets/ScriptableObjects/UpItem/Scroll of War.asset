@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9abd6523e3deb504fa81aeefd1b7653c, type: 3}
   m_Name: Scroll of War
   m_EditorClassIdentifier: 
-  Image: {fileID: 0}
+  Image: {fileID: 21300000, guid: ccf861417890ba94b8ff7497d50f1bb1, type: 3}
   upgradeName: Scroll of War
   dropsFrom: 
   DropMetins: 

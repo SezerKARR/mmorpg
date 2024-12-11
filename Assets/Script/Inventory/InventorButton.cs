@@ -72,9 +72,8 @@ public class InventorButton : InventorObjectAbstract
             if (InventoryManager.Instance.selectedButton == null && this.inventorObjectAble != null)
             {
                 Debug.Log(this.gameObject.name);
-                ImageUnderCursor.Instance.GetComponent<Image>().sprite = this.inventorObjectAble.GetSprite();
-                ImageUnderCursor.Instance.GameObject().SetActive(true);
-                InventoryManager.Instance.selectedButton = this;
+                
+                InventoryManager.onButtonSelect(this);
                 return;
             }
             else if (InventoryManager.Instance.selectedButton != null && this.inventorObjectAble == null)
@@ -84,7 +83,7 @@ public class InventorButton : InventorObjectAbstract
             }
             else if (InventoryManager.Instance.selectedButton != null && this.inventorObjectAble != null)
             {
-                if (this.inventorObjectAble is IMakeJobable makeJobable)
+                if (InventoryManager.Instance.selectedButton.inventorObjectAble is IMakeJobable makeJobable)
                 {
                     makeJobable.MakeJob(this);
                 }

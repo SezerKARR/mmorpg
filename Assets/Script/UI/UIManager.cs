@@ -3,11 +3,12 @@ using UnityEngine.EventSystems;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
+using System;
 public class UIManager : MonoBehaviour
 {
     public static UIManager Instance;
     public Confirm Confirm;
-    
+    public static Action<IInventorObjectable> OnUpgradePanelNeed;
     private void Awake()
     {
        
@@ -18,10 +19,7 @@ public class UIManager : MonoBehaviour
     {
         Confirm.OpenConfirm(confirmText, waitConfirmable);
     }
-    public void OpenUpgrade(IInventorObjectable inventorObjectable)
-    {
-        UpgradePanelManager.instance.Screen(inventorObjectable);
-    }
+    
     public bool IsPointerOverUIElement()
     {
         PointerEventData pointerData = new PointerEventData(EventSystem.current)

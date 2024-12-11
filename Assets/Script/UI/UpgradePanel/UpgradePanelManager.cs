@@ -5,22 +5,25 @@ using UnityEngine.UI;
 
 public class UpgradePanelManager : MonoBehaviour, IConfirmable
 {
-    public static UpgradePanelManager instance;
     private void Awake()
     {
-        instance = this;
+        Debug.Log("Awake called, subscribing to event");
+        UIManager.OnUpgradePanelNeed += UIManager_OnUpgradePanelNeed;
+        UpgradeItemImage.gameObject.SetActive(false);
+        this.gameObject.SetActive(false);
     }
+    
     public IInventorObjectable inventorObjectable;
     public ToolTip tooltip;
     public UpgradeItemImage UpgradeItemImage;
     public Button okeyButton;
     public Button cancelButton;
-    public void Screen(IInventorObjectable inventorObjectable)
+    public void UIManager_OnUpgradePanelNeed(IInventorObjectable inventorObjectable)
     {
+        this.gameObject.SetActive(true);
         tooltip.gameObject.SetActive(true);
         tooltip.Screen(inventorObjectable);
-        UpgradeItemImage.gameObject.SetActive(true);
-        UpgradeItemImage.Screen(inventorObjectable);
+        
         this.inventorObjectable = inventorObjectable;
         this.gameObject.SetActive(true);
     }

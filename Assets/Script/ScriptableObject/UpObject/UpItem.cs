@@ -21,6 +21,6 @@ public class UpItem : ObjectAbstract,IUpgradeItem ,IMakeJobable
 
     public void MakeJob(InventorButton inventorButton)
     {
-        UIManager.Instance.OpenUpgrade(inventorButton.inventorObjectAble);
+        UIManager.OnUpgradePanelNeed?.Invoke(inventorButton.inventorObjectAble);
     }
 }

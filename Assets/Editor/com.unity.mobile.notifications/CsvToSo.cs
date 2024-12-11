@@ -36,11 +36,11 @@ public class CsvToSo
 
             UpgradeItemsSO upgradeItemsSO = ScriptableObject.CreateInstance<UpgradeItemsSO>();
 
-            upgradeItemsSO.upgradeName = splitData[0];
+            upgradeItemsSO.ItemName = splitData[0];
             upgradeItemsSO.dropsFrom = splitData[1];
             upgradeItemsSO.info = splitData[2];
 
-            AssetDatabase.CreateAsset(upgradeItemsSO, $"Assets/ScriptableObjects/UpgradeItem/{upgradeItemsSO.upgradeName}.asset");
+            AssetDatabase.CreateAsset(upgradeItemsSO, $"Assets/ScriptableObjects/UpgradeItem/{upgradeItemsSO.ItemName}.asset");
         }
         AssetDatabase.SaveAssets();
     }
@@ -875,8 +875,8 @@ private static void CsvFromSoExpPerLevel()
                         if (!conditionMet)
                         {
                             ObjectAbstract upgradesItemSO = ScriptableObject.CreateInstance<ObjectAbstract>();
-                            upgradesItemSO.upgradeName = splitData[j + 2].Replace(".png", "");
-                            AssetDatabase.CreateAsset(upgradesItemSO, $"Assets/ScriptableObjects/UpgradeItem/{upgradesItemSO.upgradeName}.asset");
+                            upgradesItemSO.ItemName = splitData[j + 2].Replace(".png", "");
+                            AssetDatabase.CreateAsset(upgradesItemSO, $"Assets/ScriptableObjects/UpgradeItem/{upgradesItemSO.ItemName}.asset");
 
                         }
                     }

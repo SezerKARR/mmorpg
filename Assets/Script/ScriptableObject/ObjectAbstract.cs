@@ -3,18 +3,31 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+
+public enum ItemPlace
+{
+    None,
+    Inventory,
+    Equipment,
+    Shop,
+    Ground,
+    Storage,
+}
 public abstract class ObjectAbstract : ScriptableObject,IDropable 
 {
+    public ItemPlace Place;
     public Sprite Image;
-    public string upgradeName;
+    public string ItemName;
     public string dropsFrom;
     public string DropMetins;
     public string info;
     public bool playerCanDrop = true;
     public bool canEveryBodyTake=true;
+    public int stackLimit=1;
+    public int weightInInventory = 1;
     public string GetName()
     {
-        return upgradeName;
+        return ItemName;
     }
 
     public Sprite GetSprite()
@@ -27,19 +40,19 @@ public abstract class ObjectAbstract : ScriptableObject,IDropable
         return this;
     }
 
-    public int GetWeightInInventory()
+    public virtual int GetWeightInInventory()
     {
-        return 1;
+        return weightInInventory;
     }
 
     public int GetStackLimit()
     {
-        return 200;
+        return stackLimit;
     }
 
-    public string GetDropName()
+    public virtual string GetDropName()
     {
-            return upgradeName;
+            return ItemName;
         
     }
 
@@ -53,10 +66,7 @@ public abstract class ObjectAbstract : ScriptableObject,IDropable
         return canEveryBodyTake;
     }
 
-    
 
-    public void RightClick(InventorButton inventorButton)
-    {
-        throw new System.NotImplementedException();
-    }
+
+    
 }

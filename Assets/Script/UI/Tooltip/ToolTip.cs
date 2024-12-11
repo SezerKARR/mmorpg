@@ -14,10 +14,10 @@ public class ToolTip : MonoBehaviour,ITooltipAble
     public TextMeshProUGUI[] bonusesText;
     public TextMeshProUGUI wearableLayer;
     public TextMeshProUGUI wearAbleText;
-    public void Screen(IInventorObjectable ýnventorObjectable)
+    public void Screen(IInventorObjectable inventorObjectable)
     {
         
-        if (ýnventorObjectable is SwordSO sword)
+        if (inventorObjectable is SwordSO sword)
         {
 
             SetText(swordNameText, sword.name);
