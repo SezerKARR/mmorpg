@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public interface IItemable:IDropable, IRightClickAble
+public interface IItemable:IDropable //IRightClickAble
 {
     public Dictionary<StatType, float> GetStats();
     
@@ -13,4 +13,5 @@ public interface IItemable:IDropable, IRightClickAble
     public int GetLevel();
     public List<Character> GetCanUseCharacters();
     public EquipmentType GetEquipmentType();
+    
 }

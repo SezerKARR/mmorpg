@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 
 [CreateAssetMenu(menuName ="ScriptableObject/UpItem")]
-public class UpItem : ObjectAbstract,IUpgradeItem ,IMakeJobable
+public class UpItem : ObjectAbstract,IUpgradeItem 
 {
     public int upResultTrue;
     public int upResultFalse;
@@ -19,8 +19,5 @@ public class UpItem : ObjectAbstract,IUpgradeItem ,IMakeJobable
 
     public int GetPlus(bool upResult)=>upResult ? upResultTrue : upResultFalse;
 
-    public void MakeJob(InventorButton inventorButton)
-    {
-        UIManager.OnUpgradePanelNeed?.Invoke(inventorButton.inventorObjectAble);
-    }
+    
 }

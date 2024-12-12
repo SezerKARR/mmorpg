@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using Zenject;
 
 public class PageChangeButton : MonoBehaviour
 {
+    [Inject] private InventoryManager inventoryManager;
     public Color pressedColor;
     public Color normalColor;
     public int page;
@@ -25,7 +27,7 @@ public class PageChangeButton : MonoBehaviour
     }
     public void OnButtonClick()
     {
-        InventoryManager.Instance.ChangePage(page);
+        inventoryManager.ChangePage(page);
     }
     // Update is called once per frame
     

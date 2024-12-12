@@ -24,7 +24,8 @@ public class RequirementClass
     
 }
 
-public abstract  class ScriptableItemsAbstact : ObjectAbstract, IItemable,IRightClickAble
+public abstract  class ScriptableItemsAbstact : ObjectAbstract, IItemable 
+
 {
     
     public float price;
@@ -113,8 +114,8 @@ public abstract  class ScriptableItemsAbstact : ObjectAbstract, IItemable,IRight
 
     
 
-    public  void RightClick(InventorButton inventorButton)
+    /*public  void RightClick(InventorButton inventorButton)
     {
         InventoryManager.Instance.EquipThisItem(inventorButton);
-    }
+    }*/
 }

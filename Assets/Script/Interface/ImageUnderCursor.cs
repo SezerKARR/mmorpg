@@ -9,7 +9,7 @@ public class ImageUnderCursor : MonoBehaviour
     private void Awake()
     {
         UIManager.OnUpgradePanelNeed += Close;
-        InventoryManager.onButtonSelect += Open;
+        //InventoryManager.onButtonSelect += Open;
         Instance = this;
         rectTransform = GetComponent<RectTransform>();
         rectTransform.position = Input.mousePosition;
@@ -19,11 +19,11 @@ public class ImageUnderCursor : MonoBehaviour
     {
         this.gameObject.SetActive(false);
     }
-    private void Open(InventorButton button)
+   /* private void Open(InventorButton button)
     {
         GetComponent<Image>().sprite = button.inventorObjectAble.GetSprite();
         gameObject.SetActive(true);
-    }
+    }*/
     void Update()
     {
         

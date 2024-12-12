@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class EquipmentBasic : InventorObjectAbstract,IEquipmentAble
+/*public class EquipmentBasic : InventorObjectAbstract,IEquipmentAble
 {
     public IItemable currentItem;
     public EquipmentType equipmentType;
@@ -41,7 +41,7 @@ public class EquipmentBasic : InventorObjectAbstract,IEquipmentAble
     public override void OnPointerClick(PointerEventData eventData)
     {
         throw new NotImplementedException();
-        //item çýkarma equipment basic te yapýlacak sað týklama ile 
+        //item ï¿½ï¿½karma equipment basic te yapï¿½lacak saï¿½ tï¿½klama ile 
     }
 
     public void UnEquip()
@@ -58,4 +58,3 @@ public class EquipmentBasic : InventorObjectAbstract,IEquipmentAble
     }*/
 
 
-}

@@ -1,6 +1,6 @@
 
 public interface IMakeJobable
 {
-    void MakeJob(InventorButton inventorButton);
+    //void MakeJob(InventorButton inventorButton);
     
 }

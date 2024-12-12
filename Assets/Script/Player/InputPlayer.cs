@@ -17,7 +17,7 @@ public class InputPlayer : MonoBehaviour
     public Material outlineRed;
     private Material _normalMaterial;
     public GameObject selectedObject;
-
+        [Inject] private InventoryManager inventoryManager;
     public static event Action OnPickUpPressed;
     public static event Action OnNormalAttackPressed;
     public static event Action<Vector2> OnMovePressed;
@@ -69,17 +69,10 @@ public class InputPlayer : MonoBehaviour
             {
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
                 {
-                    if (InventoryManager.Instance.selectedButton != null)
+                    if (inventoryManager.objectController != null)
                     {
-                        if (InventoryManager.Instance.selectedButton.inventorObjectAble is IDropable dropable)
-                        {
-                            if (dropable.GetPlayerCanDrop())
-                            {
-                                string confirmText = $"{dropable.GetDropName()} yere atmak istedi�ine emin misin";
-                                UIManager.Instance.OpenConfirm(confirmText, InventoryManager.Instance);
-                            }
-                            else { Debug.Log("bu obje yere at�lamaz"); }
-                        }
+                        inventoryManager.DropObject();
+                       
 
                     }
                     Debug.Log(hit.collider.gameObject);

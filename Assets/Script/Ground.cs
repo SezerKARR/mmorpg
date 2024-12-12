@@ -7,11 +7,11 @@ public class Ground : MonoBehaviour,IPointerClickHandler
 {
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("ÝTEMÝ ATMAK MI ÝSTÝYORSUN");
-        if (InventoryManager.Instance.selectedButton != null)
+        Debug.Log("ï¿½TEMï¿½ ATMAK MI ï¿½STï¿½YORSUN");
+        /*if (InventoryManager.Instance.selectedButton != null)
         {
-            Debug.Log("ÝTEMÝ ATMAK MI ÝSTÝYORSUN");
-        }
+            Debug.Log("ï¿½TEMï¿½ ATMAK MI ï¿½STï¿½YORSUN");
+        }*/
     }
 
     // Start is called before the first frame update

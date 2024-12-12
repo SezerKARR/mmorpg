@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Script.Inventory.İnventoryMVC;
+using Script.Inventory;
 using Unity.VisualScripting;
 using UnityEngine;
 

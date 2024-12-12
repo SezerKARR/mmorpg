@@ -62,8 +62,9 @@ public class EquipmentManager : MonoBehaviour
     }
     private bool NeedUnequipForEquip(IInventorObjectable UnequipIviewable)
     {
-        return InventoryManager.Instance.NeedUnequip(UnequipIviewable);
-        
+        //return InventoryManager.Instance.NeedUnequip(UnequipIviewable);
+
+        return false;
     }
     private bool HandleEquip(IEquipmentAble equipment, IItemable item)
     {
@@ -103,7 +104,7 @@ public class EquipmentManager : MonoBehaviour
 
         }
     }*/
-    private bool CanUnequip(EquipmentBasic unequipItem)
+    /*private bool CanUnequip(EquipmentBasic unequipItem)
     {
         if (NeedUnequipForEquip(unequipItem.inventorObjectAble))
         {
@@ -119,7 +120,7 @@ public class EquipmentManager : MonoBehaviour
             OnUnEquip?.Invoke();
             unEquipItem.UnEquip();
         }
-    }
+    }*/
 
  
     

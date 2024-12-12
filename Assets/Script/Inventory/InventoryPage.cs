@@ -1,178 +1,140 @@
-
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Game.Components.EnvanterSistemiTest;
+using Game.Extensions.Unity;
+using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.UI;
+using Zenject;
+using Object = UnityEngine.Object;
 
-public class InventoryPage : MonoBehaviour
+namespace Script.Inventory
 {
-    public static Sprite sprite;
-    public  InventorButton[] inventorButtons;
-   
-    private int pageCount;
-    private int buttonCount;
-    private int inventoryColumnCount;
-    private int inventoryRowCount;
-    private float cellSizeRatio = 5.085714285714286f;
-    //public static 
-    // private int x=5;
-    private static int y;
-    private void Awake()
+    public class InventoryPage:MonoBehaviour
     {
-        RectTransform rectTransform = this.GetComponent<RectTransform>();
-
-        // Boyutlar? al?yoruz
-        float width = rectTransform.rect.width;
-        float height = rectTransform.rect.height;
+        // ReSharper disable once InconsistentNaming
+        [SerializeField] RectTransform _buttonPanel;
+        [Inject]private ItemController _itemController;
+        [SerializeField] private ObjectDatas _objects;
+        [Serializable]
+        public class ObjectDatas : UnityDictionary<int2, ObjectController> { }
+        public GameObject objectControllerPrefab;
+        private float _width;
+        private float _height; 
+        public int rowCount=5;
+        public int columnCount=9;
+        private ObjectController _currentObjectController;
 
         
-        
-       
-        GetComponent<GridLayoutGroup>().cellSize = new Vector2(width / cellSizeRatio, width / cellSizeRatio);
-
-    }
-    public void GiveNumber(int number)
-    {
-        inventorButtons = GetComponentsInChildren<InventorButton>();
-
-        buttonCount = inventorButtons.Length;
-        inventoryColumnCount = GetComponent<GridLayoutGroup>().constraintCount;
-        inventoryRowCount = buttonCount / inventoryColumnCount;
-        print((buttonCount, inventoryColumnCount, inventoryRowCount));
-        this.pageCount = number;
-        for (int i = 0; i < inventorButtons.Length; i++)
+        public void Awake()
         {
-            inventorButtons[i].ButtonPos = new Vector2Int(number, i);
-
-        }
-    }
-    public bool CanGetObject(IInventorObjectable inventorObjectable,int howMany)
-    {
-        for (int i = 0; i < inventorButtons.Length; i++)
-        {
-            if( ControlCanAdd(i, inventorObjectable, howMany))
-                return true;
-
             
+            _width = _buttonPanel.rect.width/rowCount;
+            _height = _buttonPanel.rect.height/columnCount;
         }
-        return false;
-    }
-    public bool CanChangePosition(int inventorButtonPos,IInventorObjectable inventorObjectable,int selectedButtonhowMany)
-    {
-        return ControlCanAdd(inventorButtonPos, inventorObjectable, selectedButtonhowMany);
-    }
-    public bool ControlCanAdd(int i, IInventorObjectable inventorObjectable,int howMany)
-    {
-        int weightInInventory = inventorObjectable.GetWeightInInventory();
-        if (weightInInventory + i > buttonCount)
+        /*public void GiveNumber(int number)
         {
+            inventorButtons = GetComponentsInChildren<InventorButton>();
+
+            buttonCount = inventorButtons.Length;
+            inventoryColumnCount = GetComponent<GridLayoutGroup>().constraintCount;
+            inventoryRowCount = buttonCount / inventoryColumnCount;
+            print((buttonCount, inventoryColumnCount, inventoryRowCount));
+            this.pageCount = number;
+            for (int i = 0; i < inventorButtons.Length; i++)
+            {
+                inventorButtons[i].ButtonPos = new Vector2Int(number, i);
+
+            }
+        }*/
+        
+        public bool AddStack(IInventorObjectable inventorObjectable, int howMany)
+        {
+            foreach (var item in _objects.Where(entry => entry.Value.inventorObjectable == inventorObjectable).ToList())
+            {
+                // Gerekli işlemi yap
+                int newCount = item.Value.howMany + howMany;
+
+                if (newCount <= item.Value.inventorObjectable.GetStackLimit())
+                {
+                    item.Value.UpdateCount(newCount); // Güncelleme işlemi
+                    return true; // İlk eşleşmede işlem yap ve döngüden çık
+                }
+            }
             return false;
         }
-        if (inventorButtons[i].inventorObjectAble == null)
+        public bool CanGetObject(IInventorObjectable inventorObjectable,int howMany)
         {
-            if (weightInInventory == 1)
+            for (int i = 0; i < rowCount; i++)
             {
-                AddScriptableObjectInPage(inventorObjectable, howMany, inventorButtons[i]);
-                return true;
-            }
-            else if (i + 1 < inventorButtons.Length && inventorButtons[i + 1].inventorObjectAble == null)
-            {
-                if ((i + 1) % 9 != 0)
+                for (int j = 0; j < columnCount; j++)
                 {
+                    if( ControlCanAdd(new int2(i,j), inventorObjectable, howMany))
+                        return true;
+                }
+                
+            }
+            return false;
+        }
+        public bool ControlCanAdd(int2 rowAndColumnCount, IInventorObjectable inventorObjectable,int howMany)
+        {
+            int weightInInventory = inventorObjectable.GetWeightInInventory();
+            if (weightInInventory + rowAndColumnCount.y> columnCount)
+            {
+                return false;
+            }
+
+            if ( !_objects.ContainsKey((rowAndColumnCount)) )
+            {
+                if (weightInInventory == 1)
+                {
+                    AddScriptableObjectInPage(rowAndColumnCount, howMany,inventorObjectable);
+                    
+                    return true;
+                }
+                else if (weightInInventory + 1 + rowAndColumnCount.y <= columnCount &&
+                         !_objects.ContainsKey(new int2(rowAndColumnCount.x , rowAndColumnCount.y+1)) )
+                {
+                    
                     if (weightInInventory == 2)
                     {
-                        AddScriptableObjectInButton(inventorObjectable, inventorButtons[i + 1]);
-                        AddScriptableObjectInPage(inventorObjectable, howMany, inventorButtons[i]);
+                        AddScriptableObjectInPage(rowAndColumnCount, howMany,inventorObjectable);
+                    
                         return true;
                     }
-
-                    if (i + 2 < inventorButtons.Length && (i + 2) % 9 != 0)
+                    else if (weightInInventory + 2 + rowAndColumnCount.y <= columnCount &&
+                             !_objects.ContainsKey(new int2(rowAndColumnCount.x , rowAndColumnCount.y+2)))
                     {
-                        if (weightInInventory == 3 && inventorButtons[i + 2].inventorObjectAble == null)
+                    
+                        if (weightInInventory == 3)
                         {
-                            AddScriptableObjectInButton(inventorObjectable, inventorButtons[i + 1]);
-                            AddScriptableObjectInButton(inventorObjectable, inventorButtons[i + 2]);
-                            AddScriptableObjectInPage(inventorObjectable, howMany, inventorButtons[i]);
+                            AddScriptableObjectInPage(rowAndColumnCount, howMany,inventorObjectable);
+                    
                             return true;
                         }
                     }
                 }
             }
+            return false;
         }
-        return false;
-    }
-    public int FindButton(InventorButton inventorButton)
-    {
-        return Array.FindIndex(inventorButtons, button => button == inventorButton);
-    }
-   
-    public void ResetButtons(int ResetButtonIndex)
-    {
-        
-        int t = inventorButtons[ResetButtonIndex].inventorObjectAble.GetWeightInInventory();
-        for (int i = ResetButtonIndex; i< ResetButtonIndex + t; i++)
-        {
-            inventorButtons[i].ResetButton();
-        }
-       
-    }
-    public bool AddStack(IInventorObjectable inventorObjectAble, int howMany)
-    {
-        int i = 0;
-        foreach (var itemSlot in inventorButtons.Where(item => item.inventorObjectAble == inventorObjectAble))
-        {
-            i++;
-            int newCount = itemSlot.howMany + howMany;
 
-            if (newCount <= inventorObjectAble.GetStackLimit())
+        void AddScriptableObjectInPage(int2 cellInt2 , int howMany,IInventorObjectable iInventorObjectable)
+        {
+            CreateObjectModel(cellInt2, iInventorObjectable, howMany);
+            for (int i = 0; i < iInventorObjectable.GetWeightInInventory(); i++)
             {
-
-                itemSlot.AddStack(newCount); // G?ncelleme laz?m todo
-
-                return true; // ?lk e?le?en item i?in i?lem yap?l?r
+                _objects[ new int2(cellInt2.x, cellInt2.y + i)] = _currentObjectController;
             }
+
+            _currentObjectController = null;
         }
-
-        return false;
-    }
-    public void AddScriptableObjectInPage(IInventorObjectable inventorObjectAble,int howMany,InventorButton inventorButton)
-    {
-
-        inventorButton.ChangeSprite(inventorObjectAble);
-        inventorButton.AddStack(howMany);
-
-    }
-    public void AddScriptableObjectInButton(IInventorObjectable inventorObjectAble, InventorButton inventorButton)
-    {
-        
-        inventorButton.SetScriptableObject(inventorObjectAble);
-        
-        
-    }
-    
-    private void changeSprite(int spriteLength, Sprite sprite, InventorButton button)
-    {
-            //button.ChangeSprite(spriteLength, sprite);
-        }
-    public void ChangeLocationInventoryObject(ScriptableObject scriptableObject)
-    {
-        remove(scriptableObject);
-        //add(scriptableObject);
-    }
-    public void remove(ScriptableObject getObject)
-    {
-        if (getObject is ObjectAbstract upgradeItem)
+        void CreateObjectModel(int2 cellInt2, IInventorObjectable inventorObjectable, int howMany)
         {
-            //itemsInPage.Remove((getObject,));
-            return;
+
+            GameObject objectControllerGameObject = Instantiate(objectControllerPrefab);
+            _currentObjectController = objectControllerGameObject.GetComponent<ObjectController>();
+            _currentObjectController.Place(this.transform,cellInt2,howMany,inventorObjectable,_height,_width);
         }
-
+        
     }
-
 }
-
-
-
-

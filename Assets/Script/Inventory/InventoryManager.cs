@@ -1,118 +1,67 @@
 
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using Unity.VisualScripting;
+using Script.Inventory;
+using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.Serialization;
 
-public class InventoryManager : MonoBehaviour , IWaitConfirmable
+public class InventoryManager : MonoBehaviour,IWaitConfirmable
 {
-    public static InventoryManager Instance;
-    [SerializeField]
-    private InventoryPage[] inventoryPage;
-    public  List<(IInventorObjectable inventorObject, int howMany)> itemsInInventory = new List<(IInventorObjectable inventorObject, int howMany)>();
+    [SerializeField]private InventoryPage[] inventoryPage;
+    public ObjectController objectController;
+    private int activePage=1;
     [SerializeField]
     private PageChangeButton[] pageChangeButton;
-    public InventorButton selectedButton=null;
-    private int activePage;
-    private InventorButton EquipButton;
-    bool reduce = true;
-    public InventorButton lastTakedButton;
-    public static Action<InventorButton> onButtonSelect;
     private void Awake()
     {
-        onButtonSelect += ButtonSelect;
-        Instance = this;
-        for (int i = 0; i < inventoryPage.Length; i++) {
-            inventoryPage[i].GiveNumber(i);
+        ObjectEvents.OnPickUp += AddObject;
+        ObjectEvents.ObjectClicked += ObjectSelected;
+    }
+
+    
+    private void ObjectSelected(ObjectController objectController)
+    {
+        if (this.objectController == null)
+        {
+            this.objectController = objectController;
+        }
+        else
+        {
+            ChangePos(objectController);
         }
     }
-    private void ButtonSelect(InventorButton selectedButton)
+    public void ChangePage(int page)
     {
-        InventoryManager.Instance.selectedButton = selectedButton;
-
+        ClosePage(activePage);
+        OpenPage(page);
+    
     }
-    // Start is called before the first frame update
-    void Start()
+    public void ClosePage(int page)
     {
-        OpenPage(0);
-    }
-   
-    public void DropItemYes(IDropable dropable)
-    {
-        Player.instance.DropItem(dropable);
+        inventoryPage[page].GetComponent<CanvasGroup>().alpha = 0;
+        inventoryPage[page].GetComponent<CanvasGroup>().interactable = false; 
+        inventoryPage[page].GetComponent<CanvasGroup>().blocksRaycasts = false; 
 
-        ReduceObjectInInventoryList( selectedButton);
-        
-        CloseImageUnderCursor();
-        
-        ResetSelectedObject();
-        
-        
+        pageChangeButton[page].ChangeColorForNormal();
     }
     
-    public void ResetSelectedObject()
+    public void OpenPage(int page)
     {
-        this.selectedButton = null;
+        activePage = page;
+        inventoryPage[page].GetComponent<CanvasGroup>().alpha = 1;      
+        inventoryPage[page].GetComponent<CanvasGroup>().interactable = true; 
+        inventoryPage[page].GetComponent<CanvasGroup>().blocksRaycasts = true; 
+        pageChangeButton[page].ChangeColorForPressed();
     }
-    public void DropItemNo()
+    private void ChangePos(ObjectController objectController)
     {
-        CloseImageUnderCursor();
-        ResetSelectedObject();
+        ObjectController temp = objectController;
         
     }
-    private void ReduceObjectInInventoryList(InventorButton selectedButton)
-    {
-        int howMany = selectedButton.howMany;
-
-
-        int index = itemsInInventory.FindIndex(item => item.inventorObject == selectedButton.inventorObjectAble);
-        if (itemsInInventory[index].howMany - howMany > 0)
-        {
-            itemsInInventory[index] = (itemsInInventory[index].inventorObject, itemsInInventory[index].howMany - howMany);
-        }
-        else if (itemsInInventory[index].howMany - howMany == 0)
-        {
-            itemsInInventory.Remove(itemsInInventory[index]);
-            ResetButtons(selectedButton.ButtonPos);
-        }
-        else {Debug.Log("hata var"); }
-        
-    }
-    private void ResetButtons(Vector2Int buttonPos)
-    {
-        inventoryPage[buttonPos.x].ResetButtons(buttonPos.y);
-    }
-    private bool SomePos(IInventorObjectable unEquipItem,InventorButton newButton)
-    {
-        
-        ResetButtons(newButton.ButtonPos);
-
-
-        return inventoryPage[activePage].CanChangePosition(newButton.ButtonPos.y, unEquipItem, 1);
-    }
-    public bool NeedUnequip(IInventorObjectable inventorObjectAble)
-    {
-        reduce = false;
-        if (this.EquipButton != null)
-        {
-            if (SomePos(inventorObjectAble, this.EquipButton)) return true;
-        }
-       
-        if (Add(inventorObjectAble, 1))
-        {
-            
-            return true;
-        }
-        return false;
-    }
-
     public void AddObject(IInventorObjectable inventorObjectAble,int howMany,GameObject destroyIfPickUp=null)
     {
-        
+        Debug.Log("geldi");
         if(Add(inventorObjectAble,howMany))Destroy(destroyIfPickUp);
     }
     public bool Add(IInventorObjectable inventorObjectAble,int howMany)
@@ -126,108 +75,35 @@ public class InventoryManager : MonoBehaviour , IWaitConfirmable
             {
                 if(page.AddStack(inventorObjectAble, howMany))
                 {
-                    int index = itemsInInventory.FindIndex(x => x.Item1 == inventorObjectAble);
-                    if (index != -1)
-                    {
-                        itemsInInventory[index] = (itemsInInventory[index].inventorObject, itemsInInventory[index].howMany + howMany);
-                    }
                     return true;
                 }
             }
             if (page.CanGetObject(inventorObjectAble, howMany)) {
 
-                itemsInInventory.Add((inventorObjectAble, howMany));
+                //itemsInInventory.Add((inventorObjectAble, howMany));
                 return true;
             }
         }
         return false;
 
     }
-    public bool ChangeIViewableInventoryPosition(int  newButtonPos,InventorButton selectedButton)
-    {
-        if (CanChange(newButtonPos, selectedButton))
-        {
-            CloseImageUnderCursor();
-            inventoryPage[activePage].inventorButtons[newButtonPos].Screen();
-            
-                inventoryPage[selectedButton.ButtonPos.x].ResetButtons(selectedButton.ButtonPos.y);
-                this.selectedButton = null;
-            
-            
-            return true;
-        }
-        return false;
-    }
-    public bool CanChange(int newButtonPos,InventorButton selectedButton)
-    {
-        return inventoryPage[activePage].CanChangePosition(newButtonPos,selectedButton.inventorObjectAble,selectedButton.howMany);
-    }
-    
-    public void ChangePage(int page)
-    {
-        ClosePage(activePage);
-        OpenPage(page);
-        
-    }
-    public void ClosePage(int page)
-    {
-        inventoryPage[page].GetComponent<CanvasGroup>().alpha = 0;
-        inventoryPage[page].GetComponent<CanvasGroup>().interactable = false; 
-        inventoryPage[page].GetComponent<CanvasGroup>().blocksRaycasts = false; 
 
-        pageChangeButton[page].ChangeColorForNormal();
-    }
-    public void CloseImageUnderCursor()
+    public void DropObject()
     {
-        ImageUnderCursor.Instance.GameObject().SetActive(false);
-        
-    }
-    public void OpenPage(int page)
-    {
-        activePage = page;
-        inventoryPage[page].GetComponent<CanvasGroup>().alpha = 1;      
-        inventoryPage[page].GetComponent<CanvasGroup>().interactable = true; 
-        inventoryPage[page].GetComponent<CanvasGroup>().blocksRaycasts = true; 
-        pageChangeButton[page].ChangeColorForPressed();
-    }
-    public void CloseInventory()
-    {
-        this.GetComponent<CanvasGroup>().alpha = 0; 
-        this.GetComponent<CanvasGroup>().interactable = false;
-        this.GetComponent<CanvasGroup>().blocksRaycasts = true; 
-    }
-    public void EquipThisItem(InventorButton selectedButton)
-    {
-        this.EquipButton = selectedButton;
-        if (EquipmentManager.Instance.ControlCanEquip(selectedButton.inventorObjectAble is ScriptableItemsAbstact item ? item : null) &&reduce)
+        if (objectController.inventorObjectable is IDropable dropable)
         {
-            ReduceObjectInInventoryList(selectedButton);    
+            if (dropable.GetPlayerCanDrop())
+            {
+                string confirmText = $"{dropable.GetDropName()} yere atmak istedi�ine emin misin";
+                UIManager.Instance.OpenConfirm(confirmText,this);
+            }
+            else { Debug.Log("bu obje yere at�lamaz"); }
         }
-        reduce = true;
-        this.EquipButton = null;
     }
 
     public void ConfirmValue(bool confirmValue)
     {
-        if (confirmValue)
-        {
-            ConfirmYesToDrop();
-        }
-        else
-        {
-            ConfirmNoToDrop();
-        }
-
-    }
-    private void ConfirmNoToDrop()
-    {
-        this.selectedButton = null;
-    }
-    private void ConfirmYesToDrop()
-    {
-        if (selectedButton.inventorObjectAble is IDropable dropable)
-        {
-            DropItemYes(dropable);
-        }
+        
+        throw new NotImplementedException();
     }
 }
