@@ -8,5 +8,7 @@ public interface IInventorObjectable
     public int GetWeightInInventory();
     public int GetStackLimit();
     public Sprite GetSprite();
-    public TypeController GetTypeController();
+    public ObjectType GetTypeController();
+    public ItemPlace GetItemPlace();
+    public void SetItemPlace(ItemPlace itemPlace);
 }

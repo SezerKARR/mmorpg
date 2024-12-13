@@ -21,8 +21,8 @@ public class ScrollOfWar : ObjectAbstract, IUpgradeItem
     public int GetPlus(bool upResult) => upResult ? upResultTrue : upResultFalse;
 
 
-    public override TypeController GetTypeController()
+    public override ObjectType GetTypeController()
     {
-        return TypeController.UpgradeScroll;
+        return ObjectType.Up;
     }
 }

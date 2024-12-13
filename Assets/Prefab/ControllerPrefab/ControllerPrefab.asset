@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8f8e7ee01398545bcf3a038ea1a07b, type: 3}
   m_Name: ControllerPrefab
   m_EditorClassIdentifier: 
-  prefabControllers:
-    tKeys: 01000000020000000300000000000000
-    tValues:
-    - {fileID: 807280952830508194, guid: 9bfe4171fcb201d4c9ac0c6b240e2824, type: 3}
-    - {fileID: 807280952830508194, guid: 59266baf08002bc4dbd2044eaf358ec6, type: 3}
-    - {fileID: 807280952830508194, guid: 9bfe4171fcb201d4c9ac0c6b240e2824, type: 3}
-    - {fileID: 0}
+  Objects:
+  - ObjectType: 1
+    Prefab: {fileID: 807280952830508194, guid: 9bfe4171fcb201d4c9ac0c6b240e2824, type: 3}
+  - ObjectType: 3
+    Prefab: {fileID: 807280952830508194, guid: 59266baf08002bc4dbd2044eaf358ec6, type: 3}
+  - ObjectType: 2
+    Prefab: {fileID: 807280952830508194, guid: 9bfe4171fcb201d4c9ac0c6b240e2824, type: 3}

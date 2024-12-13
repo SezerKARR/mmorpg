@@ -116,8 +116,8 @@ public abstract  class ScriptableItemsAbstact : ObjectAbstract, IItemable
 
     public abstract EquipmentType GetEquipmentType();
 
-    public override TypeController GetTypeController()
+    public override ObjectType GetTypeController()
     {
-        return TypeController.item;
+        return ObjectType.Item;
     }
 }

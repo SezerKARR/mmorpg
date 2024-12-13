@@ -34,6 +34,15 @@ public abstract class ObjectView : MonoBehaviour ,IPointerClickHandler
         _imageHeight=height;
         SetPosition(position);
     }
+    public void SetPosition()
+    {
+        _imageRectTransform.anchorMin = new Vector2(0, 0);  // Sol üst köşe
+        _imageRectTransform.anchorMax = new Vector2(0,0);  // Sol üst köşe
+        
+        _imageRectTransform.anchoredPosition = new Vector3(_imageWidth/2,-_imageHeight/2,transform.position.z);
+        
+        //+new Vector3(cellInt2.x*_imageWidth+_imageWidth/2,cellInt2.y*_imageHeight+_imageHeight/2,transform.position.z);
+    }
     public void SetPosition(int2 cellInt2)
     {
         Debug.Log(cellInt2.ToString());

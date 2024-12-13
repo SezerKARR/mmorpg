@@ -10,9 +10,11 @@ using Zenject;
 using Object = UnityEngine.Object;
 public enum ObjectType
 {
-    up,
-    blessing,
-    ıtem,
+    None,
+    Up,
+    Scroll,
+    Item,
+    Pot,
     
 }
 namespace Script.Inventory
@@ -141,14 +143,10 @@ namespace Script.Inventory
             GameObject objectControllerGameObject=null;
             if (objectsPrefab != null)
             {
-                // itemPrefabList içindeki verilere erişiyoruz
-                var prefabControllers = objectsPrefab.GetPrefabControllers();
-            
-                // Key'in TypeController.someValue içinde olup olmadığını kontrol et
-                if (prefabControllers.ContainsKey(inventorObjectable.GetTypeController()))
-                {
-                    objectControllerGameObject= Instantiate(prefabControllers[inventorObjectable.GetTypeController()]);
-                }
+                
+
+                objectControllerGameObject= Instantiate(objectsPrefab.GetPrefabByType(inventorObjectable.GetTypeController()));
+                
                
             }
             

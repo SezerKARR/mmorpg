@@ -36,7 +36,16 @@ public abstract class ObjectAbstract : ScriptableObject,IDropable
         return Image; 
     }
 
-    public abstract TypeController GetTypeController();
+    public abstract ObjectType GetTypeController();
+    public ItemPlace GetItemPlace()
+    {
+        return Place;
+    }
+
+    public void SetItemPlace(ItemPlace itemPlace)
+    {
+        Place = itemPlace;
+    }
 
     public ScriptableObject GetScriptableObject()
     {

@@ -28,6 +28,7 @@ namespace Script.Equipment
         //public  event Action OnUnEquip;
         private void Awake()
         {
+            ItemEvents.OnItemRightClickedInventory += Equip;
             EquipmentSlot[] equips = this.GetComponentsInChildren<EquipmentSlot>();
             foreach(EquipmentSlot equip in equips)
             {
@@ -36,14 +37,14 @@ namespace Script.Equipment
             }
         }
 
-        public bool Equip(ItemController itemcontroller)
+        public void Equip(ItemController itemcontroller)
         {
+            Debug.Log(itemcontroller.itemable.GetEquipmentType());
             if (equipmentSlots.ContainsKey(itemcontroller.itemable.GetEquipmentType()))
             {
-                return equipmentSlots[itemcontroller.itemable.GetEquipmentType()].SetItem(itemcontroller);
+                 equipmentSlots[itemcontroller.itemable.GetEquipmentType()].SetItem(itemcontroller);
             
             }
-            return false;
         }
         public bool IsCharacterMatch(List<Character> canUseCharacter)
         {

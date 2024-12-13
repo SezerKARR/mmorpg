@@ -20,6 +20,7 @@ public class InventoryManager : MonoBehaviour,IWaitConfirmable
     {
         ObjectEvents.OnPickUp += AddObject;
         ObjectEvents.ObjectClicked += ObjectSelected;
+        
     }
 
     public bool NeedUnequip(IInventorObjectable addObject,IInventorObjectable reduceObject)

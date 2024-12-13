@@ -14,6 +14,7 @@ namespace Script.Equipment
      
         public bool SetItem(ItemController itemController)
         {
+            Debug.Log("SetItem");
             if (currentItem == null)
             {
                 //OnEquip?.Invoke(item);
@@ -45,7 +46,7 @@ namespace Script.Equipment
         public void Equip(ItemController equipItem)
         {
 
-
+            equipItem.Place(this.transform);
             //EquipmentManager.Instance.a(equipItem, equipItem);
             this.currentItem = equipItem;
             this.currentItem.SetNewStats();

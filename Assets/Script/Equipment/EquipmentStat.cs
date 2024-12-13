@@ -6,24 +6,24 @@ public class EquipmentStat
 {
     public Dictionary<StatType, float> Modifiers { get; private set; } = new Dictionary<StatType, float>();
 
-    // Constructor, boþ veya baþlangýç modifiyerleriyle oluþturmayý destekler.
+    // Constructor, boï¿½ veya baï¿½langï¿½ï¿½ modifiyerleriyle oluï¿½turmayï¿½ destekler.
    
 
-    // Yeni bir modifiye ekler veya mevcut modifiyeri günceller
+    // Yeni bir modifiye ekler veya mevcut modifiyeri gï¿½nceller
     public void AddModifier(StatType statType, float modifierValue)
     {
         if (Modifiers.ContainsKey(statType))
         {
-            Modifiers[statType] += modifierValue; // Mevcut deðere ekler
+            Modifiers[statType] += modifierValue; // Mevcut deï¿½ere ekler
         }
         else
         {
             Modifiers.Add(statType, modifierValue); // Yeni modifiye ekler
         }
-        UnityEngine.Debug.Log(Modifiers[statType]+" " + statType.ToString());
+       
     }
 
-    // Bir modifiyeri kaldýrýr
+    // Bir modifiyeri kaldï¿½rï¿½r
     public void RemoveModifier(StatType statType, float decreaseValue)
     {
         if (Modifiers.ContainsKey(statType))
@@ -33,7 +33,7 @@ public class EquipmentStat
         }
     }
 
-    // Bir modifiyerin deðerini döner, yoksa varsayýlan bir deðer döner (örneðin 0)
+    // Bir modifiyerin deï¿½erini dï¿½ner, yoksa varsayï¿½lan bir deï¿½er dï¿½ner (ï¿½rneï¿½in 0)
     /*public int GetModifierValue(StatType statType)
     {
         return Modifiers.TryGetValue(statType, out int value) ? value : 0;

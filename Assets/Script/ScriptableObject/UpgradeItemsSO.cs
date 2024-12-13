@@ -5,8 +5,8 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObject/UpgradeItem")]
 public class UpgradeItemsSO : ObjectAbstract
 {
-    public override TypeController GetTypeController()
+    public override ObjectType GetTypeController()
     {
-        return TypeController.upgradeItem;
+        return ObjectType.Up;
     }
 }

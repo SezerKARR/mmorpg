@@ -6,6 +6,9 @@ using UnityEngine;
 
 public static class ItemEvents
 {
-    public static Action<ItemController> ItemRightClicked;
-   
+    public static Action<ItemController> OnItemRightClickedInventory;
+
+    public static Action<ItemController> OnItemRightClickedEquipment;
+
+    
 }

@@ -3,27 +3,34 @@ using Game.Extensions.Unity;
 using Script.Equipment;
 using Script.Inventory;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 namespace Script.ScriptableObject.Prefab
 {
+    [Serializable]
+    public class objectClass{
+    public ObjectType ObjectType;
+    public GameObject Prefab;
+    }
+
     [CreateAssetMenu(fileName = "ItemPrefabList", menuName = "ScriptableObjects/ItemPrefabList", order = 1)]
     public class ItemPrefabList : UnityEngine.ScriptableObject
     {
-        [SerializeField] private PrefabControllers prefabControllers;
+        public objectClass[]Objects;
 
-        [Serializable]
-        public class PrefabControllers : UnityDictionary<TypeController, GameObject> { }
-
-        private void OnValidate()
+        public GameObject GetPrefabByType(ObjectType type)
         {
-          
-            if (prefabControllers != null)
+            foreach (var obj in Objects)
             {
-                prefabControllers.Add(TypeController.none,null); // Senkronize et
+                if (obj.ObjectType == type)
+                {
+                    return obj.Prefab;
+                }
             }
+            return null;
         }
-        public PrefabControllers GetPrefabControllers() => prefabControllers;
-     
+
+        
     }
 }
 

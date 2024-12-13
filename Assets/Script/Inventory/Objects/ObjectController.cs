@@ -6,13 +6,7 @@ using Zenject;
 
 namespace Script.Inventory
 {
-    public enum TypeController
-    {
-        none,
-        upgradeItem,
-        item,
-        UpgradeScroll,
-    }
+    
     public abstract class ObjectController :MonoBehaviour
     {
         public int2 cellIndex;
@@ -28,7 +22,13 @@ namespace Script.Inventory
         }
 
         public virtual void RightClick() { }
-
+        public virtual void Place(Transform parent)
+        {
+            cellIndex = new int2(-1, -1);
+            transform.SetParent(parent);
+            objectView.SetPosition();
+            //objectView.SetPosition(new Vector2(positon.x, positon.y));
+        }
         protected virtual void OnButtonClick()
         {
             
