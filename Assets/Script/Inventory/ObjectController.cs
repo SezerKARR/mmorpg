@@ -16,6 +16,12 @@ namespace Script.Inventory
         protected virtual void Start()
         {
             objectView.OnItemPressed += OnButtonClick;
+            objectView.OnRightClick += RightClick;
+        }
+
+        public virtual void RightClick()
+        {
+            ObjectEvents.ObjectClicked.Invoke(this);
         }
         protected virtual void OnButtonClick()
         {

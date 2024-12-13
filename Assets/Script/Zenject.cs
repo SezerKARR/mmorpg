@@ -1,4 +1,5 @@
 
+using Script.Inventory;
 using Zenject;
 
 public class UntitledInstaller : MonoInstaller

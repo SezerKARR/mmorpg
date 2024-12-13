@@ -8,17 +8,7 @@ using Zenject;
 
 public class ItemController : ObjectController
 {
-    
-    
-    
-    
-
     public ItemType ItemType => ItemType.Sword;
-
-    
-
-    
-    
 
     public void Place(Transform parent, Vector2 positon)
     {

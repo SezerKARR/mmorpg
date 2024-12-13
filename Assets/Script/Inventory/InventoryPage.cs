@@ -7,7 +7,13 @@ using Unity.Mathematics;
 using UnityEngine;
 using Zenject;
 using Object = UnityEngine.Object;
-
+public enum ObjectType
+{
+    up,
+    blessing,
+    ıtem,
+    
+}
 namespace Script.Inventory
 {
     public class InventoryPage:MonoBehaviour
@@ -18,13 +24,14 @@ namespace Script.Inventory
         [SerializeField] private ObjectDatas _objects;
         [Serializable]
         public class ObjectDatas : UnityDictionary<int2, ObjectController> { }
+        public class ObjectPrefabs : UnityDictionary<int2, ObjectController> { }
         public GameObject objectControllerPrefab;
         private float _width;
         private float _height; 
         public int rowCount=5;
         public int columnCount=9;
         private ObjectController _currentObjectController;
-
+        
         
         public void Awake()
         {

@@ -5,5 +5,5 @@ using UnityEngine;
 
 public static class ItemEvents
 {
-    public static Action<ItemController> OnItemClicked;
+    
 }

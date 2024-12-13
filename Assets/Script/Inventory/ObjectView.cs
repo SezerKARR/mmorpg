@@ -7,24 +7,25 @@ using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public abstract class ObjectView : MonoBehaviour
+public abstract class ObjectView : MonoBehaviour ,IPointerClickHandler
 {
-    [SerializeField] protected Button _button;
+    
     protected ObjectController _objectController;
     protected RectTransform _imageRectTransform;
     public UnityAction OnItemPressed;
     protected float _imageWidth, _imageHeight;
     [SerializeField] protected Image _image;
     [SerializeField] protected TextMeshProUGUI _howManyText;
+    public UnityAction OnRightClick;
     private void Awake()
     {
-        _button.onClick.AddListener(OnButtonClick);
+        
         _imageRectTransform = GetComponent<RectTransform>();
         
     }
-
     public virtual void SetObject(int2 position,IInventorObjectable objectToPlace,float width,float height,int howMany)
     {
         //_howManyText.text = howMany.ToString();
@@ -47,5 +48,22 @@ public abstract class ObjectView : MonoBehaviour
     {
         _howManyText.text = howMany.ToString();
     }
-    private void OnButtonClick() => OnItemPressed?.Invoke();
+    
+    public  void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button == PointerEventData.InputButton.Left)
+        {
+            OnItemPressed?.Invoke();
+            
+        }
+    
+        if (eventData.button == PointerEventData.InputButton.Right)
+        {
+            OnRightClick?.Invoke();
+
+        }
+
+
+    }
+    
 }

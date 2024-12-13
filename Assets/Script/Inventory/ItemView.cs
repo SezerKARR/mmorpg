@@ -18,5 +18,7 @@ namespace Script.Inventory
             base.SetObject(position,objectToPlace,width,height,howMany);
             ImageChangeSize(objectToPlace.GetWeightInInventory());
         }
+
+        
     }
 }
