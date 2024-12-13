@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 using Zenject;
 
 public class InputPlayer : MonoBehaviour
@@ -16,8 +17,8 @@ public class InputPlayer : MonoBehaviour
     public Material outlineGreen;
     public Material outlineRed;
     private Material _normalMaterial;
-    public GameObject selectedObject;
-        [Inject] private InventoryManager inventoryManager;
+    public GameObject selectedObject; 
+    [Inject][SerializeField] private InventoryManager _inventoryManager;
     public static event Action OnPickUpPressed;
     public static event Action OnNormalAttackPressed;
     public static event Action<Vector2> OnMovePressed;
@@ -69,9 +70,9 @@ public class InputPlayer : MonoBehaviour
             {
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
                 {
-                    if (inventoryManager.objectController != null)
+                    if (_inventoryManager.objectController != null)
                     {
-                        inventoryManager.DropObject();
+                        _inventoryManager.DropObject();
                        
 
                     }

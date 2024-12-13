@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Script.Inventory;
 using UnityEngine;
 
 public class ScrollOfWar : ObjectAbstract, IUpgradeItem
@@ -19,5 +20,9 @@ public class ScrollOfWar : ObjectAbstract, IUpgradeItem
 
     public int GetPlus(bool upResult) => upResult ? upResultTrue : upResultFalse;
 
-    
+
+    public override TypeController GetTypeController()
+    {
+        return TypeController.UpgradeScroll;
+    }
 }

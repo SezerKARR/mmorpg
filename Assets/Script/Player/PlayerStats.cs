@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Script.ScriptableObject.Equipment;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -17,7 +18,7 @@ public class PlayerStats : CharacterStats
     {
 
         base.Start();
-        EquipmentManager.Instance.OnEquipmentChanged += OnEquipmentChanged;
+        
     }
     void OnEquipmentChanged(IItemable newItem, IItemable oldItem)
     {

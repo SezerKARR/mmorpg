@@ -1,3 +1,6 @@
+using Script.Equipment;
+using Script.ScriptableObject.Equipment;
+
 public interface IEquipmentAble
 {
     void Equip(IItemable ScriptableItemsAbstact);

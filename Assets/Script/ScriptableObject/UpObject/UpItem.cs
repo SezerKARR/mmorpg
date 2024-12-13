@@ -1,6 +1,7 @@
 
 
 using System;
+using Script.Inventory;
 using UnityEngine;
 
 [CreateAssetMenu(menuName ="ScriptableObject/UpItem")]
@@ -19,5 +20,9 @@ public class UpItem : ObjectAbstract,IUpgradeItem
 
     public int GetPlus(bool upResult)=>upResult ? upResultTrue : upResultFalse;
 
-    
+
+    public override TypeController GetTypeController()
+    {
+        return TypeController.UpgradeScroll;
+    }
 }

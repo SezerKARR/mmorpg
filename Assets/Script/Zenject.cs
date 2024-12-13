@@ -1,15 +1,20 @@
-
-using Script.Inventory;
+using Script.Equipment;
+using Script.Inventory.Objects;
 using Zenject;
 
-public class UntitledInstaller : MonoInstaller
+namespace Script
 {
-    // ReSharper disable Unity.PerformanceAnalysis
-    public override void InstallBindings()
+    public class Zenject : MonoInstaller
     {
-        Container.Bind<InventoryManager>().FromComponentInHierarchy().AsSingle();
-        Container.Bind<ObjectView>().FromComponentInHierarchy().AsSingle();
-        Container.Bind<PickUpDetector>().FromComponentInHierarchy().AsSingle();
-        Container.Bind<ItemController>().FromComponentInHierarchy().AsSingle();
+        // ReSharper disable Unity.PerformanceAnalysis
+        public override void InstallBindings()
+        {
+            Container.Bind<InventoryManager>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<ObjectView>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<PickUpDetector>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<ItemController>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<EquipmentManager>().FromComponentInHierarchy().AsSingle();
+           
+        }
     }
 }

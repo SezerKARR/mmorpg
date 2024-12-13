@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Game.Components.EnvanterSistemiTest;
 using Game.Extensions.Unity;
+using Script.Inventory.Objects;
+using Script.ScriptableObject.Prefab;
 using Unity.Mathematics;
 using UnityEngine;
 using Zenject;
@@ -18,14 +19,14 @@ namespace Script.Inventory
 {
     public class InventoryPage:MonoBehaviour
     {
+        
         // ReSharper disable once InconsistentNaming
         [SerializeField] RectTransform _buttonPanel;
-        [Inject]private ItemController _itemController;
         [SerializeField] private ObjectDatas _objects;
         [Serializable]
         public class ObjectDatas : UnityDictionary<int2, ObjectController> { }
-        public class ObjectPrefabs : UnityDictionary<int2, ObjectController> { }
-        public GameObject objectControllerPrefab;
+
+        public ItemPrefabList objectsPrefab;
         private float _width;
         private float _height; 
         public int rowCount=5;
@@ -34,7 +35,7 @@ namespace Script.Inventory
         
         
         public void Awake()
-        {
+        { 
             
             _width = _buttonPanel.rect.width/rowCount;
             _height = _buttonPanel.rect.height/columnCount;
@@ -137,8 +138,20 @@ namespace Script.Inventory
         }
         void CreateObjectModel(int2 cellInt2, IInventorObjectable inventorObjectable, int howMany)
         {
-
-            GameObject objectControllerGameObject = Instantiate(objectControllerPrefab);
+            GameObject objectControllerGameObject=null;
+            if (objectsPrefab != null)
+            {
+                // itemPrefabList içindeki verilere erişiyoruz
+                var prefabControllers = objectsPrefab.GetPrefabControllers();
+            
+                // Key'in TypeController.someValue içinde olup olmadığını kontrol et
+                if (prefabControllers.ContainsKey(inventorObjectable.GetTypeController()))
+                {
+                    objectControllerGameObject= Instantiate(prefabControllers[inventorObjectable.GetTypeController()]);
+                }
+               
+            }
+            
             _currentObjectController = objectControllerGameObject.GetComponent<ObjectController>();
             _currentObjectController.Place(this.transform,cellInt2,howMany,inventorObjectable,_height,_width);
         }

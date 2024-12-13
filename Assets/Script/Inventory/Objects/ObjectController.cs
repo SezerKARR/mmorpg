@@ -3,8 +3,16 @@ using UnityEngine;
 using UnityEngine.Serialization;
 using Zenject;
 
+
 namespace Script.Inventory
 {
+    public enum TypeController
+    {
+        none,
+        upgradeItem,
+        item,
+        UpgradeScroll,
+    }
     public abstract class ObjectController :MonoBehaviour
     {
         public int2 cellIndex;
@@ -19,10 +27,8 @@ namespace Script.Inventory
             objectView.OnRightClick += RightClick;
         }
 
-        public virtual void RightClick()
-        {
-            ObjectEvents.ObjectClicked.Invoke(this);
-        }
+        public virtual void RightClick() { }
+
         protected virtual void OnButtonClick()
         {
             

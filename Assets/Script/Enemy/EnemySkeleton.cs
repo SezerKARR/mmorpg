@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Script.ScriptableObject.Equipment;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;

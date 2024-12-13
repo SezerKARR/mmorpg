@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Script.Inventory;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -34,6 +35,8 @@ public abstract class ObjectAbstract : ScriptableObject,IDropable
     {
         return Image; 
     }
+
+    public abstract TypeController GetTypeController();
 
     public ScriptableObject GetScriptableObject()
     {

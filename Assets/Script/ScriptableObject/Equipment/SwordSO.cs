@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Script.Equipment;
 using Unity.Collections.LowLevel.Unsafe;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -14,18 +15,18 @@ public enum TypeWeapon
 public class SwordSO : ScriptableItemsAbstact
 {
 
-    public EquipmentType equipmentType=EquipmentType.Sword;
+    public EquipmentType equipmentType=EquipmentType.Weapon;
     public List<Vector2> minAndMaxAttackValue=new List<Vector2>();
     public List<Vector2> minAndMaxMagicalAttackValue = new List<Vector2>();
     public List<float> attackSpeed = new List<float>();
     public TypeWeapon typeWeapon;
-    
     public int sockets;
 
     public override EquipmentType GetEquipmentType()
     {
         return equipmentType;
     }
+
 
     public override Dictionary<StatType, float> GetStats()
     {

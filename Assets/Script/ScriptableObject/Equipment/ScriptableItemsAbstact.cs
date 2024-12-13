@@ -2,6 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Script.Equipment;
+using Script.Inventory;
+using Script.ScriptableObject.Equipment;
 using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
@@ -9,6 +12,7 @@ public enum Character
 {
     Warrior, Sura, Ninja, Shaman, Lycan
 }
+
 [System.Serializable]
 public class UpgradeItem
 {
@@ -32,7 +36,7 @@ public abstract  class ScriptableItemsAbstact : ObjectAbstract, IItemable
     
     public List<string> bonuses;
     public List<(string bonusName, List<float> bonusValue)> ItemBonuses = new List<(string bonusName, List<float> bonusValue)>();
-  
+   
     public int levelWithPlus;
     public int currentPlus = 0;
     /*public enum canUseCharacter
@@ -112,10 +116,8 @@ public abstract  class ScriptableItemsAbstact : ObjectAbstract, IItemable
 
     public abstract EquipmentType GetEquipmentType();
 
-    
-
-    /*public  void RightClick(InventorButton inventorButton)
+    public override TypeController GetTypeController()
     {
-        InventoryManager.Instance.EquipThisItem(inventorButton);
-    }*/
+        return TypeController.item;
+    }
 }

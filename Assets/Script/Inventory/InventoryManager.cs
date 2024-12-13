@@ -1,13 +1,16 @@
 
 using System;
 using System.Collections.Generic;
+using Script.Equipment;
 using Script.Inventory;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Zenject;
 
 public class InventoryManager : MonoBehaviour,IWaitConfirmable
 {
+    [Inject] [SerializeField] private EquipmentManager _equipmentManager;
     [SerializeField]private InventoryPage[] inventoryPage;
     public ObjectController objectController;
     private int activePage=1;
@@ -19,7 +22,21 @@ public class InventoryManager : MonoBehaviour,IWaitConfirmable
         ObjectEvents.ObjectClicked += ObjectSelected;
     }
 
-    
+    public bool NeedUnequip(IInventorObjectable addObject,IInventorObjectable reduceObject)
+    {
+        //reduce = false;
+        /*if (this.EquipButton != null)
+        {
+            if (SomePos(addObject, this.EquipButton)) return true;
+        }*/
+   
+        if (Add(addObject, 1))
+        {
+        
+            return true;
+        }
+        return false;
+    }
     private void ObjectSelected(ObjectController objectController)
     {
         if (this.objectController == null)

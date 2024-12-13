@@ -1,72 +1,86 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
+using Game.Extensions.Unity;
+using Script.Inventory.Objects;
+using Script.ScriptableObject.Equipment;
 using UnityEngine;
-using UnityEngine.Events;
 
-public enum EquipmentType
+namespace Script.Equipment
 {
-    Sword,
-    Helmet,
-    Armor,
-    Boots,
-    Shield
-}
-public class EquipmentManager : MonoBehaviour
-{
-    public static EquipmentManager Instance;
-    private Dictionary<EquipmentType, IEquipmentAble> equippedItems = new Dictionary<EquipmentType, IEquipmentAble>();
-    //public EquipmentBasic swordEquipment;
-    //    public EquipmentBasic helmetEquipment;
-    public event Action<IItemable, IItemable> OnEquipmentChanged;
-    //public  event Action<ScriptableItemsAbstact> OnEquip;
-    public  event Action OnUnEquip;
-    private void Awake()
+    public enum EquipmentType
     {
-        IEquipmentAble[] equips = this.GetComponentsInChildren<IEquipmentAble>();
-        foreach(IEquipmentAble equip in equips)
-        {
-            equippedItems[equip.GetEquipmentType()]= equip;
+        None,
+        Weapon,
+        Helmet,
+        Armor,
+        Boots,
+        Shield
+    }
+    public class EquipmentManager : MonoBehaviour
+    {
+        [SerializeField] private EquipmentSlots equipmentSlots;
 
-        }
-        Instance = this;
-    }
-    public bool IsCharacterMatch(List<Character> canUseCharacter)
-    {
-        return canUseCharacter.Contains(Player.instance.playerCharecterType);
-    }
-    public bool IsLevelEnough(int itemLevel)
-    {
-        return Player.instance.level>=itemLevel;
-    }
-    public void a(IItemable a,IItemable b)
-    {
-        OnEquipmentChanged?.Invoke(a, b);
-    }
-    public bool ControlCanEquip(IItemable item)
-    {
-        if (IsLevelEnough(item.GetLevel()) && IsCharacterMatch(item.GetCanUseCharacters()))
+        [Serializable]
+        public class EquipmentSlots : UnityDictionary<EquipmentType, EquipmentSlot> { };
+
+        public event Action<IItemable, IItemable> OnEquipmentChanged;
+        //public  event Action<ScriptableItemsAbstact> OnEquip;
+        //public  event Action OnUnEquip;
+        private void Awake()
         {
-            EquipItem(item);
-            return true;
+            EquipmentSlot[] equips = this.GetComponentsInChildren<EquipmentSlot>();
+            foreach(EquipmentSlot equip in equips)
+            {
+                equipmentSlots[equip.GetEquipmentType()]= equip;
+
+            }
         }
-        return false;
-    }
-    public void SamePos()
-    {
-        /*if (InventoryManager.Instance.ChangeIViewableInventoryPosition())                )
+
+        public bool Equip(ItemController itemcontroller)
+        {
+            if (equipmentSlots.ContainsKey(itemcontroller.itemable.GetEquipmentType()))
+            {
+                return equipmentSlots[itemcontroller.itemable.GetEquipmentType()].SetItem(itemcontroller);
+            
+            }
+            return false;
+        }
+        public bool IsCharacterMatch(List<Character> canUseCharacter)
+        {
+            return canUseCharacter.Contains(Player.instance.playerCharecterType);
+        }
+        public bool IsLevelEnough(int itemLevel)
+        {
+            return Player.instance.level>=itemLevel;
+        }
+        public void a(IItemable a,IItemable b)
+        {
+            OnEquipmentChanged?.Invoke(a, b);
+        }
+        public bool ControlCanEquip(IItemable item,ItemController itemController)
+        {
+            if (IsLevelEnough(item.GetLevel()) && IsCharacterMatch(item.GetCanUseCharacters()))
+            {
+                equipmentSlots[item.GetEquipmentType()].SetItem(itemController);
+                return true;
+            }
+            return false;
+        }
+        public void SamePos()
+        {
+            /*if (InventoryManager.Instance.ChangeIViewableInventoryPosition())                )
             if (!InventoryManager.Instance.add(this.scriptableObjectIWiewable, 1))
         {
             return;
         }*/
-    }
-    private bool NeedUnequipForEquip(IInventorObjectable UnequipIviewable)
-    {
-        //return InventoryManager.Instance.NeedUnequip(UnequipIviewable);
+        }
+        private bool NeedUnequipForEquip(IInventorObjectable UnequipIviewable)
+        {
+            //return InventoryManager.Instance.NeedUnequip(UnequipIviewable);
 
-        return false;
-    }
-    private bool HandleEquip(IEquipmentAble equipment, IItemable item)
+            return false;
+        }
+        /*private bool HandleEquip(IEquipmentAble equipment, IItemable item)
     {
         if (equipment.GetItemable() == null)
         {
@@ -86,8 +100,8 @@ public class EquipmentManager : MonoBehaviour
     private bool EquipItem(IItemable item)
     {
         return HandleEquip(equippedItems[item.GetEquipmentType()], item);
-    }
-    /*private bool EquipItem(ScriptableItemsAbstact item)
+    }*/
+        /*private bool EquipItem(ScriptableItemsAbstact item)
     {
         switch (item)
         {
@@ -104,7 +118,7 @@ public class EquipmentManager : MonoBehaviour
 
         }
     }*/
-    /*private bool CanUnequip(EquipmentBasic unequipItem)
+        /*private bool CanUnequip(EquipmentBasic unequipItem)
     {
         if (NeedUnequipForEquip(unequipItem.inventorObjectAble))
         {
@@ -124,4 +138,5 @@ public class EquipmentManager : MonoBehaviour
 
  
     
+    }
 }
