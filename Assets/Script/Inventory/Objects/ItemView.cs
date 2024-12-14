@@ -6,6 +6,7 @@ namespace Script.Inventory
 {
     public class ItemView: ObjectView
     {
+        private int height=1;
         public  void ImageChangeSize(int spriteHeight)
         {
             float newHeight = _imageHeight * spriteHeight;
@@ -14,8 +15,19 @@ namespace Script.Inventory
             _imageRectTransform.anchoredPosition = new Vector2(_imageRectTransform.anchoredPosition.x, _imageRectTransform.anchoredPosition.y - heightDifference);
     
         }
+        
+
+        public override void SetPosition(Vector2 size)
+        {
+            
+            base.SetPosition(size);
+            ImageChangeSize(height);
+            
+        }
+
         public override void SetObject(int2 position,Sprite sprite,int weight,float width,float height,int howMany)
         {
+            this.height = weight;
             base.SetObject(position,sprite,weight,width,height,howMany);
             ImageChangeSize(weight);
         }

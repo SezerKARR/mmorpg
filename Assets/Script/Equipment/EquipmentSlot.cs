@@ -21,7 +21,7 @@ namespace Script.Equipment
                 Equip(itemController);
                 return true;
             }
-            else if (NeedUnequipForEquip(itemController.itemModel.ItemSO))
+            else if (NeedUnequipForEquip(currentItem.itemModel.ItemSO))
             {
                // OnEquipmentChanged?.Invoke(equipment.GetItemable(), item);
                 UnEquip();
@@ -46,7 +46,7 @@ namespace Script.Equipment
         public void Equip(ItemController equipItem)
         {
 
-            equipItem.Place(this.transform);
+            equipItem.Place(this.transform,gameObject.GetComponent<RectTransform>().rect.size);
             //EquipmentManager.Instance.a(equipItem, equipItem);
             this.currentItem = equipItem;
             this.currentItem.SetNewStats();

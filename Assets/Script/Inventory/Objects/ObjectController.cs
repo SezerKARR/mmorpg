@@ -24,11 +24,12 @@ namespace Script.Inventory
         }
 
         public virtual void RightClick() { }
-        public virtual void Place(Transform parent)
+        public virtual void Place(Transform parent,Vector2 size)
         {
+            Debug.Log(size.ToString());
             cellIndex = new int2(-1, -1);
             transform.SetParent(parent);
-            objectView.SetPosition();
+            objectView.SetPosition( size);
             //objectView.SetPosition(new Vector2(positon.x, positon.y));
         }
         protected virtual void OnButtonClick()
