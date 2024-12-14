@@ -12,14 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9abd6523e3deb504fa81aeefd1b7653c, type: 3}
   m_Name: Magic Stone
   m_EditorClassIdentifier: 
+  Place: 0
   Image: {fileID: 0}
-  upgradeName: Magic Stone
+  ItemName: Magic Stone
   dropsFrom: 
   DropMetins: 
   info: A chunk of the legendary metal can increase your chances when upgrading an
     item. The upgraded item can then neither be destroyed nor downgraded.
   playerCanDrop: 1
   canEveryBodyTake: 1
+  stackLimit: 1
+  weightInInventory: 1
+  DropName: <color=green>/color>
   upResultTrue: 1
   upResultFalse: 0
   changeForUp: 0

@@ -32,9 +32,9 @@ public class ToolTip : MonoBehaviour,ITooltipAble
             foreach (var bonus in sword.bonuses)
             {
                 int i = 0;
-                if (bonus != null)
+                if (bonus.bonusName != null)
                 {
-                    SetText(bonusesText[i], bonus) ;
+                    SetText(bonusesText[i], bonus.bonusValue.ToString()) ;
                 }
                 
             }

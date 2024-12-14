@@ -1,3 +1,4 @@
+using Script.Inventory.Objects;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -12,8 +13,9 @@ namespace Script.Inventory
         public int2 cellIndex;
         public int  size;
         [SerializeField] protected ObjectView objectView;
-        public IInventorObjectable inventorObjectable;
+        [SerializeField] protected  ObjectModel objectModel;
         public int howMany;
+        public ObjectModel Model => objectModel;
         
         protected virtual void Start()
         {
@@ -42,13 +44,13 @@ namespace Script.Inventory
             transform.SetParent(parent);
             objectView.SetPosition(cellInt2);
         }
-        public virtual void Place(Transform parent, int2 cellInt2,int howMany,IInventorObjectable objectToPlace,float height,float weight)
+        public virtual void Place(ObjectAbstract objectAbstract, Transform parent, int2 cellInt2,int howMany,float height,float weight)
         {
-            this.howMany = howMany;
-            inventorObjectable=objectToPlace;  
+            objectModel.SetObjectAbstract(objectAbstract);
+            this.howMany = howMany; 
             cellIndex = cellInt2;
             transform.SetParent(parent);
-            objectView.SetObject(cellInt2,objectToPlace,weight,height,howMany);
+            objectView.SetObject(cellInt2,objectModel.sprite,objectModel.WeightInInventory,weight,height,howMany);
         }
 
         public void UpdateCount(int newCount)

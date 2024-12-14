@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6364c4d80b0ec49a783f0ec466a98c, type: 3}
   m_Name: White Pearl
   m_EditorClassIdentifier: 
+  Place: 0
   Image: {fileID: 0}
-  upgradeName: White Pearl
+  ItemName: White Pearl
   dropsFrom: Beran-Setaou, Halloween-Chest, Eternal Winter Chest, Athena's Chest,
     Milon's Chest, Clam, Tombola, Basket with Easter Eggs, Magic Egg
   DropMetins: 
   info: The snow-white treasure from the inside of a shell.
   playerCanDrop: 1
   canEveryBodyTake: 1
+  stackLimit: 1
+  weightInInventory: 1
+  DropName: <color=green>/color>

@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6364c4d80b0ec49a783f0ec466a98c, type: 3}
   m_Name: Face Cream
   m_EditorClassIdentifier: 
+  Place: 0
   Image: {fileID: 0}
-  upgradeName: Face Cream
+  ItemName: Face Cream
   dropsFrom: Dispirited Se-Rang, Se-Rang
   DropMetins: 
   info: Women use them to keep their skin young.
   playerCanDrop: 1
   canEveryBodyTake: 1
+  stackLimit: 1
+  weightInInventory: 1
+  DropName: <color=green>/color>

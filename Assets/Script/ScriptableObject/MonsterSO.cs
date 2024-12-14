@@ -14,6 +14,6 @@ public class MonsterSO : ScriptableObject
     public string location;
     public string[] monsterLocations;
     public string exp;
-    public List<ScriptableObject> canDrop=new List<ScriptableObject>();
+    public List<ObjectAbstract> canDrop=new List<ObjectAbstract>();
 
 }

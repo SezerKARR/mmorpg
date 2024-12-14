@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6364c4d80b0ec49a783f0ec466a98c, type: 3}
   m_Name: Orc Amulet+
   m_EditorClassIdentifier: 
+  Place: 0
   Image: {fileID: 0}
-  upgradeName: Orc Amulet+
+  ItemName: Orc Amulet+
   dropsFrom: Bold Big Orc General, Bold Big Orc Scout, Elite Orc Fighter, Elite Orc
     Scout, Elite Orc General
   DropMetins: 
   info: An amulet that encourages Orcs during battle.
   playerCanDrop: 1
   canEveryBodyTake: 1
+  stackLimit: 1
+  weightInInventory: 1
+  DropName: <color=green>/color>

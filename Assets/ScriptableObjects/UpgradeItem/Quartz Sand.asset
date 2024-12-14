@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6364c4d80b0ec49a783f0ec466a98c, type: 3}
   m_Name: Quartz Sand
   m_EditorClassIdentifier: 
+  Place: 0
   Image: {fileID: 0}
-  upgradeName: Quartz Sand
+  ItemName: Quartz Sand
   dropsFrom: Stone Golem, Rock Golem
   DropMetins: 
   info: This sand seems to be as blood for the stone creatures in the desert.
   playerCanDrop: 1
   canEveryBodyTake: 1
+  stackLimit: 1
+  weightInInventory: 1
+  DropName: <color=green>/color>

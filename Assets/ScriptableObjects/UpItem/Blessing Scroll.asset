@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9abd6523e3deb504fa81aeefd1b7653c, type: 3}
   m_Name: Blessing Scroll
   m_EditorClassIdentifier: 
+  Place: 0
   Image: {fileID: 21300000, guid: 3c559426e55e18f49be144672629981c, type: 3}
-  upgradeName: Blessing Scroll
+  ItemName: Blessing Scroll
   dropsFrom: 
   DropMetins: Metin Tu-Young, Metin Jeon-Un, Metin of Gloom, Metin of Ember, Metin
     of Vanity, Metin of Wrath, Metin of Malice, Metin of Calamity
@@ -21,6 +22,9 @@ MonoBehaviour:
     this case, simply reducing its quality at first
   playerCanDrop: 1
   canEveryBodyTake: 1
+  stackLimit: 1
+  weightInInventory: 1
+  DropName: <color=green>/color>
   upResultTrue: 1
   upResultFalse: -1
   changeForUp: 0

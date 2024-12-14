@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9abd6523e3deb504fa81aeefd1b7653c, type: 3}
   m_Name: Dragon Scroll
   m_EditorClassIdentifier: 
+  Place: 0
   Image: {fileID: 21300000, guid: 3c7f9197dee1300479a1e54d86dae36f, type: 3}
-  upgradeName: Dragon Scroll
+  ItemName: Dragon Scroll
   dropsFrom: 
   DropMetins: 
   info: Eliminates the risk of an item being destroyed when the upgrade fails. Only
@@ -21,6 +22,9 @@ MonoBehaviour:
     increases by 10%.
   playerCanDrop: 1
   canEveryBodyTake: 1
+  stackLimit: 1
+  weightInInventory: 1
+  DropName: <color=green>/color>
   upResultTrue: 1
   upResultFalse: -1
   changeForUp: 10

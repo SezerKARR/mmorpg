@@ -12,11 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: 105 Zodiac Glaive
   m_EditorClassIdentifier: 
-  weightInInventory: 3
-  bonuses: []
+  Place: 0
+  Image: {fileID: 0}
   ItemName: Zodiac Glaive
+  dropsFrom: 
+  DropMetins: 
+  info: 
+  playerCanDrop: 1
+  canEveryBodyTake: 1
+  stackLimit: 1
+  weightInInventory: 3
+  DropName: <color=green>Zodiac Glaive+0</color>
+  price: 0
+  objectType: 4
   levelWithPlus: 0
   currentPlus: 0
+  itemstats:
+    tKeys: 000000000100000006000000
+    tValues:
+    - 230
+    - 311
+    - 8
   canUseCharacters: 00000000
   Requirements:
   - upgradeItems:
@@ -71,7 +87,6 @@ MonoBehaviour:
     - upgradeItemName: {fileID: 11400000, guid: 127f243f2dd69f440b9094d27a7a74d5, type: 2}
       howMany: 1
     upgradeMoney: 2560000
-  Image: {fileID: 0}
   level: 105
   minAndMaxAttackValue:
   - {x: 230, y: 311}
@@ -98,4 +113,3 @@ MonoBehaviour:
   - 17
   typeWeapon: 1
   sockets: 3
-  price: 0

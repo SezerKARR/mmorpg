@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Script.Inventory;
+using Script.Inventory.Objects;
 using Unity.VisualScripting;
 using UnityEngine;
 
@@ -10,7 +11,7 @@ public class PickUpDetector : MonoBehaviour
     private readonly List<IPickedUpAble> _pickedUpables = new List<IPickedUpAble>();
     public int pickedCount;
     private readonly float _minDistance = int.MaxValue;
-    private IInventorObjectable _selectedInventorObjectable;
+    private ObjectAbstract _selectedObjectAbstract;
     private GameObject _selectedGameObject;
     private int _selectedSoHowMany;
     private void Awake()
@@ -29,12 +30,12 @@ public class PickUpDetector : MonoBehaviour
                     new Vector2(pickedable.GetGameObject().transform.position.x, pickedable.GetGameObject().transform.position.y)) < _minDistance)
                 {
                     _selectedGameObject = pickedable.GetGameObject();
-                    _selectedInventorObjectable = pickedable.GetInventorObjectAble();
+                    _selectedObjectAbstract = pickedable.GetObject();
                     _selectedSoHowMany = pickedable.GetHowMany();
                 }
 
             }
-            ObjectEvents.OnPickUp?.Invoke(_selectedInventorObjectable,_selectedSoHowMany,_selectedGameObject);
+            ObjectEvents.OnPickUp?.Invoke(_selectedObjectAbstract,_selectedSoHowMany,_selectedGameObject);
             
 
 

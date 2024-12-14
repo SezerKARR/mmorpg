@@ -12,11 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: 65 Heaven and Earth Bell
   m_EditorClassIdentifier: 
-  weightInInventory: 1
-  bonuses: []
+  Place: 0
+  Image: {fileID: 0}
   ItemName: Heaven and Earth Bell
+  dropsFrom: 
+  DropMetins: 
+  info: 
+  playerCanDrop: 1
+  canEveryBodyTake: 1
+  stackLimit: 1
+  weightInInventory: 1
+  DropName: <color=green>Heaven and Earth Bell+0</color>
+  price: 0
+  objectType: 4
   levelWithPlus: 0
   currentPlus: 0
+  itemstats:
+    tKeys: 0200000003000000000000000100000006000000
+    tValues:
+    - 65
+    - 75
+    - 72
+    - 108
+    - 15
   canUseCharacters: 03000000
   Requirements:
   - upgradeItems: []
@@ -53,7 +71,6 @@ MonoBehaviour:
     - upgradeItemName: {fileID: 11400000, guid: b527f055fe6af974bb9e7ea059877de1, type: 2}
       howMany: 1
     upgradeMoney: 150000
-  Image: {fileID: 0}
   level: 65
   minAndMaxAttackValue:
   - {x: 72, y: 108}
@@ -90,4 +107,3 @@ MonoBehaviour:
   - 15
   typeWeapon: 4
   sockets: 3
-  price: 0

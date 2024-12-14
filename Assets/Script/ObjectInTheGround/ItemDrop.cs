@@ -1,20 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using Script.Inventory.Objects;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public abstract class ItemDrop : MonoBehaviour, IPickedUpAble
 {
     public TMP_Text itemName;
-    public IDropable dropable;
+    public ObjectAbstract objectAbstract;
     public int howMany=1;
     public virtual GameObject GetGameObject()
     {
         return this.gameObject;
     }
-    public IInventorObjectable GetInventorObjectAble()
+    public ObjectAbstract GetObject()
     {
-        return this.dropable;
+        return this.objectAbstract;
     }
     public int GetHowMany()
     {
@@ -30,12 +32,12 @@ public abstract class ItemDrop : MonoBehaviour, IPickedUpAble
     {
         if (this.howMany > 1)
         {
-            itemName.text = dropable.GetDropName() + " x" + this.howMany;
+            itemName.text = objectAbstract.DropName + " x" + this.howMany;
             return;
         }
         else
         {
-            itemName.text = dropable.GetDropName() ;
+            itemName.text = objectAbstract.DropName ;
             return;
         }
         

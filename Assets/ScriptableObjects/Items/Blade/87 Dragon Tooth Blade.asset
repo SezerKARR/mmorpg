@@ -12,11 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: 87 Dragon Tooth Blade
   m_EditorClassIdentifier: 
-  weightInInventory: 2
-  bonuses: []
+  Place: 0
+  Image: {fileID: 0}
   ItemName: Dragon Tooth Blade
+  dropsFrom: 
+  DropMetins: 
+  info: 
+  playerCanDrop: 1
+  canEveryBodyTake: 1
+  stackLimit: 1
+  weightInInventory: 2
+  DropName: <color=green>Dragon Tooth Blade+0</color>
+  price: 0
+  objectType: 4
   levelWithPlus: 0
   currentPlus: 0
+  itemstats:
+    tKeys: 0200000003000000000000000100000006000000
+    tValues:
+    - 149
+    - 211
+    - 116
+    - 164
+    - 15
   canUseCharacters: 01000000
   Requirements:
   - upgradeItems:
@@ -55,7 +73,6 @@ MonoBehaviour:
     - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}
       howMany: 200
     upgradeMoney: 500000
-  Image: {fileID: 0}
   level: 87
   minAndMaxAttackValue:
   - {x: 116, y: 164}
@@ -92,4 +109,3 @@ MonoBehaviour:
   - 15
   typeWeapon: 2
   sockets: 3
-  price: 0

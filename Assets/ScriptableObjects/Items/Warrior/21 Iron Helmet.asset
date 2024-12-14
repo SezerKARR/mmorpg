@@ -12,12 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa2b9a8926a336408051b3ee5644ae0, type: 3}
   m_Name: 21 Iron Helmet
   m_EditorClassIdentifier: 
-  price: 0
-  weightInInventory: 1
-  bonuses: []
+  Place: 0
+  Image: {fileID: 0}
   ItemName: Iron Helmet
+  dropsFrom: 
+  DropMetins: 
+  info: 
+  playerCanDrop: 1
+  canEveryBodyTake: 1
+  stackLimit: 1
+  weightInInventory: 1
+  DropName: <color=green>Iron Helmet+0</color>
+  price: 0
+  objectType: 4
   levelWithPlus: 0
   currentPlus: 0
+  itemstats:
+    tKeys: 04000000
+    tValues:
+    - 9
   canUseCharacters: 00000000
   Requirements:
   - upgradeItems: []
@@ -54,6 +67,5 @@ MonoBehaviour:
     - upgradeItemName: {fileID: 11400000, guid: d6fd3e7c7ce66f142be3013f1eb7c234, type: 2}
       howMany: 1
     upgradeMoney: 120000
-  Image: {fileID: 0}
   level: 21
   defence: 090000000d0000001100000015000000190000002100000029000000310000003900000041000000

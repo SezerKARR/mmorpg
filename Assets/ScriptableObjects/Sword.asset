@@ -12,44 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: Sword
   m_EditorClassIdentifier: 
+  Place: 0
   Image: {fileID: 0}
+  ItemName: 
+  dropsFrom: 
+  DropMetins: 
+  info: 
+  playerCanDrop: 1
+  canEveryBodyTake: 1
+  stackLimit: 1
+  weightInInventory: 1
+  DropName: <color=green>+0</color>
+  price: 0
+  objectType: 4
+  levelWithPlus: 0
+  currentPlus: 0
+  itemstats:
+    tKeys: 
+    tValues: []
+  canUseCharacters: 
+  Requirements: []
   level: 0
   minAndMaxAttackValue: []
   minAndMaxMagicalAttackValue: []
   attackSpeed: []
   typeWeapon: 0
-  canUseCharacters: []
   sockets: 0
-  maxAttackRange: 0
-  bonuses: []
-  swordBonuses: []
-  swordName: Sword
-  price: 0
-  WithLevel:
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0
-  - attackValue: 0
-    magicalAttackValue: 0
-    attackSpeed: 0

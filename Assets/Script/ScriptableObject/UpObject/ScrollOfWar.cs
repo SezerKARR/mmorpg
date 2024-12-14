@@ -15,14 +15,14 @@ public class ScrollOfWar : ObjectAbstract, IUpgradeItem
         if (currentPlus <= 3) return 100f;
         return changeForUp;
     }
-
+    public override ObjectType Type => ObjectType.LeftClickStack; 
 
 
     public int GetPlus(bool upResult) => upResult ? upResultTrue : upResultFalse;
 
 
-    public override ObjectType GetTypeController()
-    {
-        return ObjectType.Up;
-    }
+    // public override ObjectType GetTypeController()
+    // {
+    //     return ObjectType.Up;
+    // }
 }

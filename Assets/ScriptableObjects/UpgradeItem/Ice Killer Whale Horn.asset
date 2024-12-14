@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6364c4d80b0ec49a783f0ec466a98c, type: 3}
   m_Name: Ice Killer Whale Horn
   m_EditorClassIdentifier: 
+  Place: 0
   Image: {fileID: 0}
-  upgradeName: Ice Killer Whale Horn
+  ItemName: Ice Killer Whale Horn
   dropsFrom: Ice Killer Whale, Underwrld IceKillerWhale
   DropMetins: 
   info: It is valuable sculpting material.
   playerCanDrop: 1
   canEveryBodyTake: 1
+  stackLimit: 1
+  weightInInventory: 1
+  DropName: <color=green>/color>

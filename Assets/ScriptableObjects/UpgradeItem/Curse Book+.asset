@@ -12,11 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6364c4d80b0ec49a783f0ec466a98c, type: 3}
   m_Name: Curse Book+
   m_EditorClassIdentifier: 
+  Place: 0
   Image: {fileID: 0}
-  upgradeName: Curse Book+
+  ItemName: Curse Book+
   dropsFrom: Bestial Arahan Fighter, Bestial Evocator, Bestial Tormentor, Bestial
     Deathsman, Proud Dark Rifleman
   DropMetins: 
   info: This esoteric book can be used to curse someone.
   playerCanDrop: 1
   canEveryBodyTake: 1
+  stackLimit: 1
+  weightInInventory: 1
+  DropName: <color=green>/color>

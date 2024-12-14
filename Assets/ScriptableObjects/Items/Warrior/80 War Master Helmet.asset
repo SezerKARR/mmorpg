@@ -12,12 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa2b9a8926a336408051b3ee5644ae0, type: 3}
   m_Name: 80 War Master Helmet
   m_EditorClassIdentifier: 
-  price: 0
-  weightInInventory: 1
-  bonuses: []
+  Place: 0
+  Image: {fileID: 0}
   ItemName: War Master Helmet
+  dropsFrom: 
+  DropMetins: 
+  info: 
+  playerCanDrop: 1
+  canEveryBodyTake: 1
+  stackLimit: 1
+  weightInInventory: 1
+  DropName: <color=green>War Master Helmet+0</color>
+  price: 0
+  objectType: 4
   levelWithPlus: 0
   currentPlus: 0
+  itemstats:
+    tKeys: 04000000
+    tValues:
+    - 21
   canUseCharacters: 00000000
   Requirements:
   - upgradeItems: []
@@ -54,6 +67,5 @@ MonoBehaviour:
     - upgradeItemName: {fileID: 11400000, guid: a4d2cfbc09aac5041a3623b6f30c78ac, type: 2}
       howMany: 8
     upgradeMoney: 120000
-  Image: {fileID: 0}
   level: 80
   defence: 15000000190000001d00000027000000310000003b000000450000004f0000005900000063000000

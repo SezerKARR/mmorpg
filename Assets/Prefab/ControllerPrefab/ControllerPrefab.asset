@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: ControllerPrefab
   m_EditorClassIdentifier: 
   Objects:
-  - ObjectType: 1
-    Prefab: {fileID: 807280952830508194, guid: 9bfe4171fcb201d4c9ac0c6b240e2824, type: 3}
-  - ObjectType: 3
-    Prefab: {fileID: 807280952830508194, guid: 59266baf08002bc4dbd2044eaf358ec6, type: 3}
   - ObjectType: 2
+    Prefab: {fileID: 807280952830508194, guid: 9bfe4171fcb201d4c9ac0c6b240e2824, type: 3}
+  - ObjectType: 4
+    Prefab: {fileID: 807280952830508194, guid: 59266baf08002bc4dbd2044eaf358ec6, type: 3}
+  - ObjectType: 3
     Prefab: {fileID: 807280952830508194, guid: 9bfe4171fcb201d4c9ac0c6b240e2824, type: 3}

@@ -12,11 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: 75 Grudge Sword
   m_EditorClassIdentifier: 
-  weightInInventory: 3
-  bonuses: []
+  Place: 0
+  Image: {fileID: 0}
   ItemName: Grudge Sword
+  dropsFrom: 
+  DropMetins: 
+  info: 
+  playerCanDrop: 1
+  canEveryBodyTake: 1
+  stackLimit: 1
+  weightInInventory: 3
+  DropName: <color=green>Grudge Sword+0</color>
+  price: 0
+  objectType: 4
   levelWithPlus: 0
   currentPlus: 0
+  itemstats:
+    tKeys: 000000000100000006000000
+    tValues:
+    - 136
+    - 184
+    - 17
   canUseCharacters: 00000000
   Requirements:
   - upgradeItems: []
@@ -53,7 +69,6 @@ MonoBehaviour:
     - upgradeItemName: {fileID: 11400000, guid: b527f055fe6af974bb9e7ea059877de1, type: 2}
       howMany: 1
     upgradeMoney: 150000
-  Image: {fileID: 0}
   level: 75
   minAndMaxAttackValue:
   - {x: 136, y: 184}
@@ -80,4 +95,3 @@ MonoBehaviour:
   - 26
   typeWeapon: 1
   sockets: 3
-  price: 0

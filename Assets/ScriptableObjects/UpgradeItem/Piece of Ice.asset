@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6364c4d80b0ec49a783f0ec466a98c, type: 3}
   m_Name: Piece of Ice
   m_EditorClassIdentifier: 
+  Place: 0
   Image: {fileID: 0}
-  upgradeName: Piece of Ice
+  ItemName: Piece of Ice
   dropsFrom: Enchanted Ice, Mean Enchanted Ice, Underworld Ice Splinters
   DropMetins: 
   info: A clump of frozen water that consistently exudes cold air.
   playerCanDrop: 1
   canEveryBodyTake: 1
+  stackLimit: 1
+  weightInInventory: 1
+  DropName: <color=green>/color>

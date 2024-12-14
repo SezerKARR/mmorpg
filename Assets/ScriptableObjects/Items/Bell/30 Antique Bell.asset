@@ -12,11 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: 30 Antique Bell
   m_EditorClassIdentifier: 
-  weightInInventory: 1
-  bonuses: []
+  Place: 0
+  Image: {fileID: 0}
   ItemName: Antique Bell
+  dropsFrom: 
+  DropMetins: 
+  info: 
+  playerCanDrop: 1
+  canEveryBodyTake: 1
+  stackLimit: 1
+  weightInInventory: 1
+  DropName: <color=green>Antique Bell+0</color>
+  price: 0
+  objectType: 4
   levelWithPlus: 0
   currentPlus: 0
+  itemstats:
+    tKeys: 0200000003000000000000000100000006000000
+    tValues:
+    - 35
+    - 60
+    - 50
+    - 70
+    - 15
   canUseCharacters: 03000000
   Requirements:
   - upgradeItems: []
@@ -37,7 +55,6 @@ MonoBehaviour:
     upgradeMoney: 120000
   - upgradeItems: []
     upgradeMoney: 150000
-  Image: {fileID: 0}
   level: 30
   minAndMaxAttackValue:
   - {x: 50, y: 70}
@@ -74,4 +91,3 @@ MonoBehaviour:
   - 15
   typeWeapon: 4
   sockets: 3
-  price: 0

@@ -12,12 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa2b9a8926a336408051b3ee5644ae0, type: 3}
   m_Name: 96 Gloom Dragon Helmet
   m_EditorClassIdentifier: 
-  price: 0
-  weightInInventory: 1
-  bonuses: []
+  Place: 0
+  Image: {fileID: 0}
   ItemName: Gloom Dragon Helmet
+  dropsFrom: 
+  DropMetins: 
+  info: 
+  playerCanDrop: 1
+  canEveryBodyTake: 1
+  stackLimit: 1
+  weightInInventory: 1
+  DropName: <color=green>Gloom Dragon Helmet+0</color>
+  price: 0
+  objectType: 4
   levelWithPlus: 0
   currentPlus: 0
+  itemstats:
+    tKeys: 04000000
+    tValues:
+    - 25
   canUseCharacters: 00000000
   Requirements:
   - upgradeItems:
@@ -118,6 +131,5 @@ MonoBehaviour:
     - upgradeItemName: {fileID: 11400000, guid: fcd614b32a496c74f839681199891b11, type: 2}
       howMany: 1
     upgradeMoney: 19200000
-  Image: {fileID: 0}
   level: 96
   defence: 190000001d000000210000002b000000350000003f00000049000000530000005f000000690000006b0000006d0000007100000075000000790000007d000000

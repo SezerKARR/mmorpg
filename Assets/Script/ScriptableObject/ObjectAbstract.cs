@@ -14,7 +14,16 @@ public enum ItemPlace
     Ground,
     Storage,
 }
-public abstract class ObjectAbstract : ScriptableObject,IDropable 
+public enum ObjectType
+{
+    None,
+    RightclickStack,
+    LeftClickStack,
+    Stack,
+    Item,
+    
+}
+public abstract class ObjectAbstract : ScriptableObject
 {
     public ItemPlace Place;
     public Sprite Image;
@@ -26,57 +35,66 @@ public abstract class ObjectAbstract : ScriptableObject,IDropable
     public bool canEveryBodyTake=true;
     public int stackLimit=1;
     public int weightInInventory = 1;
-    public string GetName()
-    {
-        return ItemName;
-    }
+    public string DropName;
+    public abstract ObjectType Type { get; }
 
-    public Sprite GetSprite()
-    {
-        return Image; 
-    }
+    // public virtual void SetDropName()
+    // {
+    //     DropName= ItemName;
+    //     ItemName=name;
+    //     
+    // }
 
-    public abstract ObjectType GetTypeController();
-    public ItemPlace GetItemPlace()
-    {
-        return Place;
-    }
-
-    public void SetItemPlace(ItemPlace itemPlace)
-    {
-        Place = itemPlace;
-    }
-
-    public ScriptableObject GetScriptableObject()
-    {
-        return this;
-    }
-
-    public virtual int GetWeightInInventory()
-    {
-        return weightInInventory;
-    }
-
-    public int GetStackLimit()
-    {
-        return stackLimit;
-    }
-
-    public virtual string GetDropName()
-    {
-            return ItemName;
-        
-    }
-
-    public bool GetPlayerCanDrop()
-    {
-        return playerCanDrop;
-    }
-
-    public bool GetCanEveryBodyTake()
-    {
-        return canEveryBodyTake;
-    }
+    // public string GetName()
+    // {
+    //     return ItemName;
+    // }
+    //
+    // public Sprite GetSprite()
+    // {
+    //     return Image; 
+    // }
+    //
+    // public abstract ObjectType GetTypeController();
+    // public ItemPlace GetItemPlace()
+    // {
+    //     return Place;
+    // }
+    //
+    // public void SetItemPlace(ItemPlace itemPlace)
+    // {
+    //     Place = itemPlace;
+    // }
+    //
+    // public ScriptableObject GetScriptableObject()
+    // {
+    //     return this;
+    // }
+    //
+    // public virtual int GetWeightInInventory()
+    // {
+    //     return weightInInventory;
+    // }
+    //
+    // public int GetStackLimit()
+    // {
+    //     return stackLimit;
+    // }
+    //
+    // public virtual string GetDropName()
+    // {
+    //         return ItemName;
+    //     
+    // }
+    // public bool GetPlayerCanDrop()
+    // {
+    //     return playerCanDrop;
+    // }
+    //
+    // public bool GetCanEveryBodyTake()
+    // {
+    //     return canEveryBodyTake;
+    // }
 
 
 

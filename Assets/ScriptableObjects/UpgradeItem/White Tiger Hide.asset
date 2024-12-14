@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6364c4d80b0ec49a783f0ec466a98c, type: 3}
   m_Name: White Tiger Hide
   m_EditorClassIdentifier: 
+  Place: 0
   Image: {fileID: 0}
-  upgradeName: White Tiger Hide
+  ItemName: White Tiger Hide
   dropsFrom: Hungry White Tiger, White Tiger
   DropMetins: 
   info: Valued as the most precious animal hide among collectors.
   playerCanDrop: 1
   canEveryBodyTake: 1
+  stackLimit: 1
+  weightInInventory: 1
+  DropName: <color=green>/color>

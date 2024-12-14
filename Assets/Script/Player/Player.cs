@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Script.Inventory.Objects;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -54,11 +55,11 @@ public class Player : MonoBehaviour
         
 
     }
-    public void DropItem(IDropable dropable)
+    public void DropItem(ObjectAbstract objectAbstract)
     {
        
             GameObject itemDrop = Instantiate(ItemDropWithOutName, transform.position, Quaternion.identity);
-            itemDrop.GetComponent<ItemDropWithOutName>().dropable = dropable;
+            itemDrop.GetComponent<ItemDropWithOutName>().objectAbstract = objectAbstract;
         
         
     }
@@ -74,7 +75,7 @@ public class Player : MonoBehaviour
     public void GiveNormalDamage(IDamageAble damageAble)
     { 
         bool crit = false;
-        //todo: crit oraný hesaplama
+        //todo: crit oranï¿½ hesaplama
         if (crit)
         {
             damageAble.TakeDamage(swordPhsichalDamage*2, this);

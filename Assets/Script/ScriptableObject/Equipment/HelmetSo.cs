@@ -7,21 +7,28 @@ using UnityEngine;
 
 public class HelmetSo : ScriptableItemsAbstact
 {
-    EquipmentType equipmentType = EquipmentType.Helmet;
+    public override EquipmentType equipmentType=> EquipmentType.Helmet;
+    public override void SetStats()
+    {
+        
+        itemstats.Add(StatType.Defense, defence[currentPlus]);
+    }
+
     public List<int> defence=new List<int>();
+    public override ObjectType Type => ObjectType.Stack; 
+    // public override Dictionary<StatType, float> GetStats()
+    // {
+    //     return new Dictionary<StatType, float>
+    //     {
+    //         { StatType.Defense, defence[currentPlus] },
+    //     };
+    // }
+    //
+    // public override EquipmentType GetEquipmentType()
+    // {
+    //     return equipmentType;
+    // }
 
-    public override Dictionary<StatType, float> GetStats()
-    {
-        return new Dictionary<StatType, float>
-        {
-            { StatType.Defense, defence[currentPlus] },
-        };
-    }
-
-    public override EquipmentType GetEquipmentType()
-    {
-        return equipmentType;
-    }
 
     
 }

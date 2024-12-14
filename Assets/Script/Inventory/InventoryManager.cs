@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using Script.Equipment;
 using Script.Inventory;
+using Script.Inventory.Objects;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -16,6 +17,7 @@ public class InventoryManager : MonoBehaviour,IWaitConfirmable
     private int activePage=1;
     [SerializeField]
     private PageChangeButton[] pageChangeButton;
+   // public 
     private void Awake()
     {
         ObjectEvents.OnPickUp += AddObject;
@@ -23,7 +25,7 @@ public class InventoryManager : MonoBehaviour,IWaitConfirmable
         
     }
 
-    public bool NeedUnequip(IInventorObjectable addObject,IInventorObjectable reduceObject)
+    public bool NeedUnequip(ObjectAbstract addObject)
     {
         //reduce = false;
         /*if (this.EquipButton != null)
@@ -77,19 +79,19 @@ public class InventoryManager : MonoBehaviour,IWaitConfirmable
         ObjectController temp = objectController;
         
     }
-    public void AddObject(IInventorObjectable inventorObjectAble,int howMany,GameObject destroyIfPickUp=null)
+    public void AddObject(ObjectAbstract inventorObjectAble,int howMany,GameObject destroyIfPickUp=null)
     {
         Debug.Log("geldi");
         if(Add(inventorObjectAble,howMany))Destroy(destroyIfPickUp);
     }
-    public bool Add(IInventorObjectable inventorObjectAble,int howMany)
+    public bool Add(ObjectAbstract inventorObjectAble,int howMany)
     {
         
 
         foreach (InventoryPage page in inventoryPage)
         {
 
-            if (inventorObjectAble.GetStackLimit() > 1)
+            if (inventorObjectAble.stackLimit > 1)
             {
                 if(page.AddStack(inventorObjectAble, howMany))
                 {
@@ -106,7 +108,7 @@ public class InventoryManager : MonoBehaviour,IWaitConfirmable
 
     }
 
-    public void DropObject()
+   /* public void DropObject()
     {
         if (objectController.inventorObjectable is IDropable dropable)
         {
@@ -117,11 +119,16 @@ public class InventoryManager : MonoBehaviour,IWaitConfirmable
             }
             else { Debug.Log("bu obje yere at�lamaz"); }
         }
-    }
+    }*/
 
     public void ConfirmValue(bool confirmValue)
     {
         
+        throw new NotImplementedException();
+    }
+
+    public void DropObject()
+    {
         throw new NotImplementedException();
     }
 }

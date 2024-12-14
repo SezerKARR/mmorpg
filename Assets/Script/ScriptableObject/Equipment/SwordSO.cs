@@ -2,8 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Game.Extensions.Unity;
 using Script.Equipment;
+using Script.Inventory;
 using Unity.Collections.LowLevel.Unsafe;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
@@ -14,35 +17,44 @@ public enum TypeWeapon
 [CreateAssetMenu(menuName = "ScriptableObject/Weapon")]
 public class SwordSO : ScriptableItemsAbstact
 {
-
-    public EquipmentType equipmentType=EquipmentType.Weapon;
+    public override EquipmentType equipmentType => EquipmentType.Weapon;
+    public override ObjectType Type => ObjectType.Item; 
     public List<Vector2> minAndMaxAttackValue=new List<Vector2>();
     public List<Vector2> minAndMaxMagicalAttackValue = new List<Vector2>();
     public List<float> attackSpeed = new List<float>();
     public TypeWeapon typeWeapon;
     public int sockets;
-
-    public override EquipmentType GetEquipmentType()
+    // public override EquipmentType GetEquipmentType()
+    // {
+    //     return equipmentType;
+    // }
+    //
+    //
+    // public override Dictionary<StatType, float> GetStats()
+    // {
+    //     Dictionary<StatType, float> stats= new Dictionary<StatType, float>();
+    //     if (minAndMaxMagicalAttackValue.Count > 0)
+    //     {
+    //         stats.Add(StatType.MinMagicAttack, minAndMaxMagicalAttackValue[currentPlus].x);
+    //         stats.Add(StatType.MaxMagicAttack, minAndMaxMagicalAttackValue[currentPlus].y);
+    //     }
+    //     stats.Add(StatType.MinAttack, minAndMaxAttackValue[currentPlus].x);
+    //     stats.Add(StatType.MaxAttack, minAndMaxAttackValue[currentPlus].y);
+    //     stats.Add(StatType.AttackSpeed, attackSpeed[currentPlus]);
+    //     return stats;
+    // }
+    public override void SetStats()
     {
-        return equipmentType;
-    }
-
-
-    public override Dictionary<StatType, float> GetStats()
-    {
-        Dictionary<StatType, float> stats= new Dictionary<StatType, float>();
         if (minAndMaxMagicalAttackValue.Count > 0)
         {
-            stats.Add(StatType.MinMagicAttack, minAndMaxMagicalAttackValue[currentPlus].x);
-            stats.Add(StatType.MaxMagicAttack, minAndMaxMagicalAttackValue[currentPlus].y);
+            itemstats.Add(StatType.MinMagicAttack, minAndMaxMagicalAttackValue[currentPlus].x);
+            itemstats.Add(StatType.MaxMagicAttack, minAndMaxMagicalAttackValue[currentPlus].y);
         }
-        stats.Add(StatType.MinAttack, minAndMaxAttackValue[currentPlus].x);
-        stats.Add(StatType.MaxAttack, minAndMaxAttackValue[currentPlus].y);
-        stats.Add(StatType.AttackSpeed, attackSpeed[currentPlus]);
-        return stats;
+        itemstats.Add(StatType.MinAttack, minAndMaxAttackValue[currentPlus].x);
+        itemstats.Add(StatType.MaxAttack, minAndMaxAttackValue[currentPlus].y);
+        itemstats.Add(StatType.AttackSpeed, attackSpeed[currentPlus]);
     }
 
 
     
-
 }

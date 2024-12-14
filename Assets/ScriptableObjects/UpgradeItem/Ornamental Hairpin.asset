@@ -12,10 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6364c4d80b0ec49a783f0ec466a98c, type: 3}
   m_Name: Ornamental Hairpin
   m_EditorClassIdentifier: 
+  Place: 0
   Image: {fileID: 0}
-  upgradeName: Ornamental Hairpin
+  ItemName: Ornamental Hairpin
   dropsFrom: Eun-Jung, Dispirited Eun-Jung
   DropMetins: 
   info: The hairpin of a woman.
   playerCanDrop: 1
   canEveryBodyTake: 1
+  stackLimit: 1
+  weightInInventory: 1
+  DropName: <color=green>/color>

@@ -12,11 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: 10 Cobra Dagger
   m_EditorClassIdentifier: 
-  weightInInventory: 1
-  bonuses: []
+  Place: 0
+  Image: {fileID: 0}
   ItemName: Cobra Dagger
+  dropsFrom: 
+  DropMetins: 
+  info: 
+  playerCanDrop: 1
+  canEveryBodyTake: 1
+  stackLimit: 1
+  weightInInventory: 1
+  DropName: <color=green>Cobra Dagger+0</color>
+  price: 0
+  objectType: 4
   levelWithPlus: 0
   currentPlus: 0
+  itemstats:
+    tKeys: 000000000100000006000000
+    tValues:
+    - 13
+    - 15
+    - 23
   canUseCharacters: 02000000
   Requirements:
   - upgradeItems: []
@@ -43,7 +59,6 @@ MonoBehaviour:
     - upgradeItemName: {fileID: 11400000, guid: 7e5fc29b8dc64ac42bf1122090e3741d, type: 2}
       howMany: 2
     upgradeMoney: 75000
-  Image: {fileID: 0}
   level: 10
   minAndMaxAttackValue:
   - {x: 13, y: 15}
@@ -70,4 +85,3 @@ MonoBehaviour:
   - 23
   typeWeapon: 5
   sockets: 1
-  price: 0

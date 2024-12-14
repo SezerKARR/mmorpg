@@ -1176,4 +1176,50 @@ private static void CsvFromSoExpPerLevel()
         }
 
     }]);*/
+    // [MenuItem("Utilities/UpdateItems")]
+    // public static void UpdateItems()
+    // {
+    //     string[] guids = AssetDatabase.FindAssets("t:ScriptableItemsAbstact", new[] { "Assets/ScriptableObjects/Items" });
+    //
+    //     foreach (var guid in guids)
+    //     {
+    //         // Her bir SO'yu yükle
+    //         string path = AssetDatabase.GUIDToAssetPath(guid);
+    //         ScriptableItemsAbstact itemStatsSO = AssetDatabase.LoadAssetAtPath<ScriptableItemsAbstact>(path);
+    //
+    //         if (itemStatsSO != null)
+    //         {
+    //             // SetStatsOnce fonksiyonunu çağır
+    //             //itemStatsSO.SetDropName();
+    //             itemStatsSO.SetStats();
+    //             EditorUtility.SetDirty(itemStatsSO);  // Değişiklikleri kaydetmek için
+    //         }
+    //     }
+    //
+    //     AssetDatabase.SaveAssets();
+    //     AssetDatabase.Refresh();
+    //
+    // }
+    // [MenuItem("Utilities/UpdateObjects")]
+    // public static void UpdateObjects()
+    // {
+    //     string[] guids = AssetDatabase.FindAssets("t:ObjectAbstract", new[] { "Assets/ScriptableObjects" });
+    //
+    //     foreach (var guid in guids)
+    //     {
+    //         // Her bir SO'yu yükle
+    //         string path = AssetDatabase.GUIDToAssetPath(guid);
+    //         ObjectAbstract itemStatsSO = AssetDatabase.LoadAssetAtPath<ObjectAbstract>(path);
+    //
+    //         if (itemStatsSO != null)
+    //         {
+    //             itemStatsSO.SetDropName();
+    //             EditorUtility.SetDirty(itemStatsSO);  // Değişiklikleri kaydetmek için
+    //         }
+    //     }
+    //
+    //     AssetDatabase.SaveAssets();
+    //     AssetDatabase.Refresh();
+    //
+    // }
 }

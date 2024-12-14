@@ -12,11 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: 87 Dragon Lord
   m_EditorClassIdentifier: 
-  weightInInventory: 1
-  bonuses: []
+  Place: 0
+  Image: {fileID: 0}
   ItemName: Dragon Lord
+  dropsFrom: 
+  DropMetins: 
+  info: 
+  playerCanDrop: 1
+  canEveryBodyTake: 1
+  stackLimit: 1
+  weightInInventory: 1
+  DropName: <color=green>Dragon Lord+0</color>
+  price: 0
+  objectType: 4
   levelWithPlus: 0
   currentPlus: 0
+  itemstats:
+    tKeys: 000000000100000006000000
+    tValues:
+    - 122
+    - 165
+    - 15
   canUseCharacters: 04000000
   Requirements:
   - upgradeItems:
@@ -55,7 +71,6 @@ MonoBehaviour:
     - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}
       howMany: 200
     upgradeMoney: 500000
-  Image: {fileID: 0}
   level: 87
   minAndMaxAttackValue:
   - {x: 122, y: 165}
@@ -82,4 +97,3 @@ MonoBehaviour:
   - 0
   typeWeapon: 7
   sockets: 3
-  price: 0

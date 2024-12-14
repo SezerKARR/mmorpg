@@ -2,9 +2,11 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Game.Extensions.Unity;
 using Script.Equipment;
 using Script.Inventory;
 using Script.ScriptableObject.Equipment;
+using Unity.Mathematics;
 using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
@@ -28,96 +30,101 @@ public class RequirementClass
     
 }
 
-public abstract  class ScriptableItemsAbstact : ObjectAbstract, IItemable 
+public abstract  class ScriptableItemsAbstact : ObjectAbstract 
 
 {
     
     public float price;
-    
-    public List<string> bonuses;
+    public ObjectType objectType=ObjectType.Item;
+    public List<(string bonusName ,float bonusValue)> bonuses=new List<(string bonusName ,float bonusValue)>() ;
     public List<(string bonusName, List<float> bonusValue)> ItemBonuses = new List<(string bonusName, List<float> bonusValue)>();
-   
+    
     public int levelWithPlus;
     public int currentPlus = 0;
     /*public enum canUseCharacter
     {
         Warrior,Shaman,Sura,Ninja
     }*/
+    public Itemstats  itemstats;
+    [Serializable]
+    public class Itemstats : UnityDictionary<StatType, float> { }
     public List<Character> canUseCharacters = new List<Character>();
     public RequirementClass[] Requirements =new RequirementClass[0];
+    public abstract EquipmentType equipmentType { get; }
     
     public int level;
-    public string GetCurrentPlus()
-    {
-        return currentPlus.ToString();
-    }
-    
-
-    public ScriptableItemsAbstact GetScriptableItemsAbstact()
-    {
-        return this;
-    }
-    public override string GetDropName()
-    {
-        if(bonuses.Count > 0)
-        {
-            return $"{ItemName}<color=yellow>+{currentPlus}</color>";
-        }
-        else
-        {
-            return $"{ItemName}<color=red>+{currentPlus}</color>";
-        }
-    }
-
-    public abstract Dictionary<StatType, float> GetStats();
-    public void SetNewStats()
-    {
-        var modifiers = GetStats();
-        foreach (var modifier in modifiers)
-        {
-            
-            Player.instance.EquipmentStat.AddModifier(modifier.Key, modifier.Value);
-        }
-    }
-
-    public void SetOldStats()
-    {
-        var modifiers = GetStats();
-        foreach (var modifier in modifiers)
-        {
-            Player.instance.EquipmentStat.RemoveModifier(modifier.Key, modifier.Value);
-        }
-    }
-    public void GetBonus()
-    {
-        throw new NotImplementedException();
-    }
-
-   
-
-    public void SetNewBonus()
-    {
-        throw new NotImplementedException();
-    }
-
-    public void SetOldBonus()
-    {
-        throw new NotImplementedException();
-    }
-    public int GetLevel()
-    {
-        return level;
-    }
-
-    public List<Character> GetCanUseCharacters()
-    {
-        return canUseCharacters;
-    }
-
-    public abstract EquipmentType GetEquipmentType();
-
-    public override ObjectType GetTypeController()
-    {
-        return ObjectType.Item;
-    }
+    // public string GetCurrentPlus()
+    // {
+    //     return currentPlus.ToString();
+    // }
+    //
+    //
+    // public ScriptableItemsAbstact GetScriptableItemsAbstact()
+    // {
+    //     return this;
+    // }
+    // public override void SetDropName()
+    // {
+    //     if(bonuses.Count > 0)
+    //     {
+    //         DropName= $"<color=green>{ItemName}+{currentPlus}</color>";
+    //     }
+    //     else
+    //     {
+    //         DropName= $"<color=green>{ItemName}+{currentPlus}</color>";
+    //     }
+    // }
+    //
+    // public abstract Dictionary<StatType, float> GetStats();
+    // public void SetNewStats()
+    // {
+    //     var modifiers = GetStats();
+    //     foreach (var modifier in modifiers)
+    //     {
+    //         
+    //         Player.instance.EquipmentStat.AddModifier(modifier.Key, modifier.Value);
+    //     }
+    // }
+    //
+    // public void SetOldStats()
+    // {
+    //     var modifiers = GetStats();
+    //     foreach (var modifier in modifiers)
+    //     {
+    //         Player.instance.EquipmentStat.RemoveModifier(modifier.Key, modifier.Value);
+    //     }
+    // }
+    // public void GetBonus()
+    // {
+    //     throw new NotImplementedException();
+    // }
+    //
+    //
+    //
+    // public void SetNewBonus()
+    // {
+    //     throw new NotImplementedException();
+    // }
+    //
+    // public void SetOldBonus()
+    // {
+    //     throw new NotImplementedException();
+    // }
+    // public int GetLevel()
+    // {
+    //     return level;
+    // }
+    //
+    // public List<Character> GetCanUseCharacters()
+    // {
+    //     return canUseCharacters;
+    // }
+    //
+    // public abstract EquipmentType GetEquipmentType();
+    //
+    // public override ObjectType GetTypeController()
+    // {
+    //     return ObjectType.Item;
+    // }
+    public abstract void SetStats();
 }

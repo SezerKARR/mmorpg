@@ -12,11 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: 1 Glaive
   m_EditorClassIdentifier: 
-  weightInInventory: 3
-  bonuses: []
+  Place: 0
+  Image: {fileID: 21300000, guid: 5dd1bfc6c51db374281d24f52575279c, type: 3}
   ItemName: Glaive
+  dropsFrom: 
+  DropMetins: 
+  info: 
+  playerCanDrop: 1
+  canEveryBodyTake: 1
+  stackLimit: 1
+  weightInInventory: 3
+  DropName: <color=green>Glaive+0</color>
+  price: 0
+  objectType: 4
   levelWithPlus: 0
   currentPlus: 0
+  itemstats:
+    tKeys: 000000000100000006000000
+    tValues:
+    - 14
+    - 22
+    - 26
   canUseCharacters: 00000000
   Requirements:
   - upgradeItems: []
@@ -43,7 +59,6 @@ MonoBehaviour:
     - upgradeItemName: {fileID: 11400000, guid: 18d6e77189fc65c4d8b95ddbadc059c3, type: 2}
       howMany: 2
     upgradeMoney: 75000
-  Image: {fileID: 21300000, guid: 5dd1bfc6c51db374281d24f52575279c, type: 3}
   level: 1
   minAndMaxAttackValue:
   - {x: 14, y: 22}
@@ -70,4 +85,3 @@ MonoBehaviour:
   - 26
   typeWeapon: 1
   sockets: 1
-  price: 0

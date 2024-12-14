@@ -1,3 +1,4 @@
+using Script.Inventory.Objects;
 using Unity.Mathematics;
 using UnityEngine;
 
@@ -13,10 +14,10 @@ namespace Script.Inventory
             _imageRectTransform.anchoredPosition = new Vector2(_imageRectTransform.anchoredPosition.x, _imageRectTransform.anchoredPosition.y - heightDifference);
     
         }
-        public override void SetObject(int2 position,IInventorObjectable objectToPlace,float width,float height,int howMany)
+        public override void SetObject(int2 position,Sprite sprite,int weight,float width,float height,int howMany)
         {
-            base.SetObject(position,objectToPlace,width,height,howMany);
-            ImageChangeSize(objectToPlace.GetWeightInInventory());
+            base.SetObject(position,sprite,weight,width,height,howMany);
+            ImageChangeSize(weight);
         }
 
         

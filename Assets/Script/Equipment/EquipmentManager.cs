@@ -39,10 +39,10 @@ namespace Script.Equipment
 
         public void Equip(ItemController itemcontroller)
         {
-            Debug.Log(itemcontroller.itemable.GetEquipmentType());
-            if (equipmentSlots.ContainsKey(itemcontroller.itemable.GetEquipmentType()))
+            Debug.Log(itemcontroller.itemModel.EquipmentType);
+            if (equipmentSlots.ContainsKey(itemcontroller.itemModel.EquipmentType))
             {
-                 equipmentSlots[itemcontroller.itemable.GetEquipmentType()].SetItem(itemcontroller);
+                 equipmentSlots[itemcontroller.itemModel.EquipmentType].SetItem(itemcontroller);
             
             }
         }

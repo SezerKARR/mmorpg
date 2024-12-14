@@ -8,15 +8,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using Zenject;
 using Object = UnityEngine.Object;
-public enum ObjectType
-{
-    None,
-    Up,
-    Scroll,
-    Item,
-    Pot,
-    
-}
+
 namespace Script.Inventory
 {
     public class InventoryPage:MonoBehaviour
@@ -58,14 +50,15 @@ namespace Script.Inventory
             }
         }*/
         
-        public bool AddStack(IInventorObjectable inventorObjectable, int howMany)
+        public bool AddStack(ObjectAbstract inventorObjectable, int howMany)
         {
-            foreach (var item in _objects.Where(entry => entry.Value.inventorObjectable == inventorObjectable).ToList())
+            foreach (var item in _objects.Where(entry => 
+                         entry.Value.Model.ObjectAbstract == inventorObjectable).ToList())
             {
                 // Gerekli işlemi yap
                 int newCount = item.Value.howMany + howMany;
 
-                if (newCount <= item.Value.inventorObjectable.GetStackLimit())
+                if (newCount <= item.Value.Model.StackLimit)
                 {
                     item.Value.UpdateCount(newCount); // Güncelleme işlemi
                     return true; // İlk eşleşmede işlem yap ve döngüden çık
@@ -73,7 +66,7 @@ namespace Script.Inventory
             }
             return false;
         }
-        public bool CanGetObject(IInventorObjectable inventorObjectable,int howMany)
+        public bool CanGetObject(ObjectAbstract inventorObjectable,int howMany)
         {
             for (int i = 0; i < rowCount; i++)
             {
@@ -86,9 +79,9 @@ namespace Script.Inventory
             }
             return false;
         }
-        public bool ControlCanAdd(int2 rowAndColumnCount, IInventorObjectable inventorObjectable,int howMany)
+        public bool ControlCanAdd(int2 rowAndColumnCount, ObjectAbstract inventorObjectable,int howMany)
         {
-            int weightInInventory = inventorObjectable.GetWeightInInventory();
+            int weightInInventory = inventorObjectable.weightInInventory;
             if (weightInInventory + rowAndColumnCount.y> columnCount)
             {
                 return false;
@@ -128,30 +121,29 @@ namespace Script.Inventory
             return false;
         }
 
-        void AddScriptableObjectInPage(int2 cellInt2 , int howMany,IInventorObjectable iInventorObjectable)
+        void AddScriptableObjectInPage(int2 cellInt2 , int howMany,ObjectAbstract iInventorObjectable)
         {
             CreateObjectModel(cellInt2, iInventorObjectable, howMany);
-            for (int i = 0; i < iInventorObjectable.GetWeightInInventory(); i++)
+            for (int i = 0; i < iInventorObjectable.weightInInventory; i++)
             {
                 _objects[ new int2(cellInt2.x, cellInt2.y + i)] = _currentObjectController;
             }
 
             _currentObjectController = null;
         }
-        void CreateObjectModel(int2 cellInt2, IInventorObjectable inventorObjectable, int howMany)
+        void CreateObjectModel(int2 cellInt2, ObjectAbstract inventorObjectable, int howMany)
         {
             GameObject objectControllerGameObject=null;
             if (objectsPrefab != null)
             {
-                
-
-                objectControllerGameObject= Instantiate(objectsPrefab.GetPrefabByType(inventorObjectable.GetTypeController()));
+                Debug.Log(inventorObjectable.Type);
+                objectControllerGameObject= Instantiate(objectsPrefab.GetPrefabByType(inventorObjectable.Type));
                 
                
             }
             
             _currentObjectController = objectControllerGameObject.GetComponent<ObjectController>();
-            _currentObjectController.Place(this.transform,cellInt2,howMany,inventorObjectable,_height,_width);
+            _currentObjectController.Place(inventorObjectable,this.transform,cellInt2,howMany,_height,_width);
         }
         
     }

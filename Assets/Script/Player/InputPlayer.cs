@@ -60,12 +60,10 @@ public class InputPlayer : MonoBehaviour
     {
         if (!EventSystem.current.IsPointerOverGameObject())
         {
-            // E�er fare UI'nin �zerinde de�ilse, tilemap'e t�klamaya devam edebiliriz
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            // Raycast ile tilemap �zerinde kontrol yap�yoruz
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
-            // E�er tilemap objesiyle �arp��ma varsa, i�lem yap�l�r
+          
             if(hit.collider != null)
             {
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))

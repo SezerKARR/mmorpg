@@ -12,11 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: 10 Black Tiger Fan
   m_EditorClassIdentifier: 
-  weightInInventory: 1
-  bonuses: []
+  Place: 0
+  Image: {fileID: 0}
   ItemName: Black Tiger Fan
+  dropsFrom: 
+  DropMetins: 
+  info: 
+  playerCanDrop: 1
+  canEveryBodyTake: 1
+  stackLimit: 1
+  weightInInventory: 1
+  DropName: <color=green>Black Tiger Fan+0</color>
+  price: 0
+  objectType: 4
   levelWithPlus: 0
   currentPlus: 0
+  itemstats:
+    tKeys: 0200000003000000000000000100000006000000
+    tValues:
+    - 18
+    - 28
+    - 13
+    - 19
+    - 23
   canUseCharacters: 03000000
   Requirements:
   - upgradeItems: []
@@ -43,7 +61,6 @@ MonoBehaviour:
     - upgradeItemName: {fileID: 11400000, guid: d0456432b8da0a949bb1366be1cd8d3e, type: 2}
       howMany: 2
     upgradeMoney: 75000
-  Image: {fileID: 0}
   level: 10
   minAndMaxAttackValue:
   - {x: 13, y: 19}
@@ -80,4 +97,3 @@ MonoBehaviour:
   - 23
   typeWeapon: 3
   sockets: 1
-  price: 0

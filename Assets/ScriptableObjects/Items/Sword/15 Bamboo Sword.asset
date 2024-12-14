@@ -12,11 +12,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: 15 Bamboo Sword
   m_EditorClassIdentifier: 
-  weightInInventory: 2
-  bonuses: []
+  Place: 0
+  Image: {fileID: 0}
   ItemName: Bamboo Sword
+  dropsFrom: 
+  DropMetins: 
+  info: 
+  playerCanDrop: 1
+  canEveryBodyTake: 1
+  stackLimit: 1
+  weightInInventory: 2
+  DropName: <color=green>Bamboo Sword+0</color>
+  price: 0
+  objectType: 4
   levelWithPlus: 0
   currentPlus: 0
+  itemstats:
+    tKeys: 0200000003000000000000000100000006000000
+    tValues:
+    - 25
+    - 35
+    - 22
+    - 26
+    - 21
   canUseCharacters: 010000000000000002000000
   Requirements:
   - upgradeItems: []
@@ -43,7 +61,6 @@ MonoBehaviour:
     - upgradeItemName: {fileID: 11400000, guid: b15699c4af6728e4897bc8d3bb24621e, type: 2}
       howMany: 2
     upgradeMoney: 75000
-  Image: {fileID: 0}
   level: 15
   minAndMaxAttackValue:
   - {x: 22, y: 26}
@@ -80,4 +97,3 @@ MonoBehaviour:
   - 21
   typeWeapon: 0
   sockets: 1
-  price: 0

@@ -5,8 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObject/UpgradeItem")]
 public class UpgradeItemsSO : ObjectAbstract
 {
-    public override ObjectType GetTypeController()
+    public override ObjectType Type => ObjectType.Stack; 
+    /*public override ObjectType GetTypeController()
     {
         return ObjectType.Up;
-    }
+    }*/
+    
 }
