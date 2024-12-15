@@ -1,5 +1,4 @@
 using System;
-using Game.Extensions.Unity;
 using Script.Equipment;
 using Script.Inventory;
 using UnityEngine;

@@ -1,7 +1,6 @@
 
 using System;
 using System.Collections.Generic;
-using Game.Extensions.Unity;
 using Script.Equipment;
 using Script.Inventory;
 using Script.Inventory.Objects;
@@ -13,62 +12,52 @@ using Zenject;
 
 public class InventoryManager : MonoBehaviour,IWaitConfirmable
 {
+    [SerializeField] private ImageUnderCursor _imageUnderCursor;
     [Inject] [SerializeField] private EquipmentManager _equipmentManager;
-    [SerializeField]private InventoryPage[] inventoryPage;
-    [SerializeField] private HaveObjects haveObjects;
-
-    [Serializable]
-    public class HaveObjects : UnityDictionary<ObjectAbstract, int> { };
-    private ObjectController objectController;
+    [SerializeField] private InventoryPage[] inventoryPage;
+    private ObjectController currentObjectController;
     private int activePage = 0;
     [SerializeField]
     private PageChangeButton[] pageChangeButton;
+     private InventoryStorage inventoryStorage;
    // public 
     private void Awake()
     {
+        inventoryStorage=new InventoryStorage();
         InventoryPage.OnObjectAddToPage += AddObjectsToInventory;
         InputPlayer.OnGrounClicked += DropObject;
         ObjectEvents.OnPickUp += AddObject;
         ObjectEvents.ObjectClicked += ObjectSelected;
-        
+        inventoryStorage.inventoryPage = inventoryPage;
+
     }
+
     private void AddObjectsToInventory(ObjectAbstract inventorObjectable, int howMany)
     {
-        if (haveObjects.ContainsKey(inventorObjectable))
-        {
-            // Eğer key mevcutsa, listenin sonuna item ekle
-            haveObjects[inventorObjectable]+=howMany;
-            return;
-        }
-        haveObjects.Add(inventorObjectable, howMany);
+        inventoryStorage.AddObjectsToInventory(inventorObjectable, howMany);
     }
+
     public void Equip(ItemController itemController)
     {
         inventoryPage[activePage].ResetButtons(itemController.cells);
     }
-    public bool Unequip(ItemController unEquipObject)
+    public bool ControlChangePos(ItemController unEquipObject)
     {
-       
-            foreach (InventoryPage page in inventoryPage)
-            {
-           
-                return page.ControlUnequip(unEquipObject);
-            
-            }
 
-            return false;
-      
-      
+        return inventoryStorage.ControlChangePos(unEquipObject);
+
     }
-    private void ObjectSelected(ObjectController objectController)
+    private void ObjectSelected(ObjectController objectController,ObjectAbstract selectedObject)
     {
-        if (this.objectController == null)
+        if (this.currentObjectController == null)
         {
-            this.objectController = objectController;
+            this.currentObjectController = objectController;
+            _imageUnderCursor.Open(selectedObject);
         }
         else
         {
-            ChangePos(objectController);
+            _imageUnderCursor.Close();
+            inventoryStorage.ChangePos(objectController);
         }
     }
     public void ChangePage(int page)
@@ -80,83 +69,29 @@ public class InventoryManager : MonoBehaviour,IWaitConfirmable
     }
     public void ClosePage(int page)
     {
-        inventoryPage[page].GetComponent<CanvasGroup>().alpha = 0;
-        inventoryPage[page].GetComponent<CanvasGroup>().interactable = false; 
-        inventoryPage[page].GetComponent<CanvasGroup>().blocksRaycasts = false; 
+        inventoryPage[page].ClosePage(); 
 
         pageChangeButton[page].ChangeColorForNormal();
     }
     
     public void OpenPage(int page)
     {
-        activePage = page;
-        inventoryPage[page].GetComponent<CanvasGroup>().alpha = 1;      
-        inventoryPage[page].GetComponent<CanvasGroup>().interactable = true; 
-        inventoryPage[page].GetComponent<CanvasGroup>().blocksRaycasts = true; 
+        activePage = page; 
+        inventoryPage[page].OpenPage(); 
         pageChangeButton[page].ChangeColorForPressed();
     }
-    private void ChangePos(ObjectController objectController)
-    {
-        ObjectController temp = objectController;
-        
-    }
+    
     public void AddObject(ObjectAbstract inventorObjectAble,int howMany,GameObject destroyIfPickUp=null)
     {
-        Debug.Log("geldi");
-        if(Add(inventorObjectAble,howMany))Destroy(destroyIfPickUp);
+        if(inventoryStorage.Add(inventorObjectAble,howMany))Destroy(destroyIfPickUp);
     }
-    public bool Add(ObjectAbstract inventorObjectAble,int howMany)
-    {
-
-        if (CanAddStack(inventorObjectAble, howMany)) {return true;}
-        
-        return CanAdd(inventorObjectAble, howMany);
-
-    }
-    public bool CanAdd(ObjectAbstract inventorObjectAble, int howMany)
-    {
-        foreach (InventoryPage page in inventoryPage)
-        {
-           
-            if( page.ControlAdd(inventorObjectAble, howMany)){return true;};
-            
-        }
-
-        return false;
-    }
-    public bool CanAddStack(ObjectAbstract inventorObjectAble, int howMany)
-    {
-        if (inventorObjectAble.stackLimit > 1)
-        {
-            foreach (InventoryPage page in inventoryPage)
-            {
-
-          
-                if(page.AddStack(inventorObjectAble, howMany))
-                {
-                    return true;
-                }
-            }
-            
-        }
-        return false;   
-    }
+   
+   
     private void ResetButtons(List<int> buttonPoss)
     {
         //inventoryPage[buttonPos.x].ResetButtons(buttonPos.y);
     }
-   /* public void DropObject()
-    {
-        if (objectController.inventorObjectable is IDropable dropable)
-        {
-            if (dropable.GetPlayerCanDrop())
-            {
-                string confirmText = $"{dropable.GetDropName()} yere atmak istedi�ine emin misin";
-                UIManager.Instance.OpenConfirm(confirmText,this);
-            }
-            else { Debug.Log("bu obje yere at�lamaz"); }
-        }
-    }*/
+    
 
     public void ConfirmValue(bool confirmValue)
     {

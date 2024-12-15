@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Game.Extensions.Unity;
 using Script.Equipment;
 using Script.Inventory;
 using Unity.Collections.LowLevel.Unsafe;

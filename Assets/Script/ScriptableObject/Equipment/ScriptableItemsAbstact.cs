@@ -2,7 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Game.Extensions.Unity;
+using Script;
 using Script.Equipment;
 using Script.Inventory;
 using Script.ScriptableObject.Equipment;

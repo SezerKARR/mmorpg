@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using Game.Extensions.Unity;
 using Script.Inventory.Objects;
 using Script.ScriptableObject.Equipment;
 using UnityEngine;

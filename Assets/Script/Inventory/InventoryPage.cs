@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Game.Extensions.Unity;
 using Script.Inventory;
 using Script.Inventory.Objects;
 using Script.ScriptableObject.Prefab;
@@ -82,7 +81,23 @@ namespace Script.Inventory
             return false;
         }
 
-        public bool ControlUnequip(ItemController itemController)
+        public void ClosePage()
+        {
+            CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
+            canvasGroup.alpha = 0;
+            canvasGroup.interactable = false; 
+            canvasGroup.blocksRaycasts = false; 
+
+        }
+        public void OpenPage()
+        {
+            CanvasGroup canvasGroup = GetComponent<CanvasGroup>();
+            canvasGroup.alpha = 1;
+            canvasGroup.interactable = true; 
+            canvasGroup.blocksRaycasts = true; 
+
+        }
+        public bool ControlChangePos(ItemController itemController)
         {
             List<int2> cells = ControlEmpty(itemController.itemModel.ObjectAbstract.weightInInventory, 1);
             if ( cells != null)

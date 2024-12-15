@@ -1,11 +1,11 @@
 using System;
 using System.Collections.Generic;
-using Game.Extensions.Unity;
+using Script;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 
-public class EquipmentStat:MonoBehaviour
+public class EquipmentStat
 {
     [SerializeField]
     public Stats  Modifiers=new Stats();

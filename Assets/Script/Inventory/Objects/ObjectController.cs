@@ -21,7 +21,7 @@ namespace Script.Inventory
         
         protected virtual void Start()
         {
-            objectView.OnItemPressed += OnButtonClick;
+            objectView.OnObjectPressed += OnButtonClick;
             objectView.OnRightClick += RightClick;
         }
 
@@ -36,7 +36,7 @@ namespace Script.Inventory
         protected virtual void OnButtonClick()
         {
             
-            ObjectEvents.ObjectClicked.Invoke(this);
+            ObjectEvents.ObjectClicked.Invoke(this,objectModel.ObjectAbstract);
             Debug.Log("OnButtonClick");
         }
         public virtual void Place(Transform parent, List<int2> cellInt2,float height,float weight)

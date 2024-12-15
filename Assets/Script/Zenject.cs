@@ -1,4 +1,5 @@
 using Script.Equipment;
+using Script.Inventory;
 using Script.Inventory.Objects;
 using Zenject;
 

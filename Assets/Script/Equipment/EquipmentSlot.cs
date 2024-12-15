@@ -42,7 +42,7 @@ namespace Script.Equipment
         }
         private bool NeedUnequipForEquip()
         {
-            return _inventoryManager.Unequip(this.currentItem);
+            return _inventoryManager.ControlChangePos(this.currentItem);
 
         }
         public void Equip(ItemController equipItem)

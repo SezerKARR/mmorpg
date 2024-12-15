@@ -15,7 +15,7 @@ public abstract class ObjectView : MonoBehaviour ,IPointerClickHandler
     
     protected ObjectController _objectController;
     protected RectTransform _imageRectTransform;
-    public UnityAction OnItemPressed;
+    public UnityAction OnObjectPressed;
     protected float _imageWidth, _imageHeight;
     [SerializeField] protected Image _image;
     [SerializeField] protected TextMeshProUGUI _howManyText;
@@ -68,7 +68,7 @@ public abstract class ObjectView : MonoBehaviour ,IPointerClickHandler
     {
         if (eventData.button == PointerEventData.InputButton.Left)
         {
-            OnItemPressed?.Invoke();
+            OnObjectPressed?.Invoke();
             
         }
     
