@@ -27,7 +27,9 @@ public abstract class ObjectView : MonoBehaviour ,IPointerClickHandler
         _imageRectTransform = GetComponent<RectTransform>();
         
     }
-    public virtual void SetObject(int2 position,Sprite sprite,int weight,float width,float height,int howMany)
+
+    
+    public virtual void SetObject(List<int2> position,Sprite sprite,int weight,float width,float height,int howMany)
     {
         //_howManyText.text = howMany.ToString();
         _image.sprite = sprite;
@@ -47,13 +49,13 @@ public abstract class ObjectView : MonoBehaviour ,IPointerClickHandler
        
        
     }
-    public void SetPosition(int2 cellInt2)
+    public void SetPosition(List<int2> cellInt2)
     {
-        Debug.Log(cellInt2.ToString());
+        
         _imageRectTransform.anchorMin = new Vector2(0, 1);  // Sol üst köşe
         _imageRectTransform.anchorMax = new Vector2(0, 1);  // Sol üst köşe
         
-        _imageRectTransform.anchoredPosition = new Vector3(cellInt2.x*_imageWidth+_imageWidth/2,-cellInt2.y*_imageHeight-_imageHeight/2,transform.position.z);
+        _imageRectTransform.anchoredPosition = new Vector3(cellInt2[0].x*_imageWidth+_imageWidth/2,-cellInt2[0].y*_imageHeight-_imageHeight/2,transform.position.z);
         
         //+new Vector3(cellInt2.x*_imageWidth+_imageWidth/2,cellInt2.y*_imageHeight+_imageHeight/2,transform.position.z);
     }

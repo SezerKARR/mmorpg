@@ -126,5 +126,5 @@ public abstract  class ScriptableItemsAbstact : ObjectAbstract
     // {
     //     return ObjectType.Item;
     // }
-    public abstract void SetStats();
+    
 }

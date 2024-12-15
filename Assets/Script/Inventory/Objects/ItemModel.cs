@@ -18,12 +18,16 @@ namespace Script.Inventory.Objects
            
             public void SetNewStats()
             {
-                throw new System.NotImplementedException();
+                foreach (var itemstat in itemSO.itemstats)
+                {
+                    Player.instance.EquipmentStat.AddModifier(itemstat.Key, itemstat.Value);
+                }
+                
             }
 
             public void SetOldStats()
             {
-                throw new System.NotImplementedException();
+                
             }
             public ScriptableItemsAbstact ItemSO=>itemSO;
             public EquipmentType EquipmentType => itemSO.equipmentType;

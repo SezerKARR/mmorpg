@@ -39,7 +39,6 @@ namespace Script.Equipment
 
         public void Equip(ItemController itemcontroller)
         {
-            Debug.Log(itemcontroller.itemModel.EquipmentType);
             if (equipmentSlots.ContainsKey(itemcontroller.itemModel.EquipmentType))
             {
                  equipmentSlots[itemcontroller.itemModel.EquipmentType].SetItem(itemcontroller);

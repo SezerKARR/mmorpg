@@ -43,17 +43,17 @@ public class SwordSO : ScriptableItemsAbstact
     //     stats.Add(StatType.AttackSpeed, attackSpeed[currentPlus]);
     //     return stats;
     // }
-    public override void SetStats()
-    {
-        if (minAndMaxMagicalAttackValue.Count > 0)
-        {
-            itemstats.Add(StatType.MinMagicAttack, minAndMaxMagicalAttackValue[currentPlus].x);
-            itemstats.Add(StatType.MaxMagicAttack, minAndMaxMagicalAttackValue[currentPlus].y);
-        }
-        itemstats.Add(StatType.MinAttack, minAndMaxAttackValue[currentPlus].x);
-        itemstats.Add(StatType.MaxAttack, minAndMaxAttackValue[currentPlus].y);
-        itemstats.Add(StatType.AttackSpeed, attackSpeed[currentPlus]);
-    }
+    // public override void SetStats()
+    // {
+    //     if (minAndMaxMagicalAttackValue.Count > 0)
+    //     {
+    //         itemstats.Add(StatType.MinMagicAttack, minAndMaxMagicalAttackValue[currentPlus].x);
+    //         itemstats.Add(StatType.MaxMagicAttack, minAndMaxMagicalAttackValue[currentPlus].y);
+    //     }
+    //     itemstats.Add(StatType.MinAttack, minAndMaxAttackValue[currentPlus].x);
+    //     itemstats.Add(StatType.MaxAttack, minAndMaxAttackValue[currentPlus].y);
+    //     itemstats.Add(StatType.AttackSpeed, attackSpeed[currentPlus]);
+    // }
 
 
     

@@ -1,10 +1,12 @@
 
 using System;
 using System.Collections.Generic;
+using Game.Extensions.Unity;
 using Script.Equipment;
 using Script.Inventory;
 using Script.Inventory.Objects;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Zenject;
@@ -13,32 +15,50 @@ public class InventoryManager : MonoBehaviour,IWaitConfirmable
 {
     [Inject] [SerializeField] private EquipmentManager _equipmentManager;
     [SerializeField]private InventoryPage[] inventoryPage;
-    public ObjectController objectController;
-    private int activePage=1;
+    [SerializeField] private HaveObjects haveObjects;
+
+    [Serializable]
+    public class HaveObjects : UnityDictionary<ObjectAbstract, int> { };
+    private ObjectController objectController;
+    private int activePage = 0;
     [SerializeField]
     private PageChangeButton[] pageChangeButton;
    // public 
     private void Awake()
     {
+        InventoryPage.OnObjectAddToPage += AddObjectsToInventory;
+        InputPlayer.OnGrounClicked += DropObject;
         ObjectEvents.OnPickUp += AddObject;
         ObjectEvents.ObjectClicked += ObjectSelected;
         
     }
-
-    public bool NeedUnequip(ObjectAbstract addObject)
+    private void AddObjectsToInventory(ObjectAbstract inventorObjectable, int howMany)
     {
-        //reduce = false;
-        /*if (this.EquipButton != null)
+        if (haveObjects.ContainsKey(inventorObjectable))
         {
-            if (SomePos(addObject, this.EquipButton)) return true;
-        }*/
-   
-        if (Add(addObject, 1))
-        {
-        
-            return true;
+            // Eğer key mevcutsa, listenin sonuna item ekle
+            haveObjects[inventorObjectable]+=howMany;
+            return;
         }
-        return false;
+        haveObjects.Add(inventorObjectable, howMany);
+    }
+    public void Equip(ItemController itemController)
+    {
+        inventoryPage[activePage].ResetButtons(itemController.cells);
+    }
+    public bool Unequip(ItemController unEquipObject)
+    {
+       
+            foreach (InventoryPage page in inventoryPage)
+            {
+           
+                return page.ControlUnequip(unEquipObject);
+            
+            }
+
+            return false;
+      
+      
     }
     private void ObjectSelected(ObjectController objectController)
     {
@@ -53,6 +73,7 @@ public class InventoryManager : MonoBehaviour,IWaitConfirmable
     }
     public void ChangePage(int page)
     {
+        activePage = page;
         ClosePage(activePage);
         OpenPage(page);
     
@@ -86,28 +107,44 @@ public class InventoryManager : MonoBehaviour,IWaitConfirmable
     }
     public bool Add(ObjectAbstract inventorObjectAble,int howMany)
     {
-        
 
+        if (CanAddStack(inventorObjectAble, howMany)) {return true;}
+        
+        return CanAdd(inventorObjectAble, howMany);
+
+    }
+    public bool CanAdd(ObjectAbstract inventorObjectAble, int howMany)
+    {
         foreach (InventoryPage page in inventoryPage)
         {
+           
+            if( page.ControlAdd(inventorObjectAble, howMany)){return true;};
+            
+        }
 
-            if (inventorObjectAble.stackLimit > 1)
+        return false;
+    }
+    public bool CanAddStack(ObjectAbstract inventorObjectAble, int howMany)
+    {
+        if (inventorObjectAble.stackLimit > 1)
+        {
+            foreach (InventoryPage page in inventoryPage)
             {
+
+          
                 if(page.AddStack(inventorObjectAble, howMany))
                 {
                     return true;
                 }
             }
-            if (page.CanGetObject(inventorObjectAble, howMany)) {
-
-                //itemsInInventory.Add((inventorObjectAble, howMany));
-                return true;
-            }
+            
         }
-        return false;
-
+        return false;   
     }
-
+    private void ResetButtons(List<int> buttonPoss)
+    {
+        //inventoryPage[buttonPos.x].ResetButtons(buttonPos.y);
+    }
    /* public void DropObject()
     {
         if (objectController.inventorObjectable is IDropable dropable)
@@ -131,4 +168,6 @@ public class InventoryManager : MonoBehaviour,IWaitConfirmable
     {
         throw new NotImplementedException();
     }
+
+    
 }

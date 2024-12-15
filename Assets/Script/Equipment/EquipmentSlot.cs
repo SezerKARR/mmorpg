@@ -18,11 +18,13 @@ namespace Script.Equipment
             if (currentItem == null)
             {
                 //OnEquip?.Invoke(item);
+                _inventoryManager.Equip(itemController);
                 Equip(itemController);
                 return true;
             }
-            else if (NeedUnequipForEquip(currentItem.itemModel.ItemSO))
+            else if (NeedUnequipForEquip())
             {
+                _inventoryManager.Equip(itemController);
                // OnEquipmentChanged?.Invoke(equipment.GetItemable(), item);
                 UnEquip();
                 Equip(itemController);
@@ -38,9 +40,9 @@ namespace Script.Equipment
             _itemController.Place(transform, transform.position);
             return false;*/
         }
-        private bool NeedUnequipForEquip(ScriptableItemsAbstact equipItem)
+        private bool NeedUnequipForEquip()
         {
-            return _inventoryManager.NeedUnequip(equipItem);
+            return _inventoryManager.Unequip(this.currentItem);
 
         }
         public void Equip(ItemController equipItem)

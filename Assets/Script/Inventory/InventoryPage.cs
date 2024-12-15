@@ -2,35 +2,37 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Game.Extensions.Unity;
+using Script.Inventory;
 using Script.Inventory.Objects;
 using Script.ScriptableObject.Prefab;
 using Unity.Mathematics;
 using UnityEngine;
 using Zenject;
 using Object = UnityEngine.Object;
-
+[System.Serializable]
+public class ObjectsRow
+{
+    public ObjectController[] objectController=new ObjectController[9];
+}
 namespace Script.Inventory
 {
+
+//usage
     public class InventoryPage:MonoBehaviour
     {
-        
-        // ReSharper disable once InconsistentNaming
         [SerializeField] RectTransform _buttonPanel;
-        [SerializeField] private ObjectDatas _objects;
-        [Serializable]
-        public class ObjectDatas : UnityDictionary<int2, ObjectController> { }
-
+        public List<List<float>> twoDimensionalList = new List<List<float>>();
         public ItemPrefabList objectsPrefab;
         private float _width;
         private float _height; 
-        public int rowCount=5;
-        public int columnCount=9;
         private ObjectController _currentObjectController;
-        
-        
+        public static Action<ObjectAbstract,int> OnObjectAddToPage;
+        public ObjectsRow[] _cotroller = new ObjectsRow[5];
+        public int rowCount,columnCount;
         public void Awake()
-        { 
-            
+        {
+            rowCount = _cotroller.Length;
+            columnCount = _cotroller[0].objectController.Length;
             _width = _buttonPanel.rect.width/rowCount;
             _height = _buttonPanel.rect.height/columnCount;
         }
@@ -52,98 +54,143 @@ namespace Script.Inventory
         
         public bool AddStack(ObjectAbstract inventorObjectable, int howMany)
         {
-            foreach (var item in _objects.Where(entry => 
-                         entry.Value.Model.ObjectAbstract == inventorObjectable).ToList())
+            var filteredControllers = _cotroller.Cast<ObjectController>()
+                .Where(item => item != null && item.Model.ObjectAbstract == inventorObjectable)
+                .ToList();
+            foreach (var item in filteredControllers)
             {
                 // Gerekli işlemi yap
-                int newCount = item.Value.howMany + howMany;
+                int newCount = item.howMany + howMany;
 
-                if (newCount <= item.Value.Model.StackLimit)
+                if (newCount <= item.Model.StackLimit)
                 {
-                    item.Value.UpdateCount(newCount); // Güncelleme işlemi
+                    item.UpdateCount(newCount); // Güncelleme işlemi
                     return true; // İlk eşleşmede işlem yap ve döngüden çık
                 }
             }
             return false;
         }
-        public bool CanGetObject(ObjectAbstract inventorObjectable,int howMany)
+
+        public bool ControlAdd(ObjectAbstract inventorObjectable, int howMany)
         {
+            List<int2> cells =ControlEmpty(inventorObjectable.weightInInventory, howMany);
+            if ( cells != null)
+            {
+                CreateObjectModel(cells, inventorObjectable, howMany);
+                return true;
+            }
+            return false;
+        }
+
+        public bool ControlUnequip(ItemController itemController)
+        {
+            List<int2> cells = ControlEmpty(itemController.itemModel.ObjectAbstract.weightInInventory, 1);
+            if ( cells != null)
+            {
+                
+                itemController.Place(this.transform,cells,_height,_width);
+                return true;
+            }
+            return false;
+        }
+
+        
+        public List<int2>  ControlEmpty(int weightInInventory,int howMany)
+        {   
             for (int i = 0; i < rowCount; i++)
             {
                 for (int j = 0; j < columnCount; j++)
                 {
-                    if( ControlCanAdd(new int2(i,j), inventorObjectable, howMany))
-                        return true;
+                    List<int2> celss = ControlEmptyCell(new int2(i, j), weightInInventory, howMany);
+                    if (celss != null) return celss ;
                 }
                 
             }
-            return false;
+            return null;
         }
-        public bool ControlCanAdd(int2 rowAndColumnCount, ObjectAbstract inventorObjectable,int howMany)
+        public  List<int2> ControlEmptyCell(int2 rowAndColumnCount, int weightInInventory,int howMany)
         {
-            int weightInInventory = inventorObjectable.weightInInventory;
-            if (weightInInventory + rowAndColumnCount.y> columnCount)
+            if (weightInInventory + rowAndColumnCount.y>columnCount)
             {
-                return false;
+                return  null;
             }
-
-            if ( !_objects.ContainsKey((rowAndColumnCount)) )
-            {
-                if (weightInInventory == 1)
-                {
-                    AddScriptableObjectInPage(rowAndColumnCount, howMany,inventorObjectable);
-                    
-                    return true;
-                }
-                else if (weightInInventory + 1 + rowAndColumnCount.y <= columnCount &&
-                         !_objects.ContainsKey(new int2(rowAndColumnCount.x , rowAndColumnCount.y+1)) )
-                {
-                    
-                    if (weightInInventory == 2)
-                    {
-                        AddScriptableObjectInPage(rowAndColumnCount, howMany,inventorObjectable);
-                    
-                        return true;
-                    }
-                    else if (weightInInventory + 2 + rowAndColumnCount.y <= columnCount &&
-                             !_objects.ContainsKey(new int2(rowAndColumnCount.x , rowAndColumnCount.y+2)))
-                    {
-                    
-                        if (weightInInventory == 3)
-                        {
-                            AddScriptableObjectInPage(rowAndColumnCount, howMany,inventorObjectable);
-                    
-                            return true;
-                        }
-                    }
-                }
-            }
-            return false;
-        }
-
-        void AddScriptableObjectInPage(int2 cellInt2 , int howMany,ObjectAbstract iInventorObjectable)
-        {
-            CreateObjectModel(cellInt2, iInventorObjectable, howMany);
-            for (int i = 0; i < iInventorObjectable.weightInInventory; i++)
-            {
-                _objects[ new int2(cellInt2.x, cellInt2.y + i)] = _currentObjectController;
-            }
-
-            _currentObjectController = null;
-        }
-        void CreateObjectModel(int2 cellInt2, ObjectAbstract inventorObjectable, int howMany)
-        {
-            GameObject objectControllerGameObject=null;
-            if (objectsPrefab != null)
-            {
-                Debug.Log(inventorObjectable.Type);
-                objectControllerGameObject= Instantiate(objectsPrefab.GetPrefabByType(inventorObjectable.Type));
-                
-               
-            }
+            List<int2> cells = new List<int2>(); 
             
-            _currentObjectController = objectControllerGameObject.GetComponent<ObjectController>();
-            _currentObjectController.Place(inventorObjectable,this.transform,cellInt2,howMany,_height,_width);
+            for (int i = 0; i < weightInInventory; i++)
+            {
+                // Nesnenin sütunu aşmaması gerektiğini kontrol et
+                if (_cotroller[rowAndColumnCount.x].objectController[rowAndColumnCount.y] ==null)
+                {
+                    cells.Add(new int2(rowAndColumnCount.x, rowAndColumnCount.y+i));
+                }
+                else
+                {
+                    return null;
+                }
+                
+            }
+
+            return cells;
+            
+            // if ( !_objects.ContainsKey((rowAndColumnCount)) )
+            // {
+            //     if (weightInInventory == 1)
+            //     {
+            //         
+            //         
+            //         return true;
+            //     }
+            //     else if (weightInInventory + 1 + rowAndColumnCount.y <= columnCount &&
+            //              !_objects.ContainsKey(new int2(rowAndColumnCount.x , rowAndColumnCount.y+1)) )
+            //     {
+            //         
+            //         if (weightInInventory == 2)
+            //         {
+            //            
+            //         
+            //             return true;
+            //         }
+            //         else if (weightInInventory + 2 + rowAndColumnCount.y <= columnCount &&
+            //                  !_objects.ContainsKey(new int2(rowAndColumnCount.x , rowAndColumnCount.y+2)))
+            //         {
+            //         
+            //             if (weightInInventory == 3)
+            //             {
+            //               
+            //         
+            //                 return true;
+            //             }
+            //         }
+            //     }
+            // }
+            
+        }
+
+        public void AddObjectToPage(ObjectController objectController,List<int2> celss)
+        {
+            foreach (var cell in celss)
+            {
+                _cotroller[ cell.x].objectController[cell.y] = objectController;
+            }
+        }
+        
+        
+        public void CreateObjectModel(List<int2> cellInt2, ObjectAbstract inventorObjectable, int howMany)
+        {
+            GameObject objectControllerGameObject= Instantiate(objectsPrefab.GetPrefabByType(inventorObjectable.Type));
+            
+            objectControllerGameObject.GetComponent<ObjectController>().Place(inventorObjectable,this.transform,cellInt2,howMany,
+                _height,_width);
+            AddObjectToPage(objectControllerGameObject.GetComponent<ObjectController>(),cellInt2);
+            OnObjectAddToPage?.Invoke(inventorObjectable,howMany);
+        }
+        public void ResetButtons(List<int2> resetCells)
+        {
+            foreach (var cell in resetCells)
+            {
+                _cotroller[ cell.x].objectController[cell.y] = null;
+            }
+    
         }
         
     }

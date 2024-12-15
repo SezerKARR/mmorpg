@@ -1,17 +1,24 @@
+using System;
 using System.Collections.Generic;
+using Game.Extensions.Unity;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
+using UnityEngine;
 
 
-
-public class EquipmentStat
+public class EquipmentStat:MonoBehaviour
 {
-    public Dictionary<StatType, float> Modifiers { get; private set; } = new Dictionary<StatType, float>();
-
+    [SerializeField]
+    public Stats  Modifiers=new Stats();
+    [Serializable]
+    public class Stats : UnityDictionary<StatType, float> { }
+    
     // Constructor, bo� veya ba�lang�� modifiyerleriyle olu�turmay� destekler.
    
 
     // Yeni bir modifiye ekler veya mevcut modifiyeri g�nceller
     public void AddModifier(StatType statType, float modifierValue)
     {
+
         if (Modifiers.ContainsKey(statType))
         {
             Modifiers[statType] += modifierValue; // Mevcut de�ere ekler
@@ -20,7 +27,7 @@ public class EquipmentStat
         {
             Modifiers.Add(statType, modifierValue); // Yeni modifiye ekler
         }
-       
+     
     }
 
     // Bir modifiyeri kald�r�r

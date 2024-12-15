@@ -24,6 +24,8 @@ public class InputPlayer : MonoBehaviour
     public static event Action<Vector2> OnMovePressed;
     public static event Action OnClickLeftPressed;
     public static event Action OnIdlePerformed;
+
+    public static event Action OnGrounClicked; 
     // Start is called before the first frame update
     void Awake()
     {
@@ -68,12 +70,7 @@ public class InputPlayer : MonoBehaviour
             {
                 if (hit.collider.gameObject.layer == LayerMask.NameToLayer("Ground"))
                 {
-                    if (_inventoryManager.objectController != null)
-                    {
-                        _inventoryManager.DropObject();
-                       
-
-                    }
+                    OnGrounClicked?.Invoke();
                     Debug.Log(hit.collider.gameObject);
                 }
                 else if (hit.collider.gameObject.CompareTag("Equipment"))

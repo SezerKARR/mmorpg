@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Script.Inventory.Objects;
 using Unity.Mathematics;
 using UnityEngine;
@@ -10,7 +11,8 @@ namespace Script.Inventory
     
     public abstract class ObjectController :MonoBehaviour
     {
-        public int2 cellIndex;
+        public List<int2> cells;
+        public int page;
         public int  size;
         [SerializeField] protected ObjectView objectView;
         [SerializeField] protected  ObjectModel objectModel;
@@ -26,8 +28,7 @@ namespace Script.Inventory
         public virtual void RightClick() { }
         public virtual void Place(Transform parent,Vector2 size)
         {
-            Debug.Log(size.ToString());
-            cellIndex = new int2(-1, -1);
+            cells = null;
             transform.SetParent(parent);
             objectView.SetPosition( size);
             //objectView.SetPosition(new Vector2(positon.x, positon.y));
@@ -38,18 +39,17 @@ namespace Script.Inventory
             ObjectEvents.ObjectClicked.Invoke(this);
             Debug.Log("OnButtonClick");
         }
-        public virtual void Place(Transform parent, int2 cellInt2,int howMany)
+        public virtual void Place(Transform parent, List<int2> cellInt2,float height,float weight)
         {
-            this.howMany = howMany;
-            cellIndex = cellInt2;
+            cells = cellInt2;
             transform.SetParent(parent);
-            objectView.SetPosition(cellInt2);
+            objectView.SetObject(cellInt2,objectModel.sprite,objectModel.WeightInInventory,weight,height,howMany);
         }
-        public virtual void Place(ObjectAbstract objectAbstract, Transform parent, int2 cellInt2,int howMany,float height,float weight)
+        public virtual void Place(ObjectAbstract objectAbstract, Transform parent, List<int2> cellInt2,int howMany,float height,float weight)
         {
             objectModel.SetObjectAbstract(objectAbstract);
             this.howMany = howMany; 
-            cellIndex = cellInt2;
+            cells = cellInt2;
             transform.SetParent(parent);
             objectView.SetObject(cellInt2,objectModel.sprite,objectModel.WeightInInventory,weight,height,howMany);
         }
