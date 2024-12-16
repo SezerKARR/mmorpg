@@ -17,11 +17,15 @@ MonoBehaviour:
   - Fire
   race: Insect
   level: 64
+  levelint: 64
   stage: 4
+  stageint: 4
   monsterName: Best. Red Poison Spider
   location: Spider Dungeon 3,Spider Queen's Nest
   monsterLocations:
   - Spider Dungeon 3
   - Spider Queen's Nest
   exp: 9829
-  canDrop: []
+  expint: 9829
+  health: 765
+  canDrops: []

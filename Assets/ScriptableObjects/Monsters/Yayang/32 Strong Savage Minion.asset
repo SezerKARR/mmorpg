@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Half H.
   level: 32
+  levelint: 32
   stage: 1
+  stageint: 1
   monsterName: Strong Savage Minion
   location: Bokjung,Yayang,Bakra
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Yayang
   - Bakra
   exp: 903
-  canDrop: []
+  expint: 903
+  health: 56
+  canDrops: []

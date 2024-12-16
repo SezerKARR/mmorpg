@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Animal
   level: 105
+  levelint: 105
   stage: 5
+  stageint: 5
   monsterName: Martyaxwar
   location: Cape Dragon Fire
   monsterLocations:
   - Cape Dragon Fire
   exp: 377005
-  canDrop: []
+  expint: 377005
+  health: 21540
+  canDrops: []

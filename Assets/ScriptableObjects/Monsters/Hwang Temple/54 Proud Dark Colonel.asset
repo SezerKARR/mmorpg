@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Mystic
   level: 54
+  levelint: 54
   stage: 3
+  stageint: 3
   monsterName: Proud Dark Colonel
   location: Hwang Temple
   monsterLocations:
   - Hwang Temple
   exp: 2170
-  canDrop: []
+  expint: 2170
+  health: 160
+  canDrops: []

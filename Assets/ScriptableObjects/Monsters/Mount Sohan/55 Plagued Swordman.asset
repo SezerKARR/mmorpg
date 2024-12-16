@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Undead
   level: 55
+  levelint: 55
   stage: 3
+  stageint: 3
   monsterName: Plagued Swordman
   location: Mount Sohan
   monsterLocations:
   - Mount Sohan
   exp: 1767
-  canDrop: []
+  expint: 1767
+  health: 128
+  canDrops: []

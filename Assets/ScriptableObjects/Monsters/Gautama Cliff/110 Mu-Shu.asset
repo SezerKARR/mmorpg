@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Devil
   level: 110
+  levelint: 110
   stage: 5
+  stageint: 5
   monsterName: Mu-Shu
   location: Gautama Cliff
   monsterLocations:
   - Gautama Cliff
   exp: 394915
-  canDrop: []
+  expint: 394915
+  health: 21540
+  canDrops: []

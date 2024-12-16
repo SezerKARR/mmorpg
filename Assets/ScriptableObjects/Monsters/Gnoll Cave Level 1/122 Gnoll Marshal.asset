@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: Animal
   level: 122
+  levelint: 122
   stage: 4
+  stageint: 4
   monsterName: Gnoll Marshal
   location: Gnoll Cave Level 1
   monsterLocations:
   - Gnoll Cave Level 1
   exp: 30
-  canDrop: []
+  expint: 30
+  health: 0
+  canDrops: []

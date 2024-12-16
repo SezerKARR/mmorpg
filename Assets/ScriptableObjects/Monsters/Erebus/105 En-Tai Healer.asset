@@ -17,11 +17,15 @@ MonoBehaviour:
   - Wind
   race: Devil
   level: 105
+  levelint: 105
   stage: 3
+  stageint: 3
   monsterName: En-Tai Healer
   location: Enchanted Forest,Erebus
   monsterLocations:
   - Enchanted Forest
   - Erebus
   exp: 37900
-  canDrop: []
+  expint: 37900
+  health: 1440
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - Lightning
   race: Devil
   level: 116
+  levelint: 116
   stage: 3
+  stageint: 3
   monsterName: Setaou Archer (TR)
   location: Grotto of Exile (TR)
   monsterLocations:
   - Grotto of Exile (TR)
   exp: 29880
-  canDrop: []
+  expint: 29880
+  health: 1028
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - Fire
   race: Insect
   level: 66
+  levelint: 66
   stage: 3
+  stageint: 3
   monsterName: Claw Poison Spider SD2
   location: Spider Dungeon 2
   monsterLocations:
   - Spider Dungeon 2
   exp: 10031
-  canDrop: []
+  expint: 10031
+  health: 604
+  canDrops: []

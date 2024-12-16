@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 1
+  levelint: 1
   stage: 1
+  stageint: 1
   monsterName: Wild Dog (Colony)
   location: Colony
   monsterLocations:
   - Colony
   exp: 4
-  canDrop: []
+  expint: 4
+  health: 8
+  canDrops: []

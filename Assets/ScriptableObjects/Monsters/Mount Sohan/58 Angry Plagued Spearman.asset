@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Undead
   level: 58
+  levelint: 58
   stage: 3
+  stageint: 3
   monsterName: Angry Plagued Spearman
   location: Mount Sohan
   monsterLocations:
   - Mount Sohan
   exp: 1304
-  canDrop: []
+  expint: 1304
+  health: 88
+  canDrops: []

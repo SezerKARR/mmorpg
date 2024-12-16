@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Desert
   level: 44
+  levelint: 44
   stage: 3
+  stageint: 3
   monsterName: Young Scorpion Man
   location: Yongbi Desert
   monsterLocations:
   - Yongbi Desert
   exp: 2478
-  canDrop: []
+  expint: 2478
+  health: 224
+  canDrops: []

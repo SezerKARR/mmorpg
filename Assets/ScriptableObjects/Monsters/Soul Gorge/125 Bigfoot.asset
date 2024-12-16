@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 125
+  levelint: 125
   stage: Boss
+  stageint: 0
   monsterName: Bigfoot
   location: Soul Gorge
   monsterLocations:
   - Soul Gorge
   exp: 80
-  canDrop: []
+  expint: 80
+  health: 0
+  canDrops: []

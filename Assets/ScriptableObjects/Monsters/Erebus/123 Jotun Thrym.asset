@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: Orc
   level: 123
+  levelint: 123
   stage: 5
+  stageint: 5
   monsterName: Jotun Thrym
   location: Erebus
   monsterLocations:
   - Erebus
   exp: 4564000
-  canDrop: []
+  expint: 4564000
+  health: 222630
+  canDrops: []

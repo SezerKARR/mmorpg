@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Animal
   level: 9
+  levelint: 9
   stage: 1
+  stageint: 1
   monsterName: Hungry Alpha Blue Wolf
   location: Joan,Pyungmoo,Yongan
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Pyungmoo
   - Yongan
   exp: 78
-  canDrop: []
+  expint: 78
+  health: 16
+  canDrops: []

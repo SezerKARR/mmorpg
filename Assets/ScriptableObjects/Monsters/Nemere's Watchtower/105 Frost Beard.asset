@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 105
+  levelint: 105
   stage: 3
+  stageint: 3
   monsterName: Frost Beard
   location: Nemere's Watchtower
   monsterLocations:
   - Nemere's Watchtower
   exp: 9907
-  canDrop: []
+  expint: 9907
+  health: 376
+  canDrops: []

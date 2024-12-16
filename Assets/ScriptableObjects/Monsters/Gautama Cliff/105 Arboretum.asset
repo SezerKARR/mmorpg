@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 105
+  levelint: 105
   stage: Boss
+  stageint: 0
   monsterName: Arboretum
   location: Gautama Cliff
   monsterLocations:
   - Gautama Cliff
   exp: 104702
-  canDrop: []
+  expint: 104702
+  health: 997
+  canDrops: []

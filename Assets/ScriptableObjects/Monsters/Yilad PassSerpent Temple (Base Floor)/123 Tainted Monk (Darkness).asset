@@ -17,10 +17,14 @@ MonoBehaviour:
   - Darkness
   race: Devil
   level: 123
+  levelint: 123
   stage: 4
+  stageint: 4
   monsterName: Tainted Monk (Darkness)
   location: Yilad PassSerpent Temple (Base Floor)
   monsterLocations:
   - Yilad PassSerpent Temple (Base Floor)
   exp: 33
-  canDrop: []
+  expint: 33
+  health: 0
+  canDrops: []

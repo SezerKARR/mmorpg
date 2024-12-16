@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Insect
   level: 52
+  levelint: 52
   stage: 3
+  stageint: 3
   monsterName: Deadly Poison Spider
   location: Kuahlo Dong
   monsterLocations:
   - Kuahlo Dong
   exp: 2316
-  canDrop: []
+  expint: 2316
+  health: 176
+  canDrops: []

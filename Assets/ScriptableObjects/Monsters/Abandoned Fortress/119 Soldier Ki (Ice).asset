@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: Half H.
   level: 119
+  levelint: 119
   stage: 3
+  stageint: 3
   monsterName: Soldier Ki (Ice)
   location: Abandoned Fortress
   monsterLocations:
   - Abandoned Fortress
   exp: 24
-  canDrop: []
+  expint: 24
+  health: 0
+  canDrops: []

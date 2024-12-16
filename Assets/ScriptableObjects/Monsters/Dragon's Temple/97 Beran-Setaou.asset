@@ -17,10 +17,14 @@ MonoBehaviour:
   - Lightning
   race: 
   level: 97
+  levelint: 97
   stage: 5
+  stageint: 5
   monsterName: Beran-Setaou
   location: Dragon's Temple
   monsterLocations:
   - Dragon's Temple
   exp: 3564000
-  canDrop: []
+  expint: 3564000
+  health: 220452
+  canDrops: []

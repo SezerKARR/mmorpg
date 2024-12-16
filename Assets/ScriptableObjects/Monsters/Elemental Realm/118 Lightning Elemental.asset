@@ -17,10 +17,14 @@ MonoBehaviour:
   - Lightning
   race: 
   level: 118
+  levelint: 118
   stage: 3
+  stageint: 3
   monsterName: Lightning Elemental
   location: Elemental Realm
   monsterLocations:
   - Elemental Realm
   exp: 23500
-  canDrop: []
+  expint: 23500
+  health: 796
+  canDrops: []

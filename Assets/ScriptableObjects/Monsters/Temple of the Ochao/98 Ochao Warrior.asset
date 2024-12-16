@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Devil
   level: 98
+  levelint: 98
   stage: 1
+  stageint: 1
   monsterName: Ochao Warrior
   location: Temple of the Ochao
   monsterLocations:
   - Temple of the Ochao
   exp: 9375
-  canDrop: []
+  expint: 9375
+  health: 190
+  canDrops: []

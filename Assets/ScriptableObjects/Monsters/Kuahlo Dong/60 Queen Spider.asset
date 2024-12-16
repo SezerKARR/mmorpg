@@ -17,11 +17,15 @@ MonoBehaviour:
   - Wind
   race: Insect
   level: 60
+  levelint: 60
   stage: Boss
+  stageint: 0
   monsterName: Queen Spider
   location: Kuahlo Dong,Spider Dungeon 2
   monsterLocations:
   - Kuahlo Dong
   - Spider Dungeon 2
   exp: 19280
-  canDrop: []
+  expint: 19280
+  health: 321
+  canDrops: []

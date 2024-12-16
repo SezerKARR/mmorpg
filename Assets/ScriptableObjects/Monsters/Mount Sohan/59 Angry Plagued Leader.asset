@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Undead
   level: 59
+  levelint: 59
   stage: 4
+  stageint: 4
   monsterName: Angry Plagued Leader
   location: Mount Sohan
   monsterLocations:
   - Mount Sohan
   exp: 2654
-  canDrop: []
+  expint: 2654
+  health: 220
+  canDrops: []

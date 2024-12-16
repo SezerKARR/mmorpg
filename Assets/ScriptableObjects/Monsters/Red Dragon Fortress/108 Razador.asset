@@ -17,10 +17,14 @@ MonoBehaviour:
   - Fire
   race: 
   level: 108
+  levelint: 108
   stage: Boss
+  stageint: 0
   monsterName: Razador
   location: Red Dragon Fortress
   monsterLocations:
   - Red Dragon Fortress
   exp: 422585
-  canDrop: []
+  expint: 422585
+  health: 3912
+  canDrops: []

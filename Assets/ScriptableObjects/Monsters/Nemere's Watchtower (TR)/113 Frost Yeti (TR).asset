@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 113
+  levelint: 113
   stage: 2
+  stageint: 2
   monsterName: Frost Yeti (TR)
   location: Nemere's Watchtower (TR)
   monsterLocations:
   - Nemere's Watchtower (TR)
   exp: 1984
-  canDrop: []
+  expint: 1984
+  health: 51
+  canDrops: []

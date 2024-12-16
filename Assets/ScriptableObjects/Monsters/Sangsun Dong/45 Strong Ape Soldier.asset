@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 45
+  levelint: 45
   stage: 1
+  stageint: 1
   monsterName: Strong Ape Soldier
   location: Sangsun Dong
   monsterLocations:
   - Sangsun Dong
   exp: 724
-  canDrop: []
+  expint: 724
+  health: 32
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: Orc
   level: 104
+  levelint: 104
   stage: 3
+  stageint: 3
   monsterName: Twiant
   location: Thunder Mountains
   monsterLocations:
   - Thunder Mountains
   exp: 9007
-  canDrop: []
+  expint: 9007
+  health: 344
+  canDrops: []

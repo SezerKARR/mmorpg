@@ -17,11 +17,15 @@ MonoBehaviour:
   - Ice
   race: Devil
   level: 99
+  levelint: 99
   stage: 3
+  stageint: 3
   monsterName: Tritonic Hunter
   location: Nephrite Bay,Ship Defence
   monsterLocations:
   - Nephrite Bay
   - Ship Defence
   exp: 8575
-  canDrop: []
+  expint: 8575
+  health: 344
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - Any
   race: Devil
   level: 120
+  levelint: 120
   stage: 1
+  stageint: 1
   monsterName: Tower Wolf
   location: Sung Mahi Tower
   monsterLocations:
   - Sung Mahi Tower
   exp: 33~36
-  canDrop: []
+  expint: 2147483647
+  health: 35791394
+  canDrops: []

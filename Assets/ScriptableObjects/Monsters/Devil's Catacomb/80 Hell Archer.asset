@@ -17,10 +17,14 @@ MonoBehaviour:
   - Darkness
   race: Undead
   level: 80
+  levelint: 80
   stage: 2
+  stageint: 2
   monsterName: Hell Archer
   location: Devil's Catacomb
   monsterLocations:
   - Devil's Catacomb
   exp: 896
-  canDrop: []
+  expint: 896
+  health: 33
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Devil
   level: 130
+  levelint: 130
   stage: Boss
+  stageint: 0
   monsterName: Bagjanamu (TR)
   location: Enchanted Forest (TR)
   monsterLocations:
   - Enchanted Forest (TR)
   exp: 1732057
-  canDrop: []
+  expint: 1732057
+  health: 13323
+  canDrops: []

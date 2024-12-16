@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Insect
   level: 51
+  levelint: 51
   stage: 3
+  stageint: 3
   monsterName: Snake Archer
   location: Yongbi Desert
   monsterLocations:
   - Yongbi Desert
   exp: 2869
-  canDrop: []
+  expint: 2869
+  health: 224
+  canDrops: []

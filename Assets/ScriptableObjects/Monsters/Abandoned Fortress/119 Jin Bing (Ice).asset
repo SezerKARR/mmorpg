@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: Half H.
   level: 119
+  levelint: 119
   stage: 2
+  stageint: 2
   monsterName: Jin Bing (Ice)
   location: Abandoned Fortress
   monsterLocations:
   - Abandoned Fortress
   exp: 23
-  canDrop: []
+  expint: 23
+  health: 0
+  canDrops: []

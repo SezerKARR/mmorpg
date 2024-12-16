@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Half H.
   level: 25
+  levelint: 25
   stage: 2
+  stageint: 2
   monsterName: White Oath General
   location: Joan,Pyungmoo,Yongan
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Pyungmoo
   - Yongan
   exp: 848
-  canDrop: []
+  expint: 848
+  health: 99
+  canDrops: []

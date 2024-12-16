@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Devil
   level: 111
+  levelint: 111
   stage: 2
+  stageint: 2
   monsterName: En-Tai Druid (RX)
   location: Enchanted Forest (RX)
   monsterLocations:
   - Enchanted Forest (RX)
   exp: 42561
-  canDrop: []
+  expint: 42561
+  health: 1149
+  canDrops: []

@@ -17,11 +17,15 @@ MonoBehaviour:
   - Lightning
   race: Devil
   level: 89
+  levelint: 89
   stage: 2
+  stageint: 2
   monsterName: Setaou Mystic
   location: Grotto of Exile,Grotto of Exile V2
   monsterLocations:
   - Grotto of Exile
   - Grotto of Exile V2
   exp: 8658
-  canDrop: []
+  expint: 8658
+  health: 291
+  canDrops: []

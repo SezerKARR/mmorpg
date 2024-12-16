@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Animal
   level: 15
+  levelint: 15
   stage: 4
+  stageint: 4
   monsterName: Cursed Red Wild Boar
   location: Joan,Pyungmoo,Yongan,Imha,Jungrang,Waryong,Snakefield
   monsterLocations:
@@ -29,4 +31,6 @@ MonoBehaviour:
   - Waryong
   - Snakefield
   exp: 732
-  canDrop: []
+  expint: 732
+  health: 240
+  canDrops: []

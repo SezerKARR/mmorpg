@@ -17,10 +17,14 @@ MonoBehaviour:
   - Lightning
   race: Orc
   level: 106
+  levelint: 106
   stage: 5
+  stageint: 5
   monsterName: Polyphemos
   location: Thunder Mountains
   monsterLocations:
   - Thunder Mountains
   exp: 380587
-  canDrop: []
+  expint: 380587
+  health: 21540
+  canDrops: []

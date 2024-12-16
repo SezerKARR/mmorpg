@@ -17,11 +17,15 @@ MonoBehaviour:
   - Wind
   race: Half H.
   level: 95
+  levelint: 95
   stage: 1
+  stageint: 1
   monsterName: Red Thief Amazon
   location: Cape Dragon Fire,Nephrite Bay
   monsterLocations:
   - Cape Dragon Fire
   - Nephrite Bay
   exp: 1143
-  canDrop: []
+  expint: 1143
+  health: 24
+  canDrops: []

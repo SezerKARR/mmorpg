@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Animal
   level: 7
+  levelint: 7
   stage: 1
+  stageint: 1
   monsterName: Hungry Wild Boar
   location: Joan,Pyungmoo,Yongan
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Pyungmoo
   - Yongan
   exp: 61
-  canDrop: []
+  expint: 61
+  health: 16
+  canDrops: []

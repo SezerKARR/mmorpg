@@ -17,10 +17,14 @@ MonoBehaviour:
   - Darkness
   race: Undead
   level: 71
+  levelint: 71
   stage: 3
+  stageint: 3
   monsterName: Brutal Demon Shaman
   location: Demon Tower
   monsterLocations:
   - Demon Tower
   exp: 2280
-  canDrop: []
+  expint: 2280
+  health: 128
+  canDrops: []

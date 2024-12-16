@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Desert
   level: 67
+  levelint: 67
   stage: Boss
+  stageint: 0
   monsterName: Giant Tortoise
   location: Yongbi Desert
   monsterLocations:
   - Yongbi Desert
   exp: 21520
-  canDrop: []
+  expint: 21520
+  health: 321
+  canDrops: []

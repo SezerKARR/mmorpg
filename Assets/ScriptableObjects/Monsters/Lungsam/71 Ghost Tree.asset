@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: 
   level: 71
+  levelint: 71
   stage: 1
+  stageint: 1
   monsterName: Ghost Tree
   location: Lungsam
   monsterLocations:
   - Lungsam
   exp: 1152
-  canDrop: []
+  expint: 1152
+  health: 32
+  canDrops: []

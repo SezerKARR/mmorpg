@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Half H.
   level: 25
+  levelint: 25
   stage: 3
+  stageint: 3
   monsterName: Craven Wh. Oath Com.
   location: Joan,Pyungmoo,Yongan
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Pyungmoo
   - Yongan
   exp: 594
-  canDrop: []
+  expint: 594
+  health: 92
+  canDrops: []

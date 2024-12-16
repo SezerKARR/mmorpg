@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Animal
   level: 1
+  levelint: 1
   stage: 1
+  stageint: 1
   monsterName: Wild Dog
   location: Joan,Pyungmoo,Yongan
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Pyungmoo
   - Yongan
   exp: 15
-  canDrop: []
+  expint: 15
+  health: 30
+  canDrops: []

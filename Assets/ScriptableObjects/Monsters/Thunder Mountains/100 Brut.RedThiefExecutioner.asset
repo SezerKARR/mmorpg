@@ -17,10 +17,14 @@ MonoBehaviour:
   - Lightning
   race: Half H.
   level: 100
+  levelint: 100
   stage: 3
+  stageint: 3
   monsterName: Brut.RedThiefExecutioner
   location: Thunder Mountains
   monsterLocations:
   - Thunder Mountains
   exp: 8661
-  canDrop: []
+  expint: 8661
+  health: 344
+  canDrops: []

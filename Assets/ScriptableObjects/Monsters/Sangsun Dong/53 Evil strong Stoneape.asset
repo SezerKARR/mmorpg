@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 53
+  levelint: 53
   stage: 4
+  stageint: 4
   monsterName: Evil strong Stoneape
   location: Sangsun Dong
   monsterLocations:
   - Sangsun Dong
   exp: 2352
-  canDrop: []
+  expint: 2352
+  health: 220
+  canDrops: []

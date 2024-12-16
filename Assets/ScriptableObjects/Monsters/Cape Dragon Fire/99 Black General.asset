@@ -17,11 +17,15 @@ MonoBehaviour:
   - Wind
   race: Half H.
   level: 99
+  levelint: 99
   stage: 4
+  stageint: 4
   monsterName: Black General
   location: Cape Dragon Fire,Nephrite Bay
   monsterLocations:
   - Cape Dragon Fire
   - Nephrite Bay
   exp: 20485
-  canDrop: []
+  expint: 20485
+  health: 1030
+  canDrops: []

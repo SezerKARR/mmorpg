@@ -22,7 +22,7 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 3
-  DropName: <color=green>War Scythe+0</color>
+  DropName: War Scythe+0
   price: 0
   objectType: 4
   levelWithPlus: 0

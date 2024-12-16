@@ -17,10 +17,14 @@ MonoBehaviour:
   - Darkness
   race: Half H.
   level: 125
+  levelint: 125
   stage: Boss
+  stageint: 0
   monsterName: King Kao (Quest)
   location: Abandoned Fortress
   monsterLocations:
   - Abandoned Fortress
   exp: 1
-  canDrop: []
+  expint: 1
+  health: 0
+  canDrops: []

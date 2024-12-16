@@ -22,7 +22,7 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 2
-  DropName: <color=green>Sword+0</color>
+  DropName: Sword+0
   price: 0
   objectType: 4
   levelWithPlus: 0
@@ -58,7 +58,7 @@ MonoBehaviour:
       howMany: 2
     upgradeMoney: 45000
   - upgradeItems:
-    - upgradeItemName: {fileID: 11400000, guid: b15699c4af6728e4897bc8d3bb24621e, type: 2}
+    - upgradeItemName: {fileID: 0}
       howMany: 2
     upgradeMoney: 75000
   level: 1

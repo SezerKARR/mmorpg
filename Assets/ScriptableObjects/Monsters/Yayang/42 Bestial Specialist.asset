@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Half H.
   level: 42
+  levelint: 42
   stage: 4
+  stageint: 4
   monsterName: Bestial Specialist
   location: Bokjung,Yayang,Bakra,Valley of Seungryong
   monsterLocations:
@@ -26,4 +28,6 @@ MonoBehaviour:
   - Bakra
   - Valley of Seungryong
   exp: 1230
-  canDrop: []
+  expint: 1230
+  health: 145
+  canDrops: []

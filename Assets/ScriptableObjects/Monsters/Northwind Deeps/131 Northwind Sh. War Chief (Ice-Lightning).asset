@@ -18,11 +18,15 @@ MonoBehaviour:
   - "\uFFFDLightning"
   race: 
   level: 131
+  levelint: 131
   stage: Boss
+  stageint: 0
   monsterName: Northwind Sh. War Chief (Ice-Lightning)
   location: Northwind Descent,Northwind Deeps
   monsterLocations:
   - Northwind Descent
   - Northwind Deeps
   exp: 119
-  canDrop: []
+  expint: 119
+  health: 0
+  canDrops: []

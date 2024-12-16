@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 29
+  levelint: 29
   stage: 4
+  stageint: 4
   monsterName: Weak Ape General
   location: Hasun Dong
   monsterLocations:
   - Hasun Dong
   exp: 1872
-  canDrop: []
+  expint: 1872
+  health: 320
+  canDrops: []

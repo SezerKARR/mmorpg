@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 85
+  levelint: 85
   stage: 4
+  stageint: 4
   monsterName: Underworld Ice Golem
   location: Grotto of Exile
   monsterLocations:
   - Grotto of Exile
   exp: 18656
-  canDrop: []
+  expint: 18656
+  health: 1095
+  canDrops: []

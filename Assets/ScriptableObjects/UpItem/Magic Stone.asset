@@ -23,7 +23,7 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  DropName: <color=green>/color>
+  DropName: Magic Stone
   upResultTrue: 1
   upResultFalse: 0
   changeForUp: 0

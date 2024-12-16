@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Mystic
   level: 54
+  levelint: 54
   stage: 2
+  stageint: 2
   monsterName: Proud Dark Fighter
   location: Hwang Temple
   monsterLocations:
   - Hwang Temple
   exp: 1301
-  canDrop: []
+  expint: 1301
+  health: 72
+  canDrops: []

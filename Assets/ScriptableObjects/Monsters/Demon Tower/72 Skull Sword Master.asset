@@ -17,10 +17,14 @@ MonoBehaviour:
   - Darkness
   race: Undead
   level: 72
+  levelint: 72
   stage: 4
+  stageint: 4
   monsterName: Skull Sword Master
   location: Demon Tower
   monsterLocations:
   - Demon Tower
   exp: 4624
-  canDrop: []
+  expint: 4624
+  health: 320
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Devil
   level: 117
+  levelint: 117
   stage: 2
+  stageint: 2
   monsterName: Strong Ochao Soldier
   location: Temple of the Ochao
   monsterLocations:
   - Temple of the Ochao
   exp: 15255
-  canDrop: []
+  expint: 15255
+  health: 390
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 49
+  levelint: 49
   stage: 3
+  stageint: 3
   monsterName: Evil strong Apefighter
   location: Sangsun Dong
   monsterLocations:
   - Sangsun Dong
   exp: 1103
-  canDrop: []
+  expint: 1103
+  health: 88
+  canDrops: []

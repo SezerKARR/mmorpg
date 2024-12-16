@@ -17,7 +17,9 @@ MonoBehaviour:
   - Wind
   race: Half H.
   level: 38
+  levelint: 38
   stage: 4
+  stageint: 4
   monsterName: Black Storm Kyuk-Jang
   location: Bokjung,Yayang,Bakra
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Yayang
   - Bakra
   exp: 3314
-  canDrop: []
+  expint: 3314
+  health: 435
+  canDrops: []

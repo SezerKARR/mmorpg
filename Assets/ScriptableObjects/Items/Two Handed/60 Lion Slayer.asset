@@ -22,7 +22,7 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 3
-  DropName: <color=green>Lion Slayer+0</color>
+  DropName: Lion Slayer+0
   price: 0
   objectType: 4
   levelWithPlus: 0

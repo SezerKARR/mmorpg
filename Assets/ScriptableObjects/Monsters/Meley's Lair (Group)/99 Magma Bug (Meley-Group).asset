@@ -17,10 +17,14 @@ MonoBehaviour:
   - Fire
   race: 
   level: 99
+  levelint: 99
   stage: 2
+  stageint: 2
   monsterName: Magma Bug (Meley-Group)
   location: Meley's Lair (Group)
   monsterLocations:
   - Meley's Lair (Group)
   exp: 0
-  canDrop: []
+  expint: 0
+  health: 0
+  canDrops: []

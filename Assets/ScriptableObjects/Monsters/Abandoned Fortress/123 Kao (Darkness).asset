@@ -17,10 +17,14 @@ MonoBehaviour:
   - Darkness
   race: Half H.
   level: 123
+  levelint: 123
   stage: Boss
+  stageint: 0
   monsterName: Kao (Darkness)
   location: Abandoned Fortress
   monsterLocations:
   - Abandoned Fortress
   exp: 27
-  canDrop: []
+  expint: 27
+  health: 0
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - Darkness
   race: Undead
   level: 81
+  levelint: 81
   stage: 2
+  stageint: 2
   monsterName: Zombie
   location: Devil's Catacomb
   monsterLocations:
   - Devil's Catacomb
   exp: 906
-  canDrop: []
+  expint: 906
+  health: 33
+  canDrops: []

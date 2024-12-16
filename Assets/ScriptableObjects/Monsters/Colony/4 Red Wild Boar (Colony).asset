@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 4
+  levelint: 4
   stage: 2
+  stageint: 2
   monsterName: Red Wild Boar (Colony)
   location: Colony
   monsterLocations:
   - Colony
   exp: 9
-  canDrop: []
+  expint: 9
+  health: 6
+  canDrops: []

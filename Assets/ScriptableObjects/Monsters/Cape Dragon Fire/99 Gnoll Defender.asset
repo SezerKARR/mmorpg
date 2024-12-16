@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: Animal
   level: 99
+  levelint: 99
   stage: 4
+  stageint: 4
   monsterName: Gnoll Defender
   location: Cape Dragon Fire
   monsterLocations:
   - Cape Dragon Fire
   exp: 20485
-  canDrop: []
+  expint: 20485
+  health: 1030
+  canDrops: []

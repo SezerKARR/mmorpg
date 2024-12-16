@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: Devil
   level: 105
+  levelint: 105
   stage: 5
+  stageint: 5
   monsterName: Lemures Bodyguard
   location: Gautama Cliff
   monsterLocations:
   - Gautama Cliff
   exp: 377005
-  canDrop: []
+  expint: 377005
+  health: 21540
+  canDrops: []

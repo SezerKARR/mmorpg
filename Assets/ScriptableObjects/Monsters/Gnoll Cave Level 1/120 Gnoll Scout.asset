@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: Animal
   level: 120
+  levelint: 120
   stage: 3
+  stageint: 3
   monsterName: Gnoll Scout
   location: Gnoll Cave Level 1
   monsterLocations:
   - Gnoll Cave Level 1
   exp: 30
-  canDrop: []
+  expint: 30
+  health: 0
+  canDrops: []

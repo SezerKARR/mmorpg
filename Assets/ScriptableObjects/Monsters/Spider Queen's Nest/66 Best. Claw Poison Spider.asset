@@ -17,11 +17,15 @@ MonoBehaviour:
   - Fire
   race: Insect
   level: 66
+  levelint: 66
   stage: 4
+  stageint: 4
   monsterName: Best. Claw Poison Spider
   location: Spider Dungeon 3,Spider Queen's Nest
   monsterLocations:
   - Spider Dungeon 3
   - Spider Queen's Nest
   exp: 10108
-  canDrop: []
+  expint: 10108
+  health: 765
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 6
+  levelint: 6
   stage: 2
+  stageint: 2
   monsterName: Hungry Brown Bear (Colony)
   location: Colony
   monsterLocations:
   - Colony
   exp: 12
-  canDrop: []
+  expint: 12
+  health: 6
+  canDrops: []

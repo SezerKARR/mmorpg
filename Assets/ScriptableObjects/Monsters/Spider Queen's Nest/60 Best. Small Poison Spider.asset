@@ -17,11 +17,15 @@ MonoBehaviour:
   - Fire
   race: Insect
   level: 60
+  levelint: 60
   stage: 3
+  stageint: 3
   monsterName: Best. Small Poison Spider
   location: Spider Dungeon 3,Spider Queen's Nest
   monsterLocations:
   - Spider Dungeon 3
   - Spider Queen's Nest
   exp: 4771
-  canDrop: []
+  expint: 4771
+  health: 316
+  canDrops: []

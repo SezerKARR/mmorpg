@@ -17,10 +17,14 @@ MonoBehaviour:
   - Fire
   race: Insect
   level: 64
+  levelint: 64
   stage: 3
+  stageint: 3
   monsterName: Red Deadly Poison Spider
   location: Spider Dungeon 2
   monsterLocations:
   - Spider Dungeon 2
   exp: 9648
-  canDrop: []
+  expint: 9648
+  health: 600
+  canDrops: []

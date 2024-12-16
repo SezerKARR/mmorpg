@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Orc
   level: 39
+  levelint: 39
   stage: 2
+  stageint: 2
   monsterName: Bold Big Orc Fighter
   location: Valley of Seungryong
   monsterLocations:
   - Valley of Seungryong
   exp: 923
-  canDrop: []
+  expint: 923
+  health: 69
+  canDrops: []

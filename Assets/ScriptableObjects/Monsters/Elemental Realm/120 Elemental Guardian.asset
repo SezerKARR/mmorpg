@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: 
   level: 120
+  levelint: 120
   stage: 4
+  stageint: 4
   monsterName: Elemental Guardian
   location: Elemental Realm
   monsterLocations:
   - Elemental Realm
   exp: 28900
-  canDrop: []
+  expint: 28900
+  health: 1200
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - Lightning
   race: Half H.
   level: 97
+  levelint: 97
   stage: 1
+  stageint: 1
   monsterName: Brutal Red Thief Amazon
   location: Thunder Mountains
   monsterLocations:
   - Thunder Mountains
   exp: 1167
-  canDrop: []
+  expint: 1167
+  health: 24
+  canDrops: []

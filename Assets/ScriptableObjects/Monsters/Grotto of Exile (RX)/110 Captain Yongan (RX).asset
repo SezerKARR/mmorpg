@@ -17,10 +17,14 @@ MonoBehaviour:
   - Lightning
   race: Devil
   level: 110
+  levelint: 110
   stage: 4
+  stageint: 4
   monsterName: Captain Yongan (RX)
   location: Grotto of Exile (RX)
   monsterLocations:
   - Grotto of Exile (RX)
   exp: 53640
-  canDrop: []
+  expint: 53640
+  health: 2435
+  canDrops: []

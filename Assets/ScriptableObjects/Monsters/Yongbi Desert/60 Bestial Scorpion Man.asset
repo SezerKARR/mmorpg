@@ -17,10 +17,14 @@ MonoBehaviour:
   - Fire
   race: Insect
   level: 60
+  levelint: 60
   stage: 1
+  stageint: 1
   monsterName: Bestial Scorpion Man
   location: Yongbi Desert
   monsterLocations:
   - Yongbi Desert
   exp: 4956
-  canDrop: []
+  expint: 4956
+  health: 164
+  canDrops: []

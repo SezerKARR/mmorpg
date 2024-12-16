@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Half H.
   level: 20
+  levelint: 20
   stage: 1
+  stageint: 1
   monsterName: White Oath Archer
   location: Joan,Pyungmoo,Yongan,Bokjung,Yayang,Bakra
   monsterLocations:
@@ -28,4 +30,6 @@ MonoBehaviour:
   - Yayang
   - Bakra
   exp: 445
-  canDrop: []
+  expint: 445
+  health: 44
+  canDrops: []

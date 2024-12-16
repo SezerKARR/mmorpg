@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: 
   level: 61
+  levelint: 61
   stage: 4
+  stageint: 4
   monsterName: Bullfrog General
   location: Hwang Temple
   monsterLocations:
   - Hwang Temple
   exp: 3920
-  canDrop: []
+  expint: 3920
+  health: 320
+  canDrops: []

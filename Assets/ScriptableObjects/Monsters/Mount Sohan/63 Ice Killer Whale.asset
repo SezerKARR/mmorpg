@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 63
+  levelint: 63
   stage: 2
+  stageint: 2
   monsterName: Ice Killer Whale
   location: Mount Sohan
   monsterLocations:
   - Mount Sohan
   exp: 1336
-  canDrop: []
+  expint: 1336
+  health: 63
+  canDrops: []

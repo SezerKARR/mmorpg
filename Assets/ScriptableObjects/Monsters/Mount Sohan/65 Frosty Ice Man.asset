@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 65
+  levelint: 65
   stage: 3
+  stageint: 3
   monsterName: Frosty Ice Man
   location: Mount Sohan
   monsterLocations:
   - Mount Sohan
   exp: 1149
-  canDrop: []
+  expint: 1149
+  health: 68
+  canDrops: []

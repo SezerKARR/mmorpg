@@ -17,11 +17,15 @@ MonoBehaviour:
   - Wind
   race: Half H.
   level: 96
+  levelint: 96
   stage: 2
+  stageint: 2
   monsterName: Red Thief Assassin
   location: Cape Dragon Fire,Nephrite Bay
   monsterLocations:
   - Cape Dragon Fire
   - Nephrite Bay
   exp: 2772
-  canDrop: []
+  expint: 2772
+  health: 84
+  canDrops: []

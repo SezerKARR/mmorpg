@@ -17,10 +17,14 @@ MonoBehaviour:
   - Lightning
   race: 
   level: 71
+  levelint: 71
   stage: 1
+  stageint: 1
   monsterName: Ogre Warrior
   location: Land of Giants
   monsterLocations:
   - Land of Giants
   exp: ???
-  canDrop: []
+  expint: 2147483647
+  health: 60492496
+  canDrops: []

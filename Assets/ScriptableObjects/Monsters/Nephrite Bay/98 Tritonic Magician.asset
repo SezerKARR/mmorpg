@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: Devil
   level: 98
+  levelint: 98
   stage: 2
+  stageint: 2
   monsterName: Tritonic Magician
   location: Nephrite Bay
   monsterLocations:
   - Nephrite Bay
   exp: 2829
-  canDrop: []
+  expint: 2829
+  health: 84
+  canDrops: []

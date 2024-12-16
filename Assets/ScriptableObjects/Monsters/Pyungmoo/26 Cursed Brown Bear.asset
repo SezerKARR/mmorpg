@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Animal
   level: 26
+  levelint: 26
   stage: 4
+  stageint: 4
   monsterName: Cursed Brown Bear
   location: Joan,Pyungmoo,Yongan
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Pyungmoo
   - Yongan
   exp: 1260
-  canDrop: []
+  expint: 1260
+  health: 240
+  canDrops: []

@@ -17,11 +17,15 @@ MonoBehaviour:
   - Lightning
   race: Orc
   level: 102
+  levelint: 102
   stage: 4
+  stageint: 4
   monsterName: General Outis
   location: Thunder Mountains,Gautama Cliff
   monsterLocations:
   - Thunder Mountains
   - Gautama Cliff
   exp: 21104
-  canDrop: []
+  expint: 21104
+  health: 1030
+  canDrops: []

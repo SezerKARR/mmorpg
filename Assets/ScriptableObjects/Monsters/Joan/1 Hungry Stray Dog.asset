@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Animal
   level: 1
+  levelint: 1
   stage: 1
+  stageint: 1
   monsterName: Hungry Stray Dog
   location: Joan,Pyungmoo,Yongan
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Pyungmoo
   - Yongan
   exp: 11
-  canDrop: []
+  expint: 11
+  health: 22
+  canDrops: []

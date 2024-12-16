@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Desert
   level: 48
+  levelint: 48
   stage: 3
+  stageint: 3
   monsterName: Snake Swordsman
   location: Yongbi Desert
   monsterLocations:
   - Yongbi Desert
   exp: 2702
-  canDrop: []
+  expint: 2702
+  health: 224
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Devil
   level: 97
+  levelint: 97
   stage: 1
+  stageint: 1
   monsterName: Lemures Warrior
   location: Gautama Cliff
   monsterLocations:
   - Gautama Cliff
   exp: 1167
-  canDrop: []
+  expint: 1167
+  health: 24
+  canDrops: []

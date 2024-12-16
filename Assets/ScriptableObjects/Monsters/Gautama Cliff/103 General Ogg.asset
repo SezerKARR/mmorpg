@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: Animal
   level: 103
+  levelint: 103
   stage: 4
+  stageint: 4
   monsterName: General Ogg
   location: Gautama Cliff
   monsterLocations:
   - Gautama Cliff
   exp: 21310
-  canDrop: []
+  expint: 21310
+  health: 1030
+  canDrops: []

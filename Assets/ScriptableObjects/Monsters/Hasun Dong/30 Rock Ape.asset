@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 30
+  levelint: 30
   stage: Boss
+  stageint: 0
   monsterName: Rock Ape
   location: Hasun Dong
   monsterLocations:
   - Hasun Dong
   exp: 23104
-  canDrop: []
+  expint: 23104
+  health: 770
+  canDrops: []

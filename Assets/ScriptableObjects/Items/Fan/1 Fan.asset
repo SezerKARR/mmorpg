@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 1 Fan
   m_EditorClassIdentifier: 
   Place: 0
-  Image: {fileID: 0}
+  Image: {fileID: 21300000, guid: 6d676acf8a1a2c644aff4c8888ad85d0, type: 3}
   ItemName: Fan
   dropsFrom: 
   DropMetins: 
@@ -22,7 +22,7 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  DropName: <color=green>Fan+0</color>
+  DropName: Fan+0
   price: 0
   objectType: 4
   levelWithPlus: 0

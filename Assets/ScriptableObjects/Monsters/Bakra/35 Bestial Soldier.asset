@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Half H.
   level: 35
+  levelint: 35
   stage: 3
+  stageint: 3
   monsterName: Bestial Soldier
   location: Bokjung,Yayang,Bakra,Valley of Seungryong
   monsterLocations:
@@ -26,4 +28,6 @@ MonoBehaviour:
   - Bakra
   - Valley of Seungryong
   exp: 513
-  canDrop: []
+  expint: 513
+  health: 56
+  canDrops: []

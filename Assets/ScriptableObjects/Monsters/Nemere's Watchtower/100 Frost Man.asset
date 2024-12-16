@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 100
+  levelint: 100
   stage: 2
+  stageint: 2
   monsterName: Frost Man
   location: Nemere's Watchtower
   monsterLocations:
   - Nemere's Watchtower
   exp: 3270
-  canDrop: []
+  expint: 3270
+  health: 96
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Orc
   level: 40
+  levelint: 40
   stage: 3
+  stageint: 3
   monsterName: Bold Big Orc Sorcerer
   location: Valley of Seungryong
   monsterLocations:
   - Valley of Seungryong
   exp: 1578
-  canDrop: []
+  expint: 1578
+  health: 156
+  canDrops: []

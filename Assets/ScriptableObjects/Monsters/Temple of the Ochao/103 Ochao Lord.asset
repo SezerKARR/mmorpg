@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Devil
   level: 103
+  levelint: 103
   stage: Boss
+  stageint: 0
   monsterName: Ochao Lord
   location: Temple of the Ochao
   monsterLocations:
   - Temple of the Ochao
   exp: 142984
-  canDrop: []
+  expint: 142984
+  health: 1388
+  canDrops: []

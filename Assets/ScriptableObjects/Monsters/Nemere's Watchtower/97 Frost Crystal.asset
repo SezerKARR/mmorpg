@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 97
+  levelint: 97
   stage: 1
+  stageint: 1
   monsterName: Frost Crystal
   location: Nemere's Watchtower
   monsterLocations:
   - Nemere's Watchtower
   exp: 1323
-  canDrop: []
+  expint: 1323
+  health: 26
+  canDrops: []

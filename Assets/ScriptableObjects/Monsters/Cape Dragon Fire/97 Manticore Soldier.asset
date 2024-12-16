@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Animal
   level: 97
+  levelint: 97
   stage: 2
+  stageint: 2
   monsterName: Manticore Soldier
   location: Cape Dragon Fire
   monsterLocations:
   - Cape Dragon Fire
   exp: 2800
-  canDrop: []
+  expint: 2800
+  health: 84
+  canDrops: []

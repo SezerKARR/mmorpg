@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: Animal
   level: 95
+  levelint: 95
   stage: 1
+  stageint: 1
   monsterName: Gnoll Warrior
   location: Cape Dragon Fire
   monsterLocations:
   - Cape Dragon Fire
   exp: 1143
-  canDrop: []
+  expint: 1143
+  health: 24
+  canDrops: []

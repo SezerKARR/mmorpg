@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: 
   level: 73
+  levelint: 73
   stage: 1
+  stageint: 1
   monsterName: Ghost Stump
   location: Lungsam
   monsterLocations:
   - Lungsam
   exp: 1204
-  canDrop: []
+  expint: 1204
+  health: 32
+  canDrops: []

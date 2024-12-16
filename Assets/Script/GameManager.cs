@@ -1,16 +1,26 @@
 using System.Linq;
+using Script.Enemy;
 using UnityEngine;
 
 namespace Script
 {
     public class GameManager : MonoBehaviour
     {
+        public GameObject ItemDropPrefab;
         public  ExpPerLevelSO expPer;
         public static GameManager Instance;
         private void Awake()
         {
+            EnemyEvent.OnDropObject += CreateDropItem;
             Instance = this;
         }
+
+        private void CreateDropItem(Vector3 position, ObjectAbstract objectAbstract,string playerName)
+        {
+            GameObject itemDrop = Instantiate(ItemDropPrefab, position, Quaternion.identity);
+            itemDrop.GetComponent<ItemDrop>().SetOther(objectAbstract,playerName);
+        }
+
         //public  void Wiev
         public  float ExpRateCalculate(int levelDiff)
         {
@@ -37,5 +47,7 @@ namespace Script
             }
             return expPer.expRate[expPer.expRate.Length - 1];
         }
+
+        
     }
 }

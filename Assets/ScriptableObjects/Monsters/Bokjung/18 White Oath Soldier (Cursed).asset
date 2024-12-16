@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Half H.
   level: 18
+  levelint: 18
   stage: 2
+  stageint: 2
   monsterName: White Oath Soldier (Cursed)
   location: Bokjung,Yayang,Bakra
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Yayang
   - Bakra
   exp: 558
-  canDrop: []
+  expint: 558
+  health: 93
+  canDrops: []

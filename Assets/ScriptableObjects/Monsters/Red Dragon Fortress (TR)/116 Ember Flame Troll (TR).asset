@@ -17,10 +17,14 @@ MonoBehaviour:
   - Fire
   race: 
   level: 116
+  levelint: 116
   stage: 3
+  stageint: 3
   monsterName: Ember Flame Troll (TR)
   location: Red Dragon Fortress (TR)
   monsterLocations:
   - Red Dragon Fortress (TR)
   exp: 4905
-  canDrop: []
+  expint: 4905
+  health: 168
+  canDrops: []

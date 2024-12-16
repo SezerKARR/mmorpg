@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Animal
   level: 35
+  levelint: 35
   stage: 4
+  stageint: 4
   monsterName: Tigris
   location: Joan,Pyungmoo,Yongan
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Pyungmoo
   - Yongan
   exp: 2820
-  canDrop: []
+  expint: 2820
+  health: 400
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 110
+  levelint: 110
   stage: 1
+  stageint: 1
   monsterName: Frost Bug (RX)
   location: Nemere's Watchtower (RX)
   monsterLocations:
   - Nemere's Watchtower (RX)
   exp: 3848
-  canDrop: []
+  expint: 3848
+  health: 68
+  canDrops: []

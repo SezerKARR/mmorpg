@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Devil
   level: 108
+  levelint: 108
   stage: 4
+  stageint: 4
   monsterName: En-Tai Destroyer
   location: Enchanted ForestErebus
   monsterLocations:
   - Enchanted ForestErebus
   exp: 53214
-  canDrop: []
+  expint: 53214
+  health: 2460
+  canDrops: []

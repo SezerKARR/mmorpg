@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Animal
   level: 18
+  levelint: 18
   stage: 1
+  stageint: 1
   monsterName: Hungry Tiger
   location: Joan,Pyungmoo,Yongan
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Pyungmoo
   - Yongan
   exp: 256
-  canDrop: []
+  expint: 256
+  health: 28
+  canDrops: []

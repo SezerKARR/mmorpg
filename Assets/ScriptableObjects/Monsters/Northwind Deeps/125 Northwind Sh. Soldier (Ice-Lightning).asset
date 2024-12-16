@@ -18,11 +18,15 @@ MonoBehaviour:
   - "\uFFFDLightning"
   race: 
   level: 125
+  levelint: 125
   stage: 2
+  stageint: 2
   monsterName: Northwind Sh. Soldier (Ice-Lightning)
   location: Northwind Descent,Northwind Deeps
   monsterLocations:
   - Northwind Descent
   - Northwind Deeps
   exp: 48
-  canDrop: []
+  expint: 48
+  health: 0
+  canDrops: []

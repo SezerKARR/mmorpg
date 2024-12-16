@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 84
+  levelint: 84
   stage: 3
+  stageint: 3
   monsterName: Underworld Yeti
   location: Grotto of Exile
   monsterLocations:
   - Grotto of Exile
   exp: 9328
-  canDrop: []
+  expint: 9328
+  health: 444
+  canDrops: []

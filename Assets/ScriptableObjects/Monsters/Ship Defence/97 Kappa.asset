@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 97
+  levelint: 97
   stage: 1
+  stageint: 1
   monsterName: Kappa
   location: Ship Defence
   monsterLocations:
   - Ship Defence
   exp: 0
-  canDrop: []
+  expint: 0
+  health: 0
+  canDrops: []

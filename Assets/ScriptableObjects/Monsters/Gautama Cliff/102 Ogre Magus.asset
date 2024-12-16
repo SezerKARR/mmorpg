@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: Animal
   level: 102
+  levelint: 102
   stage: 3
+  stageint: 3
   monsterName: Ogre Magus
   location: Gautama Cliff
   monsterLocations:
   - Gautama Cliff
   exp: 8834
-  canDrop: []
+  expint: 8834
+  health: 344
+  canDrops: []

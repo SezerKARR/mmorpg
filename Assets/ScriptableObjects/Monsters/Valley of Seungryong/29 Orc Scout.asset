@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Orc
   level: 29
+  levelint: 29
   stage: 2
+  stageint: 2
   monsterName: Orc Scout
   location: Valley of Seungryong
   monsterLocations:
   - Valley of Seungryong
   exp: 1019
-  canDrop: []
+  expint: 1019
+  health: 105
+  canDrops: []

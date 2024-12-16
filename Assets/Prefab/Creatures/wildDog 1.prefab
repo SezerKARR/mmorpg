@@ -111,7 +111,7 @@ MonoBehaviour:
   maxHealth: 100
   currentHealth: 0
   creaturesGroup: {fileID: 0}
-  enemySO: {fileID: 11400000, guid: 17cd98c53c3d738428dcf27355080a08, type: 2}
+  enemySo: {fileID: 11400000, guid: 23041bb97ea16ab4cbb90cee8fbb7317, type: 2}
   outlineRed: {fileID: 2100000, guid: ac30ba44525ba294d998682cbd894ca1, type: 2}
 --- !u!60 &6634918246019571590
 PolygonCollider2D:

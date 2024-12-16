@@ -41,7 +41,7 @@ public class InventoryManager : MonoBehaviour,IWaitConfirmable
     {
         inventoryPage[activePage].ResetButtons(itemController.cells);
     }
-    public bool ControlChangePos(ItemController unEquipObject)
+    public bool ControlUnequip(ItemController unEquipObject)
     {
 
         return inventoryStorage.ControlChangePos(unEquipObject);

@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 27
+  levelint: 27
   stage: 3
+  stageint: 3
   monsterName: Weak Ape Fighter
   location: Hasun Dong
   monsterLocations:
   - Hasun Dong
   exp: 872
-  canDrop: []
+  expint: 872
+  health: 128
+  canDrops: []

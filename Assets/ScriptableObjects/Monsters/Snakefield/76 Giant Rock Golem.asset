@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: 
   level: 76
+  levelint: 76
   stage: 3
+  stageint: 3
   monsterName: Giant Rock Golem
   location: Snakefield
   monsterLocations:
   - Snakefield
   exp: ???
-  canDrop: []
+  expint: 2147483647
+  health: 113025452
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: Devil
   level: 96
+  levelint: 96
   stage: 1
+  stageint: 1
   monsterName: Tritonic Moray
   location: Nephrite Bay
   monsterLocations:
   - Nephrite Bay
   exp: 1155
-  canDrop: []
+  expint: 1155
+  health: 24
+  canDrops: []

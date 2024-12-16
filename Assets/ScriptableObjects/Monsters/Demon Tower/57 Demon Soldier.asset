@@ -17,10 +17,14 @@ MonoBehaviour:
   - Darkness
   race: Undead
   level: 57
+  levelint: 57
   stage: 2
+  stageint: 2
   monsterName: Demon Soldier
   location: Demon Tower
   monsterLocations:
   - Demon Tower
   exp: 960
-  canDrop: []
+  expint: 960
+  health: 48
+  canDrops: []

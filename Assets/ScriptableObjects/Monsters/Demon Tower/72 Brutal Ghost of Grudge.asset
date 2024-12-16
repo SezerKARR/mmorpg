@@ -17,10 +17,14 @@ MonoBehaviour:
   - Darkness
   race: Undead
   level: 72
+  levelint: 72
   stage: 3
+  stageint: 3
   monsterName: Brutal Ghost of Grudge
   location: Demon Tower
   monsterLocations:
   - Demon Tower
   exp: 2312
-  canDrop: []
+  expint: 2312
+  health: 128
+  canDrops: []

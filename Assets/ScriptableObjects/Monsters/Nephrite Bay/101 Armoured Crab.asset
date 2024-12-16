@@ -17,11 +17,15 @@ MonoBehaviour:
   - Ice
   race: Devil
   level: 101
+  levelint: 101
   stage: 4
+  stageint: 4
   monsterName: Armoured Crab
   location: Nephrite Bay,Ship Defence
   monsterLocations:
   - Nephrite Bay
   - Ship Defence
   exp: 20898
-  canDrop: []
+  expint: 20898
+  health: 1030
+  canDrops: []

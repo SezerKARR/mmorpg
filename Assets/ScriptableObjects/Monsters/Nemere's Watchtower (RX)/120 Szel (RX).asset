@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 120
+  levelint: 120
   stage: Boss
+  stageint: 0
   monsterName: Szel (RX)
   location: Nemere's Watchtower (RX)
   monsterLocations:
   - Nemere's Watchtower (RX)
   exp: 139519
-  canDrop: []
+  expint: 139519
+  health: 1162
+  canDrops: []

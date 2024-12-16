@@ -23,6 +23,9 @@ public enum ObjectType
     Item,
     
 }
+
+
+
 public abstract class ObjectAbstract : ScriptableObject
 {
     public ItemPlace Place;
@@ -41,7 +44,6 @@ public abstract class ObjectAbstract : ScriptableObject
     // public virtual void SetDropName()
     // {
     //     DropName= ItemName;
-    //     ItemName=name;
     //     
     // }
 

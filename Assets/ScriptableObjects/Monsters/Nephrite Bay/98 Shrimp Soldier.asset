@@ -17,11 +17,15 @@ MonoBehaviour:
   - Ice
   race: Devil
   level: 98
+  levelint: 98
   stage: 2
+  stageint: 2
   monsterName: Shrimp Soldier
   location: Nephrite Bay,Ship Defence
   monsterLocations:
   - Nephrite Bay
   - Ship Defence
   exp: 2829
-  canDrop: []
+  expint: 2829
+  health: 84
+  canDrops: []

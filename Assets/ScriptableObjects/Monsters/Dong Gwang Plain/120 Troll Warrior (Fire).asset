@@ -17,11 +17,15 @@ MonoBehaviour:
   - Fire
   race: Devil
   level: 120
+  levelint: 120
   stage: 3
+  stageint: 3
   monsterName: Troll Warrior (Fire)
   location: Dong Gwang Plain,Nam Gwang Chasm
   monsterLocations:
   - Dong Gwang Plain
   - Nam Gwang Chasm
   exp: 29
-  canDrop: []
+  expint: 29
+  health: 0
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: 
   level: 105
+  levelint: 105
   stage: 5
+  stageint: 5
   monsterName: Hydra's Treasure
   location: Ship Defence
   monsterLocations:
   - Ship Defence
   exp: 584702
-  canDrop: []
+  expint: 584702
+  health: 33408
+  canDrops: []

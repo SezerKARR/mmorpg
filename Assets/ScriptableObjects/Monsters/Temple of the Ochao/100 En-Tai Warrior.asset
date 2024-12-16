@@ -17,11 +17,15 @@ MonoBehaviour:
   - Wind
   race: Devil
   level: 100
+  levelint: 100
   stage: 1
+  stageint: 1
   monsterName: En-Tai Warrior
   location: Temple of the Ochao,Enchanted Forest
   monsterLocations:
   - Temple of the Ochao
   - Enchanted Forest
   exp: 24334
-  canDrop: []
+  expint: 24334
+  health: 486
+  canDrops: []

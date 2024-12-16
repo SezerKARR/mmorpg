@@ -17,10 +17,14 @@ MonoBehaviour:
   - Fire
   race: Insect
   level: 68
+  levelint: 68
   stage: 4
+  stageint: 4
   monsterName: Soldier Poison Spider SD2
   location: Spider Dungeon 2
   monsterLocations:
   - Spider Dungeon 2
   exp: 10416
-  canDrop: []
+  expint: 10416
+  health: 765
+  canDrops: []

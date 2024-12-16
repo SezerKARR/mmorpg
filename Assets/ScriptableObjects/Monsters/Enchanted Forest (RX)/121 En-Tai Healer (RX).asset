@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Devil
   level: 121
+  levelint: 121
   stage: 3
+  stageint: 3
   monsterName: En-Tai Healer (RX)
   location: Enchanted Forest (RX)
   monsterLocations:
   - Enchanted Forest (RX)
   exp: 49080
-  canDrop: []
+  expint: 49080
+  health: 1620
+  canDrops: []

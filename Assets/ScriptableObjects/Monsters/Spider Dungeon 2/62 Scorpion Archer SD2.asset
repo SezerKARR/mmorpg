@@ -17,10 +17,14 @@ MonoBehaviour:
   - Fire
   race: Insect
   level: 62
+  levelint: 62
   stage: 2
+  stageint: 2
   monsterName: Scorpion Archer SD2
   location: Spider Dungeon 2
   monsterLocations:
   - Spider Dungeon 2
   exp: 5292
-  canDrop: []
+  expint: 5292
+  health: 255
+  canDrops: []

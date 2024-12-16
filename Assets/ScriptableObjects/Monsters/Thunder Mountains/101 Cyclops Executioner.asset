@@ -17,11 +17,15 @@ MonoBehaviour:
   - Lightning
   race: Orc
   level: 101
+  levelint: 101
   stage: 3
+  stageint: 3
   monsterName: Cyclops Executioner
   location: Thunder Mountains,Gautama Cliff
   monsterLocations:
   - Thunder Mountains
   - Gautama Cliff
   exp: 8748
-  canDrop: []
+  expint: 8748
+  health: 344
+  canDrops: []

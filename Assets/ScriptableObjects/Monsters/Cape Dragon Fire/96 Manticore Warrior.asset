@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Animal
   level: 96
+  levelint: 96
   stage: 1
+  stageint: 1
   monsterName: Manticore Warrior
   location: Cape Dragon Fire
   monsterLocations:
   - Cape Dragon Fire
   exp: 1155
-  canDrop: []
+  expint: 1155
+  health: 24
+  canDrops: []

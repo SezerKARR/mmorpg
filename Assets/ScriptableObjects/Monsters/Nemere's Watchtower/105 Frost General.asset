@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 105
+  levelint: 105
   stage: 4
+  stageint: 4
   monsterName: Frost General
   location: Nemere's Watchtower
   monsterLocations:
   - Nemere's Watchtower
   exp: 23895
-  canDrop: []
+  expint: 23895
+  health: 1135
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 64
+  levelint: 64
   stage: 3
+  stageint: 3
   monsterName: Ice Lion
   location: Mount Sohan
   monsterLocations:
   - Mount Sohan
   exp: 1131
-  canDrop: []
+  expint: 1131
+  health: 68
+  canDrops: []

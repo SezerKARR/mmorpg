@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Animal
   level: 8
+  levelint: 8
   stage: 3
+  stageint: 3
   monsterName: Cursed Wolf
   location: Imha,Jungrang,Waryong,Snakefield
   monsterLocations:
@@ -26,4 +28,6 @@ MonoBehaviour:
   - Waryong
   - Snakefield
   exp: 198
-  canDrop: []
+  expint: 198
+  health: 96
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - Lightning
   race: 
   level: 125
+  levelint: 125
   stage: Boss
+  stageint: 0
   monsterName: Frozen Chief (Lightning)
   location: Northwind Canyon
   monsterLocations:
   - Northwind Canyon
   exp: 78
-  canDrop: []
+  expint: 78
+  health: 0
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - Darkness
   race: Devil
   level: 121
+  levelint: 121
   stage: 4
+  stageint: 4
   monsterName: Ahtrin Sorcerer
   location: Gnoll Cave Level 2
   monsterLocations:
   - Gnoll Cave Level 2
   exp: 35
-  canDrop: []
+  expint: 35
+  health: 0
+  canDrops: []

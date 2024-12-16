@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 110
+  levelint: 110
   stage: 1
+  stageint: 1
   monsterName: Frost Bug (TR)
   location: Nemere's Watchtower (TR)
   monsterLocations:
   - Nemere's Watchtower (TR)
   exp: 4810
-  canDrop: []
+  expint: 4810
+  health: 86
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Orc
   level: 135
+  levelint: 135
   stage: 5
+  stageint: 5
   monsterName: Jotun Thrym (RX)
   location: Enchanted Forest (RX)
   monsterLocations:
   - Enchanted Forest (RX)
   exp: 5476800
-  canDrop: []
+  expint: 5476800
+  health: 243408
+  canDrops: []

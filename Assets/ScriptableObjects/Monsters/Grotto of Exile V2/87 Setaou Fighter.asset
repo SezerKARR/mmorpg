@@ -17,11 +17,15 @@ MonoBehaviour:
   - Lightning
   race: Devil
   level: 87
+  levelint: 87
   stage: 1
+  stageint: 1
   monsterName: Setaou Fighter
   location: Grotto of Exile,Grotto of Exile V2
   monsterLocations:
   - Grotto of Exile
   - Grotto of Exile V2
   exp: 7050
-  canDrop: []
+  expint: 7050
+  health: 162
+  canDrops: []

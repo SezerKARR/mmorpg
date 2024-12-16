@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 47
+  levelint: 47
   stage: 2
+  stageint: 2
   monsterName: Evil strong Apethrower
   location: Sangsun Dong
   monsterLocations:
   - Sangsun Dong
   exp: 635
-  canDrop: []
+  expint: 635
+  health: 39
+  canDrops: []

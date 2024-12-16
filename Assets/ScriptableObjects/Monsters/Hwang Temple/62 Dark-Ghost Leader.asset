@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Mystic
   level: 62
+  levelint: 62
   stage: 5
+  stageint: 5
   monsterName: Dark-Ghost Leader
   location: Hwang Temple
   monsterLocations:
   - Hwang Temple
   exp: 6905
-  canDrop: []
+  expint: 6905
+  health: 666
+  canDrops: []

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ItemDropGameObject : ItemDrop
 {
-    public TMP_Text Playername;
+   
     
     public GameObject itemDropWithOutName;
     

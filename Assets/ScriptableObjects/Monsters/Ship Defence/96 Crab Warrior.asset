@@ -17,11 +17,15 @@ MonoBehaviour:
   - Ice
   race: Devil
   level: 96
+  levelint: 96
   stage: 1
+  stageint: 1
   monsterName: Crab Warrior
   location: Nephrite Bay,Ship Defence
   monsterLocations:
   - Nephrite Bay
   - Ship Defence
   exp: 1155
-  canDrop: []
+  expint: 1155
+  health: 24
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Devil
   level: 117
+  levelint: 117
   stage: 1
+  stageint: 1
   monsterName: Strong En-Tai Warrior
   location: Enchanted Forest
   monsterLocations:
   - Enchanted Forest
   exp: 27334
-  canDrop: []
+  expint: 27334
+  health: 466
+  canDrops: []

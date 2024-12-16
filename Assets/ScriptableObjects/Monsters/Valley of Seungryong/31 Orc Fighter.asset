@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Orc
   level: 31
+  levelint: 31
   stage: 2
+  stageint: 2
   monsterName: Orc Fighter
   location: Valley of Seungryong
   monsterLocations:
   - Valley of Seungryong
   exp: 1086
-  canDrop: []
+  expint: 1086
+  health: 105
+  canDrops: []

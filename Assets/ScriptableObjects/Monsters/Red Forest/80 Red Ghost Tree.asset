@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: 
   level: 80
+  levelint: 80
   stage: 2
+  stageint: 2
   monsterName: Red Ghost Tree
   location: Red Forest
   monsterLocations:
   - Red Forest
   exp: 1603
-  canDrop: []
+  expint: 1603
+  health: 60
+  canDrops: []

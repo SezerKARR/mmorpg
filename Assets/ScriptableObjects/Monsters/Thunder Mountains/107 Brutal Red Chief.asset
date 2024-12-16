@@ -17,10 +17,14 @@ MonoBehaviour:
   - Lightning
   race: Half H.
   level: 107
+  levelint: 107
   stage: 5
+  stageint: 5
   monsterName: Brutal Red Chief
   location: Thunder Mountains
   monsterLocations:
   - Thunder Mountains
   exp: 384169
-  canDrop: []
+  expint: 384169
+  health: 21540
+  canDrops: []

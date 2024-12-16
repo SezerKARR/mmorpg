@@ -17,11 +17,15 @@ MonoBehaviour:
   - Wind
   race: Half H.
   level: 98
+  levelint: 98
   stage: 3
+  stageint: 3
   monsterName: Red Thief Executioner
   location: Cape Dragon Fire,Nephrite Bay
   monsterLocations:
   - Cape Dragon Fire
   - Nephrite Bay
   exp: 8488
-  canDrop: []
+  expint: 8488
+  health: 344
+  canDrops: []

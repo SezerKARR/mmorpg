@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Animal
   level: 12
+  levelint: 12
   stage: 1
+  stageint: 1
   monsterName: Hungry Bear
   location: Joan,Pyungmoo,Yongan
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Pyungmoo
   - Yongan
   exp: 103
-  canDrop: []
+  expint: 103
+  health: 16
+  canDrops: []

@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Animal
   level: 21
+  levelint: 21
   stage: 4
+  stageint: 4
   monsterName: Young-Ji
   location: Joan,Pyungmoo,Yongan
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Pyungmoo
   - Yongan
   exp: 220
-  canDrop: []
+  expint: 220
+  health: 50
+  canDrops: []

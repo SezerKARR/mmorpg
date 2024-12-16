@@ -17,10 +17,14 @@ MonoBehaviour:
   - Darkness
   race: 
   level: 123
+  levelint: 123
   stage: 2
+  stageint: 2
   monsterName: Serpent Scorpion (Darkness)
   location: Serpent Temple
   monsterLocations:
   - Serpent Temple
   exp: 40
-  canDrop: []
+  expint: 40
+  health: 0
+  canDrops: []

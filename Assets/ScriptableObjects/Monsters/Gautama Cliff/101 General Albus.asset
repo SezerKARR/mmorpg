@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Half H.
   level: 101
+  levelint: 101
   stage: 4
+  stageint: 4
   monsterName: General Albus
   location: Gautama Cliff
   monsterLocations:
   - Gautama Cliff
   exp: 20868
-  canDrop: []
+  expint: 20868
+  health: 1030
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - Darkness
   race: Undead
   level: 58
+  levelint: 58
   stage: 2
+  stageint: 2
   monsterName: Demon Archer
   location: Demon Tower
   monsterLocations:
   - Demon Tower
   exp: 1083
-  canDrop: []
+  expint: 1083
+  health: 54
+  canDrops: []

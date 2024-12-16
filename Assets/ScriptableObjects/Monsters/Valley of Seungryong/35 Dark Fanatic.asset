@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Mystic
   level: 35
+  levelint: 35
   stage: 1
+  stageint: 1
   monsterName: Dark Fanatic
   location: Valley of Seungryong
   monsterLocations:
   - Valley of Seungryong
   exp: 987
-  canDrop: []
+  expint: 987
+  health: 56
+  canDrops: []

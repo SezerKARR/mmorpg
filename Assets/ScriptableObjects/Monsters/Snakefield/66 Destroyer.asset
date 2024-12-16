@@ -17,11 +17,15 @@ MonoBehaviour:
   - Lightning
   race: 
   level: 66
+  levelint: 66
   stage: 2
+  stageint: 2
   monsterName: Destroyer
   location: Snakefield,Land of Giants
   monsterLocations:
   - Snakefield
   - Land of Giants
   exp: ???
-  canDrop: []
+  expint: 2147483647
+  health: 97612893
+  canDrops: []

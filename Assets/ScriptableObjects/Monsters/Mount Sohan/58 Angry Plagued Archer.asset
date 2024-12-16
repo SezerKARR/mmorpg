@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Undead
   level: 58
+  levelint: 58
   stage: 3
+  stageint: 3
   monsterName: Angry Plagued Archer
   location: Mount Sohan
   monsterLocations:
   - Mount Sohan
   exp: 1631
-  canDrop: []
+  expint: 1631
+  health: 112
+  canDrops: []

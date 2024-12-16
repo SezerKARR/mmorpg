@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 124
+  levelint: 124
   stage: 4
+  stageint: 4
   monsterName: Northwind Ghost (Ice)
   location: Soul Gorge
   monsterLocations:
   - Soul Gorge
   exp: 39
-  canDrop: []
+  expint: 39
+  health: 0
+  canDrops: []

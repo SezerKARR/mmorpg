@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Insect
   level: 54
+  levelint: 54
   stage: 4
+  stageint: 4
   monsterName: Red Angry Poison Spider
   location: Kuahlo Dong
   monsterLocations:
   - Kuahlo Dong
   exp: 4824
-  canDrop: []
+  expint: 4824
+  health: 445
+  canDrops: []

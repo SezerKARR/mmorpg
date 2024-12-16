@@ -17,10 +17,14 @@ MonoBehaviour:
   - Fire
   race: 
   level: 113
+  levelint: 113
   stage: 2
+  stageint: 2
   monsterName: Ember Flame Warrior (RX)
   location: Red Dragon Fortress (RX)
   monsterLocations:
   - Red Dragon Fortress (RX)
   exp: 1587
-  canDrop: []
+  expint: 1587
+  health: 42
+  canDrops: []

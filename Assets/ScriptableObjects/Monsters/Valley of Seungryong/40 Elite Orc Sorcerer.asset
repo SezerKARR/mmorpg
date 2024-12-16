@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Orc
   level: 40
+  levelint: 40
   stage: 3
+  stageint: 3
   monsterName: Elite Orc Sorcerer
   location: Valley of Seungryong
   monsterLocations:
   - Valley of Seungryong
   exp: 2254
-  canDrop: []
+  expint: 2254
+  health: 224
+  canDrops: []

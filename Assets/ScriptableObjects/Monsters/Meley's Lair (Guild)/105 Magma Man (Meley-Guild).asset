@@ -17,10 +17,14 @@ MonoBehaviour:
   - Fire
   race: 
   level: 105
+  levelint: 105
   stage: 3
+  stageint: 3
   monsterName: Magma Man (Meley-Guild)
   location: Meley's Lair (Guild)
   monsterLocations:
   - Meley's Lair (Guild)
   exp: 0
-  canDrop: []
+  expint: 0
+  health: 0
+  canDrops: []

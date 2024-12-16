@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 116
+  levelint: 116
   stage: 3
+  stageint: 3
   monsterName: Frost Troll (RX)
   location: Nemere's Watchtower (RX)
   monsterLocations:
   - Nemere's Watchtower (RX)
   exp: 3924
-  canDrop: []
+  expint: 3924
+  health: 132
+  canDrops: []

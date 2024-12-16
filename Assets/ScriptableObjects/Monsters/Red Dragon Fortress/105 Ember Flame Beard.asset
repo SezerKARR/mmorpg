@@ -17,11 +17,15 @@ MonoBehaviour:
   - Fire
   race: 
   level: 105
+  levelint: 105
   stage: 3
+  stageint: 3
   monsterName: Ember Flame Beard
   location: Meley's Lair,Red Dragon Fortress
   monsterLocations:
   - Meley's Lair
   - Red Dragon Fortress
   exp: 9907
-  canDrop: []
+  expint: 9907
+  health: 376
+  canDrops: []

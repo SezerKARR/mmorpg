@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Insect
   level: 50
+  levelint: 50
   stage: 3
+  stageint: 3
   monsterName: Baby Poison Spider
   location: Kuahlo Dong
   monsterLocations:
   - Kuahlo Dong
   exp: 2220
-  canDrop: []
+  expint: 2220
+  health: 176
+  canDrops: []

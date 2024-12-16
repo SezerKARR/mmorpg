@@ -17,10 +17,14 @@ MonoBehaviour:
   - Lightning
   race: Devil
   level: 95
+  levelint: 95
   stage: Boss
+  stageint: 0
   monsterName: General Yonghan
   location: Grotto of Exile V2
   monsterLocations:
   - Grotto of Exile V2
   exp: 456600
-  canDrop: []
+  expint: 456600
+  health: 4806
+  canDrops: []

@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Animal
   level: 21
+  levelint: 21
   stage: 2
+  stageint: 2
   monsterName: Hungry Brown Bear
   location: Joan,Pyungmoo,Yongan
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Pyungmoo
   - Yongan
   exp: 357
-  canDrop: []
+  expint: 357
+  health: 51
+  canDrops: []

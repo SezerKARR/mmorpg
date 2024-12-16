@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 130
+  levelint: 130
   stage: Boss
+  stageint: 0
   monsterName: Nemere (TR)
   location: Nemere's Watchtower (TR)
   monsterLocations:
   - Nemere's Watchtower (TR)
   exp: 5324571
-  canDrop: []
+  expint: 5324571
+  health: 40958
+  canDrops: []

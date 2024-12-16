@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Animal
   level: 20
+  levelint: 20
   stage: 4
+  stageint: 4
   monsterName: Cursed Grizzly Bear
   location: Imha,Jungrang,Waryong,Snakefield
   monsterLocations:
@@ -26,4 +28,6 @@ MonoBehaviour:
   - Waryong
   - Snakefield
   exp: 1429
-  canDrop: []
+  expint: 1429
+  health: 355
+  canDrops: []

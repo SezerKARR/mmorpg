@@ -17,10 +17,14 @@ MonoBehaviour:
   - Darkness
   race: Devil
   level: 126
+  levelint: 126
   stage: Boss
+  stageint: 0
   monsterName: Ahtrin Captain (Level 126)
   location: Gnoll Cave Level 2
   monsterLocations:
   - Gnoll Cave Level 2
   exp: 35
-  canDrop: []
+  expint: 35
+  health: 0
+  canDrops: []

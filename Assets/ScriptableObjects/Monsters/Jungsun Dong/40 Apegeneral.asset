@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 40
+  levelint: 40
   stage: 4
+  stageint: 4
   monsterName: Apegeneral
   location: Jungsun Dong
   monsterLocations:
   - Jungsun Dong
   exp: 2576
-  canDrop: []
+  expint: 2576
+  health: 320
+  canDrops: []

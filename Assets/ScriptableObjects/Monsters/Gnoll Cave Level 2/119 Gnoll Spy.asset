@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: Animal
   level: 119
+  levelint: 119
   stage: 3
+  stageint: 3
   monsterName: Gnoll Spy
   location: Gnoll Cave Level 2
   monsterLocations:
   - Gnoll Cave Level 2
   exp: 30
-  canDrop: []
+  expint: 30
+  health: 0
+  canDrops: []

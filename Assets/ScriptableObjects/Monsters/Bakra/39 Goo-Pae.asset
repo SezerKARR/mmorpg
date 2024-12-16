@@ -17,7 +17,9 @@ MonoBehaviour:
   - Wind
   race: Half H.
   level: 39
+  levelint: 39
   stage: 4
+  stageint: 4
   monsterName: Goo-Pae
   location: Bokjung,Yayang,Bakra
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Yayang
   - Bakra
   exp: 4396
-  canDrop: []
+  expint: 4396
+  health: 560
+  canDrops: []

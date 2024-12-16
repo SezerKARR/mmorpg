@@ -17,11 +17,15 @@ MonoBehaviour:
   - Fire
   race: Animal
   level: 119
+  levelint: 119
   stage: 2
+  stageint: 2
   monsterName: Hell Hound (Fire)
   location: Dong Gwang Plain,Nam Gwang Chasm
   monsterLocations:
   - Dong Gwang Plain
   - Nam Gwang Chasm
   exp: 27
-  canDrop: []
+  expint: 27
+  health: 0
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - Fire
   race: 
   level: 107
+  levelint: 107
   stage: 4
+  stageint: 4
   monsterName: Ignitor
   location: Red Dragon Fortress
   monsterLocations:
   - Red Dragon Fortress
   exp: 116266
-  canDrop: []
+  expint: 116266
+  health: 5430
+  canDrops: []

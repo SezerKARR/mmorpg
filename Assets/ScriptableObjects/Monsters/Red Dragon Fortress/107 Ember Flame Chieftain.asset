@@ -17,11 +17,15 @@ MonoBehaviour:
   - Fire
   race: 
   level: 107
+  levelint: 107
   stage: 4
+  stageint: 4
   monsterName: Ember Flame Chieftain
   location: Meley's Lair,Red Dragon Fortress
   monsterLocations:
   - Meley's Lair
   - Red Dragon Fortress
   exp: 116266
-  canDrop: []
+  expint: 116266
+  health: 5430
+  canDrops: []

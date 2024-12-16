@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 39
+  levelint: 39
   stage: 3
+  stageint: 3
   monsterName: Apefighter
   location: Jungsun Dong
   monsterLocations:
   - Jungsun Dong
   exp: 1256
-  canDrop: []
+  expint: 1256
+  health: 128
+  canDrops: []

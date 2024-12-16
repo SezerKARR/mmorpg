@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 4
+  levelint: 4
   stage: 1
+  stageint: 1
   monsterName: Bear (Colony)
   location: Colony
   monsterLocations:
   - Colony
   exp: 8
-  canDrop: []
+  expint: 8
+  health: 4
+  canDrops: []

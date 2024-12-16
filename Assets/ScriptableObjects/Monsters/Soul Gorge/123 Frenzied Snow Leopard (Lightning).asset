@@ -17,10 +17,14 @@ MonoBehaviour:
   - Lightning
   race: 
   level: 123
+  levelint: 123
   stage: 3
+  stageint: 3
   monsterName: Frenzied Snow Leopard (Lightning)
   location: Soul Gorge
   monsterLocations:
   - Soul Gorge
   exp: 38
-  canDrop: []
+  expint: 38
+  health: 0
+  canDrops: []

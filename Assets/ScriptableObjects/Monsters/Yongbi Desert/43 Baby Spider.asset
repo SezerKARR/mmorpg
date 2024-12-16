@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Insect
   level: 43
+  levelint: 43
   stage: 1
+  stageint: 1
   monsterName: Baby Spider
   location: Yongbi Desert
   monsterLocations:
   - Yongbi Desert
   exp: 1211
-  canDrop: []
+  expint: 1211
+  health: 56
+  canDrops: []

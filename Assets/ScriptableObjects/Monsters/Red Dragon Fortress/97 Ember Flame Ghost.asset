@@ -17,10 +17,14 @@ MonoBehaviour:
   - Fire
   race: 
   level: 97
+  levelint: 97
   stage: 1
+  stageint: 1
   monsterName: Ember Flame Ghost
   location: Red Dragon Fortress
   monsterLocations:
   - Red Dragon Fortress
   exp: 1323
-  canDrop: []
+  expint: 1323
+  health: 26
+  canDrops: []

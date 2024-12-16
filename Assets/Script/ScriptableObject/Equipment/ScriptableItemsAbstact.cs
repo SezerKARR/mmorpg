@@ -65,16 +65,9 @@ public abstract  class ScriptableItemsAbstact : ObjectAbstract
     // }
     // public override void SetDropName()
     // {
-    //     if(bonuses.Count > 0)
-    //     {
-    //         DropName= $"<color=green>{ItemName}+{currentPlus}</color>";
-    //     }
-    //     else
-    //     {
-    //         DropName= $"<color=green>{ItemName}+{currentPlus}</color>";
-    //     }
+    //     DropName= $"{ItemName}+{currentPlus}";
     // }
-    //
+    
     // public abstract Dictionary<StatType, float> GetStats();
     // public void SetNewStats()
     // {

@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Devil
   level: 128
+  levelint: 128
   stage: Boss
+  stageint: 0
   monsterName: En-Tai Sovereign (TR)
   location: Enchanted Forest (TR)
   monsterLocations:
   - Enchanted Forest (TR)
   exp: 776880
-  canDrop: []
+  expint: 776880
+  health: 6069
+  canDrops: []

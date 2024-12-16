@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Animal
   level: 33
+  levelint: 33
   stage: 4
+  stageint: 4
   monsterName: Bera
   location: Joan,Pyungmoo,Yongan
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Pyungmoo
   - Yongan
   exp: 2660
-  canDrop: []
+  expint: 2660
+  health: 400
+  canDrops: []

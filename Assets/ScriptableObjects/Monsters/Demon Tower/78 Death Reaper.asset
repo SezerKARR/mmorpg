@@ -17,10 +17,14 @@ MonoBehaviour:
   - Darkness
   race: Undead
   level: 78
+  levelint: 78
   stage: 5
+  stageint: 5
   monsterName: Death Reaper
   location: Demon Tower
   monsterLocations:
   - Demon Tower
   exp: 187800
-  canDrop: []
+  expint: 187800
+  health: 14442
+  canDrops: []

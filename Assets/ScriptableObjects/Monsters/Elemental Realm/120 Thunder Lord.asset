@@ -17,10 +17,14 @@ MonoBehaviour:
   - Lightning
   race: 
   level: 120
+  levelint: 120
   stage: 4
+  stageint: 4
   monsterName: Thunder Lord
   location: Elemental Realm
   monsterLocations:
   - Elemental Realm
   exp: 36900
-  canDrop: []
+  expint: 36900
+  health: 1535
+  canDrops: []

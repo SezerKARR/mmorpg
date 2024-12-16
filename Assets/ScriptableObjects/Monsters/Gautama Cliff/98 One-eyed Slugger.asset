@@ -17,11 +17,15 @@ MonoBehaviour:
   - Lightning
   race: Orc
   level: 98
+  levelint: 98
   stage: 1
+  stageint: 1
   monsterName: One-eyed Slugger
   location: Thunder Mountains,Gautama Cliff
   monsterLocations:
   - Thunder Mountains
   - Gautama Cliff
   exp: 1179
-  canDrop: []
+  expint: 1179
+  health: 24
+  canDrops: []

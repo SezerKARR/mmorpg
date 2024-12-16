@@ -1200,7 +1200,7 @@ private static void CsvFromSoExpPerLevel()
     //     AssetDatabase.Refresh();
     //
     // }
-    // [MenuItem("Utilities/UpdateObjects")]
+    // [MenuItem("Utilities/UpdateObjectsname")]
     // public static void UpdateObjects()
     // {
     //     string[] guids = AssetDatabase.FindAssets("t:ObjectAbstract", new[] { "Assets/ScriptableObjects" });
@@ -1222,4 +1222,26 @@ private static void CsvFromSoExpPerLevel()
     //     AssetDatabase.Refresh();
     //
     // }
+    // [MenuItem("Utilities/setHealthMonster")]
+    // public static void UpdateObjects()
+    // {
+    //     string[] guids = AssetDatabase.FindAssets("t:MonsterSO", new[] { "Assets/ScriptableObjects" });
+    //
+    //     foreach (var guid in guids)
+    //     {
+    //         // Her bir SO'yu yükle
+    //         string path = AssetDatabase.GUIDToAssetPath(guid);
+    //         MonsterSO itemStatsSO = AssetDatabase.LoadAssetAtPath<MonsterSO>(path);
+    //
+    //         if (itemStatsSO != null)
+    //         {
+    //             itemStatsSO.SetHealth();
+    //             EditorUtility.SetDirty(itemStatsSO);  // Değişiklikleri kaydetmek için
+    //         }
+    //     }
+    //
+    //     AssetDatabase.SaveAssets();
+    //     AssetDatabase.Refresh();
+    
+    //}
 }

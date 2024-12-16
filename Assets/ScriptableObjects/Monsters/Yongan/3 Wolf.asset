@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Animal
   level: 3
+  levelint: 3
   stage: 1
+  stageint: 1
   monsterName: Wolf
   location: Joan,Pyungmoo,Yongan
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Pyungmoo
   - Yongan
   exp: 39
-  canDrop: []
+  expint: 39
+  health: 26
+  canDrops: []

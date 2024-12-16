@@ -17,10 +17,14 @@ MonoBehaviour:
   - Fire
   race: 
   level: 103
+  levelint: 103
   stage: 1
+  stageint: 1
   monsterName: Magma Crystal
   location: Meley's Lair
   monsterLocations:
   - Meley's Lair
   exp: 0
-  canDrop: []
+  expint: 0
+  health: 0
+  canDrops: []

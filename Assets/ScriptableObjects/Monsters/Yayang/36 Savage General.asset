@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Half H.
   level: 36
+  levelint: 36
   stage: 3
+  stageint: 3
   monsterName: Savage General
   location: Bokjung,Yayang,Bakra
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Yayang
   - Bakra
   exp: 2030
-  canDrop: []
+  expint: 2030
+  health: 224
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 66
+  levelint: 66
   stage: 4
+  stageint: 4
   monsterName: Ice Golem
   location: Mount Sohan
   monsterLocations:
   - Mount Sohan
   exp: 4664
-  canDrop: []
+  expint: 4664
+  health: 350
+  canDrops: []

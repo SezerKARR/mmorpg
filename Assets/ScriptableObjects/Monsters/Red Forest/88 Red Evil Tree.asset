@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: 
   level: 88
+  levelint: 88
   stage: 4
+  stageint: 4
   monsterName: Red Evil Tree
   location: Red Forest
   monsterLocations:
   - Red Forest
   exp: 5922
-  canDrop: []
+  expint: 5922
+  health: 335
+  canDrops: []

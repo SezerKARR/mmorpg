@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Half H.
   level: 37
+  levelint: 37
   stage: 3
+  stageint: 3
   monsterName: Bestial Maniac
   location: Bokjung,Yayang,Bakra,Valley of Seungryong
   monsterLocations:
@@ -26,4 +28,6 @@ MonoBehaviour:
   - Bakra
   - Valley of Seungryong
   exp: 542
-  canDrop: []
+  expint: 542
+  health: 56
+  canDrops: []

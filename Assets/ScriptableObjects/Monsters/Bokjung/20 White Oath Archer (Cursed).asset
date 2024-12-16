@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Half H.
   level: 20
+  levelint: 20
   stage: 2
+  stageint: 2
   monsterName: White Oath Archer (Cursed)
   location: Bokjung,Yayang,Bakra
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Yayang
   - Bakra
   exp: 606
-  canDrop: []
+  expint: 606
+  health: 90
+  canDrops: []

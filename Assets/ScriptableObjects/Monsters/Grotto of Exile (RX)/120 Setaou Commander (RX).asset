@@ -17,10 +17,14 @@ MonoBehaviour:
   - Lightning
   race: Devil
   level: 120
+  levelint: 120
   stage: 4
+  stageint: 4
   monsterName: Setaou Commander (RX)
   location: Grotto of Exile (RX)
   monsterLocations:
   - Grotto of Exile (RX)
   exp: 49896
-  canDrop: []
+  expint: 49896
+  health: 2075
+  canDrops: []

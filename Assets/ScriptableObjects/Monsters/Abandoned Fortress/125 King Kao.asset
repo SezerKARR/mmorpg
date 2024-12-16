@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: Half H.
   level: 125
+  levelint: 125
   stage: Boss
+  stageint: 0
   monsterName: King Kao
   location: Abandoned Fortress
   monsterLocations:
   - Abandoned Fortress
   exp: 64
-  canDrop: []
+  expint: 64
+  health: 0
+  canDrops: []

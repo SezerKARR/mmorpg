@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: Orc
   level: 106
+  levelint: 106
   stage: Boss
+  stageint: 0
   monsterName: Gargoyle
   location: Thunder Mountains
   monsterLocations:
   - Thunder Mountains
   exp: 105697
-  canDrop: []
+  expint: 105697
+  health: 997
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Orc
   level: 50
+  levelint: 50
   stage: Boss
+  stageint: 0
   monsterName: Chief Orc
   location: Valley of Seungryong
   monsterLocations:
   - Valley of Seungryong
   exp: 20422
-  canDrop: []
+  expint: 20422
+  health: 408
+  canDrops: []

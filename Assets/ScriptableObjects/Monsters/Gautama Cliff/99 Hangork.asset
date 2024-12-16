@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: Animal
   level: 99
+  levelint: 99
   stage: 1
+  stageint: 1
   monsterName: Hangork
   location: Gautama Cliff
   monsterLocations:
   - Gautama Cliff
   exp: 1191
-  canDrop: []
+  expint: 1191
+  health: 24
+  canDrops: []

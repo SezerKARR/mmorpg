@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Animal
   level: 19
+  levelint: 19
   stage: 1
+  stageint: 1
   monsterName: Black Bear
   location: Joan,Pyungmoo,Yongan
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Pyungmoo
   - Yongan
   exp: 385
-  canDrop: []
+  expint: 385
+  health: 40
+  canDrops: []

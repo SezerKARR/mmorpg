@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 118
+  levelint: 118
   stage: 4
+  stageint: 4
   monsterName: Frost General (RX)
   location: Nemere's Watchtower (RX)
   monsterLocations:
   - Nemere's Watchtower (RX)
   exp: 35842
-  canDrop: []
+  expint: 35842
+  health: 1515
+  canDrops: []

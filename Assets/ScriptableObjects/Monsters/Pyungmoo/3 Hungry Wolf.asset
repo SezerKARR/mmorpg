@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Animal
   level: 3
+  levelint: 3
   stage: 1
+  stageint: 1
   monsterName: Hungry Wolf
   location: Joan,Pyungmoo,Yongan
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Pyungmoo
   - Yongan
   exp: 27
-  canDrop: []
+  expint: 27
+  health: 18
+  canDrops: []

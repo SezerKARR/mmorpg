@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Devil
   level: 118
+  levelint: 118
   stage: 3
+  stageint: 3
   monsterName: Strong Ochao Executioner
   location: Temple of the Ochao
   monsterLocations:
   - Temple of the Ochao
   exp: 29316
-  canDrop: []
+  expint: 29316
+  health: 992
+  canDrops: []

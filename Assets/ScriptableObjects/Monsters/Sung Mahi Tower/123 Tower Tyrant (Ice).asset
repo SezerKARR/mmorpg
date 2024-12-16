@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: Devil
   level: 123
+  levelint: 123
   stage: 5
+  stageint: 5
   monsterName: Tower Tyrant (Ice)
   location: Sung Mahi Tower
   monsterLocations:
   - Sung Mahi Tower
   exp: 33
-  canDrop: []
+  expint: 33
+  health: 0
+  canDrops: []

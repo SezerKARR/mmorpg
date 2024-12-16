@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Devil
   level: 113
+  levelint: 113
   stage: 2
+  stageint: 2
   monsterName: Ochao Healer (RX)
   location: Enchanted Forest (RX)
   monsterLocations:
   - Enchanted Forest (RX)
   exp: 11811
-  canDrop: []
+  expint: 11811
+  health: 312
+  canDrops: []

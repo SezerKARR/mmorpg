@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 66
+  levelint: 66
   stage: 3
+  stageint: 3
   monsterName: Yeti
   location: Mount Sohan
   monsterLocations:
   - Mount Sohan
   exp: 2476
-  canDrop: []
+  expint: 2476
+  health: 148
+  canDrops: []

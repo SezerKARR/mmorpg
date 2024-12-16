@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Mystic
   level: 57
+  levelint: 57
   stage: 4
+  stageint: 4
   monsterName: Elite Esoteric Summoner
   location: Hwang Temple
   monsterLocations:
   - Hwang Temple
   exp: 4580
-  canDrop: []
+  expint: 4580
+  health: 400
+  canDrops: []

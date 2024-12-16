@@ -17,7 +17,9 @@ MonoBehaviour:
   - Wind
   race: Half H.
   level: 35
+  levelint: 35
   stage: 3
+  stageint: 3
   monsterName: Black Storm Archer
   location: Bokjung,Yayang,Bakra
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Yayang
   - Bakra
   exp: 946
-  canDrop: []
+  expint: 946
+  health: 108
+  canDrops: []

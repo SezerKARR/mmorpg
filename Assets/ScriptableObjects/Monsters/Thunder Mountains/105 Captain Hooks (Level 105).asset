@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: Orc
   level: 105
+  levelint: 105
   stage: 4
+  stageint: 4
   monsterName: Captain Hooks (Level 105)
   location: Thunder Mountains
   monsterLocations:
   - Thunder Mountains
   exp: 23895
-  canDrop: []
+  expint: 23895
+  health: 1135
+  canDrops: []

@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Half H.
   level: 26
+  levelint: 26
   stage: 4
+  stageint: 4
   monsterName: Dispirited Eun-Jung
   location: Joan,Pyungmoo,Yongan
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Pyungmoo
   - Yongan
   exp: 2058
-  canDrop: []
+  expint: 2058
+  health: 395
+  canDrops: []

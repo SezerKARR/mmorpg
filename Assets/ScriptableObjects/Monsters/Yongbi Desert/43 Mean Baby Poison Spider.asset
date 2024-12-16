@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Insect
   level: 43
+  levelint: 43
   stage: 1
+  stageint: 1
   monsterName: Mean Baby Poison Spider
   location: Yongbi Desert
   monsterLocations:
   - Yongbi Desert
   exp: 848
-  canDrop: []
+  expint: 848
+  health: 38
+  canDrops: []

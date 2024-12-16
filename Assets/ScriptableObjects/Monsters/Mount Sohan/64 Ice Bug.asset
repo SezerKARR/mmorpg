@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 64
+  levelint: 64
   stage: 2
+  stageint: 2
   monsterName: Ice Bug
   location: Mount Sohan
   monsterLocations:
   - Mount Sohan
   exp: 679
-  canDrop: []
+  expint: 679
+  health: 30
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - Lightning
   race: Devil
   level: 114
+  levelint: 114
   stage: 2
+  stageint: 2
   monsterName: Setaou Soldier (TR)
   location: Grotto of Exile (TR)
   monsterLocations:
   - Grotto of Exile (TR)
   exp: 29211
-  canDrop: []
+  expint: 29211
+  health: 768
+  canDrops: []

@@ -17,7 +17,9 @@ MonoBehaviour:
   - Wind
   race: Half H.
   level: 36
+  levelint: 36
   stage: 4
+  stageint: 4
   monsterName: Black Storm Joh-Hwan
   location: Bokjung,Yayang,Bakra
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Yayang
   - Bakra
   exp: 1740
-  canDrop: []
+  expint: 1740
+  health: 240
+  canDrops: []

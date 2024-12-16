@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 123
+  levelint: 123
   stage: 2
+  stageint: 2
   monsterName: Frozen Fox
   location: Northwind Canyon
   monsterLocations:
   - Northwind Canyon
   exp: 37
-  canDrop: []
+  expint: 37
+  health: 0
+  canDrops: []

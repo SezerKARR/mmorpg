@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Undead
   level: 58
+  levelint: 58
   stage: 3
+  stageint: 3
   monsterName: Plagued Archer
   location: Mount Sohan
   monsterLocations:
   - Mount Sohan
   exp: 2330
-  canDrop: []
+  expint: 2330
+  health: 160
+  canDrops: []

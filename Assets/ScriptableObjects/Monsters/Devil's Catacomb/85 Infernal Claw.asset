@@ -17,10 +17,14 @@ MonoBehaviour:
   - Darkness
   race: Undead
   level: 85
+  levelint: 85
   stage: 4
+  stageint: 4
   monsterName: Infernal Claw
   location: Devil's Catacomb
   monsterLocations:
   - Devil's Catacomb
   exp: 3148
-  canDrop: []
+  expint: 3148
+  health: 185
+  canDrops: []

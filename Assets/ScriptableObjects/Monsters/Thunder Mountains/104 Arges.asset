@@ -17,10 +17,14 @@ MonoBehaviour:
   - Lightning
   race: Orc
   level: 104
+  levelint: 104
   stage: Boss
+  stageint: 0
   monsterName: Arges
   location: Thunder Mountains
   monsterLocations:
   - Thunder Mountains
   exp: 103707
-  canDrop: []
+  expint: 103707
+  health: 997
+  canDrops: []

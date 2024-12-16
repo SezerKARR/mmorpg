@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: Orc
   level: 103
+  levelint: 103
   stage: 2
+  stageint: 2
   monsterName: Gigantic Magus
   location: Thunder Mountains
   monsterLocations:
   - Thunder Mountains
   exp: 2973
-  canDrop: []
+  expint: 2973
+  health: 84
+  canDrops: []

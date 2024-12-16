@@ -17,7 +17,9 @@ MonoBehaviour:
   - Wind
   race: Half H.
   level: 27
+  levelint: 27
   stage: 1
+  stageint: 1
   monsterName: Black Wind Maniac
   location: Bokjung,Yayang,Bakra
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Yayang
   - Bakra
   exp: 763
-  canDrop: []
+  expint: 763
+  health: 56
+  canDrops: []

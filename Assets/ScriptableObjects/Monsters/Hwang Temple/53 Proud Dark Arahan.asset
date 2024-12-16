@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Mystic
   level: 53
+  levelint: 53
   stage: 2
+  stageint: 2
   monsterName: Proud Dark Arahan
   location: Hwang Temple
   monsterLocations:
   - Hwang Temple
   exp: 1278
-  canDrop: []
+  expint: 1278
+  health: 72
+  canDrops: []

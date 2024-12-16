@@ -17,10 +17,14 @@ MonoBehaviour:
   - Lightning
   race: Devil
   level: 120
+  levelint: 120
   stage: 4
+  stageint: 4
   monsterName: Setaou Commander (TR)
   location: Grotto of Exile (TR)
   monsterLocations:
   - Grotto of Exile (TR)
   exp: 62370
-  canDrop: []
+  expint: 62370
+  health: 2595
+  canDrops: []

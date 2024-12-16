@@ -17,10 +17,14 @@ MonoBehaviour:
   - Lightning
   race: Devil
   level: 93
+  levelint: 93
   stage: 4
+  stageint: 4
   monsterName: Captain Yonghan
   location: Grotto of Exile V2
   monsterLocations:
   - Grotto of Exile V2
   exp: 44700
-  canDrop: []
+  expint: 44700
+  health: 2400
+  canDrops: []

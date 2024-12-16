@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: 
   level: 85
+  levelint: 85
   stage: 3
+  stageint: 3
   monsterName: Gate of Perdition
   location: Devil's Catacomb
   monsterLocations:
   - Devil's Catacomb
   exp: 3200
-  canDrop: []
+  expint: 3200
+  health: 148
+  canDrops: []

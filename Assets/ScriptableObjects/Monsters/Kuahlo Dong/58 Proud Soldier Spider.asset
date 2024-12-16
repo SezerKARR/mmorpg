@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Insect
   level: 58
+  levelint: 58
   stage: 4
+  stageint: 4
   monsterName: Proud Soldier Spider
   location: Kuahlo Dong
   monsterLocations:
   - Kuahlo Dong
   exp: 5208
-  canDrop: []
+  expint: 5208
+  health: 445
+  canDrops: []

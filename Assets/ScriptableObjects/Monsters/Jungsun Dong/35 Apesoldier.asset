@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 35
+  levelint: 35
   stage: 1
+  stageint: 1
   monsterName: Apesoldier
   location: Jungsun Dong
   monsterLocations:
   - Jungsun Dong
   exp: 564
-  canDrop: []
+  expint: 564
+  health: 32
+  canDrops: []

@@ -17,11 +17,15 @@ MonoBehaviour:
   - Darkness
   race: Devil
   level: 122
+  levelint: 122
   stage: 2
+  stageint: 2
   monsterName: Tainted Soldier (Darkness)
   location: Yilad Pass,Serpent Temple (Base Floor)
   monsterLocations:
   - Yilad Pass
   - Serpent Temple (Base Floor)
   exp: 32
-  canDrop: []
+  expint: 32
+  health: 0
+  canDrops: []

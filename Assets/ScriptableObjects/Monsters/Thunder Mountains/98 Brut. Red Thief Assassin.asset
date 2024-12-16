@@ -17,10 +17,14 @@ MonoBehaviour:
   - Lightning
   race: Half H.
   level: 98
+  levelint: 98
   stage: 2
+  stageint: 2
   monsterName: Brut. Red Thief Assassin
   location: Thunder Mountains
   monsterLocations:
   - Thunder Mountains
   exp: 2829
-  canDrop: []
+  expint: 2829
+  health: 84
+  canDrops: []

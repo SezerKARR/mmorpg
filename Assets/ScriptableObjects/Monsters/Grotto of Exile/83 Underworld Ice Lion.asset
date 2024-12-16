@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 83
+  levelint: 83
   stage: 3
+  stageint: 3
   monsterName: Underworld Ice Lion
   location: Grotto of Exile
   monsterLocations:
   - Grotto of Exile
   exp: 9048
-  canDrop: []
+  expint: 9048
+  health: 436
+  canDrops: []

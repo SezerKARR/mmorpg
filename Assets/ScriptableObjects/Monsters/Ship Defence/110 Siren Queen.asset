@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 110
+  levelint: 110
   stage: Boss
+  stageint: 0
   monsterName: Siren Queen
   location: Ship Defence
   monsterLocations:
   - Ship Defence
   exp: 104702
-  canDrop: []
+  expint: 104702
+  health: 951
+  canDrops: []

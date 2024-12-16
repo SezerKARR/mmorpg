@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Orc
   level: 46
+  levelint: 46
   stage: 4
+  stageint: 4
   monsterName: Black Orc
   location: Valley of Seungryong
   monsterLocations:
   - Valley of Seungryong
   exp: 5180
-  canDrop: []
+  expint: 5180
+  health: 560
+  canDrops: []

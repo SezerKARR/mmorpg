@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Half H.
   level: 28
+  levelint: 28
   stage: 4
+  stageint: 4
   monsterName: Se-Rang
   location: Joan,Pyungmoo,Yongan
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Pyungmoo
   - Yongan
   exp: 3164
-  canDrop: []
+  expint: 3164
+  health: 565
+  canDrops: []

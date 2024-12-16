@@ -17,10 +17,14 @@ MonoBehaviour:
   - Lightning
   race: 
   level: 75
+  levelint: 75
   stage: 3
+  stageint: 3
   monsterName: Ogre Berserk
   location: Land of Giants
   monsterLocations:
   - Land of Giants
   exp: ???
-  canDrop: []
+  expint: 2147483647
+  health: 114532460
+  canDrops: []

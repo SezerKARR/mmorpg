@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: 
   level: 82
+  levelint: 82
   stage: 3
+  stageint: 3
   monsterName: Red Ghost Stump
   location: Red Forest
   monsterLocations:
   - Red Forest
   exp: 2745
-  canDrop: []
+  expint: 2745
+  health: 132
+  canDrops: []

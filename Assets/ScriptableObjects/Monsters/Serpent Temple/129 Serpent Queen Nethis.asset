@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: 
   level: 129
+  levelint: 129
   stage: Boss
+  stageint: 0
   monsterName: Serpent Queen Nethis
   location: Serpent Temple
   monsterLocations:
   - Serpent Temple
   exp: 168
-  canDrop: []
+  expint: 168
+  health: 1
+  canDrops: []

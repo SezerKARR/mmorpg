@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Undead
   level: 51
+  levelint: 51
   stage: 2
+  stageint: 2
   monsterName: Plagued Dog
   location: Mount Sohan
   monsterLocations:
   - Mount Sohan
   exp: 917
-  canDrop: []
+  expint: 917
+  health: 51
+  canDrops: []

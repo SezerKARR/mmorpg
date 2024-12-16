@@ -17,10 +17,14 @@ MonoBehaviour:
   - Darkness
   race: Undead
   level: 86
+  levelint: 86
   stage: 4
+  stageint: 4
   monsterName: Evil Hell General
   location: Devil's Catacomb
   monsterLocations:
   - Devil's Catacomb
   exp: 3180
-  canDrop: []
+  expint: 3180
+  health: 180
+  canDrops: []

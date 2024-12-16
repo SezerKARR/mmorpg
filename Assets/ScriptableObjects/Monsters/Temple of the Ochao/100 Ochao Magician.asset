@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Devil
   level: 100
+  levelint: 100
   stage: 2
+  stageint: 2
   monsterName: Ochao Magician
   location: Temple of the Ochao
   monsterLocations:
   - Temple of the Ochao
   exp: 11380
-  canDrop: []
+  expint: 11380
+  health: 339
+  canDrops: []

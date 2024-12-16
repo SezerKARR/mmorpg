@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 120
+  levelint: 120
   stage: 4
+  stageint: 4
   monsterName: Frost Lord (RX)
   location: Nemere's Watchtower (RX)
   monsterLocations:
   - Nemere's Watchtower (RX)
   exp: 139519
-  canDrop: []
+  expint: 139519
+  health: 5810
+  canDrops: []

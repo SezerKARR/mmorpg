@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Orc
   level: 36
+  levelint: 36
   stage: 2
+  stageint: 2
   monsterName: Bold Big Orc Scout
   location: Valley of Seungryong
   monsterLocations:
   - Valley of Seungryong
   exp: 853
-  canDrop: []
+  expint: 853
+  health: 69
+  canDrops: []

@@ -17,11 +17,15 @@ MonoBehaviour:
   - Ice
   race: 
   level: 124
+  levelint: 124
   stage: 3
+  stageint: 3
   monsterName: Shelter Skirmisher (Ice)
   location: Northwind Shelter,Northwind Deeps
   monsterLocations:
   - Northwind Shelter
   - Northwind Deeps
   exp: 46
-  canDrop: []
+  expint: 46
+  health: 0
+  canDrops: []

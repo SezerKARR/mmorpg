@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 37
+  levelint: 37
   stage: 2
+  stageint: 2
   monsterName: Apethrower
   location: Jungsun Dong
   monsterLocations:
   - Jungsun Dong
   exp: 715
-  canDrop: []
+  expint: 715
+  health: 57
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 47
+  levelint: 47
   stage: 2
+  stageint: 2
   monsterName: Strong Ape Thrower
   location: Sangsun Dong
   monsterLocations:
   - Sangsun Dong
   exp: 907
-  canDrop: []
+  expint: 907
+  health: 57
+  canDrops: []

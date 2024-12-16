@@ -17,10 +17,14 @@ MonoBehaviour:
   - Darkness
   race: Undead
   level: 83
+  levelint: 83
   stage: 3
+  stageint: 3
   monsterName: Hell Major
   location: Devil's Catacomb
   monsterLocations:
   - Devil's Catacomb
   exp: 1542
-  canDrop: []
+  expint: 1542
+  health: 72
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - Fire
   race: 
   level: 71
+  levelint: 71
   stage: 3
+  stageint: 3
   monsterName: Flame
   location: Doyyumhwan
   monsterLocations:
   - Doyyumhwan
   exp: 1710
-  canDrop: []
+  expint: 1710
+  health: 96
+  canDrops: []

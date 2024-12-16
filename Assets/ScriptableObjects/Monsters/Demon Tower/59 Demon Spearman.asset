@@ -17,10 +17,14 @@ MonoBehaviour:
   - Darkness
   race: Undead
   level: 59
+  levelint: 59
   stage: 2
+  stageint: 2
   monsterName: Demon Spearman
   location: Demon Tower
   monsterLocations:
   - Demon Tower
   exp: 1182
-  canDrop: []
+  expint: 1182
+  health: 60
+  canDrops: []

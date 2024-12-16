@@ -17,10 +17,14 @@ MonoBehaviour:
   - Darkness
   race: Undead
   level: 91
+  levelint: 91
   stage: 5
+  stageint: 5
   monsterName: Azrael
   location: Devil's Catacomb
   monsterLocations:
   - Devil's Catacomb
   exp: 333600
-  canDrop: []
+  expint: 333600
+  health: 21990
+  canDrops: []

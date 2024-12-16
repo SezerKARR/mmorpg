@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 135
+  levelint: 135
   stage: 5
+  stageint: 5
   monsterName: Alastor (Hard)
   location: Northwind Deeps
   monsterLocations:
   - Northwind Deeps
   exp: 548
-  canDrop: []
+  expint: 548
+  health: 24
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 124
+  levelint: 124
   stage: 4
+  stageint: 4
   monsterName: Frozen Hunter (Ice)
   location: Northwind Canyon
   monsterLocations:
   - Northwind Canyon
   exp: 36
-  canDrop: []
+  expint: 36
+  health: 0
+  canDrops: []

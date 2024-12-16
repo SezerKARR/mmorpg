@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Mystic
   level: 49
+  levelint: 49
   stage: 4
+  stageint: 4
   monsterName: Dark Tormentor
   location: Valley of Seungryong
   monsterLocations:
   - Valley of Seungryong
   exp: 3940
-  canDrop: []
+  expint: 3940
+  health: 400
+  canDrops: []

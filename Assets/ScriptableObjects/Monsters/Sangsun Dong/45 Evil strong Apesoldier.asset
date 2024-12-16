@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 45
+  levelint: 45
   stage: 1
+  stageint: 1
   monsterName: Evil strong Apesoldier
   location: Sangsun Dong
   monsterLocations:
   - Sangsun Dong
   exp: 507
-  canDrop: []
+  expint: 507
+  health: 22
+  canDrops: []

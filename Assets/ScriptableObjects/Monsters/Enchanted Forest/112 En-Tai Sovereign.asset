@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: Devil
   level: 112
+  levelint: 112
   stage: Boss
+  stageint: 0
   monsterName: En-Tai Sovereign
   location: Enchanted Forest
   monsterLocations:
   - Enchanted Forest
   exp: 517920
-  canDrop: []
+  expint: 517920
+  health: 4624
+  canDrops: []

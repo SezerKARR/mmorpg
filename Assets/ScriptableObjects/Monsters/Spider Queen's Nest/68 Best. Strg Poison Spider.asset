@@ -17,10 +17,14 @@ MonoBehaviour:
   - Fire
   race: Insect
   level: 68
+  levelint: 68
   stage: 4
+  stageint: 4
   monsterName: Best. Strg Poison Spider
   location: Spider Queen's Nest
   monsterLocations:
   - Spider Queen's Nest
   exp: 10441
-  canDrop: []
+  expint: 10441
+  health: 765
+  canDrops: []

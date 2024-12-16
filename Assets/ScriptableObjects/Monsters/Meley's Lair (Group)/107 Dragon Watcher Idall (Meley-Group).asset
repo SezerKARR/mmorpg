@@ -17,10 +17,14 @@ MonoBehaviour:
   - Fire
   race: 
   level: 107
+  levelint: 107
   stage: Boss
+  stageint: 0
   monsterName: Dragon Watcher Idall (Meley-Group)
   location: Meley's Lair (Group)
   monsterLocations:
   - Meley's Lair (Group)
   exp: 2282000
-  canDrop: []
+  expint: 2282000
+  health: 21327
+  canDrops: []

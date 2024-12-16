@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 108
+  levelint: 108
   stage: Boss
+  stageint: 0
   monsterName: Nemere
   location: Nemere's Watchtower
   monsterLocations:
   - Nemere's Watchtower
   exp: 422585
-  canDrop: []
+  expint: 422585
+  health: 3912
+  canDrops: []

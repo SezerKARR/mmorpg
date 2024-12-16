@@ -17,10 +17,14 @@ MonoBehaviour:
   - Fire
   race: 
   level: 112
+  levelint: 112
   stage: 1
+  stageint: 1
   monsterName: Ember Flame Tiger (RX)
   location: Red Dragon Fortress (RX)
   monsterLocations:
   - Red Dragon Fortress (RX)
   exp: 3848
-  canDrop: []
+  expint: 3848
+  health: 68
+  canDrops: []

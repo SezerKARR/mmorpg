@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: 
   level: 72
+  levelint: 72
   stage: 2
+  stageint: 2
   monsterName: Stone Cruncher
   location: Snakefield
   monsterLocations:
   - Snakefield
   exp: ???
-  canDrop: []
+  expint: 2147483647
+  health: 89478483
+  canDrops: []

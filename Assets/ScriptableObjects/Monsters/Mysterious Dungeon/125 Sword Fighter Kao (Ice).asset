@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: Half H.
   level: 125
+  levelint: 125
   stage: 4
+  stageint: 4
   monsterName: Sword Fighter Kao (Ice)
   location: Mysterious Dungeon
   monsterLocations:
   - Mysterious Dungeon
   exp: 62
-  canDrop: []
+  expint: 62
+  health: 0
+  canDrops: []

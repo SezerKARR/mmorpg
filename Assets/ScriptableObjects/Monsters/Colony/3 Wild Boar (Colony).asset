@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 3
+  levelint: 3
   stage: 1
+  stageint: 1
   monsterName: Wild Boar (Colony)
   location: Colony
   monsterLocations:
   - Colony
   exp: 6
-  canDrop: []
+  expint: 6
+  health: 4
+  canDrops: []

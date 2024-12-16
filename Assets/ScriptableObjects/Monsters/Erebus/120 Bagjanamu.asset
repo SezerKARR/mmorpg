@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: Devil
   level: 120
+  levelint: 120
   stage: Boss
+  stageint: 0
   monsterName: Bagjanamu
   location: Erebus
   monsterLocations:
   - Erebus
   exp: 1154705
-  canDrop: []
+  expint: 1154705
+  health: 9622
+  canDrops: []

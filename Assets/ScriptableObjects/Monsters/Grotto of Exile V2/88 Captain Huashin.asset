@@ -17,10 +17,14 @@ MonoBehaviour:
   - Lightning
   race: Devil
   level: 88
+  levelint: 88
   stage: 4
+  stageint: 4
   monsterName: Captain Huashin
   location: Grotto of Exile V2
   monsterLocations:
   - Grotto of Exile V2
   exp: 44700
-  canDrop: []
+  expint: 44700
+  health: 2535
+  canDrops: []

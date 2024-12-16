@@ -17,10 +17,14 @@ MonoBehaviour:
   - Lightning
   race: Devil
   level: 115
+  levelint: 115
   stage: Boss
+  stageint: 0
   monsterName: General Yongan (RX)
   location: Grotto of Exile (RX)
   monsterLocations:
   - Grotto of Exile (RX)
   exp: 547920
-  canDrop: []
+  expint: 547920
+  health: 4764
+  canDrops: []

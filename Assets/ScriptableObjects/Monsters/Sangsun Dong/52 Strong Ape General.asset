@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 52
+  levelint: 52
   stage: 4
+  stageint: 4
   monsterName: Strong Ape General
   location: Sangsun Dong
   monsterLocations:
   - Sangsun Dong
   exp: 3344
-  canDrop: []
+  expint: 3344
+  health: 320
+  canDrops: []

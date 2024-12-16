@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 54
+  levelint: 54
   stage: 4
+  stageint: 4
   monsterName: Evil strong Goldape
   location: Sangsun Dong
   monsterLocations:
   - Sangsun Dong
   exp: 2408
-  canDrop: []
+  expint: 2408
+  health: 220
+  canDrops: []

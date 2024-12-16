@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Mystic
   level: 57
+  levelint: 57
   stage: 4
+  stageint: 4
   monsterName: Bestial Evocator
   location: Hwang Temple
   monsterLocations:
   - Hwang Temple
   exp: 5500
-  canDrop: []
+  expint: 5500
+  health: 480
+  canDrops: []

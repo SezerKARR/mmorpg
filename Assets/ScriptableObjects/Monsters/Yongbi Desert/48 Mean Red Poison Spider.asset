@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Insect
   level: 48
+  levelint: 48
   stage: 2
+  stageint: 2
   monsterName: Mean Red Poison Spider
   location: Yongbi Desert
   monsterLocations:
   - Yongbi Desert
   exp: 1135
-  canDrop: []
+  expint: 1135
+  health: 69
+  canDrops: []

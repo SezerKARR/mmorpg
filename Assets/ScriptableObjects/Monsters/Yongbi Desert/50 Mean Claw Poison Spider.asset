@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Insect
   level: 50
+  levelint: 50
   stage: 2
+  stageint: 2
   monsterName: Mean Claw Poison Spider
   location: Yongbi Desert
   monsterLocations:
   - Yongbi Desert
   exp: 1182
-  canDrop: []
+  expint: 1182
+  health: 69
+  canDrops: []

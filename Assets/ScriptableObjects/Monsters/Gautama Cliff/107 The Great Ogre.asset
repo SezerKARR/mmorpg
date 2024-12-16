@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: Animal
   level: 107
+  levelint: 107
   stage: 5
+  stageint: 5
   monsterName: The Great Ogre
   location: Gautama Cliff
   monsterLocations:
   - Gautama Cliff
   exp: 384169
-  canDrop: []
+  expint: 384169
+  health: 21540
+  canDrops: []

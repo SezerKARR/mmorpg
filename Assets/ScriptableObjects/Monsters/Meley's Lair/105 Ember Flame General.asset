@@ -17,11 +17,15 @@ MonoBehaviour:
   - Fire
   race: 
   level: 105
+  levelint: 105
   stage: 4
+  stageint: 4
   monsterName: Ember Flame General
   location: Meley's Lair,Red Dragon Fortress
   monsterLocations:
   - Meley's Lair
   - Red Dragon Fortress
   exp: 23895
-  canDrop: []
+  expint: 23895
+  health: 1135
+  canDrops: []

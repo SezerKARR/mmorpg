@@ -17,10 +17,14 @@ MonoBehaviour:
   - Fire
   race: 
   level: 118
+  levelint: 118
   stage: 3
+  stageint: 3
   monsterName: Ember Flame Beard (TR)
   location: Red Dragon Fortress (TR)
   monsterLocations:
   - Red Dragon Fortress (TR)
   exp: 14860
-  canDrop: []
+  expint: 14860
+  health: 500
+  canDrops: []

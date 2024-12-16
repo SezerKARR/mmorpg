@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Orc
   level: 26
+  levelint: 26
   stage: 1
+  stageint: 1
   monsterName: Orc
   location: Valley of Seungryong
   monsterLocations:
   - Valley of Seungryong
   exp: 1037
-  canDrop: []
+  expint: 1037
+  health: 78
+  canDrops: []

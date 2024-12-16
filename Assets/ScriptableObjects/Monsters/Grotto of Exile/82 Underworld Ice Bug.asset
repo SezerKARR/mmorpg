@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 82
+  levelint: 82
   stage: 2
+  stageint: 2
   monsterName: Underworld Ice Bug
   location: Grotto of Exile
   monsterLocations:
   - Grotto of Exile
   exp: 5428
-  canDrop: []
+  expint: 5428
+  health: 198
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Devil
   level: 120
+  levelint: 120
   stage: 2
+  stageint: 2
   monsterName: En-Tai Druid (TR)
   location: Enchanted Forest (TR)
   monsterLocations:
   - Enchanted Forest (TR)
   exp: 57702
-  canDrop: []
+  expint: 57702
+  health: 1440
+  canDrops: []

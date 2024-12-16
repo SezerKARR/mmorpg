@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Half H.
   level: 99
+  levelint: 99
   stage: 2
+  stageint: 2
   monsterName: Moghu
   location: Gautama Cliff
   monsterLocations:
   - Gautama Cliff
   exp: 2858
-  canDrop: []
+  expint: 2858
+  health: 84
+  canDrops: []

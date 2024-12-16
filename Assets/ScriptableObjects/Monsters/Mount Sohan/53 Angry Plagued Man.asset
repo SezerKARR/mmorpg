@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Undead
   level: 53
+  levelint: 53
   stage: 2
+  stageint: 2
   monsterName: Angry Plagued Man
   location: Mount Sohan
   monsterLocations:
   - Mount Sohan
   exp: 715
-  canDrop: []
+  expint: 715
+  health: 39
+  canDrops: []

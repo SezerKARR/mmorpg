@@ -17,10 +17,14 @@ MonoBehaviour:
   - Fire
   race: 
   level: 115
+  levelint: 115
   stage: 1
+  stageint: 1
   monsterName: Flame Spirit
   location: Elemental Realm
   monsterLocations:
   - Elemental Realm
   exp: 18900
-  canDrop: []
+  expint: 18900
+  health: 328
+  canDrops: []

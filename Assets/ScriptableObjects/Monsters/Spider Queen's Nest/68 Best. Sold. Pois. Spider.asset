@@ -17,11 +17,15 @@ MonoBehaviour:
   - Fire
   race: Insect
   level: 68
+  levelint: 68
   stage: 4
+  stageint: 4
   monsterName: Best. Sold. Pois. Spider
   location: Spider Dungeon 3,Spider Queen's Nest
   monsterLocations:
   - Spider Dungeon 3
   - Spider Queen's Nest
   exp: 10200
-  canDrop: []
+  expint: 10200
+  health: 750
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: 
   level: 76
+  levelint: 76
   stage: 2
+  stageint: 2
   monsterName: Ghost Willow
   location: Lungsam
   monsterLocations:
   - Lungsam
   exp: 1587
-  canDrop: []
+  expint: 1587
+  health: 60
+  canDrops: []

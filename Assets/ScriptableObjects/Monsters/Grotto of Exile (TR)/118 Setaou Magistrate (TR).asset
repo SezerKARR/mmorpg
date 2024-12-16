@@ -17,10 +17,14 @@ MonoBehaviour:
   - Lightning
   race: Devil
   level: 118
+  levelint: 118
   stage: 3
+  stageint: 3
   monsterName: Setaou Magistrate (TR)
   location: Grotto of Exile (TR)
   monsterLocations:
   - Grotto of Exile (TR)
   exp: 30531
-  canDrop: []
+  expint: 30531
+  health: 1032
+  canDrops: []

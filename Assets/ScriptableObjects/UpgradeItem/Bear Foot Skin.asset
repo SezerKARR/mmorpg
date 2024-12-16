@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Bear Foot Skin
   m_EditorClassIdentifier: 
   Place: 0
-  Image: {fileID: 0}
+  Image: {fileID: 21300000, guid: ec225654147f290459658557452badca, type: 3}
   ItemName: Bear Foot Skin
   dropsFrom: Black Bear, Hungry Black Bear, Cursed Black Bear
   DropMetins: 
@@ -22,4 +22,4 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  DropName: <color=green>/color>
+  DropName: Bear Foot Skin

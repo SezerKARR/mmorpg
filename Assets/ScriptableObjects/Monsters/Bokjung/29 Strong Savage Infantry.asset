@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Half H.
   level: 29
+  levelint: 29
   stage: 1
+  stageint: 1
   monsterName: Strong Savage Infantry
   location: Bokjung,Yayang,Bakra
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Yayang
   - Bakra
   exp: 819
-  canDrop: []
+  expint: 819
+  health: 56
+  canDrops: []

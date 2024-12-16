@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: 
   level: 84
+  levelint: 84
   stage: Boss
+  stageint: 0
   monsterName: Giant Ghost Tree
   location: Red Forest
   monsterLocations:
   - Red Forest
   exp: 27236
-  canDrop: []
+  expint: 27236
+  health: 324
+  canDrops: []

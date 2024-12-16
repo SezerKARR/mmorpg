@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 6
+  levelint: 6
   stage: 1
+  stageint: 1
   monsterName: Black Bear (Colony)
   location: Colony
   monsterLocations:
   - Colony
   exp: 10
-  canDrop: []
+  expint: 10
+  health: 2
+  canDrops: []

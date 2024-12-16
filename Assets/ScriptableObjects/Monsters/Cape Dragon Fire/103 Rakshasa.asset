@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Animal
   level: 103
+  levelint: 103
   stage: Boss
+  stageint: 0
   monsterName: Rakshasa
   location: Cape Dragon Fire
   monsterLocations:
   - Cape Dragon Fire
   exp: 102713
-  canDrop: []
+  expint: 102713
+  health: 997
+  canDrops: []

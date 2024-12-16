@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: 
   level: 86
+  levelint: 86
   stage: 4
+  stageint: 4
   monsterName: Red Ghost Willow
   location: Red Forest
   monsterLocations:
   - Red Forest
   exp: 5778
-  canDrop: []
+  expint: 5778
+  health: 335
+  canDrops: []

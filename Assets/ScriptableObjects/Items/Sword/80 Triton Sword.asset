@@ -22,7 +22,7 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 2
-  DropName: <color=green>Triton Sword+0</color>
+  DropName: Triton Sword+0
   price: 0
   objectType: 4
   levelWithPlus: 0

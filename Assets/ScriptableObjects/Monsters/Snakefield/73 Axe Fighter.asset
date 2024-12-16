@@ -17,11 +17,15 @@ MonoBehaviour:
   - Lightning
   race: 
   level: 73
+  levelint: 73
   stage: 3
+  stageint: 3
   monsterName: Axe Fighter
   location: Snakefield,Land of Giants
   monsterLocations:
   - Snakefield
   - Land of Giants
   exp: ???
-  canDrop: []
+  expint: 2147483647
+  health: 117670336
+  canDrops: []

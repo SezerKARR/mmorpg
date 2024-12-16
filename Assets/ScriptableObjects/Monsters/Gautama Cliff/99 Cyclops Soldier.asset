@@ -17,11 +17,15 @@ MonoBehaviour:
   - Lightning
   race: Orc
   level: 99
+  levelint: 99
   stage: 2
+  stageint: 2
   monsterName: Cyclops Soldier
   location: Thunder Mountains,Gautama Cliff
   monsterLocations:
   - Thunder Mountains
   - Gautama Cliff
   exp: 2858
-  canDrop: []
+  expint: 2858
+  health: 84
+  canDrops: []

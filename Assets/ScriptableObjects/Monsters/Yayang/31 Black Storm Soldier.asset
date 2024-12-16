@@ -17,7 +17,9 @@ MonoBehaviour:
   - Wind
   race: Half H.
   level: 31
+  levelint: 31
   stage: 3
+  stageint: 3
   monsterName: Black Storm Soldier
   location: Bokjung,Yayang,Bakra
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Yayang
   - Bakra
   exp: 1900
-  canDrop: []
+  expint: 1900
+  health: 244
+  canDrops: []

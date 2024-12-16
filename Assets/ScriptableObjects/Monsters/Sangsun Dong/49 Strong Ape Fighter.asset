@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 49
+  levelint: 49
   stage: 3
+  stageint: 3
   monsterName: Strong Ape Fighter
   location: Sangsun Dong
   monsterLocations:
   - Sangsun Dong
   exp: 1576
-  canDrop: []
+  expint: 1576
+  health: 128
+  canDrops: []

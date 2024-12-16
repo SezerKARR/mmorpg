@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Half H.
   level: 25
+  levelint: 25
   stage: 3
+  stageint: 3
   monsterName: White Oath Commander (Cursed)
   location: Bokjung,Yayang,Bakra
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Yayang
   - Bakra
   exp: 1452
-  canDrop: []
+  expint: 1452
+  health: 232
+  canDrops: []

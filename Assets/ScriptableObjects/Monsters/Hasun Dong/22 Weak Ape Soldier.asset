@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 22
+  levelint: 22
   stage: 1
+  stageint: 1
   monsterName: Weak Ape Soldier
   location: Hasun Dong
   monsterLocations:
   - Hasun Dong
   exp: 356
-  canDrop: []
+  expint: 356
+  health: 32
+  canDrops: []

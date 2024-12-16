@@ -17,10 +17,14 @@ MonoBehaviour:
   - Fire
   race: 
   level: 97
+  levelint: 97
   stage: 4
+  stageint: 4
   monsterName: Idall's Minion
   location: Meley's Lair
   monsterLocations:
   - Meley's Lair
   exp: 0
-  canDrop: []
+  expint: 0
+  health: 0
+  canDrops: []

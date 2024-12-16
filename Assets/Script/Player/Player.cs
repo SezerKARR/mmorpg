@@ -19,7 +19,9 @@ public enum DamageType
 }
 public class Player : MonoBehaviour
 {
+    
     public static Player instance;
+    public string playerName="satisfaction";
     private Camera _mainCamera;
     public PolygonCollider2D[] attackColliderNormalSword;
     public SwordSO sword;

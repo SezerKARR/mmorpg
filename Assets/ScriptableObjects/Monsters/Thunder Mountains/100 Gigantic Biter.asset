@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: Orc
   level: 100
+  levelint: 100
   stage: 1
+  stageint: 1
   monsterName: Gigantic Biter
   location: Thunder Mountains
   monsterLocations:
   - Thunder Mountains
   exp: 1203
-  canDrop: []
+  expint: 1203
+  health: 24
+  canDrops: []

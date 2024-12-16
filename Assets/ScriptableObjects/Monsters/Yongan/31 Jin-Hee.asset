@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Half H.
   level: 31
+  levelint: 31
   stage: 4
+  stageint: 4
   monsterName: Jin-Hee
   location: Joan,Pyungmoo,Yongan
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Pyungmoo
   - Yongan
   exp: 3500
-  canDrop: []
+  expint: 3500
+  health: 560
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: Desert
   level: 119
+  levelint: 119
   stage: 3
+  stageint: 3
   monsterName: Quag Worker (Earth)
   location: Seo Gwang Wastelands
   monsterLocations:
   - Seo Gwang Wastelands
   exp: 30
-  canDrop: []
+  expint: 30
+  health: 0
+  canDrops: []

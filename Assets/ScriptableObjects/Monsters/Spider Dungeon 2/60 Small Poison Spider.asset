@@ -17,10 +17,14 @@ MonoBehaviour:
   - Fire
   race: Insect
   level: 60
+  levelint: 60
   stage: 1
+  stageint: 1
   monsterName: Small Poison Spider
   location: Spider Dungeon 2
   monsterLocations:
   - Spider Dungeon 2
   exp: 4440
-  canDrop: []
+  expint: 4440
+  health: 148
+  canDrops: []

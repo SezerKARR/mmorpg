@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Orc
   level: 33
+  levelint: 33
   stage: 3
+  stageint: 3
   monsterName: Orc Sorcerer
   location: Valley of Seungryong
   monsterLocations:
   - Valley of Seungryong
   exp: 1110
-  canDrop: []
+  expint: 1110
+  health: 132
+  canDrops: []

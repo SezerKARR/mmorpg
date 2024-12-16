@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 43
+  levelint: 43
   stage: Boss
+  stageint: 0
   monsterName: Walking Ape
   location: Jungsun Dong
   monsterLocations:
   - Jungsun Dong
   exp: 27680
-  canDrop: []
+  expint: 27680
+  health: 643
+  canDrops: []

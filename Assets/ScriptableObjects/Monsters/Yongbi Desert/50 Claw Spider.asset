@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Insect
   level: 50
+  levelint: 50
   stage: 2
+  stageint: 2
   monsterName: Claw Spider
   location: Yongbi Desert
   monsterLocations:
   - Yongbi Desert
   exp: 1688
-  canDrop: []
+  expint: 1688
+  health: 99
+  canDrops: []

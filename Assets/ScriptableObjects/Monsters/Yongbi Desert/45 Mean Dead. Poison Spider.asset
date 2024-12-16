@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Insect
   level: 45
+  levelint: 45
   stage: 1
+  stageint: 1
   monsterName: Mean Dead. Poison Spider
   location: Yongbi Desert
   monsterLocations:
   - Yongbi Desert
   exp: 887
-  canDrop: []
+  expint: 887
+  health: 38
+  canDrops: []

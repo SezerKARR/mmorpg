@@ -17,10 +17,14 @@ MonoBehaviour:
   - Darkness
   race: Undead
   level: 74
+  levelint: 74
   stage: 4
+  stageint: 4
   monsterName: Immortal Ghost
   location: Demon Tower
   monsterLocations:
   - Demon Tower
   exp: 4752
-  canDrop: []
+  expint: 4752
+  health: 320
+  canDrops: []

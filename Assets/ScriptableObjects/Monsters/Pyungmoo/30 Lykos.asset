@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Animal
   level: 30
+  levelint: 30
   stage: 4
+  stageint: 4
   monsterName: Lykos
   location: Joan,Pyungmoo,Yongan
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Pyungmoo
   - Yongan
   exp: 2420
-  canDrop: []
+  expint: 2420
+  health: 400
+  canDrops: []

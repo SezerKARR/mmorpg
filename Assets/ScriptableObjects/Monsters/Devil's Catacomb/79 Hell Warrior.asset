@@ -17,10 +17,14 @@ MonoBehaviour:
   - Darkness
   race: Undead
   level: 79
+  levelint: 79
   stage: 1
+  stageint: 1
   monsterName: Hell Warrior
   location: Devil's Catacomb
   monsterLocations:
   - Devil's Catacomb
   exp: 739
-  canDrop: []
+  expint: 739
+  health: 18
+  canDrops: []

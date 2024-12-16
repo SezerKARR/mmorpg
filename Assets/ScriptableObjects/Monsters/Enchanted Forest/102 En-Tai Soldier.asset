@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Devil
   level: 102
+  levelint: 102
   stage: 2
+  stageint: 2
   monsterName: En-Tai Soldier
   location: Enchanted Forest
   monsterLocations:
   - Enchanted Forest
   exp: 28934
-  canDrop: []
+  expint: 28934
+  health: 849
+  canDrops: []

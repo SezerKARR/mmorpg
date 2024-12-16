@@ -17,10 +17,14 @@ MonoBehaviour:
   - Darkness
   race: Undead
   level: 75
+  levelint: 75
   stage: Boss
+  stageint: 0
   monsterName: Demon King
   location: Demon Tower
   monsterLocations:
   - Demon Tower
   exp: 12040
-  canDrop: []
+  expint: 12040
+  health: 160
+  canDrops: []

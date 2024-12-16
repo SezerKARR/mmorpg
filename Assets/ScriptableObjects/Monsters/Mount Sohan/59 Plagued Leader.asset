@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Undead
   level: 59
+  levelint: 59
   stage: 4
+  stageint: 4
   monsterName: Plagued Leader
   location: Mount Sohan
   monsterLocations:
   - Mount Sohan
   exp: 3792
-  canDrop: []
+  expint: 3792
+  health: 320
+  canDrops: []

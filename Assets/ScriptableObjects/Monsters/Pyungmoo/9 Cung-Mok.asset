@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Animal
   level: 9
+  levelint: 9
   stage: 4
+  stageint: 4
   monsterName: Cung-Mok
   location: Joan,Pyungmoo,Yongan
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Pyungmoo
   - Yongan
   exp: 100
-  canDrop: []
+  expint: 100
+  health: 55
+  canDrops: []

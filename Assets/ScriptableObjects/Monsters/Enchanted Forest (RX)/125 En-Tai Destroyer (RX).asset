@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Devil
   level: 125
+  levelint: 125
   stage: 4
+  stageint: 4
   monsterName: En-Tai Destroyer (RX)
   location: Enchanted Forest (RX)
   monsterLocations:
   - Enchanted Forest (RX)
   exp: 67456
-  canDrop: []
+  expint: 67456
+  health: 2695
+  canDrops: []

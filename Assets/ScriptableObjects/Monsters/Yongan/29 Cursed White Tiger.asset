@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Animal
   level: 29
+  levelint: 29
   stage: 4
+  stageint: 4
   monsterName: Cursed White Tiger
   location: Joan,Pyungmoo,Yongan
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Pyungmoo
   - Yongan
   exp: 1403
-  canDrop: []
+  expint: 1403
+  health: 240
+  canDrops: []

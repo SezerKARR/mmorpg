@@ -17,10 +17,14 @@ MonoBehaviour:
   - Lightning
   race: Devil
   level: 110
+  levelint: 110
   stage: 1
+  stageint: 1
   monsterName: Setaou Hunter (RX)
   location: Grotto of Exile (RX)
   monsterLocations:
   - Grotto of Exile (RX)
   exp: 8654
-  canDrop: []
+  expint: 8654
+  health: 156
+  canDrops: []

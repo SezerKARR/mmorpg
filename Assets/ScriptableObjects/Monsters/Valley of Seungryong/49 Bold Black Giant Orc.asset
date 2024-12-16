@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Orc
   level: 49
+  levelint: 49
   stage: 4
+  stageint: 4
   monsterName: Bold Black Giant Orc
   location: Valley of Seungryong
   monsterLocations:
   - Valley of Seungryong
   exp: 3861
-  canDrop: []
+  expint: 3861
+  health: 390
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: 
   level: 83
+  levelint: 83
   stage: 3
+  stageint: 3
   monsterName: Red Dryad
   location: Red Forest
   monsterLocations:
   - Red Forest
   exp: 2781
-  canDrop: []
+  expint: 2781
+  health: 132
+  canDrops: []

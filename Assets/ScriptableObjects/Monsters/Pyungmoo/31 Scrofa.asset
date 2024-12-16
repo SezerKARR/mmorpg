@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Animal
   level: 31
+  levelint: 31
   stage: 4
+  stageint: 4
   monsterName: Scrofa
   location: Joan,Pyungmoo,Yongan
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Pyungmoo
   - Yongan
   exp: 2500
-  canDrop: []
+  expint: 2500
+  health: 400
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: 
   level: 77
+  levelint: 77
   stage: 3
+  stageint: 3
   monsterName: Evil Tree
   location: Lungsam
   monsterLocations:
   - Lungsam
   exp: 2749
-  canDrop: []
+  expint: 2749
+  health: 140
+  canDrops: []

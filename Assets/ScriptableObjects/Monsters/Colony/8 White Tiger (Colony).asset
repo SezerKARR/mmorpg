@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 8
+  levelint: 8
   stage: 2
+  stageint: 2
   monsterName: White Tiger (Colony)
   location: Colony
   monsterLocations:
   - Colony
   exp: 15
-  canDrop: []
+  expint: 15
+  health: 3
+  canDrops: []

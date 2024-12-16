@@ -17,11 +17,15 @@ MonoBehaviour:
   - Ice
   race: 
   level: 130
+  levelint: 130
   stage: Boss
+  stageint: 0
   monsterName: Northwind Sh. War Chief (Ice)
   location: Northwind Shelter,Northwind Deeps
   monsterLocations:
   - Northwind Shelter
   - Northwind Deeps
   exp: 106
-  canDrop: []
+  expint: 106
+  health: 0
+  canDrops: []

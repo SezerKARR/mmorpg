@@ -17,10 +17,14 @@ MonoBehaviour:
   - Darkness
   race: Undead
   level: 70
+  levelint: 70
   stage: 3
+  stageint: 3
   monsterName: Vile Demon Spearman
   location: Demon Tower
   monsterLocations:
   - Demon Tower
   exp: 2248
-  canDrop: []
+  expint: 2248
+  health: 128
+  canDrops: []

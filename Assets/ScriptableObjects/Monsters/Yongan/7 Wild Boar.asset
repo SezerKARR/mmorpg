@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Animal
   level: 7
+  levelint: 7
   stage: 1
+  stageint: 1
   monsterName: Wild Boar
   location: Joan,Pyungmoo,Yongan
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Pyungmoo
   - Yongan
   exp: 87
-  canDrop: []
+  expint: 87
+  health: 24
+  canDrops: []

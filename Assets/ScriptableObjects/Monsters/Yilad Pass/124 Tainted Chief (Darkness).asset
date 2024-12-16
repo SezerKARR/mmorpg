@@ -17,10 +17,14 @@ MonoBehaviour:
   - Darkness
   race: Devil
   level: 124
+  levelint: 124
   stage: Boss
+  stageint: 0
   monsterName: Tainted Chief (Darkness)
   location: Yilad Pass
   monsterLocations:
   - Yilad Pass
   exp: 36
-  canDrop: []
+  expint: 36
+  health: 0
+  canDrops: []

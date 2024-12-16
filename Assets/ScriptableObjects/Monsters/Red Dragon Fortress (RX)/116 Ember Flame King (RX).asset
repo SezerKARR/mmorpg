@@ -17,10 +17,14 @@ MonoBehaviour:
   - Fire
   race: 
   level: 116
+  levelint: 116
   stage: 3
+  stageint: 3
   monsterName: Ember Flame King (RX)
   location: Red Dragon Fortress (RX)
   monsterLocations:
   - Red Dragon Fortress (RX)
   exp: 3848
-  canDrop: []
+  expint: 3848
+  health: 132
+  canDrops: []

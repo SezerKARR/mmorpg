@@ -17,7 +17,9 @@ MonoBehaviour:
   - Wind
   race: Half H.
   level: 33
+  levelint: 33
   stage: 3
+  stageint: 3
   monsterName: Black Storm Maniac
   location: Bokjung,Yayang,Bakra
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Yayang
   - Bakra
   exp: 798
-  canDrop: []
+  expint: 798
+  health: 96
+  canDrops: []

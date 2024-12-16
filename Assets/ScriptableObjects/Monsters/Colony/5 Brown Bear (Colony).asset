@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 5
+  levelint: 5
   stage: 2
+  stageint: 2
   monsterName: Brown Bear (Colony)
   location: Colony
   monsterLocations:
   - Colony
   exp: 10
-  canDrop: []
+  expint: 10
+  health: 6
+  canDrops: []

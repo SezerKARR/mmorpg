@@ -17,10 +17,14 @@ MonoBehaviour:
   - Lightning
   race: Devil
   level: 122
+  levelint: 122
   stage: 5
+  stageint: 5
   monsterName: Beran-Setaou (TR)
   location: Grotto of Exile (TR)
   monsterLocations:
   - Grotto of Exile (TR)
   exp: 4633200
-  canDrop: []
+  expint: 4633200
+  health: 227862
+  canDrops: []

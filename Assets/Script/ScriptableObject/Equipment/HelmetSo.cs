@@ -15,7 +15,7 @@ public class HelmetSo : ScriptableItemsAbstact
     // }
 
     public List<int> defence=new List<int>();
-    public override ObjectType Type => ObjectType.Stack; 
+    public override ObjectType Type => ObjectType.Item; 
     // public override Dictionary<StatType, float> GetStats()
     // {
     //     return new Dictionary<StatType, float>

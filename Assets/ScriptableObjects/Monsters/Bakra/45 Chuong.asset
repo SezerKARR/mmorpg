@@ -17,7 +17,9 @@ MonoBehaviour:
   - Wind
   race: Half H.
   level: 45
+  levelint: 45
   stage: 4
+  stageint: 4
   monsterName: Chuong
   location: Bokjung,Yayang,Bakra
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Yayang
   - Bakra
   exp: 5068
-  canDrop: []
+  expint: 5068
+  health: 560
+  canDrops: []

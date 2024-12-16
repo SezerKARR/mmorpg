@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Undead
   level: 58
+  levelint: 58
   stage: 3
+  stageint: 3
   monsterName: Plagued Spearman
   location: Mount Sohan
   monsterLocations:
   - Mount Sohan
   exp: 1864
-  canDrop: []
+  expint: 1864
+  health: 128
+  canDrops: []

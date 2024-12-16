@@ -17,10 +17,14 @@ MonoBehaviour:
   - Darkness
   race: Undead
   level: 89
+  levelint: 89
   stage: 4
+  stageint: 4
   monsterName: Tartaros
   location: Devil's Catacomb
   monsterLocations:
   - Devil's Catacomb
   exp: 32720
-  canDrop: []
+  expint: 32720
+  health: 1835
+  canDrops: []

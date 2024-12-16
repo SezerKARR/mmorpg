@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 54
+  levelint: 54
   stage: 4
+  stageint: 4
   monsterName: Strong Gold Ape
   location: Sangsun Dong
   monsterLocations:
   - Sangsun Dong
   exp: 3440
-  canDrop: []
+  expint: 3440
+  health: 315
+  canDrops: []

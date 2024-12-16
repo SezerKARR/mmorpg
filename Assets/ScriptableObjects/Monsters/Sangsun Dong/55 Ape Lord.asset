@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 55
+  levelint: 55
   stage: Boss
+  stageint: 0
   monsterName: Ape Lord
   location: Sangsun Dong
   monsterLocations:
   - Sangsun Dong
   exp: 35360
-  canDrop: []
+  expint: 35360
+  health: 642
+  canDrops: []

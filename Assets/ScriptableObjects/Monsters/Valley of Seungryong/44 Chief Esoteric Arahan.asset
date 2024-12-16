@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Mystic
   level: 44
+  levelint: 44
   stage: 3
+  stageint: 3
   monsterName: Chief Esoteric Arahan
   location: Valley of Seungryong
   monsterLocations:
   - Valley of Seungryong
   exp: 1770
-  canDrop: []
+  expint: 1770
+  health: 160
+  canDrops: []

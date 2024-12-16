@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Animal
   level: 24
+  levelint: 24
   stage: 4
+  stageint: 4
   monsterName: Li-An
   location: Joan,Pyungmoo,Yongan
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Pyungmoo
   - Yongan
   exp: 250
-  canDrop: []
+  expint: 250
+  health: 50
+  canDrops: []

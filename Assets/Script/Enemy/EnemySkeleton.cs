@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using Script.Enemy;
+using Script.ObjectInTheGround;
 using Script.ScriptableObject.Equipment;
 using TMPro;
 using UnityEngine;
@@ -12,7 +14,7 @@ public class ItemToDrop : System.Object
     public IItemable itemToDrop;
     public float probability;
 }
-public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
+public  class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
 {
     public EnemyHealthBar EnemyHealthBar;
     public int creaturesLevel;
@@ -29,9 +31,11 @@ public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
     private PolygonCollider2D polygonCollider;
     public Material outlineRed;
     private Material normalMaterial;
-    
+    private EnemyHealth EnemyHealth;
     public virtual void  Start()
     {
+        EnemyHealth = new EnemyHealth(enemySo.health);
+        
         normalMaterial = GetComponent<SpriteRenderer>().material;
         polygonCollider = GetComponent<PolygonCollider2D>();
 
@@ -75,7 +79,7 @@ public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
     }
     public virtual void Death(Player p)
     {
-        DropItem();
+        DropItem(p);
         
         creaturesGroup.currentCreaturesNumber -= 1;
         if (creaturesGroup.currentCreaturesNumber <= 0)
@@ -83,31 +87,24 @@ public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
 
             creaturesGroup.CreateEnemy();
         }
+        EnemyEvent.OnDeath?.Invoke((p,enemySo.exp,int.Parse(enemySo.level)));
         p.ExpCalculator(int.Parse(enemySo.exp),int.Parse(enemySo.level));
         Destroy(gameObject);
         
     }
 
-    public virtual void DropItem()
+    public virtual void DropItem(Player player)
     {
         if (0 < 1)
         {
-            GameObject drop = Instantiate(itemDrop, RandomPositionByObjectCircle(), Quaternion.identity);
-            drop.GetComponent<ItemDropGameObject>().Playername.text = "player";
-            
-            drop.GetComponent<ItemDropGameObject>().objectAbstract = enemySo.canDrop[1] ;
-            GameObject drop1 = Instantiate(itemDrop, RandomPositionByObjectCircle(), Quaternion.identity);
-            drop1.GetComponent<ItemDropGameObject>().Playername.text = "player";
-            drop1.GetComponent<ItemDropGameObject>().objectAbstract = enemySo.canDrop[0];
-                drop1.GetComponent<ItemDropGameObject>().howMany = 75;
-            GameObject drop2 = Instantiate(itemDrop, RandomPositionByObjectCircle(), Quaternion.identity);
-            
-            drop2.GetComponent<ItemDropGameObject>().Playername.text = "player";
-            drop2.GetComponent<ItemDropGameObject>().objectAbstract = enemySo.canDrop[2];
-            GameObject drop3 = Instantiate(itemDrop, RandomPositionByObjectCircle(), Quaternion.identity);
-
-            drop3.GetComponent<ItemDropGameObject>().Playername.text = "player";
-            drop3.GetComponent<ItemDropGameObject>().objectAbstract = enemySo.canDrop[3];
+            foreach (var canDrop in enemySo.canDrops)
+            {
+                EnemyEvent.OnDropObject?.Invoke(transform.position,canDrop,player.playerName);
+                
+                
+            }
+           
+           
         }
         /*foreach (var item in itemToDrops)
         {
@@ -118,11 +115,7 @@ public abstract class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
         }*/
     }
     
-    Vector3 RandomPositionByObjectCircle()
-    {
-        Vector2 position = new Vector2(Random.Range(transform.position.x - 1f, transform.position.x + 1f), Random.Range(transform.position.y - 1f, transform.position.y + 1f));
-        return new Vector3(position.x, position.y, 0);
-    }
+    
 
     public virtual void Clicked(Material material)
     {

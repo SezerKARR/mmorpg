@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Insect
   level: 72
+  levelint: 72
   stage: 5
+  stageint: 5
   monsterName: Spider Baron
   location: Spider Queen's Nest
   monsterLocations:
   - Spider Queen's Nest
   exp: 208800
-  canDrop: []
+  expint: 208800
+  health: 17400
+  canDrops: []

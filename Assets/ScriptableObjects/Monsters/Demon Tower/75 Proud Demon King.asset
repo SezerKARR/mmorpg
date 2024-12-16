@@ -17,10 +17,14 @@ MonoBehaviour:
   - Darkness
   race: Undead
   level: 75
+  levelint: 75
   stage: Boss
+  stageint: 0
   monsterName: Proud Demon King
   location: Demon Tower
   monsterLocations:
   - Demon Tower
   exp: 24080
-  canDrop: []
+  expint: 24080
+  health: 321
+  canDrops: []

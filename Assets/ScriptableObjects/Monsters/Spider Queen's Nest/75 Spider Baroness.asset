@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Insect
   level: 75
+  levelint: 75
   stage: 5
+  stageint: 5
   monsterName: Spider Baroness
   location: Spider Queen's Nest
   monsterLocations:
   - Spider Queen's Nest
   exp: 356400
-  canDrop: []
+  expint: 356400
+  health: 28512
+  canDrops: []

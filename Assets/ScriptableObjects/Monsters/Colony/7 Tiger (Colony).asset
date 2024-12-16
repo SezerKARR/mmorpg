@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 7
+  levelint: 7
   stage: 1
+  stageint: 1
   monsterName: Tiger (Colony)
   location: Colony
   monsterLocations:
   - Colony
   exp: 14
-  canDrop: []
+  expint: 14
+  health: 4
+  canDrops: []

@@ -17,10 +17,14 @@ MonoBehaviour:
   - Darkness
   race: Undead
   level: 84
+  levelint: 84
   stage: 4
+  stageint: 4
   monsterName: Double-head Hell Archer
   location: Devil's Catacomb
   monsterLocations:
   - Devil's Catacomb
   exp: 3116
-  canDrop: []
+  expint: 3116
+  health: 185
+  canDrops: []

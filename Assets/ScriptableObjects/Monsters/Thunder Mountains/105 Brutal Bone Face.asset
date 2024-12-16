@@ -17,10 +17,14 @@ MonoBehaviour:
   - Lightning
   race: Half H.
   level: 105
+  levelint: 105
   stage: Boss
+  stageint: 0
   monsterName: Brutal Bone Face
   location: Thunder Mountains
   monsterLocations:
   - Thunder Mountains
   exp: 104702
-  canDrop: []
+  expint: 104702
+  health: 997
+  canDrops: []

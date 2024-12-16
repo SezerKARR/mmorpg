@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Insect
   level: 45
+  levelint: 45
   stage: 1
+  stageint: 1
   monsterName: Poison Spider
   location: Yongbi Desert
   monsterLocations:
   - Yongbi Desert
   exp: 1267
-  canDrop: []
+  expint: 1267
+  health: 56
+  canDrops: []

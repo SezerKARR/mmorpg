@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 89
+  levelint: 89
   stage: Boss
+  stageint: 0
   monsterName: Mighty Ice Witch
   location: Grotto of Exile
   monsterLocations:
   - Grotto of Exile
   exp: 324800
-  canDrop: []
+  expint: 324800
+  health: 3649
+  canDrops: []

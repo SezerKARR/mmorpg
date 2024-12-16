@@ -17,7 +17,9 @@ MonoBehaviour:
   - Wind
   race: Half H.
   level: 32
+  levelint: 32
   stage: 4
+  stageint: 4
   monsterName: Mahon
   location: Bokjung,Yayang,Bakra
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Yayang
   - Bakra
   exp: 3612
-  canDrop: []
+  expint: 3612
+  health: 560
+  canDrops: []

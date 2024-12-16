@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Animal
   level: 41
+  levelint: 41
   stage: 4
+  stageint: 4
   monsterName: Stone Ape
   location: Jungsun Dong
   monsterLocations:
   - Jungsun Dong
   exp: 2640
-  canDrop: []
+  expint: 2640
+  health: 320
+  canDrops: []

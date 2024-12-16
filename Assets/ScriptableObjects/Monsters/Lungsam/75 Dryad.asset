@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: 
   level: 75
+  levelint: 75
   stage: 2
+  stageint: 2
   monsterName: Dryad
   location: Lungsam
   monsterLocations:
   - Lungsam
   exp: 1546
-  canDrop: []
+  expint: 1546
+  health: 60
+  canDrops: []

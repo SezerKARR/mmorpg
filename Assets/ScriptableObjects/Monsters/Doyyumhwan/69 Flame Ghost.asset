@@ -17,10 +17,14 @@ MonoBehaviour:
   - Fire
   race: 
   level: 69
+  levelint: 69
   stage: 2
+  stageint: 2
   monsterName: Flame Ghost
   location: Doyyumhwan
   monsterLocations:
   - Doyyumhwan
   exp: 997
-  canDrop: []
+  expint: 997
+  health: 42
+  canDrops: []

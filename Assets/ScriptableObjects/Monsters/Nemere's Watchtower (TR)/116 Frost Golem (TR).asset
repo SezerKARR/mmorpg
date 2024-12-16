@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: 
   level: 116
+  levelint: 116
   stage: 3
+  stageint: 3
   monsterName: Frost Golem (TR)
   location: Nemere's Watchtower (TR)
   monsterLocations:
   - Nemere's Watchtower (TR)
   exp: 4810
-  canDrop: []
+  expint: 4810
+  health: 164
+  canDrops: []

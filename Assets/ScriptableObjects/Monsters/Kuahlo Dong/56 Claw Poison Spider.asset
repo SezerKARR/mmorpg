@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Insect
   level: 56
+  levelint: 56
   stage: 4
+  stageint: 4
   monsterName: Claw Poison Spider
   location: Kuahlo Dong
   monsterLocations:
   - Kuahlo Dong
   exp: 5016
-  canDrop: []
+  expint: 5016
+  health: 445
+  canDrops: []

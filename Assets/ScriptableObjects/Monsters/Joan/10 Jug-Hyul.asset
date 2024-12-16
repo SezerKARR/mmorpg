@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Animal
   level: 10
+  levelint: 10
   stage: 4
+  stageint: 4
   monsterName: Jug-Hyul
   location: Joan,Pyungmoo,Yongan
   monsterLocations:
@@ -25,4 +27,6 @@ MonoBehaviour:
   - Pyungmoo
   - Yongan
   exp: 120
-  canDrop: []
+  expint: 120
+  health: 60
+  canDrops: []

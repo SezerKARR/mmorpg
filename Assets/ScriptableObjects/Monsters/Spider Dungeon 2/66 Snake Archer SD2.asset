@@ -17,10 +17,14 @@ MonoBehaviour:
   - Fire
   race: Insect
   level: 66
+  levelint: 66
   stage: 3
+  stageint: 3
   monsterName: Snake Archer SD2
   location: Spider Dungeon 2
   monsterLocations:
   - Spider Dungeon 2
   exp: 5740
-  canDrop: []
+  expint: 5740
+  health: 344
+  canDrops: []

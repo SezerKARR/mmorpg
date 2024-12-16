@@ -17,10 +17,14 @@ MonoBehaviour:
   - Lightning
   race: 
   level: 127
+  levelint: 127
   stage: Boss
+  stageint: 0
   monsterName: Northwind War Chief (Lightning)
   location: Soul Gorge
   monsterLocations:
   - Soul Gorge
   exp: 84
-  canDrop: []
+  expint: 84
+  health: 0
+  canDrops: []

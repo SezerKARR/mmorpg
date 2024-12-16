@@ -17,10 +17,14 @@ MonoBehaviour:
   - Ice
   race: Devil
   level: 108
+  levelint: 108
   stage: 5
+  stageint: 5
   monsterName: Ochao Bodyguard
   location: Temple of the Ochao
   monsterLocations:
   - Temple of the Ochao
   exp: 514705
-  canDrop: []
+  expint: 514705
+  health: 28590
+  canDrops: []

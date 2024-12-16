@@ -17,10 +17,14 @@ MonoBehaviour:
   - Fire
   race: 
   level: 70
+  levelint: 70
   stage: 3
+  stageint: 3
   monsterName: Fighting Tiger
   location: Doyyumhwan
   monsterLocations:
   - Doyyumhwan
   exp: 1686
-  canDrop: []
+  expint: 1686
+  health: 96
+  canDrops: []

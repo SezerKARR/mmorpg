@@ -22,7 +22,7 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  DropName: <color=green>Phoenix Fan+0</color>
+  DropName: Phoenix Fan+0
   price: 0
   objectType: 4
   levelWithPlus: 0

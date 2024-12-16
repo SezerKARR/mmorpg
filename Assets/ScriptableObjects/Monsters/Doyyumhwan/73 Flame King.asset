@@ -17,10 +17,14 @@ MonoBehaviour:
   - Fire
   race: 
   level: 73
+  levelint: 73
   stage: Boss
+  stageint: 0
   monsterName: Flame King
   location: Doyyumhwan
   monsterLocations:
   - Doyyumhwan
   exp: 17580
-  canDrop: []
+  expint: 17580
+  health: 240
+  canDrops: []

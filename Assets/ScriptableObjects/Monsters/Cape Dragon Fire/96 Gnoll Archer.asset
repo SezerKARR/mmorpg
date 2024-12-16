@@ -17,10 +17,14 @@ MonoBehaviour:
   - Earth
   race: Animal
   level: 96
+  levelint: 96
   stage: 2
+  stageint: 2
   monsterName: Gnoll Archer
   location: Cape Dragon Fire
   monsterLocations:
   - Cape Dragon Fire
   exp: 2772
-  canDrop: []
+  expint: 2772
+  health: 84
+  canDrops: []

@@ -17,7 +17,9 @@ MonoBehaviour:
   - 
   race: Animal
   level: 24
+  levelint: 24
   stage: 3
+  stageint: 3
   monsterName: Cursed Tiger
   location: Imha,Jungrang,Waryong,Snakefield
   monsterLocations:
@@ -26,4 +28,6 @@ MonoBehaviour:
   - Waryong
   - Snakefield
   exp: 582
-  canDrop: []
+  expint: 582
+  health: 96
+  canDrops: []

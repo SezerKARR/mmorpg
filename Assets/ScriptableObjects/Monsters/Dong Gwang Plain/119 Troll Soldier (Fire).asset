@@ -17,11 +17,15 @@ MonoBehaviour:
   - Darkness
   race: Devil
   level: 119
+  levelint: 119
   stage: 3
+  stageint: 3
   monsterName: Troll Soldier (Fire)
   location: Dong Gwang Plain,Nam Gwang Chasm
   monsterLocations:
   - Dong Gwang Plain
   - Nam Gwang Chasm
   exp: 28
-  canDrop: []
+  expint: 28
+  health: 0
+  canDrops: []

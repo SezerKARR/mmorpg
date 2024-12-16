@@ -17,10 +17,14 @@ MonoBehaviour:
   - 
   race: Half H.
   level: 103
+  levelint: 103
   stage: Boss
+  stageint: 0
   monsterName: Skeletos
   location: Gautama Cliff
   monsterLocations:
   - Gautama Cliff
   exp: 102713
-  canDrop: []
+  expint: 102713
+  health: 997
+  canDrops: []

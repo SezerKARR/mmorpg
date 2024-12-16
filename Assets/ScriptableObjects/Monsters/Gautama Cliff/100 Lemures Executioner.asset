@@ -17,10 +17,14 @@ MonoBehaviour:
   - Wind
   race: Devil
   level: 100
+  levelint: 100
   stage: 3
+  stageint: 3
   monsterName: Lemures Executioner
   location: Gautama Cliff
   monsterLocations:
   - Gautama Cliff
   exp: 8661
-  canDrop: []
+  expint: 8661
+  health: 344
+  canDrops: []
