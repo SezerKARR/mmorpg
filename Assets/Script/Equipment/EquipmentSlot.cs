@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using Script.Inventory;
 using Script.Inventory.Objects;
 using Unity.Mathematics;
 using UnityEngine;
@@ -7,27 +9,34 @@ namespace Script.Equipment
 {
     public  class EquipmentSlot : MonoBehaviour
     {
-        [Inject][SerializeField] private InventoryManager _inventoryManager;
+        [Inject][SerializeField] private InventoryStorage _inventoryStorage;
         [SerializeField] private EquipmentType _type;
         [SerializeField] private int2 _size = new int2(1,1);
         [SerializeField] private ItemController currentItem;
      
-        public bool SetItem(ItemController itemController)
+        public bool SetItem(ItemController equipItem)
         {
             Debug.Log("SetItem");
+            if (currentItem == equipItem)
+            {
+                UnEquip();
+            }
             if (currentItem == null)
             {
                 //OnEquip?.Invoke(item);
-                _inventoryManager.Equip(itemController);
-                Equip(itemController);
+                _inventoryStorage.Equip(equipItem);
+                Equip(equipItem);
                 return true;
             }
-            else if (NeedUnequipForEquip())
+            
+
+            
+            else if (_inventoryStorage.ControlUnequip(this.currentItem,equipItem))
             {
-                _inventoryManager.Equip(itemController);
+                //_inventoryManager.Equip(equipItem);
                // OnEquipmentChanged?.Invoke(equipment.GetItemable(), item);
                 UnEquip();
-                Equip(itemController);
+                Equip(equipItem);
                 return true;
             }
             return false;
@@ -39,11 +48,6 @@ namespace Script.Equipment
             _itemController = itemController;
             _itemController.Place(transform, transform.position);
             return false;*/
-        }
-        private bool NeedUnequipForEquip()
-        {
-            return _inventoryManager.ControlUnequip(this.currentItem);
-
         }
         public void Equip(ItemController equipItem)
         {

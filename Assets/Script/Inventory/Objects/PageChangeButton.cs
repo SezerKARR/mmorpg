@@ -1,34 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
-using Zenject;
 
-public class PageChangeButton : MonoBehaviour
+namespace Script.Inventory.Objects
 {
-    [Inject] private InventoryManager inventoryManager;
-    public Color pressedColor;
-    public Color normalColor;
-    public int page;
+    public class PageChangeButton : MonoBehaviour
+    {
+        public Color pressedColor;
+        public Color normalColor;
+        [FormerlySerializedAs("page")] public int pageIndex;
 
-    public void ChangeColorForPressed()
-    {
-        this.GameObject().GetComponent<Image>().color = pressedColor;
-    }
-    public void ChangeColorForNormal()
-    {
-        this.GameObject().GetComponent<Image>().color = normalColor;
-    }
-    // Start is called before the first frame update
-    void Awake()
-    {
-        this.GameObject().GetComponent<Button>().onClick.AddListener(OnButtonClick);
-    }
-    public void OnButtonClick()
-    {
-        inventoryManager.ChangePage(page);
-    }
-    // Update is called once per frame
+        public static Action<int> OnChangePageClicked;
+        public void ChangeColorForPressed()
+        {
+            this.GameObject().GetComponent<Image>().color = pressedColor;
+        }
+        public void ChangeColorForNormal(int dummy)
+        {
+            this.GameObject().GetComponent<Image>().color = normalColor;
+        }
+        // Start is called before the first frame update
+        void Awake()
+        {
+            if (pageIndex == 0)
+            {
+                ChangeColorForPressed();
+            }
+            this.GameObject().GetComponent<Button>().onClick.AddListener(OnButtonClick);
+            OnChangePageClicked += ChangeColorForNormal;
+        }
+        public void OnButtonClick()
+        {
+            
+            OnChangePageClicked?.Invoke(pageIndex);
+            ChangeColorForPressed();
+        }
+        // Update is called once per frame
     
+    }
 }

@@ -21,7 +21,7 @@ public abstract class ObjectView : MonoBehaviour ,IPointerClickHandler
     [SerializeField] protected TextMeshProUGUI _howManyText;
     public UnityAction OnRightClick;
     
-    private void Awake()
+    protected virtual void Awake()
     {
         
         _imageRectTransform = GetComponent<RectTransform>();

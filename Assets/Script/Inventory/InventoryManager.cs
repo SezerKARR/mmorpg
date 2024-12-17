@@ -14,39 +14,23 @@ public class InventoryManager : MonoBehaviour,IWaitConfirmable
 {
     [SerializeField] private ImageUnderCursor _imageUnderCursor;
     [Inject] [SerializeField] private EquipmentManager _equipmentManager;
-    [SerializeField] private InventoryPage[] inventoryPage;
+     public static PageController[] inventoryPage;
     private ObjectController currentObjectController;
-    private int activePage = 0;
-    [SerializeField]
-    private PageChangeButton[] pageChangeButton;
-     private InventoryStorage inventoryStorage;
+    private PageController _activePageController ;
    // public 
     private void Awake()
     {
-        inventoryStorage=new InventoryStorage();
-        InventoryPage.OnObjectAddToPage += AddObjectsToInventory;
+        _activePageController = inventoryPage[0];
+        PageChangeButton.OnChangePageClicked += ChangePage;
+        
+        
         InputPlayer.OnGrounClicked += DropObject;
         ObjectEvents.OnPickUp += AddObject;
         ObjectEvents.ObjectClicked += ObjectSelected;
-        inventoryStorage.inventoryPage = inventoryPage;
 
     }
 
-    private void AddObjectsToInventory(ObjectAbstract inventorObjectable, int howMany)
-    {
-        inventoryStorage.AddObjectsToInventory(inventorObjectable, howMany);
-    }
-
-    public void Equip(ItemController itemController)
-    {
-        inventoryPage[activePage].ResetButtons(itemController.cells);
-    }
-    public bool ControlUnequip(ItemController unEquipObject)
-    {
-
-        return inventoryStorage.ControlChangePos(unEquipObject);
-
-    }
+   
     private void ObjectSelected(ObjectController objectController,ObjectAbstract selectedObject)
     {
         if (this.currentObjectController == null)
@@ -60,25 +44,19 @@ public class InventoryManager : MonoBehaviour,IWaitConfirmable
             inventoryStorage.ChangePos(objectController);
         }
     }
-    public void ChangePage(int page)
+    public void ChangePage(int pageIndex)
     {
-        activePage = page;
-        ClosePage(activePage);
-        OpenPage(page);
+        
+        _activePageController.ClosePage();
+        
+        OpenPage(pageIndex);
     
     }
-    public void ClosePage(int page)
+    public void OpenPage(int pageIndex)
     {
-        inventoryPage[page].ClosePage(); 
-
-        pageChangeButton[page].ChangeColorForNormal();
-    }
-    
-    public void OpenPage(int page)
-    {
-        activePage = page; 
-        inventoryPage[page].OpenPage(); 
-        pageChangeButton[page].ChangeColorForPressed();
+        _activePageController = inventoryPage[pageIndex];
+        
+        _activePageController.OpenPage(); 
     }
     
     public void AddObject(ObjectAbstract inventorObjectAble,int howMany,GameObject destroyIfPickUp=null)

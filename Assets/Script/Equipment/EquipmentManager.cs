@@ -21,7 +21,7 @@ namespace Script.Equipment
 
         [Serializable]
         public class EquipmentSlots : UnityDictionary<EquipmentType, EquipmentSlot> { };
-
+        
         public event Action<IItemable, IItemable> OnEquipmentChanged;
         //public  event Action<ScriptableItemsAbstact> OnEquip;
         //public  event Action OnUnEquip;

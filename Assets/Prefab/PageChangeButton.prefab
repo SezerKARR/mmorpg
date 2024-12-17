@@ -268,6 +268,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a38e42e2ba26be4785ecfc37b8f7de2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pressedColor: {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 0}
-  normalColor: {r: 0.31132078, g: 0.3098523, b: 0.3098523, a: 0}
-  page: 0
+  pressedColor: {r: 0.8962264, g: 0.8962264, b: 0.8962264, a: 0.8509804}
+  normalColor: {r: 0.31132078, g: 0.3098523, b: 0.3098523, a: 1}
+  pageIndex: 0

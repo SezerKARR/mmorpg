@@ -8,6 +8,12 @@ namespace Script.Inventory
     public class ItemView: ObjectView
     {
         private int height=1;
+        protected override void Awake()
+        {
+            _howManyText.gameObject.SetActive(false);
+            base.Awake();
+        }
+
         public  void ImageChangeSize(int spriteHeight,int val=-1)
         {
             float newHeight = _imageHeight * spriteHeight;
