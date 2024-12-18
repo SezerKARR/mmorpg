@@ -21,9 +21,10 @@ namespace Script.Inventory
         public class HaveObjects : UnityDictionary<ObjectAbstract, int> { };
         public ItemPrefabList objectsPrefab;
         [Inject] InventoryManager inventoryManager;
+        ObjectPooler objectPooler;
         private void Awake()
         { 
-            
+            objectPooler = new ObjectPooler(objectsPrefab);
             ObjectEvents.OnPickUp += PickUp;
             RectTransform rectTransform = GetComponent<RectTransform>();
             _width = rectTransform.rect.width/inventoryManager.rowCount;
@@ -32,7 +33,7 @@ namespace Script.Inventory
             
             
         }
-
+        
         
 
         public void AddObjectsToInventory(ObjectAbstract inventorObjectable, int howMany)

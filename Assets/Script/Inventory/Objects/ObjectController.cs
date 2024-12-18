@@ -24,7 +24,6 @@ namespace Script.Inventory
             objectView.OnObjectPressed += OnButtonClick;
             objectView.OnRightClick += RightClick;
         }
-
         public virtual void RightClick() { }
         public virtual void Place(Transform parent,Vector2 size)
         {
