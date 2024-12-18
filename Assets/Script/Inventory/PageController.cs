@@ -27,7 +27,7 @@ namespace Script.Inventory
         
         public int rowCount,columnCount;
         public PageModel PageModel => _pageModel;
-        
+        public Transform PageViewTransform => _pageView.GetComponent<Transform>();
         
        
         public void ClosePage()

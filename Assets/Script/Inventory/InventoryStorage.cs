@@ -11,31 +11,14 @@ using Object = UnityEngine.Object;
 
 namespace Script.Inventory
 {
-    public class InventoryStorage : MonoBehaviour
+    public class InventoryStorage 
     {
         public List<PageModel> pageModels=new List<PageModel>();
         public HaveObjects haveObjects=new HaveObjects();
-        private float _height;
-        private float _width;
+        
         [Serializable]
         public class HaveObjects : UnityDictionary<ObjectAbstract, int> { };
-        public ItemPrefabList objectsPrefab;
-        [Inject] InventoryManager inventoryManager;
-        ObjectPooler objectPooler;
-        private void Awake()
-        { 
-            objectPooler = new ObjectPooler(objectsPrefab);
-            ObjectEvents.OnPickUp += PickUp;
-            RectTransform rectTransform = GetComponent<RectTransform>();
-            _width = rectTransform.rect.width/inventoryManager.rowCount;
-            _height = rectTransform.rect.height/inventoryManager.columnCount;
-            
-            
-            
-        }
-        
-        
-
+       
         public void AddObjectsToInventory(ObjectAbstract inventorObjectable, int howMany)
         {
             if (haveObjects.ContainsKey(inventorObjectable))
@@ -52,7 +35,7 @@ namespace Script.Inventory
             pageModels[equipItem.page].ResetButtons(equipItem.cells);
             if ( pageModels[equipItem.page].ControlUnequipSamePos(unEquipObject,temp,equipItem.ObjectAbstract.weightInInventory))
             {
-                ChangePosition(unEquipObject,pageModels[equipItem.page],equipItem.cells);
+                InventoryEvent.OnChange?.Invoke(unEquipObject,equipItem);
                 return true;
             }
             
@@ -70,11 +53,7 @@ namespace Script.Inventory
             return false;   
         }
 
-        public void ChangePosition(ItemController unEquipObject,PageModel pageModel,List<int2> cells)
-        {
-            pageModel.AddObjectToPage(unEquipObject,cells);
-            unEquipObject.Place(this.transform,cells,_height,_width);
-        }
+        
         public void Equip(ItemController itemController)
         {
             pageModels[itemController.page].ResetButtons(itemController.cells);
@@ -85,49 +64,34 @@ namespace Script.Inventory
             
         }
 
-        public void PickUp(ObjectAbstract objectToPickUp, int howMany, GameObject pickUpObject)
-        {
-            if (Add(objectToPickUp, howMany))
-            {
-                
-                Destroy(pickUpObject);
-            }
-        }
-        public bool Add(ObjectAbstract inventorObjectAble,int howMany)
-        {
-
-            if (CanAddStack(inventorObjectAble, howMany)) {return true;}
         
-            return CanAdd(inventorObjectAble, howMany);
+        public void Add(ObjectAbstract inventorObjectAble,int howMany)
+        {
+
+            if (CanAddStack(inventorObjectAble, howMany))return;
+        
+             CanAdd(inventorObjectAble, howMany);
 
         }
-        public bool CanAdd(ObjectAbstract inventorObjectAble, int howMany)
+        public void CanAdd(ObjectAbstract inventorObjectAble, int howMany)
         {
+            int pageIndex=0;
             foreach (PageModel page in pageModels)
             {
+                pageIndex++;
                 List<int2> cells = page.ControlEmpty(howMany, howMany);
                 if (cells != null)
                 {
-                    CreateObjectModel(cells,inventorObjectAble, howMany,page);
-                    return true;
+                    InventoryEvent.OnAdd?.Invoke(cells,pageIndex);
+                    return ;
                 };
             
             }
 
-            return false;
+          
         }
         
-        public void CreateObjectModel(List<int2> cellInt2, ObjectAbstract inventorObjectable, int howMany,PageModel pageModel)
-        {  // GameObject objectControllerGameObject= Instantiate(objectsPrefab.GetPrefabByType(inventorObjectable.Type));
-            //
-            // objectControllerGameObject.GetComponent<ObjectController>().
-            // pageModel.AddObjectToPage(objectControllerGameObject.GetComponent<ObjectController>(),cellInt2);
-            
-            objectPooler.SpawnFromPool(inventorObjectable.Type).Place(inventorObjectable,this.transform,cellInt2,howMany,
-                _height,_width,pageModel);
-            
-            AddObjectsToInventory( inventorObjectable,howMany );
-        }
+        
         
         public bool CanAddStack(ObjectAbstract inventorObjectAble, int howMany)
         {

@@ -15,6 +15,5 @@ public class GameInstaller : MonoInstaller
         Container.Bind<ObjectView>().FromComponentInHierarchy().AsSingle();
         Container.Bind<PickUpDetector>().FromComponentInHierarchy().AsSingle();
         Container.Bind<EquipmentManager>().FromComponentInHierarchy().AsSingle();
-        Container.Bind<InventoryStorage>().FromComponentInHierarchy().AsSingle();
     }
 }

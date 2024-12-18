@@ -44,9 +44,9 @@ namespace Script.Inventory
             transform.SetParent(parent);
             objectView.SetObject(cellInt2,objectAbstract.Image,objectAbstract.weightInInventory,weight,height,howMany);
         }
-        public virtual void Place(ObjectAbstract objectAbstract, Transform parent, List<int2> cellInt2,int howMany,float height,float weigh,PageModel pageModel= null)
+        public virtual void Place(ObjectAbstract objectAbstract, Transform parent, List<int2> cellInt2,int howMany,float height,float weigh,int pageIndex=0)
         { 
-            pageModel.AddObjectToPage(this,cellInt2);
+            page = pageIndex;
             this.objectAbstract = objectAbstract;
             //this.objectAbstract.SetObjectAbstract(objectAbstract);
             this.howMany = howMany; 

@@ -39,5 +39,6 @@ namespace Script.Inventory
         // Expose getter methods to access row and column counts
         public int RowCount => rowCount;
         public int ColumnCount => columnCount;
+        
     }
 }
