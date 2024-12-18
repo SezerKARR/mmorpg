@@ -7,10 +7,12 @@ public class PlayerStateManager : MonoBehaviour
     public static PlayerStateManager Instance;
     private PlayerState currentState;
     private PlayerMovement PlayerMovement;
+    public Animator animator;
     [HideInInspector]
     public int animValue;
     private void Awake()
     {
+        animator = GetComponent<Animator>();
         PlayerMovement = GetComponent<PlayerMovement>();
         Instance = this;
         InputPlayer.OnMovePressed += CanChangeStateToMove;
@@ -19,12 +21,12 @@ public class PlayerStateManager : MonoBehaviour
     }
     void Start()
     {
-        // Durumlarý oluþtur
+        // Durumlarï¿½ oluï¿½tur
 
         //states.Add(PlayerStateType.Jump, new JumpState(this));
         //states.Add(PlayerStateType.Dodge, new DodgeState(this));
 
-        // Ýlk durumu ayarla
+        // ï¿½lk durumu ayarla
         currentState = new IdleState(this);
         currentState.EnterState();
     }
@@ -52,7 +54,7 @@ public class PlayerStateManager : MonoBehaviour
     }
     public void StartPlayerCoroutine(IEnumerator routine)
     {
-        StartCoroutine(routine); // Coroutine'i baþlat
+        StartCoroutine(routine); // Coroutine'i baï¿½lat
     }
     public void ChangeState(PlayerState newState)
     {

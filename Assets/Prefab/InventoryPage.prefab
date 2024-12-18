@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 739620443720167307}
   - component: {fileID: 1778403610707326008}
   - component: {fileID: 3555798881159721322}
+  - component: {fileID: 1384051612021479352}
   - component: {fileID: 3306438926828440044}
   m_Layer: 5
   m_Name: InventoryPage
@@ -89,6 +90,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1384051612021479352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749251187446776245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30bad265132749cfaa7827ea012db5c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  PageData: {fileID: 11400000, guid: bd7c6c52bd746794398d88bb17e05805, type: 2}
 --- !u!114 &3306438926828440044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,10 +115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9773b0affe24baf860654896a3397ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _buttonPanel: {fileID: 8701799367366713677}
-  _objects:
-    tKeys: []
-    tValues: []
-  objectControllerPrefab: {fileID: 807280952830508194, guid: 9bfe4171fcb201d4c9ac0c6b240e2824, type: 3}
+  _pageView: {fileID: 0}
+  _pageModel: {fileID: 1384051612021479352}
   rowCount: 5
   columnCount: 9

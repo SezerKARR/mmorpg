@@ -18,7 +18,7 @@ namespace Script.Inventory
     {
        
         public List<List<float>> twoDimensionalList = new List<List<float>>();
-        public ItemPrefabList objectsPrefab;
+        
         
         private ObjectController _currentObjectController;
         public static Action<ObjectAbstract,int> OnObjectAddToPage;
@@ -28,15 +28,7 @@ namespace Script.Inventory
         public int rowCount,columnCount;
         public PageModel PageModel => _pageModel;
         
-        public void CreateObjectModel(List<int2> cellInt2, ObjectAbstract inventorObjectable, int howMany)
-        {
-            GameObject objectControllerGameObject= Instantiate(objectsPrefab.GetPrefabByType(inventorObjectable.Type));
-            
-            objectControllerGameObject.GetComponent<ObjectController>().Place(inventorObjectable,this.transform,cellInt2,howMany,
-                _pageView._height,_pageView._width);
-            _pageModel.AddObjectToPage(objectControllerGameObject.GetComponent<ObjectController>(),cellInt2);
-            OnObjectAddToPage?.Invoke(inventorObjectable,howMany);
-        }
+        
        
         public void ClosePage()
         {

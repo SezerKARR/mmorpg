@@ -1,8 +1,7 @@
 using System;
-using Script.Inventory.Objects;
 using UnityEngine;
 
-namespace Script.Inventory
+namespace Script.Inventory.Objects
 {
     public static class ObjectEvents
     {

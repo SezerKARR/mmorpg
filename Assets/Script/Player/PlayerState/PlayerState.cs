@@ -10,9 +10,9 @@ public abstract class PlayerState
     public PlayerState(PlayerStateManager manager)
     {
         stateManager = manager;
-        animator = stateManager.GetComponent<Animator>();
+        animator = stateManager.animator;
 
-        
+
     }
 
     
@@ -33,7 +33,7 @@ public abstract class PlayerState
         {
             return false;
         }
-        return true; // Default: Geçiş yapılabilir
+        return true; // Default: Geï¿½iï¿½ yapï¿½labilir
     }
 }
 

@@ -21,18 +21,19 @@ namespace Script.Inventory
         private int rowCount = 5; // Default value
         [SerializeField]
         private int columnCount = 9; // Default value
-
+      
         // Array of ObjectsRow, now it's dynamic based on rowCount
         public ObjectsRow[] _cotroller;
-
+        
         // Initialize rows based on dynamic rowCount and columnCount
         public void Initialize()
         {
-            _cotroller = new ObjectsRow[rowCount];
-            for (int i = 0; i < rowCount; i++)
-            {
-                _cotroller[i] = new ObjectsRow(columnCount); // Initialize each row with the dynamic column count
-            }
+                _cotroller = new ObjectsRow[rowCount];
+                for (int i = 0; i< rowCount; i++)
+                {
+                    _cotroller[i] = new ObjectsRow(columnCount); // Initialize each row with the dynamic column count
+                }
+            
         }
 
         // Expose getter methods to access row and column counts

@@ -37,14 +37,8 @@ public class PickUpDetector : MonoBehaviour
             }
             ObjectEvents.OnPickUp?.Invoke(_selectedObjectAbstract,_selectedSoHowMany,_selectedGameObject);
             
-
-
-            
-
-
-
         }
-        else { Debug.Log("al�nabilecek hi� bir e�ya yok"); }
+        else {  Debug.Log(_pickedUpables.Count+""+"al�nabilecek hi� bir e�ya yok"); }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -59,7 +53,6 @@ public class PickUpDetector : MonoBehaviour
         {
             _pickedUpables.Add(interactable);
             pickedCount++;
-
         }
     }
     private void OnTriggerExit2D(Collider2D collision)

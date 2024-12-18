@@ -1,24 +1,71 @@
 
 
 
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Script.Inventory.Objects;
 using Unity.Mathematics;
+using UnityEngine;
 
 namespace Script.Inventory
 {
     
   
-    public class PageModel
+    public class PageModel:MonoBehaviour
     {
-        public PageData pageData;
-        public PageController pageController;
-        public float ColumnCount => pageData.ColumnCount;
-        public float RowCount => pageData.RowCount;
+        public PageData PageData;
+        public int PageIndex;
+       
+        private void Start()
+        {
+            string path = Application.persistentDataPath + $"/{PageIndex}.json";
+            if (!LoadPageData(path))
+            {
+                PageData = UnityEngine.ScriptableObject.CreateInstance<PageData>();
+                PageData.Initialize();
+
+                // 2. JSON'a çevir
+                string jsonData = JsonUtility.ToJson(PageData);
+
+                // 3. JSON'u dosyaya yaz
+           
+                File.WriteAllText(path, jsonData);
+
+                Debug.Log("Dosya kaydedildi: " + path);
+            }
+           
+        }
+        private void OnApplicationQuit()
+        {
+            string path = Application.persistentDataPath + $"/{PageIndex}.json";
+            string jsonData = JsonUtility.ToJson(PageData);
+
+            // 3. JSON'u dosyaya yaz
+           
+            File.WriteAllText(path, jsonData);
+        }
+
+        private bool LoadPageData( string path )
+        {
+            if (File.Exists(path))
+            {
+                
+                string loadedJson = File.ReadAllText(path);
+                PageData = UnityEngine.ScriptableObject.CreateInstance<PageData>();
+                JsonUtility.FromJsonOverwrite(loadedJson, PageData);
+                Debug.Log("Yüklendi: Satır=" + PageData.RowCount + ", Sütun=" + PageData.ColumnCount);
+                return true;
+            }
+            return false;   
+        }
+
+        public float ColumnCount => PageData.ColumnCount;
+        public float RowCount => PageData.RowCount;
         public bool AddStack(ObjectAbstract inventorObjectable, int howMany)
         {
-            var filteredControllers = pageData._cotroller.Cast<ObjectController>()
+            var filteredControllers = PageData._cotroller.Cast<ObjectController>()
                 .Where(item => item != null && item.Model.ObjectAbstract == inventorObjectable)
                 .ToList();
             foreach (var item in filteredControllers)
@@ -44,32 +91,6 @@ namespace Script.Inventory
             // }
             return false;
         }
-        public bool ControlAdd(ObjectAbstract inventorObjectable, int howMany)
-        {
-            List<int2> cells =ControlEmpty(inventorObjectable.weightInInventory, howMany);
-            if ( cells != null)
-            {
-                CreateObjectModel(cells, inventorObjectable, howMany);
-                return true;
-            }
-            return false;
-        }
-        // public List<int2> ControlUnequip(ItemController inventorObjectable, int howMany)
-        // {
-        //     return ControlEmpty(inventorObjectable.Model.WeightInInventory, howMany);
-        //     if ( cells != null)
-        //     {
-        //         ChangeControllerPos(inventorObjectable, cells);
-        //         return true;
-        //     }
-        //     return false;
-        // }
-        // private void ChangeControllerPos(ObjectController inventorObjectable,List<int2> cells)
-        // {
-        //     AddObjectToPage(inventorObjectable, cells);
-        //     
-        // }
-        
         public bool ControlUnequipSamePos(ItemController unEquipObject, List<int2> tempcells ,int weightInInventory)
         {
             if (unEquipObject.Model.WeightInInventory <= weightInInventory)
@@ -79,8 +100,6 @@ namespace Script.Inventory
                 {
                     cells.Add(tempcells[i]);
                 }
-                
-                ChangeControllerPos(unEquipObject,cells);
                 return true;
             }
 
@@ -93,7 +112,6 @@ namespace Script.Inventory
                 {
                     tempcells.Add(VARIABLE);
                 }
-                ChangeControllerPos(unEquipObject,tempcells);
                 return true;
                 
             }
@@ -109,7 +127,7 @@ namespace Script.Inventory
                 for (int j = 0; j < ColumnCount; j++)
                 {
                     List<int2> cells=new List<int2>();
-                    if (pageData._cotroller[i].objectController[j] == null)
+                    if (PageData._cotroller[i].objectController[j] == null)
                     {
                         cells.Add(new int2(i,j));
                         if (weightInInventory == 1)
@@ -145,7 +163,7 @@ namespace Script.Inventory
             for (int i = 0; i < weightInInventory; i++)
             {
                 // Nesnenin sütunu aşmaması gerektiğini kontrol et
-                if (pageData._cotroller[rowAndColumnCount.x].objectController[rowAndColumnCount.y+i] ==null)
+                if (PageData._cotroller[rowAndColumnCount.x].objectController[rowAndColumnCount.y+i] ==null)
                 {
                     cells.Add(new int2(rowAndColumnCount.x, rowAndColumnCount.y+i));
                     if (cells.Count == weightInInventory)
@@ -163,14 +181,14 @@ namespace Script.Inventory
             
            
         }
-
         public void AddObjectToPage(ObjectController objectController,List<int2> celss)
         {
             foreach (var cell in celss)
             {
-                pageData._cotroller[ cell.x].objectController[cell.y] = objectController;
+                PageData._cotroller[ cell.x].objectController[cell.y] = objectController;
             }
         }
+        
         
         
       
@@ -179,7 +197,7 @@ namespace Script.Inventory
             
             foreach (var cell in resetCells)
             {
-                pageData._cotroller[ cell.x].objectController[cell.y] = null;
+                PageData._cotroller[ cell.x].objectController[cell.y] = null;
             }
         }
     }

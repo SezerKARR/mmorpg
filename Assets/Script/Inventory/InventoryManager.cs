@@ -14,22 +14,27 @@ public class InventoryManager : MonoBehaviour,IWaitConfirmable
 {
     [SerializeField] private ImageUnderCursor _imageUnderCursor;
     [Inject] [SerializeField] private EquipmentManager _equipmentManager;
-     public static PageController[] inventoryPage;
-    private ObjectController currentObjectController;
+     public PageController[] inventoryPage;
+     public  int rowCount;
+     public  int columnCount;
+     private ObjectController currentObjectController;
     private PageController _activePageController ;
+    [Inject] [SerializeField] private InventoryStorage inventoryStorage;
    // public 
     private void Awake()
     {
         _activePageController = inventoryPage[0];
         PageChangeButton.OnChangePageClicked += ChangePage;
-        
-        
         InputPlayer.OnGrounClicked += DropObject;
-        ObjectEvents.OnPickUp += AddObject;
         ObjectEvents.ObjectClicked += ObjectSelected;
-
+       
+        foreach (PageController pageController in inventoryPage)
+        {
+            inventoryStorage.pageModels.Add(pageController.PageModel);
+           
+        }
     }
-
+    
    
     private void ObjectSelected(ObjectController objectController,ObjectAbstract selectedObject)
     {
@@ -58,19 +63,10 @@ public class InventoryManager : MonoBehaviour,IWaitConfirmable
         
         _activePageController.OpenPage(); 
     }
-    
-    public void AddObject(ObjectAbstract inventorObjectAble,int howMany,GameObject destroyIfPickUp=null)
-    {
-        if(inventoryStorage.Add(inventorObjectAble,howMany))Destroy(destroyIfPickUp);
-    }
-   
-   
     private void ResetButtons(List<int> buttonPoss)
     {
         //inventoryPage[buttonPos.x].ResetButtons(buttonPos.y);
     }
-    
-
     public void ConfirmValue(bool confirmValue)
     {
         
