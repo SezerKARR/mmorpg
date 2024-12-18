@@ -44,14 +44,15 @@ namespace Script.Inventory
             transform.SetParent(parent);
             objectView.SetObject(cellInt2,objectAbstract.Image,objectAbstract.weightInInventory,weight,height,howMany);
         }
-        public virtual void Place(ObjectAbstract objectAbstract, Transform parent, List<int2> cellInt2,int howMany,float height,float weigh,int pageIndex=0)
+        public virtual void Place(ObjectAbstract objectAbstract, PageController pageController, List<int2> cellInt2,int howMany,float height,float weigh)
         { 
-            page = pageIndex;
+            page = pageController.PageModel.PageIndex;
+            pageController.PageModel.AddObjectToPage(this, cellInt2);
             this.objectAbstract = objectAbstract;
             //this.objectAbstract.SetObjectAbstract(objectAbstract);
             this.howMany = howMany; 
             cells = cellInt2;
-            transform.SetParent(parent);
+            transform.SetParent(pageController.transform);
             objectView.SetObject(cellInt2,this.objectAbstract.Image,this.objectAbstract.weightInInventory,weigh,height,howMany);
         }
         

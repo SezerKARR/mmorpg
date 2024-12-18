@@ -10,6 +10,6 @@ namespace Script.Inventory
         // public static event Action<ObjectAbstract, int> OnObjectAdded;
         // public static event Action<ObjectController> OnObjectSelected;
         public static  Action<List<int2>,int> OnAdd;
-        public static  Action<ItemController,ItemController> OnChange;
+        public static  Action<ItemController,ItemController> OnChangeItem;
     }
 }

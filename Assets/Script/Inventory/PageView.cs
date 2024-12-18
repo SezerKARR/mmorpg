@@ -11,11 +11,7 @@ public class PageView : MonoBehaviour,IPointerClickHandler
     public float _height;
     [SerializeField] RectTransform _buttonPanel;
     public int rowCount,columnCount;
-    private void Awake()
-    {
-        _width = _buttonPanel.rect.width/rowCount;
-        _height = _buttonPanel.rect.height/columnCount;
-    }
+   
 
     public void ClosePage()
     {

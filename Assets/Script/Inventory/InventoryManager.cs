@@ -20,7 +20,7 @@ public class InventoryManager : MonoBehaviour,IWaitConfirmable
      public  int columnCount;
      private ObjectController currentObjectController;
     private PageController _activePageController ;
-    [SerializeField] private InventoryStorage inventoryStorage;
+    public   InventoryStorage inventoryStorage;
     [SerializeField] private RectTransform pages;
     public ItemPrefabList objectsPrefab;
     ObjectPooler objectPooler;
@@ -47,7 +47,7 @@ public class InventoryManager : MonoBehaviour,IWaitConfirmable
         InputPlayer.OnGrounClicked += DropObject;
         ObjectEvents.ObjectClicked += ObjectSelected;
         InventoryEvent.OnAdd += CreateObjectModel;
-        InventoryEvent.OnChange += ChangePosition;
+        InventoryEvent.OnChangeItem += ChangePosition;
     }
     private ObjectAbstract objectToAdd;
     private int howMany;
@@ -55,7 +55,7 @@ public class InventoryManager : MonoBehaviour,IWaitConfirmable
     {
         objectToAdd = inventoryObjectAbstract;
         this.howMany= howMany;
-        inventoryStorage.Add(inventoryObjectAbstract, howMany);
+        if(inventoryStorage.Add(inventoryObjectAbstract, howMany))Destroy(selectedObject);
        
     }
     public void ChangePosition(ItemController unEquipItem ,ItemController equipItem)
@@ -69,9 +69,8 @@ public class InventoryManager : MonoBehaviour,IWaitConfirmable
         // objectControllerGameObject.GetComponent<ObjectController>().
         // pageModel.AddObjectToPage(objectControllerGameObject.GetComponent<ObjectController>(),cellInt2);
        
-        objectPooler.SpawnFromPool(objectToAdd.Type).Place(objectToAdd,inventoryPage[pageIndex].PageViewTransform,cellInt2,howMany,
-            _rowheight,_rowWidth,pageIndex);
-            
+        objectPooler.SpawnFromPool(objectToAdd.Type).Place(objectToAdd,inventoryPage[pageIndex],cellInt2,howMany,
+            _rowheight,_rowWidth);  
         inventoryStorage.AddObjectsToInventory( objectToAdd,howMany );
     }
     private void ObjectSelected(ObjectController objectController,ObjectAbstract selectedObject)

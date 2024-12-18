@@ -35,7 +35,7 @@ namespace Script.Inventory
             pageModels[equipItem.page].ResetButtons(equipItem.cells);
             if ( pageModels[equipItem.page].ControlUnequipSamePos(unEquipObject,temp,equipItem.ObjectAbstract.weightInInventory))
             {
-                InventoryEvent.OnChange?.Invoke(unEquipObject,equipItem);
+                InventoryEvent.OnChangeItem?.Invoke(unEquipObject,equipItem);
                 return true;
             }
             
@@ -65,30 +65,31 @@ namespace Script.Inventory
         }
 
         
-        public void Add(ObjectAbstract inventorObjectAble,int howMany)
+        public bool Add(ObjectAbstract inventorObjectAble,int howMany)
         {
 
-            if (CanAddStack(inventorObjectAble, howMany))return;
+            if (CanAddStack(inventorObjectAble, howMany))return true;
         
-             CanAdd(inventorObjectAble, howMany);
+            return CanAdd(inventorObjectAble, howMany);
+             
 
         }
-        public void CanAdd(ObjectAbstract inventorObjectAble, int howMany)
+        public bool CanAdd(ObjectAbstract inventorObjectAble, int howMany)
         {
             int pageIndex=0;
             foreach (PageModel page in pageModels)
             {
-                pageIndex++;
-                List<int2> cells = page.ControlEmpty(howMany, howMany);
+                
+                List<int2> cells = page.ControlEmpty(inventorObjectAble.weightInInventory, howMany);
                 if (cells != null)
                 {
                     InventoryEvent.OnAdd?.Invoke(cells,pageIndex);
-                    return ;
+                    return true;
                 };
-            
+                pageIndex++;
             }
 
-          
+            return false;
         }
         
         

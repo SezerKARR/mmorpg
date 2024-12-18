@@ -27,7 +27,7 @@ namespace Script.Equipment
         //public  event Action OnUnEquip;
         private void Awake()
         {
-            ItemEvents.OnItemRightClickedInventory += Equip;
+            ItemEvents.OnItemRightClickedInventory += ControlCanEquip;
             EquipmentSlot[] equips = this.GetComponentsInChildren<EquipmentSlot>();
             foreach(EquipmentSlot equip in equips)
             {
@@ -36,14 +36,14 @@ namespace Script.Equipment
             }
         }
 
-        public void Equip(ItemController itemcontroller)
-        {
-            if (equipmentSlots.ContainsKey(itemcontroller.itemModel.equipmentType))
-            {
-                 equipmentSlots[itemcontroller.itemModel.equipmentType].SetItem(itemcontroller);
-            
-            }
-        }
+        // public void Equip(ItemController itemcontroller)
+        // {
+        //     if (equipmentSlots.ContainsKey(itemcontroller.itemModel.equipmentType))
+        //     {
+        //          equipmentSlots[itemcontroller.itemModel.equipmentType].SetItem(itemcontroller);
+        //     
+        //     }
+        // }
         public bool IsCharacterMatch(List<Character> canUseCharacter)
         {
             return canUseCharacter.Contains(Player.instance.playerCharecterType);
@@ -56,23 +56,22 @@ namespace Script.Equipment
         {
             OnEquipmentChanged?.Invoke(a, b);
         }
-        public bool ControlCanEquip(IItemable item,ItemController itemController)
+        public void ControlCanEquip(ItemController itemController)
         {
-            if (IsLevelEnough(item.GetLevel()) && IsCharacterMatch(item.GetCanUseCharacters()))
+            if (IsLevelEnough(itemController.scriptableItemsAbstact.level) && IsCharacterMatch(itemController.scriptableItemsAbstact.canUseCharacters))
             {
-                equipmentSlots[item.GetEquipmentType()].SetItem(itemController);
-                return true;
+                equipmentSlots[itemController.scriptableItemsAbstact.equipmentType].SetItem(itemController);
+                
             }
-            return false;
         }
-        public void SamePos()
-        {
-            /*if (InventoryManager.Instance.ChangeIViewableInventoryPosition())                )
-            if (!InventoryManager.Instance.add(this.scriptableObjectIWiewable, 1))
-        {
-            return;
-        }*/
-        }
+        // public void SamePos()
+        // {
+        //     /*if (InventoryManager.Instance.ChangeIViewableInventoryPosition())                )
+        //     if (!InventoryManager.Instance.add(this.scriptableObjectIWiewable, 1))
+        // {
+        //     return;
+        // }*/
+        // }
         private bool NeedUnequipForEquip(IInventorObjectable UnequipIviewable)
         {
             //return InventoryManager.Instance.NeedUnequip(UnequipIviewable);

@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 739620443720167307}
   - component: {fileID: 1778403610707326008}
   - component: {fileID: 3555798881159721322}
+  - component: {fileID: 666307110307786803}
   - component: {fileID: 1384051612021479352}
   - component: {fileID: 3306438926828440044}
   m_Layer: 5
@@ -90,6 +91,23 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &666307110307786803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1749251187446776245}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3b279e4deeeb9894aabfe02995a78738, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _width: 0
+  _height: 0
+  _buttonPanel: {fileID: 0}
+  rowCount: 0
+  columnCount: 0
 --- !u!114 &1384051612021479352
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,6 +121,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PageData: {fileID: 11400000, guid: bd7c6c52bd746794398d88bb17e05805, type: 2}
+  PageIndex: 0
 --- !u!114 &3306438926828440044
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9773b0affe24baf860654896a3397ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _pageView: {fileID: 0}
+  _pageView: {fileID: 666307110307786803}
   _pageModel: {fileID: 1384051612021479352}
   rowCount: 5
   columnCount: 9

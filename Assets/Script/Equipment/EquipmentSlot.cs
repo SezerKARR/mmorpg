@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Script.Inventory;
 using Script.Inventory.Objects;
@@ -9,11 +10,13 @@ namespace Script.Equipment
 {
     public  class EquipmentSlot : MonoBehaviour
     {
-        [Inject][SerializeField] private InventoryStorage _inventoryStorage;
+         
         [SerializeField] private EquipmentType _type;
         [SerializeField] private int2 _size = new int2(1,1);
         [SerializeField] private ItemController currentItem;
-     
+        [Inject] private InventoryManager inventoryManager;
+       
+
         public bool SetItem(ItemController equipItem)
         {
             Debug.Log("SetItem");
@@ -24,21 +27,26 @@ namespace Script.Equipment
             if (currentItem == null)
             {
                 //OnEquip?.Invoke(item);
-                _inventoryStorage.Equip(equipItem);
+                EquipmentEvent.OnEquip?.Invoke(equipItem);
                 Equip(equipItem);
                 return true;
             }
-            
-
-            
-            else if (_inventoryStorage.ControlUnequip(this.currentItem,equipItem))
+            else
             {
-                //_inventoryManager.Equip(equipItem);
-               // OnEquipmentChanged?.Invoke(equipment.GetItemable(), item);
-                UnEquip();
-                Equip(equipItem);
-                return true;
+                
+                if (inventoryManager.inventoryStorage.ControlUnequip(this.currentItem,equipItem))
+                {
+                    //_inventoryManager.Equip(equipItem);
+                    // OnEquipmentChanged?.Invoke(equipment.GetItemable(), item);
+                    UnEquip();
+                    Equip(equipItem);
+                    return true;
+                }
             }
+            
+            
+            
+               
             return false;
             /*if(_itemController != null)
             {

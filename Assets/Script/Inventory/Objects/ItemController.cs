@@ -10,10 +10,10 @@ namespace Script.Inventory.Objects
     public class ItemController : ObjectController
     {
        
-        public ScriptableItemsAbstact itemModel;
+        public ScriptableItemsAbstact scriptableItemsAbstact;
         private void Awake()
         {
-            itemModel=objectAbstract is ScriptableItemsAbstact ? objectAbstract as ScriptableItemsAbstact :null ;
+            scriptableItemsAbstact=objectAbstract is ScriptableItemsAbstact ? objectAbstract as ScriptableItemsAbstact :null ;
         }
         
 
@@ -34,11 +34,11 @@ namespace Script.Inventory.Objects
 
         public void SetNewStats()
         {
-            itemModel.SetNewStats();
+            scriptableItemsAbstact.SetNewStats();
         }
         public void SetOldStats()
         {
-            itemModel.SetOldStats();
+            scriptableItemsAbstact.SetOldStats();
         }
     }
 }
