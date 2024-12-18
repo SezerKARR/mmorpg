@@ -10,10 +10,10 @@ namespace Script.Inventory.Objects
     public class ItemController : ObjectController
     {
        
-        public ItemModel itemModel;
+        public ScriptableItemsAbstact itemModel;
         private void Awake()
         {
-            itemModel=objectModel is ItemModel ? objectModel as ItemModel :null ;
+            itemModel=objectAbstract is ScriptableItemsAbstact ? objectAbstract as ScriptableItemsAbstact :null ;
         }
         
 

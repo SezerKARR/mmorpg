@@ -15,9 +15,9 @@ namespace Script.Inventory
         public int page;
         public int  size;
         [SerializeField] protected ObjectView objectView;
-        [SerializeField] protected  ObjectModel objectModel;
+        [FormerlySerializedAs("objectModel")] [SerializeField] protected  ObjectAbstract objectAbstract;
         public int howMany;
-        public ObjectModel Model => objectModel;
+        public ObjectAbstract ObjectAbstract => objectAbstract;
         
         protected virtual void Start()
         {
@@ -35,24 +35,26 @@ namespace Script.Inventory
         protected virtual void OnButtonClick()
         {
             
-            ObjectEvents.ObjectClicked.Invoke(this,objectModel.ObjectAbstract);
+            ObjectEvents.ObjectClicked.Invoke(this,objectAbstract);
             Debug.Log("OnButtonClick");
         }
         public virtual void Place(Transform parent, List<int2> cellInt2,float height,float weight)
         {
             cells = cellInt2;
             transform.SetParent(parent);
-            objectView.SetObject(cellInt2,objectModel.sprite,objectModel.WeightInInventory,weight,height,howMany);
+            objectView.SetObject(cellInt2,objectAbstract.Image,objectAbstract.weightInInventory,weight,height,howMany);
         }
-        public virtual void Place(ObjectAbstract objectAbstract, Transform parent, List<int2> cellInt2,int howMany,float height,float weight)
-        {
-            objectModel.SetObjectAbstract(objectAbstract);
+        public virtual void Place(ObjectAbstract objectAbstract, Transform parent, List<int2> cellInt2,int howMany,float height,float weigh,PageModel pageModel= null)
+        { 
+            pageModel.AddObjectToPage(this,cellInt2);
+            this.objectAbstract = objectAbstract;
+            //this.objectAbstract.SetObjectAbstract(objectAbstract);
             this.howMany = howMany; 
             cells = cellInt2;
             transform.SetParent(parent);
-            objectView.SetObject(cellInt2,objectModel.sprite,objectModel.WeightInInventory,weight,height,howMany);
+            objectView.SetObject(cellInt2,this.objectAbstract.Image,this.objectAbstract.weightInInventory,weigh,height,howMany);
         }
-
+        
         public void UpdateCount(int newCount)
         {
             howMany = newCount;

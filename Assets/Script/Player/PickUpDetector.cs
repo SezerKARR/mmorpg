@@ -20,7 +20,6 @@ public class PickUpDetector : MonoBehaviour
     }
     public void PickUp()
     {
-
         if (_pickedUpables.Count > 0)
         {
 

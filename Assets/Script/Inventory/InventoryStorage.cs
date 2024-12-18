@@ -13,7 +13,7 @@ namespace Script.Inventory
 {
     public class InventoryStorage : MonoBehaviour
     {
-       public List<PageModel> pageModels=new List<PageModel>();
+        public List<PageModel> pageModels=new List<PageModel>();
         public HaveObjects haveObjects=new HaveObjects();
         private float _height;
         private float _width;
@@ -50,7 +50,7 @@ namespace Script.Inventory
         {
             List<int2>temp = equipItem.cells;
             pageModels[equipItem.page].ResetButtons(equipItem.cells);
-            if ( pageModels[equipItem.page].ControlUnequipSamePos(unEquipObject,temp,equipItem.Model.WeightInInventory))
+            if ( pageModels[equipItem.page].ControlUnequipSamePos(unEquipObject,temp,equipItem.ObjectAbstract.weightInInventory))
             {
                 ChangePosition(unEquipObject,pageModels[equipItem.page],equipItem.cells);
                 return true;
@@ -58,7 +58,7 @@ namespace Script.Inventory
             
             foreach (PageModel pageModel in pageModels)
             {
-                List<int2> tempCell = pageModel.ControlEmpty(unEquipObject.Model.WeightInInventory, 1);
+                List<int2> tempCell = pageModel.ControlEmpty(unEquipObject.ObjectAbstract.weightInInventory, 1);
                 if (tempCell!=null)
                 {
                     
@@ -118,12 +118,14 @@ namespace Script.Inventory
         }
         
         public void CreateObjectModel(List<int2> cellInt2, ObjectAbstract inventorObjectable, int howMany,PageModel pageModel)
-        {
-            GameObject objectControllerGameObject= Instantiate(objectsPrefab.GetPrefabByType(inventorObjectable.Type));
+        {  // GameObject objectControllerGameObject= Instantiate(objectsPrefab.GetPrefabByType(inventorObjectable.Type));
+            //
+            // objectControllerGameObject.GetComponent<ObjectController>().
+            // pageModel.AddObjectToPage(objectControllerGameObject.GetComponent<ObjectController>(),cellInt2);
             
-            objectControllerGameObject.GetComponent<ObjectController>().Place(inventorObjectable,this.transform,cellInt2,howMany,
-                _height,_width);
-            pageModel.AddObjectToPage(objectControllerGameObject.GetComponent<ObjectController>(),cellInt2);
+            objectPooler.SpawnFromPool(inventorObjectable.Type).Place(inventorObjectable,this.transform,cellInt2,howMany,
+                _height,_width,pageModel);
+            
             AddObjectsToInventory( inventorObjectable,howMany );
         }
         

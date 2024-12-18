@@ -66,14 +66,14 @@ namespace Script.Inventory
         public bool AddStack(ObjectAbstract inventorObjectable, int howMany)
         {
             var filteredControllers = PageData._cotroller.Cast<ObjectController>()
-                .Where(item => item != null && item.Model.ObjectAbstract == inventorObjectable)
+                .Where(item => item != null && item.ObjectAbstract == inventorObjectable)
                 .ToList();
             foreach (var item in filteredControllers)
             {
                 // Gerekli işlemi yap
                 int newCount = item.howMany + howMany;
 
-                if (newCount <= item.Model.StackLimit)
+                if (newCount <= item.ObjectAbstract.stackLimit)
                 {
                     item.UpdateCount(newCount); // Güncelleme işlemi
                     return true; // İlk eşleşmede işlem yap ve döngüden çık
@@ -93,10 +93,10 @@ namespace Script.Inventory
         }
         public bool ControlUnequipSamePos(ItemController unEquipObject, List<int2> tempcells ,int weightInInventory)
         {
-            if (unEquipObject.Model.WeightInInventory <= weightInInventory)
+            if (unEquipObject.ObjectAbstract.weightInInventory <= weightInInventory)
             {
                 List<int2> cells =new List<int2>();
-                for (int i = 0; i < unEquipObject.Model.WeightInInventory; i++)
+                for (int i = 0; i < unEquipObject.ObjectAbstract.weightInInventory; i++)
                 {
                     cells.Add(tempcells[i]);
                 }
@@ -105,7 +105,7 @@ namespace Script.Inventory
 
             List<int2> tempcel2 = ControlEmptyCell(
                 new int2(tempcells[0].x, tempcells[tempcells.Count-1 ].y+1),
-                unEquipObject.Model.WeightInInventory -weightInInventory, 1);
+                unEquipObject.ObjectAbstract.weightInInventory -weightInInventory, 1);
             if( tempcel2!=null)
             {
                 foreach (var VARIABLE in tempcel2)

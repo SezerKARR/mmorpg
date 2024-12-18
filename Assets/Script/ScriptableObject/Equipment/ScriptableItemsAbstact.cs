@@ -53,6 +53,19 @@ public abstract  class ScriptableItemsAbstact : ObjectAbstract
     public abstract EquipmentType equipmentType { get; }
     
     public int level;
+    public void SetNewStats()
+    {
+        foreach (var itemstat in itemstats)
+        {
+            Player.instance.EquipmentStat.AddModifier(itemstat.Key, itemstat.Value);
+        }
+                
+    }
+
+    public void SetOldStats()
+    {
+                
+    }
     // public string GetCurrentPlus()
     // {
     //     return currentPlus.ToString();
