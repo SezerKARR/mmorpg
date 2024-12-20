@@ -48,7 +48,19 @@ namespace Script.Inventory
             ObjectEvents.ObjectClicked += ObjectSelected;
             InventoryEvent.OnAdd += CreateObjectModel;
             InventoryEvent.OnUneqipItem += ChangePosition;
+            InventoryEvent.OnClickInventory += OnClickInventory;
         }
+
+        private void OnClickInventory(Vector2 clickedPos)
+        {
+            float x =  clickedPos.x / _rowWidth;
+            float y = Mathf.Abs(clickedPos.y) / _rowheight;
+            int2 gridposition=new int2( Mathf.FloorToInt( x),Mathf.FloorToInt(y) );
+            imageUnderCursor.Close();
+            InventoryStorage.ChangePos(this._currentObjectController,gridposition,_activePageController.PageModel.PageIndex);
+            Debug.Log(gridposition);    
+        }
+
         private ObjectAbstract _objectToAdd;
         private int _howMany;
         private void PickUp(ObjectAbstract inventoryObjectAbstract, int howMany, GameObject selectedObject)
@@ -64,11 +76,7 @@ namespace Script.Inventory
             unEquipItem.Place(inventoryPage[pageIndex],cells,_rowheight,_rowWidth);
         }
         public void CreateObjectModel(List<int2> cellInt2,int pageIndex)
-        {  // GameObject objectControllerGameObject= Instantiate(objectsPrefab.GetPrefabByType(inventorObjectable.Type));
-            //
-            // objectControllerGameObject.GetComponent<ObjectController>().
-            // pageModel.AddObjectToPage(objectControllerGameObject.GetComponent<ObjectController>(),cellInt2);
-       
+        { 
             _objectPooler.SpawnFromPool(_objectToAdd.Type).Place(_objectToAdd,inventoryPage[pageIndex],cellInt2,_howMany,
                 _rowheight,_rowWidth);  
             InventoryStorage.AddObjectsToInventory( _objectToAdd,_howMany );
@@ -88,19 +96,10 @@ namespace Script.Inventory
         }
         public void ChangePage(int pageIndex)
         {
-        
             _activePageController.ClosePage();
-        
-            OpenPage(pageIndex);
-    
-        }
-        public void OpenPage(int pageIndex)
-        {
             _activePageController = inventoryPage[pageIndex];
-        
             _activePageController.OpenPage(); 
         }
-        
         public void GroundClicked()
         {
             if (this._currentObjectController != null)
@@ -119,7 +118,7 @@ namespace Script.Inventory
             
             this._currentObjectController = null;
         }
-
+        
 
     }
 }

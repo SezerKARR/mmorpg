@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Script.Inventory.Objects;
 using Unity.Mathematics;
+using UnityEngine;
 
 namespace Script.Inventory
 {
@@ -11,5 +12,6 @@ namespace Script.Inventory
         // public static event Action<ObjectController> OnObjectSelected;
         public static  Action<List<int2>,int> OnAdd;
         public static  Action<ItemController,List<int2>,int> OnUneqipItem;
+        public static  Action<Vector2> OnClickInventory;
     }
 }

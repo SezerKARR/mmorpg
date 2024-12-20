@@ -1,14 +1,14 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Script.Inventory;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class PageView : MonoBehaviour,IPointerClickHandler
 {
-    public float _width;
-    public float _height;
+    
     [SerializeField] RectTransform _buttonPanel;
     public int rowCount,columnCount;
    
@@ -47,9 +47,10 @@ public class PageView : MonoBehaviour,IPointerClickHandler
             localClickPosition.x + rectTransform.rect.width / 2,
             localClickPosition.y - rectTransform.rect.height / 2
         );
-        float x =  topLeftAdjustedPosition.x / _width;
-        float y = Mathf.Abs(topLeftAdjustedPosition.y) / _height;
-        int2 gridposition=new int2( Mathf.FloorToInt( x),Mathf.FloorToInt(y) );
-        Debug.Log(gridposition);    
+        InventoryEvent.OnClickInventory?.Invoke(topLeftAdjustedPosition);
+        // float x =  topLeftAdjustedPosition.x / _width;
+        // float y = Mathf.Abs(topLeftAdjustedPosition.y) / _height;
+        // int2 gridposition=new int2( Mathf.FloorToInt( x),Mathf.FloorToInt(y) );
+        // Debug.Log(gridposition);    
     }
 }

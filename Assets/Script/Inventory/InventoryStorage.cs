@@ -44,7 +44,6 @@ namespace Script.Inventory
 
             return false;
         }
-
         private void ChangeItemPos(ItemController unEquipObject, List<int2> cells, int page)
         {
            
@@ -79,10 +78,17 @@ namespace Script.Inventory
         {
             pageModels[itemController.page].ResetButtons(itemController.cells);
         }
-        public void ChangePos(ObjectController objectController)
+        public void ChangePos(ObjectController objectController,int2 cell,int pageIndex)
         {
             ObjectController temp = objectController;
-            
+            var result = pageModels[pageIndex].ControlEmptyCell(cell, objectController.ObjectAbstract.weightInInventory,
+                objectController.howMany);
+            if (result != null)
+            {
+                RemoveObject(objectController);
+                InventoryEvent.OnAdd?.Invoke(result.cells,result.pageIndex);
+                return true;
+            }
         }
 
         
