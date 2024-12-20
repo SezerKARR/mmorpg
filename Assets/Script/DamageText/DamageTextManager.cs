@@ -1,6 +1,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using Script.Player;
 using UnityEngine;
 
 public class DamageTextManager : MonoBehaviour
@@ -21,13 +22,13 @@ public class DamageTextManager : MonoBehaviour
         GameObject damageText=null;
         switch (damageType)
         {
-            case DamageType.normal:
+            case DamageType.Normal:
                 damageText = Instantiate(damageTextPrefab, new Vector3(position.x, position.y, 0), Quaternion.identity);
                 break;
-            case DamageType.crit:
+            case DamageType.Crit:
                 damageText = Instantiate(critDamageTextPrefab, new Vector3(position.x, position.y, 0), Quaternion.identity);
                 break;
-            case DamageType.magical:
+            case DamageType.Magical:
                 damageText = Instantiate(critDamageTextPrefab, new Vector3(position.x, position.y, 0), Quaternion.identity);
                 break;
         }

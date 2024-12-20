@@ -11,7 +11,7 @@ namespace Script.Inventory.Objects
     {
        
         public ScriptableItemsAbstact scriptableItemsAbstact;
-        private void Awake()
+        private void OnEnable()
         {
             scriptableItemsAbstact=objectAbstract is ScriptableItemsAbstact ? objectAbstract as ScriptableItemsAbstact :null ;
         }

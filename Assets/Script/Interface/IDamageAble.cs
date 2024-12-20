@@ -1,5 +1,6 @@
 
 
+using Script.Player;
 using UnityEngine;
 
 public interface IDamageAble

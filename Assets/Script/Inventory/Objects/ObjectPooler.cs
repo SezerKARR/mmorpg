@@ -31,7 +31,6 @@ namespace Script.Inventory.Objects
         public ObjectController SpawnFromPool(ObjectType objectType)
         {
             GameObject objectToSpawn=objectsToPool[objectType].Dequeue();
-            objectToSpawn.SetActive(true);
             return objectToSpawn.GetComponent<ObjectController>();
         }
     }

@@ -22,19 +22,25 @@ namespace Script.Equipment
             Debug.Log("SetItem");
             if (currentItem == equipItem)
             {
-                UnEquip();
+                if (inventoryManager.inventoryStorage.ControlUnequip(this.currentItem))
+                {
+                    UnEquip();
+                    return true;
+                }
+
+                return false;
             }
             if (currentItem == null)
             {
                 //OnEquip?.Invoke(item);
-                EquipmentEvent.OnEquip?.Invoke(equipItem);
+                EquipmentEvent.OnEquip?.Invoke(equipItem,1);
                 Equip(equipItem);
                 return true;
             }
             else
             {
                 
-                if (inventoryManager.inventoryStorage.ControlUnequip(this.currentItem,equipItem))
+                if (inventoryManager.inventoryStorage.ControlUnequipForEquip(this.currentItem,equipItem))
                 {
                     //_inventoryManager.Equip(equipItem);
                     // OnEquipmentChanged?.Invoke(equipment.GetItemable(), item);

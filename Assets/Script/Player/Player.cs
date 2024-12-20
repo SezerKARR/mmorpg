@@ -1,100 +1,97 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Script.Inventory.Objects;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
-public enum groupType
+namespace Script.Player
 {
-    level,
-    even
-}
-public enum DamageType
-{
-    normal,
-    crit,
-    magical
-}
-public class Player : MonoBehaviour
-{
-    
-    public static Player instance;
-    public string playerName="satisfaction";
-    private Camera _mainCamera;
-    public PolygonCollider2D[] attackColliderNormalSword;
-    public SwordSO sword;
-    private PlayerInput playerInput;
-    public float moveSpeed = 7f;
-    public GameObject ItemDropWithOutName;
-    public Character playerCharecterType = Character.Warrior;
-    //public Sprite[] playerIdleSprite;
-
-
-    public EquipmentStat EquipmentStat = new EquipmentStat();
-    private float swordPhsichalDamage;
-    public LineRenderer lineRenderer;
-    
-    
-    public int level;
-    public int exp;
-    public bool haveGroup;
-    public groupType groupType;
-    private void Awake()
+    public enum GroupType
     {
-        instance = this;
-            playerInput = new PlayerInput();
-            playerInput.Player.Enable();
+        Level,
+        Even
+    }
+    public enum DamageType
+    {
+        Normal,
+        Crit,
+        Magical
+    }
+    public class Player : MonoBehaviour
+    {
+    
+        public static Player instance;
+        public string playerName="satisfaction";
+        private Camera _mainCamera;
+        public PolygonCollider2D[] attackColliderNormalSword;
+        public SwordSO sword;
+        private PlayerInput _playerInput;
+        public float moveSpeed = 7f;
+        [FormerlySerializedAs("ItemDropWithOutName")] public GameObject ıtemDropWithOutName;
+        public Character playerCharecterType = Character.Warrior;
+        //public Sprite[] playerIdleSprite;
+
+
+        public EquipmentStat EquipmentStat = new EquipmentStat();
+        private float _swordPhsichalDamage;
+        public LineRenderer lineRenderer;
+    
+    
+        public int level;
+        public int exp;
+        public bool haveGroup;
+        public GroupType groupType;
+        private void Awake()
+        {
+            instance = this;
+            _playerInput = new PlayerInput();
+            _playerInput.Player.Enable();
             _mainCamera = Camera.main;
         
         
-    }
-    private void Start()
-    {
-        swordPhsichalDamage = 50f;//when getting sword delete this shit
+        }
+        private void Start()
+        {
+            _swordPhsichalDamage = 50f;//when getting sword delete this shit
         
         
 
-    }
-    public void DropItem(ObjectAbstract objectAbstract)
-    {
+        }
+        public void DropItem(ObjectAbstract objectAbstract)
+        {
        
-            GameObject itemDrop = Instantiate(ItemDropWithOutName, transform.position, Quaternion.identity);
+            GameObject itemDrop = Instantiate(ıtemDropWithOutName, transform.position, Quaternion.identity);
             itemDrop.GetComponent<ItemDropWithOutName>().objectAbstract = objectAbstract;
         
         
-    }
-    private void Update()
-    {
+        }
+        private void Update()
+        {
        
        
        
-    }
+        }
 
 
-    private int creatureExp;
-    public void GiveNormalDamage(IDamageAble damageAble)
-    { 
-        bool crit = false;
-        //todo: crit oran� hesaplama
-        if (crit)
-        {
-            damageAble.TakeDamage(swordPhsichalDamage*2, this);
-            DamageTextManager.instance.CreateDamageText((swordPhsichalDamage * 2).ToString(), damageAble.GetPosition(),DamageType.crit);
-        }
-        else
-        {
-            damageAble.TakeDamage(swordPhsichalDamage , this);
-            DamageTextManager.instance.CreateDamageText((swordPhsichalDamage ).ToString(), damageAble.GetPosition(), DamageType.normal);
-        }
+        private int creatureExp;
+        public void GiveNormalDamage(IDamageAble damageAble)
+        { 
+            bool crit = false;
+            //todo: crit oran� hesaplama
+            if (crit)
+            {
+                damageAble.TakeDamage(_swordPhsichalDamage*2, this);
+                DamageTextManager.instance.CreateDamageText((_swordPhsichalDamage * 2).ToString(), damageAble.GetPosition(),DamageType.Crit);
+            }
+            else
+            {
+                damageAble.TakeDamage(_swordPhsichalDamage , this);
+                DamageTextManager.instance.CreateDamageText((_swordPhsichalDamage ).ToString(), damageAble.GetPosition(), DamageType.Normal);
+            }
        
        
-    }
-    public  void ExpCalculator(int exp,int creatureLevel)
-    {
-       // print( GameManager.instance.ExpRateCalculate(creatureLevel - level));
-        /*if (!haveGroup)
+        }
+        public  void ExpCalculator(int exp,int creatureLevel)
+        {
+            // print( GameManager.instance.ExpRateCalculate(creatureLevel - level));
+            /*if (!haveGroup)
         {
 
         }
@@ -102,5 +99,6 @@ public class Player : MonoBehaviour
         {
 
         }*/
+        }
     }
 }

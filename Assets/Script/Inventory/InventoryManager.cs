@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Script.Equipment;
 using Script.Inventory;
 using Script.Inventory.Objects;
+using Script.Player;
 using Script.ScriptableObject.Prefab;
 using Unity.Mathematics;
 using Unity.VisualScripting;
@@ -44,24 +45,24 @@ public class InventoryManager : MonoBehaviour,IWaitConfirmable
     {
         ObjectEvents.OnPickUp += PickUp;
         PageChangeButton.OnChangePageClicked += ChangePage;
-        InputPlayer.OnGrounClicked += DropObject;
+        InputPlayer.OnGroundClicked += DropObject;
         ObjectEvents.ObjectClicked += ObjectSelected;
         InventoryEvent.OnAdd += CreateObjectModel;
-        InventoryEvent.OnChangeItem += ChangePosition;
+        InventoryEvent.OnUneqipItem += ChangePosition;
     }
     private ObjectAbstract objectToAdd;
     private int howMany;
     private void PickUp(ObjectAbstract inventoryObjectAbstract, int howMany, GameObject selectedObject)
     {
+        EquipmentEvent.OnEquip += inventoryStorage.RemoveObject;
         objectToAdd = inventoryObjectAbstract;
         this.howMany= howMany;
         if(inventoryStorage.Add(inventoryObjectAbstract, howMany))Destroy(selectedObject);
        
     }
-    public void ChangePosition(ItemController unEquipItem ,ItemController equipItem)
+    public void ChangePosition(ItemController unEquipItem ,List<int2> cells,int pageIndex)
     {
-        inventoryPage[equipItem.page].PageModel.AddObjectToPage(unEquipItem,equipItem.cells);
-        unEquipItem.Place(this.transform,equipItem.cells,_rowheight,_rowWidth);
+        unEquipItem.Place(inventoryPage[pageIndex],cells,_rowheight,_rowWidth);
     }
     public void CreateObjectModel(List<int2> cellInt2,int pageIndex)
     {  // GameObject objectControllerGameObject= Instantiate(objectsPrefab.GetPrefabByType(inventorObjectable.Type));

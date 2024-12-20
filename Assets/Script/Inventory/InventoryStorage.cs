@@ -10,7 +10,11 @@ using Zenject;
 using Object = UnityEngine.Object;
 
 namespace Script.Inventory
-{
+{ class pageAndCells
+    {
+        List<int> cells = new List<int>();
+        int page;
+    }
     public class InventoryStorage 
     {
         public List<PageModel> pageModels=new List<PageModel>();
@@ -29,30 +33,47 @@ namespace Script.Inventory
             }
             haveObjects.Add(inventorObjectable, howMany);
         }
-        public bool ControlUnequip(ItemController unEquipObject,ItemController equipItem)
+        public bool ControlUnequip(ItemController unEquipObject)
+        {
+            var result = ControlEmptyCellAndPage(unEquipObject.ObjectAbstract, 1);
+            if (result.pageIndex != -1)
+            {
+                ChangeItemPos(unEquipObject, result.cells, result.pageIndex);
+                return true;
+            }
+
+            return false;
+        }
+
+        private void ChangeItemPos(ItemController unEquipObject, List<int2> cells, int page)
+        {
+           
+            InventoryEvent.OnUneqipItem?.Invoke(unEquipObject,cells,page);
+            AddObjectsToInventory(unEquipObject.ObjectAbstract,1);
+            pageModels[page].AddObjectToPage(unEquipObject,cells);
+            
+        }
+
+        public bool ControlUnequipForEquip(ItemController unEquipObject, ItemController equipItem)
         {
             List<int2>temp = equipItem.cells;
-            pageModels[equipItem.page].ResetButtons(equipItem.cells);
-            if ( pageModels[equipItem.page].ControlUnequipSamePos(unEquipObject,temp,equipItem.ObjectAbstract.weightInInventory))
+            int page=equipItem.page;
+            RemoveObject(equipItem,1);
+            List<int2> unequipcells = pageModels[equipItem.page].ControlUnequipSamePos(unEquipObject,temp, equipItem.ObjectAbstract.weightInInventory);
+            if ( unequipcells!=null)
             {
-                InventoryEvent.OnChangeItem?.Invoke(unEquipObject,equipItem);
+                ChangeItemPos(unEquipObject,unequipcells,page);
                 return true;
             }
             
-            foreach (PageModel pageModel in pageModels)
-            {
-                List<int2> tempCell = pageModel.ControlEmpty(unEquipObject.ObjectAbstract.weightInInventory, 1);
-                if (tempCell!=null)
-                {
-                    
-                    return true;
-                }
-                
-            }
-            pageModels[equipItem.page].AddObjectToPage(equipItem,temp);
-            return false;   
+            return ControlUnequip(unEquipObject);
         }
 
+        public void RemoveObject(ObjectController objectController,int howMany)
+        {
+            pageModels[objectController.page].ResetButtons(objectController.cells);
+            haveObjects[objectController.ObjectAbstract]-=howMany;
+        }
         
         public void Equip(ItemController itemController)
         {
@@ -69,27 +90,29 @@ namespace Script.Inventory
         {
 
             if (CanAddStack(inventorObjectAble, howMany))return true;
-        
-            return CanAdd(inventorObjectAble, howMany);
-             
+            var result = ControlEmptyCellAndPage(inventorObjectAble, howMany);
+            if (result.pageIndex != -1)
+            {
+                InventoryEvent.OnAdd?.Invoke(result.cells,result.pageIndex);
+                return true;
+            }
+
+            return false;
+
 
         }
-        public bool CanAdd(ObjectAbstract inventorObjectAble, int howMany)
+        public (List<int2> cells ,int pageIndex) ControlEmptyCellAndPage(ObjectAbstract inventorObjectAble, int howMany)
         {
-            int pageIndex=0;
             foreach (PageModel page in pageModels)
             {
                 
                 List<int2> cells = page.ControlEmpty(inventorObjectAble.weightInInventory, howMany);
                 if (cells != null)
                 {
-                    InventoryEvent.OnAdd?.Invoke(cells,pageIndex);
-                    return true;
+                    return (cells,page.PageIndex);
                 };
-                pageIndex++;
             }
-
-            return false;
+            return (null,-1);
         }
         
         

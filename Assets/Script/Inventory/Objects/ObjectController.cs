@@ -38,10 +38,11 @@ namespace Script.Inventory
             ObjectEvents.ObjectClicked.Invoke(this,objectAbstract);
             Debug.Log("OnButtonClick");
         }
-        public virtual void Place(Transform parent, List<int2> cellInt2,float height,float weight)
+        public virtual void Place(PageController pageController, List<int2> cellInt2,float height,float weight)
         {
+            page = pageController.PageModel.PageIndex;
+            transform.SetParent(pageController.transform);
             cells = cellInt2;
-            transform.SetParent(parent);
             objectView.SetObject(cellInt2,objectAbstract.Image,objectAbstract.weightInInventory,weight,height,howMany);
         }
         public virtual void Place(ObjectAbstract objectAbstract, PageController pageController, List<int2> cellInt2,int howMany,float height,float weigh)
@@ -54,6 +55,7 @@ namespace Script.Inventory
             cells = cellInt2;
             transform.SetParent(pageController.transform);
             objectView.SetObject(cellInt2,this.objectAbstract.Image,this.objectAbstract.weightInInventory,weigh,height,howMany);
+            this.gameObject.SetActive(true);
         }
         
         public void UpdateCount(int newCount)

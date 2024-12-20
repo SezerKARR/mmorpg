@@ -7,6 +7,6 @@ namespace Script.Enemy
     public class EnemyEvent
     {
         public static Action< Vector3 , ObjectAbstract ,string > OnDropObject;
-        public static Action<(Player player, string Exp, int enemyLevel)> OnDeath;
+        public static Action<(Player.Player player, string Exp, int enemyLevel)> OnDeath;
     }
 }

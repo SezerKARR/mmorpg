@@ -91,20 +91,16 @@ namespace Script.Inventory
             // }
             return false;
         }
-        public bool ControlUnequipSamePos(ItemController unEquipObject, List<int2> tempcells ,int weightInInventory)
+        public List<int2> ControlUnequipSamePos(ItemController unEquipObject, List<int2> tempcells ,int weightInInventory)
         {
             if (unEquipObject.ObjectAbstract.weightInInventory <= weightInInventory)
             {
-                List<int2> cells =new List<int2>();
-                for (int i = 0; i < unEquipObject.ObjectAbstract.weightInInventory; i++)
-                {
-                    cells.Add(tempcells[i]);
-                }
-                return true;
+               
+                return tempcells.GetRange(0,unEquipObject.ObjectAbstract.weightInInventory);
             }
-
+            
             List<int2> tempcel2 = ControlEmptyCell(
-                new int2(tempcells[0].x, tempcells[tempcells.Count-1 ].y+1),
+                new int2(tempcells[0].x, tempcells[^1 ].y+1),
                 unEquipObject.ObjectAbstract.weightInInventory -weightInInventory, 1);
             if( tempcel2!=null)
             {
@@ -112,10 +108,10 @@ namespace Script.Inventory
                 {
                     tempcells.Add(VARIABLE);
                 }
-                return true;
+                return tempcells;
                 
             }
-            return false;
+            return null;
         }
 
         

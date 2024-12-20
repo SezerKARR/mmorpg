@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Script.Inventory.Objects;
 using Script.ScriptableObject.Equipment;
 using UnityEngine;
-
+using Script.Player;
 namespace Script.Equipment
 {
     public enum EquipmentType
@@ -46,11 +46,11 @@ namespace Script.Equipment
         // }
         public bool IsCharacterMatch(List<Character> canUseCharacter)
         {
-            return canUseCharacter.Contains(Player.instance.playerCharecterType);
+            return canUseCharacter.Contains(Player.Player.instance.playerCharecterType);
         }
         public bool IsLevelEnough(int itemLevel)
         {
-            return Player.instance.level>=itemLevel;
+            return Player.Player.instance.level>=itemLevel;
         }
         public void a(IItemable a,IItemable b)
         {

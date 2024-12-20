@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Script.Enemy;
 using Script.ObjectInTheGround;
+using Script.Player;
 using Script.ScriptableObject.Equipment;
 using TMPro;
 using UnityEngine;
