@@ -33,6 +33,14 @@ namespace Script.Inventory.Objects
             GameObject objectToSpawn=objectsToPool[objectType].Dequeue();
             return objectToSpawn.GetComponent<ObjectController>();
         }
+        public void ReturnObject(ObjectType objectType, GameObject obj)
+        {
+            if (objectsToPool.ContainsKey(objectType))
+            {
+                obj.SetActive(false);
+                objectsToPool[objectType].Enqueue(obj);
+            }
+        }
     }
     
 }

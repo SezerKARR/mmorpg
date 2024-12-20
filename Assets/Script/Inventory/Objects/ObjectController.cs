@@ -35,7 +35,7 @@ namespace Script.Inventory
         protected virtual void OnButtonClick()
         {
             
-            ObjectEvents.ObjectClicked.Invoke(this,objectAbstract);
+            ObjectEvents.ObjectClicked.Invoke(this);
             Debug.Log("OnButtonClick");
         }
         public virtual void Place(PageController pageController, List<int2> cellInt2,float height,float weight)

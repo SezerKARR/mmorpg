@@ -1,86 +1,63 @@
-using System;
-using System.Collections.Generic;
 using Script.Inventory;
 using Script.Inventory.Objects;
-using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 
 namespace Script.Equipment
 {
-    public  class EquipmentSlot : MonoBehaviour
+    public class EquipmentSlot : MonoBehaviour
     {
-         
-        [SerializeField] private EquipmentType _type;
-        [SerializeField] private int2 _size = new int2(1,1);
-        [SerializeField] private ItemController currentItem;
-        [Inject] private InventoryManager inventoryManager;
-       
+        [FormerlySerializedAs("_type")] [SerializeField]
+        private EquipmentType type;
 
-        public bool SetItem(ItemController equipItem)
+        [SerializeField] private ItemController currentItem;
+        [Inject] private InventoryManager _inventoryManager;
+
+
+        public void SetItem(ItemController equipItem)
         {
             Debug.Log("SetItem");
             if (currentItem == equipItem)
             {
-                if (inventoryManager.inventoryStorage.ControlUnequip(this.currentItem))
+                if (_inventoryManager.InventoryStorage.ControlUnequip(this.currentItem))
                 {
                     UnEquip();
-                    return true;
                 }
-
-                return false;
+                return;
             }
+
             if (currentItem == null)
             {
                 //OnEquip?.Invoke(item);
-                EquipmentEvent.OnEquip?.Invoke(equipItem,1);
+                EquipmentEvent.OnEquip?.Invoke(equipItem);
                 Equip(equipItem);
-                return true;
+                return;
             }
-            else
+
+            if (_inventoryManager.InventoryStorage.ControlUnequipForEquip(this.currentItem, equipItem))
             {
-                
-                if (inventoryManager.inventoryStorage.ControlUnequipForEquip(this.currentItem,equipItem))
-                {
-                    //_inventoryManager.Equip(equipItem);
-                    // OnEquipmentChanged?.Invoke(equipment.GetItemable(), item);
-                    UnEquip();
-                    Equip(equipItem);
-                    return true;
-                }
+                UnEquip();
+                Equip(equipItem);
             }
-            
-            
-            
-               
-            return false;
-            /*if(_itemController != null)
-            {
-                //_inventoryManager.AddItem(_itemController);
-            }
-         
-            _itemController = itemController;
-            _itemController.Place(transform, transform.position);
-            return false;*/
         }
+
         public void Equip(ItemController equipItem)
         {
-
-            equipItem.Place(this.transform,gameObject.GetComponent<RectTransform>().rect.size);
-            //EquipmentManager.Instance.a(equipItem, equipItem);
+            equipItem.Place(this.transform, gameObject.GetComponent<RectTransform>().rect.size);
             this.currentItem = equipItem;
             this.currentItem.SetNewStats();
-
         }
+
         public void UnEquip()
         {
-        
             this.currentItem.SetOldStats();
             this.currentItem = null;
         }
+
         public EquipmentType GetEquipmentType()
         {
-            return _type;
+            return type;
         }
     }
 }

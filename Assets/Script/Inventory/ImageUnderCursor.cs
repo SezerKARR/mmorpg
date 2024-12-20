@@ -1,3 +1,4 @@
+using Script.UI;
 using UnityEngine;
 using UnityEngine.UI;
 

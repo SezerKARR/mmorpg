@@ -58,7 +58,7 @@ namespace Script.Inventory
         {
             List<int2>temp = equipItem.cells;
             int page=equipItem.page;
-            RemoveObject(equipItem,1);
+            RemoveObject(equipItem);
             List<int2> unequipcells = pageModels[equipItem.page].ControlUnequipSamePos(unEquipObject,temp, equipItem.ObjectAbstract.weightInInventory);
             if ( unequipcells!=null)
             {
@@ -69,10 +69,10 @@ namespace Script.Inventory
             return ControlUnequip(unEquipObject);
         }
 
-        public void RemoveObject(ObjectController objectController,int howMany)
+        public void RemoveObject(ObjectController objectController)
         {
             pageModels[objectController.page].ResetButtons(objectController.cells);
-            haveObjects[objectController.ObjectAbstract]-=howMany;
+            haveObjects[objectController.ObjectAbstract]-=objectController.howMany;
         }
         
         public void Equip(ItemController itemController)
