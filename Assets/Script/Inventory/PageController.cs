@@ -1,52 +1,30 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using Script.Inventory;
-using Script.Inventory.Objects;
-using Script.ScriptableObject.Prefab;
-using Unity.Mathematics;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using Zenject;
-using Object = UnityEngine.Object;
+using UnityEngine.Serialization;
 
 namespace Script.Inventory
 {
-
-//usage
     public class PageController:MonoBehaviour
     {
-       
-        public List<List<float>> twoDimensionalList = new List<List<float>>();
-        
-        
         private ObjectController _currentObjectController;
         public static Action<ObjectAbstract,int> OnObjectAddToPage;
-        [SerializeField] PageView _pageView;
-        [SerializeField] PageModel _pageModel;
+        [FormerlySerializedAs("_pageView")] [SerializeField] private PageView pageView;
+        [FormerlySerializedAs("_pageModel")] [SerializeField] private PageModel pageModel;
         
         public int rowCount,columnCount;
-        public PageModel PageModel => _pageModel;
-        public Transform PageViewTransform => _pageView.GetComponent<Transform>();
+        public PageModel PageModel => pageModel;
+        public Transform PageViewTransform => pageView.GetComponent<Transform>();
         
        
         public void ClosePage()
         {
-            _pageView.ClosePage();
+            pageView.ClosePage();
 
         }
         public void OpenPage()
         {
-           _pageView.OpenPage();
+           pageView.OpenPage();
 
         }
-        
-        
-      
-        
-        
-       
-
-       
     }
 }

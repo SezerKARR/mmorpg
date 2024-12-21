@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Script.Inventory
 {
@@ -23,15 +24,15 @@ namespace Script.Inventory
         private int columnCount = 9; // Default value
       
         // Array of ObjectsRow, now it's dynamic based on rowCount
-        public ObjectsRow[] _cotroller;
+        [FormerlySerializedAs("_cotroller")] public ObjectsRow[] cotroller;
         
         // Initialize rows based on dynamic rowCount and columnCount
         public void Initialize()
         {
-                _cotroller = new ObjectsRow[rowCount];
+                cotroller = new ObjectsRow[rowCount];
                 for (int i = 0; i< rowCount; i++)
                 {
-                    _cotroller[i] = new ObjectsRow(columnCount); // Initialize each row with the dynamic column count
+                    cotroller[i] = new ObjectsRow(columnCount); // Initialize each row with the dynamic column count
                 }
             
         }

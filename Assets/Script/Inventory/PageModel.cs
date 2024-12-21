@@ -1,13 +1,10 @@
-
-
-
-using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Script.Inventory.Objects;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Script.Inventory
 {
@@ -15,19 +12,19 @@ namespace Script.Inventory
   
     public class PageModel:MonoBehaviour
     {
-        public PageData PageData;
-        public int PageIndex;
+        [FormerlySerializedAs("PageData")] public PageData pageData;
+        [FormerlySerializedAs("PageIndex")] public int pageIndex;
        
         private void Start()
         {
-            string path = Application.persistentDataPath + $"/{PageIndex}.json";
+            string path = Application.persistentDataPath + $"/{pageIndex}.json";
             if (!LoadPageData(path))
             {
-                PageData = UnityEngine.ScriptableObject.CreateInstance<PageData>();
-                PageData.Initialize();
+                pageData = UnityEngine.ScriptableObject.CreateInstance<PageData>();
+                pageData.Initialize();
 
                 // 2. JSON'a çevir
-                string jsonData = JsonUtility.ToJson(PageData);
+                string jsonData = JsonUtility.ToJson(pageData);
 
                 // 3. JSON'u dosyaya yaz
            
@@ -39,8 +36,8 @@ namespace Script.Inventory
         }
         private void OnApplicationQuit()
         {
-            string path = Application.persistentDataPath + $"/{PageIndex}.json";
-            string jsonData = JsonUtility.ToJson(PageData);
+            string path = Application.persistentDataPath + $"/{pageIndex}.json";
+            string jsonData = JsonUtility.ToJson(pageData);
 
             // 3. JSON'u dosyaya yaz
            
@@ -53,19 +50,19 @@ namespace Script.Inventory
             {
                 
                 string loadedJson = File.ReadAllText(path);
-                PageData = UnityEngine.ScriptableObject.CreateInstance<PageData>();
-                JsonUtility.FromJsonOverwrite(loadedJson, PageData);
-                Debug.Log("Yüklendi: Satır=" + PageData.RowCount + ", Sütun=" + PageData.ColumnCount);
+                pageData = UnityEngine.ScriptableObject.CreateInstance<PageData>();
+                JsonUtility.FromJsonOverwrite(loadedJson, pageData);
+                Debug.Log("Yüklendi: Satır=" + pageData.RowCount + ", Sütun=" + pageData.ColumnCount);
                 return true;
             }
             return false;   
         }
 
-        public float ColumnCount => PageData.ColumnCount;
-        public float RowCount => PageData.RowCount;
+        public float ColumnCount => pageData.ColumnCount;
+        public float RowCount => pageData.RowCount;
         public bool AddStack(ObjectAbstract inventorObjectable, int howMany)
         {
-            var filteredControllers = PageData._cotroller.Cast<ObjectController>()
+            var filteredControllers = pageData.cotroller.Cast<ObjectController>()
                 .Where(item => item != null && item.ObjectAbstract == inventorObjectable)
                 .ToList();
             foreach (var item in filteredControllers)
@@ -104,9 +101,9 @@ namespace Script.Inventory
                 unEquipObject.ObjectAbstract.weightInInventory -weightInInventory, 1);
             if( tempcel2!=null)
             {
-                foreach (var VARIABLE in tempcel2)
+                foreach (var cell in tempcel2)
                 {
-                    tempcells.Add(VARIABLE);
+                    tempcells.Add(cell);
                 }
                 return tempcells;
                 
@@ -123,7 +120,7 @@ namespace Script.Inventory
                 for (int j = 0; j < ColumnCount; j++)
                 {
                     List<int2> cells=new List<int2>();
-                    if (PageData._cotroller[i].objectController[j] == null)
+                    if (pageData.cotroller[i].objectController[j] == null)
                     {
                         cells.Add(new int2(i,j));
                         if (weightInInventory == 1)
@@ -159,7 +156,7 @@ namespace Script.Inventory
             for (int i = 0; i < weightInInventory; i++)
             {
                 // Nesnenin sütunu aşmaması gerektiğini kontrol et
-                if (PageData._cotroller[rowAndColumnCount.x].objectController[rowAndColumnCount.y+i] ==null)
+                if (pageData.cotroller[rowAndColumnCount.x].objectController[rowAndColumnCount.y+i] ==null)
                 {
                     cells.Add(new int2(rowAndColumnCount.x, rowAndColumnCount.y+i));
                     if (cells.Count == weightInInventory)
@@ -181,7 +178,7 @@ namespace Script.Inventory
         {
             foreach (var cell in celss)
             {
-                PageData._cotroller[ cell.x].objectController[cell.y] = objectController;
+                pageData.cotroller[ cell.x].objectController[cell.y] = objectController;
             }
         }
         
@@ -193,7 +190,7 @@ namespace Script.Inventory
             
             foreach (var cell in resetCells)
             {
-                PageData._cotroller[ cell.x].objectController[cell.y] = null;
+                pageData.cotroller[ cell.x].objectController[cell.y] = null;
             }
         }
     }

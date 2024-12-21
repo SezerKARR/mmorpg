@@ -86,8 +86,8 @@ namespace Script.Inventory
             if (result != null)
             {
                 RemoveObject(objectController);
-                InventoryEvent.OnAdd?.Invoke(result.cells,result.pageIndex);
-                return true;
+                InventoryEvent.OnAdd?.Invoke(result,pageIndex);
+                return ;
             }
         }
 
@@ -115,7 +115,7 @@ namespace Script.Inventory
                 List<int2> cells = page.ControlEmpty(inventorObjectAble.weightInInventory, howMany);
                 if (cells != null)
                 {
-                    return (cells,page.PageIndex);
+                    return (cells,page.pageIndex);
                 };
             }
             return (null,-1);

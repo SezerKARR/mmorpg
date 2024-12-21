@@ -40,14 +40,14 @@ namespace Script.Inventory
         }
         public virtual void Place(PageController pageController, List<int2> cellInt2,float height,float weight)
         {
-            page = pageController.PageModel.PageIndex;
+            page = pageController.PageModel.pageIndex;
             transform.SetParent(pageController.transform);
             cells = cellInt2;
             objectView.SetObject(cellInt2,objectAbstract.Image,objectAbstract.weightInInventory,weight,height,howMany);
         }
         public virtual void Place(ObjectAbstract objectAbstract, PageController pageController, List<int2> cellInt2,int howMany,float height,float weigh)
         { 
-            page = pageController.PageModel.PageIndex;
+            page = pageController.PageModel.pageIndex;
             pageController.PageModel.AddObjectToPage(this, cellInt2);
             this.objectAbstract = objectAbstract;
             //this.objectAbstract.SetObjectAbstract(objectAbstract);
