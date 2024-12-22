@@ -8,6 +8,7 @@ using System.Linq;
 using System.Xml.Serialization;
 using Unity.Collections.LowLevel.Unsafe;
 using Codice.CM.Client.Differences;
+using Script.ScriptableObject.Equipment;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.TextCore.Text;
 public class CsvToSo
@@ -36,11 +37,11 @@ public class CsvToSo
 
             UpgradeItemsSO upgradeItemsSO = ScriptableObject.CreateInstance<UpgradeItemsSO>();
 
-            upgradeItemsSO.ItemName = splitData[0];
+            upgradeItemsSO.ıtemName = splitData[0];
             upgradeItemsSO.dropsFrom = splitData[1];
             upgradeItemsSO.info = splitData[2];
 
-            AssetDatabase.CreateAsset(upgradeItemsSO, $"Assets/ScriptableObjects/UpgradeItem/{upgradeItemsSO.ItemName}.asset");
+            AssetDatabase.CreateAsset(upgradeItemsSO, $"Assets/ScriptableObjects/UpgradeItem/{upgradeItemsSO.ıtemName}.asset");
         }
         AssetDatabase.SaveAssets();
     }
@@ -729,7 +730,7 @@ private static void CsvFromSoExpPerLevel()
                 if (helmetSo != null)
                 {
                     helmetSo.weightInInventory = 1;
-                    AssetDatabase.CreateAsset(helmetSo, $"{path}/{helmetSo.level + " " + helmetSo.ItemName}.asset");
+                    AssetDatabase.CreateAsset(helmetSo, $"{path}/{helmetSo.level + " " + helmetSo.ıtemName}.asset");
 
                     upgradeMoney.Clear();
                     upgradeItemRequire.Clear();
@@ -759,7 +760,7 @@ private static void CsvFromSoExpPerLevel()
             }
             else if (splitData[1].Contains("BoardNewM.png"))
             {
-                helmetSo.ItemName = splitData[0].Replace(".png", "");
+                helmetSo.ıtemName = splitData[0].Replace(".png", "");
 
             }
             else if (splitData[1].Contains("Defence") )
@@ -875,8 +876,8 @@ private static void CsvFromSoExpPerLevel()
                         if (!conditionMet)
                         {
                             ObjectAbstract upgradesItemSO = ScriptableObject.CreateInstance<ObjectAbstract>();
-                            upgradesItemSO.ItemName = splitData[j + 2].Replace(".png", "");
-                            AssetDatabase.CreateAsset(upgradesItemSO, $"Assets/ScriptableObjects/UpgradeItem/{upgradesItemSO.ItemName}.asset");
+                            upgradesItemSO.ıtemName = splitData[j + 2].Replace(".png", "");
+                            AssetDatabase.CreateAsset(upgradesItemSO, $"Assets/ScriptableObjects/UpgradeItem/{upgradesItemSO.ıtemName}.asset");
 
                         }
                     }
@@ -915,7 +916,7 @@ private static void CsvFromSoExpPerLevel()
         Requirements[Requirements.Length - 1] = requirementClass;
     }
    
-    public static void SetSwordType(string swordType,SwordSO swordSO)
+    public static void SetSwordType(string swordType,SwordSo swordSO)
     {
         if (swordType.Equals("Sword"))
         {

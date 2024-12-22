@@ -1,37 +1,34 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
-public class ItemDropWithOutName : ItemDrop
+
+namespace Script.ObjectInTheGround
 {
-
-    public override void DestroyObject()
+    public class ItemDropWithOutName : ItemDrop
     {
-        base.DestroyObject();
-    }
+        private const DropType dropType = DropType.WithoutPlayerName;
 
-    public override GameObject GetGameObject()
-    {
-        return base.GetGameObject();
-    }
+        public override DropType GetDropType()
+        {
+            return dropType;
+        }
 
-    public override void Update()
-    {
-        base.Update();
-    }
+        public override void OnActivate(ObjectAbstract item, string playerName, Vector3 position)
+        {
+            StartCoroutine(WaitAndDestroy());
+            base.OnActivate(item, playerName, position);
+        }
+        public override string GetPoolType()
+        {
+            return dropType.ToString();
+        }
 
-    public override void Start()
-    {
-        StartCoroutine(WaitAndDestroy());
-        base.Start();
 
-    }
-
-    IEnumerator WaitAndDestroy()
-    {
-        // suspend execution for 5 seconds
-        yield return new WaitForSeconds(5);
+        IEnumerator WaitAndDestroy()
+        {
+            // suspend execution for 5 seconds
+            yield return new WaitForSeconds(5);
         
-        Destroy(this.gameObject);
+            Destroy(this.gameObject);
+        }
     }
 }

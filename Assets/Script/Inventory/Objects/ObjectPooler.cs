@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Script.ScriptableObject.Prefab;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Script.Inventory.Objects
@@ -8,32 +7,35 @@ namespace Script.Inventory.Objects
     public class ObjectPooler
     {
         public Item objectsToPool;
-        public class Item: UnityDictionary<ObjectType, Queue<GameObject>> { };
+        public class Item: UnityDictionary<string, Queue<GameObject>> { };
 
-        public ObjectPooler(ItemPrefabList  itemPrefabList)
+        public ObjectPooler(ItemPrefabList  itemPrefabList,Transform parentTransform,int count)
         {
             objectsToPool = new Item();
-            foreach (var objectClass in itemPrefabList.Objects)
+            foreach (var objectClass in itemPrefabList.objects)
             {
             
                 Queue<GameObject> objectPool = new Queue<GameObject>() ;
                 for (int i = 0; i < 30; i++)
                 {
-                    GameObject objectGO = Object.Instantiate(objectClass.Prefab);
-                    objectGO.SetActive(false);
-                    objectPool.Enqueue(objectGO);
+                    GameObject objectGo = Object.Instantiate(objectClass.prefab, parentTransform, true);
+                    objectGo.SetActive(false);
+                    objectPool.Enqueue(objectGo);
                 }
-                objectsToPool.Add(objectClass.ObjectType, objectPool);
+                objectsToPool.Add(objectClass.objectType, objectPool);
             }
             
         }
 
-        public ObjectController SpawnFromPool(ObjectType objectType)
+        public T SpawnFromPool<T>(string objectType) where T : Component
         {
-            GameObject objectToSpawn=objectsToPool[objectType].Dequeue();
-            return objectToSpawn.GetComponent<ObjectController>();
+            // Pool'dan bir nesne al
+            GameObject objectToSpawn = objectsToPool[objectType].Dequeue();
+
+            // GameObject'ten T tipinde bir bileşen al ve döndür
+            return objectToSpawn.GetComponent<T>();
         }
-        public void ReturnObject(ObjectType objectType, GameObject obj)
+        public void ReturnObject(string objectType, GameObject obj)
         {
             if (objectsToPool.ContainsKey(objectType))
             {

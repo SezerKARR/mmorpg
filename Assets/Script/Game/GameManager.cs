@@ -1,26 +1,31 @@
 using System.Linq;
 using Script.Enemy;
+using Script.Inventory;
+using Script.Inventory.Objects;
+using Script.ObjectInTheGround;
+using Script.ScriptableObject.Prefab;
 using UnityEngine;
 
 namespace Script
 {
     public class GameManager : MonoBehaviour
     {
-        public GameObject ItemDropPrefab;
+        public ItemPrefabList ItemDropPrefabs;
         public  ExpPerLevelSO expPer;
         public static GameManager Instance;
+        private ObjectPooler ItemDropPooler;
+       
         private void Awake()
         {
-            EnemyEvent.OnDropObject += CreateDropItem;
+            ItemDropPooler = new ObjectPooler(ItemDropPrefabs,this.transform,50);
+            GameEvent.OnItemDroppedWithPlayer += CreateDropItem;
             Instance = this;
         }
 
         private void CreateDropItem(Vector3 position, ObjectAbstract objectAbstract,string playerName)
         {
-            GameObject itemDrop = Instantiate(ItemDropPrefab, position, Quaternion.identity);
-            itemDrop.GetComponent<ItemDrop>().SetOther(objectAbstract,playerName);
+            ItemDropPooler.SpawnFromPool<ItemDrop>(DropType.WithPlayerName.ToString()).OnActivate(objectAbstract,playerName,position);
         }
-
         //public  void Wiev
         public  float ExpRateCalculate(int levelDiff)
         {

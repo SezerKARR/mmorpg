@@ -1,71 +1,69 @@
-using System.Collections;
-using System.Collections.Generic;
-using Script.Inventory.Objects;
+using Script.Interface;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-public abstract class ItemDrop : MonoBehaviour, IPickedUpAble
+namespace Script.ObjectInTheGround
 {
-    public TMP_Text itemName;
-    public ObjectAbstract objectAbstract;
-    public int howMany=1;
-    public TMP_Text Playername;
-    Vector3 RandomPositionByObjectCircle()
+    public enum DropType
     {
-        Vector2 position = new Vector2(Random.Range(transform.position.x - 1f, transform.position.x + 1f), Random.Range(transform.position.y - 1f, transform.position.y + 1f));
-        return new Vector3(position.x, position.y, 0);
+        None,
+        WithPlayerName,
+        WithoutPlayerName,
     }
-   
+    public abstract class ItemDrop : MonoBehaviour, IPickedUpAble,IPoolable
+    {
+        public TMP_Text itemName;
+        public ObjectAbstract objectAbstract;
+        public int howMany=1;
+        Vector3 RandomPositionByObjectCircle()
+        {
+            Vector2 position = new Vector2(Random.Range(transform.position.x - 1f, transform.position.x + 1f), Random.Range(transform.position.y - 1f, transform.position.y + 1f));
+            return new Vector3(position.x, position.y, 0);
+        }
+        public abstract DropType GetDropType();
+        protected virtual void SetDropName()
+        {
+            if (this.howMany > 1)
+            {
+                itemName.text = objectAbstract.dropName + " x" + this.howMany;
+            }
+            else
+            {
+                itemName.text = objectAbstract.dropName ;
+            }
+        }
+        public virtual void OnActivate(ObjectAbstract item ,string playerName, Vector3 position)
+        {
+            objectAbstract = item ;
+            SetDropName();
+            this.transform.position = position;
+            this.transform.position = RandomPositionByObjectCircle();
+            this.gameObject.SetActive(true);
+            if (item.stackLimit > 1)
+            {
+                howMany = 75;
+            }
+     
+        }
 
-    public virtual void SetOther(ObjectAbstract item ,string playerName)
-    {
-        this.transform.position = RandomPositionByObjectCircle();
-        objectAbstract = item ;
-        if (item.stackLimit > 1)
+        public virtual void OnDeactivate()
         {
-            howMany = 75;
-        }
-        Playername.text = playerName;
-    }
-    
-    public virtual GameObject GetGameObject()
-    {
-        return this.gameObject;
-    }
-    public ObjectAbstract GetObject()
-    {
-        return this.objectAbstract;
-    }
-    public int GetHowMany()
-    {
-        return this.howMany;
-    }
-    
-    public virtual void DestroyObject()
-    {
-
-    }
-    // Start is called before the first frame update
-    public virtual void Start()
-    {
-        if (this.howMany > 1)
-        {
-            itemName.text = objectAbstract.DropName + " x" + this.howMany;
-            return;
-        }
-        else
-        {
-            itemName.text = objectAbstract.DropName ;
-            return;
-        }
         
-    }
+        }
+    
+        public virtual GameObject GetGameObject()
+        {
+            return this.gameObject;
+        }
+        public ObjectAbstract GetObject()
+        {
+            return this.objectAbstract;
+        }
+        public int GetHowMany()
+        {
+            return this.howMany;
+        }
 
-    // Update is called once per frame
-    public virtual void Update()
-    {
-        
+        public abstract string GetPoolType();
     }
-
 }

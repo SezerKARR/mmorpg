@@ -78,7 +78,7 @@ namespace Script.Inventory
             foreach (var item in filteredControllers)
             {
                 // Gerekli işlemi yap
-                int newCount = item.howMany + howMany;
+                int newCount = item.ObjectAbstract.howMany + howMany;
 
                 if (newCount <= item.ObjectAbstract.stackLimit)
                 {

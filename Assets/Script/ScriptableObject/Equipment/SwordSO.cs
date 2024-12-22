@@ -1,12 +1,5 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using Script.Equipment;
-using Script.Inventory;
-using Unity.Collections.LowLevel.Unsafe;
-using Unity.Mathematics;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 public enum TypeWeapon
@@ -14,7 +7,7 @@ public enum TypeWeapon
     Swords, TwoHandedWeapons, Blades, Fans, Bells, Daggers, Bows, Claws
 }
 [CreateAssetMenu(menuName = "ScriptableObject/Weapon")]
-public class SwordSO : ScriptableItemsAbstact
+public class SwordSo : ScriptableItemsAbstact
 {
     public override EquipmentType equipmentType => EquipmentType.Weapon;
     public override ObjectType Type => ObjectType.Item; 
@@ -56,4 +49,4 @@ public class SwordSO : ScriptableItemsAbstact
 
 
     
-}
+    }

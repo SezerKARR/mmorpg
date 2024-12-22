@@ -1,3 +1,5 @@
+using Script.ObjectInTheGround;
+using Script.ScriptableObject.Equipment;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -21,8 +23,7 @@ namespace Script.Player
         public string playerName="satisfaction";
         private Camera _mainCamera;
         public PolygonCollider2D[] attackColliderNormalSword;
-        public SwordSO sword;
-        private PlayerInput _playerInput;
+        public SwordSo sword;
         public float moveSpeed = 7f;
         [FormerlySerializedAs("ItemDropWithOutName")] public GameObject ıtemDropWithOutName;
         public Character playerCharecterType = Character.Warrior;
@@ -41,8 +42,6 @@ namespace Script.Player
         private void Awake()
         {
             instance = this;
-            _playerInput = new PlayerInput();
-            _playerInput.Player.Enable();
             _mainCamera = Camera.main;
         
         

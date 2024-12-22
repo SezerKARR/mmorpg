@@ -1,24 +1,25 @@
 using System.Collections.Generic;
+using Script.Interface;
 using Script.Inventory.Objects;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
-using Zenject;
+
 
 
 namespace Script.Inventory
 {
     
-    public abstract class ObjectController :MonoBehaviour
+    public abstract class ObjectController :MonoBehaviour,IPoolable
     {
         public List<int2> cells;
         public int page;
         public int  size;
         [SerializeField] protected ObjectView objectView;
         [FormerlySerializedAs("objectModel")] [SerializeField] protected  ObjectAbstract objectAbstract;
-        public int howMany;
+       
         public ObjectAbstract ObjectAbstract => objectAbstract;
-        
+        public abstract  string GetPoolType();
         protected virtual void Start()
         {
             objectView.OnObjectPressed += OnButtonClick;
@@ -43,7 +44,7 @@ namespace Script.Inventory
             page = pageController.PageModel.pageIndex;
             transform.SetParent(pageController.transform);
             cells = cellInt2;
-            objectView.SetObject(cellInt2,objectAbstract.Image,objectAbstract.weightInInventory,weight,height,howMany);
+            objectView.SetObject(cellInt2,objectAbstract.ımage,objectAbstract.weightInInventory,weight,height,objectAbstract.howMany);
         }
         public virtual void Place(ObjectAbstract objectAbstract, PageController pageController, List<int2> cellInt2,int howMany,float height,float weigh)
         { 
@@ -51,17 +52,19 @@ namespace Script.Inventory
             pageController.PageModel.AddObjectToPage(this, cellInt2);
             this.objectAbstract = objectAbstract;
             //this.objectAbstract.SetObjectAbstract(objectAbstract);
-            this.howMany = howMany; 
+            this.ObjectAbstract.howMany = howMany; 
             cells = cellInt2;
             transform.SetParent(pageController.transform);
-            objectView.SetObject(cellInt2,this.objectAbstract.Image,this.objectAbstract.weightInInventory,weigh,height,howMany);
+            objectView.SetObject(cellInt2,this.objectAbstract.ımage,this.objectAbstract.weightInInventory,weigh,height,howMany);
             this.gameObject.SetActive(true);
         }
         
         public void UpdateCount(int newCount)
         {
-            howMany = newCount;
+            objectAbstract.howMany = newCount;
             objectView.SetHowManyText(newCount);
         }
+
+        
     }
 }

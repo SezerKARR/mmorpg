@@ -26,7 +26,7 @@ namespace Script.Inventory
         }
         public void Open(ObjectAbstract objectAbstract)
         {
-            GetComponent<Image>().sprite = objectAbstract.Image;
+            GetComponent<Image>().sprite = objectAbstract.ımage;
             gameObject.SetActive(true);
         }
         void Update()

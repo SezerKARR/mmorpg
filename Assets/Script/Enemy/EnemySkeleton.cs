@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Script;
 using Script.Enemy;
 using Script.ObjectInTheGround;
 using Script.Player;
@@ -100,7 +101,7 @@ public  class EnemySkeleton : MonoBehaviour ,IDamageAble, IOutlineAble
         {
             foreach (var canDrop in enemySo.canDrops)
             {
-                EnemyEvent.OnDropObject?.Invoke(transform.position,canDrop,player.playerName);
+                GameEvent.OnItemDroppedWithPlayer?.Invoke(transform.position,canDrop,player.playerName);
                 
                 
             }

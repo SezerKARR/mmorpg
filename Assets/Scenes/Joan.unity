@@ -1288,6 +1288,10 @@ PrefabInstance:
       propertyPath: PageIndex
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1384051612021479352, guid: d7d570c2f9038f64f96fe0122ec90d36, type: 3}
+      propertyPath: pageIndex
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 1385230307903649362, guid: d7d570c2f9038f64f96fe0122ec90d36, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -23111,7 +23115,6 @@ MonoBehaviour:
   size: 0
   objectView: {fileID: 1108417026}
   objectAbstract: {fileID: 0}
-  howMany: 0
 --- !u!1 &1131422567
 GameObject:
   m_ObjectHideFlags: 0
@@ -24196,6 +24199,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1384051612021479352, guid: d7d570c2f9038f64f96fe0122ec90d36, type: 3}
       propertyPath: PageIndex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1384051612021479352, guid: d7d570c2f9038f64f96fe0122ec90d36, type: 3}
+      propertyPath: pageIndex
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1385230307903649362, guid: d7d570c2f9038f64f96fe0122ec90d36, type: 3}
@@ -100415,7 +100422,7 @@ MonoBehaviour:
   - {fileID: 1494854467}
   rowCount: 5
   columnCount: 9
-  pages: {fileID: 455032410}
+  pagesStorage: {fileID: 455032410}
   objectsPrefab: {fileID: 11400000, guid: e2ca6087033207342b05f42c9aa2b250, type: 2}
 --- !u!1001 &2003772454
 PrefabInstance:
@@ -100882,6 +100889,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1384051612021479352, guid: d7d570c2f9038f64f96fe0122ec90d36, type: 3}
       propertyPath: PageIndex
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1384051612021479352, guid: d7d570c2f9038f64f96fe0122ec90d36, type: 3}
+      propertyPath: pageIndex
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1385230307903649362, guid: d7d570c2f9038f64f96fe0122ec90d36, type: 3}

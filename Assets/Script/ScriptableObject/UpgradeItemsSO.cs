@@ -10,5 +10,4 @@ public class UpgradeItemsSO : ObjectAbstract
     {
         return ObjectType.Up;
     }*/
-    
 }

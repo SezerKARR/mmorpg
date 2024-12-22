@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Script.ScriptableObject.Equipment;
 using TMPro;
 using UnityEngine;
 
@@ -17,7 +18,7 @@ public class ToolTip : MonoBehaviour,ITooltipAble
     public void Screen(IInventorObjectable inventorObjectable)
     {
         
-        if (inventorObjectable is SwordSO sword)
+        if (inventorObjectable is SwordSo sword)
         {
 
             SetText(swordNameText, sword.name);

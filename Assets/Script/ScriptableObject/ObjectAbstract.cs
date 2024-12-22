@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using Script.Inventory;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
+using IPoolable = Script.Interface.IPoolable;
 
 public enum ItemPlace
 {
@@ -28,19 +30,20 @@ public enum ObjectType
 
 public abstract class ObjectAbstract : ScriptableObject
 {
-    public ItemPlace Place;
-    public Sprite Image;
-    public string ItemName;
+    [FormerlySerializedAs("Place")] public ItemPlace place;
+    [FormerlySerializedAs("Image")] public Sprite ımage;
+    [FormerlySerializedAs("ItemName")] public string ıtemName;
     public string dropsFrom;
-    public string DropMetins;
+    [FormerlySerializedAs("DropMetins")] public string dropMetins;
     public string info;
     public bool playerCanDrop = true;
     public bool canEveryBodyTake=true;
     public int stackLimit=1;
     public int weightInInventory = 1;
-    public string DropName;
+    [FormerlySerializedAs("DropName")] public string dropName;
+    public int howMany;
     public abstract ObjectType Type { get; }
-
+    
     // public virtual void SetDropName()
     // {
     //     DropName= ItemName;
@@ -97,7 +100,6 @@ public abstract class ObjectAbstract : ScriptableObject
     // {
     //     return canEveryBodyTake;
     // }
-
 
 
     

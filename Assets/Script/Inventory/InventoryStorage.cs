@@ -52,7 +52,7 @@ namespace Script.Inventory
         public void ChangePos(ObjectController objectController,int2 cell,int pageIndex)
         {
             var cells = pageModels[pageIndex].ControlEmptyCell(cell, objectController.ObjectAbstract.weightInInventory,
-                objectController.howMany);
+                objectController.ObjectAbstract.howMany);
             if (cells != null)
             {
                 pageModels[objectController.page].ResetButtons(objectController.cells);
@@ -79,7 +79,7 @@ namespace Script.Inventory
         public void RemoveObject(ObjectController objectController)
         {
             pageModels[objectController.page].ResetButtons(objectController.cells);
-            haveObjects[objectController.ObjectAbstract]-=objectController.howMany;
+            haveObjects[objectController.ObjectAbstract]-=objectController.ObjectAbstract.howMany;
         }
         
         public void Equip(ItemController itemController)

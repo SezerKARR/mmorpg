@@ -11,6 +11,8 @@ using Unity.Mathematics;
 using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
+using UnityEngine.Serialization;
+
 public enum Character
 {
     Warrior, Sura, Ninja, Shaman, Lycan

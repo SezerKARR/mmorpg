@@ -1,35 +1,42 @@
 using System;
-using Script.Equipment;
-using Script.Inventory;
+using Script.Interface;
 using UnityEngine;
-using Object = UnityEngine.Object;
+using UnityEngine.Serialization;
 
 namespace Script.ScriptableObject.Prefab
 {
     [Serializable]
-    public class objectClass{
-    public ObjectType ObjectType;
-    public GameObject Prefab;
+    public class ObjectClass{
+        
+        [FormerlySerializedAs("ObjectType")] public string objectType;
+        [FormerlySerializedAs("Prefab")] public GameObject prefab;
     }
 
     [CreateAssetMenu(fileName = "ItemPrefabList", menuName = "ScriptableObjects/ItemPrefabList", order = 1)]
     public class ItemPrefabList : UnityEngine.ScriptableObject
     {
-        public objectClass[]Objects;
-
-        public GameObject GetPrefabByType(ObjectType type)
+        [FormerlySerializedAs("Objects")] public ObjectClass[]objects;
+        
+        public GameObject GetPrefabByType(string type)
         {
-            foreach (var obj in Objects)
+            foreach (var obj in objects)
             {
-                if (obj.ObjectType == type)
+                if (obj.objectType == type)
                 {
-                    return obj.Prefab;
+                    return obj.prefab;
                 }
             }
             return null;
         }
 
-        
+        private void OnValidate()
+        {
+            foreach (var objecta in objects)
+            {
+                IPoolable poolable = objecta.prefab.GetComponent<IPoolable>();
+                objecta.objectType=poolable.GetPoolType();
+            }
+        }
     }
 }
 

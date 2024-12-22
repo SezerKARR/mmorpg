@@ -40,7 +40,7 @@ namespace Script.Inventory
             _activePageController = inventoryPage[0];
             
 
-            _objectPooler = new ObjectPooler(objectsPrefab);
+            _objectPooler = new ObjectPooler(objectsPrefab,this.transform,30);
         }
 
         private void OnEnable()
@@ -53,6 +53,7 @@ namespace Script.Inventory
             InventoryEvent.OnUneqipItem += ChangePosition;
             PageEvent.OnClickPage += OnClickPage;
             InventoryEvent.OnChangedObjectPosition += ChangePosition;
+            EquipmentEvent.OnEquip += inventoryStorage.RemoveObject;
         }
 
         private void OnClickPage( Vector2 position,int pageIndex )
@@ -77,7 +78,6 @@ namespace Script.Inventory
 
         private void PickUp(ObjectAbstract inventoryObjectAbstract, int howMany, GameObject selectedObject)
         {
-            EquipmentEvent.OnEquip += inventoryStorage.RemoveObject;
             _objectToAdd = inventoryObjectAbstract;
             this._howMany = howMany;
             if (inventoryStorage.Add(inventoryObjectAbstract, howMany)) Destroy(selectedObject);
@@ -90,7 +90,7 @@ namespace Script.Inventory
 
         public void CreateObjectModel(List<int2> cellInt2, int pageIndex)
         {
-            _objectPooler.SpawnFromPool(_objectToAdd.Type).Place(_objectToAdd, inventoryPage[pageIndex], cellInt2,
+            _objectPooler.SpawnFromPool<ObjectController>(_objectToAdd.Type.ToString()).Place(_objectToAdd, inventoryPage[pageIndex], cellInt2,
                 _howMany,
                 _rowheight, _rowWidth);
             inventoryStorage.AddObjectsToInventory(_objectToAdd, _howMany);
@@ -114,8 +114,8 @@ namespace Script.Inventory
             if (this._currentObjectController != null)
             {
                 UIEvent.OnOpenConfirm?.Invoke(
-                    $"{_currentObjectController.ObjectAbstract.DropName} eşyayı yere atmak istediğinden emin misiniz.",
-                    DropObject, null);
+                    $"{_currentObjectController.ObjectAbstract.dropName} eşyayı yere atmak istediğinden emin misiniz.",
+                    DropObject);
             }
         }
 
@@ -123,9 +123,9 @@ namespace Script.Inventory
         {
             imageUnderCursor.Close();
             inventoryStorage.RemoveObject(this._currentObjectController);
-            _objectPooler.ReturnObject(this._currentObjectController.ObjectAbstract.Type,
+            _objectPooler.ReturnObject(this._currentObjectController.ObjectAbstract.Type.ToString(),
                 this._currentObjectController.gameObject);
-
+            
             this._currentObjectController = null;
         }
     }

@@ -15,7 +15,12 @@ namespace Script.Inventory.Objects
         {
             scriptableItemsAbstact=objectAbstract is ScriptableItemsAbstact ? objectAbstract as ScriptableItemsAbstact :null ;
         }
-        
+
+
+        public override string GetPoolType()
+        {
+            return ObjectType.Item.ToString();
+        }
 
         public override void RightClick()
         {
