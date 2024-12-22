@@ -14,25 +14,21 @@ namespace Script.Inventory
     {
         [FormerlySerializedAs("PageData")] public PageData pageData;
         [FormerlySerializedAs("PageIndex")] public int pageIndex;
-       
-        private void Start()
+        public void Initialize(int rowCount, int columnCount)
         {
             string path = Application.persistentDataPath + $"/{pageIndex}.json";
-            if (!LoadPageData(path))
+            pageData = LoadPageData(path);
+            if (pageData==null )
             {
-                pageData = UnityEngine.ScriptableObject.CreateInstance<PageData>();
-                pageData.Initialize();
-
-                // 2. JSON'a çevir
-                string jsonData = JsonUtility.ToJson(pageData);
-
-                // 3. JSON'u dosyaya yaz
-           
-                File.WriteAllText(path, jsonData);
-
-                Debug.Log("Dosya kaydedildi: " + path);
+                InstantiatePageDate(path);
+                return;
             }
-           
+            else if (pageData.RowCount!=rowCount&& pageData.ColumnCount!=columnCount)
+            {
+                //eski data ile ne yaparsan artık
+                InstantiatePageDate(path);
+                pageData.Initialize(rowCount,columnCount);
+            }
         }
         private void OnApplicationQuit()
         {
@@ -44,7 +40,21 @@ namespace Script.Inventory
             File.WriteAllText(path, jsonData);
         }
 
-        private bool LoadPageData( string path )
+        private void InstantiatePageDate(string path)
+        {
+            pageData = UnityEngine.ScriptableObject.CreateInstance<PageData>();
+            
+
+            // 2. JSON'a çevir
+            string jsonData = JsonUtility.ToJson(pageData);
+
+            // 3. JSON'u dosyaya yaz
+           
+            File.WriteAllText(path, jsonData);
+
+            Debug.Log("Dosya kaydedildi: " + path);
+        }
+        private PageData LoadPageData( string path )
         {
             if (File.Exists(path))
             {
@@ -52,10 +62,10 @@ namespace Script.Inventory
                 string loadedJson = File.ReadAllText(path);
                 pageData = UnityEngine.ScriptableObject.CreateInstance<PageData>();
                 JsonUtility.FromJsonOverwrite(loadedJson, pageData);
-                Debug.Log("Yüklendi: Satır=" + pageData.RowCount + ", Sütun=" + pageData.ColumnCount);
-                return true;
+                Debug.Log("Yüklendi: Satır=" + pageData.cotroller.Length );
+                return pageData;
             }
-            return false;   
+            return null;   
         }
 
         public float ColumnCount => pageData.ColumnCount;
@@ -193,5 +203,7 @@ namespace Script.Inventory
                 pageData.cotroller[ cell.x].objectController[cell.y] = null;
             }
         }
+
+        
     }
 }

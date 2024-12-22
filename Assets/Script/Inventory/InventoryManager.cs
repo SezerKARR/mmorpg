@@ -24,8 +24,8 @@ namespace Script.Inventory
         public int columnCount;
         private ObjectController _currentObjectController;
         private PageController _activePageController;
-        public InventoryStorage InventoryStorage;
-        [SerializeField] private RectTransform pages;
+        public InventoryStorage inventoryStorage;
+        [FormerlySerializedAs("pages")] [SerializeField] private RectTransform pagesStorage;
         public ItemPrefabList objectsPrefab;
 
         private ObjectPooler _objectPooler;
@@ -34,14 +34,11 @@ namespace Script.Inventory
 
         private void Awake()
         {
-            InventoryStorage = new InventoryStorage();
-            _rowWidth = pages.rect.width / rowCount;
-            _rowheight = pages.rect.height / columnCount;
+            inventoryStorage = new InventoryStorage(inventoryPage, rowCount, columnCount);
+            _rowWidth = pagesStorage.rect.width / rowCount;
+            _rowheight = pagesStorage.rect.height / columnCount;
             _activePageController = inventoryPage[0];
-            foreach (PageController pageController in inventoryPage)
-            {
-                InventoryStorage.pageModels.Add(pageController.PageModel);
-            }
+            
 
             _objectPooler = new ObjectPooler(objectsPrefab);
         }
@@ -54,30 +51,41 @@ namespace Script.Inventory
             ObjectEvents.ObjectClicked += ObjectSelected;
             InventoryEvent.OnAdd += CreateObjectModel;
             InventoryEvent.OnUneqipItem += ChangePosition;
-            InventoryEvent.OnClickInventory += OnClickInventory;
+            PageEvent.OnClickPage += OnClickPage;
+            InventoryEvent.OnChangedObjectPosition += ChangePosition;
         }
 
-        private void OnClickInventory( )
+        private void OnClickPage( Vector2 position,int pageIndex )
         {
-            if()
+            if (this._currentObjectController != null)
+            {
+                inventoryStorage.ChangePos(this._currentObjectController,GridPositionCalculate(position), pageIndex);
+                
+            }
             imageUnderCursor.Close();
-            Debug.Log(gridposition);
         }
 
+        private int2 GridPositionCalculate(Vector2 topLeftAdjustedPosition)
+        {
+            float x = topLeftAdjustedPosition.x / _rowWidth;
+             float y = Mathf.Abs(topLeftAdjustedPosition.y) / _rowheight;
+             int2 gridposition = new int2(Mathf.FloorToInt(x), Mathf.FloorToInt(y));
+             return gridposition;
+        }
         private ObjectAbstract _objectToAdd;
         private int _howMany;
 
         private void PickUp(ObjectAbstract inventoryObjectAbstract, int howMany, GameObject selectedObject)
         {
-            EquipmentEvent.OnEquip += InventoryStorage.RemoveObject;
+            EquipmentEvent.OnEquip += inventoryStorage.RemoveObject;
             _objectToAdd = inventoryObjectAbstract;
             this._howMany = howMany;
-            if (InventoryStorage.Add(inventoryObjectAbstract, howMany)) Destroy(selectedObject);
+            if (inventoryStorage.Add(inventoryObjectAbstract, howMany)) Destroy(selectedObject);
         }
 
-        public void ChangePosition(ItemController unEquipItem, List<int2> cells, int pageIndex)
+        public void ChangePosition(ObjectController objectController, List<int2> cells, int pageIndex)
         {
-            unEquipItem.Place(inventoryPage[pageIndex], cells, _rowheight, _rowWidth);
+            objectController.Place(inventoryPage[pageIndex], cells, _rowheight, _rowWidth);
         }
 
         public void CreateObjectModel(List<int2> cellInt2, int pageIndex)
@@ -85,7 +93,7 @@ namespace Script.Inventory
             _objectPooler.SpawnFromPool(_objectToAdd.Type).Place(_objectToAdd, inventoryPage[pageIndex], cellInt2,
                 _howMany,
                 _rowheight, _rowWidth);
-            InventoryStorage.AddObjectsToInventory(_objectToAdd, _howMany);
+            inventoryStorage.AddObjectsToInventory(_objectToAdd, _howMany);
         }
 
         private void ObjectSelected(ObjectController objectController)
@@ -114,7 +122,7 @@ namespace Script.Inventory
         private void DropObject()
         {
             imageUnderCursor.Close();
-            InventoryStorage.RemoveObject(this._currentObjectController);
+            inventoryStorage.RemoveObject(this._currentObjectController);
             _objectPooler.ReturnObject(this._currentObjectController.ObjectAbstract.Type,
                 this._currentObjectController.gameObject);
 

@@ -12,6 +12,6 @@ namespace Script.Inventory
         // public static event Action<ObjectController> OnObjectSelected;
         public static  Action<List<int2>,int> OnAdd;
         public static  Action<ItemController,List<int2>,int> OnUneqipItem;
-        public static  Action OnClickInventory;
+        public static  Action<ObjectController,List<int2>,int> OnChangedObjectPosition;
     }
 }

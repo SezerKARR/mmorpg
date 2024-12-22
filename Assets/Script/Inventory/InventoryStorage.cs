@@ -1,20 +1,10 @@
 using System;
 using System.Collections.Generic;
 using Script.Inventory.Objects;
-using Script.ScriptableObject.Prefab;
 using Unity.Mathematics;
-using Unity.VisualScripting;
-using UnityEngine;
-using UnityEngine.Serialization;
-using Zenject;
-using Object = UnityEngine.Object;
 
 namespace Script.Inventory
-{ class pageAndCells
-    {
-        List<int> cells = new List<int>();
-        int page;
-    }
+{ 
     public class InventoryStorage 
     {
         public List<PageModel> pageModels=new List<PageModel>();
@@ -22,7 +12,15 @@ namespace Script.Inventory
         
         [Serializable]
         public class HaveObjects : UnityDictionary<ObjectAbstract, int> { };
-       
+
+        public  InventoryStorage(PageController[] pageControllers,int rowCount,int columnCount)
+        {
+            foreach (PageController pageController in pageControllers)
+            {
+                pageController.PageModel.Initialize(rowCount, columnCount);
+                pageModels.Add(pageController.PageModel);
+            }
+        }
         public void AddObjectsToInventory(ObjectAbstract inventorObjectable, int howMany)
         {
             if (haveObjects.ContainsKey(inventorObjectable))
@@ -35,14 +33,13 @@ namespace Script.Inventory
         }
         public bool ControlUnequip(ItemController unEquipObject)
         {
-            var result = ControlEmptyCellAndPage(unEquipObject.ObjectAbstract, 1);
-            if (result.pageIndex != -1)
-            {
-                ChangeItemPos(unEquipObject, result.cells, result.pageIndex);
-                return true;
-            }
+            var (cells, pageIndex) = ControlEmptyCellAndPage(unEquipObject.ObjectAbstract, 1);
 
-            return false;
+            if (pageIndex == -1)
+                return false;
+
+            ChangeItemPos(unEquipObject, cells, pageIndex);
+            return true;
         }
         private void ChangeItemPos(ItemController unEquipObject, List<int2> cells, int page)
         {
@@ -51,6 +48,17 @@ namespace Script.Inventory
             AddObjectsToInventory(unEquipObject.ObjectAbstract,1);
             pageModels[page].AddObjectToPage(unEquipObject,cells);
             
+        }
+        public void ChangePos(ObjectController objectController,int2 cell,int pageIndex)
+        {
+            var cells = pageModels[pageIndex].ControlEmptyCell(cell, objectController.ObjectAbstract.weightInInventory,
+                objectController.howMany);
+            if (cells != null)
+            {
+                pageModels[objectController.page].ResetButtons(objectController.cells);
+                InventoryEvent.OnChangedObjectPosition?.Invoke(objectController,cells,pageIndex); 
+                pageModels[pageIndex].AddObjectToPage(objectController,cells);
+            }
         }
 
         public bool ControlUnequipForEquip(ItemController unEquipObject, ItemController equipItem)
@@ -78,18 +86,7 @@ namespace Script.Inventory
         {
             pageModels[itemController.page].ResetButtons(itemController.cells);
         }
-        public void ChangePos(ObjectController objectController,int2 cell,int pageIndex)
-        {
-            ObjectController temp = objectController;
-            var result = pageModels[pageIndex].ControlEmptyCell(cell, objectController.ObjectAbstract.weightInInventory,
-                objectController.howMany);
-            if (result != null)
-            {
-                RemoveObject(objectController);
-                InventoryEvent.OnAdd?.Invoke(result,pageIndex);
-                return ;
-            }
-        }
+        
 
         
         public bool Add(ObjectAbstract inventorObjectAble,int howMany)
@@ -116,7 +113,7 @@ namespace Script.Inventory
                 if (cells != null)
                 {
                     return (cells,page.pageIndex);
-                };
+                }
             }
             return (null,-1);
         }

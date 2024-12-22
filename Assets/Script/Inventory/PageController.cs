@@ -14,8 +14,17 @@ namespace Script.Inventory
         public int rowCount,columnCount;
         public PageModel PageModel => pageModel;
         public Transform PageViewTransform => pageView.GetComponent<Transform>();
-        
-       
+
+        private void Awake()
+        {
+            pageView.OnClick += OnClick;
+        }
+
+        private void OnClick(Vector2 position)
+        {
+            PageEvent.OnClickPage?.Invoke(position,pageModel.pageIndex);
+        }
+
         public void ClosePage()
         {
             pageView.ClosePage();

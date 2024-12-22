@@ -20,7 +20,7 @@ namespace Script.Equipment
             Debug.Log("SetItem");
             if (currentItem == equipItem)
             {
-                if (_inventoryManager.InventoryStorage.ControlUnequip(this.currentItem))
+                if (_inventoryManager.inventoryStorage.ControlUnequip(this.currentItem))
                 {
                     UnEquip();
                 }
@@ -35,7 +35,7 @@ namespace Script.Equipment
                 return;
             }
 
-            if (_inventoryManager.InventoryStorage.ControlUnequipForEquip(this.currentItem, equipItem))
+            if (_inventoryManager.inventoryStorage.ControlUnequipForEquip(this.currentItem, equipItem))
             {
                 UnEquip();
                 Equip(equipItem);

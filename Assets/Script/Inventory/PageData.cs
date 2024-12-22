@@ -1,3 +1,4 @@
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -18,16 +19,11 @@ namespace Script.Inventory
     [CreateAssetMenu( menuName = "ScriptableObject/PageData")]
     public class PageData:UnityEngine.ScriptableObject
     {
-        [SerializeField]
-        private int rowCount = 5; // Default value
-        [SerializeField]
-        private int columnCount = 9; // Default value
-      
-        // Array of ObjectsRow, now it's dynamic based on rowCount
+       
         [FormerlySerializedAs("_cotroller")] public ObjectsRow[] cotroller;
         
         // Initialize rows based on dynamic rowCount and columnCount
-        public void Initialize()
+        public void Initialize(int rowCount, int columnCount)
         {
                 cotroller = new ObjectsRow[rowCount];
                 for (int i = 0; i< rowCount; i++)
@@ -37,9 +33,7 @@ namespace Script.Inventory
             
         }
 
-        // Expose getter methods to access row and column counts
-        public int RowCount => rowCount;
-        public int ColumnCount => columnCount;
-        
+        public int RowCount => cotroller.Length;
+        public int ColumnCount => cotroller.Length>0? cotroller[0].objectController.Length:0;
     }
 }
