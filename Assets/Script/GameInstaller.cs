@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Script.Equipment;
 using Script.Inventory;
 using Script.Inventory.Objects;
+using Script.Player;
 using UnityEngine;
 using Zenject;
 
@@ -15,5 +16,6 @@ public class GameInstaller : MonoInstaller
         Container.Bind<ObjectView>().FromComponentInHierarchy().AsSingle();
         Container.Bind<PickUpDetector>().FromComponentInHierarchy().AsSingle();
         Container.Bind<EquipmentManager>().FromComponentInHierarchy().AsSingle();
+        Container.Bind<PlayerController>().FromComponentInHierarchy().AsSingle();
     }
 }

@@ -13,7 +13,7 @@ namespace Script.Equipment
 
         [SerializeField] private ItemController currentItem;
         [Inject] private InventoryManager _inventoryManager;
-
+        
 
         public void SetItem(ItemController equipItem)
         {
@@ -30,7 +30,6 @@ namespace Script.Equipment
             if (currentItem == null)
             {
                 //OnEquip?.Invoke(item);
-                EquipmentEvent.OnEquip?.Invoke(equipItem);
                 Equip(equipItem);
                 return;
             }
@@ -44,14 +43,14 @@ namespace Script.Equipment
 
         public void Equip(ItemController equipItem)
         {
+            EquipmentEvent.OnEquip?.Invoke(equipItem);
             equipItem.Place(this.transform, gameObject.GetComponent<RectTransform>().rect.size);
             this.currentItem = equipItem;
-            this.currentItem.SetNewStats();
         }
 
         public void UnEquip()
         {
-            this.currentItem.SetOldStats();
+            EquipmentEvent.OnEquip?.Invoke(currentItem);
             this.currentItem = null;
         }
 

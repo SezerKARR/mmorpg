@@ -7,6 +7,7 @@ using UnityEngine.Serialization;
 [CreateAssetMenu(menuName = "ScriptableObject/Monster")]
 public class MonsterSO : ScriptableObject
 {
+    
     public Sprite Image;
     public string[] Resistance;
     public string race;

@@ -1,14 +1,15 @@
-
-
 using Script.Player;
 using UnityEngine;
 
-public interface IDamageAble
+namespace Script.Interface
 {
+    public interface IDamageAble
+    {
     
-    //void TakeDamage(float damage );
-    void TakeDamage(float damage,Player player);
-    void Death(Player player);
-    Vector2 GetPosition();
+        //void TakeDamage(float damage );
+        void TakeDamage(float damage,PlayerController playerController);
+        void Death( );
+        Vector2 GetPosition();
     
+    }
 }

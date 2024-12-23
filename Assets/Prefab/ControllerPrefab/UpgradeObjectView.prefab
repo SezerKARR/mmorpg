@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 3120426130286261861}
   - component: {fileID: 5214520043822416991}
   - component: {fileID: 7125167582915035149}
+  - component: {fileID: 1229946022647172011}
+  - component: {fileID: 3246674085820458620}
   - component: {fileID: 6714060200436647851}
-  - component: {fileID: 2853533547944245120}
-  - component: {fileID: 3649425028943057001}
   m_Layer: 5
   m_Name: UpgradeObjectView
   m_TagString: Untagged
@@ -79,6 +79,37 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1229946022647172011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807280952830508194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 451a08894c81a9f40ab21cc3473d6978, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cells: []
+  page: 0
+  size: 0
+  objectView: {fileID: 3246674085820458620}
+  objectAbstract: {fileID: 0}
+--- !u!114 &3246674085820458620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 807280952830508194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba5aa4a868cc4f9bb0e0f0d51e805e06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _image: {fileID: 7125167582915035149}
+  _howManyText: {fileID: 7427987353664869521}
 --- !u!114 &6714060200436647851
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,38 +154,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &2853533547944245120
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 807280952830508194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 451a08894c81a9f40ab21cc3473d6978, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cells: []
-  page: 0
-  size: 0
-  objectView: {fileID: 3649425028943057001}
-  objectAbstract: {fileID: 0}
-  howMany: 0
---- !u!114 &3649425028943057001
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 807280952830508194}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba5aa4a868cc4f9bb0e0f0d51e805e06, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _image: {fileID: 7125167582915035149}
-  _howManyText: {fileID: 7427987353664869521}
 --- !u!1 &8361876392663436673
 GameObject:
   m_ObjectHideFlags: 0

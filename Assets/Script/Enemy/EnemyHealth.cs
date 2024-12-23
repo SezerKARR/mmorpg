@@ -1,10 +1,12 @@
+using UnityEngine.Events;
+
 namespace Script.Enemy
 {
     public class EnemyHealth
     {
-        public float maxHealth;
+        private float maxHealth;
         public float currentHealth;
-
+        public  UnityAction OnDeath;
         public  EnemyHealth(float health)
         {
             maxHealth = health;
@@ -15,6 +17,7 @@ namespace Script.Enemy
         public void TakeDamage(float damage)
         {
             currentHealth -= damage;
+            if(currentHealth <= 0) OnDeath?.Invoke();
         }
     }
 }

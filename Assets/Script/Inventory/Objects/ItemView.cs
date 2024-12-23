@@ -10,8 +10,9 @@ namespace Script.Inventory
         private int height=1;
         protected override void Awake()
         {
-            _howManyText.gameObject.SetActive(false);
+            
             base.Awake();
+            Destroy(_howManyText.gameObject);
         }
 
         public  void ImageChangeSize(int spriteHeight,int val=-1)

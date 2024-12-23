@@ -23,7 +23,7 @@ public class IdleState :  PlayerState
         {
             animator.SetFloat("WalkPos", 0);
             animator.SetFloat("IdlePos", -1);
-            // StartCoroutine(WaitBeforeIdle(player));
+            // StartCoroutine(WaitBeforeIdle(playerController));
         }
        
     }

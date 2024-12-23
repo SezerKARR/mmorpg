@@ -4,6 +4,8 @@ using Script.Inventory.Objects;
 using Script.ScriptableObject.Equipment;
 using UnityEngine;
 using Script.Player;
+using Zenject;
+
 namespace Script.Equipment
 {
     public enum EquipmentType
@@ -18,7 +20,7 @@ namespace Script.Equipment
     public class EquipmentManager : MonoBehaviour
     {
         [SerializeField] private EquipmentSlots equipmentSlots;
-
+        [Inject] private PlayerController _playerController;
         [Serializable]
         public class EquipmentSlots : UnityDictionary<EquipmentType, EquipmentSlot> { };
         
@@ -46,11 +48,11 @@ namespace Script.Equipment
         // }
         public bool IsCharacterMatch(List<Character> canUseCharacter)
         {
-            return canUseCharacter.Contains(Player.Player.instance.playerCharecterType);
+            return canUseCharacter.Contains(_playerController.playerCharecterType);
         }
         public bool IsLevelEnough(int itemLevel)
         {
-            return Player.Player.instance.level>=itemLevel;
+            return _playerController.level>=itemLevel;
         }
         public void a(IItemable a,IItemable b)
         {

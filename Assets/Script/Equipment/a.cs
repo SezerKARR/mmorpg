@@ -33,11 +33,11 @@ using UnityEngine.Events;
     }
     public bool IsCharacterMatch(List<Character> canUseCharacter)
     {
-        return canUseCharacter.Contains(Player.instance.playerCharecterType);
+        return canUseCharacter.Contains(PlayerController.instance.playerCharecterType);
     }
     public bool IsLevelEnough(int itemLevel)
     {
-        return Player.instance.level>=itemLevel;
+        return PlayerController.instance.level>=itemLevel;
     }
     public void a(IItemable a,IItemable b)
     {

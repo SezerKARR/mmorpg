@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Script.Enemy;
 using UnityEngine;
 
 public class CreaturesGroup : MonoBehaviour
@@ -62,13 +63,13 @@ public class CreaturesGroup : MonoBehaviour
         if (!coroutineStart)
         {
             coroutineStart = true;
-            //print("yeniden grup oluþturma aþamasýnda");
+            //print("yeniden grup oluï¿½turma aï¿½amasï¿½nda");
 
             if (gameObject.tag != "boss")
             {
 
                 yield return new WaitForSeconds(5);
-                //print("zaman geçti");
+                //print("zaman geï¿½ti");
                 CreateGroupCreatures();
             }
             else

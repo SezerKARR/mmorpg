@@ -1,5 +1,6 @@
 using System;
 using ModestTree.Util;
+using Script.Player;
 using UnityEngine;
 
 namespace Script.Enemy
@@ -7,6 +8,6 @@ namespace Script.Enemy
     public class EnemyEvent
     {
         public static Action< Vector3 , ObjectAbstract ,string > OnDropObject;
-        public static Action<(Player.Player player, string Exp, int enemyLevel)> OnDeath;
+        public static Action<(PlayerController player, MonsterSO deathMonster)> OnDeath;
     }
 }

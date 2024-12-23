@@ -23,14 +23,16 @@ public abstract class ObjectView : MonoBehaviour ,IPointerClickHandler
     
     protected virtual void Awake()
     {
-        
-        _imageRectTransform = GetComponent<RectTransform>();
+        _image=gameObject.GetComponent<Image>();
+        _howManyText = gameObject.GetComponentInChildren<TextMeshProUGUI>();
+        _imageRectTransform = _image.GetComponent<RectTransform>();
         
     }
 
     
     public virtual void SetObject(List<int2> position,Sprite sprite,int weight,float width,float height,int howMany)
     {
+        Debug.Log("SetObject");
         //_howManyText.text = howMany.ToString();
         _image.sprite = sprite;
         _imageWidth=width;

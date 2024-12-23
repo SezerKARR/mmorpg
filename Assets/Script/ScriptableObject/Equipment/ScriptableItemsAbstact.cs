@@ -56,14 +56,14 @@ public abstract  class ScriptableItemsAbstact : ObjectAbstract
     public abstract EquipmentType equipmentType { get; }
     
     public int level;
-    public void SetNewStats()
-    {
-        foreach (var itemstat in itemstats)
-        {
-            Player.instance.EquipmentStat.AddModifier(itemstat.Key, itemstat.Value);
-        }
-                
-    }
+    // public void SetNewStats()
+    // {
+    //     foreach (var itemstat in itemstats)
+    //     {
+    //         PlayerController.instance.EquipmentStat.AddModifier(itemstat.Key, itemstat.Value);
+    //     }
+    //             
+    // }
 
     public void SetOldStats()
     {
@@ -91,7 +91,7 @@ public abstract  class ScriptableItemsAbstact : ObjectAbstract
     //     foreach (var modifier in modifiers)
     //     {
     //         
-    //         Player.instance.EquipmentStat.AddModifier(modifier.Key, modifier.Value);
+    //         PlayerController.instance.EquipmentStat.AddModifier(modifier.Key, modifier.Value);
     //     }
     // }
     //
@@ -100,7 +100,7 @@ public abstract  class ScriptableItemsAbstact : ObjectAbstract
     //     var modifiers = GetStats();
     //     foreach (var modifier in modifiers)
     //     {
-    //         Player.instance.EquipmentStat.RemoveModifier(modifier.Key, modifier.Value);
+    //         PlayerController.instance.EquipmentStat.RemoveModifier(modifier.Key, modifier.Value);
     //     }
     // }
     // public void GetBonus()

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Script.Enemy;
 using UnityEngine;
 
 public class CreaturesGroupsHolder : MonoBehaviour
@@ -22,7 +23,7 @@ public class CreaturesGroupsHolder : MonoBehaviour
     {
        /* if (Input.GetKeyDown(KeyCode.Space))
         {
-            print("deneme yapýlýyor");
+            print("deneme yapï¿½lï¿½yor");
             foreach (EnemyCreatures creature in denemegroupcreaure)
             {
                 creature.Death();

@@ -90,13 +90,10 @@ namespace Script.Player
             if (selectedObject != null)
             {
 
-                selectedObject.GetComponent<IOutlineAble>().Clicked(_normalMaterial);
                 selectedObject.GetComponent<IOutlineAble>().ResetClicked();
 
             }
             selectedObject = collider2D.gameObject;
-
-            _normalMaterial = collider2D.GetComponent<IOutlineAble>().GetMaterial();
             if (collider2D.CompareTag("Enemy"))
             {
 
