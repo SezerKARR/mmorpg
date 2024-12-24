@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Script.Bonus;
 using Script.Equipment;
 
 namespace Script.ScriptableObject.Equipment

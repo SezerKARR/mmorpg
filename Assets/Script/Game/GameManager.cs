@@ -3,8 +3,10 @@ using Script.Enemy;
 using Script.Inventory;
 using Script.Inventory.Objects;
 using Script.ObjectInTheGround;
+using Script.Player;
 using Script.ScriptableObject.Prefab;
 using UnityEngine;
+using Zenject;
 
 namespace Script
 {
@@ -14,17 +16,22 @@ namespace Script
         public  ExpPerLevelSO expPer;
         public static GameManager Instance;
         private ObjectPooler ItemDropPooler;
-       
+        [Inject] private PlayerController _playerController;
         private void Awake()
         {
             ItemDropPooler = new ObjectPooler(ItemDropPrefabs,this.transform,50);
             GameEvent.OnItemDroppedWithPlayer += CreateDropItem;
+            GameEvent.OnItemDroppedWithoutPlayer += CreateDropItem;
             Instance = this;
         }
 
         private void CreateDropItem(Vector3 position, ObjectAbstract objectAbstract,string playerName)
         {
             ItemDropPooler.SpawnFromPool<ItemDrop>(DropType.WithPlayerName.ToString()).OnActivate(objectAbstract,playerName,position);
+        }
+        private void CreateDropItem( ObjectAbstract objectAbstract)
+        {
+            ItemDropPooler.SpawnFromPool<ItemDrop>(DropType.WithoutPlayerName.ToString()).OnActivate(objectAbstract,null,_playerController.transform.position);
         }
         //public  void Wiev
         public  float ExpRateCalculate(int levelDiff)

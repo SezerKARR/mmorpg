@@ -11,7 +11,7 @@ public class HelmetSo : ScriptableItemsAbstact
     // public override void SetStats()
     // {
     //     
-    //     itemstats.Add(StatType.Defense, defence[currentPlus]);
+    //     stats.Add(StatType.Defense, defence[currentPlus]);
     // }
 
     public List<int> defence=new List<int>();

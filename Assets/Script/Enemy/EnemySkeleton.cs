@@ -26,7 +26,6 @@ namespace Script.Enemy
         [FormerlySerializedAs("enemySO")] [SerializeField]
         private MonsterSO enemySo;
         private PlayerController lastDamagedPlayer;
-        public ItemToDrop[] itemToDrops;
         public void Start()
         {
 
@@ -45,7 +44,8 @@ namespace Script.Enemy
         public void Update()
         {
             transform.position += new Vector3(0.1f, 0.1f, 0f) * Time.deltaTime;
-            _characterAnims.UpdateAnim(CharacterAnims.AnimEnum.Idle, Vector2.left);
+            _characterAnims.UpdateAnim(AnimAndDirection.AnimEnum.Idle, Vector2.left);
+            
         }
 
         /*public virtual void Outline(Color color)
@@ -73,7 +73,7 @@ namespace Script.Enemy
         {
            
             EnemyEvent.OnDeath?.Invoke((lastDamagedPlayer,enemySo));
-
+            DropItem(lastDamagedPlayer);
             creaturesGroup.currentCreaturesNumber -= 1;
             if (creaturesGroup.currentCreaturesNumber <= 0)
             {

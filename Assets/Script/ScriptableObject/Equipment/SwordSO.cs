@@ -39,12 +39,12 @@ public class SwordSo : ScriptableItemsAbstact
     // {
     //     if (minAndMaxMagicalAttackValue.Count > 0)
     //     {
-    //         itemstats.Add(StatType.MinMagicAttack, minAndMaxMagicalAttackValue[currentPlus].x);
-    //         itemstats.Add(StatType.MaxMagicAttack, minAndMaxMagicalAttackValue[currentPlus].y);
+    //         stats.Add(StatType.MinMagicAttack, minAndMaxMagicalAttackValue[currentPlus].x);
+    //         stats.Add(StatType.MaxMagicAttack, minAndMaxMagicalAttackValue[currentPlus].y);
     //     }
-    //     itemstats.Add(StatType.MinAttack, minAndMaxAttackValue[currentPlus].x);
-    //     itemstats.Add(StatType.MaxAttack, minAndMaxAttackValue[currentPlus].y);
-    //     itemstats.Add(StatType.AttackSpeed, attackSpeed[currentPlus]);
+    //     stats.Add(StatType.MinAttack, minAndMaxAttackValue[currentPlus].x);
+    //     stats.Add(StatType.MaxAttack, minAndMaxAttackValue[currentPlus].y);
+    //     stats.Add(StatType.AttackSpeed, attackSpeed[currentPlus]);
     // }
 
 

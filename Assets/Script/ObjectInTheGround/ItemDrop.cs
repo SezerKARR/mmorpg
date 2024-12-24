@@ -45,7 +45,6 @@ namespace Script.ObjectInTheGround
             }
      
         }
-
         public virtual void OnDeactivate()
         {
         

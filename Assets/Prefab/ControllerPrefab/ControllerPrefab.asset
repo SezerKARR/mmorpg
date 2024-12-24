@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8f8e7ee01398545bcf3a038ea1a07b, type: 3}
   m_Name: ControllerPrefab
   m_EditorClassIdentifier: 
-  Objects:
+  objects:
   - objectType: LeftClickStack
     prefab: {fileID: 807280952830508194, guid: 9bfe4171fcb201d4c9ac0c6b240e2824, type: 3}
   - objectType: Item
     prefab: {fileID: 807280952830508194, guid: 59266baf08002bc4dbd2044eaf358ec6, type: 3}
+  - objectType: Stack
+    prefab: {fileID: 5027961957190823290, guid: 13d044feb9f1c564b8e32a7850be990c, type: 3}

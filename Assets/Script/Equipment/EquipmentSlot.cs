@@ -50,7 +50,7 @@ namespace Script.Equipment
 
         public void UnEquip()
         {
-            EquipmentEvent.OnEquip?.Invoke(currentItem);
+            EquipmentEvent.OnUnequip?.Invoke(currentItem);
             this.currentItem = null;
         }
 

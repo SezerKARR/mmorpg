@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1097053319723601786}
   - component: {fileID: 9011253868545690769}
   - component: {fileID: 6634918246019571590}
+  - component: {fileID: 3143784555553470342}
   m_Layer: 0
   m_Name: wildDog 1
   m_TagString: Enemy
@@ -100,19 +101,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc9277db2877d0849955b5f82c5e7e1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  EnemyHealthBar: {fileID: 0}
-  creaturesLevel: 0
   enemyName: {fileID: 7004869230975399455}
-  itemDrop: {fileID: 1958407190808054159, guid: 46e6b05667f8fe04a8059d19655c6ce5, type: 3}
+  creaturesGroup: {fileID: 0}
+  enemySo: {fileID: 11400000, guid: 23041bb97ea16ab4cbb90cee8fbb7317, type: 2}
   itemToDrops:
   - probability: 1
   - probability: 1
   - probability: 1
-  maxHealth: 100
-  currentHealth: 0
-  creaturesGroup: {fileID: 0}
-  enemySo: {fileID: 11400000, guid: 23041bb97ea16ab4cbb90cee8fbb7317, type: 2}
-  outlineRed: {fileID: 2100000, guid: ac30ba44525ba294d998682cbd894ca1, type: 2}
 --- !u!60 &6634918246019571590
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -239,6 +234,27 @@ PolygonCollider2D:
       - {x: -0.58, y: -0.53999996}
       - {x: -0.59, y: -0.53}
   m_UseDelaunayMesh: 0
+--- !u!95 &3143784555553470342
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2201143260829081739}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e1343924032c7484880fd56ef86dd790, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1001 &4883144994970287614
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -13,11 +13,8 @@ namespace Script.Inventory
 {
     public class InventoryManager : MonoBehaviour
     {
-        [FormerlySerializedAs("_imageUnderCursor")] [SerializeField]
-        private ImageUnderCursor imageUnderCursor;
 
-        [FormerlySerializedAs("_equipmentManager")] [Inject] [SerializeField]
-        private EquipmentManager equipmentManager;
+       [Inject] [SerializeField] private EquipmentManager equipmentManager;
 
         public PageController[] inventoryPage;
         public int rowCount;
@@ -63,7 +60,6 @@ namespace Script.Inventory
                 inventoryStorage.ChangePos(this._currentObjectController,GridPositionCalculate(position), pageIndex);
                 
             }
-            imageUnderCursor.Close();
         }
 
         private int2 GridPositionCalculate(Vector2 topLeftAdjustedPosition)
@@ -99,7 +95,6 @@ namespace Script.Inventory
         private void ObjectSelected(ObjectController objectController)
         {
             this._currentObjectController = objectController;
-            imageUnderCursor.Open(objectController.ObjectAbstract);
         }
 
         public void ChangePage(int pageIndex)
@@ -121,7 +116,7 @@ namespace Script.Inventory
 
         private void DropObject()
         {
-            imageUnderCursor.Close();
+            GameEvent.OnItemDroppedWithoutPlayer?.Invoke(_currentObjectController.ObjectAbstract);
             inventoryStorage.RemoveObject(this._currentObjectController);
             _objectPooler.ReturnObject(this._currentObjectController.ObjectAbstract.Type.ToString(),
                 this._currentObjectController.gameObject);

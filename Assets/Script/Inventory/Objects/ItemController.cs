@@ -1,10 +1,4 @@
-using Script.Equipment;
-using Script.ScriptableObject.Equipment;
-using Unity.Mathematics;
-using UnityEngine;
-using UnityEngine.Serialization;
-using Zenject;
-
+using Script.Bonus;
 namespace Script.Inventory.Objects
 {
     public class ItemController : ObjectController
@@ -37,9 +31,9 @@ namespace Script.Inventory.Objects
         }
 
 
-        public ScriptableItemsAbstact.Itemstats GetStats()
+        public Stats GetStats()
         {
-            return scriptableItemsAbstact.itemstats;
+            return scriptableItemsAbstact.stats;
         }
         public void SetOldStats()
         {

@@ -1,6 +1,8 @@
+using Script.Equipment;
 using Script.Interface;
+using Script.Inventory.Objects;
 using Script.ObjectInTheGround;
-using Script.ScriptableObject.Equipment;
+using Script.ScriptableObject.Player;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -25,26 +27,37 @@ namespace Script.Player
         public PolygonCollider2D[] attackColliderNormalSword;
         public SwordSo sword;
         public float moveSpeed = 7f;
-        [FormerlySerializedAs("ItemDropWithOutName")] public GameObject ıtemDropWithOutName;
-        public Character playerCharecterType = Character.Warrior;
+        [FormerlySerializedAs("ıtemDropWithOutName")] [FormerlySerializedAs("ItemDropWithOutName")] public GameObject itemDropWithOutName;
         //public Sprite[] playerIdleSprite;
+        private PlayerModel _playerModel;
 
-
-        public EquipmentStat EquipmentStat = new EquipmentStat();
+        
+       // public EquipmentStat EquipmentStat = new EquipmentStat();
         private float _swordPhsichalDamage;
         public LineRenderer lineRenderer;
     
-    
-        public int level;
-        public int exp;
-        public bool haveGroup;
-        public GroupType groupType;
+        
+       
+       public int level=>_playerModel.level;
+       public Character playerCharecterType=>_playerModel.character;
         private void Awake()
         {
             _mainCamera = Camera.main;
-        
-        
+            EquipmentEvent.OnEquip += OnEquipItem;
+            EquipmentEvent.OnUnequip += OnUnEquipItem;
+
         }
+
+        private void OnEquipItem(ItemController item)
+        {
+            _playerModel.UpdateStats(item.GetStats(),true);
+        }
+
+        private void OnUnEquipItem(ItemController item)
+        {
+            _playerModel.UpdateStats(item.GetStats(),false);
+        }
+
         private void Start()
         {
             _swordPhsichalDamage = 50f;//when getting sword delete this shit
@@ -52,22 +65,6 @@ namespace Script.Player
         
 
         }
-        public void DropItem(ObjectAbstract objectAbstract)
-        {
-       
-            GameObject itemDrop = Instantiate(ıtemDropWithOutName, transform.position, Quaternion.identity);
-            itemDrop.GetComponent<ItemDropWithOutName>().objectAbstract = objectAbstract;
-        
-        
-        }
-        private void Update()
-        {
-       
-       
-       
-        }
-
-
         private int creatureExp;
         public void GiveNormalDamage(IDamageAble damageAble)
         { 

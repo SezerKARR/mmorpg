@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Script;
+using Script.Bonus;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 

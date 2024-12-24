@@ -14,8 +14,9 @@ namespace Script.ObjectInTheGround
 
         public override void OnActivate(ObjectAbstract item, string playerName, Vector3 position)
         {
-            StartCoroutine(WaitAndDestroy());
+            
             base.OnActivate(item, playerName, position);
+            StartCoroutine(WaitAndDestroy());
         }
         public override string GetPoolType()
         {
