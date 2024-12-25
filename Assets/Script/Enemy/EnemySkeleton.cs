@@ -5,6 +5,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Script.Player;
+using UnityEditor.Animations;
+
 namespace Script.Enemy
 {
     [System.Serializable]
@@ -26,6 +28,12 @@ namespace Script.Enemy
         [FormerlySerializedAs("enemySO")] [SerializeField]
         private MonsterSO enemySo;
         private PlayerController lastDamagedPlayer;
+
+        public void Initialize(MonsterSO monsterSO, AnimatorController animatorController)
+        {
+            this.enemySo = monsterSO;
+            this.GetComponent<Animator>().runtimeAnimatorController = animatorController;
+        }
         public void Start()
         {
 
