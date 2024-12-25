@@ -8,7 +8,7 @@ namespace Script.UI
     public class UIManager : MonoBehaviour
     {
         public Confirm Confirm;
-        public static Action<IInventorObjectable> OnUpgradePanelNeed;
+        public static Action<ObjectAbstract> OnUpgradePane11lNeed;
         private void Awake()
         {
        

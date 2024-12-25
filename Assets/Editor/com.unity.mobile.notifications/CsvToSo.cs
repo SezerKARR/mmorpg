@@ -1,56 +1,126 @@
-﻿using System.Collections;
+﻿using System;
 using System.Collections.Generic;
-using UnityEngine;
 using System.IO;
-using UnityEditor;
-using System;
 using System.Linq;
-using System.Xml.Serialization;
-using Unity.Collections.LowLevel.Unsafe;
-using Codice.CM.Client.Differences;
-using Script.ScriptableObject.Equipment;
-using UnityEditor.Animations;
-using UnityEditor.Experimental.GraphView;
-using UnityEngine.TextCore.Text;
-public class CsvToSo
+using UnityEditor;
+using UnityEngine;
+
+namespace Editor.com.unity.mobile.notifications
 {
-    private static string UpgradeItemsCSVPath = "/CSVS/UpgradeItems.csv";
-    /*private static string MonstersCSVPath = "/CSVS/Monsters.csv";
-    private static string ExpCsvPath = "/CSVS/Exp.csv";
-    private static string ExpPerLevelCsvPath = "/CSVS/ExpPerLevel.csv";
-    private static string BonusesCsvPath = "/CSVS/Bonuses.csv";
-    private static string SwordCsvPath = "/CSVS/Swords.csv";
-    private static string TwoHanded = "/CSVS/Two Handed.csv";
+    public class CsvToSo
+    {
+        private static readonly string UpgradeItemsCSVPath = "/CSVS/UpgradeItems.csv";
+
+        private static string _monstersCsvPath = "/CSVS/Monsters.csv";
+
+        /*private static string ExpCsvPath = "/CSVS/Exp.csv";
+        private static string ExpPerLevelCsvPath = "/CSVS/ExpPerLevel.csv";
+        private static string BonusesCsvPath = "/CSVS/Bonuses.csv";
+        private static string SwordCsvPath = "/CSVS/Swords.csv";
+        private static string TwoHanded = "/CSVS/Two Handed.csv";
     private static string Blade = "/CSVS/Blade.csv";
     private static string fanCsvPath = "/CSVS/Fan.csv";
     private static string BellCsvPath = "/CSVS/Bell.csv";
     private static string ClawCsvPath = "/CSVS/Claw.csv";
     private static string DaggerCsvPath = "/CSVS/Dagger.csv";
     private static string BowCsvPath = "/CSVS/Bow.csv";*/
-    private static string WariorHelmetCsvPath = "/CSVS/WarriorHelmet.csv";
-    
-    
-    
-    
-    [MenuItem("Utilities/Generate Upgrade Items")]
-    private static void CsvToSoUpgradeItems()
-    {
-        string[] allLines = File.ReadAllLines(Application.dataPath + UpgradeItemsCSVPath);
-        foreach (string line in allLines)
+        private static string WariorHelmetCsvPath = "/CSVS/WarriorHelmet.csv";
+
+
+
+
+        [MenuItem("Utilities/Generate Upgrade Items")]
+        private static void CsvToSoUpgradeItems()
         {
-            string[] splitData = line.Split(";");
+            string[] allLines = File.ReadAllLines(Application.dataPath + UpgradeItemsCSVPath);
+            foreach (string line in allLines)
+            {
+                string[] splitData = line.Split(";");
 
-            UpgradeItemsSO upgradeItemsSO = ScriptableObject.CreateInstance<UpgradeItemsSO>();
+                UpgradeItemsSO upgradeItemsSO = ScriptableObject.CreateInstance<UpgradeItemsSO>();
 
-            upgradeItemsSO.ıtemName = splitData[0];
-            upgradeItemsSO.dropsFrom = splitData[1];
-            upgradeItemsSO.info = splitData[2];
+                upgradeItemsSO.ıtemName = splitData[0];
+                upgradeItemsSO.dropsFrom = splitData[1];
+                upgradeItemsSO.info = splitData[2];
 
-            AssetDatabase.CreateAsset(upgradeItemsSO, $"Assets/ScriptableObjects/UpgradeItem/{upgradeItemsSO.ıtemName}.asset");
+                AssetDatabase.CreateAsset(upgradeItemsSO,
+                    $"Assets/ScriptableObjects/UpgradeItem/{upgradeItemsSO.ıtemName}.asset");
+            }
+
+            AssetDatabase.SaveAssets();
         }
-        AssetDatabase.SaveAssets();
-    }
-    /*[MenuItem("Utilities/Generate Monsters")]
+    
+
+        [MenuItem("Utilities/Generate Upgrade Itesadass")]
+        private static void UpdateMonsterCanDropForUPItems()
+        {
+
+            string upgradeItemsPath = "Assets/ScriptableObjects/UpgradeItem";
+            string[] upgradeItemsGuids = AssetDatabase.FindAssets("t:UpgradeItemsSO", new[] { upgradeItemsPath });
+            Debug.Log($"Found {upgradeItemsGuids.Length} upgrade item SOs");
+            List<UpgradeItemsSO> upgradeItemSO = new List<UpgradeItemsSO>();
+            string monsterpath = "Assets/ScriptableObjects/Monsters";
+            string[] monsterGuids = AssetDatabase.FindAssets("t:MonsterSO", new[] { monsterpath });
+            List<MonsterSO> monsterSO = new List<MonsterSO>();
+            foreach (string monsterGuid in monsterGuids)
+            {
+                string monsterpaths = AssetDatabase.GUIDToAssetPath(monsterGuid);
+                monsterSO.Add( AssetDatabase.LoadAssetAtPath<MonsterSO>(monsterpaths));
+
+
+            }
+
+            foreach (string upgradeItemsguid in upgradeItemsGuids)
+            {
+                string upgradePath = AssetDatabase.GUIDToAssetPath(upgradeItemsguid);
+                upgradeItemSO.Add(AssetDatabase.LoadAssetAtPath<UpgradeItemsSO>(upgradePath));
+
+            }
+            foreach (MonsterSO monsterSO1 in monsterSO)
+            {
+               
+                foreach (UpgradeItemsSO upgradeItem in upgradeItemSO)
+               
+                {
+                    string[] dropfroms = upgradeItem.dropsFrom.Replace(", ", ",").Split(',');
+                    foreach (string dropfrom in dropfroms)
+                    {
+                        if (dropfrom == monsterSO1.monsterName)
+                        {
+
+                            MonsterUpdate(monsterSO1, upgradeItem);
+                        }
+                        else if (SimilarityAlgorthm(dropfrom, monsterSO1.monsterName))
+                        {
+                            if (monsterSO1.canDrops == null)
+                            {
+                                monsterSO1.canDrops = new List<ObjectAbstract>();
+                            }
+                            monsterSO1.canDrops.Add(upgradeItem);
+                            Debug.Log(upgradeItem.name + dropfrom + monsterSO1.monsterName);
+                        }
+                    }
+                }
+            }
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+
+        }
+
+        private static void MonsterUpdate(MonsterSO monsterSO,UpgradeItemsSO upgradeItem)
+        {
+            if (monsterSO.canDrops != null)
+            {
+                monsterSO.canDrops = null;
+            }
+            if (monsterSO.canDrops == null)
+            {
+                monsterSO.canDrops = new List<ObjectAbstract>();
+            }
+
+            monsterSO.canDrops.Add(upgradeItem);
+        }
+        /*[MenuItem("Utilities/Generate Monsters")]
     private static void CsvToSoMonsters()
     {
         string[] allLines = File.ReadAllLines(Application.dataPath + MonstersCSVPath);
@@ -119,31 +189,31 @@ public class CsvToSo
 
         }
     }*/
-    //[MenuItem("Utilities/Generate Exp")]
-    //private static void CsvToSoExp()
-    //{
-    //    string[] allLines = File.ReadAllLines(Application.dataPath + ExpCsvPath);
-    //    foreach (string line in allLines.Skip(100))
-    //    {
-    //        string[] splitData = line.Split(";");
-    //        Debug.Log(line);
-    //        ExpSO expSO = ScriptableObject.CreateInstance<ExpSO>();
+        //[MenuItem("Utilities/Generate Exp")]
+        //private static void CsvToSoExp()
+        //{
+        //    string[] allLines = File.ReadAllLines(Application.dataPath + ExpCsvPath);
+        //    foreach (string line in allLines.Skip(100))
+        //    {
+        //        string[] splitData = line.Split(";");
+        //        Debug.Log(line);
+        //        ExpSO expSO = ScriptableObject.CreateInstance<ExpSO>();
 
-    //        expSO.level = int.Parse(splitData[0]);
-    //        expSO.exp = long.Parse(splitData[1].Replace(".", ""));
+        //        expSO.level = int.Parse(splitData[0]);
+        //        expSO.exp = long.Parse(splitData[1].Replace(".", ""));
 
-    //        string filePath = $"Assets/ScriptableObjects/Exp";
+        //        string filePath = $"Assets/ScriptableObjects/Exp";
 
 
-    //        string name = expSO.level.ToString();
+        //        string name = expSO.level.ToString();
 
-    //        AssetDatabase.CreateAsset(expSO, $"{filePath}/{name}.asset");
+        //        AssetDatabase.CreateAsset(expSO, $"{filePath}/{name}.asset");
 
-    //    }
-    //    AssetDatabase.SaveAssets();
+        //    }
+        //    AssetDatabase.SaveAssets();
 
-    //}
-    /*[MenuItem("Utilities/Generate ExpPerLevel")]
+        //}
+        /*[MenuItem("Utilities/Generate ExpPerLevel")]
 private static void CsvFromSoExpPerLevel()
 {
     int i = 0;
@@ -174,140 +244,88 @@ private static void CsvFromSoExpPerLevel()
 
     AssetDatabase.CreateAsset(ExpPerLevelSO, $"{filePath}/ExpPerLevel.asset");
     AssetDatabase.SaveAssets();
-}*/
-    //[MenuItem("Utilities/ExpPerLevelSO")]
-    //private static void ExpPerLevelSO()
-    //{
-    //    int i = 0;
-    //    string[] allLines = File.ReadAllLines(Application.dataPath + ExpPerLevelCsvPath);
-    //    foreach (string line in allLines.Skip(1))
-    //    {
-    //        string[] splitData = line.Split(";");
-    //        Debug.Log(line);
-    //        ExpPerLevelSO ExpPerLevelSO = ScriptableObject.CreateInstance<ExpPerLevelSO>();
+    }*/
+        //[MenuItem("Utilities/ExpPerLevelSO")]
+        //private static void ExpPerLevelSO()
+        //{
+        //    int i = 0;
+        //    string[] allLines = File.ReadAllLines(Application.dataPath + ExpPerLevelCsvPath);
+        //    foreach (string line in allLines.Skip(1))
+        //    {
+        //        string[] splitData = line.Split(";");
+        //        Debug.Log(line);
+        //        ExpPerLevelSO ExpPerLevelSO = ScriptableObject.CreateInstance<ExpPerLevelSO>();
 
-    //        ExpPerLevelSO.levelDiff = splitData[0].Replace("<", "").Replace(">", "").Replace("=", "");
-    //        ExpPerLevelSO.expRate = splitData[1].Replace("%", "");
+        //        ExpPerLevelSO.levelDiff = splitData[0].Replace("<", "").Replace(">", "").Replace("=", "");
+        //        ExpPerLevelSO.expRate = splitData[1].Replace("%", "");
 
-    //        string filePath = $"Assets/ScriptableObjects/ExpPerLevel";
-
-
-    //        string name = i.ToString();
-
-    //        AssetDatabase.CreateAsset(ExpPerLevelSO, $"{filePath}/{name}.asset");
-    //        i++;
-    //    }
-    //    AssetDatabase.SaveAssets();
-    //}
-
-    //[MenuItem("Utilities/UpdateMonsterCanDropForUPItems")]
-    //public static void UpdateMonsterCanDropForUPItems()
-    //{
-
-    //    Debug.Log($"Found {monsterGuids.Length} monster SOs");
-    //    string upgradeItemsPath = "Assets/ScriptableObjects/UpgradeItem";
-    //    string[] upgradeItemsGuids = AssetDatabase.FindAssets("t:UpgradeItemsSO", new[] { upgradeItemsPath });
-    //    Debug.Log($"Found {upgradeItemsGuids.Length} upgrade item SOs");
-    //    List<UpgradeItemsSO> upgradeItemSO = new List<UpgradeItemsSO>();
+        //        string filePath = $"Assets/ScriptableObjects/ExpPerLevel";
 
 
-    //    foreach (string upgradeItemsguid in upgradeItemsGuids)
-    //    {
-    //        string upgradePath = AssetDatabase.GUIDToAssetPath(upgradeItemsguid);
-    //        upgradeItemSO.Add(AssetDatabase.LoadAssetAtPath<UpgradeItemsSO>(upgradePath));
+        //        string name = i.ToString();
 
-    //    }
-
-    //    foreach (UpgradeItemsSO upgradeItem in upgradeItemSO)
-    //    {
-    //        string[] dropfroms = upgradeItem.dropsFrom.Replace(", ", ",").Split(',');
-
-    //        foreach (string dropfrom in dropfroms)
-    //        {
-    //            foreach (MonsterSO monsterSO1 in monsterSO)
-    //            {
-    //                if (dropfrom == monsterSO1.monsterName)
-    //                {
-
-    //                    // canDrop null ise başlat
-    //                    if (monsterSO1.canDrop == null)
-    //                    {
-    //                        monsterSO1.canDrop = new List<ScriptableObject>();
-    //                    }
-
-    //                    monsterSO1.canDrop.Add(upgradeItem);
-    //                }
-    //                else if (SimilarityAlgorthm(dropfrom, monsterSO1.monsterName))
-    //                {
-    //                    if (monsterSO1.canDrop == null)
-    //                    {
-    //                        monsterSO1.canDrop = new List<ScriptableObject>();
-    //                    }
-    //                    monsterSO1.canDrop.Add(upgradeItem);
-    //                    Debug.Log(upgradeItem.name + dropfrom + monsterSO1.monsterName);
-    //                }
-    //            }
-    //        }
-    //    }
-    //    AssetDatabase.SaveAssets();
-    //    AssetDatabase.Refresh();
-
-    //}
-    //[MenuItem("Utilities/DeleteMonsterCanDrop")]
-    //public static void DeleteMonsterCanDrop()
-    //{
-    //    string monsterpath = "Assets/ScriptableObjects/Monsters";
-    //    string[] monsterGuids = AssetDatabase.FindAssets("t:MonsterSO", new[] { monsterpath });
-    //    List<MonsterSO> monsterSO = new List<MonsterSO>();
-    //    foreach (string monsterGuid in monsterGuids)
-    //    {
-    //        string monsterpaths = AssetDatabase.GUIDToAssetPath(monsterGuid);
-    //        MonsterSO addedablemonsterso = AssetDatabase.LoadAssetAtPath<MonsterSO>(monsterpaths);
-    //        addedablemonsterso.canDrop = new List<ScriptableObject>();
-    //        monsterSO.Add(addedablemonsterso);
+        //        AssetDatabase.CreateAsset(ExpPerLevelSO, $"{filePath}/{name}.asset");
+        //        i++;
+        //    }
+        //    AssetDatabase.SaveAssets();
+        //}
+    
+       
+        //[MenuItem("Utilities/DeleteMonsterCanDrop")]
+        //public static void DeleteMonsterCanDrop()
+        //{
+        //    string monsterpath = "Assets/ScriptableObjects/Monsters";
+        //    string[] monsterGuids = AssetDatabase.FindAssets("t:MonsterSO", new[] { monsterpath });
+        //    List<MonsterSO> monsterSO = new List<MonsterSO>();
+        //    foreach (string monsterGuid in monsterGuids)
+        //    {
+        //        string monsterpaths = AssetDatabase.GUIDToAssetPath(monsterGuid);
+        //        MonsterSO addedablemonsterso = AssetDatabase.LoadAssetAtPath<MonsterSO>(monsterpaths);
+        //        addedablemonsterso.canDrop = new List<ScriptableObject>();
+        //        monsterSO.Add(addedablemonsterso);
 
 
-    //    }
-    //    AssetDatabase.SaveAssets();
-    //    AssetDatabase.Refresh();
+        //    }
+        //    AssetDatabase.SaveAssets();
+        //    AssetDatabase.Refresh();
 
-    //}
-    //public static bool SimilarityAlgorthm(string sentence1,string sentence2)
-    //{
-    //    sentence1=sentence1.ToLower();
-    //    sentence2=sentence2.ToLower();
-    //    sentence1 = sentence1.ToLower();
-    //    int similar=0;
-    //    int i = 0;
-    //    string[] s1 = sentence1.Split(" ");
-    //    string[] s2 = sentence2.Split(" ");
-    //    bool similara = false;
-    //    if(s1.Length == s2.Length)
-    //    {
-    //        foreach(string s in s1) {
-    //            if (sentence2.Contains(s))
-    //            {
-    //                similar++;
-    //            }
-    //            i++;
-    //        }
-    //        if (similar == s2.Length)
-    //        {
-    //            similara=true;
-    //        }
-    //    }
-    //    return similara;
+        //}
+        public static bool SimilarityAlgorthm(string sentence1,string sentence2)
+        {
+            sentence1=sentence1.ToLower();
+            sentence2=sentence2.ToLower();
+            sentence1 = sentence1.ToLower();
+            int similar=0;
+            int i = 0;
+            string[] s1 = sentence1.Split(" ");
+            string[] s2 = sentence2.Split(" ");
+            bool similara = false;
+            if(s1.Length == s2.Length)
+            {
+                foreach(string s in s1) {
+                    if (sentence2.Contains(s))
+                    {
+                        similar++;
+                    }
+                    i++;
+                }
+                if (similar == s2.Length)
+                {
+                    similara=true;
+                }
+            }
+            return similara;
 
-    //}
-    //private static string NormalizeString(string sentence)
-    //{
-    //    sentence = sentence.ToLower();
-    //    sentence=sentence.Trim().Replace(".", "").Replace(",", "");
-    //    // Noktalama işaretlerini temizle, sadece kelimelerle çalış
-    //    return sentence;
-    //}
+        }
+        //private static string NormalizeString(string sentence)
+        //{
+        //    sentence = sentence.ToLower();
+        //    sentence=sentence.Trim().Replace(".", "").Replace(",", "");
+        //    // Noktalama işaretlerini temizle, sadece kelimelerle çalış
+        //    return sentence;
+        //}
 
-    /* [MenuItem("Utilities/Generate Bonuses")]
+        /* [MenuItem("Utilities/Generate Bonuses")]
      public static void CsvToBonuses()
      {
          string bonusesPath = "Assets/ScriptableObjects/Bonuses";
@@ -369,7 +387,7 @@ private static void CsvFromSoExpPerLevel()
          else return new List<float> { maxBonusRates / 5, maxBonusRates / 2, maxBonusRates };
 
      }*/
-    /*[MenuItem("a/deneme")]
+        /*[MenuItem("a/deneme")]
     public static void deneme()
     {
         int i = 0;
@@ -382,7 +400,7 @@ private static void CsvFromSoExpPerLevel()
             Debug.Log(line.Length);
         } }
     */
-    /*[MenuItem("tools/CreateWeapon/ALL WEAPON/ALL")]
+        /*[MenuItem("tools/CreateWeapon/ALL WEAPON/ALL")]
     public static void CreateAllWeapon()
     {
         CsvToBell();
@@ -686,208 +704,208 @@ private static void CsvFromSoExpPerLevel()
         }
         AssetDatabase.SaveAssets();
     }*/
-    [MenuItem("Utilities/GenerateHelmet/Warrior")]
-    public static void CreateWarriorHelmet()
-    {
-        CreateHelmet("Warrior",WariorHelmetCsvPath);
-    }
+        [MenuItem("Utilities/GenerateHelmet/Warrior")]
+        public static void CreateWarriorHelmet()
+        {
+            CreateHelmet("Warrior",WariorHelmetCsvPath);
+        }
     
-    public static void CreateHelmet(string helmetType, string helmetPath)
-    {
-        string BonusesPath = "Assets/ScriptableObjects/Bonuses";
-        string[] bonusGuids = AssetDatabase.FindAssets("t:BonusSO", new[] { BonusesPath });
-        List<BonusSO> bonusSO = new List<BonusSO>();
-        List<string> bonusesName = new List<string>();
-        foreach (string bonusGuid in bonusGuids)
+        public static void CreateHelmet(string helmetType, string helmetPath)
         {
-            string bonusPaths = AssetDatabase.GUIDToAssetPath(bonusGuid);
-            BonusSO addedableBonusSO = AssetDatabase.LoadAssetAtPath<BonusSO>(bonusPaths);
-            bonusSO.Add(addedableBonusSO);
-            foreach (var bonus in addedableBonusSO.bonuses)
+            string BonusesPath = "Assets/ScriptableObjects/Bonuses";
+            string[] bonusGuids = AssetDatabase.FindAssets("t:BonusSO", new[] { BonusesPath });
+            List<BonusSO> bonusSO = new List<BonusSO>();
+            List<string> bonusesName = new List<string>();
+            foreach (string bonusGuid in bonusGuids)
             {
-                bonusesName.Add(bonus.bonusName);
-            }
-
-
-        }
-        bool upgradeUPItem = false;
-        bool haveSwordBonus = false;
-        string[] allLines = File.ReadAllLines(Application.dataPath + helmetPath);
-        HelmetSo helmetSo = null;
-        List<float> upgradeMoney = new List<float>();
-        List<int> upgradeItemRequire = new List<int>();
-        List<int> upgradeLevel = new List<int>();
-        string path = $"Assets/ScriptableObjects/Items/{helmetType}";
-        string statPath = "Assets/ScriptableObjects/Stat/StatSo.asset"; // Doğru yolu belirtin.
-        StatSo bonusCantFind = AssetDatabase.LoadAssetAtPath<StatSo>(statPath);
-
-
-        if (!Directory.Exists(path))
-        {
-            Directory.CreateDirectory(path);
-        }
-        foreach (string line in allLines)
-        {
-            string[] splitData = line.Split(';');
-            if (splitData[0].Contains("Level") && splitData[0].Contains("Helmet"))
-            {
-
-                if (helmetSo != null)
+                string bonusPaths = AssetDatabase.GUIDToAssetPath(bonusGuid);
+                BonusSO addedableBonusSO = AssetDatabase.LoadAssetAtPath<BonusSO>(bonusPaths);
+                bonusSO.Add(addedableBonusSO);
+                foreach (var bonus in addedableBonusSO.bonuses)
                 {
-                    helmetSo.weightInInventory = 1;
-                    AssetDatabase.CreateAsset(helmetSo, $"{path}/{helmetSo.level + " " + helmetSo.ıtemName}.asset");
+                    bonusesName.Add(bonus.bonusName);
+                }
 
-                    upgradeMoney.Clear();
-                    upgradeItemRequire.Clear();
+
+            }
+            bool upgradeUPItem = false;
+            bool haveSwordBonus = false;
+            string[] allLines = File.ReadAllLines(Application.dataPath + helmetPath);
+            HelmetSo helmetSo = null;
+            List<float> upgradeMoney = new List<float>();
+            List<int> upgradeItemRequire = new List<int>();
+            List<int> upgradeLevel = new List<int>();
+            string path = $"Assets/ScriptableObjects/Items/{helmetType}";
+            string statPath = "Assets/ScriptableObjects/Stat/StatSo.asset"; // Doğru yolu belirtin.
+            StatSo bonusCantFind = AssetDatabase.LoadAssetAtPath<StatSo>(statPath);
+
+
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            foreach (string line in allLines)
+            {
+                string[] splitData = line.Split(';');
+                if (splitData[0].Contains("Level") && splitData[0].Contains("Helmet"))
+                {
+
+                    if (helmetSo != null)
+                    {
+                        helmetSo.weightInInventory = 1;
+                        AssetDatabase.CreateAsset(helmetSo, $"{path}/{helmetSo.level + " " + helmetSo.ıtemName}.asset");
+
+                        upgradeMoney.Clear();
+                        upgradeItemRequire.Clear();
+                        upgradeLevel.Clear();
+                    }
+
+                    helmetSo = ScriptableObject.CreateInstance<HelmetSo>();
+                    helmetSo.level = int.Parse((splitData[0].Replace("Level ", "").Replace(" Helmet" , "").Split("-"))[0]);
+                    SetCanUseCharacter(helmetType,helmetSo);
+                }
+                else if (splitData[1].Equals("Level :"))
+                {
                     upgradeLevel.Clear();
-                }
-
-                helmetSo = ScriptableObject.CreateInstance<HelmetSo>();
-                helmetSo.level = int.Parse((splitData[0].Replace("Level ", "").Replace(" Helmet" , "").Split("-"))[0]);
-                SetCanUseCharacter(helmetType,helmetSo);
-            }
-            else if (splitData[1].Equals("Level :"))
-            {
-                upgradeLevel.Clear();
 
 
-                for (int j = 1; j < splitData.Length - 2; j++)
-                {
-                    if (splitData[j + 2].Length == 0)
+                    for (int j = 1; j < splitData.Length - 2; j++)
                     {
-                        break;
-                    }
-                    helmetSo.levelWithPlus = int.Parse(splitData[j + 2].Replace(".", ""));
-                    upgradeLevel.Add(int.Parse(splitData[j + 2].Replace(".", "")));
+                        if (splitData[j + 2].Length == 0)
+                        {
+                            break;
+                        }
+                        helmetSo.levelWithPlus = int.Parse(splitData[j + 2].Replace(".", ""));
+                        upgradeLevel.Add(int.Parse(splitData[j + 2].Replace(".", "")));
 
+
+                    }
+                }
+                else if (splitData[1].Contains("BoardNewM.png"))
+                {
+                    helmetSo.ıtemName = splitData[0].Replace(".png", "");
 
                 }
-            }
-            else if (splitData[1].Contains("BoardNewM.png"))
-            {
-                helmetSo.ıtemName = splitData[0].Replace(".png", "");
-
-            }
-            else if (splitData[1].Contains("Defence") )
-            {
-
-                for (int j = 0; j < splitData.Length - 2; j++)
+                else if (splitData[1].Contains("Defence") )
                 {
-                    if (splitData[j + 2].Length == 0)
-                    {
-                        break;
-                    }
 
-                    helmetSo.defence.Add(int.Parse(splitData[j + 2]));
+                    for (int j = 0; j < splitData.Length - 2; j++)
+                    {
+                        if (splitData[j + 2].Length == 0)
+                        {
+                            break;
+                        }
+
+                        helmetSo.defence.Add(int.Parse(splitData[j + 2]));
                     
+                    }
+                    haveSwordBonus = true;
                 }
-                haveSwordBonus = true;
-            }
             
-            else if (haveSwordBonus && !splitData[1].Contains("Upgrade Yang"))
-            {
-                List<float> bonusValues = new List<float>();
-                for (int j = 0; j < splitData.Length - 2; j++)
+                else if (haveSwordBonus && !splitData[1].Contains("Upgrade Yang"))
                 {
-                    if (splitData[j + 2].Length == 0)
+                    List<float> bonusValues = new List<float>();
+                    for (int j = 0; j < splitData.Length - 2; j++)
                     {
-                        break;
-                    }
-                    float bonusValue = float.Parse(splitData[j + 2].Replace("%", ""));
-                    //new string(splitData[j + 2].Where(char.IsDigit).ToArray());
-                    bonusValues.Add(bonusValue);
-
-                }
-                helmetSo.ItemBonuses.Add((splitData[1], bonusValues));
-
-                if (!bonusCantFind.GetStats().Contains(splitData[1].Replace("�", "")))
-                {
-                    StatClass stat = new StatClass();
-                    stat.statName = splitData[1].Replace("�", "");
-                    stat.statValue = 0f;
-                    bonusCantFind.AddObject(stat);
-                }
-            }
-            else if (splitData[1].Contains("Upgrade Yang"))
-            {
-                haveSwordBonus = false;
-                upgradeMoney.Clear();
-
-
-                for (int j = 1; j < splitData.Length - 2; j++)
-                {
-                    if (splitData[j + 2].Length == 0)
-                    {
-                        break;
-                    }
-                    AddObject(ref helmetSo.Requirements, (splitData[j + 2].Contains("%")) ? float.Parse(splitData[j + 2].Replace(".", "").Replace("%", "")) / 100 : float.Parse(splitData[j + 2].Replace(".", "")));
-                    upgradeMoney.Add((splitData[j + 2].Contains("%")) ? float.Parse(splitData[j + 2].Replace(".", "").Replace("%", "")) / 100 : float.Parse(splitData[j + 2].Replace(".", "")));
-
-
-                }
-            }
-
-            else if (splitData[1].Contains("Upgrade Item"))
-            {
-                upgradeItemRequire.Clear();
-
-                for (int j = 1; j < splitData.Length - 2; j++)
-                {
-                    if (splitData[j + 2].Length != 0)
-                    {
-                        upgradeItemRequire.Add(int.Parse(splitData[j + 2].Replace("-", "0").Replace("x", "")));
-                    }
-
-
-
-                }
-                upgradeUPItem = true;
-
-            }
-            else if (upgradeUPItem)
-            {
-                string upgradeItemsPath = "Assets/ScriptableObjects/UpgradeItem";
-                string[] upgradeItemsGuids = AssetDatabase.FindAssets("t:UpgradeItemsSO", new[] { upgradeItemsPath });
-                List<ObjectAbstract> upgradeItemSOs = new List<ObjectAbstract>();
-                foreach (string upgradeItemsguid in upgradeItemsGuids)
-                {
-                    string upgradePath = AssetDatabase.GUIDToAssetPath(upgradeItemsguid);
-                    upgradeItemSOs.Add(AssetDatabase.LoadAssetAtPath<ObjectAbstract>(upgradePath));
-
-                }
-                for (int j = 1; j < splitData.Length - 2; j++)
-                {
-                    bool conditionMet = false;
-
-                    if (splitData[j + 2].Length != 0)
-                    {
-                        foreach (ObjectAbstract upgradeItemSO in upgradeItemSOs)
+                        if (splitData[j + 2].Length == 0)
                         {
-                            if (splitData[j + 2].Replace(".png", "") == upgradeItemSO.name)
+                            break;
+                        }
+                        float bonusValue = float.Parse(splitData[j + 2].Replace("%", ""));
+                        //new string(splitData[j + 2].Where(char.IsDigit).ToArray());
+                        bonusValues.Add(bonusValue);
+
+                    }
+                    helmetSo.ItemBonuses.Add((splitData[1], bonusValues));
+
+                    if (!bonusCantFind.GetStats().Contains(splitData[1].Replace("�", "")))
+                    {
+                        StatClass stat = new StatClass();
+                        stat.statName = splitData[1].Replace("�", "");
+                        stat.statValue = 0f;
+                        bonusCantFind.AddObject(stat);
+                    }
+                }
+                else if (splitData[1].Contains("Upgrade Yang"))
+                {
+                    haveSwordBonus = false;
+                    upgradeMoney.Clear();
+
+
+                    for (int j = 1; j < splitData.Length - 2; j++)
+                    {
+                        if (splitData[j + 2].Length == 0)
+                        {
+                            break;
+                        }
+                        AddObject(ref helmetSo.Requirements, (splitData[j + 2].Contains("%")) ? float.Parse(splitData[j + 2].Replace(".", "").Replace("%", "")) / 100 : float.Parse(splitData[j + 2].Replace(".", "")));
+                        upgradeMoney.Add((splitData[j + 2].Contains("%")) ? float.Parse(splitData[j + 2].Replace(".", "").Replace("%", "")) / 100 : float.Parse(splitData[j + 2].Replace(".", "")));
+
+
+                    }
+                }
+
+                else if (splitData[1].Contains("Upgrade Item"))
+                {
+                    upgradeItemRequire.Clear();
+
+                    for (int j = 1; j < splitData.Length - 2; j++)
+                    {
+                        if (splitData[j + 2].Length != 0)
+                        {
+                            upgradeItemRequire.Add(int.Parse(splitData[j + 2].Replace("-", "0").Replace("x", "")));
+                        }
+
+
+
+                    }
+                    upgradeUPItem = true;
+
+                }
+                else if (upgradeUPItem)
+                {
+                    string upgradeItemsPath = "Assets/ScriptableObjects/UpgradeItem";
+                    string[] upgradeItemsGuids = AssetDatabase.FindAssets("t:UpgradeItemsSO", new[] { upgradeItemsPath });
+                    List<ObjectAbstract> upgradeItemSOs = new List<ObjectAbstract>();
+                    foreach (string upgradeItemsguid in upgradeItemsGuids)
+                    {
+                        string upgradePath = AssetDatabase.GUIDToAssetPath(upgradeItemsguid);
+                        upgradeItemSOs.Add(AssetDatabase.LoadAssetAtPath<ObjectAbstract>(upgradePath));
+
+                    }
+                    for (int j = 1; j < splitData.Length - 2; j++)
+                    {
+                        bool conditionMet = false;
+
+                        if (splitData[j + 2].Length != 0)
+                        {
+                            foreach (ObjectAbstract upgradeItemSO in upgradeItemSOs)
                             {
-                                conditionMet = true;
-                                //swordSO.AddObject(new RequirementClass(upgradeItemSO, upgradeItemRequire[j - 1], upgradeMoney[j - 1], (upgradeLevel == null) ? upgradeLevel[j-1]:swordSO.level));
-                                UpgradeItem upgradeItem = new UpgradeItem();
-                                upgradeItem.upgradeItemName = upgradeItemSO;
-                                upgradeItem.howMany = upgradeItemRequire[j - 1];
-                                AddObject(ref helmetSo.Requirements, upgradeItem, j - 1);
-                                break;
+                                if (splitData[j + 2].Replace(".png", "") == upgradeItemSO.name)
+                                {
+                                    conditionMet = true;
+                                    //swordSO.AddObject(new RequirementClass(upgradeItemSO, upgradeItemRequire[j - 1], upgradeMoney[j - 1], (upgradeLevel == null) ? upgradeLevel[j-1]:swordSO.level));
+                                    UpgradeItem upgradeItem = new UpgradeItem();
+                                    upgradeItem.upgradeItemName = upgradeItemSO;
+                                    upgradeItem.howMany = upgradeItemRequire[j - 1];
+                                    AddObject(ref helmetSo.Requirements, upgradeItem, j - 1);
+                                    break;
+                                }
+                                if (conditionMet)
+                                {
+                                    Debug.Log("buldu ama devam etti");
+                                }
                             }
-                            if (conditionMet)
+                            if (!conditionMet)
                             {
-                                Debug.Log("buldu ama devam etti");
+                                ObjectAbstract upgradesItemSO = ScriptableObject.CreateInstance<ObjectAbstract>();
+                                upgradesItemSO.ıtemName = splitData[j + 2].Replace(".png", "");
+                                AssetDatabase.CreateAsset(upgradesItemSO, $"Assets/ScriptableObjects/UpgradeItem/{upgradesItemSO.ıtemName}.asset");
+
                             }
                         }
-                        if (!conditionMet)
-                        {
-                            ObjectAbstract upgradesItemSO = ScriptableObject.CreateInstance<ObjectAbstract>();
-                            upgradesItemSO.ıtemName = splitData[j + 2].Replace(".png", "");
-                            AssetDatabase.CreateAsset(upgradesItemSO, $"Assets/ScriptableObjects/UpgradeItem/{upgradesItemSO.ıtemName}.asset");
 
-                        }
-                    }
-
-                    /* upgradeItemRequire.Add(int.Parse(splitData[j + 2].Replace("-", "0").Replace("x", "")));
+                        /* upgradeItemRequire.Add(int.Parse(splitData[j + 2].Replace("-", "0").Replace("x", "")));
                      //swordSO.Requirement.Add()
                      Debug.Log(upgradeItemRequire[j - 1]);*/
 
@@ -895,110 +913,110 @@ private static void CsvFromSoExpPerLevel()
 
 
 
+                    }
+                    upgradeUPItem = false;
                 }
-                upgradeUPItem = false;
-            }
 
-            else if (splitData[0].Contains("yang") || splitData[0].Contains("Not available at NPC"))
-            {
-                helmetSo.price = int.Parse(splitData[0].Replace("Not available at NPC", "0").Replace(" Yang", ""));
-            }
+                else if (splitData[0].Contains("yang") || splitData[0].Contains("Not available at NPC"))
+                {
+                    helmetSo.price = int.Parse(splitData[0].Replace("Not available at NPC", "0").Replace(" Yang", ""));
+                }
             
-        }
-        AssetDatabase.SaveAssets();
-    }
-    public static void AddObject(ref RequirementClass[] Requirements, UpgradeItem upgradeItem, int swordPlus)
-    {
-        Array.Resize(ref Requirements[swordPlus].upgradeItems, Requirements[swordPlus].upgradeItems.Length + 1);
-        Requirements[swordPlus].upgradeItems[Requirements[swordPlus].upgradeItems.Length - 1] = upgradeItem;
-
-    }
-    public static void AddObject(ref RequirementClass[] Requirements, float money)
-    {
-        Array.Resize(ref Requirements, Requirements.Length + 1);
-        RequirementClass requirementClass = new RequirementClass();
-        requirementClass.upgradeMoney = money;
-        Requirements[Requirements.Length - 1] = requirementClass;
-    }
-   
-    public static void SetSwordType(string swordType,SwordSo swordSO)
-    {
-        if (swordType.Equals("Sword"))
-        {
-            swordSO.weightInInventory = 2;
-            swordSO.typeWeapon = TypeWeapon.Swords;
-            SetCanUseCharacter(Character.Sura,swordSO);
-            SetCanUseCharacter(Character.Warrior,swordSO);
-            SetCanUseCharacter(Character.Ninja,swordSO);
-
-        }
-        else if (swordType.Equals("Two Handed"))
-        {
-            swordSO.weightInInventory = 3;
-            swordSO.typeWeapon = TypeWeapon.TwoHandedWeapons;
-            SetCanUseCharacter(Character.Warrior,swordSO);
-
-        }
-        else if (swordType.Equals("Blade"))
-        {
-            swordSO.weightInInventory = 2;
-            swordSO.typeWeapon = TypeWeapon.Blades;
-            SetCanUseCharacter(Character.Sura, swordSO);
-        }
-        else if (swordType.Equals("Fan"))
-        {
-            swordSO.weightInInventory = 1;
-            swordSO.typeWeapon = TypeWeapon.Fans;
-            SetCanUseCharacter(Character.Shaman, swordSO);
-        }
-        else if (swordType.Equals("Bell"))
-        {
-            swordSO.weightInInventory = 1;
-            swordSO.typeWeapon = TypeWeapon.Bells;
-            SetCanUseCharacter(Character.Shaman, swordSO);
-        }
-        else if (swordType.Equals("Claw"))
-        {
-            swordSO.weightInInventory = 1;
-            swordSO.typeWeapon = TypeWeapon.Claws;
-            SetCanUseCharacter(Character.Lycan, swordSO);
-        }
-        else if (swordType.Equals("Dagger"))
-        {
-            swordSO.weightInInventory = 1;
-            swordSO.typeWeapon = TypeWeapon.Daggers;
-            SetCanUseCharacter(Character.Ninja, swordSO);
-        }
-        else if (swordType.Equals("Bow"))
-        {
-            swordSO.weightInInventory = 1;
-            swordSO.typeWeapon = TypeWeapon.Bows;
-            SetCanUseCharacter(Character.Ninja, swordSO);
-        }
-
-    }
-    public static void SetCanUseCharacter(Character character, ScriptableItemsAbstact scriptableItemsAbstact)
-    {
-        scriptableItemsAbstact.canUseCharacters.Add(character);
-    }
-    public static Character FindCharacter(string character="Warrior")
-    {
-        foreach (Character charEnum in Enum.GetValues(typeof(Character)))
-        {
-            if (charEnum.ToString().Equals(character, StringComparison.OrdinalIgnoreCase))
-            {
-                return charEnum;
             }
+            AssetDatabase.SaveAssets();
         }
-        throw new ArgumentException("Invalid character type", nameof(character));
-    }
-    public static void SetCanUseCharacter(string character,ScriptableItemsAbstact scriptableItemsAbstact)
-    {
+        public static void AddObject(ref RequirementClass[] Requirements, UpgradeItem upgradeItem, int swordPlus)
+        {
+            Array.Resize(ref Requirements[swordPlus].upgradeItems, Requirements[swordPlus].upgradeItems.Length + 1);
+            Requirements[swordPlus].upgradeItems[Requirements[swordPlus].upgradeItems.Length - 1] = upgradeItem;
+
+        }
+        public static void AddObject(ref RequirementClass[] Requirements, float money)
+        {
+            Array.Resize(ref Requirements, Requirements.Length + 1);
+            RequirementClass requirementClass = new RequirementClass();
+            requirementClass.upgradeMoney = money;
+            Requirements[Requirements.Length - 1] = requirementClass;
+        }
+   
+        public static void SetSwordType(string swordType,SwordSo swordSO)
+        {
+            if (swordType.Equals("Sword"))
+            {
+                swordSO.weightInInventory = 2;
+                swordSO.typeWeapon = TypeWeapon.Swords;
+                SetCanUseCharacter(Character.Sura,swordSO);
+                SetCanUseCharacter(Character.Warrior,swordSO);
+                SetCanUseCharacter(Character.Ninja,swordSO);
+
+            }
+            else if (swordType.Equals("Two Handed"))
+            {
+                swordSO.weightInInventory = 3;
+                swordSO.typeWeapon = TypeWeapon.TwoHandedWeapons;
+                SetCanUseCharacter(Character.Warrior,swordSO);
+
+            }
+            else if (swordType.Equals("Blade"))
+            {
+                swordSO.weightInInventory = 2;
+                swordSO.typeWeapon = TypeWeapon.Blades;
+                SetCanUseCharacter(Character.Sura, swordSO);
+            }
+            else if (swordType.Equals("Fan"))
+            {
+                swordSO.weightInInventory = 1;
+                swordSO.typeWeapon = TypeWeapon.Fans;
+                SetCanUseCharacter(Character.Shaman, swordSO);
+            }
+            else if (swordType.Equals("Bell"))
+            {
+                swordSO.weightInInventory = 1;
+                swordSO.typeWeapon = TypeWeapon.Bells;
+                SetCanUseCharacter(Character.Shaman, swordSO);
+            }
+            else if (swordType.Equals("Claw"))
+            {
+                swordSO.weightInInventory = 1;
+                swordSO.typeWeapon = TypeWeapon.Claws;
+                SetCanUseCharacter(Character.Lycan, swordSO);
+            }
+            else if (swordType.Equals("Dagger"))
+            {
+                swordSO.weightInInventory = 1;
+                swordSO.typeWeapon = TypeWeapon.Daggers;
+                SetCanUseCharacter(Character.Ninja, swordSO);
+            }
+            else if (swordType.Equals("Bow"))
+            {
+                swordSO.weightInInventory = 1;
+                swordSO.typeWeapon = TypeWeapon.Bows;
+                SetCanUseCharacter(Character.Ninja, swordSO);
+            }
+
+        }
+        public static void SetCanUseCharacter(Character character, ScriptableItemsAbstact scriptableItemsAbstact)
+        {
+            scriptableItemsAbstact.canUseCharacters.Add(character);
+        }
+        public static Character FindCharacter(string character="Warrior")
+        {
+            foreach (Character charEnum in Enum.GetValues(typeof(Character)))
+            {
+                if (charEnum.ToString().Equals(character, StringComparison.OrdinalIgnoreCase))
+                {
+                    return charEnum;
+                }
+            }
+            throw new ArgumentException("Invalid character type", nameof(character));
+        }
+        public static void SetCanUseCharacter(string character,ScriptableItemsAbstact scriptableItemsAbstact)
+        {
         
-        scriptableItemsAbstact.canUseCharacters.Add(FindCharacter(character));
-    }
+            scriptableItemsAbstact.canUseCharacters.Add(FindCharacter(character));
+        }
         
-    /*[MenuItem("Tools/Generate Sword")]
+        /*[MenuItem("Tools/Generate Sword")]
     public static void CsvTOSword()
     {
         int i = 0;
@@ -1123,7 +1141,7 @@ private static void CsvFromSoExpPerLevel()
         }
         AssetDatabase.SaveAssets();
     }*/
-    /*public static void upgradeItemValue(List<int> upgradeItemRequire, string[] splitData)
+        /*public static void upgradeItemValue(List<int> upgradeItemRequire, string[] splitData)
     {
         upgradeItemRequire.Clear();
 
@@ -1182,72 +1200,73 @@ private static void CsvFromSoExpPerLevel()
         }
 
     }]);*/
-    // [MenuItem("Utilities/UpdateItems")]
-    // public static void UpdateItems()
-    // {
-    //     string[] guids = AssetDatabase.FindAssets("t:ScriptableItemsAbstact", new[] { "Assets/ScriptableObjects/Items" });
-    //
-    //     foreach (var guid in guids)
-    //     {
-    //         // Her bir SO'yu yükle
-    //         string path = AssetDatabase.GUIDToAssetPath(guid);
-    //         ScriptableItemsAbstact itemStatsSO = AssetDatabase.LoadAssetAtPath<ScriptableItemsAbstact>(path);
-    //
-    //         if (itemStatsSO != null)
-    //         {
-    //             // SetStatsOnce fonksiyonunu çağır
-    //             //itemStatsSO.SetDropName();
-    //             itemStatsSO.SetStats();
-    //             EditorUtility.SetDirty(itemStatsSO);  // Değişiklikleri kaydetmek için
-    //         }
-    //     }
-    //
-    //     AssetDatabase.SaveAssets();
-    //     AssetDatabase.Refresh();
-    //
-    // }
-    // [MenuItem("Utilities/UpdateObjectsname")]
-    // public static void UpdateObjects()
-    // {
-    //     string[] guids = AssetDatabase.FindAssets("t:ObjectAbstract", new[] { "Assets/ScriptableObjects" });
-    //
-    //     foreach (var guid in guids)
-    //     {
-    //         // Her bir SO'yu yükle
-    //         string path = AssetDatabase.GUIDToAssetPath(guid);
-    //         ObjectAbstract itemStatsSO = AssetDatabase.LoadAssetAtPath<ObjectAbstract>(path);
-    //
-    //         if (itemStatsSO != null)
-    //         {
-    //             itemStatsSO.SetDropName();
-    //             EditorUtility.SetDirty(itemStatsSO);  // Değişiklikleri kaydetmek için
-    //         }
-    //     }
-    //
-    //     AssetDatabase.SaveAssets();
-    //     AssetDatabase.Refresh();
-    //
-    // }
-    // [MenuItem("Utilities/setHealthMonster")]
-    // public static void UpdateObjects()
-    // {
-    //     string[] guids = AssetDatabase.FindAssets("t:MonsterSO", new[] { "Assets/ScriptableObjects" });
-    //
-    //     foreach (var guid in guids)
-    //     {
-    //         // Her bir SO'yu yükle
-    //         string path = AssetDatabase.GUIDToAssetPath(guid);
-    //         MonsterSO itemStatsSO = AssetDatabase.LoadAssetAtPath<MonsterSO>(path);
-    //
-    //         if (itemStatsSO != null)
-    //         {
-    //             itemStatsSO.SetHealth();
-    //             EditorUtility.SetDirty(itemStatsSO);  // Değişiklikleri kaydetmek için
-    //         }
-    //     }
-    //
-    //     AssetDatabase.SaveAssets();
-    //     AssetDatabase.Refresh();
+        // [MenuItem("Utilities/UpdateItems")]
+        // public static void UpdateItems()
+        // {
+        //     string[] guids = AssetDatabase.FindAssets("t:ScriptableItemsAbstact", new[] { "Assets/ScriptableObjects/Items" });
+        //
+        //     foreach (var guid in guids)
+        //     {
+        //         // Her bir SO'yu yükle
+        //         string path = AssetDatabase.GUIDToAssetPath(guid);
+        //         ScriptableItemsAbstact itemStatsSO = AssetDatabase.LoadAssetAtPath<ScriptableItemsAbstact>(path);
+        //
+        //         if (itemStatsSO != null)
+        //         {
+        //             // SetStatsOnce fonksiyonunu çağır
+        //             //itemStatsSO.SetDropName();
+        //             itemStatsSO.SetStats();
+        //             EditorUtility.SetDirty(itemStatsSO);  // Değişiklikleri kaydetmek için
+        //         }
+        //     }
+        //
+        //     AssetDatabase.SaveAssets();
+        //     AssetDatabase.Refresh();
+        //
+        // }
+        // [MenuItem("Utilities/UpdateObjectsname")]
+        // public static void UpdateObjects()
+        // {
+        //     string[] guids = AssetDatabase.FindAssets("t:ObjectAbstract", new[] { "Assets/ScriptableObjects" });
+        //
+        //     foreach (var guid in guids)
+        //     {
+        //         // Her bir SO'yu yükle
+        //         string path = AssetDatabase.GUIDToAssetPath(guid);
+        //         ObjectAbstract itemStatsSO = AssetDatabase.LoadAssetAtPath<ObjectAbstract>(path);
+        //
+        //         if (itemStatsSO != null)
+        //         {
+        //             itemStatsSO.SetDropName();
+        //             EditorUtility.SetDirty(itemStatsSO);  // Değişiklikleri kaydetmek için
+        //         }
+        //     }
+        //
+        //     AssetDatabase.SaveAssets();
+        //     AssetDatabase.Refresh();
+        //
+        // }
+        // [MenuItem("Utilities/setHealthMonster")]
+        // public static void UpdateObjects()
+        // {
+        //     string[] guids = AssetDatabase.FindAssets("t:MonsterSO", new[] { "Assets/ScriptableObjects" });
+        //
+        //     foreach (var guid in guids)
+        //     {
+        //         // Her bir SO'yu yükle
+        //         string path = AssetDatabase.GUIDToAssetPath(guid);
+        //         MonsterSO itemStatsSO = AssetDatabase.LoadAssetAtPath<MonsterSO>(path);
+        //
+        //         if (itemStatsSO != null)
+        //         {
+        //             itemStatsSO.SetHealth();
+        //             EditorUtility.SetDirty(itemStatsSO);  // Değişiklikleri kaydetmek için
+        //         }
+        //     }
+        //
+        //     AssetDatabase.SaveAssets();
+        //     AssetDatabase.Refresh();
     
-    //}
+        //}
+    }
 }

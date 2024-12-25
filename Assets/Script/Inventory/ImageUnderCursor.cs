@@ -11,7 +11,6 @@ namespace Script.Inventory
         private void Awake()
         {
             PageEvent.OnClickPage += Close;
-            UIManager.OnUpgradePanelNeed += Close;
             GameEvent.OnItemDroppedWithoutPlayer += Close;
             ObjectEvents.ObjectClicked += Open;
             _rectTransform = GetComponent<RectTransform>();
@@ -25,10 +24,6 @@ namespace Script.Inventory
         }
 
         public void Close(ObjectAbstract dummy)
-        {
-            this.gameObject.SetActive(false);
-        }
-        public void Close(IInventorObjectable dummy)
         {
             this.gameObject.SetActive(false);
         }

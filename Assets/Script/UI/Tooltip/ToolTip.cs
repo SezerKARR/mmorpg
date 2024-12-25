@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using Script.ScriptableObject.Equipment;
 using TMPro;
 using UnityEngine;
 
@@ -15,7 +14,7 @@ public class ToolTip : MonoBehaviour,ITooltipAble
     public TextMeshProUGUI[] bonusesText;
     public TextMeshProUGUI wearableLayer;
     public TextMeshProUGUI wearAbleText;
-    public void Screen(IInventorObjectable inventorObjectable)
+    public void Screen(ObjectAbstract inventorObjectable)
     {
         
         if (inventorObjectable is SwordSo sword)

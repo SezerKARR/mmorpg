@@ -7,7 +7,6 @@ using Script.Bonus;
 using Script.Equipment;
 using Script.Inventory;
 using Script.Player;
-using Script.ScriptableObject.Equipment;
 using Unity.Mathematics;
 using Unity.VisualScripting;
 using Unity.VisualScripting.Antlr3.Runtime.Misc;

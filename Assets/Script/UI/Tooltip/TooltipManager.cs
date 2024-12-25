@@ -41,7 +41,7 @@ public class TooltipManager : MonoBehaviour
     }
 
 
-    public void Screen(IInventorObjectable scriptableObject)
+    public void Screen(ObjectAbstract scriptableObject)
     {
         
         tooltip.GameObject().SetActive(true);

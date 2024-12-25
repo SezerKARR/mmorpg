@@ -12,14 +12,14 @@ public class UpgradeItemImage : MonoBehaviour
     public float buttonOrginalHeight;
     private void Awake()
     {
-        UIManager.OnUpgradePanelNeed += UIManager_UpgradePanelNeed;
+        //UIManager.OnUpgradePanelNeed += UIManager_UpgradePanelNeed;
         
         imageRectTransform = this.image.GameObject().GetComponent<RectTransform>();
         buttonOrginalHeight = imageRectTransform.rect.height;
     }
     
 
-    private void UIManager_UpgradePanelNeed(IInventorObjectable inventorObjectable)
+    private void UIManager_UpgradePanelNeed(ObjectAbstract inventorObjectable)
     {
         gameObject.SetActive(true);
         ChangeSprite(inventorObjectable);
@@ -31,12 +31,12 @@ public class UpgradeItemImage : MonoBehaviour
         float heightDifference = (newHeight - buttonOrginalHeight) / 2f;
         imageRectTransform.anchoredPosition = -new Vector2(imageRectTransform.anchoredPosition.x, imageRectTransform.anchoredPosition.y - heightDifference);
     }
-    public virtual void ChangeSprite(IInventorObjectable inventorObjectAble)
+    public virtual void ChangeSprite(ObjectAbstract inventorObjectAble)
     {
 
 
-        ImageChangeSize(inventorObjectAble.GetWeightInInventory());
-        image.sprite = inventorObjectAble.GetSprite();
+        ImageChangeSize(inventorObjectAble.weightInInventory);
+        image.sprite = inventorObjectAble.ımage;
         image.color = new Color(image.color.r, image.color.g, image.color.b, 1f);
 
 

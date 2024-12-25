@@ -1,6 +1,5 @@
 using Script.Anim;
 using Script.Interface;
-using Script.ScriptableObject.Equipment;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -8,13 +7,7 @@ using Script.Player;
 using UnityEditor.Animations;
 
 namespace Script.Enemy
-{
-    [System.Serializable]
-    public class ItemToDrop : System.Object
-    {
-        public IItemable itemToDrop;
-        public float probability;
-    }
+{   
 
     public class EnemySkeleton : MonoBehaviour, IDamageAble, IOutlineAble
     {
