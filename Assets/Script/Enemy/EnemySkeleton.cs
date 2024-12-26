@@ -1,3 +1,4 @@
+using System;
 using Script.Anim;
 using Script.Interface;
 using TMPro;
@@ -21,25 +22,28 @@ namespace Script.Enemy
         [FormerlySerializedAs("enemySO")] [SerializeField]
         private MonsterSO enemySo;
         private PlayerController lastDamagedPlayer;
-
+        
+        private Vector3 _startPosition;
         public void Initialize(MonsterSO monsterSO, AnimatorController animatorController)
         {
             this.enemySo = monsterSO;
             this.GetComponent<Animator>().runtimeAnimatorController = animatorController;
         }
-        public void Start()
+        public void Awake()
         {
-
+            _startPosition = transform.position;
             _characterAnims = new CharacterAnims(GetComponent<Animator>(), 0.2f);
             _enemyHealth = new EnemyHealth(enemySo.health);
             this._enemyHealth.OnDeath += Death;
             normalMaterial = GetComponent<SpriteRenderer>().material;
             polygonCollider = GetComponent<PolygonCollider2D>();
             
-
-
             enemyName.SetText($"<color=yellow> Lv. {enemySo.level}</color><color=red> {enemySo.monsterName}</color>");
+        }
 
+        private void OnEnable()
+        {
+            throw new NotImplementedException();
         }
 
         public void Update()
@@ -74,15 +78,8 @@ namespace Script.Enemy
         {
            
             EnemyEvent.OnDeath?.Invoke((lastDamagedPlayer,enemySo));
+            creaturesGroup.OnEnemyDeath();
             DropItem(lastDamagedPlayer);
-            creaturesGroup.currentCreaturesNumber -= 1;
-            if (creaturesGroup.currentCreaturesNumber <= 0)
-            {
-
-                creaturesGroup.CreateEnemy();
-            }
-
-            
             lastDamagedPlayer.ExpCalculator(int.Parse(enemySo.exp), int.Parse(enemySo.level));
             Destroy(gameObject);
 

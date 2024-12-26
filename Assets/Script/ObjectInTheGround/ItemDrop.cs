@@ -64,5 +64,6 @@ namespace Script.ObjectInTheGround
         }
 
         public abstract string GetPoolType();
+        
     }
 }

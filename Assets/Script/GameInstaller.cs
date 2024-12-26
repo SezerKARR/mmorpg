@@ -15,6 +15,7 @@ namespace Script
             Container.Bind<PickUpDetector>().FromComponentInHierarchy().AsSingle();
             Container.Bind<EquipmentManager>().FromComponentInHierarchy().AsSingle();
             Container.Bind<PlayerController>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<CreaturesGroupsHolder>().FromComponentInHierarchy().AsSingle();
         }
     }
 }

@@ -47,8 +47,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lineRenderer: {fileID: 8175591253030520400}
   creatureCount: 0
-  troGameObject: {fileID: 1948329606356406275, guid: 1cae118cedf886a4c8620234fd11e0af, type: 3}
-  polygonPoints: []
+  creaturesGroupPrefab: {fileID: 1642353336399370061, guid: 4a09a38e82e0ed24b8ef948882837675, type: 3}
+  creaturesGroups: []
 --- !u!120 &8175591253030520400
 LineRenderer:
   serializedVersion: 2

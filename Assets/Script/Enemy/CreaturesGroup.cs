@@ -3,22 +3,15 @@ using System.Collections.Generic;
 using Script.Inventory.Objects;
 using Script.ScriptableObject.Prefab;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Script.Enemy
 {
     public class CreaturesGroup : MonoBehaviour
     {
-        [SerializeField]
-        private int _totalCreatures;
+        public int totalCreatures;
         public int currentCreaturesNumber;
-        [SerializeField]
-        private GameObject parentObject;
-        [SerializeField]
-        private CreaturesGroupsHolder holder;
-        [SerializeField]
-        private List<GameObject> creature;
-        [SerializeField]
-        private List<int> creaturesNumber;
+        public List<int> creaturesDifficult;
         [SerializeField]
         private float groupReturnTime;
         
@@ -27,25 +20,31 @@ namespace Script.Enemy
         // Start is called before the first frame update
         void Start()
         {
-            
-            parentObject = this.transform.parent.gameObject;
-            holder = parentObject.gameObject.GetComponent<CreaturesGroupsHolder>();
 
             //print(holder.groupReturnsTime);
             CreateGroupCreatures();
-            _totalCreatures = creaturesNumber.Count;
+            totalCreatures = creaturesDifficult.Count;
         }
         public float GetDistanceTo(Vector3 point)
         {
             return Vector3.Distance(transform.position, point);
         }
+
+        public void OnEnemyDeath()
+        {
+            currentCreaturesNumber--;
+            if (currentCreaturesNumber == 0)
+            {
+                CreateEnemy();
+            }
+        }
         public void CreateGroupCreatures()
         {
 
-            foreach (int creatureNumber in creaturesNumber)
+            foreach (int creatureNumber in creaturesDifficult)
             {
             
-                GameObject currentCreatures = Instantiate(creature[creatureNumber], RandomPositionByObjectCircle(), Quaternion.identity);
+                GameObject currentCreatures = Instantiate(currentMapCreatures.objects[creatureNumber].prefab, RandomPositionByObjectCircle(), Quaternion.identity);
                 currentCreatures.transform.SetParent(this.transform);
                 currentCreatures.GetComponent<EnemySkeleton>().creaturesGroup = this.gameObject.GetComponent<CreaturesGroup>();
                 currentCreaturesNumber++;

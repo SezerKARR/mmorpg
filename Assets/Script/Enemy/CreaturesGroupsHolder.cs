@@ -9,7 +9,7 @@ using UnityEngine.Serialization;
 
 public class CreaturesGroupsHolder : MonoBehaviour
 {
-    public List<CreaturesGroup> CreaturesGroups;
+    public List<CreaturesGroup> creaturesGroups;
     public List<GameObject> childrenWithTag;
     public GameObject[] creatures;
     public float groupReturnsTime;
@@ -17,12 +17,17 @@ public class CreaturesGroupsHolder : MonoBehaviour
     public ItemPrefabList creaturesPrefabList;
     private List<CreaturesGroup> _sortedCreaturesGroups;
     private ObjectPooler _creaturesPooler;
- 
+    private List<CreaturesSpawnArea> _creaturesSpawnArea;
     void Start()
     {
-        _sortedCreaturesGroups = CreaturesGroups.OrderBy(obj => obj.GetDistanceTo(Vector3.zero)).ToList();
-        //_creaturesPooler=new ObjectPooler(creaturesPrefabList,this.transform);
+        _creaturesSpawnArea = GetComponentsInChildren<CreaturesSpawnArea>().ToList();
+        foreach (CreaturesSpawnArea area in _creaturesSpawnArea)
+        {
+            creaturesGroups.AddRange(area.Initialize());
+        }
+        _sortedCreaturesGroups = creaturesGroups.OrderBy(obj => obj.GetDistanceTo(Vector3.zero)).ToList();
         CreatureDiffCalculator();
+        
     }
     // public void FindAllChildren(Transform transform)
     // {
@@ -36,16 +41,21 @@ public class CreaturesGroupsHolder : MonoBehaviour
     //             FindAllChildren(transform.GetChild(i).transform);
     //     }
     // }
-
+    
     private void CreatureDiffCalculator()
     {
         float diff = (float)_sortedCreaturesGroups.Count / creaturesPrefabList.objects.Length;
         int index = 0;
         Debug.Log( diff );
-        foreach (var VARIABLE in _sortedCreaturesGroups)
+        foreach (CreaturesGroup group in _sortedCreaturesGroups)
         {
             
              float dificult=index / diff;
+             for (int i = 0; i < group.totalCreatures; i++)
+             {
+                 group.creaturesDifficult.Add(Mathf.RoundToInt(dificult+(0.1f*i)));
+             }
+             
              Debug.Log(dificult);
              index++;
         }

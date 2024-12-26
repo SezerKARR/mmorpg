@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 125708201374620060}
   - component: {fileID: -7891363356583053003}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: CreaturesGroup
   m_TagString: CreaturesGroup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,3 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3e7c9cc4e4a0bc4496d09c61dc015d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  totalCreatures: 4
+  currentCreaturesNumber: 0
+  creaturesDifficult: 
+  groupReturnTime: 0
+  currentMapCreatures: {fileID: 11400000, guid: 8014b1676b506884587591e2dd6a2880, type: 2}

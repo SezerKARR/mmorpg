@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using System.Linq;
+using UnityEngine.Serialization;
+using Zenject;
 
 namespace Script.Enemy
 {
@@ -11,10 +13,9 @@ namespace Script.Enemy
     {
         [SerializeField] private LineRenderer lineRenderer;
         [SerializeField] private int creatureCount = -1;
-        public GameObject troGameObject;
-        private List<Vector2> polygonPoints=new List<Vector2>(); // Polygonun köşe noktalarının listesi
-
-        void Start()
+        public GameObject creaturesGroupPrefab;
+        [SerializeField] private List<CreaturesGroup> creaturesGroups=new List<CreaturesGroup>(); 
+        public List<CreaturesGroup>  Initialize()
         {
             if (lineRenderer == null)
             {
@@ -25,9 +26,11 @@ namespace Script.Enemy
             for (int i = 0; i < creatureCount; i++)
             {
                 Vector2 point = GetRandomPositionInPolygon(positions);
-                polygonPoints.Add(point);
-                Instantiate(troGameObject,point , Quaternion.identity);
+                GameObject creaturesGroup= Instantiate(creaturesGroupPrefab,point , Quaternion.identity);
+                creaturesGroup.transform.parent = transform;
+                creaturesGroups.Add(creaturesGroup.GetComponent<CreaturesGroup>());
             }
+            return creaturesGroups;
             //Vector2 randomPosition = GetRandomPositionInPolygon(positions);
             //Debug.Log("Rastgele Konum: " + randomPosition);
         }
