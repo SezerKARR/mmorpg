@@ -11,7 +11,7 @@ namespace Editor.com.unity.mobile.notifications
     {
         private static readonly string UpgradeItemsCSVPath = "/CSVS/UpgradeItems.csv";
 
-        private static string _monstersCsvPath = "/CSVS/Monsters.csv";
+        //private static string _monstersCsvPath = "/CSVS/Monsters.csv";
 
         /*private static string ExpCsvPath = "/CSVS/Exp.csv";
         private static string ExpPerLevelCsvPath = "/CSVS/ExpPerLevel.csv";

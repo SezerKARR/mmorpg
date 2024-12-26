@@ -1,58 +1,66 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Script.Enemy;
+using Script.Inventory.Objects;
+using Script.ScriptableObject.Prefab;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class CreaturesGroupsHolder : MonoBehaviour
 {
-    private string searchTag = "CreaturesGroup";
-    public List<GameObject> allChildren;
+    public List<CreaturesGroup> CreaturesGroups;
     public List<GameObject> childrenWithTag;
     public GameObject[] creatures;
     public float groupReturnsTime;
     public WildDog[] denemegroupcreaure;
+    public ItemPrefabList creaturesPrefabList;
+    private List<CreaturesGroup> _sortedCreaturesGroups;
+    private ObjectPooler _creaturesPooler;
+ 
     void Start()
     {
-        if (searchTag != null)
-        {
-            FindAllChildren(transform);
-            GetChildObjectsWithTag(searchTag);
-        }
+        _sortedCreaturesGroups = CreaturesGroups.OrderBy(obj => obj.GetDistanceTo(Vector3.zero)).ToList();
+        //_creaturesPooler=new ObjectPooler(creaturesPrefabList,this.transform);
+        CreatureDiffCalculator();
     }
-    void Update()
+    // public void FindAllChildren(Transform transform)
+    // {
+    //     int len = transform.childCount;
+    //
+    //     for (int i = 0; i < len; i++)
+    //     {
+    //         CreaturesGroups.Add(transform.GetChild(i).gameObject);
+    //
+    //         if (transform.GetChild(i).childCount > 0)
+    //             FindAllChildren(transform.GetChild(i).transform);
+    //     }
+    // }
+
+    private void CreatureDiffCalculator()
     {
-       /* if (Input.GetKeyDown(KeyCode.Space))
+        float diff = (float)_sortedCreaturesGroups.Count / creaturesPrefabList.objects.Length;
+        int index = 0;
+        Debug.Log( diff );
+        foreach (var VARIABLE in _sortedCreaturesGroups)
         {
-            print("deneme yap�l�yor");
-            foreach (EnemyCreatures creature in denemegroupcreaure)
-            {
-                creature.Death();
-            }
-       
-            StartCoroutine(childrenWithTag[0].gameObject.GetComponent<CreaturesGroup>().WaitBeforeCreateGroup());
-        }*/
+            
+             float dificult=index / diff;
+             Debug.Log(dificult);
+             index++;
+        }
+        float randomDiff = Random.Range(diff-1, diff+2);
+        randomDiff=Mathf.Clamp(randomDiff,0,creaturesPrefabList.objects.Length);
         
     }
-    public void FindAllChildren(Transform transform)
-    {
-        int len = transform.childCount;
 
-        for (int i = 0; i < len; i++)
-        {
-            allChildren.Add(transform.GetChild(i).gameObject);
+    public List<Transform> objectsToSort; // Sıralamak istediğiniz nesnelerin Transform referansları
+    public Transform referencePoint; // Uzaklığına göre sıralama yapılacak referans nokta
 
-            if (transform.GetChild(i).childCount > 0)
-                FindAllChildren(transform.GetChild(i).transform);
-        }
-    }
+    
+        
+    
+    
 
-    public void GetChildObjectsWithTag(string _tag)
-    {
-        foreach (GameObject child in allChildren)
-        {
-            if (child.tag == _tag)
-                childrenWithTag.Add(child);
-        }
-    }
 }
 

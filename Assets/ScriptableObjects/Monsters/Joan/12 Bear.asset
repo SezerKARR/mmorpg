@@ -29,4 +29,8 @@ MonoBehaviour:
   exp: 147
   expint: 147
   health: 24
-  canDrops: []
+  canDrops:
+  - {fileID: 11400000, guid: cc8e6de1f4adbe349b0d981aca3e06e6, type: 2}
+  - {fileID: 11400000, guid: 3e872b5506bd91e43b541929ba7f27f8, type: 2}
+  - {fileID: 11400000, guid: 17df349b3c1e9fd4cb17b30eee257f40, type: 2}
+  - {fileID: 11400000, guid: 7a673913b1143f74eb24c02144d68142, type: 2}

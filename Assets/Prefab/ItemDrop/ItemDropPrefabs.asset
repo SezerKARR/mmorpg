@@ -12,8 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c8f8e7ee01398545bcf3a038ea1a07b, type: 3}
   m_Name: ItemDropPrefabs
   m_EditorClassIdentifier: 
-  Objects:
+  objects:
   - objectType: WithPlayerName
     prefab: {fileID: 1958407190808054159, guid: 46e6b05667f8fe04a8059d19655c6ce5, type: 3}
+    howMany: -1
   - objectType: WithoutPlayerName
     prefab: {fileID: 1958407190808054159, guid: 7e398be09f94e7e459732da780cff679, type: 3}
+    howMany: -1
+  prefabs:
+  - {fileID: 1958407190808054159, guid: 46e6b05667f8fe04a8059d19655c6ce5, type: 3}
+  - {fileID: 1958407190808054159, guid: 7e398be09f94e7e459732da780cff679, type: 3}

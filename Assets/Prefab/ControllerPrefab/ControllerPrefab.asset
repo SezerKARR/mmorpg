@@ -13,9 +13,16 @@ MonoBehaviour:
   m_Name: ControllerPrefab
   m_EditorClassIdentifier: 
   objects:
-  - objectType: LeftClickStack
-    prefab: {fileID: 807280952830508194, guid: 9bfe4171fcb201d4c9ac0c6b240e2824, type: 3}
   - objectType: Item
     prefab: {fileID: 807280952830508194, guid: 59266baf08002bc4dbd2044eaf358ec6, type: 3}
+    howMany: -1
   - objectType: Stack
     prefab: {fileID: 5027961957190823290, guid: 13d044feb9f1c564b8e32a7850be990c, type: 3}
+    howMany: -1
+  - objectType: LeftClickStack
+    prefab: {fileID: 807280952830508194, guid: 9bfe4171fcb201d4c9ac0c6b240e2824, type: 3}
+    howMany: -1
+  prefabs:
+  - {fileID: 807280952830508194, guid: 59266baf08002bc4dbd2044eaf358ec6, type: 3}
+  - {fileID: 5027961957190823290, guid: 13d044feb9f1c564b8e32a7850be990c, type: 3}
+  - {fileID: 807280952830508194, guid: 9bfe4171fcb201d4c9ac0c6b240e2824, type: 3}

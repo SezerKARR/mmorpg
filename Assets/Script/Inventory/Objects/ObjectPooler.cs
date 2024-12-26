@@ -9,14 +9,14 @@ namespace Script.Inventory.Objects
         public Item objectsToPool;
         public class Item: UnityDictionary<string, Queue<GameObject>> { };
 
-        public ObjectPooler(ItemPrefabList  itemPrefabList,Transform parentTransform,int count)
+        public ObjectPooler(ItemPrefabList  itemPrefabList,Transform parentTransform,int count =5)
         {
             objectsToPool = new Item();
             foreach (var objectClass in itemPrefabList.objects)
             {
-            
+                if(objectClass.howMany!=-1) count=objectClass.howMany;
                 Queue<GameObject> objectPool = new Queue<GameObject>() ;
-                for (int i = 0; i < 30; i++)
+                for (int i = 0; i < count; i++)
                 {
                     GameObject objectGo = Object.Instantiate(objectClass.prefab, parentTransform, true);
                     objectGo.SetActive(false);

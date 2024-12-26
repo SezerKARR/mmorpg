@@ -1,31 +1,49 @@
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 [InitializeOnLoad]
 public class AutoLayoutSwitcher
 {
-    /*static AutoLayoutSwitcher()
+    static AutoLayoutSwitcher()
     {
-        // Play mode'a geçildiðinde çalýþacak bir callback ekliyoruz
-        EditorApplication.playModeStateChanged += SwitchLayoutOnPlayMode;
+        // Play mode'a geï¿½ildiï¿½inde ï¿½alï¿½ï¿½acak bir callback ekliyoruz
+        EditorApplication.playmodeStateChanged += () =>
+        {
+            if (EditorApplication.isPlayingOrWillChangePlaymode && !EditorApplication.isPlaying)
+            {
+                Debug.Log("Auto-saving all open scenes...");
+                EditorSceneManager.SaveOpenScenes();
+                AssetDatabase.SaveAssets();
+            }
+        };
     }
 
-    static void SwitchLayoutOnPlayMode(PlayModeStateChange state)
+    static void SaveScene(PlayModeStateChange state)
     {
         if (state == PlayModeStateChange.EnteredPlayMode)
         {
-            // Play Mode'a geçildiðinde kullanýlacak Layout'u burada seçiyoruz
-            EditorApplication.delayCall += () => {
-                EditorApplication.ExecuteMenuItem("Window/Layouts/GameMode");
-            };
+            EditorSceneManager.SaveOpenScenes();
+            AssetDatabase.SaveAssets();
         }
-        else if (state == PlayModeStateChange.ExitingPlayMode)
-        {
-            EditorApplication.delayCall += () => {
-                EditorApplication.ExecuteMenuItem("Window/Layouts/Layout");
-            };
-            // Play Mode'dan çýkýldýðýnda, orijinal Layout'u tekrar seçebilirsiniz
-            
-        }
-    }*/
+    }
+    // 
+    // static void SwitchLayoutOnPlayMode(PlayModeStateChange state)
+    // {
+    //     if (state == PlayModeStateChange.EnteredPlayMode)
+    //     {
+    //         // Play Mode'a geï¿½ildiï¿½inde kullanï¿½lacak Layout'u burada seï¿½iyoruz
+    //         EditorApplication.delayCall += () => {
+    //             EditorApplication.ExecuteMenuItem("Window/Layouts/GameMode");
+    //         };
+    //     }
+    //     else if (state == PlayModeStateChange.ExitingPlayMode)
+    //     {
+    //         EditorApplication.delayCall += () => {
+    //             EditorApplication.ExecuteMenuItem("Window/Layouts/Layout");
+    //         };
+    //         // Play Mode'dan ï¿½ï¿½kï¿½ldï¿½ï¿½ï¿½nda, orijinal Layout'u tekrar seï¿½ebilirsiniz
+    //         
+    //     }
+    // }
 }

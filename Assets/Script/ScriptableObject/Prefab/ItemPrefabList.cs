@@ -1,7 +1,8 @@
 using System;
-using Script.Interface;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
+using IPoolable = Script.Interface.IPoolable;
 
 namespace Script.ScriptableObject.Prefab
 {
@@ -10,13 +11,14 @@ namespace Script.ScriptableObject.Prefab
         
         [FormerlySerializedAs("ObjectType")] public string objectType;
         [FormerlySerializedAs("Prefab")] public GameObject prefab;
+        public int howMany=-1;
     }
 
     [CreateAssetMenu(fileName = "ItemPrefabList", menuName = "ScriptableObjects/ItemPrefabList", order = 1)]
     public class ItemPrefabList : UnityEngine.ScriptableObject
     {
-        [FormerlySerializedAs("Objects")] public ObjectClass[]objects;
-        
+        [FormerlySerializedAs("Objects")] public ObjectClass[] objects;
+        [SerializeField] GameObject[] prefabs;
         public GameObject GetPrefabByType(string type)
         {
             foreach (var obj in objects)
@@ -31,10 +33,13 @@ namespace Script.ScriptableObject.Prefab
 
         private void OnValidate()
         {
-            foreach (var objecta in objects)
+            int index = 0;
+            objects=new ObjectClass[prefabs.Length];
+            foreach (var prefab in prefabs)
             {
-                IPoolable poolable = objecta.prefab.GetComponent<IPoolable>();
-                objecta.objectType=poolable.GetPoolType();
+                IPoolable poolable = prefab.GetComponent<IPoolable>();
+                objects[index] = new ObjectClass{objectType=poolable.GetPoolType(), prefab=prefab};
+                index++;
             }
         }
     }

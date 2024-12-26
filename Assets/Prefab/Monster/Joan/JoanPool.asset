@@ -1,0 +1,140 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c8f8e7ee01398545bcf3a038ea1a07b, type: 3}
+  m_Name: JoanPool
+  m_EditorClassIdentifier: 
+  objects:
+  - objectType: Hungry Stray Dog
+    prefab: {fileID: 8408001772549296582, guid: ddbfd17709b30784e91f92074bb7eb28, type: 3}
+    howMany: -1
+  - objectType: Wild Dog
+    prefab: {fileID: 1076111589772779802, guid: 09d243182faf5cb4e9c90af00b714707, type: 3}
+    howMany: -1
+  - objectType: Hungry Wolf
+    prefab: {fileID: 6518029013318307759, guid: 027c7c5fe6b42b642b7becf725921d1d, type: 3}
+    howMany: -1
+  - objectType: Wolf
+    prefab: {fileID: 7016908340843165538, guid: 84f6ba4eef054ce42adc6375a408867f, type: 3}
+    howMany: -1
+  - objectType: Alpha Wolf
+    prefab: {fileID: 4385409101413401451, guid: 2361ed092dab9a94e8eeb276b2f08e30, type: 3}
+    howMany: -1
+  - objectType: Hungry Alpha Wolf
+    prefab: {fileID: 40697699189822492, guid: 3234769ec6e2ce5459282fc22db9c94f, type: 3}
+    howMany: -1
+  - objectType: Blue Wolf
+    prefab: {fileID: 7829639098142060566, guid: 4317038aff2a38c4db8a5a8cf482aca6, type: 3}
+    howMany: -1
+  - objectType: Hungry Blue Wolf
+    prefab: {fileID: 6306779844549217598, guid: 905cc187d7d2e31438d3a627ffd3cf8f, type: 3}
+    howMany: -1
+  - objectType: Hungry Wild Boar
+    prefab: {fileID: 202635540693927681, guid: 92b9de3fb8510b24794ad4826bdaa7ab, type: 3}
+    howMany: -1
+  - objectType: Wild Boar
+    prefab: {fileID: 2493365003453909236, guid: 576070503905d79478fa6d55a6d6830a, type: 3}
+    howMany: -1
+  - objectType: Cursed Wolf
+    prefab: {fileID: 3106628143833102064, guid: 557d863f9e91de943ac1bfb7c2d8d154, type: 3}
+    howMany: -1
+  - objectType: Alpha Blue Wolf
+    prefab: {fileID: 5821536167982610497, guid: f95dc8441d5dd2e49a603c4b6d9ec90e, type: 3}
+    howMany: -1
+  - objectType: Cung-Mok
+    prefab: {fileID: 8910449707995767911, guid: 39d47a3122a8b43479a6d5e26f5e0ef0, type: 3}
+    howMany: -1
+  - objectType: Cursed Alpha Wolf
+    prefab: {fileID: 464264139388736135, guid: 9e868b1f840d98a4d88a4f696d9b9069, type: 3}
+    howMany: -1
+  - objectType: Hungry Alpha Blue Wolf
+    prefab: {fileID: 5866864886015971962, guid: 097a6261c3c61ee49ac33b7ce8faf45e, type: 3}
+    howMany: -1
+  - objectType: Hungry Red Boar
+    prefab: {fileID: 7771848173726825583, guid: 763348705a5070f4ba2fb30b36879c1d, type: 3}
+    howMany: -1
+  - objectType: Jug-Hyul
+    prefab: {fileID: 5026561831602259828, guid: cad8cf60d9ca10d4eaa2cf8c6f13a58d, type: 3}
+    howMany: -1
+  - objectType: Red Wild Boar
+    prefab: {fileID: 3653251783339600385, guid: 5bd9c814c30f37d4ab7e02e95efdc5e2, type: 3}
+    howMany: -1
+  - objectType: Cursed Blue Wolf
+    prefab: {fileID: 7782703409794782751, guid: b7156fb283c457d48b5a42eb05c262ce, type: 3}
+    howMany: -1
+  - objectType: Bear
+    prefab: {fileID: 6856637610933701316, guid: 3677b085a62242540ab3bb4c207b9f31, type: 3}
+    howMany: -1
+  - objectType: Hungry Bear
+    prefab: {fileID: 5444235405497916701, guid: ad1a3b59ff247c047a69f8f1dcb2ae5e, type: 3}
+    howMany: -1
+  - objectType: Grey Wolf
+    prefab: {fileID: 416855176708966600, guid: 11a70f2b60c6ea140b51f73a56b7b625, type: 3}
+    howMany: -1
+  - objectType: Hungry Grey Wolf
+    prefab: {fileID: 562429868938845944, guid: 8b8dfcbf41e57a84cb0ab6010fa004b2, type: 3}
+    howMany: -1
+  - objectType: Cursed Alpha Blue Wolf
+    prefab: {fileID: 659459788993968336, guid: 0d80a1a4ec024384883192bc91d201c9, type: 3}
+    howMany: -1
+  - objectType: Cursed Red Wild Boar
+    prefab: {fileID: 4510912926552556754, guid: ebe4eeb10eb6cbd44bd36825305284df, type: 3}
+    howMany: -1
+  - objectType: Grizzly Bear
+    prefab: {fileID: 4282160661324853015, guid: bb8fa43c573d8494eb12cb938f9bfe4d, type: 3}
+    howMany: -1
+  - objectType: Hungry Grizzly
+    prefab: {fileID: 7951556490848394490, guid: 9ca481114d8e51745b463d76f89f4b7d, type: 3}
+    howMany: -1
+  - objectType: Alpha Grey Wolf
+    prefab: {fileID: 2007829939332834903, guid: d2f82ccb4674ce243ab0d2dcf1217805, type: 3}
+    howMany: -1
+  - objectType: Weak Ape Soldier
+    prefab: {fileID: 2761648418665213591, guid: 2d29e2d29c32a14438fb8758b1b14076, type: 3}
+    howMany: -1
+  - objectType: Cursed Black Bear
+    prefab: {fileID: 3004837372516671926, guid: 5b1994bf491bb654484375c9431341bd, type: 3}
+    howMany: -1
+  - objectType: Cursed Tiger
+    prefab: {fileID: 3286344696059108956, guid: d4170ab058ee5f044bf6450fa0a625c9, type: 3}
+    howMany: -1
+  prefabs:
+  - {fileID: 8408001772549296582, guid: ddbfd17709b30784e91f92074bb7eb28, type: 3}
+  - {fileID: 1076111589772779802, guid: 09d243182faf5cb4e9c90af00b714707, type: 3}
+  - {fileID: 6518029013318307759, guid: 027c7c5fe6b42b642b7becf725921d1d, type: 3}
+  - {fileID: 7016908340843165538, guid: 84f6ba4eef054ce42adc6375a408867f, type: 3}
+  - {fileID: 4385409101413401451, guid: 2361ed092dab9a94e8eeb276b2f08e30, type: 3}
+  - {fileID: 40697699189822492, guid: 3234769ec6e2ce5459282fc22db9c94f, type: 3}
+  - {fileID: 7829639098142060566, guid: 4317038aff2a38c4db8a5a8cf482aca6, type: 3}
+  - {fileID: 6306779844549217598, guid: 905cc187d7d2e31438d3a627ffd3cf8f, type: 3}
+  - {fileID: 202635540693927681, guid: 92b9de3fb8510b24794ad4826bdaa7ab, type: 3}
+  - {fileID: 2493365003453909236, guid: 576070503905d79478fa6d55a6d6830a, type: 3}
+  - {fileID: 3106628143833102064, guid: 557d863f9e91de943ac1bfb7c2d8d154, type: 3}
+  - {fileID: 5821536167982610497, guid: f95dc8441d5dd2e49a603c4b6d9ec90e, type: 3}
+  - {fileID: 8910449707995767911, guid: 39d47a3122a8b43479a6d5e26f5e0ef0, type: 3}
+  - {fileID: 464264139388736135, guid: 9e868b1f840d98a4d88a4f696d9b9069, type: 3}
+  - {fileID: 5866864886015971962, guid: 097a6261c3c61ee49ac33b7ce8faf45e, type: 3}
+  - {fileID: 7771848173726825583, guid: 763348705a5070f4ba2fb30b36879c1d, type: 3}
+  - {fileID: 5026561831602259828, guid: cad8cf60d9ca10d4eaa2cf8c6f13a58d, type: 3}
+  - {fileID: 3653251783339600385, guid: 5bd9c814c30f37d4ab7e02e95efdc5e2, type: 3}
+  - {fileID: 7782703409794782751, guid: b7156fb283c457d48b5a42eb05c262ce, type: 3}
+  - {fileID: 6856637610933701316, guid: 3677b085a62242540ab3bb4c207b9f31, type: 3}
+  - {fileID: 5444235405497916701, guid: ad1a3b59ff247c047a69f8f1dcb2ae5e, type: 3}
+  - {fileID: 416855176708966600, guid: 11a70f2b60c6ea140b51f73a56b7b625, type: 3}
+  - {fileID: 562429868938845944, guid: 8b8dfcbf41e57a84cb0ab6010fa004b2, type: 3}
+  - {fileID: 659459788993968336, guid: 0d80a1a4ec024384883192bc91d201c9, type: 3}
+  - {fileID: 4510912926552556754, guid: ebe4eeb10eb6cbd44bd36825305284df, type: 3}
+  - {fileID: 4282160661324853015, guid: bb8fa43c573d8494eb12cb938f9bfe4d, type: 3}
+  - {fileID: 7951556490848394490, guid: 9ca481114d8e51745b463d76f89f4b7d, type: 3}
+  - {fileID: 2007829939332834903, guid: d2f82ccb4674ce243ab0d2dcf1217805, type: 3}
+  - {fileID: 2761648418665213591, guid: 2d29e2d29c32a14438fb8758b1b14076, type: 3}
+  - {fileID: 3004837372516671926, guid: 5b1994bf491bb654484375c9431341bd, type: 3}
+  - {fileID: 3286344696059108956, guid: d4170ab058ee5f044bf6450fa0a625c9, type: 3}

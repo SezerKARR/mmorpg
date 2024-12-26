@@ -9,7 +9,7 @@ using UnityEditor.Animations;
 namespace Script.Enemy
 {   
 
-    public class EnemySkeleton : MonoBehaviour, IDamageAble, IOutlineAble
+    public class EnemySkeleton : MonoBehaviour, IDamageAble, IOutlineAble,IPoolable
     {
         private CharacterAnims _characterAnims;
         public TextMeshPro enemyName;
@@ -128,6 +128,10 @@ namespace Script.Enemy
             return new Vector2(this.transform.position.x, this.transform.position.y);
         }
 
-       
+
+        public string GetPoolType()
+        {
+            return enemySo.monsterName;
+        }
     }
 }
