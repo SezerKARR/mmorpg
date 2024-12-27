@@ -28,7 +28,7 @@ namespace Editor.com.unity.mobile.notifications
                 // Animator Controller oluştur
                 AnimatorController animatorController = AnimatorController.CreateAnimatorControllerAtPath(savePath);
                 //
-                foreach (var anim in Enum.GetValues(typeof(AnimAndDirection.AnimEnum)).Cast<AnimAndDirection.AnimEnum>().Skip(1))
+                foreach (var anim in Enum.GetValues(typeof(AnimationEnum)).Cast<AnimationEnum>().Skip(1))
                 {
                     foreach (var direction in AnimAndDirection.DirectionToStringMap)
                     {

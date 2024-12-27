@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Script.Player.PlayerState;
 using UnityEngine;
 
-public class AttackState :  PlayerState
+public class AttackState :  CharacterState
 {
     public AttackState(PlayerStateManager manager) : base(manager) { }
     bool wait = false;
+    
     public override void EnterState()       
     {
         //MonoBehaviour.print("attackstate");
@@ -19,7 +21,7 @@ public class AttackState :  PlayerState
 
 
     }
-    public override bool CanTransitionTo(PlayerState newState)
+    public override bool CanTransitionTo(CharacterState newState)
     {
         return wait;
     }

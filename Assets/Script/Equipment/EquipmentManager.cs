@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Script.Inventory.Objects;
 using UnityEngine;
 using Script.Player;
+using Script.ScriptableObject.Equipment;
 using Zenject;
 
 namespace Script.Equipment

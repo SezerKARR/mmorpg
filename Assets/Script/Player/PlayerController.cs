@@ -2,6 +2,7 @@ using Script.Equipment;
 using Script.Interface;
 using Script.Inventory.Objects;
 using Script.ObjectInTheGround;
+using Script.ScriptableObject.Equipment;
 using Script.ScriptableObject.Player;
 using UnityEngine;
 using UnityEngine.Serialization;

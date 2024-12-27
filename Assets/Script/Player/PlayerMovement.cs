@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using Script.Player.PlayerState;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public PlayerState lastState;
+    public CharacterState lastState;
     [SerializeField]
-    public PlayerState currentState;
+    public CharacterState currentState;
     
     
     

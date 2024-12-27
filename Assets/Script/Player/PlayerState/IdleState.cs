@@ -1,8 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Script.Player.PlayerState;
 using UnityEngine;
 
-public class IdleState :  PlayerState
+public class IdleState :  CharacterState
 {
     public IdleState(PlayerStateManager manager) : base(manager) { }
     public override void EnterState()
@@ -27,7 +28,7 @@ public class IdleState :  PlayerState
         }
        
     }
-    public override bool CanTransitionTo(PlayerState newState)
+    public override bool CanTransitionTo(CharacterState newState)
     {
         
         return base.CanTransitionTo(newState);

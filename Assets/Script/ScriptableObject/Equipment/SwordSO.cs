@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Script.Equipment;
+using Script.ScriptableObject.Equipment;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 public enum TypeWeapon

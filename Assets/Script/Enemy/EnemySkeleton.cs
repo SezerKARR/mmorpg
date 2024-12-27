@@ -16,17 +16,17 @@ namespace Script.Enemy
         public TextMeshPro enemyName;
         private EnemyHealth _enemyHealth;
         public CreaturesGroup creaturesGroup = null;
-        private PolygonCollider2D polygonCollider;
-        private Material normalMaterial;
+        private PolygonCollider2D _polygonCollider;
+        private Material _normalMaterial;
 
         [FormerlySerializedAs("enemySO")] [SerializeField]
         private MonsterSO enemySo;
-        private PlayerController lastDamagedPlayer;
+        private PlayerController _lastDamagedPlayer;
         
         private Vector3 _startPosition;
-        public void Initialize(MonsterSO monsterSO, AnimatorController animatorController)
+        public void Initialize(MonsterSO monsterSo, AnimatorController animatorController)
         {
-            this.enemySo = monsterSO;
+            this.enemySo = monsterSo;
             this.GetComponent<Animator>().runtimeAnimatorController = animatorController;
         }
         public void Awake()
@@ -35,8 +35,8 @@ namespace Script.Enemy
             _characterAnims = new CharacterAnims(GetComponent<Animator>(), 0.2f);
             _enemyHealth = new EnemyHealth(enemySo.health);
             this._enemyHealth.OnDeath += Death;
-            normalMaterial = GetComponent<SpriteRenderer>().material;
-            polygonCollider = GetComponent<PolygonCollider2D>();
+            _normalMaterial = GetComponent<SpriteRenderer>().material;
+            _polygonCollider = GetComponent<PolygonCollider2D>();
             
             enemyName.SetText($"<color=yellow> Lv. {enemySo.level}</color><color=red> {enemySo.monsterName}</color>");
         }
@@ -49,7 +49,7 @@ namespace Script.Enemy
         public void Update()
         {
             transform.position += new Vector3(0.1f, 0.1f, 0f) * Time.deltaTime;
-            _characterAnims.UpdateAnim(AnimAndDirection.AnimEnum.Idle, Vector2.left);
+            _characterAnims.UpdateAnim(AnimationEnum.Idle, Vector2.left);
             
         }
 
@@ -69,7 +69,7 @@ namespace Script.Enemy
         {
             // todo: belirli bir cana kadar vuran oyunculara drop atacak bu drop i�in rastgele aralar�ndan bir playerController se�ilecek
             //todo: iki kat e�ya i�in droplar ayarlanacak her playerController i�in ayr� ayr�
-            lastDamagedPlayer = p;
+            _lastDamagedPlayer = p;
             _enemyHealth.TakeDamage(damage);
 
         }
@@ -77,10 +77,10 @@ namespace Script.Enemy
         public void Death()
         {
            
-            EnemyEvent.OnDeath?.Invoke((lastDamagedPlayer,enemySo));
+            EnemyEvent.OnDeath?.Invoke((_lastDamagedPlayer,enemySo));
             creaturesGroup.OnEnemyDeath();
-            DropItem(lastDamagedPlayer);
-            lastDamagedPlayer.ExpCalculator(int.Parse(enemySo.exp), int.Parse(enemySo.level));
+            DropItem(_lastDamagedPlayer);
+            _lastDamagedPlayer.ExpCalculator(int.Parse(enemySo.exp), int.Parse(enemySo.level));
             Destroy(gameObject);
 
         }
@@ -116,7 +116,7 @@ namespace Script.Enemy
 
         public void ResetClicked()
         {
-            this.GetComponent<SpriteRenderer>().material = normalMaterial;
+            this.GetComponent<SpriteRenderer>().material = _normalMaterial;
         }
 
 

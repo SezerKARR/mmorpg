@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
+using Script.Player.PlayerState;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using static UnityEngine.RuleTile.TilingRuleOutput;
 
-public class MoveState : PlayerState
+public class MoveState : CharacterState
 {
     public float moveSpeed = 7f;
     public Vector2 moveDirection = Vector2.zero;
@@ -55,7 +56,7 @@ public class MoveState : PlayerState
     {
 
     }
-    public override bool CanTransitionTo(PlayerState newState)
+    public override bool CanTransitionTo(CharacterState newState)
     {
         return base.CanTransitionTo(newState);
     }

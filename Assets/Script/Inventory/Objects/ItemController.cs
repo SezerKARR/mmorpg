@@ -1,4 +1,6 @@
 using Script.Bonus;
+using Script.ScriptableObject.Equipment;
+
 namespace Script.Inventory.Objects
 {
     public class ItemController : ObjectController

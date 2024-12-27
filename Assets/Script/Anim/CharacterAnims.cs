@@ -1,32 +1,33 @@
 using System;
 using UnityEngine;
+using static Script.Anim.AnimAndDirection;
 
 namespace Script.Anim
 {
     public  class CharacterAnims
     {
         public Animator animator;
-        private AnimAndDirection.AnimEnum _currentAnim;
+        private AnimationEnum _currentAnimation;
         private String _direction;
         
 
         public CharacterAnims(Animator animator,float speed)
         {
             this.animator = animator;
-            UpdateAnim(AnimAndDirection.AnimEnum.Idle,Vector2.left,speed);
+            UpdateAnim(AnimationEnum.Idle,Vector2.left,speed);
         }
-        private void AnimController(AnimAndDirection.AnimEnum animEnum,string direction,float speed)
+        private void AnimController(AnimationEnum animationEnum,string direction,float speed)
         {
-            if(_currentAnim==animEnum&&_direction==direction)return;
-            _currentAnim = animEnum;
+            if(_currentAnimation==animationEnum&&_direction==direction)return;
+            _currentAnimation = animationEnum;
             _direction = direction;
-            string animWithDirection = animEnum.ToString() + direction;
+            string animWithDirection = animationEnum.ToString() + direction;
             animator.CrossFade(animWithDirection, speed);
         }
-        public  void UpdateAnim(AnimAndDirection.AnimEnum animEnum,Vector2 direction,float speed=0.2f)
+        public  void UpdateAnim(AnimationEnum animationEnum,Vector2 direction,float speed=0.2f)
         {
             
-            AnimController(animEnum,DirectionToString(direction),0.2f);
+            AnimController(animationEnum,DirectionToString(direction),0.2f);
         }
        
 

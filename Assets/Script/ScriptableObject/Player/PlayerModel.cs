@@ -1,4 +1,5 @@
 using Script.Player;
+using Script.ScriptableObject.Equipment;
 
 namespace Script.ScriptableObject.Player
 {
