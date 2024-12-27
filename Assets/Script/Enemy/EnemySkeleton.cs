@@ -15,8 +15,7 @@ namespace Script.Enemy
         private CharacterAnims _characterAnims;
         public TextMeshPro enemyName;
         private EnemyHealth _enemyHealth;
-        public CreaturesGroup creaturesGroup = null;
-        private PolygonCollider2D _polygonCollider;
+        public CreaturesGroup creaturesGroup;
         private Material _normalMaterial;
 
         [FormerlySerializedAs("enemySO")] [SerializeField]
@@ -26,17 +25,17 @@ namespace Script.Enemy
         private Vector3 _startPosition;
         public void Initialize(MonsterSO monsterSo, AnimatorController animatorController)
         {
+            this.transform.position = _startPosition;
             this.enemySo = monsterSo;
             this.GetComponent<Animator>().runtimeAnimatorController = animatorController;
         }
         public void Awake()
         {
             _startPosition = transform.position;
-            _characterAnims = new CharacterAnims(GetComponent<Animator>(), 0.2f);
+            _characterAnims = new CharacterAnims(GetComponent<Animator>());
             _enemyHealth = new EnemyHealth(enemySo.health);
             this._enemyHealth.OnDeath += Death;
             _normalMaterial = GetComponent<SpriteRenderer>().material;
-            _polygonCollider = GetComponent<PolygonCollider2D>();
             
             enemyName.SetText($"<color=yellow> Lv. {enemySo.level}</color><color=red> {enemySo.monsterName}</color>");
         }
@@ -86,15 +85,10 @@ namespace Script.Enemy
         }
 
         public void DropItem(PlayerController player)
-        {
-            if (0 < 1)
+        {  
+            foreach (var canDrop in enemySo.canDrops)
             {
-                foreach (var canDrop in enemySo.canDrops)
-                {
-                    GameEvent.OnItemDroppedWithPlayer?.Invoke(transform.position, canDrop, player.playerName);
-
-
-                }
+                GameEvent.OnItemDroppedWithPlayer?.Invoke(transform.position, canDrop, player.playerName);
 
 
             }

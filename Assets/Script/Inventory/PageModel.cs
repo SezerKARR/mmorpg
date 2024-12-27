@@ -9,7 +9,6 @@ using UnityEngine.Serialization;
 namespace Script.Inventory
 {
     
-  
     public class PageModel:MonoBehaviour
     {
         [FormerlySerializedAs("PageData")] public PageData pageData;

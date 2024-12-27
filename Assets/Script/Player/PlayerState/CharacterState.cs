@@ -5,27 +5,28 @@ namespace Script.Player.PlayerState
 {
     public abstract class CharacterState
     {
-        protected CharacterAnims characterAnims;
-        protected Animator animator;
-        protected PlayerStateManager stateManager;
+        protected CharacterAnims _characterAnims;
+        protected Animator _animator;
+        protected PlayerStateManager _stateManager;
+        protected Vector2 _direction;
 
-
-        protected CharacterState(PlayerStateManager manager)
+        protected CharacterState(PlayerStateManager manager, Vector2 direction)
         {
-            stateManager = manager;
-            animator = stateManager.animator;
-
+            _direction = direction;
+            _stateManager = manager;
+            _animator = _stateManager.animator;
+            _characterAnims=new CharacterAnims(_animator);
 
         }
 
     
         public virtual void EnterState()
-        { 
-
+        {
+            
         }
         public virtual void UpdateState()
         {
-
+            
         }
         public virtual void ExitState() 
         { 

@@ -1,48 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
-using Script.Player.PlayerState;
+using Script.Anim;
 using UnityEngine;
 
-public class IdleState :  CharacterState
+namespace Script.Player.PlayerState
 {
-    public IdleState(PlayerStateManager manager) : base(manager) { }
-    public override void EnterState()
+    public class IdleState :  CharacterState
     {
-        //MonoBehaviour.print("idlestate");
+        public IdleState(PlayerStateManager manager,Vector2 direction) : base(manager, direction) { }
+        public override void EnterState()
+        {
+            //MonoBehaviour.print("idlestate");
     
-    }
-
-    public override void ExitState()
-    {
-        //MonoBehaviour.print("geldi");
-    }
-
-    public override void UpdateState()
-    {
-        animator.SetFloat("StopedPos", stateManager.animValue);
-        if (animator.GetFloat("StopedPos") > 0)
-        {
-            animator.SetFloat("WalkPos", 0);
-            animator.SetFloat("IdlePos", -1);
-            // StartCoroutine(WaitBeforeIdle(playerController));
         }
+
+        public override void ExitState()
+        {
+            //MonoBehaviour.print("geldi");
+        }
+
+        public override void UpdateState()
+        {
+            _characterAnims.UpdateAnim(AnimationEnum.Idle,_direction);
        
-    }
-    public override bool CanTransitionTo(CharacterState newState)
-    {
-        
-        return base.CanTransitionTo(newState);
-    }
-
-    IEnumerator WaitBeforeIdle(PlayerMovement player)
-    {
-        
-        yield return new WaitForSeconds(5);
-        if (animator.GetFloat("WalkPos") == 0 && animator.GetFloat("IdlePos") == -1)
-        {
-            animator.SetFloat("IdlePos", stateManager.animValue);
-
         }
-
+        public override bool CanTransitionTo(CharacterState newState)
+        {
+        
+            return base.CanTransitionTo(newState);
+        }
     }
 }

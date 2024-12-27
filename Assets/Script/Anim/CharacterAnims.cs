@@ -1,20 +1,24 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
-using static Script.Anim.AnimAndDirection;
+using Random = UnityEngine.Random;
 
 namespace Script.Anim
 {
     public  class CharacterAnims
     {
-        public Animator animator;
+        private readonly Animator _animator;
         private AnimationEnum _currentAnimation;
         private String _direction;
         
 
-        public CharacterAnims(Animator animator,float speed)
+        public CharacterAnims(Animator animator)
         {
-            this.animator = animator;
-            UpdateAnim(AnimationEnum.Idle,Vector2.left,speed);
+            Vector2[] directions = { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
+            Vector2 randomDirection = directions[Random.Range(0, directions.Length)];
+            this._animator = animator;
+            UpdateAnim(AnimationEnum.Idle,randomDirection);
+            
         }
         private void AnimController(AnimationEnum animationEnum,string direction,float speed)
         {
@@ -22,7 +26,7 @@ namespace Script.Anim
             _currentAnimation = animationEnum;
             _direction = direction;
             string animWithDirection = animationEnum.ToString() + direction;
-            animator.CrossFade(animWithDirection, speed);
+            _animator.CrossFade(animWithDirection, speed);
         }
         public  void UpdateAnim(AnimationEnum animationEnum,Vector2 direction,float speed=0.2f)
         {
@@ -33,11 +37,7 @@ namespace Script.Anim
 
         private string DirectionToString(Vector2 direction)
         {
-            if (AnimAndDirection.DirectionToStringMap.TryGetValue(direction, out string directionString))
-            {
-                return directionString;
-            }
-            return null;
+            return AnimAndDirection.DirectionToStringMap.GetValueOrDefault(direction);
         }
     }
 }

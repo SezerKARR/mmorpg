@@ -1,3 +1,4 @@
+using System;
 using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
@@ -5,6 +6,7 @@ using UnityEngine;
 [InitializeOnLoad]
 public class AutoLayoutSwitcher
 {
+    [Obsolete("Obsolete")]
     static AutoLayoutSwitcher()
     {
         // Play mode'a ge�ildi�inde �al��acak bir callback ekliyoruz

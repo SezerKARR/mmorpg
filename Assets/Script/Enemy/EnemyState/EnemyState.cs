@@ -1,7 +1,9 @@
+using Script.Player.PlayerState;
+
 namespace Script.Enemy.EnemyState
 {
     public class EnemyState
     {
-        private IdleState idleState;
+        private IdleState _idleState;
     }
 }

@@ -22,7 +22,6 @@ namespace Script.Enemy
         {
 
             //print(holder.groupReturnsTime);
-            CreateGroupCreatures();
             totalCreatures = creaturesDifficult.Count;
         }
         public float GetDistanceTo(Vector3 point)
@@ -38,18 +37,18 @@ namespace Script.Enemy
                 CreateEnemy();
             }
         }
-        public void CreateGroupCreatures()
-        {
-
-            foreach (int creatureNumber in creaturesDifficult)
-            {
-            
-                GameObject currentCreatures = Instantiate(currentMapCreatures.objects[creatureNumber].prefab, RandomPositionByObjectCircle(), Quaternion.identity);
-                currentCreatures.transform.SetParent(this.transform);
-                currentCreatures.GetComponent<EnemySkeleton>().creaturesGroup = this.gameObject.GetComponent<CreaturesGroup>();
-                currentCreaturesNumber++;
-            }
-        }
+        // public void CreateGroupCreatures()
+        // {
+        //
+        //     foreach (int creatureNumber in creaturesDifficult)
+        //     {
+        //     
+        //         GameObject currentCreatures = Instantiate(currentMapCreatures.objects[creatureNumber].prefab, RandomPositionByObjectCircle(), Quaternion.identity);
+        //         currentCreatures.transform.SetParent(this.transform);
+        //         currentCreatures.GetComponent<EnemySkeleton>().creaturesGroup = this.gameObject.GetComponent<CreaturesGroup>();
+        //         currentCreaturesNumber++;
+        //     }
+        // }
         Vector3 RandomPositionByObjectCircle()
         {
             Vector2 position = new Vector2(Random.Range(transform.position.x - 2f, transform.position.x + 2f), Random.Range(transform.position.y - 2f, transform.position.y + 2f));
@@ -76,7 +75,6 @@ namespace Script.Enemy
 
                     yield return new WaitForSeconds(5);
                     //print("zaman ge�ti");
-                    CreateGroupCreatures();
                 }
                 else
                 {

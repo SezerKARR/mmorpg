@@ -5,17 +5,15 @@ namespace Script.Player.PlayerState
 {
     public class PlayerStateManager : MonoBehaviour
     {
-        public static PlayerStateManager Instance;
-        private CharacterState _currentState;
-        private PlayerMovement _playerMovement;
+   
+        private Vector2 _direction;
         public Animator animator;
         [HideInInspector]
         public int animValue;
+        private CharacterState _currentState;
         private void Awake()
         {
             animator = GetComponent<Animator>();
-            _playerMovement = GetComponent<PlayerMovement>();
-            Instance = this;
             InputPlayer.OnMovePressed += CanChangeStateToMove;
             InputPlayer.OnNormalAttackPressed += CanChangeStateToAttack;
             InputPlayer.OnIdlePerformed += CanChangeStateToIdle;
@@ -28,29 +26,30 @@ namespace Script.Player.PlayerState
             //states.Add(PlayerStateType.Dodge, new DodgeState(this));
 
             // �lk durumu ayarla
-            _currentState = new IdleState(this);
+            _currentState = new IdleState(this,Vector2.down);
             _currentState.EnterState();
         }
         private void Update()
         {
             if (_currentState == null)
             {
-                _currentState = new IdleState(this);
+                _currentState = new IdleState(this,Vector2.down);
                 _currentState.EnterState();
             }
             _currentState.UpdateState();
         }
         public void CanChangeStateToMove(Vector2 walkDirection)
         {
-            ChangeState(new MoveState(this, walkDirection));
+            _direction = walkDirection;
+            ChangeState(new MoveState(this,walkDirection));
         }
         public void CanChangeStateToIdle()
         {
-            ChangeState(new IdleState(this));
+            ChangeState(new IdleState(this,_direction));
         }
         public void CanChangeStateToAttack()
         {
-            ChangeState(new AttackState(this));
+            ChangeState(new AttackState(this,_direction));
 
         }
         public void StartPlayerCoroutine(IEnumerator routine)

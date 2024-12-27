@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Script.Anim;
 using Script.Player.PlayerState;
 using UnityEngine;
 
 public class AttackState :  CharacterState
 {
-    public AttackState(PlayerStateManager manager) : base(manager) { }
+    public AttackState(PlayerStateManager manager,Vector2 direction) : base(manager, direction) { }
     bool wait = false;
+    
     
     public override void EnterState()       
     {
@@ -29,7 +31,7 @@ public class AttackState :  CharacterState
     public override void ExitState( )
     {
         base.ExitState();
-        animator.SetFloat("AttackPos", 0);
+        _animator.SetFloat("AttackPos", 0);
     }
 
 
@@ -46,7 +48,7 @@ public class AttackState :  CharacterState
         {
 
 
-            stateManager.StartPlayerCoroutine(Waita(GetCurrentAnimatorTime(animator)));
+            _stateManager.StartPlayerCoroutine(Waita(GetCurrentAnimatorTime(_animator)));
             //if you want the walk in attack animation time you need + call the walk() function here and
             //change the waitattack coroutine canchangestatetowalk() to if(shootFloat==0){canchangestatetowalk()}
         }
@@ -60,7 +62,7 @@ public class AttackState :  CharacterState
     public IEnumerator Waita(float second)
     {
         wait = true;
-        animator.SetFloat("AttackPos", stateManager.animValue);
+        _characterAnims.UpdateAnim(AnimationEnum.Attack,_direction);
         yield return new WaitForSeconds(0.345f);
         //CanChangeStateToWalk();
         //CanChangeStateToIdle();
