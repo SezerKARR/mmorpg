@@ -33,9 +33,6 @@ namespace Script.Player.PlayerState
         {
 
         }
-        public override bool CanTransitionTo(CharacterState newState)
-        {
-            return base.CanTransitionTo(newState);
-        }
+        
     }
 }

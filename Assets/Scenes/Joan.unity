@@ -17694,7 +17694,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 7.9700003, y: 7.91, z: -10.000772}
+  m_LocalPosition: {x: 0, y: 0, z: -10.000772}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -18584,6 +18584,7 @@ MonoBehaviour:
   sword: {fileID: 11400000, guid: 3272b25546fe37b488ede8fa25842582, type: 2}
   moveSpeed: 7
   itemDropWithOutName: {fileID: 1958407190808054159, guid: 7e398be09f94e7e459732da780cff679, type: 3}
+  playerModel: {fileID: 11400000, guid: bda2b99e31d570645ac9994322275c9d, type: 2}
   lineRenderer: {fileID: 0}
 --- !u!1001 &665830184
 PrefabInstance:

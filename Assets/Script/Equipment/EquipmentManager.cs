@@ -28,6 +28,7 @@ namespace Script.Equipment
         //public  event Action OnUnEquip;
         private void Awake()
         {
+            Debug.Log("geldi");
             ItemEvents.OnItemRightClickedInventory += ControlCanEquip;
             EquipmentSlot[] equips = this.GetComponentsInChildren<EquipmentSlot>();
             foreach(EquipmentSlot equip in equips)

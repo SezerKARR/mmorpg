@@ -1,9 +1,11 @@
 using Script.Bonus;
+using UnityEditor;
 
 /* Contains all the stats for a character. */
 
 namespace Script.ScriptableObject.Player
 {
+    
     public abstract class CharacterStats : UnityEngine.ScriptableObject
     {
         public Stats stats;

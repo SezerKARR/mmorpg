@@ -31,7 +31,7 @@ namespace Script.Anim
         public  void UpdateAnim(AnimationEnum animationEnum,Vector2 direction,float speed=0.2f)
         {
             
-            AnimController(animationEnum,DirectionToString(direction),0.2f);
+            AnimController(animationEnum,DirectionToString(direction),speed);   
         }
        
 

@@ -30,7 +30,7 @@ namespace Script.Player
         public float moveSpeed = 7f;
         [FormerlySerializedAs("ıtemDropWithOutName")] [FormerlySerializedAs("ItemDropWithOutName")] public GameObject itemDropWithOutName;
         //public Sprite[] playerIdleSprite;
-        private PlayerModel _playerModel;
+        public PlayerModel playerModel;
 
         
        // public EquipmentStat EquipmentStat = new EquipmentStat();
@@ -39,8 +39,8 @@ namespace Script.Player
     
         
        
-       public int level=>_playerModel.level;
-       public Character playerCharecterType=>_playerModel.character;
+       public int level=>playerModel.level;
+       public Character playerCharecterType=>playerModel.character;
         private void Awake()
         {
             _mainCamera = Camera.main;
@@ -51,12 +51,12 @@ namespace Script.Player
 
         private void OnEquipItem(ItemController item)
         {
-            _playerModel.UpdateStats(item.GetStats(),true);
+            playerModel.UpdateStats(item.GetStats(),true);
         }
 
         private void OnUnEquipItem(ItemController item)
         {
-            _playerModel.UpdateStats(item.GetStats(),false);
+            playerModel.UpdateStats(item.GetStats(),false);
         }
 
         private void Start()

@@ -1,9 +1,10 @@
 using Script.Player;
 using Script.ScriptableObject.Equipment;
+using UnityEngine;
 
 namespace Script.ScriptableObject.Player
 {
-    
+    [CreateAssetMenu(menuName = "ScriptableObject/Player/PlayerModel")]
     public class PlayerModel : CharacterStats
     {
 
