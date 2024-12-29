@@ -38,11 +38,11 @@ namespace TMPro.Examples
 
             if (m_isHoveringObject)
             {
-                #region Example of Character Selection
+                #region Example of CharacterType Selection
                 int charIndex = TMP_TextUtilities.FindIntersectingCharacter(m_TextMeshPro, Input.mousePosition, Camera.main, true);
                 if (charIndex != -1 && charIndex != m_lastCharIndex && (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)))
                 {
-                    //Debug.Log("[" + m_TextMeshPro.textInfo.characterInfo[charIndex].character + "] has been selected.");
+                    //Debug.Log("[" + m_TextMeshPro.textInfo.characterInfo[charIndex].characterType + "] has been selected.");
 
                     m_lastCharIndex = charIndex;
 

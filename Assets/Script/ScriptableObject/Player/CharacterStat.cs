@@ -1,7 +1,7 @@
 using Script.Bonus;
 using UnityEditor;
 
-/* Contains all the stats for a character. */
+/* Contains all the stats for a characterType. */
 
 namespace Script.ScriptableObject.Player
 {
@@ -44,7 +44,7 @@ namespace Script.ScriptableObject.Player
         //
         // }
         //
-        // // Damage the character
+        // // Damage the characterType
         // public void TakeDamage(int damage)
         // {
         //     // Subtract the armor value - Make sure damage doesn't go below 0.
@@ -65,7 +65,7 @@ namespace Script.ScriptableObject.Player
         //     }
         // }
         //
-        // // Heal the character.
+        // // Heal the characterType.
         // public void Heal(int amount)
         // {
         //     currentHealth += amount;

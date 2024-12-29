@@ -1005,70 +1005,70 @@ private static void CsvFromSoExpPerLevel()
             {
                 swordSO.weightInInventory = 2;
                 swordSO.typeWeapon = TypeWeapon.Swords;
-                SetCanUseCharacter(Character.Sura,swordSO);
-                SetCanUseCharacter(Character.Warrior,swordSO);
-                SetCanUseCharacter(Character.Ninja,swordSO);
+                SetCanUseCharacter(CharacterType.Sura,swordSO);
+                SetCanUseCharacter(CharacterType.Warrior,swordSO);
+                SetCanUseCharacter(CharacterType.Ninja,swordSO);
 
             }
             else if (swordType.Equals("Two Handed"))
             {
                 swordSO.weightInInventory = 3;
                 swordSO.typeWeapon = TypeWeapon.TwoHandedWeapons;
-                SetCanUseCharacter(Character.Warrior,swordSO);
+                SetCanUseCharacter(CharacterType.Warrior,swordSO);
 
             }
             else if (swordType.Equals("Blade"))
             {
                 swordSO.weightInInventory = 2;
                 swordSO.typeWeapon = TypeWeapon.Blades;
-                SetCanUseCharacter(Character.Sura, swordSO);
+                SetCanUseCharacter(CharacterType.Sura, swordSO);
             }
             else if (swordType.Equals("Fan"))
             {
                 swordSO.weightInInventory = 1;
                 swordSO.typeWeapon = TypeWeapon.Fans;
-                SetCanUseCharacter(Character.Shaman, swordSO);
+                SetCanUseCharacter(CharacterType.Shaman, swordSO);
             }
             else if (swordType.Equals("Bell"))
             {
                 swordSO.weightInInventory = 1;
                 swordSO.typeWeapon = TypeWeapon.Bells;
-                SetCanUseCharacter(Character.Shaman, swordSO);
+                SetCanUseCharacter(CharacterType.Shaman, swordSO);
             }
             else if (swordType.Equals("Claw"))
             {
                 swordSO.weightInInventory = 1;
                 swordSO.typeWeapon = TypeWeapon.Claws;
-                SetCanUseCharacter(Character.Lycan, swordSO);
+                SetCanUseCharacter(CharacterType.Lycan, swordSO);
             }
             else if (swordType.Equals("Dagger"))
             {
                 swordSO.weightInInventory = 1;
                 swordSO.typeWeapon = TypeWeapon.Daggers;
-                SetCanUseCharacter(Character.Ninja, swordSO);
+                SetCanUseCharacter(CharacterType.Ninja, swordSO);
             }
             else if (swordType.Equals("Bow"))
             {
                 swordSO.weightInInventory = 1;
                 swordSO.typeWeapon = TypeWeapon.Bows;
-                SetCanUseCharacter(Character.Ninja, swordSO);
+                SetCanUseCharacter(CharacterType.Ninja, swordSO);
             }
 
         }
-        public static void SetCanUseCharacter(Character character, ScriptableItemsAbstact scriptableItemsAbstact)
+        public static void SetCanUseCharacter(CharacterType characterType, ScriptableItemsAbstact scriptableItemsAbstact)
         {
-            scriptableItemsAbstact.canUseCharacters.Add(character);
+            scriptableItemsAbstact.canUseCharacters.Add(characterType);
         }
-        public static Character FindCharacter(string character="Warrior")
+        public static CharacterType FindCharacter(string character="Warrior")
         {
-            foreach (Character charEnum in Enum.GetValues(typeof(Character)))
+            foreach (CharacterType charEnum in Enum.GetValues(typeof(CharacterType)))
             {
                 if (charEnum.ToString().Equals(character, StringComparison.OrdinalIgnoreCase))
                 {
                     return charEnum;
                 }
             }
-            throw new ArgumentException("Invalid character type", nameof(character));
+            throw new ArgumentException("Invalid characterType type", nameof(character));
         }
         public static void SetCanUseCharacter(string character,ScriptableItemsAbstact scriptableItemsAbstact)
         {

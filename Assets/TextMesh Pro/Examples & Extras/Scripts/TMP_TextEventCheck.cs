@@ -41,7 +41,7 @@ namespace TMPro.Examples
 
         void OnCharacterSelection(char c, int index)
         {
-            Debug.Log("Character [" + c + "] at Index: " + index + " has been selected.");
+            Debug.Log("CharacterType [" + c + "] at Index: " + index + " has been selected.");
         }
 
         void OnSpriteSelection(char c, int index)
@@ -51,12 +51,12 @@ namespace TMPro.Examples
 
         void OnWordSelection(string word, int firstCharacterIndex, int length)
         {
-            Debug.Log("Word [" + word + "] with first character index of " + firstCharacterIndex + " and length of " + length + " has been selected.");
+            Debug.Log("Word [" + word + "] with first characterType index of " + firstCharacterIndex + " and length of " + length + " has been selected.");
         }
 
         void OnLineSelection(string lineText, int firstCharacterIndex, int length)
         {
-            Debug.Log("Line [" + lineText + "] with first character index of " + firstCharacterIndex + " and length of " + length + " has been selected.");
+            Debug.Log("Line [" + lineText + "] with first characterType index of " + firstCharacterIndex + " and length of " + length + " has been selected.");
         }
 
         void OnLinkSelection(string linkID, string linkText, int linkIndex)

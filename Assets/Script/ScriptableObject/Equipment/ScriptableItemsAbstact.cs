@@ -5,7 +5,7 @@ using Stats = Script.Bonus.Stats;
 
 namespace Script.ScriptableObject.Equipment
 {
-    public enum Character
+    public enum CharacterType
     {
         Warrior, Sura, Ninja, Shaman, Lycan
     }
@@ -42,7 +42,7 @@ namespace Script.ScriptableObject.Equipment
     }*/
         [FormerlySerializedAs("itemstats")] public Stats  stats;
    
-        public List<Character> canUseCharacters = new List<Character>();
+        public List<CharacterType> canUseCharacters = new List<CharacterType>();
         public RequirementClass[] Requirements =new RequirementClass[0];
         public abstract EquipmentType equipmentType { get; }
     
@@ -115,7 +115,7 @@ namespace Script.ScriptableObject.Equipment
         //     return level;
         // }
         //
-        // public List<Character> GetCanUseCharacters()
+        // public List<CharacterType> GetCanUseCharacters()
         // {
         //     return canUseCharacters;
         // }

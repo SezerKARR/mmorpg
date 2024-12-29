@@ -12,6 +12,7 @@ namespace Script.ScriptableObject
     [CreateAssetMenu(menuName = "ScriptableObject/Exp")]
     public class ExpSo : UnityEngine.ScriptableObject
     {
+         
         [SerializeField]
         public ExpToLevel[] exps;
     }

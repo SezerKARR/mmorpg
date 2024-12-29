@@ -26,7 +26,7 @@ namespace TMPro
 
 
         /// <summary>
-        /// Event delegate triggered when pointer is over a character.
+        /// Event delegate triggered when pointer is over a characterType.
         /// </summary>
         public CharacterSelectionEvent onCharacterSelection
         {
@@ -124,7 +124,7 @@ namespace TMPro
         {
             if (TMP_TextUtilities.IsIntersectingRectTransform(m_TextComponent.rectTransform, Input.mousePosition, m_Camera))
             {
-                #region Example of Character or Sprite Selection
+                #region Example of CharacterType or Sprite Selection
                 int charIndex = TMP_TextUtilities.FindIntersectingCharacter(m_TextComponent, Input.mousePosition, m_Camera, true);
                 if (charIndex != -1 && charIndex != m_lastCharIndex)
                 {
@@ -132,7 +132,7 @@ namespace TMPro
 
                     TMP_TextElementType elementType = m_TextComponent.textInfo.characterInfo[charIndex].elementType;
 
-                    // Send event to any event listeners depending on whether it is a character or sprite.
+                    // Send event to any event listeners depending on whether it is a characterType or sprite.
                     if (elementType == TMP_TextElementType.Character)
                         SendOnCharacterSelection(m_TextComponent.textInfo.characterInfo[charIndex].character, charIndex);
                     else if (elementType == TMP_TextElementType.Sprite)

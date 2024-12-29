@@ -11,40 +11,31 @@ using UnityEngine.Serialization;
 
 namespace Script.Player
 {
-    public enum GroupType
-    {
-        Level,
-        Even
-    }
-    public enum DamageType
-    {
-        Normal,
-        Crit,
-        Magical
-    }
-    public class PlayerController : MonoBehaviour
+    
+    public class PlayerController : CharacterController
     {
     
-        public string playerName="satisfaction";
+       
         private Camera _mainCamera;
-        public PolygonCollider2D[] attackColliderNormalSword;
+        
         public SwordSo sword;
-        public float moveSpeed = 7f;
+        
         [FormerlySerializedAs("ıtemDropWithOutName")] [FormerlySerializedAs("ItemDropWithOutName")] public GameObject itemDropWithOutName;
         //public Sprite[] playerIdleSprite;
-        public PlayerModel playerModel;
-        public ExpController expController;
-            
+        
+        
+        
        // public EquipmentStat EquipmentStat = new EquipmentStat();
         private float _swordPhsichalDamage;
         public LineRenderer lineRenderer;
         
         
        
-       public int level=>playerModel.level;
-       public Character playerCharecterType=>playerModel.character;
-        private void Awake()
+       
+        protected override void Awake()
         {
+            base.Awake();
+            _expController = new ExpController(characterModel.level, characterModel.exp);
             _mainCamera = Camera.main;
             EquipmentEvent.OnEquip += OnEquipItem;
             EquipmentEvent.OnUnequip += OnUnEquipItem;
@@ -53,12 +44,12 @@ namespace Script.Player
 
         private void OnEquipItem(ItemController item)
         {
-            playerModel.UpdateStats(item.GetStats(),true);
+            characterModel.UpdateStats(item.GetStats(),true);
         }
 
         private void OnUnEquipItem(ItemController item)
         {
-            playerModel.UpdateStats(item.GetStats(),false);
+            characterModel.UpdateStats(item.GetStats(),false);
         }
 
         private void Start()
@@ -88,8 +79,7 @@ namespace Script.Player
         }
         public  void ExpCalculator(float exp)
         {
-            Debug.Log(exp.ToString());
-            expController.ChangeExp((playerModel.level,exp));
+            _expController.ChangeExp((characterModel.level,exp));
             // print( GameManager.instance.ExpRateCalculate(creatureLevel - level));
             /*if (!haveGroup)
         {

@@ -89,7 +89,7 @@ namespace TMPro.Examples
                     continue;
                 }
 
-                // Clear list of character scales
+                // Clear list of characterType scales
                 modifiedCharScale.Clear();
                 scaleSortingOrder.Clear();
 
@@ -101,22 +101,22 @@ namespace TMPro.Examples
                     if (!charInfo.isVisible)
                         continue;
 
-                    // Get the index of the material used by the current character.
+                    // Get the index of the material used by the current characterType.
                     int materialIndex = textInfo.characterInfo[i].materialReferenceIndex;
 
                     // Get the index of the first vertex used by this text element.
                     int vertexIndex = textInfo.characterInfo[i].vertexIndex;
 
-                    // Get the cached vertices of the mesh used by this text element (character or sprite).
+                    // Get the cached vertices of the mesh used by this text element (characterType or sprite).
                     Vector3[] sourceVertices = cachedMeshInfoVertexData[materialIndex].vertices;
 
-                    // Determine the center point of each character at the baseline.
+                    // Determine the center point of each characterType at the baseline.
                     //Vector2 charMidBasline = new Vector2((sourceVertices[vertexIndex + 0].x + sourceVertices[vertexIndex + 2].x) / 2, charInfo.baseLine);
-                    // Determine the center point of each character.
+                    // Determine the center point of each characterType.
                     Vector2 charMidBasline = (sourceVertices[vertexIndex + 0] + sourceVertices[vertexIndex + 2]) / 2;
 
-                    // Need to translate all 4 vertices of each quad to aligned with middle of character / baseline.
-                    // This is needed so the matrix TRS is applied at the origin for each character.
+                    // Need to translate all 4 vertices of each quad to aligned with middle of characterType / baseline.
+                    // This is needed so the matrix TRS is applied at the origin for each characterType.
                     Vector3 offset = charMidBasline;
 
                     Vector3[] destinationVertices = textInfo.meshInfo[materialIndex].vertices;
@@ -128,7 +128,7 @@ namespace TMPro.Examples
 
                     //Vector3 jitterOffset = new Vector3(Random.Range(-.25f, .25f), Random.Range(-.25f, .25f), 0);
 
-                    // Determine the random scale change for each character.
+                    // Determine the random scale change for each characterType.
                     float randomScale = Random.Range(1f, 1.5f);
                     
                     // Add modified scale and index

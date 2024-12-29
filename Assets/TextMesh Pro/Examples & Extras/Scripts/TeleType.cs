@@ -51,7 +51,7 @@ namespace TMPro.Examples
             m_textMeshPro.ForceMeshUpdate();
 
 
-            int totalVisibleCharacters = m_textMeshPro.textInfo.characterCount; // Get # of Visible Character in text object
+            int totalVisibleCharacters = m_textMeshPro.textInfo.characterCount; // Get # of Visible CharacterType in text object
             int counter = 0;
             int visibleCount = 0;
 
@@ -61,7 +61,7 @@ namespace TMPro.Examples
 
                 m_textMeshPro.maxVisibleCharacters = visibleCount; // How many characters should TextMeshPro display?
 
-                // Once the last character has been revealed, wait 1.0 second and start over.
+                // Once the last characterType has been revealed, wait 1.0 second and start over.
                 if (visibleCount >= totalVisibleCharacters)
                 {
                     yield return new WaitForSeconds(1.0f);

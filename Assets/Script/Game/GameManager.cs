@@ -16,7 +16,7 @@ namespace Script
     public class GameManager : MonoBehaviour
     {
         public ItemPrefabList ItemDropPrefabs;
-        public  ExpPerLevelSO expPer;
+        
         public static GameManager Instance;
         private ObjectPooler ItemDropPooler;
         [Inject] private PlayerController _playerController;
@@ -33,6 +33,7 @@ namespace Script
         private void EnemyDeath((PlayerController player, MonsterSO deathMonster) obj)
         {
            
+            
             float exp=obj.deathMonster.expint*ExpRateCalculate(obj.deathMonster.levelint-obj.player.level);
             obj.player.ExpCalculator(exp/100f);
         }
@@ -51,31 +52,7 @@ namespace Script
             ItemDropPooler.SpawnFromPool<ItemDrop>(DropType.WithoutPlayerName.ToString()).OnActivate(objectAbstract,null,transform.position);
         }
         //public  void Wiev
-        public  float ExpRateCalculate(int levelDiff)
-        {
-            if (levelDiff >= expPer.levelDiff[0])
-            {
-                return expPer.expRate[0];
-            }
-            else if (levelDiff <= expPer.levelDiff[expPer.levelDiff.Length - 1])
-            {
-                return expPer.expRate[expPer.expRate.Length - 1];
-            }
-            else
-            {
-                int i = 0;
-                foreach (var exp in expPer.levelDiff.Skip(1).Take(expPer.levelDiff.Length - 2))
-                {
-                    if (levelDiff == exp)
-                    {
-                        return expPer.expRate[i];
-                    }
-                    i++;
-
-                }
-            }
-            return expPer.expRate[expPer.expRate.Length - 1];
-        }
+        
 
         
     }

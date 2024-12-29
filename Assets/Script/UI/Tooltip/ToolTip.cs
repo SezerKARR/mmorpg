@@ -40,7 +40,7 @@ public class ToolTip : MonoBehaviour,ITooltipAble
                 
             }
             string b = "";
-            foreach (Character character in sword.canUseCharacters)
+            foreach (CharacterType character in sword.canUseCharacters)
             {
                 b += character.ToString() + " ";
             }

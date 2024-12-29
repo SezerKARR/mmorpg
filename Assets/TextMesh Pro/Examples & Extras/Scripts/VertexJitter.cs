@@ -112,25 +112,25 @@ namespace TMPro.Examples
                     if (!charInfo.isVisible)
                         continue;
 
-                    // Retrieve the pre-computed animation data for the given character.
+                    // Retrieve the pre-computed animation data for the given characterType.
                     VertexAnim vertAnim = vertexAnim[i];
 
-                    // Get the index of the material used by the current character.
+                    // Get the index of the material used by the current characterType.
                     int materialIndex = textInfo.characterInfo[i].materialReferenceIndex;
 
                     // Get the index of the first vertex used by this text element.
                     int vertexIndex = textInfo.characterInfo[i].vertexIndex;
 
-                    // Get the cached vertices of the mesh used by this text element (character or sprite).
+                    // Get the cached vertices of the mesh used by this text element (characterType or sprite).
                     Vector3[] sourceVertices = cachedMeshInfo[materialIndex].vertices;
 
-                    // Determine the center point of each character at the baseline.
+                    // Determine the center point of each characterType at the baseline.
                     //Vector2 charMidBasline = new Vector2((sourceVertices[vertexIndex + 0].x + sourceVertices[vertexIndex + 2].x) / 2, charInfo.baseLine);
-                    // Determine the center point of each character.
+                    // Determine the center point of each characterType.
                     Vector2 charMidBasline = (sourceVertices[vertexIndex + 0] + sourceVertices[vertexIndex + 2]) / 2;
 
-                    // Need to translate all 4 vertices of each quad to aligned with middle of character / baseline.
-                    // This is needed so the matrix TRS is applied at the origin for each character.
+                    // Need to translate all 4 vertices of each quad to aligned with middle of characterType / baseline.
+                    // This is needed so the matrix TRS is applied at the origin for each characterType.
                     Vector3 offset = charMidBasline;
 
                     Vector3[] destinationVertices = textInfo.meshInfo[materialIndex].vertices;

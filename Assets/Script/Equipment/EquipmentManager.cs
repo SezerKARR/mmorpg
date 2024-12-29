@@ -46,7 +46,7 @@ namespace Script.Equipment
         //     
         //     }
         // }
-        public bool IsCharacterMatch(List<Character> canUseCharacter)
+        public bool IsCharacterMatch(List<CharacterType> canUseCharacter)
         {
             return canUseCharacter.Contains(_playerController.playerCharecterType);
         }

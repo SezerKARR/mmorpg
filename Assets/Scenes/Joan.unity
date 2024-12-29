@@ -18703,7 +18703,6 @@ MonoBehaviour:
   moveSpeed: 7
   itemDropWithOutName: {fileID: 1958407190808054159, guid: 7e398be09f94e7e459732da780cff679, type: 3}
   playerModel: {fileID: 11400000, guid: bda2b99e31d570645ac9994322275c9d, type: 2}
-  expController: {fileID: 910972456}
   lineRenderer: {fileID: 0}
 --- !u!1001 &665830184
 PrefabInstance:

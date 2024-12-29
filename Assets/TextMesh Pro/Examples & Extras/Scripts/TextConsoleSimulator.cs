@@ -42,7 +42,7 @@ namespace TMPro.Examples
 
 
         /// <summary>
-        /// Method revealing the text one character at a time.
+        /// Method revealing the text one characterType at a time.
         /// </summary>
         /// <returns></returns>
         IEnumerator RevealCharacters(TMP_Text textComponent)
@@ -51,14 +51,14 @@ namespace TMPro.Examples
 
             TMP_TextInfo textInfo = textComponent.textInfo;
 
-            int totalVisibleCharacters = textInfo.characterCount; // Get # of Visible Character in text object
+            int totalVisibleCharacters = textInfo.characterCount; // Get # of Visible CharacterType in text object
             int visibleCount = 0;
 
             while (true)
             {
                 if (hasTextChanged)
                 {
-                    totalVisibleCharacters = textInfo.characterCount; // Update visible character count.
+                    totalVisibleCharacters = textInfo.characterCount; // Update visible characterType count.
                     hasTextChanged = false; 
                 }
 
@@ -86,7 +86,7 @@ namespace TMPro.Examples
             textComponent.ForceMeshUpdate();
 
             int totalWordCount = textComponent.textInfo.wordCount;
-            int totalVisibleCharacters = textComponent.textInfo.characterCount; // Get # of Visible Character in text object
+            int totalVisibleCharacters = textComponent.textInfo.characterCount; // Get # of Visible CharacterType in text object
             int counter = 0;
             int currentWord = 0;
             int visibleCount = 0;
@@ -95,7 +95,7 @@ namespace TMPro.Examples
             {
                 currentWord = counter % (totalWordCount + 1);
 
-                // Get last character index for the current word.
+                // Get last characterType index for the current word.
                 if (currentWord == 0) // Display no words.
                     visibleCount = 0;
                 else if (currentWord < totalWordCount) // Display all other words with the exception of the last one.
@@ -105,7 +105,7 @@ namespace TMPro.Examples
 
                 textComponent.maxVisibleCharacters = visibleCount; // How many characters should TextMeshPro display?
 
-                // Once the last character has been revealed, wait 1.0 second and start over.
+                // Once the last characterType has been revealed, wait 1.0 second and start over.
                 if (visibleCount >= totalVisibleCharacters)
                 {
                     yield return new WaitForSeconds(1.0f);
