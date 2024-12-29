@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6364c4d80b0ec49a783f0ec466a98c, type: 3}
   m_Name: Spider Egg Sack
   m_EditorClassIdentifier: 
-  Place: 0
-  Image: {fileID: 0}
-  ItemName: Spider Egg Sack
+  place: 0
+  "\u0131mage": {fileID: 0}
+  "\u0131temName": Spider Egg Sack
   dropsFrom: Mean Claw Poison Spider, Claw Spider
-  DropMetins: 
+  dropMetins: 
   info: If as a charm used by women who have no children.
   playerCanDrop: 1
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  DropName: Spider Egg Sack
+  dropName: 
+  howMany: 0

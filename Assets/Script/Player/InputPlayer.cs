@@ -22,6 +22,8 @@ namespace Script.Player
         public static event Action OnPickUpPressed;
         public static event Action OnNormalAttackPressed;
         public static event Action<Vector2> OnMovePressed;
+        public static event Action OnMoveCancel;
+        public static event Action OnShootCancel;
         public static event Action OnClickLeftPressed;
         public static event Action OnIdlePerformed;
 
@@ -34,8 +36,9 @@ namespace Script.Player
         void OnEnable()
         {
             _playerNewInput.Player.Enable();
-            _playerNewInput.Player.Move.canceled += _ => OnIdlePerformed?.Invoke();
-            _playerNewInput.Player.Shoot.canceled += _ => OnIdlePerformed?.Invoke();
+            _playerNewInput.Player.Move.canceled += _ => OnMoveCancel?.Invoke();
+            
+            _playerNewInput.Player.Shoot.canceled += _ => OnShootCancel?.Invoke();
             _playerNewInput.Player.PickUpFromGround.performed += _ => OnPickUpPressed?.Invoke();
             _playerNewInput.Player.ClickLeft.performed += _ => OnClickLeftPressed?.Invoke();
             _playerNewInput.Player.Shoot.performed += _ => OnNormalAttackPressed?.Invoke();
@@ -107,6 +110,11 @@ namespace Script.Player
                 selectedObject.GetComponent<IOutlineAble>().Clicked(outlineGreen);
 
             }
+        }
+
+        private static void OnOnIdlePerformed()
+        {
+            OnIdlePerformed?.Invoke();
         }
     }
 }

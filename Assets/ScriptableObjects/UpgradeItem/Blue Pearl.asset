@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6364c4d80b0ec49a783f0ec466a98c, type: 3}
   m_Name: Blue Pearl
   m_EditorClassIdentifier: 
-  Place: 0
-  Image: {fileID: 0}
-  ItemName: Blue Pearl
+  place: 0
+  "\u0131mage": {fileID: 0}
+  "\u0131temName": Blue Pearl
   dropsFrom: Beran-Setaou, Halloween-Chest, Eternal Winter Chest, Athena's Chest,
-  DropMetins: 
+  dropMetins: 
   info: 
   playerCanDrop: 1
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  DropName: Blue Pearl
+  dropName: 
+  howMany: 0

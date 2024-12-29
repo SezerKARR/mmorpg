@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6364c4d80b0ec49a783f0ec466a98c, type: 3}
   m_Name: Ball
   m_EditorClassIdentifier: 
-  Place: 0
-  Image: {fileID: 0}
-  ItemName: Ball
+  place: 0
+  "\u0131mage": {fileID: 0}
+  "\u0131temName": Ball
   dropsFrom: Craven White Oath Commander, White Oath Soldier
-  DropMetins: 
+  dropMetins: 
   info: A ball of threads.
   playerCanDrop: 1
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  DropName: Ball
+  dropName: 
+  howMany: 0

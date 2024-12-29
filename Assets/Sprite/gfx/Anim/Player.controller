@@ -1,5 +1,31 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1102 &-9201369476175069213
+AnimatorState:
+  serializedVersion: 6
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: New State
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 0}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!1102 &-8751897137964485844
 AnimatorState:
   serializedVersion: 6
@@ -7,7 +33,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: StopedDown
+  m_Name: StopDown
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -111,7 +137,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: StopedRight
+  m_Name: StopRight
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -251,7 +277,7 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 4912544869221394072}
-    m_Position: {x: 260, y: 210, z: 0}
+    m_Position: {x: 20, y: 230, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2590407439929679374}
     m_Position: {x: 220, y: 30, z: 0}
@@ -263,13 +289,13 @@ AnimatorStateMachine:
     m_Position: {x: 220, y: -20, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -1078276915993430403}
-    m_Position: {x: 290, y: 440, z: 0}
+    m_Position: {x: 320, y: 230, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 1185049915690185027}
-    m_Position: {x: 290, y: 400, z: 0}
+    m_Position: {x: 300, y: 370, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3392660163678723388}
-    m_Position: {x: 180, y: 320, z: 0}
+    m_Position: {x: 230, y: 300, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -7446949587093677291}
     m_Position: {x: 300, y: 480, z: 0}
@@ -278,13 +304,13 @@ AnimatorStateMachine:
     m_Position: {x: 720, y: 250, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5614157113597082257}
-    m_Position: {x: 750, y: 310, z: 0}
+    m_Position: {x: 720, y: 320, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -99830580208176693}
-    m_Position: {x: 750, y: 400, z: 0}
+    m_Position: {x: 730, y: 420, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 8691041490730772531}
-    m_Position: {x: 750, y: 370, z: 0}
+    m_Position: {x: 720, y: 370, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3429146692866950303}
     m_Position: {x: 520, y: -110, z: 0}
@@ -297,16 +323,19 @@ AnimatorStateMachine:
   - serializedVersion: 1
     m_State: {fileID: 2587188275503157692}
     m_Position: {x: 500, y: 160, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -9201369476175069213}
+    m_Position: {x: 50, y: 180, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions: []
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: 540, y: 430, z: 0}
-  m_EntryPosition: {x: 50, y: 120, z: 0}
+  m_EntryPosition: {x: 110, y: 130, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 4912544869221394072}
+  m_DefaultState: {fileID: -9201369476175069213}
 --- !u!1102 &2587188275503157692
 AnimatorState:
   serializedVersion: 6
@@ -470,7 +499,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: StopedLeft
+  m_Name: StopLeft
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -522,7 +551,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: StopedUp
+  m_Name: StopUp
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []

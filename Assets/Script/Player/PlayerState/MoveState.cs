@@ -7,13 +7,10 @@ namespace Script.Player.PlayerState
     {
         public float moveSpeed = 7f;
         public Vector2 moveDirection = Vector2.zero;
-        public MoveState(PlayerStateManager manager,Vector2 direction) : base(manager, direction)
+        
+        public MoveState(PlayerStateManager manager) : base(manager)
         {
         
-        }
-        public override void EnterState()
-        {
-            //MonoBehaviour.print("walkstate");
         }
         public override void UpdateState()
         {
@@ -23,8 +20,7 @@ namespace Script.Player.PlayerState
         }
         public void Walk()
         {
-            Debug.Log(_direction);
-            _characterAnims.UpdateAnim(AnimationEnum.Walk, _direction,0f);
+            _stateManager.characterAnims.UpdateAnim(AnimationEnum.Walk, _direction);
             moveDirection = _direction.normalized;
             _stateManager.transform.position += new Vector3(moveDirection.x, moveDirection.y, 0f) * moveSpeed * Time.deltaTime;
         }

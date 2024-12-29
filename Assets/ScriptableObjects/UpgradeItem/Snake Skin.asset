@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6364c4d80b0ec49a783f0ec466a98c, type: 3}
   m_Name: Snake Skin
   m_EditorClassIdentifier: 
-  Place: 0
-  Image: {fileID: 0}
-  ItemName: Snake Skin
+  place: 0
+  "\u0131mage": {fileID: 0}
+  "\u0131temName": Snake Skin
   dropsFrom: Snake Archer
-  DropMetins: 
+  dropMetins: 
   info: The skin of a snake.
   playerCanDrop: 1
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  DropName: Snake Skin
+  dropName: 
+  howMany: 0

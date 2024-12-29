@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Script.Equipment;
+using Script.ScriptableObject;
 using Script.ScriptableObject.Equipment;
 using UnityEditor;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Editor.com.unity.mobile.notifications
 {
@@ -12,11 +15,11 @@ namespace Editor.com.unity.mobile.notifications
     {
         private static readonly string UpgradeItemsCSVPath = "/CSVS/UpgradeItems.csv";
 
-        //private static string _monstersCsvPath = "/CSVS/Monsters.csv";
+        private static string _monstersCsvPath = "/CSVS/Monsters.csv";
 
-        /*private static string ExpCsvPath = "/CSVS/Exp.csv";
-        private static string ExpPerLevelCsvPath = "/CSVS/ExpPerLevel.csv";
-        private static string BonusesCsvPath = "/CSVS/Bonuses.csv";
+        private static string ExpCsvPath = "/CSVS/Exp.csv";
+        //private static string ExpPerLevelCsvPath = "/CSVS/ExpPerLevel.csv";
+        /*private static string BonusesCsvPath = "/CSVS/Bonuses.csv";
         private static string SwordCsvPath = "/CSVS/Swords.csv";
         private static string TwoHanded = "/CSVS/Two Handed.csv";
     private static string Blade = "/CSVS/Blade.csv";
@@ -30,26 +33,26 @@ namespace Editor.com.unity.mobile.notifications
 
 
 
-        [MenuItem("Utilities/Generate Upgrade Items")]
-        private static void CsvToSoUpgradeItems()
-        {
-            string[] allLines = File.ReadAllLines(Application.dataPath + UpgradeItemsCSVPath);
-            foreach (string line in allLines)
-            {
-                string[] splitData = line.Split(";");
-
-                UpgradeItemsSO upgradeItemsSO = ScriptableObject.CreateInstance<UpgradeItemsSO>();
-
-                upgradeItemsSO.ıtemName = splitData[0];
-                upgradeItemsSO.dropsFrom = splitData[1];
-                upgradeItemsSO.info = splitData[2];
-
-                AssetDatabase.CreateAsset(upgradeItemsSO,
-                    $"Assets/ScriptableObjects/UpgradeItem/{upgradeItemsSO.ıtemName}.asset");
-            }
-
-            AssetDatabase.SaveAssets();
-        }
+        // [MenuItem("Utilities/Generate Upgrade Items")]
+        // private static void CsvToSoUpgradeItems()
+        // {
+        //     string[] allLines = File.ReadAllLines(Application.dataPath + UpgradeItemsCSVPath);
+        //     foreach (string line in allLines)
+        //     {
+        //         string[] splitData = line.Split(";");
+        //
+        //         UpgradeItemsSO upgradeItemsSO = ScriptableObject.CreateInstance<UpgradeItemsSO>();
+        //
+        //         upgradeItemsSO.ıtemName = splitData[0];
+        //         upgradeItemsSO.dropsFrom = splitData[1];
+        //         upgradeItemsSO.info = splitData[2];
+        //
+        //         AssetDatabase.CreateAsset(upgradeItemsSO,
+        //             $"Assets/ScriptableObjects/UpgradeItem/{upgradeItemsSO.ıtemName}.asset");
+        //     }
+        //
+        //     AssetDatabase.SaveAssets();
+        // }
     
 
         [MenuItem("Utilities/Generate Upgrade Itesadass")]
@@ -77,12 +80,16 @@ namespace Editor.com.unity.mobile.notifications
                 upgradeItemSO.Add(AssetDatabase.LoadAssetAtPath<UpgradeItemsSO>(upgradePath));
 
             }
+            
+            Debug.Log(monsterSO.Count+"+"+upgradeItemSO.Count);
             foreach (MonsterSO monsterSO1 in monsterSO)
             {
+                monsterSO1.canDrops = new List<ObjectAbstract>();
                
                 foreach (UpgradeItemsSO upgradeItem in upgradeItemSO)
                
                 {
+                    
                     string[] dropfroms = upgradeItem.dropsFrom.Replace(", ", ",").Split(',');
                     foreach (string dropfrom in dropfroms)
                     {
@@ -90,16 +97,9 @@ namespace Editor.com.unity.mobile.notifications
                         {
 
                             MonsterUpdate(monsterSO1, upgradeItem);
+                            
                         }
-                        else if (SimilarityAlgorthm(dropfrom, monsterSO1.monsterName))
-                        {
-                            if (monsterSO1.canDrops == null)
-                            {
-                                monsterSO1.canDrops = new List<ObjectAbstract>();
-                            }
-                            monsterSO1.canDrops.Add(upgradeItem);
-                            Debug.Log(upgradeItem.name + dropfrom + monsterSO1.monsterName);
-                        }
+                      
                     }
                 }
             }
@@ -107,17 +107,75 @@ namespace Editor.com.unity.mobile.notifications
             AssetDatabase.Refresh();
 
         }
-
-        private static void MonsterUpdate(MonsterSO monsterSO,UpgradeItemsSO upgradeItem)
+         [MenuItem("Utilities/Generate item")]
+        private static void UpdateMonsterCanDropForItems()
         {
-            if (monsterSO.canDrops != null)
+
+            string upgradeItemsPath = "Assets/ScriptableObjects/Items";
+            string[] upgradeItemsGuids = AssetDatabase.FindAssets("t:ScriptableItemsAbstact", new[] { upgradeItemsPath });
+            Debug.Log($"Found {upgradeItemsGuids.Length} upgrade item SOs");
+            List<ScriptableItemsAbstact> upgradeItemSO = new List<ScriptableItemsAbstact>();
+            string monsterpath = "Assets/ScriptableObjects/Monsters";
+            string[] monsterGuids = AssetDatabase.FindAssets("t:MonsterSO", new[] { monsterpath });
+            List<MonsterSO> monsterSO = new List<MonsterSO>();
+            foreach (string monsterGuid in monsterGuids)
             {
-                monsterSO.canDrops = null;
+                string monsterpaths = AssetDatabase.GUIDToAssetPath(monsterGuid);
+                monsterSO.Add( AssetDatabase.LoadAssetAtPath<MonsterSO>(monsterpaths));
+
+
             }
-            if (monsterSO.canDrops == null)
+
+            foreach (string upgradeItemsguid in upgradeItemsGuids)
             {
-                monsterSO.canDrops = new List<ObjectAbstract>();
+                string upgradePath = AssetDatabase.GUIDToAssetPath(upgradeItemsguid);
+                upgradeItemSO.Add(AssetDatabase.LoadAssetAtPath<ScriptableItemsAbstact>(upgradePath));
+
             }
+            Debug.Log(monsterSO.Count+"+"+upgradeItemSO.Count);
+            foreach (MonsterSO monsterSO1 in monsterSO)
+            {
+                Dictionary<string, ScriptableItemsAbstact>
+                    items = new Dictionary<string, ScriptableItemsAbstact>();
+                foreach (ScriptableItemsAbstact upgradeItem in upgradeItemSO)
+                
+                {
+                    
+                    if (upgradeItem.level < int.Parse(monsterSO1.level))
+                    {
+                        if (items.Keys.Contains(upgradeItem.equipmentType.ToString()))
+                        {
+                            if (items[upgradeItem.equipmentType.ToString()].level < upgradeItem.level)
+                            {
+                                items[upgradeItem.equipmentType.ToString()] = upgradeItem;
+                            }
+                            if(Random.Range(0,sizeof(EquipmentType))==1)
+                            {
+                                items[upgradeItem.equipmentType.ToString()] = upgradeItem;
+                            }
+                            continue;
+                        }
+                        items.Add(upgradeItem.equipmentType.ToString(), upgradeItem);
+                        
+                        
+                    }
+                    
+                }
+
+                foreach (var item in items)
+                {
+                    MonsterUpdate(monsterSO1, item.Value);
+                }
+                
+            }
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+
+        }
+
+        private static void MonsterUpdate(MonsterSO monsterSO,ObjectAbstract upgradeItem)
+        {
+            
 
             monsterSO.canDrops.Add(upgradeItem);
         }
@@ -190,30 +248,31 @@ namespace Editor.com.unity.mobile.notifications
 
         }
     }*/
-        //[MenuItem("Utilities/Generate Exp")]
-        //private static void CsvToSoExp()
-        //{
-        //    string[] allLines = File.ReadAllLines(Application.dataPath + ExpCsvPath);
-        //    foreach (string line in allLines.Skip(100))
-        //    {
-        //        string[] splitData = line.Split(";");
-        //        Debug.Log(line);
-        //        ExpSO expSO = ScriptableObject.CreateInstance<ExpSO>();
-
-        //        expSO.level = int.Parse(splitData[0]);
-        //        expSO.exp = long.Parse(splitData[1].Replace(".", ""));
-
-        //        string filePath = $"Assets/ScriptableObjects/Exp";
-
-
-        //        string name = expSO.level.ToString();
-
-        //        AssetDatabase.CreateAsset(expSO, $"{filePath}/{name}.asset");
-
-        //    }
-        //    AssetDatabase.SaveAssets();
-
-        //}
+        // [MenuItem("Utilities/Generate Exp")]
+        // private static void CsvToSoExp()
+        // {
+        //     string[] allLines = File.ReadAllLines(Application.dataPath + ExpCsvPath);
+        //     ExpSo expSO = ScriptableObject.CreateInstance<ExpSo>();
+        //     expSO.exps = new ExpToLevel[allLines.Length];
+        //     int index = 0;
+        //     foreach (string line in allLines.Skip(1))
+        //     {
+        //         string[] splitData = line.Split(";");
+        //         Debug.Log(line);
+        //         
+        //
+        //         // expSO.level = int.Parse(splitData[0]);
+        //         // expSO.exp = long.Parse(splitData[1].Replace(".", ""));
+        //         ExpToLevel expToLevel = new ExpToLevel()
+        //             { level = int.Parse(splitData[0]), exp = splitData[1].Replace(".", "") };
+        //         expSO.exps[index] = expToLevel;
+        //      index++;   
+        //     }
+        //     string filePath = $"Assets/ScriptableObjects/Exp";
+        //     AssetDatabase.CreateAsset(expSO, $"{filePath}/ExpForLevel.asset");
+        //     AssetDatabase.SaveAssets();
+        //
+        // }
         /*[MenuItem("Utilities/Generate ExpPerLevel")]
 private static void CsvFromSoExpPerLevel()
 {

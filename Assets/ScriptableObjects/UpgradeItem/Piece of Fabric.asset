@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6364c4d80b0ec49a783f0ec466a98c, type: 3}
   m_Name: Piece of Fabric
   m_EditorClassIdentifier: 
-  Place: 0
-  Image: {fileID: 0}
-  ItemName: Piece of Fabric
+  place: 0
+  "\u0131mage": {fileID: 0}
+  "\u0131temName": Piece of Fabric
   dropsFrom: Plagued Swordman
-  DropMetins: 
+  dropMetins: 
   info: Fabric, which is used for covering a wound.
   playerCanDrop: 1
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  DropName: Piece of Fabric
+  dropName: 
+  howMany: 0

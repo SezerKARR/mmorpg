@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6364c4d80b0ec49a783f0ec466a98c, type: 3}
   m_Name: Spider Poison Sack
   m_EditorClassIdentifier: 
-  Place: 0
-  Image: {fileID: 0}
-  ItemName: Spider Poison Sack
+  place: 0
+  "\u0131mage": {fileID: 0}
+  "\u0131temName": Spider Poison Sack
   dropsFrom: Red Poison Spider
-  DropMetins: 
+  dropMetins: 
   info: The poison sack of a spider.
   playerCanDrop: 1
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  DropName: Spider Poison Sack
+  dropName: 
+  howMany: 0

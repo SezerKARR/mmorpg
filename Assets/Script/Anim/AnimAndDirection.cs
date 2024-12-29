@@ -8,7 +8,16 @@ namespace Script.Anim
         None,
         Idle,
         Walk,
-        Attack
+        Attack,
+        Stop
+    }
+    public  enum PlayerAnimationEnum
+    {
+        None,
+        Idle,
+        Walk,
+        Attack,
+        Stop
     }
     
     public class AnimAndDirection

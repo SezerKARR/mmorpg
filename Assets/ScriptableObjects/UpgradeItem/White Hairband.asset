@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6364c4d80b0ec49a783f0ec466a98c, type: 3}
   m_Name: White Hairband
   m_EditorClassIdentifier: 
-  Place: 0
-  Image: {fileID: 0}
-  ItemName: White Hairband
+  place: 0
+  "\u0131mage": {fileID: 0}
+  "\u0131temName": White Hairband
   dropsFrom: White Oath Archer, White Oath Soldier
-  DropMetins: 
+  dropMetins: 
   info: A popular band for tying together of women's hair.
   playerCanDrop: 1
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  DropName: White Hairband
+  dropName: 
+  howMany: 0

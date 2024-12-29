@@ -1,0 +1,255 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6dcc5b404b6fe2488b28298fee41aef, type: 3}
+  m_Name: ExpForLevel
+  m_EditorClassIdentifier: 
+  exps:
+  - level: 1
+    exp: 300
+  - level: 2
+    exp: 800
+  - level: 3
+    exp: 1500
+  - level: 4
+    exp: 2500
+  - level: 5
+    exp: 4300
+  - level: 6
+    exp: 7200
+  - level: 7
+    exp: 11000
+  - level: 8
+    exp: 17000
+  - level: 9
+    exp: 24000
+  - level: 10
+    exp: 33000
+  - level: 11
+    exp: 43000
+  - level: 12
+    exp: 58000
+  - level: 13
+    exp: 76000
+  - level: 14
+    exp: 100000
+  - level: 15
+    exp: 130000
+  - level: 16
+    exp: 169000
+  - level: 17
+    exp: 219000
+  - level: 18
+    exp: 283000
+  - level: 19
+    exp: 365000
+  - level: 20
+    exp: 472000
+  - level: 21
+    exp: 610000
+  - level: 22
+    exp: 705000
+  - level: 23
+    exp: 813000
+  - level: 24
+    exp: 937000
+  - level: 25
+    exp: 1077000
+  - level: 26
+    exp: 1237000
+  - level: 27
+    exp: 1418000
+  - level: 28
+    exp: 1624000
+  - level: 29
+    exp: 1857000
+  - level: 30
+    exp: 2122000
+  - level: 31
+    exp: 2421000
+  - level: 32
+    exp: 2761000
+  - level: 33
+    exp: 3145000
+  - level: 34
+    exp: 3580000
+  - level: 35
+    exp: 4073000
+  - level: 36
+    exp: 4632000
+  - level: 37
+    exp: 5194000
+  - level: 38
+    exp: 5717000
+  - level: 39
+    exp: 6264000
+  - level: 40
+    exp: 6837000
+  - level: 41
+    exp: 7600000
+  - level: 42
+    exp: 8274000
+  - level: 43
+    exp: 8990000
+  - level: 44
+    exp: 9753000
+  - level: 45
+    exp: 10560000
+  - level: 46
+    exp: 11410000
+  - level: 47
+    exp: 12320000
+  - level: 48
+    exp: 13270000
+  - level: 49
+    exp: 14280000
+  - level: 50
+    exp: 15340000
+  - level: 51
+    exp: 16870000
+  - level: 52
+    exp: 18960000
+  - level: 53
+    exp: 19980000
+  - level: 54
+    exp: 21420000
+  - level: 55
+    exp: 22930000
+  - level: 56
+    exp: 24580000
+  - level: 57
+    exp: 26200000
+  - level: 58
+    exp: 27960000
+  - level: 59
+    exp: 29800000
+  - level: 60
+    exp: 32780000
+  - level: 61
+    exp: 36060000
+  - level: 62
+    exp: 39670000
+  - level: 63
+    exp: 43640000
+  - level: 64
+    exp: 48000000
+  - level: 65
+    exp: 52800000
+  - level: 66
+    exp: 58080000
+  - level: 67
+    exp: 63890000
+  - level: 68
+    exp: 70280000
+  - level: 69
+    exp: 77310000
+  - level: 70
+    exp: 85040000
+  - level: 71
+    exp: 93540000
+  - level: 72
+    exp: 102900000
+  - level: 73
+    exp: 113200000
+  - level: 74
+    exp: 124500000
+  - level: 75
+    exp: 137000000
+  - level: 76
+    exp: 150700000
+  - level: 77
+    exp: 165700000
+  - level: 78
+    exp: 236990000
+  - level: 79
+    exp: 260650000
+  - level: 80
+    exp: 286780000
+  - level: 81
+    exp: 315000000
+  - level: 82
+    exp: 346970000
+  - level: 83
+    exp: 381680000
+  - level: 84
+    exp: 419770000
+  - level: 85
+    exp: 461760000
+  - level: 86
+    exp: 508040000
+  - level: 87
+    exp: 558740000
+  - level: 88
+    exp: 614640000
+  - level: 89
+    exp: 676130000
+  - level: 90
+    exp: 743730000
+  - level: 91
+    exp: 1041222000
+  - level: 92
+    exp: 1145344200
+  - level: 93
+    exp: 1259878620
+  - level: 94
+    exp: 1385866482
+  - level: 95
+    exp: 1524453130
+  - level: 96
+    exp: 1676898443
+  - level: 97
+    exp: 1844588288
+  - level: 98
+    exp: 2029047116
+  - level: 99
+    exp: 2050000000
+  - level: 100
+    exp: 2150000000
+  - level: 101
+    exp: 2210000000
+  - level: 102
+    exp: 2250000000
+  - level: 103
+    exp: 2280000000
+  - level: 104
+    exp: 2310000000
+  - level: 105
+    exp: 2330000000
+  - level: 106
+    exp: 2350000000
+  - level: 107
+    exp: 2370000000
+  - level: 108
+    exp: 2390000000
+  - level: 109
+    exp: 2400000000
+  - level: 110
+    exp: 2410000000
+  - level: 111
+    exp: 2420000000
+  - level: 112
+    exp: 2430000000
+  - level: 113
+    exp: 2440000000
+  - level: 114
+    exp: 2450000000
+  - level: 115
+    exp: 2460000000
+  - level: 116
+    exp: 2470000000
+  - level: 117
+    exp: 2480000000
+  - level: 118
+    exp: 2490000000
+  - level: 119
+    exp: 2490000000
+  - level: 120
+    exp: 2500000000

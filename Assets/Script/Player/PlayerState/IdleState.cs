@@ -5,13 +5,7 @@ namespace Script.Player.PlayerState
 {
     public class IdleState :  CharacterState
     {
-        public IdleState(PlayerStateManager manager,Vector2 direction) : base(manager, direction) { }
-        public override void EnterState()
-        {
-            //MonoBehaviour.print("idlestate");
-    
-        }
-
+        public IdleState(PlayerStateManager manager) : base(manager) { }
         public override void ExitState()
         {
             //MonoBehaviour.print("geldi");
@@ -19,13 +13,8 @@ namespace Script.Player.PlayerState
 
         public override void UpdateState()
         {
-            _characterAnims.UpdateAnim(AnimationEnum.Idle,_direction);
+            _stateManager.characterAnims.UpdateAnim(AnimationEnum.Idle,_direction,0.0f);
        
-        }
-        public override bool CanTransitionTo(CharacterState newState)
-        {
-        
-            return base.CanTransitionTo(newState);
         }
     }
 }

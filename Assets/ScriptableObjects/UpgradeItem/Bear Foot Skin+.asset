@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6364c4d80b0ec49a783f0ec466a98c, type: 3}
   m_Name: Bear Foot Skin+
   m_EditorClassIdentifier: 
-  Place: 0
-  Image: {fileID: 21300000, guid: ec225654147f290459658557452badca, type: 3}
-  ItemName: Bear Foot Skin+
+  place: 0
+  "\u0131mage": {fileID: 0}
+  "\u0131temName": Bear Foot Skin+
   dropsFrom: Bera, Brown Bear, Cursed Brown Bear
-  DropMetins: 
+  dropMetins: 
   info: A favourite stamina food among many people.
   playerCanDrop: 1
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  DropName: Bear Foot Skin+
+  dropName: 
+  howMany: 0

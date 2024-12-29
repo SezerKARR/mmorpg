@@ -8,6 +8,7 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Zenject;
+using IPoolable = Script.Interface.IPoolable;
 
 namespace Script.Inventory
 {
@@ -76,7 +77,8 @@ namespace Script.Inventory
         {
             _objectToAdd = inventoryObjectAbstract;
             this._howMany = howMany;
-            if (inventoryStorage.Add(inventoryObjectAbstract, howMany)) Destroy(selectedObject);
+            if (inventoryStorage.Add(inventoryObjectAbstract, howMany)) InventoryEvent.OnItemPickUp?.Invoke(selectedObject);
+                
         }
 
         public void ChangePosition(ObjectController objectController, List<int2> cells, int pageIndex)
@@ -116,7 +118,7 @@ namespace Script.Inventory
 
         private void DropObject()
         {
-            GameEvent.OnItemDroppedWithoutPlayer?.Invoke(_currentObjectController.ObjectAbstract);
+            GameEvent.OnItemDroppedWithoutPlayer?.Invoke(_currentObjectController.ObjectAbstract,this.transform);
             inventoryStorage.RemoveObject(this._currentObjectController);
             _objectPooler.ReturnObject(this._currentObjectController.ObjectAbstract.Type.ToString(),
                 this._currentObjectController.gameObject);

@@ -40,7 +40,7 @@ namespace Script.ObjectInTheGround
            
             if (objectAbstract.canEveryBodyTake)
             {
-                GameEvent.OnItemDroppedWithoutPlayer(this.objectAbstract);
+                GameEvent.OnItemDroppedWithoutPlayer(this.objectAbstract,this.transform);
                
             }
         

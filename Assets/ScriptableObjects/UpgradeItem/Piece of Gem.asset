@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6364c4d80b0ec49a783f0ec466a98c, type: 3}
   m_Name: Piece of Gem
   m_EditorClassIdentifier: 
-  Place: 0
-  Image: {fileID: 0}
-  ItemName: Piece of Gem
+  place: 0
+  "\u0131mage": {fileID: 0}
+  "\u0131temName": Piece of Gem
   dropsFrom: Evil Bl. Storm Joh-Hwan, Black Wind Jak-To, Black Storm Joh-Hwan
-  DropMetins: 
+  dropMetins: 
   info: A battered by a hard gemstone material.
   playerCanDrop: 1
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  DropName: Piece of Gem
+  dropName: 
+  howMany: 0

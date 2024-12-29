@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using Script.Anim;
 using UnityEngine;
 
 namespace Script.Player.PlayerState
@@ -11,12 +13,48 @@ namespace Script.Player.PlayerState
         [HideInInspector]
         public int animValue;
         private CharacterState _currentState;
+        public CharacterAnims characterAnims;
+        public AttackState attackState;
+        public MoveState moveState;
+        public IdleState idleState;
+        public StopState stopState;
+        public CharacterState nextState;
         private void Awake()
         {
+            
             animator = GetComponent<Animator>();
+            characterAnims = new CharacterAnims(animator);
+            attackState = new AttackState(this);
+            moveState = new MoveState(this);
+            stopState = new StopState(this);
+            idleState = new IdleState(this);
+            nextState = stopState;
             InputPlayer.OnMovePressed += CanChangeStateToMove;
             InputPlayer.OnNormalAttackPressed += CanChangeStateToAttack;
-            InputPlayer.OnIdlePerformed += CanChangeStateToIdle;
+            InputPlayer.OnMoveCancel += MoveCanceled;
+            InputPlayer.OnShootCancel += ShootCanceled;
+        }
+
+        private void MoveCanceled()
+        {
+            nextState = stopState;
+                ControlState(moveState);
+            
+
+            
+        }
+        private void ShootCanceled()
+        {
+            
+            ControlState(attackState);
+        }
+
+        private void ControlState(CharacterState state)
+        {
+            if (_currentState == state)
+            {
+                ControlChangeState(nextState);
+            }
         }
         void Start()
         {
@@ -26,44 +64,58 @@ namespace Script.Player.PlayerState
             //states.Add(PlayerStateType.Dodge, new DodgeState(this));
 
             // �lk durumu ayarla
-            _currentState = new IdleState(this,Vector2.down);
-            _currentState.EnterState();
+            _currentState =stopState;
+            _currentState.EnterState(Vector2.down);
         }
         private void Update()
         {
             if (_currentState == null)
             {
-                _currentState = new IdleState(this,Vector2.down);
-                _currentState.EnterState();
+                _currentState = stopState;
+                _currentState.EnterState(Vector2.down);
             }
             _currentState.UpdateState();
         }
         public void CanChangeStateToMove(Vector2 walkDirection)
         {
+            Debug.Log("move");
             _direction = walkDirection;
-            ChangeState(new MoveState(this,walkDirection));
+            ControlChangeState(moveState);
         }
         public void CanChangeStateToIdle()
         {
-            ChangeState(new IdleState(this,_direction));
+            nextState = idleState;
+            ControlChangeState(idleState);
         }
         public void CanChangeStateToAttack()
         {
-            ChangeState(new AttackState(this,_direction));
+            nextState = _currentState;
+            ControlChangeState(attackState);
 
         }
+        
+        
         public void StartPlayerCoroutine(IEnumerator routine)
         {
             StartCoroutine(routine); // Coroutine'i ba�lat
         }
+        public void ControlChangeState(CharacterState newState)
+        {
+            if (_currentState.CanTransitionTo(newState, _direction))
+            {
+                ChangeState(newState);
+            }
+        }
+        
         public void ChangeState(CharacterState newState)
         {
-            if (_currentState.CanTransitionTo(newState))
+            if (newState != null)
             {
                 _currentState.ExitState();
                 _currentState = newState;
-                _currentState.EnterState();
+                _currentState.EnterState(_direction);
             }
+            
         }
 
         public CharacterState GetState(CharacterState stateType)

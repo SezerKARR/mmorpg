@@ -79,7 +79,6 @@ namespace Script.Enemy
             EnemyEvent.OnDeath?.Invoke((_lastDamagedPlayer,enemySo));
             creaturesGroup.OnEnemyDeath();
             DropItem(_lastDamagedPlayer);
-            _lastDamagedPlayer.ExpCalculator(int.Parse(enemySo.exp), int.Parse(enemySo.level));
             Destroy(gameObject);
 
         }

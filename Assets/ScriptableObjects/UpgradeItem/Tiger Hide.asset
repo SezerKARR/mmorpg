@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6364c4d80b0ec49a783f0ec466a98c, type: 3}
   m_Name: Tiger Hide
   m_EditorClassIdentifier: 
-  Place: 0
-  Image: {fileID: 0}
-  ItemName: Tiger Hide
+  place: 0
+  "\u0131mage": {fileID: 0}
+  "\u0131temName": Tiger Hide
   dropsFrom: Tiger, Hungry Tiger Cursed Tiger
-  DropMetins: 
+  dropMetins: 
   info: A favorite among collectors of animal fur.
   playerCanDrop: 1
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  DropName: Tiger Hide
+  dropName: 
+  howMany: 0

@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6364c4d80b0ec49a783f0ec466a98c, type: 3}
   m_Name: Ice Marble+
   m_EditorClassIdentifier: 
-  Place: 0
-  Image: {fileID: 0}
-  ItemName: Ice Marble+
+  place: 0
+  "\u0131mage": {fileID: 0}
+  "\u0131temName": Ice Marble+
   dropsFrom: Yeti, Underworld Yeti
-  DropMetins: 
+  dropMetins: 
   info: A marble made out of ice. It does not melt in the hot weather.
   playerCanDrop: 1
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  DropName: Ice Marble+
+  dropName: 
+  howMany: 0

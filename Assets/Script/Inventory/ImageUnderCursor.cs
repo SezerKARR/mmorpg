@@ -1,5 +1,7 @@
+using System;
 using Script.Inventory.Objects;
 using Script.UI;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,9 +9,11 @@ namespace Script.Inventory
 {
     public class ImageUnderCursor : MonoBehaviour
     {
+        public static Action OnCloseImageUnderCursor;
         private RectTransform _rectTransform;
         private void Awake()
         {
+            OnCloseImageUnderCursor += Close;
             PageEvent.OnClickPage += Close;
             GameEvent.OnItemDroppedWithoutPlayer += Close;
             ObjectEvents.ObjectClicked += Open;
@@ -23,7 +27,7 @@ namespace Script.Inventory
             this.gameObject.SetActive(false);
         }
 
-        public void Close(ObjectAbstract dummy)
+        public void Close(ObjectAbstract dummy,Transform dummyTransform)
         {
             this.gameObject.SetActive(false);
         }

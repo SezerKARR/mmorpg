@@ -44,9 +44,8 @@ public class CreaturesGroupsHolder : MonoBehaviour
     
     private void CreatureDiffCalculator()
     {
-        float diff = (float)_sortedCreaturesGroups.Count / creaturesPrefabList.objects.Length;
+        float diff = (float)_sortedCreaturesGroups.Count / creaturesPrefabList.objects.Count;
         int index = 0;
-        Debug.Log( diff );
         foreach (CreaturesGroup group in _sortedCreaturesGroups)
         {
             
@@ -55,12 +54,10 @@ public class CreaturesGroupsHolder : MonoBehaviour
              {
                  group.creaturesDifficult.Add(Mathf.RoundToInt(dificult+(0.1f*i)));
              }
-             
-             Debug.Log(dificult);
              index++;
         }
         float randomDiff = Random.Range(diff-1, diff+2);
-        randomDiff=Mathf.Clamp(randomDiff,0,creaturesPrefabList.objects.Length);
+        randomDiff=Mathf.Clamp(randomDiff,0,creaturesPrefabList.objects.Count);
         
     }
 

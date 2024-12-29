@@ -5,24 +5,21 @@ namespace Script.Player.PlayerState
 {
     public abstract class CharacterState
     {
-        protected CharacterAnims _characterAnims;
-        protected Animator _animator;
         protected PlayerStateManager _stateManager;
         protected Vector2 _direction;
-
-        protected CharacterState(PlayerStateManager manager, Vector2 direction)
+        
+        public Vector2 Direction=>_direction;
+        protected CharacterState(PlayerStateManager manager)
         {
-            _direction = direction;
+            
             _stateManager = manager;
-            _animator = _stateManager.animator;
-            _characterAnims=new CharacterAnims(_animator);
 
         }
 
     
-        public virtual void EnterState()
+        public virtual void EnterState(Vector2 direction)
         {
-            
+            _direction = direction;
         }
         public virtual void UpdateState()
         {
@@ -31,9 +28,9 @@ namespace Script.Player.PlayerState
         public virtual void ExitState() 
         { 
         }
-        public virtual bool CanTransitionTo(CharacterState newState)
+        public virtual bool CanTransitionTo(CharacterState newState, Vector2 direction)
         {
-            if (newState == this)
+            if (newState == this&&direction == _direction)
             {
                 return false;
             }

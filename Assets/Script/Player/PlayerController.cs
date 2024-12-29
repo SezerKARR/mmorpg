@@ -1,4 +1,6 @@
+using System.Numerics;
 using Script.Equipment;
+using Script.Exp;
 using Script.Interface;
 using Script.Inventory.Objects;
 using Script.ObjectInTheGround;
@@ -31,12 +33,12 @@ namespace Script.Player
         [FormerlySerializedAs("ıtemDropWithOutName")] [FormerlySerializedAs("ItemDropWithOutName")] public GameObject itemDropWithOutName;
         //public Sprite[] playerIdleSprite;
         public PlayerModel playerModel;
-
-        
+        public ExpController expController;
+            
        // public EquipmentStat EquipmentStat = new EquipmentStat();
         private float _swordPhsichalDamage;
         public LineRenderer lineRenderer;
-    
+        
         
        
        public int level=>playerModel.level;
@@ -84,8 +86,10 @@ namespace Script.Player
        
        
         }
-        public  void ExpCalculator(int exp,int creatureLevel)
+        public  void ExpCalculator(float exp)
         {
+            Debug.Log(exp.ToString());
+            expController.ChangeExp((playerModel.level,exp));
             // print( GameManager.instance.ExpRateCalculate(creatureLevel - level));
             /*if (!haveGroup)
         {

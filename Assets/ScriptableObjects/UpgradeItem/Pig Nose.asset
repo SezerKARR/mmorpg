@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd6364c4d80b0ec49a783f0ec466a98c, type: 3}
   m_Name: Pig Nose
   m_EditorClassIdentifier: 
-  Place: 0
-  Image: {fileID: 0}
-  ItemName: Pig Nose
+  place: 0
+  "\u0131mage": {fileID: 0}
+  "\u0131temName": Pig Nose
   dropsFrom: Red Wild Boar, Cursed Red Wild Boar
-  DropMetins: 
+  dropMetins: 
   info: The nose from a pig.
   playerCanDrop: 1
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  DropName: Pig Nose
+  dropName: 
+  howMany: 0
