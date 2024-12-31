@@ -3929,7 +3929,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2906818df0cd2da4e839555e696f97b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 656423042}
 --- !u!50 &333812383
 Rigidbody2D:
   serializedVersion: 4
@@ -16622,7 +16621,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2906818df0cd2da4e839555e696f97b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 656423042}
 --- !u!50 &444092022
 Rigidbody2D:
   serializedVersion: 4
@@ -18482,7 +18480,7 @@ GameObject:
   - component: {fileID: 656423041}
   - component: {fileID: 656423040}
   m_Layer: 0
-  m_Name: Player
+  m_Name: Satisfaction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18684,6 +18682,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   animator: {fileID: 0}
+  characterModel: {fileID: 0}
   animValue: 0
 --- !u!114 &656423042
 MonoBehaviour:
@@ -18697,12 +18696,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e8dd546c0dee24248a73b700d22bcf18, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerName: satisfaction
-  attackColliderNormalSword: []
-  sword: {fileID: 11400000, guid: 3272b25546fe37b488ede8fa25842582, type: 2}
   moveSpeed: 7
+  characterModel: {fileID: 11400000, guid: bda2b99e31d570645ac9994322275c9d, type: 2}
   itemDropWithOutName: {fileID: 1958407190808054159, guid: 7e398be09f94e7e459732da780cff679, type: 3}
-  playerModel: {fileID: 11400000, guid: bda2b99e31d570645ac9994322275c9d, type: 2}
+  randomString: 
   lineRenderer: {fileID: 0}
 --- !u!1001 &665830184
 PrefabInstance:
@@ -19756,7 +19753,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2906818df0cd2da4e839555e696f97b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 656423042}
 --- !u!50 &756442716
 Rigidbody2D:
   serializedVersion: 4
@@ -20870,7 +20866,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1539298547710127121, guid: 2cec70ab26e0ad1428917c7a090dbfcb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 142
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1539298547710127121, guid: 2cec70ab26e0ad1428917c7a090dbfcb, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -20914,7 +20910,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2448596118196188534, guid: 2cec70ab26e0ad1428917c7a090dbfcb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 142
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2448596118196188534, guid: 2cec70ab26e0ad1428917c7a090dbfcb, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -22920,7 +22916,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ItemDropPrefabs: {fileID: 11400000, guid: c883a1e159b3897499c7e72fd8c003ba, type: 2}
-  expPer: {fileID: 11400000, guid: 4c5bd5b94d8980f46bdb9e11f768b7b6, type: 2}
+  charactersModel: {fileID: 11400000, guid: f5a328711a2ddb143aaa6bc0488e2061, type: 2}
 --- !u!1001 &1030179933
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27744,7 +27740,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2906818df0cd2da4e839555e696f97b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerController: {fileID: 656423042}
 --- !u!50 &1371847742
 Rigidbody2D:
   serializedVersion: 4

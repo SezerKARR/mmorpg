@@ -6,7 +6,7 @@ using UnityEditor;
 namespace Script.ScriptableObject.Player
 {
     
-    public abstract class CharacterStats : UnityEngine.ScriptableObject
+    public  class CharacterStats : UnityEngine.ScriptableObject
     {
         public Stats stats;
         public void UpdateStats(Stats upgradeStats,bool isEquipped)

@@ -1,3 +1,5 @@
+using Script.Damage;
+using Script.Enemy;
 using Script.Equipment;
 using Script.Inventory;
 using Script.Player;
@@ -16,6 +18,7 @@ namespace Script
             Container.Bind<EquipmentManager>().FromComponentInHierarchy().AsSingle();
             Container.Bind<PlayerController>().FromComponentInHierarchy().AsSingle();
             Container.Bind<CreaturesGroupsHolder>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<DamageManager>().FromComponentInHierarchy().AsSingle();
         }
     }
 }

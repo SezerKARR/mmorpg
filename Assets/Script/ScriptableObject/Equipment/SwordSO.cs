@@ -6,7 +6,7 @@ namespace Script.ScriptableObject.Equipment
 {
     public enum TypeWeapon
     {
-        Swords, TwoHandedWeapons, Blades, Fans, Bells, Daggers, Bows, Claws
+        None,Swords, TwoHandedWeapons, Blades, Fans, Bells, Daggers, Bows, Claws
     }
     [CreateAssetMenu(menuName = "ScriptableObject/Weapon")]
     public class SwordSo : ScriptableItemsAbstact

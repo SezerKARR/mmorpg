@@ -19,7 +19,7 @@ public class MonsterSO : ScriptableObject
     public string location;
     public string[] monsterLocations;
     public string exp;
-    public int expint;
+    public long expint;
     public int health;
     [FormerlySerializedAs("canDrop")] public List<ObjectAbstract> canDrops=new List<ObjectAbstract>();
     //

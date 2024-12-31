@@ -1,4 +1,5 @@
 using Script.Player;
+using Script.Player.Character;
 using UnityEngine;
 
 namespace Script.Interface
@@ -7,7 +8,7 @@ namespace Script.Interface
     {
     
         //void TakeDamage(float damage );
-        void TakeDamage(float damage,PlayerController playerController);
+        void TakeDamage(float damage,IDamager playerController);
         void Death( );
         Vector2 GetPosition();
     

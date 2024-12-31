@@ -1,10 +1,10 @@
 using System;
+using System.Collections.Generic;
 using Script.Anim;
 using Script.Interface;
 using TMPro;
 using UnityEngine;
-using UnityEngine.Serialization;
-using Script.Player;
+using Script.Player.Character;
 using UnityEditor.Animations;
 
 namespace Script.Enemy
@@ -18,9 +18,9 @@ namespace Script.Enemy
         public CreaturesGroup creaturesGroup;
         private Material _normalMaterial;
 
-        [FormerlySerializedAs("enemySO")] [SerializeField]
-        private MonsterSO enemySo;
-        private PlayerController _lastDamagedPlayer;
+       [SerializeField] private MonsterSO enemySo;
+        private IDamager _lastDamager;
+        private readonly Dictionary<IDamager,float> _damagers = new Dictionary<IDamager, float>();
         
         private Vector3 _startPosition;
         public void Initialize(MonsterSO monsterSo, AnimatorController animatorController)
@@ -64,30 +64,42 @@ namespace Script.Enemy
                 this.GetComponent<SpriteRenderer>().material = normalMaterial;
             }
         }*/
-        public void TakeDamage(float damage,PlayerController p)
+        public void TakeDamage(float damage,IDamager damager)
         {
+            
             // todo: belirli bir cana kadar vuran oyunculara drop atacak bu drop i�in rastgele aralar�ndan bir playerController se�ilecek
             //todo: iki kat e�ya i�in droplar ayarlanacak her playerController i�in ayr� ayr�
-            _lastDamagedPlayer = p;
+            if (_damagers.ContainsKey(damager))
+            {
+                _damagers[damager] += damage;
+            }
+            else
+            {
+                _damagers.Add(damager, damage);
+            }
+            
+            
+            _lastDamager = damager;
             _enemyHealth.TakeDamage(damage);
 
         }
 
         public void Death()
         {
-           
-            EnemyEvent.OnDeath?.Invoke((_lastDamagedPlayer,enemySo));
+            _lastDamager.onEnemyKilled?.Invoke(enemySo.levelint,enemySo.expint);
+                
+            //EnemyEvent.OnDeath?.Invoke((_lastDamager.GetName(),enemySo));
             creaturesGroup.OnEnemyDeath();
-            DropItem(_lastDamagedPlayer);
+            DropItem(_lastDamager.GetName());
             Destroy(gameObject);
 
         }
 
-        public void DropItem(PlayerController player)
+        public void DropItem(string player)
         {  
             foreach (var canDrop in enemySo.canDrops)
             {
-                GameEvent.OnItemDroppedWithPlayer?.Invoke(transform.position, canDrop, player.playerName);
+                GameEvent.OnItemDroppedWithPlayer?.Invoke(transform.position, canDrop, player);
 
 
             }

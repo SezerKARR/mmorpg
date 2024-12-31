@@ -1,11 +1,14 @@
 using System.Collections;
 using Script.Anim;
+using Script.Damage.DamageText;
 using UnityEngine;
+using Zenject;
 
 namespace Script.Player.PlayerState
 {
     public class AttackState :  CharacterState
     {
+        [Inject] DamageManager damagageManager;
         public AttackState(PlayerStateManager manager) : base(manager) { }
         private CharacterState _nextState = null;
 

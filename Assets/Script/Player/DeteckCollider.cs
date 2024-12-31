@@ -1,21 +1,31 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using Script.Interface;
-using Script.Player;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-public class DeteckCollider : MonoBehaviour
+namespace Script.Player
 {
-    [FormerlySerializedAs("player")] [FormerlySerializedAs("playera")] [FormerlySerializedAs("playerManager")] public PlayerController playerController;
-    private void OnTriggerEnter2D(Collider2D collision)
+    public class DeteckCollider : MonoBehaviour
     {
-        //print(collision.gameObject.GetComponent<IDamageAble>() != null);
-        if (collision.gameObject.GetComponent<IDamageAble>() != null)
+        private CharacterController _characterController;
+
+        private void Awake()
         {
-            playerController.GiveNormalDamage(collision.gameObject.GetComponent<IDamageAble>());
-            
+            _characterController = GetComponentInParent<CharacterController>();
+
+            if (_characterController == null)
+            {
+                Debug.LogError("CharacterController not found in parent chain!");
+            }
         }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            var damageable = collision.gameObject.GetComponent<IDamageAble>();
+            if (damageable != null)
+            {
+                _characterController.GiveNormalDamage(damageable);
+            }
         
+        }
     }
 }

@@ -5,6 +5,7 @@ using Script.Inventory;
 using Script.Inventory.Objects;
 using Script.ObjectInTheGround;
 using Script.Player;
+using Script.ScriptableObject.Player;
 using Script.ScriptableObject.Prefab;
 using UnityEngine;
 using Zenject;
@@ -20,23 +21,26 @@ namespace Script
         public static GameManager Instance;
         private ObjectPooler ItemDropPooler;
         [Inject] private PlayerController _playerController;
+        public CharactersModel charactersModel;
         private void Awake()
         {
+            if(charactersModel==null) charactersModel=Resources.Load<CharactersModel>("CharactersModel");
+            GameEvent.OnGetCharacterModel += charactersModel.GetCharacterModel;
+            
             ItemDropPooler = new ObjectPooler(ItemDropPrefabs,this.transform,50);
             InventoryEvent.OnItemPickUp += ItemDropReturn;
             GameEvent.OnItemDroppedWithPlayer += CreateDropItem;
             GameEvent.OnItemDroppedWithoutPlayer += CreateDropItem;
-            EnemyEvent.OnDeath += EnemyDeath;
             Instance = this;
         }
 
-        private void EnemyDeath((PlayerController player, MonsterSO deathMonster) obj)
-        {
-           
-            
-            float exp=obj.deathMonster.expint*ExpRateCalculate(obj.deathMonster.levelint-obj.player.level);
-            obj.player.ExpCalculator(exp/100f);
-        }
+        // private void Cre((PlayerController player, MonsterSO deathMonster) obj)
+        // {
+        //    
+        //     
+        //     float exp=obj.deathMonster.expint*ExpRateCalculate(obj.deathMonster.levelint-obj.player.level);
+        //     obj.player.ExpCalculator(exp/100f);
+        // }
 
         private void ItemDropReturn(GameObject obj)
         {

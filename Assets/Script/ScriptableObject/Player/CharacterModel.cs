@@ -1,22 +1,24 @@
-using System;
-using Script.Player;
 using Script.ScriptableObject.Equipment;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Script.ScriptableObject.Player
 {
     [CreateAssetMenu(menuName = "ScriptableObject/Player/CharacterModel")]
-    public class CharacterModel : CharacterStats
+    public class CharacterModel : UnityEngine.ScriptableObject
     {
-        public string playerName="satisfaction";
-        [FormerlySerializedAs("character")] public CharacterType characterType = CharacterType.Warrior;
+        public string characterName="satisfaction";
+        public PolygonCollider2D[] attackColliderNormalSword;
+        public CharacterType characterType = CharacterType.Warrior;
+        public TypeWeapon typeWeapon = TypeWeapon.None;
         public int level;
-        public int exp;
-        
+        public long exp;
+        public CharacterStats stats;
         public bool haveGroup;
         public GroupType groupType;
 
        
     }
+
+
+    
 }

@@ -18,15 +18,14 @@ namespace Script.Player
        
         private Camera _mainCamera;
         
-        public SwordSo sword;
         
-        [FormerlySerializedAs("ıtemDropWithOutName")] [FormerlySerializedAs("ItemDropWithOutName")] public GameObject itemDropWithOutName;
+        
         //public Sprite[] playerIdleSprite;
         
         
         
        // public EquipmentStat EquipmentStat = new EquipmentStat();
-        private float _swordPhsichalDamage;
+        
         public LineRenderer lineRenderer;
         
         
@@ -35,7 +34,7 @@ namespace Script.Player
         protected override void Awake()
         {
             base.Awake();
-            _expController = new ExpController(characterModel.level, characterModel.exp);
+            _expController = new PlayerExp(ref characterModel.level,ref characterModel.exp);
             _mainCamera = Camera.main;
             EquipmentEvent.OnEquip += OnEquipItem;
             EquipmentEvent.OnUnequip += OnUnEquipItem;
@@ -44,51 +43,27 @@ namespace Script.Player
 
         private void OnEquipItem(ItemController item)
         {
-            characterModel.UpdateStats(item.GetStats(),true);
+            characterModel.stats.UpdateStats(item.GetStats(),true);
         }
 
         private void OnUnEquipItem(ItemController item)
         {
-            characterModel.UpdateStats(item.GetStats(),false);
-        }
-
-        private void Start()
-        {
-            _swordPhsichalDamage = 50f;//when getting sword delete this shit
-        
-        
-
+            characterModel.stats.UpdateStats(item.GetStats(),false);
         }
         private int creatureExp;
-        public void GiveNormalDamage(IDamageAble damageAble)
-        { 
-            bool crit = false;
-            //todo: crit oran� hesaplama
-            if (crit)
-            {
-                damageAble.TakeDamage(_swordPhsichalDamage*2, this);
-                DamageTextManager.instance.CreateDamageText((_swordPhsichalDamage * 2).ToString(), damageAble.GetPosition(),DamageType.Crit);
-            }
-            else
-            {
-                damageAble.TakeDamage(_swordPhsichalDamage , this);
-                DamageTextManager.instance.CreateDamageText((_swordPhsichalDamage ).ToString(), damageAble.GetPosition(), DamageType.Normal);
-            }
        
-       
-        }
-        public  void ExpCalculator(float exp)
-        {
-            _expController.ChangeExp((characterModel.level,exp));
-            // print( GameManager.instance.ExpRateCalculate(creatureLevel - level));
-            /*if (!haveGroup)
-        {
-
-        }
-        else
-        {
-
-        }*/
-        }
+//         public  void ExpCalculator(long exp)
+//         {
+//             _expController.ChangeExp((characterModel.level,exp));
+//             // print( GameManager.instance.ExpRateCalculate(creatureLevel - level));
+//             /*if (!haveGroup)
+//         {
+//
+//         }
+//         else
+//         {
+//
+//         }*/
+//         }
     }
 }

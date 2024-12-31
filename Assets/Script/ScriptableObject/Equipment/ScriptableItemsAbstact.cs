@@ -7,7 +7,7 @@ namespace Script.ScriptableObject.Equipment
 {
     public enum CharacterType
     {
-        Warrior, Sura, Ninja, Shaman, Lycan
+       None, Warrior, Sura, Ninja, Shaman, Lycan
     }
 
     [System.Serializable]

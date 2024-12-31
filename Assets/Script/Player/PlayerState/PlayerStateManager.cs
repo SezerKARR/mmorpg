@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Script.Anim;
+using Script.ScriptableObject.Player;
 using UnityEngine;
 
 namespace Script.Player.PlayerState
@@ -10,6 +11,7 @@ namespace Script.Player.PlayerState
    
         private Vector2 _direction;
         public Animator animator;
+        public CharacterModel characterModel;
         [HideInInspector]
         public int animValue;
         private CharacterState _currentState;
@@ -18,10 +20,11 @@ namespace Script.Player.PlayerState
         public MoveState moveState;
         public IdleState idleState;
         public StopState stopState;
+        
         public CharacterState nextState;
         private void Awake()
         {
-            
+            characterModel=GameEvent.OnGetCharacterModel?.Invoke(this.gameObject.name);
             animator = GetComponent<Animator>();
             characterAnims = new CharacterAnims(animator);
             attackState = new AttackState(this);
@@ -45,7 +48,7 @@ namespace Script.Player.PlayerState
         }
         private void ShootCanceled()
         {
-            
+            nextState= stopState;
             ControlState(attackState);
         }
 
