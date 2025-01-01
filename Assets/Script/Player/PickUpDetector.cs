@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Script.Inventory;
 using Script.Inventory.Objects;
 using Script.Player;
+using Script.ScriptableObject;
 using Unity.VisualScripting;
 using UnityEngine;
 

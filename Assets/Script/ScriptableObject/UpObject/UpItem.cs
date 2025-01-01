@@ -2,6 +2,7 @@
 
 using System;
 using Script.Inventory;
+using Script.ScriptableObject;
 using UnityEngine;
 
 [CreateAssetMenu(menuName ="ScriptableObject/UpItem")]

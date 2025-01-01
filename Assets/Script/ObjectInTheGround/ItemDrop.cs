@@ -1,4 +1,5 @@
 using Script.Interface;
+using Script.ScriptableObject;
 using TMPro;
 using UnityEngine;
 

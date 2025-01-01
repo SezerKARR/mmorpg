@@ -1,22 +1,21 @@
-using System.Linq;
-using System.Numerics;
-using Script.Enemy;
 using Script.Inventory;
 using Script.Inventory.Objects;
 using Script.ObjectInTheGround;
 using Script.Player;
+using Script.ScriptableObject;
 using Script.ScriptableObject.Player;
 using Script.ScriptableObject.Prefab;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Zenject;
 using IPoolable = Script.Interface.IPoolable;
 using Vector3 = UnityEngine.Vector3;
 
-namespace Script
+namespace Script.Game
 {
     public class GameManager : MonoBehaviour
     {
-        public ItemPrefabList ItemDropPrefabs;
+        [FormerlySerializedAs("ItemDropPrefabs")] public ItemPrefabList ıtemDropPrefabs;
         
         public static GameManager Instance;
         private ObjectPooler ItemDropPooler;
@@ -27,7 +26,7 @@ namespace Script
             if(charactersModel==null) charactersModel=Resources.Load<CharactersModel>("CharactersModel");
             GameEvent.OnGetCharacterModel += charactersModel.GetCharacterModel;
             
-            ItemDropPooler = new ObjectPooler(ItemDropPrefabs,this.transform,50);
+            ItemDropPooler = new ObjectPooler(ıtemDropPrefabs,this.transform,50);
             InventoryEvent.OnItemPickUp += ItemDropReturn;
             GameEvent.OnItemDroppedWithPlayer += CreateDropItem;
             GameEvent.OnItemDroppedWithoutPlayer += CreateDropItem;

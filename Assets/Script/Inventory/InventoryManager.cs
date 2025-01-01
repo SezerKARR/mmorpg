@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Script.Equipment;
 using Script.Inventory.Objects;
 using Script.Player;
+using Script.ScriptableObject;
 using Script.ScriptableObject.Prefab;
 using Script.UI;
 using Unity.Mathematics;

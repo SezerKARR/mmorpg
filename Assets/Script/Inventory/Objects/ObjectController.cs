@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Script.Interface;
 using Script.Inventory.Objects;
+using Script.ScriptableObject;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;

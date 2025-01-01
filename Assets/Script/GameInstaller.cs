@@ -18,7 +18,7 @@ namespace Script
             Container.Bind<EquipmentManager>().FromComponentInHierarchy().AsSingle();
             Container.Bind<PlayerController>().FromComponentInHierarchy().AsSingle();
             Container.Bind<CreaturesGroupsHolder>().FromComponentInHierarchy().AsSingle();
-            Container.Bind<DamageManager>().FromComponentInHierarchy().AsSingle();
+            Container.Bind<DamageTextManager>().FromComponentInHierarchy().AsSingle();
         }
     }
 }

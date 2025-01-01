@@ -1,4 +1,5 @@
 using Script.Bonus;
+using Script.ScriptableObject;
 using Script.ScriptableObject.Equipment;
 
 namespace Script.Inventory.Objects

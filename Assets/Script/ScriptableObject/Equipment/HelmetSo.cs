@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Script.Equipment;
 using Script.Inventory;
+using Script.ScriptableObject;
 using Script.ScriptableObject.Equipment;
 using UnityEngine;
 [CreateAssetMenu(menuName = "ScriptableObject/Helmet")]

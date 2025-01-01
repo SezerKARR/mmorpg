@@ -1,4 +1,5 @@
 using System.Collections;
+using Script.ScriptableObject;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;

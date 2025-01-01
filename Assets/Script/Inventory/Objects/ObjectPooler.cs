@@ -6,8 +6,8 @@ namespace Script.Inventory.Objects
 {
     public class ObjectPooler
     {
-        public Item objectsToPool;
-        public class Item: UnityDictionary<string, Queue<GameObject>> { };
+        private readonly ıtem _objectsToPooled;
+        private class ıtem: UnityDictionary<string, Queue<GameObject>> { };
         
         ItemPrefabList _itemPrefabList;
         private readonly Transform _parentTransform;
@@ -15,26 +15,26 @@ namespace Script.Inventory.Objects
         {
             _itemPrefabList = itemPrefabList;
             this._parentTransform = parentTransform;
-            objectsToPool = new Item();
+            _objectsToPooled = new ıtem();
             foreach (var objectClass in itemPrefabList.objects)
             {
                 if(objectClass.Value.howMany!=-1) count=objectClass.Value.howMany;
-                objectsToPool.Add(objectClass.Key,SpawnObject(objectClass.Key, count));
+                _objectsToPooled.Add(objectClass.Key,SpawnObject(objectClass.Key, count));
             }
             
         }
 
         public T SpawnFromPool<T>(string objectType) where T : Component
         {
-            if(objectsToPool[objectType].Count <= 1)objectsToPool[objectType].Enqueue(CreateObject(_itemPrefabList.objects[objectType].prefab));
+            if(_objectsToPooled[objectType].Count <= 1)_objectsToPooled[objectType].Enqueue(CreateObject(_itemPrefabList.objects[objectType].prefab));
             // Pool'dan bir nesne al
-            GameObject objectToSpawn = objectsToPool[objectType].Dequeue();
+            GameObject objectToSpawn = _objectsToPooled[objectType].Dequeue();
 
             // GameObject'ten T tipinde bir bileşen al ve döndür
             return objectToSpawn.GetComponent<T>();
         }
 
-        public Queue<GameObject> SpawnObject(string objectClass,int count=5)
+        private Queue<GameObject> SpawnObject(string objectClass,int count=5)
         {
             Queue<GameObject> objectPool = new Queue<GameObject>() ;
             for (int i = 0; i < count; i++)
@@ -53,10 +53,10 @@ namespace Script.Inventory.Objects
         }
         public void ReturnObject(string objectType, GameObject obj)
         {
-            if (objectsToPool.ContainsKey(objectType))
+            if (_objectsToPooled.ContainsKey(objectType))
             {
                 obj.SetActive(false);
-                objectsToPool[objectType].Enqueue(obj);
+                _objectsToPooled[objectType].Enqueue(obj);
             }
         }
     }

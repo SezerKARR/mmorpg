@@ -1,6 +1,6 @@
 using System.Collections;
 using Script.Anim;
-using Script.Damage.DamageText;
+using Script.Damage;
 using UnityEngine;
 using Zenject;
 
@@ -8,7 +8,7 @@ namespace Script.Player.PlayerState
 {
     public class AttackState :  CharacterState
     {
-        [Inject] DamageManager damagageManager;
+        [Inject] private DamageTextManager _damagageTextManager;
         public AttackState(PlayerStateManager manager) : base(manager) { }
         private CharacterState _nextState = null;
 

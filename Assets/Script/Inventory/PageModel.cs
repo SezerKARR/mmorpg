@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Script.Inventory.Objects;
+using Script.ScriptableObject;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;

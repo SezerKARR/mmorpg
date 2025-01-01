@@ -1,4 +1,5 @@
 using System.Numerics;
+using Script.Damage;
 using Script.Equipment;
 using Script.Exp;
 using Script.Interface;
@@ -39,6 +40,12 @@ namespace Script.Player
             EquipmentEvent.OnEquip += OnEquipItem;
             EquipmentEvent.OnUnequip += OnUnEquipItem;
 
+        }
+
+        public override void GiveDamage(float damage, IDamageAble damageAble, DamageType damageType)
+        {
+            base.GiveDamage(damage, damageAble, damageType);
+            DamageTextEvent.OnDamage(damage.ToString(), damageAble.GetPosition(), damageType);
         }
 
         private void OnEquipItem(ItemController item)

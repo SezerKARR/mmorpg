@@ -1,4 +1,5 @@
 using System.Collections;
+using Script.ScriptableObject;
 using UnityEngine;
 
 namespace Script.ObjectInTheGround

@@ -8,7 +8,7 @@ namespace Script.Interface
     {
     
         //void TakeDamage(float damage );
-        void TakeDamage(float damage,IDamager playerController);
+        void TakeDamage(float damage,IDamager damager);
         void Death( );
         Vector2 GetPosition();
     

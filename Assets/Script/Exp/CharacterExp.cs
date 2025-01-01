@@ -1,18 +1,15 @@
 using System;
 using System.Linq;
 using System.Numerics;
+using Script.Interface;
 using Script.Player.Character;
 using Script.ScriptableObject;
 using UnityEngine;
 
 namespace Script.Exp
 {
-    public  class CharacterExp: IDamager
+    public  class CharacterExp
     {
-        public string GetName()
-        {
-            throw new NotImplementedException();
-        }
         protected  ExpSo _expSo = Resources.Load<ExpSo>("ExpForLevel");
         protected  long _exp;
         protected  int _level;
@@ -83,6 +80,6 @@ namespace Script.Exp
 
         
 
-        public Action<int, long> onEnemyKilled { get; set; }
+        
     }
 }

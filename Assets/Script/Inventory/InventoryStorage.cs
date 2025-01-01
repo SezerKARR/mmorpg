@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Script.Inventory.Objects;
+using Script.ScriptableObject;
 using Unity.Mathematics;
 
 namespace Script.Inventory

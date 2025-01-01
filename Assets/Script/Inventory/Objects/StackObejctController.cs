@@ -1,3 +1,5 @@
+using Script.ScriptableObject;
+
 namespace Script.Inventory.Objects
 {
     public class StackObejctController:ObjectController

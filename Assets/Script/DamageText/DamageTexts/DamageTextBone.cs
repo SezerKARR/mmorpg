@@ -1,18 +1,27 @@
 using TMPro;
 using UnityEngine;
+using IPoolable = Script.Interface.IPoolable;
 
-namespace Script.Damage.DamageText
+namespace Script.Damage.DamageTexts
 {
-    public class DamageText : MonoBehaviour
+    public abstract class DamageTextBone : MonoBehaviour,IPoolable
     {
+    
         public Vector2 initialVelocity; // Ba�lang�� h�z�
-        public float gravity = 9.8f;    // Yer�ekimi
         public float lifetime = 2f;     // Objenin yok olma s�resi
-
+        protected abstract DamageType DamageType { get; }
+        
         protected Vector2 _startPosition;
         protected float _timeElapsed;
         [SerializeField]
         protected TextMeshPro damageText;
+
+        private IPoolable _ıPoolableImplementation;
+
+        public virtual string GetPoolType()
+        {
+            return DamageType.ToString();
+        }
         // Start is called before the first frame update
         public virtual void Initialize(string damage)
         {
@@ -35,5 +44,7 @@ namespace Script.Damage.DamageText
                 Destroy(gameObject);
             }
         }
+
+        
     }
 }

@@ -1,5 +1,6 @@
 using System;
 using Script.Inventory.Objects;
+using Script.ScriptableObject;
 using Script.UI;
 using Unity.VisualScripting;
 using UnityEngine;

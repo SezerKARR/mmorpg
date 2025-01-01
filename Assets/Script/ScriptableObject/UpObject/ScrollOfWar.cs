@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using Script.Inventory;
+using Script.ScriptableObject;
 using UnityEngine;
 
 public class ScrollOfWar : ObjectAbstract, IUpgradeItem

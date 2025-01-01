@@ -1,5 +1,4 @@
 using System;
-using Script.Damage.DamageText;
 using Script.Exp;
 using Script.Interface;
 using Script.Player.Character;
@@ -75,12 +74,15 @@ namespace Script
            
        
         }
-        
 
-        private void GiveDamage(float damage, IDamageAble damageAble, DamageType damageType)
+
+        public virtual void GiveDamage(float damage, IDamageAble damageAble, DamageType damageType)
         {
             damageAble.TakeDamage(damage , this);
-            DamageManager.instance.CreateDamageText( damage.ToString(), damageAble.GetPosition(),damageType);
+            
+            
+            
+            
         }
 
         protected virtual void OnEnable()
