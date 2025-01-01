@@ -9,7 +9,7 @@ using UnityEngine.UI;
 /*public class EquipmentBasic : InventorObjectAbstract,IEquipmentAble
 {
     public IItemable currentItem;
-    public EquipmentType equipmentType;
+    public EquipmentType weaponType;
     public override void Awake()
     {
         this.image=GetComponent<Image>();
@@ -30,7 +30,7 @@ using UnityEngine.UI;
 
     public EquipmentType GetEquipmentType()
     {
-        return equipmentType;
+        return weaponType;
     }
 
     public IItemable GetItemable()

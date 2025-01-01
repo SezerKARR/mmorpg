@@ -1,16 +1,16 @@
+using Script.Damage;
 using TMPro;
 using UnityEngine;
 using IPoolable = Script.Interface.IPoolable;
 
-namespace Script.Damage.DamageTexts
+namespace Script.DamageText.DamageTexts
 {
-    public abstract class DamageTextBone : MonoBehaviour,IPoolable
+    public  class DamageTextBone : MonoBehaviour,IPoolable
     {
     
         public Vector2 initialVelocity; // Ba�lang�� h�z�
         public float lifetime = 2f;     // Objenin yok olma s�resi
-        protected abstract DamageType DamageType { get; }
-        
+        public DamageType damageType=DamageType.None;
         protected Vector2 _startPosition;
         protected float _timeElapsed;
         [SerializeField]
@@ -20,7 +20,7 @@ namespace Script.Damage.DamageTexts
 
         public virtual string GetPoolType()
         {
-            return DamageType.ToString();
+            return damageType.ToString();
         }
         // Start is called before the first frame update
         public virtual void Initialize(string damage)
@@ -41,10 +41,17 @@ namespace Script.Damage.DamageTexts
             // Belirtilen s�re sonunda objeyi yok et
             if (_timeElapsed >= lifetime/2)
             {
-                Destroy(gameObject);
+               DamageTextEvent.OnFinishTextTime?.Invoke(this);
             }
         }
 
-        
+
+        public void OnActivate(string damage, Vector2 position)
+        {
+            this.gameObject.SetActive(true);
+            damageText.text = damage;
+            this.transform.position=position;
+            _startPosition = transform.position;
+        }
     }
 }

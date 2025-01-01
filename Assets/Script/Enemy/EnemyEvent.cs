@@ -9,6 +9,6 @@ namespace Script.Enemy
     public class EnemyEvent
     {
         public static Action< Vector3 , ObjectAbstract ,string > OnDropObject;
-        //public static Action<(string playerName, MonsterSO deathMonster)> OnDeath;
+        //public static Action<(string playerName, MonsterSO deathMonster)> OnFinishTextTime;
     }
 }

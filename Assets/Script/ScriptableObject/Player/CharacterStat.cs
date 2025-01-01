@@ -1,5 +1,9 @@
+using System;
+using System.Linq;
 using Script.Bonus;
 using UnityEditor;
+using UnityEngine;
+using UnityEngine.Serialization;
 
 /* Contains all the stats for a characterType. */
 
@@ -8,22 +12,34 @@ namespace Script.ScriptableObject.Player
     
     public  class CharacterStats : UnityEngine.ScriptableObject
     {
-        public Stats stats;
-        public void UpdateStats(Stats upgradeStats,bool isEquipped)
-        {
-            foreach (var stat in upgradeStats)
-            {
-                int equipVal = isEquipped ? 1 : -1;
-                if (stats.ContainsKey(stat.Key))
-                {
-                    stats[stat.Key]+= equipVal*stat.Value;
-                }
-                else
-                {
-                    stats[stat.Key] = stat.Value;
-                }
-            }
-        }
+        
+        // public CharacterStats()
+        // {
+        //     foreach (StatType statType in Enum.GetValues(typeof(StatType)).Cast<StatType>().Skip(1))
+        //     {
+        //         if (!stats.ContainsKey(statType))
+        //         {
+        //             this.stats[statType] = 0;
+        //         }
+        //         
+        //     }
+        // }
+        //  
+        // public void UpdateStats(Stat upgradeStat,bool isEquipped)
+        // {
+        //     foreach (var stat in upgradeStat)
+        //     {
+        //         int equipVal = isEquipped ? 1 : -1;
+        //         if (this.stats.ContainsKey(stat.Key))
+        //         {
+        //             this.stats[stat.Key]+= equipVal*stat.Value;
+        //         }
+        //         else
+        //         {
+        //             this.stats[stat.Key] = stat.Value;
+        //         }
+        //     }
+        // }
 
         //
         // public int currentHealth { get; protected set; }    // Current amount of health

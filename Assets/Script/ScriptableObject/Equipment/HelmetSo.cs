@@ -28,7 +28,7 @@ public class HelmetSo : ScriptableItemsAbstact
     //
     // public override EquipmentType GetEquipmentType()
     // {
-    //     return equipmentType;
+    //     return weaponType;
     // }
 
 

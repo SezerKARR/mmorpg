@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Script.Anim;
+using Script.Damage;
 using Script.Interface;
 using TMPro;
 using UnityEngine;
@@ -84,11 +85,21 @@ namespace Script.Enemy
 
         }
 
+        public CharacterNormalDefenderData GetNormalDefenderData()
+        {
+            throw new NotImplementedException();
+        }
+
+        public CharacterSkillDefenderData GetSkillDefenderData()
+        {
+            throw new NotImplementedException();
+        }
+
         public void Death()
         {
             _lastDamager.onEnemyKilled?.Invoke(enemySo.levelint,enemySo.expint);
                 
-            //EnemyEvent.OnDeath?.Invoke((_lastDamager.GetName(),enemySo));
+            //EnemyEvent.OnFinishTextTime?.Invoke((_lastDamager.GetName(),enemySo));
             creaturesGroup.OnEnemyDeath();
             DropItem(_lastDamager.GetName());
             Destroy(gameObject);

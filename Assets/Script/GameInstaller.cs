@@ -1,4 +1,5 @@
 using Script.Damage;
+using Script.DamageText;
 using Script.Enemy;
 using Script.Equipment;
 using Script.Inventory;

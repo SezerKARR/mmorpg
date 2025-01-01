@@ -2,16 +2,14 @@ using System;
 using System.Collections.Generic;
 using Script;
 using Script.Bonus;
-using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEngine;
 
 
 public class EquipmentStat
 {
     [SerializeField]
-    public Stats  Modifiers=new Stats();
-    [Serializable]
-    public class Stats : UnityDictionary<StatType, float> { }
+    public Stat  modifiers=new Stat();
+    
     
     // Constructor, bo� veya ba�lang�� modifiyerleriyle olu�turmay� destekler.
    
@@ -20,13 +18,13 @@ public class EquipmentStat
     public void AddModifier(StatType statType, float modifierValue)
     {
 
-        if (Modifiers.ContainsKey(statType))
+        if (modifiers.ContainsKey(statType))
         {
-            Modifiers[statType] += modifierValue; // Mevcut de�ere ekler
+            modifiers[statType] += modifierValue; // Mevcut de�ere ekler
         }
         else
         {
-            Modifiers.Add(statType, modifierValue); // Yeni modifiye ekler
+            modifiers.Add(statType, modifierValue); // Yeni modifiye ekler
         }
      
     }
@@ -34,9 +32,9 @@ public class EquipmentStat
     // Bir modifiyeri kald�r�r
     public void RemoveModifier(StatType statType, float decreaseValue)
     {
-        if (Modifiers.ContainsKey(statType))
+        if (modifiers.ContainsKey(statType))
         {
-            Modifiers[statType] -= decreaseValue;
+            modifiers[statType] -= decreaseValue;
 
         }
     }

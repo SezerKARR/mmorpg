@@ -1,11 +1,12 @@
 using Script.Anim;
+using Script.Player.Character;
 using UnityEngine;
 
 namespace Script.Player.PlayerState
 {
     public class IdleState :  CharacterState
     {
-        public IdleState(PlayerStateManager manager) : base(manager) { }
+        public IdleState(CharacterStateManager manager) : base(manager) { }
         public override void ExitState()
         {
             //MonoBehaviour.print("geldi");

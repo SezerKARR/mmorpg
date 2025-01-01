@@ -40,9 +40,9 @@ namespace Script.Equipment
 
         // public void Equip(ItemController itemcontroller)
         // {
-        //     if (equipmentSlots.ContainsKey(itemcontroller.itemModel.equipmentType))
+        //     if (equipmentSlots.ContainsKey(itemcontroller.itemModel.weaponType))
         //     {
-        //          equipmentSlots[itemcontroller.itemModel.equipmentType].SetItem(itemcontroller);
+        //          equipmentSlots[itemcontroller.itemModel.weaponType].SetItem(itemcontroller);
         //     
         //     }
         // }

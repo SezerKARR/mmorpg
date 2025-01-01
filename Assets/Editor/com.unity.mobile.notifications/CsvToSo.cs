@@ -656,10 +656,10 @@ private static void CsvFromSoExpPerLevel()
 
                 if (!bonusCantFind.GetStats().Contains(splitData[1].Replace("�", "")))
                 {
-                    StatClass stat = new StatClass();
-                    stat.statName = splitData[1].Replace("�", "");
-                    stat.statValue = 0f;
-                    bonusCantFind.AddObject(stat);
+                    StatClass stats = new StatClass();
+                    stats.statName = splitData[1].Replace("�", "");
+                    stats.statValue = 0f;
+                    bonusCantFind.AddObject(stats);
                 }
             }
             else if (splitData[1].Contains("Upgrade Yang"))

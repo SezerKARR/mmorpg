@@ -1,4 +1,5 @@
 using Script.Anim;
+using Script.Player.Character;
 using UnityEngine;
 
 namespace Script.Player.PlayerState
@@ -8,7 +9,7 @@ namespace Script.Player.PlayerState
         public float moveSpeed = 7f;
         public Vector2 moveDirection = Vector2.zero;
         
-        public MoveState(PlayerStateManager manager) : base(manager)
+        public MoveState(CharacterStateManager manager) : base(manager)
         {
         
         }

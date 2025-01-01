@@ -1,9 +1,9 @@
-namespace Script.Damage.DamageTexts
+namespace Script.DamageText.DamageTexts
 {
     public class CritDamageText : DamageTextBone
     {
         public DamageType damageType=DamageType.Crit;
-        protected override DamageType DamageType=>damageType;
+        // protected override DamageType DamageType=>damageType;
 
         public override void Initialize(string damage)
         {

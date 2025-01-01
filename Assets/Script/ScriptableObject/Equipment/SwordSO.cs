@@ -20,7 +20,7 @@ namespace Script.ScriptableObject.Equipment
         public int sockets;
         // public override EquipmentType GetEquipmentType()
         // {
-        //     return equipmentType;
+        //     return weaponType;
         // }
         //
         //

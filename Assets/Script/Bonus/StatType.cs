@@ -4,14 +4,16 @@ namespace Script.Bonus
 {
     public enum StatType
     {
+        None,
         MinAttack,
         MaxAttack,
         MinMagicAttack,
         MaxMagicAttack,
         Defense,
-        Critical,
-        AttackSpeed
+        CritChange,
+        AttackSpeed,
+        CritDamageRate
     }
     [Serializable]
-    public class Stats : UnityDictionary<StatType, float> { }
+    public class Stat : UnityDictionary<StatType, float> { }
 }

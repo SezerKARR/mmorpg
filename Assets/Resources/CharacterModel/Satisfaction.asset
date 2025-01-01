@@ -15,8 +15,12 @@ MonoBehaviour:
   characterName: satisfaction
   attackColliderNormalSword: []
   characterType: 0
+  typeWeapon: 0
   level: 0
   exp: 0
-  stats: {fileID: 0}
+  stats:
+    tKeys: 
+    tValues: []
   haveGroup: 0
   groupType: 0
+  element: -1

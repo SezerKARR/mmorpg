@@ -1,15 +1,16 @@
 using Script.Anim;
+using Script.Player.Character;
 using UnityEngine;
 
 namespace Script.Player.PlayerState
 {
     public abstract class CharacterState
     {
-        protected PlayerStateManager _stateManager;
+        protected CharacterStateManager _stateManager;
         protected Vector2 _direction;
         
         public Vector2 Direction=>_direction;
-        protected CharacterState(PlayerStateManager manager)
+        protected CharacterState(CharacterStateManager manager)
         {
             
             _stateManager = manager;

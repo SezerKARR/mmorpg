@@ -1,25 +1,25 @@
-using UnityEngine;
-using Script.Damage.DamageTexts;
+using Script.Damage;
+using Script.DamageText.DamageTexts;
 using Script.Inventory.Objects;
 using Script.ScriptableObject.Prefab;
+using UnityEngine;
 
-namespace Script.Damage
+namespace Script.DamageText
 {
     public class DamageTextManager : MonoBehaviour
     {
-        public static DamageTextManager İnstance;
         [SerializeField] private ItemPrefabList damageTextList;
         private ObjectPooler _objectPooler;
 
         private void Awake()
         {
             DamageTextEvent.OnDamage += CreateDamageText;
-            İnstance = this;
+            DamageTextEvent.OnFinishTextTime += CloseDamageText;
             _objectPooler=new ObjectPooler(damageTextList,this.transform,10);
         }
         private void CreateDamageText(string damage,Vector2 position,DamageType damageType)
         {
-            DamageTextBone damageTextBone= _objectPooler.SpawnFromPool<DamageTextBone>(damageType.ToString());
+            _objectPooler.SpawnFromPool<DamageTextBone>(damageType.ToString()).OnActivate(damage,position);
             // if(damageTexts.Keys.Contains(da))
             // GameObject damageText=null;
             // switch (damageType)

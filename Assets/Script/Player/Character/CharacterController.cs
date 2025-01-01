@@ -15,12 +15,7 @@ namespace Script
         Even
     }
 
-    public enum DamageType
-    {
-        Normal,
-        Crit,
-        Magical
-    }
+    
 
     public class CharacterController : MonoBehaviour,IDamager
     {
@@ -58,6 +53,11 @@ namespace Script
             }
         }
 
+        public CharacterNormalAttackData GetCharacterNormalAttackData()
+        {
+            throw new NotImplementedException();
+        }
+
         public void GiveNormalDamage(IDamageAble damageAble)
         {
            
@@ -75,15 +75,13 @@ namespace Script
        
         }
 
-
-        public virtual void GiveDamage(float damage, IDamageAble damageAble, DamageType damageType)
+        public void GiveDamage(float damage, IDamageAble damageAble, DamageType damageType)
         {
-            damageAble.TakeDamage(damage , this);
-            
-            
-            
-            
+            throw new NotImplementedException();
         }
+
+
+        
 
         protected virtual void OnEnable()
         {
@@ -92,7 +90,7 @@ namespace Script
 
         protected virtual void OnlevelUp()
         {
-            throw new NotImplementedException();
+            Debug.Log("typeof()");
         }
 
 

@@ -20,7 +20,7 @@ namespace Script.Game
         public static GameManager Instance;
         private ObjectPooler ItemDropPooler;
         [Inject] private PlayerController _playerController;
-        public CharactersModel charactersModel;
+        public  CharactersModel charactersModel;
         private void Awake()
         {
             if(charactersModel==null) charactersModel=Resources.Load<CharactersModel>("CharactersModel");

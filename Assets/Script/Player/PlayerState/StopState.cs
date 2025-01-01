@@ -1,11 +1,12 @@
 using Script.Anim;
+using Script.Player.Character;
 using UnityEngine;
 
 namespace Script.Player.PlayerState
 {
     public class StopState:CharacterState
     {
-        public StopState(PlayerStateManager manager) : base(manager)
+        public StopState(CharacterStateManager manager) : base(manager)
         {
         }
 

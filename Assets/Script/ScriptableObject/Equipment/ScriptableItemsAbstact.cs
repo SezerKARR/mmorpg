@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Script.Equipment;
 using UnityEngine.Serialization;
-using Stats = Script.Bonus.Stats;
+using Stats = Script.Bonus;
 
 namespace Script.ScriptableObject.Equipment
 {
@@ -40,7 +40,7 @@ namespace Script.ScriptableObject.Equipment
     {
         Warrior,Shaman,Sura,Ninja
     }*/
-        [FormerlySerializedAs("itemstats")] public Stats  stats;
+        [FormerlySerializedAs("stats")] [FormerlySerializedAs("itemstats")] public Stats.Stat  stat;
    
         public List<CharacterType> canUseCharacters = new List<CharacterType>();
         public RequirementClass[] Requirements =new RequirementClass[0];

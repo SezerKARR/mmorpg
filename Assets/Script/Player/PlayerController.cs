@@ -42,20 +42,16 @@ namespace Script.Player
 
         }
 
-        public override void GiveDamage(float damage, IDamageAble damageAble, DamageType damageType)
-        {
-            base.GiveDamage(damage, damageAble, damageType);
-            DamageTextEvent.OnDamage(damage.ToString(), damageAble.GetPosition(), damageType);
-        }
+        
 
         private void OnEquipItem(ItemController item)
         {
-            characterModel.stats.UpdateStats(item.GetStats(),true);
+            characterModel.UpdateStats(item.GetStats(),true);
         }
 
         private void OnUnEquipItem(ItemController item)
         {
-            characterModel.stats.UpdateStats(item.GetStats(),false);
+            characterModel.UpdateStats(item.GetStats(),false);
         }
         private int creatureExp;
        
