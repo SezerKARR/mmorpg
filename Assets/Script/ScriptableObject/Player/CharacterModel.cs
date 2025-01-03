@@ -1,4 +1,5 @@
 using Script.Bonus;
+using Script.Damage;
 using Script.Player.Character;
 using Script.ScriptableObject.Equipment;
 using UnityEngine;
@@ -10,7 +11,6 @@ namespace Script.ScriptableObject.Player
     public class CharacterModel : UnityEngine.ScriptableObject
     {
         public string characterName="satisfaction";
-        public PolygonCollider2D[] attackColliderNormalSword;
         public CharacterType characterType = CharacterType.Warrior;
         public TypeWeapon typeWeapon = TypeWeapon.None;
         public int level;
@@ -30,7 +30,8 @@ namespace Script.ScriptableObject.Player
                 minDamage = GetStat(StatType.MinAttack),
                 maxDamage = GetStat(StatType.MaxAttack),
                 weaponType = typeWeapon,
-                //element=stats.stats[StatType.Element],
+                attackSpeed = GetStat(StatType.AttackSpeed),
+                element=this.element,
             };
 
             return characterNormalAttackData;

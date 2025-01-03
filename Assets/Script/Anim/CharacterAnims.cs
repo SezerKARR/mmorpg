@@ -17,21 +17,33 @@ namespace Script.Anim
             Vector2[] directions = { Vector2.up, Vector2.down, Vector2.left, Vector2.right };
             Vector2 randomDirection = directions[Random.Range(0, directions.Length)];
             this._animator = animator;
-            UpdateAnim(AnimationEnum.Idle,randomDirection);
+            UpdateAnim(AnimationEnum.Idle,Anim.DirectionToString.DirectionToStringMap[randomDirection]);
         }
         private void AnimController(AnimationEnum animationEnum,string direction,float speed)
         {
+            
             if(_currentAnimation==animationEnum&&_direction==direction)return;
             _currentAnimation = animationEnum;
             _direction = direction;
             string animWithDirection = animationEnum.ToString() + direction;
+            
             _animator.CrossFade(animWithDirection, speed);
             
         }
-        public  void UpdateAnim(AnimationEnum animationEnum,Vector2 direction,float speed=0.2f)
+
+        public void AdjustValue(string valuetype, float value)
         {
-            
-            AnimController(animationEnum,DirectionToString(direction),speed);   
+            _animator.SetFloat(valuetype, value);
+        }
+        public  void UpdateAnim(AnimationEnum animationEnum,string direction,string valuetype,float value,float speed=0.2f)
+        {
+            AdjustValue(valuetype,value);
+            AnimController(animationEnum,direction,speed);   
+        }
+        public  void UpdateAnim(AnimationEnum animationEnum,string direction,float speed=0.2f)
+        {
+           
+            AnimController(animationEnum,direction,speed);   
         }
         public bool IsAnimationComplete()
         {
@@ -54,7 +66,7 @@ namespace Script.Anim
         }
         private string DirectionToString(Vector2 direction)
         {
-            return AnimAndDirection.DirectionToStringMap.GetValueOrDefault(direction);
+            return Anim.DirectionToString.DirectionToStringMap.GetValueOrDefault(direction);
         }
     }
 }

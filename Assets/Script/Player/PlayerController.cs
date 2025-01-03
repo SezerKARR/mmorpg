@@ -5,6 +5,7 @@ using Script.Exp;
 using Script.Interface;
 using Script.Inventory.Objects;
 using Script.ObjectInTheGround;
+using Script.Player.Character;
 using Script.ScriptableObject.Equipment;
 using Script.ScriptableObject.Player;
 using UnityEngine;
@@ -13,7 +14,7 @@ using UnityEngine.Serialization;
 namespace Script.Player
 {
     
-    public class PlayerController : CharacterController
+    public class PlayerController : CharController
     {
     
        

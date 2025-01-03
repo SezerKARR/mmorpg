@@ -14,7 +14,6 @@ namespace Script.Player.PlayerState
         protected override void Awake()
         {
             base.Awake();
-            //characterModel.stats[StatType.MinAttack] = 5;
             InputPlayer.OnMovePressed += CanChangeStateToMove;
             InputPlayer.OnNormalAttackPressed += CanChangeStateToAttack;
             InputPlayer.OnMoveCancel += MoveCanceled;

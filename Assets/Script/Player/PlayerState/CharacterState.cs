@@ -7,9 +7,7 @@ namespace Script.Player.PlayerState
     public abstract class CharacterState
     {
         protected CharacterStateManager _stateManager;
-        protected Vector2 _direction;
-        
-        public Vector2 Direction=>_direction;
+        public string direction;
         protected CharacterState(CharacterStateManager manager)
         {
             
@@ -18,9 +16,9 @@ namespace Script.Player.PlayerState
         }
 
     
-        public virtual void EnterState(Vector2 direction)
+        public virtual void EnterState(string direction)
         {
-            _direction = direction;
+            this.direction = direction;
         }
         public virtual void UpdateState()
         {
@@ -29,9 +27,9 @@ namespace Script.Player.PlayerState
         public virtual void ExitState() 
         { 
         }
-        public virtual bool CanTransitionTo(CharacterState newState, Vector2 direction)
+        public virtual bool CanTransitionTo(CharacterState newState, string direction)
         {
-            if (newState == this&&direction == _direction)
+            if (newState == this&&direction == this.direction)
             {
                 return false;
             }

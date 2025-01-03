@@ -21,8 +21,8 @@ namespace Script.Player.PlayerState
         }
         public void Walk()
         {
-            _stateManager.characterAnims.UpdateAnim(AnimationEnum.Walk, _direction);
-            moveDirection = _direction.normalized;
+            _stateManager.characterAnims.UpdateAnim(AnimationEnum.Walk, direction);
+            moveDirection = DirectionHelper.GetVector(direction).normalized;
             _stateManager.transform.position += new Vector3(moveDirection.x, moveDirection.y, 0f) * moveSpeed * Time.deltaTime;
         }
   

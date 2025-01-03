@@ -13,14 +13,18 @@ MonoBehaviour:
   m_Name: Satisfaction
   m_EditorClassIdentifier: 
   characterName: satisfaction
-  attackColliderNormalSword: []
-  characterType: 0
+  characterType: 1
   typeWeapon: 0
   level: 0
   exp: 0
   stats:
-    tKeys: 
-    tValues: []
+    tKeys: 0600000008000000010000000200000007000000
+    tValues:
+    - 0
+    - 0
+    - 15
+    - 0
+    - 2
   haveGroup: 0
   groupType: 0
-  element: -1
+  element: 0

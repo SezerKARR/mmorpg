@@ -30,7 +30,7 @@ namespace Editor.com.unity.mobile.notifications
                 //
                 foreach (var anim in Enum.GetValues(typeof(AnimationEnum)).Cast<AnimationEnum>().Skip(1))
                 {
-                    foreach (var direction in AnimAndDirection.DirectionToStringMap)
+                    foreach (var direction in DirectionToString.DirectionToStringMap)
                     {
                         String animName = anim.ToString()+direction.Value;
                         AnimationClip idleClip = CreateEmptyAnimationClip(animName,monster.name);

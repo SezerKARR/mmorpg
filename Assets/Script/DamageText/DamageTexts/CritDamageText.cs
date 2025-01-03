@@ -1,3 +1,5 @@
+using Script.Damage;
+
 namespace Script.DamageText.DamageTexts
 {
     public class CritDamageText : DamageTextBone

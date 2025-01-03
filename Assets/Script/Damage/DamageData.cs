@@ -1,7 +1,7 @@
 using Script.Player.Character;
 using Script.ScriptableObject.Equipment;
 
-namespace Script
+namespace Script.Damage
 {
     public enum DamageType
     {
@@ -20,7 +20,8 @@ namespace Script
         public TypeWeapon weaponType;
         public Element element;
         public RaceAttack raceAttack;
-
+        public float attackSpeed;
+        
     }
     
     public class  CharacterSkillAttackData

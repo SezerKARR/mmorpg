@@ -13,7 +13,7 @@ namespace Script.Player.PlayerState
 
         public override void UpdateState()
         {
-            _stateManager.characterAnims.UpdateAnim(AnimationEnum.Stop,_direction,0.0f);
+            _stateManager.characterAnims.UpdateAnim(AnimationEnum.Stop,direction,0.0f);
         }
 
         public override void ExitState()
@@ -21,7 +21,7 @@ namespace Script.Player.PlayerState
             base.ExitState();
         }
 
-        public override bool CanTransitionTo(CharacterState newState, Vector2 direction)
+        public override bool CanTransitionTo(CharacterState newState, string direction)
         {
             return base.CanTransitionTo(newState, direction);
         }

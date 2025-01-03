@@ -1,4 +1,5 @@
 using System;
+using Script.Damage;
 using Script.Interface;
 
 namespace Script.Player.Character

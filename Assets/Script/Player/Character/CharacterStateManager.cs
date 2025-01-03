@@ -1,35 +1,34 @@
-using System;
 using System.Collections;
 using Script.Anim;
 using Script.Damage;
-using Script.Interface;
 using Script.Player.PlayerState;
 using Script.ScriptableObject.Player;
 using UnityEngine;
 
 namespace Script.Player.Character
 {
-    public abstract class CharacterStateManager:MonoBehaviour,IDamager
+    public  class CharacterStateManager:MonoBehaviour
     {
-        protected Vector2 _direction;
+        protected string _direction;
         public Animator animator;
         public CharacterModel characterModel;
-        protected CharacterState _currentState;
         public CharacterAnims characterAnims;
+        
+        protected CharacterState _currentState;
         public AttackState attackState;
         public MoveState moveState;
         public IdleState idleState;
         public StopState stopState;
-        public DamageCalculator damageCalculator;
         public CharacterState nextState;
+        public DamageCalculator damageCalculator;
+        
         protected virtual void Awake()
         {
-            Debug.Log($"{gameObject.name} Awake çağrıldı, aktif mi? {gameObject.activeSelf}");
             damageCalculator = new DamageCalculator();
             characterModel=GameEvent.OnGetCharacterModel?.Invoke(this.gameObject.name);
             animator = GetComponent<Animator>();
             characterAnims = new CharacterAnims(animator);
-            attackState = new AttackState(this);
+            attackState = new AttackState( this);
             moveState = new MoveState(this);
             stopState = new StopState(this);
             idleState = new IdleState(this);
@@ -37,39 +36,41 @@ namespace Script.Player.Character
         }
         protected virtual void MoveCanceled()
         {
-            nextState = stopState;
+            if(nextState==moveState)
+                nextState = stopState;
+            
             ControlState(moveState);
             
 
             
         }
         protected virtual void ShootCanceled()
-        {
-            nextState= stopState;
-            ControlState(attackState);
+        { 
+            // if(nextState!=moveState)
+                // nextState= stopState;
+            // ControlState(attackState);
+            ControlChangeState(nextState);
         }
 
         protected virtual void ControlState(CharacterState state)
         {
             if (_currentState == state)
             {
-                ControlChangeState(nextState);
+                ControlChangeState(stopState);
             }
         }
         protected virtual void Update()
-        { Debug.Log($"{gameObject.name} Awake çağrıldı, aktif mi? {gameObject.activeSelf}");
+        { 
             if (_currentState == null)
             {
                 _currentState = stopState;
-                _currentState.EnterState(Vector2.down);
+                _currentState.EnterState("Down");
             }
             _currentState.UpdateState();
         }
         protected virtual void CanChangeStateToMove(Vector2 walkDirection)
         {
-            Debug.Log("move");
-            _direction = walkDirection;
-            ControlChangeState(moveState);
+            ControlChangeState(moveState,DirectionToString.DirectionToStringMap[walkDirection]);
         }
         protected virtual void CanChangeStateToIdle()
         {
@@ -92,26 +93,38 @@ namespace Script.Player.Character
         {
           
             _currentState =stopState;
-            _currentState.EnterState(Vector2.down);
+            _currentState.EnterState("Down");
         }
-        
+
         protected virtual void ControlChangeState(CharacterState newState)
         {
-            if (_currentState.CanTransitionTo(newState, _direction))
+            string direction = _currentState.direction;
+            if (direction == null)
+                direction = "Up";
+            ControlChangeState(newState, _currentState.direction);
+        }
+        protected virtual void ControlChangeState(CharacterState newState,string direction)
+        {
+            if (newState == _currentState && direction == _currentState.direction)
             {
-                ChangeState(newState);
+                return;
+            }
+            if (_currentState.CanTransitionTo(newState, direction))
+            {
+                ChangeState(newState, direction);
             }
         }
         
-        protected virtual void ChangeState(CharacterState newState)
+        public virtual void ChangeState(CharacterState newState,string direction)
         {
             if (newState != null)
             {
                 _currentState.ExitState();
                 _currentState = newState;
-                _currentState.EnterState(_direction);
+                _currentState.EnterState(direction);
             }
             
+
         }
 
         protected virtual CharacterState GetState(CharacterState stateType)
@@ -124,20 +137,20 @@ namespace Script.Player.Character
             return this.gameObject.name;
         }
 
-        public Action<int, long> onEnemyKilled { get; set; }
-        public CharacterNormalAttackData GetCharacterNormalAttackData()
-        {
-            return characterModel.GetCharacterDamageData();
-        }
-
-        public void GiveNormalDamage(IDamageAble damageAble)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void GiveDamage(float damage, IDamageAble damageAble, DamageType damageType)
-        {
-            throw new NotImplementedException();
-        }
+        // public Action<int, long> onEnemyKilled { get; set; }
+        // public CharacterNormalAttackData GetCharacterNormalAttackData()
+        // {
+        //     return characterModel.GetCharacterDamageData();
+        // }
+        //
+        // public void GiveNormalDamage(IDamageAble damageAble)
+        // {
+        //     throw new NotImplementedException();
+        // }
+        //
+        // public void GiveDamage(float damage, IDamageAble damageAble, DamageType damageType)
+        // {
+        //     throw new NotImplementedException();
+        // }
     }
 }

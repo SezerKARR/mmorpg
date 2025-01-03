@@ -1,13 +1,13 @@
 using System;
+using Script.Damage;
 using Script.Exp;
 using Script.Interface;
-using Script.Player.Character;
 using Script.ScriptableObject.Equipment;
 using Script.ScriptableObject.Player;
+using Script.ScriptableObject.Prefab;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Script
+namespace Script.Player.Character
 {
     public enum GroupType
     {
@@ -17,7 +17,7 @@ namespace Script
 
     
 
-    public class CharacterController : MonoBehaviour,IDamager
+    public class CharController : MonoBehaviour,IDamager
     {
         public Action<int, long> onEnemyKilled { get; set; }
         
@@ -27,8 +27,6 @@ namespace Script
         public int level => characterModel.level;
         public CharacterType playerCharecterType => characterModel.characterType;
         private float _swordPhsichalDamage;
-        public GameObject itemDropWithOutName;
-        public string randomString;
         protected virtual void Awake()
         {
             characterModel=GameEvent.OnGetCharacterModel?.Invoke(this.gameObject.name);
@@ -55,7 +53,7 @@ namespace Script
 
         public CharacterNormalAttackData GetCharacterNormalAttackData()
         {
-            throw new NotImplementedException();
+            return characterModel.GetCharacterDamageData();
         }
 
         public void GiveNormalDamage(IDamageAble damageAble)

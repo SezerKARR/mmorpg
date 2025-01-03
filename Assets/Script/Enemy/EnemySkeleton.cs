@@ -49,7 +49,8 @@ namespace Script.Enemy
         public void Update()
         {
             transform.position += new Vector3(0.1f, 0.1f, 0f) * Time.deltaTime;
-            _characterAnims.UpdateAnim(AnimationEnum.Idle, Vector2.left);
+            _characterAnims.UpdateAnim(AnimationEnum.Idle, DirectionHelper.GetDirection(Vector2.left));
+            
             
         }
 

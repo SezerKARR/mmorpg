@@ -26,4 +26,12 @@ namespace Script.Player.Character
         Darkness=16,
         
     }
+    public enum DirectionEnum
+    {
+        None,
+        Left,
+        Right,
+        Down,
+        Up,
+    }
 }
