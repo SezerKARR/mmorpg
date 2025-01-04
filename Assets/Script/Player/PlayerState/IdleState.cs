@@ -14,7 +14,7 @@ namespace Script.Player.PlayerState
 
         public override void UpdateState()
         {
-            _stateManager.characterAnims.UpdateAnim(AnimationEnum.Idle,direction,0.0f);
+            _stateManager.characterAnims.UpdateAnim(AnimationEnum.Idle,directionString,0.0f);
        
         }
     }

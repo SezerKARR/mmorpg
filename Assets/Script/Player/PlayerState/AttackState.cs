@@ -74,10 +74,10 @@ namespace Script.Player.PlayerState
             {
                 float delayTime = (1000f/attackSpeed) ;
                 _isAttacking = true;
-                normalAttackColliders[direction].gameObject.SetActive(true);
-                _stateManager.characterAnims.UpdateAnim(AnimationEnum.Attack,direction,"attackSpeed",attackSpeed);
+                normalAttackColliders[directionString].gameObject.SetActive(true);
+                _stateManager.characterAnims.UpdateAnim(AnimationEnum.Attack,directionString,"attackSpeed",attackSpeed);
                 await UniTask.Delay((int)(delayTime));
-                normalAttackColliders[direction].gameObject.SetActive(false);
+                normalAttackColliders[directionString].gameObject.SetActive(false);
                 _isAttacking = false;
                 if (_nextState != null) _stateManager.ChangeState(_nextState,_nextStateDirection);
             }
@@ -86,40 +86,7 @@ namespace Script.Player.PlayerState
                 throw; // TODO handle exception
             }
         }
-        // public  void GiveDamage( IDamageAble damageAble)
-        // {
-        //     float damage=
-        //     damageAble.TakeDamage(damage , this);
-        //     DamageTextEvent.OnDamage(damage.ToString(), damageAble.GetPosition(), damageType);
-        // }
-        
-        public override void ExitState( )
-        {
-            base.ExitState();
-        }
-
-
-       
-        // public void Attack()
-        // {
-        //     
-        //     //_stateManager.StartPlayerCoroutine(Waita(_stateManager.characterAnims.GetRemainingAnimationTime()));
-        //     //if you want the walk in attack animation time you need + call the walk() function here and
-        //     //change the waitattack coroutine canchangestatetowalk() to if(shootFloat==0){canchangestatetowalk()}
-        //
-        // }
-        public IEnumerator Waita(float second)
-        {
-           
-            while ( !_stateManager.characterAnims.IsAnimationComplete())
-            {
-                yield return null;
-                
-            }
-            //_stateManager.ChangeState(_nextState);
-            
-            
-        }
+      
     
     
 

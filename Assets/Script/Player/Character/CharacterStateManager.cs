@@ -70,7 +70,22 @@ namespace Script.Player.Character
         }
         protected virtual void CanChangeStateToMove(Vector2 walkDirection)
         {
-            ControlChangeState(moveState,DirectionToString.DirectionToStringMap[walkDirection]);
+            Debug.Log(walkDirection);
+            string direction = DirectionHelper.GetDirection(walkDirection);
+            ChangeDirection(walkDirection);
+            if (direction == null)
+            {
+                return;
+            }
+            
+            ControlChangeState(moveState,direction);
+            
+            
+        }
+
+        protected void ChangeDirection(Vector2 direction)
+        {
+            _currentState.ChangeDirection(direction);
         }
         protected virtual void CanChangeStateToIdle()
         {
@@ -98,17 +113,19 @@ namespace Script.Player.Character
 
         protected virtual void ControlChangeState(CharacterState newState)
         {
-            string direction = _currentState.direction;
+            string direction = _currentState.directionString;
             if (direction == null)
                 direction = "Up";
-            ControlChangeState(newState, _currentState.direction);
+            ControlChangeState(newState, _currentState.directionString);
         }
         protected virtual void ControlChangeState(CharacterState newState,string direction)
         {
-            if (newState == _currentState && direction == _currentState.direction)
+            
+            if (newState == _currentState && direction == _currentState.directionString)
             {
                 return;
             }
+            
             if (_currentState.CanTransitionTo(newState, direction))
             {
                 ChangeState(newState, direction);

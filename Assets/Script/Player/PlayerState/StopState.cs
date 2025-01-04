@@ -13,7 +13,7 @@ namespace Script.Player.PlayerState
 
         public override void UpdateState()
         {
-            _stateManager.characterAnims.UpdateAnim(AnimationEnum.Stop,direction,0.0f);
+            _stateManager.characterAnims.UpdateAnim(AnimationEnum.Stop,directionString,0.0f);
         }
 
         public override void ExitState()

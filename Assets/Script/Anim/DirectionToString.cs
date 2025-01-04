@@ -31,7 +31,7 @@ namespace Script.Anim
             if (normalizedDirection == Vector2.up) return "Up";
             if (normalizedDirection == Vector2.down) return "Down";
 
-            return "Unknown Direction";
+            return null;
         }
         public static Vector2 GetVector(string directionString)
         {
