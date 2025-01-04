@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a0e5fa08317feb74eb6520b4d3e42bb1, type: 3}
   m_Name: Satisfaction
   m_EditorClassIdentifier: 
-  characterName: satisfaction
+  characterName: Satisfaction
   characterType: 1
   typeWeapon: 0
-  level: 0
+  level: 3
   exp: 0
   stats:
     tKeys: 0600000008000000010000000200000007000000
     tValues:
     - 0
     - 0
-    - 15
-    - 0
-    - 2
+    - 400
+    - 500
+    - 5
   haveGroup: 0
   groupType: 0
   element: 0

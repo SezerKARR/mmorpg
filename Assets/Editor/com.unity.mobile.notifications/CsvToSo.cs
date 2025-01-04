@@ -193,7 +193,7 @@ namespace Editor.com.unity.mobile.notifications
 
             if (monsterSO.monsterLocations.Length >= 5)
             {
-                monsterSO.Resistance = splitData[0].Split(",");
+                monsterSO.elements = splitData[0].Split(",");
                 monsterSO.race = splitData[1];
                 monsterSO.level = splitData[2].Split("/")[0];
                 monsterSO.stage = splitData[3];
@@ -220,7 +220,7 @@ namespace Editor.com.unity.mobile.notifications
 
             //    MonsterSO monsterSO = ScriptableObject.CreateInstance<MonsterSO>();
 
-            //    monsterSO.Resistance = splitData[0].Split(",");
+            //    monsterSO.elements = splitData[0].Split(",");
             //    monsterSO.race = splitData[1];
             //    monsterSO.level = splitData[2];
             //    monsterSO.stage = splitData[3];

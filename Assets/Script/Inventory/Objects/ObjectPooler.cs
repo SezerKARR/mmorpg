@@ -26,6 +26,7 @@ namespace Script.Inventory.Objects
 
         public T SpawnFromPool<T>(string objectType) where T : Component
         {
+            Debug.Log(_objectsToPooled[objectType].Count);
             if(_objectsToPooled[objectType].Count <= 1)_objectsToPooled[objectType].Enqueue(CreateObject(_itemPrefabList.objects[objectType].prefab));
             // Pool'dan bir nesne al
             GameObject objectToSpawn = _objectsToPooled[objectType].Dequeue();
@@ -53,6 +54,7 @@ namespace Script.Inventory.Objects
         }
         public void ReturnObject(string objectType, GameObject obj)
         {
+            Debug.Log(_objectsToPooled.ContainsKey(objectType));
             if (_objectsToPooled.ContainsKey(objectType))
             {
                 obj.SetActive(false);

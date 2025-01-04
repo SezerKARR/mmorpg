@@ -4,7 +4,7 @@ using Script.Exp;
 using Script.Interface;
 using Script.ScriptableObject.Equipment;
 using Script.ScriptableObject.Player;
-using Script.ScriptableObject.Prefab;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Script.Player.Character
@@ -26,19 +26,21 @@ namespace Script.Player.Character
         public CharacterModel characterModel;
         public int level => characterModel.level;
         public CharacterType playerCharecterType => characterModel.characterType;
-        private float _swordPhsichalDamage;
         protected virtual void Awake()
         {
             characterModel=GameEvent.OnGetCharacterModel?.Invoke(this.gameObject.name);
             if (characterModel != null)
             {
                
-                _expController = new CharacterExp(ref characterModel.level, ref characterModel.exp);
+                _expController = new CharacterExp(this);
             }
-
-            onEnemyKilled += _expController.ChangeExp;
-            _swordPhsichalDamage = 50f;
+        }  
+        protected virtual void OnEnable()
+        {
+            CharacterEvent.OnLevelUp += OnlevelUp;
+            onEnemyKilled += _expController.GainExp;
         }
+
 
         private void Update()
         {
@@ -58,19 +60,21 @@ namespace Script.Player.Character
 
         public void GiveNormalDamage(IDamageAble damageAble)
         {
-           
-            bool crit = false;
-            //todo: crit oran� hesaplama
-            if (crit)
-            {
-                GiveDamage(_swordPhsichalDamage * 2, damageAble, DamageType.Crit);
-            }
-            else
-            {
-                GiveDamage(_swordPhsichalDamage , damageAble, DamageType.Normal);
-            }
-           
-       
+            float damage= DamageCalculator.CalculateDamage(GetCharacterNormalAttackData(), damageAble.GetNormalDefenderData());
+            damageAble.TakeDamage(damage,this);
+            DamageTextEvent.OnDamage(((int)damage).ToString(), damageAble.GetPosition(), DamageType.Normal);
+            // bool crit = false;
+            // //todo: crit oran� hesaplama
+            // if (crit)
+            // {
+            //     GiveDamage(_swordPhsichalDamage * 2, damageAble, DamageType.Crit);
+            // }
+            // else
+            // {
+            //     GiveDamage(_swordPhsichalDamage , damageAble, DamageType.Normal);
+            // }
+
+
         }
 
         public void GiveDamage(float damage, IDamageAble damageAble, DamageType damageType)
@@ -81,10 +85,7 @@ namespace Script.Player.Character
 
         
 
-        protected virtual void OnEnable()
-        {
-            CharacterEvent.OnLevelUp += OnlevelUp;
-        }
+      
 
         protected virtual void OnlevelUp()
         {

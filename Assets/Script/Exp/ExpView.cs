@@ -7,7 +7,7 @@ namespace Script.Exp
     {
         public int expCount;
         public Image expImage;
-
+        
         private void Awake()
         {
         }

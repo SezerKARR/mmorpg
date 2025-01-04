@@ -9,6 +9,13 @@ namespace Script.ScriptableObject.Player
     {
         [SerializeField] private List<CharacterModel> characters = new List<CharacterModel>();
 
+        public void Initialize()
+        {
+            if (characters.Count == 0)
+            {
+                characters.AddRange(Resources.LoadAll<CharacterModel>("CharacterModel"));
+            }
+        }
         public CharacterModel GetCharacterModel(string characterId)
         {
             CharacterModel characterModel = FindCharacterByName(characterId);

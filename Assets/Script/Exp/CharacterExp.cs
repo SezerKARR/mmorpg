@@ -1,57 +1,29 @@
-using System;
-using System.Linq;
-using System.Numerics;
-using Script.Interface;
+using Script.Game;
 using Script.Player.Character;
-using Script.ScriptableObject;
+using Script.ScriptableObject.Player;
 using UnityEngine;
 
 namespace Script.Exp
 {
-    public  class CharacterExp
+    public   class CharacterExp
     {
-        protected  ExpSo _expSo = Resources.Load<ExpSo>("ExpForLevel");
-        protected  long _exp;
-        protected  int _level;
-        public  ExpPerLevelSO expPer = Resources.Load<ExpPerLevelSO>("ExpPerLevel");
+       
         private float _gainedExpOldDecimal;
-        public CharacterExp(ref int level, ref long exp)
+        protected CharacterModel _characterModel;
+        protected float expRate { get => _characterModel.expRate;set => _characterModel.expRate = value; }
+        protected  long exp{get=>_characterModel.exp;set=>_characterModel.exp=value;}
+        protected  int level{get=>_characterModel.level;set=>_characterModel.level=value;}
+        public CharacterExp(CharController charController)
         {
-            _level =  level;
-            _exp =  exp;
+            _characterModel=charController.characterModel;
             
-            Debug.Log(_expSo);
-
         }
-        public  float ExpRateCalculate(int levelDiff)
+        
+        public virtual void ChangeExp(int enemyLevel, long enemyExp)
         {
-            if (levelDiff >= expPer.levelDiff[0])
-            {
-                return expPer.expRate[0];
-            }
-            else if (levelDiff <= expPer.levelDiff[expPer.levelDiff.Length - 1])
-            {
-                return expPer.expRate[expPer.expRate.Length - 1];
-            }
-            else
-            {
-                int i = 0;
-                foreach (var exp in expPer.levelDiff.Skip(1).Take(expPer.levelDiff.Length - 2))
-                {
-                    if (levelDiff == exp)
-                    {
-                        return expPer.expRate[i];
-                    }
-                    i++;
-
-                }
-            }
-            return expPer.expRate[expPer.expRate.Length - 1];
-        }
-        public virtual void ChangeExp(int level, long exp)
-        {
-            float expRate = ExpRateCalculate(level-_level);
-            float gainedExp=exp*expRate/100;
+            
+            float gainExpRate = ExpHelper.ExpRateCalculate(enemyLevel-this.level);
+            float gainedExp=enemyExp*gainExpRate/10;//1 rane sıfır eklenecek deneme için yaptım 
             float gainedExpDecimal=gainedExp-(int)gainedExp;
             _gainedExpOldDecimal+=gainedExpDecimal;
             if (_gainedExpOldDecimal > 1f)
@@ -59,27 +31,28 @@ namespace Script.Exp
                 gainedExp ++;
                 _gainedExpOldDecimal--;
             }
-            _exp=_exp+exp* (long)gainedExp;
-            if (_exp >= long.Parse(_expSo.exps[level - 1].exp))
+            this.exp=this.exp+ (long)gainedExp;
+            if (this.exp >= long.Parse(ExpHelper._expSo.exps[this.level - 1].exp))
             {
+                this.exp = this.exp - long.Parse(ExpHelper._expSo.exps[this.level - 1].exp);
+                this.level++;
+                
                 CharacterEvent.OnLevelUp?.Invoke();
-                Debug.Log("level Up");
+                Debug.Log("enemyLevel Up");
             }
-            float index = (float.Parse((_exp*(long)10000/long.Parse(_expSo.exps[level-1].exp)).ToString()))  ;
-            index = index / 100;
-            // foreach (var expView in expViews)
-            // {
-            //     expView.expImage.fillAmount = (float)index/25 ;
-            //     index -=25;
-            // }
-            // Kalan (Modulus)
-            // Sonuçları yazdır
-            Debug.Log($"Bölme Sonucu: {index}");
+            expRate = exp*10000/long.Parse(ExpHelper._expSo.exps[level-1].exp) / 100f  ;
+            
+                        
+            
 
         }
 
-        
+       
 
-        
+
+        public void GainExp(int enemyLevel, long enemyExp)
+        {
+            ChangeExp(enemyLevel,enemyExp);
+        }
     }
 }

@@ -45,7 +45,22 @@ namespace Script.Anim
             }
         }
     }
-
+    public static class ExpHelper
+    {
+        
+        public static Vector2 GetVector(string directionString)
+        {
+            switch (directionString)
+            {
+                case "Right": return Vector2.right;
+                case "Left": return Vector2.left;
+                case "Up": return Vector2.up;
+                case "Down": return Vector2.down;
+                default: return Vector2.zero; // Bilinmeyen bir yön için varsayılan değer.
+            }
+        }
+    }
+    
 
     
     

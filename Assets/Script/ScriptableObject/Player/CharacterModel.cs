@@ -19,7 +19,8 @@ namespace Script.ScriptableObject.Player
         public bool haveGroup;
         public GroupType groupType;
         public Element element;
-        
+        public float expRate;
+
         public CharacterNormalAttackData GetCharacterDamageData()
         {
             if(stats==null){}

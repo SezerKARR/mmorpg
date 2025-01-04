@@ -6,6 +6,7 @@ using Script.Interface;
 using TMPro;
 using UnityEngine;
 using Script.Player.Character;
+using Script.ScriptableObject.Player;
 using UnityEditor.Animations;
 
 namespace Script.Enemy
@@ -41,10 +42,6 @@ namespace Script.Enemy
             enemyName.SetText($"<color=yellow> Lv. {enemySo.level}</color><color=red> {enemySo.monsterName}</color>");
         }
 
-        private void OnEnable()
-        {
-            throw new NotImplementedException();
-        }
 
         public void Update()
         {
@@ -88,7 +85,7 @@ namespace Script.Enemy
 
         public CharacterNormalDefenderData GetNormalDefenderData()
         {
-            throw new NotImplementedException();
+            return enemySo.GetNormalDefenderData();
         }
 
         public CharacterSkillDefenderData GetSkillDefenderData()

@@ -1,3 +1,5 @@
+using System;
+using Cysharp.Threading.Tasks;
 using Script.Damage;
 using TMPro;
 using UnityEngine;
@@ -12,7 +14,6 @@ namespace Script.DamageText.DamageTexts
         public float lifetime = 2f;     // Objenin yok olma s�resi
         public DamageType damageType=DamageType.None;
         protected Vector2 _startPosition;
-        protected float _timeElapsed;
         [SerializeField]
         protected TextMeshPro damageText;
 
@@ -28,30 +29,49 @@ namespace Script.DamageText.DamageTexts
             damageText.text = damage;
             _startPosition = transform.position;
         }
-        protected virtual void Update()
+
+        protected virtual void OnEnable()
         {
-            _timeElapsed += Time.deltaTime;
+            
+        }
 
-            // Parabolik hareket form�l�
-            float newX = _startPosition.x + initialVelocity.x * _timeElapsed;
-            float newY = _startPosition.y + initialVelocity.y * _timeElapsed - 0.5f *  Mathf.Pow(_timeElapsed, 2);
+       
 
-            transform.position = new Vector3(newX, newY, transform.position.z);
-
-            // Belirtilen s�re sonunda objeyi yok et
-            if (_timeElapsed >= lifetime/2)
+        protected virtual async void StartDamageTextMovement()
+        {
+            try
             {
-               DamageTextEvent.OnFinishTextTime?.Invoke(this);
+                float timeElapsed = 0f;
+
+                while (timeElapsed < lifetime / 2)
+                { 
+                    timeElapsed += Time.deltaTime;
+                    await UniTask.Yield(); // Bir sonraki frame'e geçmeyi bekler
+                    float newX = _startPosition.x + initialVelocity.x * timeElapsed;
+                    float newY = _startPosition.y + initialVelocity.y * timeElapsed - 0.5f *  Mathf.Pow(timeElapsed, 2);
+                    transform.position = new Vector3(newX, newY, transform.position.z);
+                }
+                DamageTextEvent.OnFinishTextTime?.Invoke(this);
+
+                // İşlemler tamamlandıktan sonra objeyi devre dışı bırak
+                gameObject.SetActive(false);
+            }
+            catch (Exception e)
+            {
+                Debug.Log(e);
+
+
             }
         }
 
-
         public void OnActivate(string damage, Vector2 position)
         {
+            Debug.Log(this.gameObject.name);
             this.gameObject.SetActive(true);
             damageText.text = damage;
             this.transform.position=position;
             _startPosition = transform.position;
+            StartDamageTextMovement();
         }
     }
 }

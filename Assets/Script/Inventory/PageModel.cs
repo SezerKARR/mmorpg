@@ -14,40 +14,42 @@ namespace Script.Inventory
     {
         [FormerlySerializedAs("PageData")] public PageData pageData;
         [FormerlySerializedAs("PageIndex")] public int pageIndex;
+        private string path;
         public void Initialize(int rowCount, int columnCount)
         {
-            string path = Application.persistentDataPath + $"/{pageIndex}.json";
-            pageData = LoadPageData(path);
-            if (pageData==null )
-            {
-                InstantiatePageDate(path);
-                return;
-            }
-            else if (pageData.RowCount!=rowCount&& pageData.ColumnCount!=columnCount)
-            {
-                //eski data ile ne yaparsan artık
-                InstantiatePageDate(path);
-                pageData.Initialize(rowCount,columnCount);
-            }
+            pageData.Initialize(rowCount, columnCount);
+            //  path = Application.persistentDataPath + $"/{pageIndex}.json";
+            // pageData = LoadPageData(path);
+            // if (pageData==null )
+            // {
+            //     InstantiatePageDate();
+            //     return;
+            // }
+            // else if (pageData.RowCount!=rowCount&& pageData.ColumnCount!=columnCount)
+            // {
+            //     //eski data ile ne yaparsan artık
+            //     InstantiatePageDate();
+            //     pageData.Initialize(rowCount,columnCount);
+            // }
         }
-        private void OnApplicationQuit()
-        {
-            string path = Application.persistentDataPath + $"/{pageIndex}.json";
-            string jsonData = JsonUtility.ToJson(pageData);
+        // private void OnApplicationQuit()
+        // {
+        //    
+        //     string jsonData = JsonUtility.ToJson(pageData);
+        //
+        //     // 3. JSON'u dosyaya yaz
+        //    
+        //     File.WriteAllText(path, jsonData);
+        // }
 
-            // 3. JSON'u dosyaya yaz
-           
-            File.WriteAllText(path, jsonData);
-        }
-
-        private void InstantiatePageDate(string path)
+        private void InstantiatePageDate()
         {
             pageData = UnityEngine.ScriptableObject.CreateInstance<PageData>();
             
 
             // 2. JSON'a çevir
             string jsonData = JsonUtility.ToJson(pageData);
-
+            
             // 3. JSON'u dosyaya yaz
            
             File.WriteAllText(path, jsonData);
@@ -55,12 +57,13 @@ namespace Script.Inventory
             Debug.Log("Dosya kaydedildi: " + path);
         }
         private PageData LoadPageData( string path )
-        {
+        {            Debug.Log(path);
+
             if (File.Exists(path))
             {
                 
                 string loadedJson = File.ReadAllText(path);
-                pageData = UnityEngine.ScriptableObject.CreateInstance<PageData>();
+                PageData pageData = UnityEngine.ScriptableObject.CreateInstance<PageData>();
                 JsonUtility.FromJsonOverwrite(loadedJson, pageData);
                 Debug.Log("Yüklendi: Satır=" + pageData.cotroller.Length );
                 return pageData;

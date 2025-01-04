@@ -4,6 +4,7 @@ using Script.Damage;
 using Script.Player.PlayerState;
 using Script.ScriptableObject.Player;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Script.Player.Character
 {
@@ -11,7 +12,7 @@ namespace Script.Player.Character
     {
         protected string _direction;
         public Animator animator;
-        public CharacterModel characterModel;
+        [FormerlySerializedAs("charController")] public ScriptableObject.Player.CharacterModel characterModel;
         public CharacterAnims characterAnims;
         
         protected CharacterState _currentState;
@@ -20,11 +21,9 @@ namespace Script.Player.Character
         public IdleState idleState;
         public StopState stopState;
         public CharacterState nextState;
-        public DamageCalculator damageCalculator;
         
         protected virtual void Awake()
         {
-            damageCalculator = new DamageCalculator();
             characterModel=GameEvent.OnGetCharacterModel?.Invoke(this.gameObject.name);
             animator = GetComponent<Animator>();
             characterAnims = new CharacterAnims(animator);

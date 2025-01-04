@@ -10,11 +10,10 @@ namespace Script.Damage
     public class WaponTypeDefence : UnityDictionary<TypeWeapon, float>{};
     public class CharacterNormalDefenderData
     {
-        public float blockNormalAttack;
+        public float blockNormalAttackChange;
         public float defense;
         public WaponTypeDefence waponTypeDefence;
-        public Element element;
-        public ElementDefence elementDefence;
+        public Element elements;
         public Race race;
     }
     public class CharacterSkillDefenderData

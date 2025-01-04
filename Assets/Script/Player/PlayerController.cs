@@ -1,15 +1,9 @@
-using System.Numerics;
-using Script.Damage;
 using Script.Equipment;
 using Script.Exp;
-using Script.Interface;
 using Script.Inventory.Objects;
-using Script.ObjectInTheGround;
 using Script.Player.Character;
-using Script.ScriptableObject.Equipment;
 using Script.ScriptableObject.Player;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Script.Player
 {
@@ -17,7 +11,7 @@ namespace Script.Player
     public class PlayerController : CharController
     {
     
-       
+       public ExpView[] expViews;
         private Camera _mainCamera;
         
         
@@ -36,7 +30,7 @@ namespace Script.Player
         protected override void Awake()
         {
             base.Awake();
-            _expController = new PlayerExp(ref characterModel.level,ref characterModel.exp);
+            _expController = new PlayerExp(this);
             _mainCamera = Camera.main;
             EquipmentEvent.OnEquip += OnEquipItem;
             EquipmentEvent.OnUnequip += OnUnEquipItem;
@@ -54,7 +48,11 @@ namespace Script.Player
         {
             characterModel.UpdateStats(item.GetStats(),false);
         }
-        private int creatureExp;
+
+        public  void ExpRateView()
+        {
+            Debug.Log(characterModel.expRate);
+        }
        
 //         public  void ExpCalculator(long exp)
 //         {

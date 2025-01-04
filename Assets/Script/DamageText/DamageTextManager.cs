@@ -39,6 +39,7 @@ namespace Script.DamageText
         }
         private void CloseDamageText(DamageTextBone damageTextBone)
         {
+            Debug.Log(            damageTextBone.GetPoolType());
             _objectPooler.ReturnObject(damageTextBone.GetPoolType(), damageTextBone.gameObject);
         }
     }

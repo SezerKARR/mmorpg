@@ -16,14 +16,15 @@ namespace Script.Game
     public class GameManager : MonoBehaviour
     {
         [FormerlySerializedAs("ItemDropPrefabs")] public ItemPrefabList ıtemDropPrefabs;
-        
         public static GameManager Instance;
         private ObjectPooler ItemDropPooler;
         [Inject] private PlayerController _playerController;
         public  CharactersModel charactersModel;
+        // public ExpHelper expHelper;
         private void Awake()
         {
             if(charactersModel==null) charactersModel=Resources.Load<CharactersModel>("CharactersModel");
+            charactersModel.Initialize();
             GameEvent.OnGetCharacterModel += charactersModel.GetCharacterModel;
             
             ItemDropPooler = new ObjectPooler(ıtemDropPrefabs,this.transform,50);
@@ -33,6 +34,7 @@ namespace Script.Game
             Instance = this;
         }
 
+        
         // private void Cre((PlayerController player, MonsterSO deathMonster) obj)
         // {
         //    

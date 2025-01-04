@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Script
@@ -6,7 +5,7 @@ namespace Script
     public  class AnimatorBasic:MonoBehaviour
     {
         public AnimationClip animator;
-        public UnityEngine.Animator animator2;
+        public Animator animator2;
 
       
     }

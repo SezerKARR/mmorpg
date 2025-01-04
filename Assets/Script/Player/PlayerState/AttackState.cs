@@ -54,8 +54,6 @@ namespace Script.Player.PlayerState
             {
                 Attack(_attackData.attackSpeed);
             }
-            Debug.Log(_nextState);
-            Debug.Log(_attackData.minDamage);
             
             
             
@@ -83,7 +81,7 @@ namespace Script.Player.PlayerState
             }
             catch (Exception e)
             {
-                throw; // TODO handle exception
+                Debug.Log(e);
             }
         }
       
