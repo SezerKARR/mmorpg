@@ -11,7 +11,7 @@ namespace Script.ObjectInTheGround
         WithPlayerName,
         WithoutPlayerName,
     }
-    public abstract class ItemDrop : MonoBehaviour, IPickedUpAble,IPoolable
+    public abstract class ItemDrop : MonoBehaviour, IPickedUpAble,IPool
     {
         public TMP_Text itemName;
         public ObjectAbstract objectAbstract;

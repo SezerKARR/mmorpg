@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using ModestTree.Util;
 using Script.Inventory;
+using Script.Inventory.Objects;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;

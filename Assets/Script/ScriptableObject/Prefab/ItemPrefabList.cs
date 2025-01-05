@@ -1,19 +1,18 @@
 using System;
 using System.Linq;
+using Script.Interface;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Serialization;
-using IPoolable = Script.Interface.IPoolable;
 
 namespace Script.ScriptableObject.Prefab
 {
     [Serializable]
-    public class ObjectClass{
-        
-        
-        [FormerlySerializedAs("Prefab")] public GameObject prefab;
-        public int howMany=-1;
+    public class ObjectClass<T>
+    {
+        public T prefab; // Generic olarak Component türü
+        public int howMany = -1;
     }
 
     [CreateAssetMenu(fileName = "ItemPrefabList", menuName = "ScriptableObjects/ItemPrefabList", order = 1)]
@@ -22,10 +21,10 @@ namespace Script.ScriptableObject.Prefab
         [SerializeField]
         public Obje objects=new Obje();
         [Serializable]
-        public class Obje: UnityDictionary<string, ObjectClass> { };
+        public class Obje: UnityDictionary<string, ObjectClass<IPool>> { };
         
-        [SerializeField] GameObject[] prefabs;
-        public GameObject GetPrefabByType(string type)
+        [SerializeField] public GameObject[] prefabs;
+        public IPool GetPrefabByType(string type)
         {
             foreach (var obj in objects)
             {
@@ -43,11 +42,11 @@ namespace Script.ScriptableObject.Prefab
              objects = new Obje();
             foreach (var prefab in prefabs)
             {
-                IPoolable poolable = prefab.GetComponent<IPoolable>();
-                if (!objects.Keys.Contains(poolable.GetPoolType()))
+                IPool ıPool = prefab.GetComponent<IPool>();
+                if (!objects.Keys.Contains(ıPool.GetPoolType()))
                 {
                     
-                    objects.Add(poolable.GetPoolType(),new ObjectClass{ prefab=prefab});
+                    objects.Add(ıPool.GetPoolType(),new ObjectClass<IPool>{ prefab=ıPool});
                 }
                 index++;
             }

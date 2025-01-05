@@ -47,7 +47,7 @@ namespace Script.Inventory
            
             InventoryEvent.OnUneqipItem?.Invoke(unEquipObject,cells,page);
             AddObjectsToInventory(unEquipObject.ObjectAbstract,1);
-            pageModels[page].AddObjectToPage(unEquipObject,cells);
+            pageModels[page].AddObjectToPage(unEquipObject.ObjectAbstract,cells);
             
         }
         public void ChangePos(ObjectController objectController,int2 cell,int pageIndex)
@@ -58,7 +58,7 @@ namespace Script.Inventory
             {
                 pageModels[objectController.page].ResetButtons(objectController.cells);
                 InventoryEvent.OnChangedObjectPosition?.Invoke(objectController,cells,pageIndex); 
-                pageModels[pageIndex].AddObjectToPage(objectController,cells);
+                pageModels[pageIndex].AddObjectToPage(objectController.ObjectAbstract,cells);
             }
         }
 

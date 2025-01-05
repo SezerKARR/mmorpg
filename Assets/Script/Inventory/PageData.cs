@@ -1,3 +1,5 @@
+using Script.Inventory.Objects;
+using Script.ScriptableObject;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -8,12 +10,12 @@ namespace Script.Inventory
     public class ObjectsRow
     {
         // Dynamic array size based on row count, this array will be resized based on the columnCount from PageData
-        public ObjectController[] objectController; 
+        public ObjectAbstract[] objectController; 
 
         // Constructor to dynamically allocate memory for objectController
         public ObjectsRow(int columnCount)
         {
-            objectController = new ObjectController[columnCount];
+            objectController = new ObjectAbstract[columnCount];
         }
     }
     [CreateAssetMenu( menuName = "ScriptableObject/PageData")]

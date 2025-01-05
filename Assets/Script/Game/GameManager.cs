@@ -1,3 +1,4 @@
+using Script.Interface;
 using Script.Inventory;
 using Script.Inventory.Objects;
 using Script.ObjectInTheGround;
@@ -8,7 +9,6 @@ using Script.ScriptableObject.Prefab;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Zenject;
-using IPoolable = Script.Interface.IPoolable;
 using Vector3 = UnityEngine.Vector3;
 
 namespace Script.Game
@@ -45,7 +45,7 @@ namespace Script.Game
 
         private void ItemDropReturn(GameObject obj)
         {
-            ItemDropPooler.ReturnObject(obj.GetComponent<IPoolable>().GetPoolType(),obj);
+            ItemDropPooler.ReturnObject(obj.GetComponent<IPool>().GetPoolType(),obj);
         }
 
         private void CreateDropItem(Vector3 position, ObjectAbstract objectAbstract,string playerName)

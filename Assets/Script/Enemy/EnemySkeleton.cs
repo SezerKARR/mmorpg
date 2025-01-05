@@ -12,7 +12,7 @@ using UnityEditor.Animations;
 namespace Script.Enemy
 {   
 
-    public class EnemySkeleton : MonoBehaviour, IDamageAble, IOutlineAble,IPoolable
+    public class EnemySkeleton : MonoBehaviour, IDamageAble, IOutlineAble,IPool
     {
         private CharacterAnims _characterAnims;
         public TextMeshPro enemyName;
@@ -143,6 +143,11 @@ namespace Script.Enemy
         public string GetPoolType()
         {
             return enemySo.monsterName;
+        }
+
+        public GameObject GetGameObject()
+        {
+            return gameObject;
         }
     }
 }

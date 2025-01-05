@@ -1,17 +1,14 @@
 using System.Collections.Generic;
 using Script.Interface;
-using Script.Inventory.Objects;
 using Script.ScriptableObject;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-
-
-namespace Script.Inventory
+namespace Script.Inventory.Objects
 {
     
-    public abstract class ObjectController :MonoBehaviour,IPoolable
+    public abstract class ObjectController :MonoBehaviour,IPool
     {
         public List<int2> cells;
         public int page;
@@ -21,6 +18,11 @@ namespace Script.Inventory
        
         public ObjectAbstract ObjectAbstract => objectAbstract;
         public abstract  string GetPoolType();
+        public GameObject GetGameObject()
+        {
+            return gameObject;
+        }
+
         protected virtual void Start()
         {
             objectView.OnObjectPressed += OnButtonClick;
@@ -50,7 +52,7 @@ namespace Script.Inventory
         public virtual void Place(ObjectAbstract objectAbstract, PageController pageController, List<int2> cellInt2,int howMany,float height,float weigh)
         { 
             page = pageController.PageModel.pageIndex;
-            pageController.PageModel.AddObjectToPage(this, cellInt2);
+            pageController.PageModel.AddObjectToPage(objectAbstract, cellInt2);
             this.objectAbstract = objectAbstract;
             //this.objectAbstract.SetObjectAbstract(objectAbstract);
             this.ObjectAbstract.howMany = howMany; 

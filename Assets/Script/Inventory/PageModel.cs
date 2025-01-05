@@ -187,11 +187,11 @@ namespace Script.Inventory
             
            
         }
-        public void AddObjectToPage(ObjectController objectController,List<int2> celss)
+        public void AddObjectToPage(ObjectAbstract ObjectAbstract,List<int2> celss)
         {
             foreach (var cell in celss)
             {
-                pageData.cotroller[ cell.x].objectController[cell.y] = objectController;
+                pageData.cotroller[ cell.x].objectController[cell.y] = ObjectAbstract;
             }
         }
         

@@ -1,13 +1,13 @@
 using System;
 using Cysharp.Threading.Tasks;
 using Script.Damage;
+using Script.Interface;
 using TMPro;
 using UnityEngine;
-using IPoolable = Script.Interface.IPoolable;
 
 namespace Script.DamageText.DamageTexts
 {
-    public  class DamageTextBone : MonoBehaviour,IPoolable
+    public  class DamageTextBone : MonoBehaviour,IPool
     {
     
         public Vector2 initialVelocity; // Ba�lang�� h�z�
@@ -17,12 +17,18 @@ namespace Script.DamageText.DamageTexts
         [SerializeField]
         protected TextMeshPro damageText;
 
-        private IPoolable _ıPoolableImplementation;
+        private IPool _ıIPoolImplementation;
 
         public virtual string GetPoolType()
         {
             return damageType.ToString();
         }
+
+        public GameObject GetGameObject()
+        {
+            return this.gameObject;
+        }
+
         // Start is called before the first frame update
         public virtual void Initialize(string damage)
         {

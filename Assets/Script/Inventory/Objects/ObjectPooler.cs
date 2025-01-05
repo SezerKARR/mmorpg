@@ -27,7 +27,7 @@ namespace Script.Inventory.Objects
         public T SpawnFromPool<T>(string objectType) where T : Component
         {
             Debug.Log(_objectsToPooled[objectType].Count);
-            if(_objectsToPooled[objectType].Count <= 1)_objectsToPooled[objectType].Enqueue(CreateObject(_itemPrefabList.objects[objectType].prefab));
+            if(_objectsToPooled[objectType].Count <= 1)_objectsToPooled[objectType].Enqueue(CreateObject(_itemPrefabList.objects[objectType].prefab.GetGameObject()));
             // Pool'dan bir nesne al
             GameObject objectToSpawn = _objectsToPooled[objectType].Dequeue();
 
@@ -41,7 +41,7 @@ namespace Script.Inventory.Objects
             for (int i = 0; i < count; i++)
             {
                
-                objectPool.Enqueue(CreateObject(_itemPrefabList.objects[objectClass].prefab));
+                objectPool.Enqueue(CreateObject(_itemPrefabList.objects[objectClass].prefab.GetGameObject()));
             }
             return objectPool;
         }

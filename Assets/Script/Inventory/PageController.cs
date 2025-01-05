@@ -1,4 +1,5 @@
 using System;
+using Script.Inventory.Objects;
 using Script.ScriptableObject;
 using UnityEngine;
 using UnityEngine.Serialization;

@@ -9,7 +9,6 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Zenject;
-using IPoolable = Script.Interface.IPoolable;
 
 namespace Script.Inventory
 {
