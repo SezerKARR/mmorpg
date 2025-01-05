@@ -17,20 +17,31 @@ namespace Script.Inventory
         private string path;
         public void Initialize(int rowCount, int columnCount)
         {
-            pageData.Initialize(rowCount, columnCount);
-            //  path = Application.persistentDataPath + $"/{pageIndex}.json";
-            // pageData = LoadPageData(path);
-            // if (pageData==null )
-            // {
-            //     InstantiatePageDate();
-            //     return;
-            // }
-            // else if (pageData.RowCount!=rowCount&& pageData.ColumnCount!=columnCount)
-            // {
-            //     //eski data ile ne yaparsan artık
-            //     InstantiatePageDate();
-            //     pageData.Initialize(rowCount,columnCount);
-            // }
+            for (int i = 0; i < rowCount; i++)
+            {
+                
+                for (int j = 0; j < columnCount; j++)
+                {
+                    if (pageData.cotroller[i].objectController[j] != null)
+                    {
+                        List<int2> columns = new List<int2>();
+                        columns.Add(new int2(i, j));
+                        for (int k = 0; k < pageData.cotroller[i].objectController[j].weightInInventory - 1; k++)
+                        {
+                            j++;
+
+                            columns.Add(new int2(i, j));
+                        }
+
+                        InventoryEvent.OnCreateItem?.Invoke(columns, pageIndex,
+                            pageData.cotroller[i].objectController[j],
+                            pageData.cotroller[i].objectController[j].howMany);
+                    }
+
+                }
+            }
+            
+            
         }
         // private void OnApplicationQuit()
         // {

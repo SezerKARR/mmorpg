@@ -97,7 +97,7 @@ namespace Script.Inventory
             var result = ControlEmptyCellAndPage(inventorObjectAble, howMany);
             if (result.pageIndex != -1)
             {
-                InventoryEvent.OnAdd?.Invoke(result.cells,result.pageIndex);
+                InventoryEvent.OnAdd?.Invoke(result.cells,result.pageIndex,inventorObjectAble,howMany);
                 return true;
             }
 

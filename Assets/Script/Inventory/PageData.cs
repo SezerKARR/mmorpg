@@ -27,7 +27,7 @@ namespace Script.Inventory
         // Initialize rows based on dynamic rowCount and columnCount
         public void Initialize(int rowCount, int columnCount)
         {
-            if(this.ColumnCount == columnCount&&this.RowCount == rowCount)return;
+            
                 cotroller = new ObjectsRow[rowCount];
                 for (int i = 0; i< rowCount; i++)
                 {

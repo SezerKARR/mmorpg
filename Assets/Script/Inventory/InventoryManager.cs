@@ -32,7 +32,6 @@ namespace Script.Inventory
 
         private void Awake()
         {
-            inventoryStorage = new InventoryStorage(inventoryPage, rowCount, columnCount);
             _rowWidth = pagesStorage.rect.width / rowCount;
             _rowheight = pagesStorage.rect.height / columnCount;
             _activePageController = inventoryPage[0];
@@ -47,11 +46,15 @@ namespace Script.Inventory
             PageChangeButton.OnChangePageClicked += ChangePage;
             InputPlayer.OnGroundClicked += GroundClicked;
             ObjectEvents.ObjectClicked += ObjectSelected;
-            InventoryEvent.OnAdd += CreateObjectModel;
+            InventoryEvent.OnAdd += CreateObject;
+            InventoryEvent.OnCreateItem += CreateObjectModel;
             InventoryEvent.OnUneqipItem += ChangePosition;
             PageEvent.OnClickPage += OnClickPage;
             InventoryEvent.OnChangedObjectPosition += ChangePosition;
+            inventoryStorage = new InventoryStorage(inventoryPage, rowCount, columnCount);
+
             EquipmentEvent.OnEquip += inventoryStorage.RemoveObject;
+
         }
 
         private void OnClickPage( Vector2 position,int pageIndex )
@@ -70,13 +73,9 @@ namespace Script.Inventory
              int2 gridposition = new int2(Mathf.FloorToInt(x), Mathf.FloorToInt(y));
              return gridposition;
         }
-        private ObjectAbstract _objectToAdd;
-        private int _howMany;
 
         private void PickUp(ObjectAbstract inventoryObjectAbstract, int howMany, GameObject selectedObject)
         {
-            _objectToAdd = inventoryObjectAbstract;
-            this._howMany = howMany;
             if (inventoryStorage.Add(inventoryObjectAbstract, howMany)) InventoryEvent.OnItemPickUp?.Invoke(selectedObject);
                 
         }
@@ -86,12 +85,16 @@ namespace Script.Inventory
             objectController.Place(inventoryPage[pageIndex], cells, _rowheight, _rowWidth);
         }
 
-        public void CreateObjectModel(List<int2> cellInt2, int pageIndex)
+        public void CreateObject(List<int2> cellInt2, int pageIndex,ObjectAbstract objectToAdd, int howMany)
         {
-            _objectPooler.SpawnFromPool<ObjectController>(_objectToAdd.Type.ToString()).Place(_objectToAdd, inventoryPage[pageIndex], cellInt2,
-                _howMany,
+            CreateObjectModel(cellInt2, pageIndex, objectToAdd, howMany);
+            inventoryStorage.AddObjectsToInventory(objectToAdd, howMany);
+        }
+        public void CreateObjectModel(List<int2> cellInt2, int pageIndex,ObjectAbstract objectToAdd, int howMany)
+        {
+            _objectPooler.SpawnFromPool<ObjectController>(objectToAdd.Type.ToString()).Place(objectToAdd, inventoryPage[pageIndex], cellInt2,
+                howMany,
                 _rowheight, _rowWidth);
-            inventoryStorage.AddObjectsToInventory(_objectToAdd, _howMany);
         }
 
         private void ObjectSelected(ObjectController objectController)
