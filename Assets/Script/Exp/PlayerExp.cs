@@ -16,7 +16,6 @@ namespace Script.Exp
             {
                 _expViews.Add(expView.expCount,expView);
             }
-
             ChangeExpViews(_characterModel.expRate);
         }
         

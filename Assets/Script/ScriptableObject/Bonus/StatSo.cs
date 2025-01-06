@@ -10,7 +10,7 @@ public class StatClass
     public string statName;
     public float statValue ;
 }
-[CreateAssetMenu(menuName = "ScriptableObject/Stat")]
+[CreateAssetMenu(menuName = "ScriptableObject/CharStat")]
 public class StatSo : ScriptableObject
 {
     public StatClass[] stats = new StatClass[0];

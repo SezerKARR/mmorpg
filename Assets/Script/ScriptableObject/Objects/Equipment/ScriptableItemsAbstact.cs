@@ -1,7 +1,7 @@
 using System.Collections.Generic;
+using Script.Bonus;
 using Script.Equipment;
 using UnityEngine.Serialization;
-using Stats = Script.Bonus;
 
 namespace Script.ScriptableObject.Equipment
 {
@@ -36,11 +36,7 @@ namespace Script.ScriptableObject.Equipment
     
         public int levelWithPlus;
         public int currentPlus = 0;
-        /*public enum canUseCharacter
-    {
-        Warrior,Shaman,Sura,Ninja
-    }*/
-        [FormerlySerializedAs("stats")] [FormerlySerializedAs("itemstats")] public Stats.Stat  stat;
+        public CharStat  charStat;
    
         public List<CharacterType> canUseCharacters = new List<CharacterType>();
         public RequirementClass[] Requirements =new RequirementClass[0];
@@ -49,7 +45,7 @@ namespace Script.ScriptableObject.Equipment
         public int level;
         // public void SetNewStats()
         // {
-        //     foreach (var itemstat in stats)
+        //     foreach (var itemstat in charStats)
         //     {
         //         PlayerController.instance.EquipmentStat.AddModifier(itemstat.Key, itemstat.Value);
         //     }

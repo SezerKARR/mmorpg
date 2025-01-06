@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Script.Interface;
 using Script.ScriptableObject;
+using Script.UI.Tooltip;
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -27,7 +28,20 @@ namespace Script.Inventory.Objects
         {
             objectView.OnObjectPressed += OnButtonClick;
             objectView.OnRightClick += RightClick;
+            objectView.OnEnter += OnEnter;
+            objectView.OnExit += OnExit;
         }
+
+        protected virtual void OnExit()
+        {
+            ToolTipEvent.OnTooltip?.Invoke(objectAbstract);
+        }
+
+        private void OnEnter()
+        {
+            ToolTipEvent.OnTooltipClose?.Invoke();
+        }
+
         public virtual void RightClick() { }
         public virtual void Place(Transform parent,Vector2 size)
         {
@@ -51,6 +65,7 @@ namespace Script.Inventory.Objects
         }
         public virtual void Place(ObjectAbstract objectAbstract, PageController pageController, List<int2> cellInt2,int howMany,float height,float weigh)
         { 
+            
             page = pageController.PageModel.pageIndex;
             pageController.PageModel.AddObjectToPage(objectAbstract, cellInt2);
             this.objectAbstract = objectAbstract;

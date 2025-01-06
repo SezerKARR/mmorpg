@@ -5,7 +5,7 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-/* Contains all the stats for a characterType. */
+/* Contains all the charStats for a characterType. */
 
 namespace Script.ScriptableObject.Player
 {
@@ -17,26 +17,26 @@ namespace Script.ScriptableObject.Player
         // {
         //     foreach (StatType statType in Enum.GetValues(typeof(StatType)).Cast<StatType>().Skip(1))
         //     {
-        //         if (!stats.ContainsKey(statType))
+        //         if (!charStats.ContainsKey(statType))
         //         {
-        //             this.stats[statType] = 0;
+        //             this.charStats[statType] = 0;
         //         }
         //         
         //     }
         // }
         //  
-        // public void UpdateStats(Stat upgradeStat,bool isEquipped)
+        // public void UpdateStats(CharStat upgradeCharStat,bool isEquipped)
         // {
-        //     foreach (var stat in upgradeStat)
+        //     foreach (var charStat in upgradeCharStat)
         //     {
         //         int equipVal = isEquipped ? 1 : -1;
-        //         if (this.stats.ContainsKey(stat.Key))
+        //         if (this.charStats.ContainsKey(charStat.Key))
         //         {
-        //             this.stats[stat.Key]+= equipVal*stat.Value;
+        //             this.charStats[charStat.Key]+= equipVal*charStat.Value;
         //         }
         //         else
         //         {
-        //             this.stats[stat.Key] = stat.Value;
+        //             this.charStats[charStat.Key] = charStat.Value;
         //         }
         //     }
         // }

@@ -34,9 +34,9 @@ namespace Script.Inventory.Objects
         }
 
 
-        public Stat GetStats()
+        public CharStat GetStats()
         {
-            return scriptableItemsAbstact.stat;
+            return scriptableItemsAbstact.charStat;
         }
         public void SetOldStats()
         {

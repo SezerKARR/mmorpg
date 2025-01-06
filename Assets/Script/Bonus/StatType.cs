@@ -15,5 +15,5 @@ namespace Script.Bonus
         CritDamageRate
     }
     [Serializable]
-    public class Stat : UnityDictionary<StatType, float> { }
+    public class CharStat : UnityDictionary<StatType, float> { }
 }

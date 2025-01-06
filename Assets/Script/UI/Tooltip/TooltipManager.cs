@@ -1,6 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Script.ScriptableObject;
+using Script.UI.Tooltip;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -18,6 +20,13 @@ public class TooltipManager : MonoBehaviour
         Instance = this;
         Hide();
     }
+
+    private void OnEnable()
+    {
+        ToolTipEvent.OnTooltip += Screen;
+        ToolTipEvent.OnTooltipClose += Hide;
+    }
+
     private void Start()
     {
         

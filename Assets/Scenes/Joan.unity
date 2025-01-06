@@ -1307,6 +1307,10 @@ PrefabInstance:
       propertyPath: pageIndex
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 1384051612021479352, guid: d7d570c2f9038f64f96fe0122ec90d36, type: 3}
+      propertyPath: denemedata
+      value: 
+      objectReference: {fileID: 11400000, guid: 8d671257ad7fce34abb11d3230e6cd7c, type: 2}
     - target: {fileID: 1385230307903649362, guid: d7d570c2f9038f64f96fe0122ec90d36, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -20428,7 +20432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1539298547710127121, guid: 2cec70ab26e0ad1428917c7a090dbfcb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 142
       objectReference: {fileID: 0}
     - target: {fileID: 1539298547710127121, guid: 2cec70ab26e0ad1428917c7a090dbfcb, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -20476,7 +20480,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2448596118196188534, guid: 2cec70ab26e0ad1428917c7a090dbfcb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 142
       objectReference: {fileID: 0}
     - target: {fileID: 2448596118196188534, guid: 2cec70ab26e0ad1428917c7a090dbfcb, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -24414,6 +24418,10 @@ PrefabInstance:
       propertyPath: pageIndex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1384051612021479352, guid: d7d570c2f9038f64f96fe0122ec90d36, type: 3}
+      propertyPath: denemedata
+      value: 
+      objectReference: {fileID: 11400000, guid: 8d671257ad7fce34abb11d3230e6cd7c, type: 2}
     - target: {fileID: 1385230307903649362, guid: d7d570c2f9038f64f96fe0122ec90d36, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -100743,6 +100751,7 @@ MonoBehaviour:
   columnCount: 9
   pagesStorage: {fileID: 455032410}
   objectsPrefab: {fileID: 11400000, guid: e2ca6087033207342b05f42c9aa2b250, type: 2}
+  denemedata: {fileID: 0}
 --- !u!1001 &2003772454
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -101222,6 +101231,10 @@ PrefabInstance:
       propertyPath: pageIndex
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 1384051612021479352, guid: d7d570c2f9038f64f96fe0122ec90d36, type: 3}
+      propertyPath: denemedata
+      value: 
+      objectReference: {fileID: 11400000, guid: 8d671257ad7fce34abb11d3230e6cd7c, type: 2}
     - target: {fileID: 1385230307903649362, guid: d7d570c2f9038f64f96fe0122ec90d36, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -105076,6 +105089,10 @@ PrefabInstance:
       propertyPath: PageIndex
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1384051612021479352, guid: d7d570c2f9038f64f96fe0122ec90d36, type: 3}
+      propertyPath: denemedata
+      value: 
+      objectReference: {fileID: 11400000, guid: 8d671257ad7fce34abb11d3230e6cd7c, type: 2}
     - target: {fileID: 1435113752359786749, guid: d7d570c2f9038f64f96fe0122ec90d36, type: 3}
       propertyPath: m_Enabled
       value: 1

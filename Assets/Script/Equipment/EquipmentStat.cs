@@ -8,7 +8,7 @@ using UnityEngine;
 public class EquipmentStat
 {
     [SerializeField]
-    public Stat  modifiers=new Stat();
+    public CharStat  modifiers=new CharStat();
     
     
     // Constructor, bo� veya ba�lang�� modifiyerleriyle olu�turmay� destekler.

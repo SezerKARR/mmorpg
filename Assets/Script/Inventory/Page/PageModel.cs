@@ -1,7 +1,9 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using Script.Inventory.Objects;
+using Script.Inventory.Script.Inventory;
 using Script.ScriptableObject;
 using Unity.Mathematics;
 using UnityEngine;
@@ -13,8 +15,12 @@ namespace Script.Inventory
     public class PageModel:MonoBehaviour
     {
         [FormerlySerializedAs("PageData")] public PageData pageData;
+        public denemedata denemedata;
         [FormerlySerializedAs("PageIndex")] public int pageIndex;
         private string path;
+
+       
+
         public void Initialize(int rowCount, int columnCount)
         {
             for (int i = 0; i < rowCount; i++)
@@ -203,6 +209,8 @@ namespace Script.Inventory
             foreach (var cell in celss)
             {
                 pageData.cotroller[ cell.x].objectController[cell.y] = ObjectAbstract;
+                if(denemedata==null)return;
+                denemedata.cotroller[cell.x].objectController[cell.y] = new ItemInstance{objectSo = ObjectAbstract};
             }
         }
         

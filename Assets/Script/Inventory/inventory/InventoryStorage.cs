@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Script.Inventory.Objects;
+using Script.Inventory.Script.Inventory;
 using Script.ScriptableObject;
 using Unity.Mathematics;
 
@@ -10,10 +11,13 @@ namespace Script.Inventory
     {
         public List<PageModel> pageModels=new List<PageModel>();
         public HaveObjects haveObjects=new HaveObjects();
-        
+
         [Serializable]
         public class HaveObjects : UnityDictionary<ObjectAbstract, int> { };
-
+        public a b=new a();
+        
+        [Serializable]
+        public class a : UnityDictionary<ItemInstance, int> { };
         public  InventoryStorage(PageController[] pageControllers,int rowCount,int columnCount)
         {
             foreach (PageController pageController in pageControllers)
@@ -21,6 +25,19 @@ namespace Script.Inventory
                 pageController.PageModel.Initialize(rowCount, columnCount);
                 pageModels.Add(pageController.PageModel);
             }
+        }
+
+
+        public void AddObjectsToInventory(ItemInstance inventorObjectable, int howMany)
+        {
+            if (b.ContainsKey(inventorObjectable))
+            {
+                // Eğer key mevcutsa, listenin sonuna item ekle
+                b[inventorObjectable]+=howMany;
+                return;
+            }
+            b.Add(inventorObjectable, howMany);
+            
         }
         public void AddObjectsToInventory(ObjectAbstract inventorObjectable, int howMany)
         {

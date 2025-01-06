@@ -546,7 +546,7 @@ private static void CsvFromSoExpPerLevel()
         List<int> upgradeItemRequire = new List<int>();
         List<int> upgradeLevel = new List<int>();
         string path = $"Assets/ScriptableObjects/Items/{swordType}";
-        string statPath = "Assets/ScriptableObjects/Stat/StatSo.asset"; // Doğru yolu belirtin.
+        string statPath = "Assets/ScriptableObjects/CharStat/StatSo.asset"; // Doğru yolu belirtin.
         StatSo bonusCantFind = AssetDatabase.LoadAssetAtPath<StatSo>(statPath);
         
          
@@ -656,10 +656,10 @@ private static void CsvFromSoExpPerLevel()
 
                 if (!bonusCantFind.GetStats().Contains(splitData[1].Replace("�", "")))
                 {
-                    StatClass stats = new StatClass();
-                    stats.statName = splitData[1].Replace("�", "");
-                    stats.statValue = 0f;
-                    bonusCantFind.AddObject(stats);
+                    StatClass charStats = new StatClass();
+                    charStats.statName = splitData[1].Replace("�", "");
+                    charStats.statValue = 0f;
+                    bonusCantFind.AddObject(charStats);
                 }
             }
             else if (splitData[1].Contains("Upgrade Yang"))
@@ -796,7 +796,7 @@ private static void CsvFromSoExpPerLevel()
             List<int> upgradeItemRequire = new List<int>();
             List<int> upgradeLevel = new List<int>();
             string path = $"Assets/ScriptableObjects/Items/{helmetType}";
-            string statPath = "Assets/ScriptableObjects/Stat/StatSo.asset"; // Doğru yolu belirtin.
+            string statPath = "Assets/ScriptableObjects/CharStat/StatSo.asset"; // Doğru yolu belirtin.
             StatSo bonusCantFind = AssetDatabase.LoadAssetAtPath<StatSo>(statPath);
 
 

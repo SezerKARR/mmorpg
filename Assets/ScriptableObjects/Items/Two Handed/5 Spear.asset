@@ -12,22 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: 5 Spear
   m_EditorClassIdentifier: 
-  Place: 0
-  Image: {fileID: 0}
-  ItemName: Spear
+  place: 0
+  "\u0131mage": {fileID: 21300000, guid: 27a142e152d583946b82901c34796bd5, type: 3}
+  "\u0131temName": Spear
   dropsFrom: 
-  DropMetins: 
+  dropMetins: 
   info: 
   playerCanDrop: 1
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 3
-  DropName: Spear+0
+  dropName: Spear+0
+  howMany: 1
   price: 0
   objectType: 4
   levelWithPlus: 0
   currentPlus: 0
-  itemstats:
+  stat:
     tKeys: 000000000100000006000000
     tValues:
     - 23

@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afa2b9a8926a336408051b3ee5644ae0, type: 3}
+  m_Name: a
+  m_EditorClassIdentifier: 
+  place: 0
+  "\u0131mage": {fileID: 0}
+  "\u0131temName": 
+  dropsFrom: 
+  dropMetins: 
+  info: 
+  playerCanDrop: 1
+  canEveryBodyTake: 1
+  stackLimit: 1
+  weightInInventory: 1
+  dropName: 
+  howMany: 0
+  price: 0
+  objectType: 4
+  levelWithPlus: 0
+  currentPlus: 0
+  stat:
+    tKeys: 
+    tValues: []
+  canUseCharacters: 
+  Requirements: []
+  level: 0
+  defence: 

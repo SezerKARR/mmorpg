@@ -13,7 +13,7 @@ public class HelmetSo : ScriptableItemsAbstact
     // public override void SetStats()
     // {
     //     
-    //     stats.Add(StatType.Defense, defence[currentPlus]);
+    //     charStats.Add(StatType.Defense, defence[currentPlus]);
     // }
 
     public List<int> defence=new List<int>();

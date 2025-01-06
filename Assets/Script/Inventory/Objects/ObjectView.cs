@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using ModestTree.Util;
 using Script.Inventory;
 using Script.Inventory.Objects;
+using Script.UI.Tooltip;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
@@ -11,7 +12,7 @@ using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public abstract class ObjectView : MonoBehaviour ,IPointerClickHandler
+public abstract class ObjectView : MonoBehaviour ,IPointerClickHandler,IPointerEnterHandler,IPointerExitHandler
 {
     
     protected ObjectController _objectController;
@@ -21,6 +22,8 @@ public abstract class ObjectView : MonoBehaviour ,IPointerClickHandler
     [SerializeField] protected Image _image;
     [SerializeField] protected TextMeshProUGUI _howManyText;
     public UnityAction OnRightClick;
+    public UnityAction OnEnter;
+    public UnityAction OnExit;
     
     protected virtual void Awake()
     {
@@ -83,5 +86,14 @@ public abstract class ObjectView : MonoBehaviour ,IPointerClickHandler
 
 
     }
-    
+
+    public virtual void OnPointerEnter(PointerEventData eventData)
+    {
+        OnEnter?.Invoke();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        OnExit?.Invoke();
+    }
 }

@@ -1,11 +1,14 @@
 using System.Collections.Generic;
 using Script.Equipment;
 using Script.Inventory.Objects;
+using Script.Inventory.Script.Inventory;
 using Script.Player;
 using Script.ScriptableObject;
+using Script.ScriptableObject.Equipment;
 using Script.ScriptableObject.Prefab;
 using Script.UI;
 using Unity.Mathematics;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Zenject;
@@ -25,6 +28,7 @@ namespace Script.Inventory
         public InventoryStorage inventoryStorage;
         [FormerlySerializedAs("pages")] [SerializeField] private RectTransform pagesStorage;
         public ItemPrefabList objectsPrefab;
+        public denemedata denemedata;
 
         private ObjectPooler _objectPooler;
         private float _rowheight;
@@ -52,7 +56,6 @@ namespace Script.Inventory
             PageEvent.OnClickPage += OnClickPage;
             InventoryEvent.OnChangedObjectPosition += ChangePosition;
             inventoryStorage = new InventoryStorage(inventoryPage, rowCount, columnCount);
-
             EquipmentEvent.OnEquip += inventoryStorage.RemoveObject;
 
         }
@@ -85,10 +88,17 @@ namespace Script.Inventory
             objectController.Place(inventoryPage[pageIndex], cells, _rowheight, _rowWidth);
         }
 
+        private ItemInstance a;
         public void CreateObject(List<int2> cellInt2, int pageIndex,ObjectAbstract objectToAdd, int howMany)
         {
-            CreateObjectModel(cellInt2, pageIndex, objectToAdd, howMany);
-            inventoryStorage.AddObjectsToInventory(objectToAdd, howMany);
+            
+            a= new ItemInstance{objectSo = objectToAdd};
+            CreateObjectModel(cellInt2, pageIndex, a.objectSo, howMany);
+            inventoryStorage.AddObjectsToInventory(a, howMany);
+        }
+        public void ASD<t>() where t : ObjectAbstract
+        {
+           
         }
         public void CreateObjectModel(List<int2> cellInt2, int pageIndex,ObjectAbstract objectToAdd, int howMany)
         {

@@ -3,6 +3,7 @@ using Script.Damage;
 using Script.Player.Character;
 using Script.ScriptableObject.Equipment;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Script.ScriptableObject.Player
 {
@@ -15,7 +16,7 @@ namespace Script.ScriptableObject.Player
         public TypeWeapon typeWeapon = TypeWeapon.None;
         public int level;
         public long exp;
-        public Stat stats;
+        [FormerlySerializedAs("stats")] public CharStat charStats;
         public bool haveGroup;
         public GroupType groupType;
         public Element element;
@@ -23,7 +24,7 @@ namespace Script.ScriptableObject.Player
 
         public CharacterNormalAttackData GetCharacterDamageData()
         {
-            if(stats==null){}
+            if(charStats==null){}
             CharacterNormalAttackData characterNormalAttackData = new CharacterNormalAttackData()
             {
                 critChange = GetStat(StatType.CritChange),
@@ -40,22 +41,22 @@ namespace Script.ScriptableObject.Player
 
         public float GetStat(StatType statType)
         {
-            if(stats.TryGetValue(statType, out var stat))return stat;
-            stats[statType] = 0f;
-            return stats[statType];
+            if(charStats.TryGetValue(statType, out var stat))return stat;
+            charStats[statType] = 0f;
+            return charStats[statType];
         }
-        public void UpdateStats(Stat upgradeStat,bool isEquipped)
+        public void UpdateStats(CharStat upgradeCharStat,bool isEquipped)
         {
-            foreach (var stat in upgradeStat)
+            foreach (var stat in upgradeCharStat)
             {
                 int equipVal = isEquipped ? 1 : -1;
-                if (this.stats.ContainsKey(stat.Key))
+                if (this.charStats.ContainsKey(stat.Key))
                 {
-                    this.stats[stat.Key]+= equipVal*stat.Value;
+                    this.charStats[stat.Key]+= equipVal*stat.Value;
                 }
                 else
                 {
-                    this.stats[stat.Key] = stat.Value;
+                    this.charStats[stat.Key] = stat.Value;
                 }
             }
         }
