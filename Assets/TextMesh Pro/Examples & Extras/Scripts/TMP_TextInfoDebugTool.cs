@@ -151,7 +151,7 @@ namespace TMPro.Examples
                 Handles.color = Color.cyan;
                 Handles.DrawDottedLine(ascentlineStart, ascentlineEnd, dottedLineSize);
 
-                // Draw Cap Height & Mean line
+                // Draw Cap cellHeight & Mean line
                 float capline = characterInfo.fontAsset == null ? 0 : baseline + characterInfo.fontAsset.faceInfo.capLine * characterInfo.scale;
                 Vector3 capHeightStart = new Vector3(topLeft.x, m_Transform.TransformPoint(new Vector3(0, capline, 0)).y, 0);
                 Vector3 capHeightEnd = new Vector3(topRight.x, m_Transform.TransformPoint(new Vector3(0, capline, 0)).y, 0);

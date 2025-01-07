@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Script.ObjectInstances;
 using Script.ScriptableObject;
 using Script.UI;
 using UnityEngine;
@@ -15,12 +16,12 @@ public class UpgradePanelManager : MonoBehaviour
         this.gameObject.SetActive(false);
     }
     
-    public ObjectAbstract inventorObjectable;
+    public ObjectInstance inventorObjectable;
     public ToolTip tooltip;
     public UpgradeItemImage UpgradeItemImage;
     public Button okeyButton;
     public Button cancelButton;
-    public void UIManager_OnUpgradePanelNeed(ObjectAbstract inventorObjectable)
+    public void UIManager_OnUpgradePanelNeed(ObjectInstance inventorObjectable)
     {
         this.gameObject.SetActive(true);
         tooltip.gameObject.SetActive(true);

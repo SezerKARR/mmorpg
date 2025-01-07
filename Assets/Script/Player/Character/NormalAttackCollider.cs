@@ -15,7 +15,7 @@ namespace Script.Player.Character
 
             if (_charController == null)
             {
-                Debug.LogError("CharacterModel not found in parent chain!");
+                Debug.LogError("CharacterModel not found in parentTransform chain!");
             }
         }
         

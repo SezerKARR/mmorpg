@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Script.ObjectInstances;
 using Script.ScriptableObject;
 using Script.UI.Tooltip;
 using TMPro;
@@ -51,11 +52,11 @@ public class TooltipManager : MonoBehaviour
     }
 
 
-    public void Screen(ObjectAbstract scriptableObject)
+    public void Screen(ObjectInstance objectInstance)
     {
         
         tooltip.GameObject().SetActive(true);
-        tooltip.Screen(scriptableObject);
+        tooltip.Screen(objectInstance);
 
     }
     public void Hide()

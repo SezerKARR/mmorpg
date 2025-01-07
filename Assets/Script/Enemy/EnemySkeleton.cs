@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using Script.Anim;
 using Script.Damage;
 using Script.Interface;
+using Script.ObjectInstances;
 using TMPro;
 using UnityEngine;
 using Script.Player.Character;
-using Script.ScriptableObject.Player;
 using UnityEditor.Animations;
 
 namespace Script.Enemy
@@ -108,7 +108,8 @@ namespace Script.Enemy
         {  
             foreach (var canDrop in enemySo.canDrops)
             {
-                GameEvent.OnItemDroppedWithPlayer?.Invoke(transform.position, canDrop, player);
+                
+                GameEvent.OnItemDroppedWithPlayer?.Invoke(transform.position, ObjectInstanceCreator.ObjectInstance(canDrop), player);
 
 
             }

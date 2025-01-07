@@ -37,7 +37,6 @@ namespace Script.ScriptableObject
         public int stackLimit=1;
         public int weightInInventory = 1;
         [FormerlySerializedAs("DropName")] public string dropName;
-        public int howMany;
         public abstract ObjectType Type { get; }
     
         // public virtual void SetDropName()

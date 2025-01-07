@@ -99,5 +99,40 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1707280827008609243, guid: 20a0c4863f3006048bc7b91461b661b0, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 9068651425626198412}
   m_SourcePrefab: {fileID: 100100000, guid: 20a0c4863f3006048bc7b91461b661b0, type: 3}
+--- !u!1 &3238147684860284276 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1707280827008609243, guid: 20a0c4863f3006048bc7b91461b661b0, type: 3}
+  m_PrefabInstance: {fileID: 4269778534458140335}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &9068651425626198412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3238147684860284276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc0c4d1fccde86c488989dd7e70a8877, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialVelocity: {x: 4, y: 5}
+  lifetime: 2
+  damageText: {fileID: 5517800452538578504}
+  damageType: 3
+--- !u!114 &5517800452538578504 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8634076352543854823, guid: 20a0c4863f3006048bc7b91461b661b0, type: 3}
+  m_PrefabInstance: {fileID: 4269778534458140335}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3238147684860284276}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9541d86e2fd84c1d9990edf0852d74ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -31,12 +31,10 @@ namespace Script.ScriptableObject.Equipment
     
         public float price;
         public ObjectType objectType=ObjectType.Item;
-        public List<(string bonusName ,float bonusValue)> bonuses=new List<(string bonusName ,float bonusValue)>() ;
         public List<(string bonusName, List<float> bonusValue)> ItemBonuses = new List<(string bonusName, List<float> bonusValue)>();
     
         public int levelWithPlus;
-        public int currentPlus = 0;
-        public CharStat  charStat;
+        public CharStat  itemStat;
    
         public List<CharacterType> canUseCharacters = new List<CharacterType>();
         public RequirementClass[] Requirements =new RequirementClass[0];

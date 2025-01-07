@@ -1,5 +1,6 @@
 using System;
 using Script.Inventory;
+using Script.InventorySystem.inventory;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Script.Inventory.Objects;
+using Script.InventorySystem.Objects;
 using UnityEngine;
 using Script.Player;
 using Script.ScriptableObject.Equipment;
@@ -24,7 +25,7 @@ namespace Script.Equipment
         [Serializable]
         public class EquipmentSlots : UnityDictionary<EquipmentType, EquipmentSlot> { };
         
-        //public  event Action<ScriptableItemsAbstact> OnEquip;
+        //public  event Action<ItemInstance> OnEquip;
         //public  event Action OnUnEquip;
         private void Awake()
         {
@@ -56,9 +57,9 @@ namespace Script.Equipment
         }
         public void ControlCanEquip(ItemController itemController)
         {
-            if (IsLevelEnough(itemController.scriptableItemsAbstact.level) && IsCharacterMatch(itemController.scriptableItemsAbstact.canUseCharacters))
+            if (IsLevelEnough(itemController.itemInstance.level) && IsCharacterMatch(itemController.itemInstance.canUseCharacters))
             {
-                equipmentSlots[itemController.scriptableItemsAbstact.equipmentType].SetItem(itemController);
+                equipmentSlots[itemController.itemInstance.equipmentType].SetItem(itemController);
                 
             }
         }
@@ -92,7 +93,7 @@ namespace Script.Equipment
     {
         return HandleEquip(equippedItems[item.GetEquipmentType()], item);
     }*/
-        /*private bool EquipItem(ScriptableItemsAbstact item)
+        /*private bool EquipItem(ItemInstance item)
     {
         switch (item)
         {

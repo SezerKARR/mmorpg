@@ -3,6 +3,8 @@ using Script.DamageText;
 using Script.Enemy;
 using Script.Equipment;
 using Script.Inventory;
+using Script.InventorySystem.inventory;
+using Script.InventorySystem.Objects;
 using Script.Player;
 using Zenject;
 

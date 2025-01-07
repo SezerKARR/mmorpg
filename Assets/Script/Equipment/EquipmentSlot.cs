@@ -1,5 +1,5 @@
-using Script.Inventory;
-using Script.Inventory.Objects;
+using Script.InventorySystem.inventory;
+using Script.InventorySystem.Objects;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Zenject;
@@ -20,7 +20,8 @@ namespace Script.Equipment
             Debug.Log("SetItem");
             if (currentItem == equipItem)
             {
-                if (_inventoryManager.inventoryStorage.ControlUnequip(this.currentItem))
+                CellsInfo cellsInfo = InventoryEvent.OnGetEmptyCells?.Invoke(currentItem.itemInstance.weightInInventory, currentItem.itemInstance.howMany);
+                if (cellsInfo!=null)
                 {
                     UnEquip();
                 }
@@ -34,17 +35,17 @@ namespace Script.Equipment
                 return;
             }
 
-            if (_inventoryManager.inventoryStorage.ControlUnequipForEquip(this.currentItem, equipItem))
-            {
-                UnEquip();
-                Equip(equipItem);
-            }
+            // if (_inventoryManager.inventoryStorage.IsCanChangeItem(this.currentItem, equipItem))
+            // {
+            //     UnEquip();
+            //     Equip(equipItem);
+            // }
         }
 
         public void Equip(ItemController equipItem)
         {
-            EquipmentEvent.OnEquip?.Invoke(equipItem);
-            equipItem.Place(this.transform, gameObject.GetComponent<RectTransform>().rect.size);
+            EquipmentEvent.OnEquip?.Invoke(equipItem.itemInstance);
+            equipItem.Place(this);
             this.currentItem = equipItem;
         }
 

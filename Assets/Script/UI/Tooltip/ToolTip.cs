@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Script.ObjectInstances;
 using Script.ScriptableObject;
 using Script.ScriptableObject.Equipment;
 using TMPro;
@@ -16,39 +17,39 @@ public class ToolTip : MonoBehaviour,ITooltipAble
     public TextMeshProUGUI[] bonusesText;
     public TextMeshProUGUI wearableLayer;
     public TextMeshProUGUI wearAbleText;
-    public void Screen(ObjectAbstract inventorObjectable)
+    public void Screen(ObjectInstance inventorObjectable)
     {
-        
-        if (inventorObjectable is SwordSo sword)
-        {
-
-            SetText(swordNameText, sword.name);
-            SetText(attackValueText, ("Attack Value " + sword.minAndMaxAttackValue[sword.currentPlus].ToString())) ;
-            if (sword.minAndMaxMagicalAttackValue.Count>0){
-                SetText(magicalValueText, ("Magic Attack Value " + sword.minAndMaxMagicalAttackValue[sword.currentPlus].ToString()));
-            }
-            
-            SetText(attackSpeedText, ("Attack Speed " + sword.attackSpeed[sword.currentPlus].ToString())) ;
-            SetText(levelText, ("From level" + sword.level.ToString())) ;
-            
-            foreach (var bonus in sword.bonuses)
-            {
-                int i = 0;
-                if (bonus.bonusName != null)
-                {
-                    SetText(bonusesText[i], bonus.bonusValue.ToString()) ;
-                }
-                
-            }
-            string b = "";
-            foreach (CharacterType character in sword.canUseCharacters)
-            {
-                b += character.ToString() + " ";
-            }
-            
-            SetText(wearAbleText, b);
-            wearableLayer.gameObject.SetActive(wearAbleText.gameObject.activeSelf);
-        }
+        //todooooo
+        // if (inventorObjectable is SwordSo sword)
+        // {
+        //
+        //     SetText(swordNameText, sword.name);
+        //     SetText(attackValueText, ("Attack Value " + sword.minAndMaxAttackValue[sword.currentPlus].ToString())) ;
+        //     if (sword.minAndMaxMagicalAttackValue.Count>0){
+        //         SetText(magicalValueText, ("Magic Attack Value " + sword.minAndMaxMagicalAttackValue[sword.currentPlus].ToString()));
+        //     }
+        //     
+        //     SetText(attackSpeedText, ("Attack Speed " + sword.attackSpeed[sword.currentPlus].ToString())) ;
+        //     SetText(levelText, ("From level" + sword.level.ToString())) ;
+        //     
+        //     foreach (var bonus in sword.bonuses)
+        //     {
+        //         int i = 0;
+        //         if (bonus.bonusName != null)
+        //         {
+        //             SetText(bonusesText[i], bonus.bonusValue.ToString()) ;
+        //         }
+        //         
+        //     }
+        //     string b = "";
+        //     foreach (CharacterType character in sword.canUseCharacters)
+        //     {
+        //         b += character.ToString() + " ";
+        //     }
+        //     
+        //     SetText(wearAbleText, b);
+        //     wearableLayer.gameObject.SetActive(wearAbleText.gameObject.activeSelf);
+        // }
 
     }
     private void SetText(TextMeshProUGUI textMeshProUGUI,string writeText)

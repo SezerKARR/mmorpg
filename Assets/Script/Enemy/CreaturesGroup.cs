@@ -43,7 +43,7 @@ namespace Script.Enemy
             foreach (int creatureNumber in creaturesDifficult)
             {
                 List<string> tempList = new List<string>(currentMapCreatures.objects.Keys);
-                GameObject currentCreatures = Instantiate(currentMapCreatures.objects[tempList[creatureNumber]].prefab.GetGameObject(), RandomPositionByObjectCircle(), Quaternion.identity);
+                GameObject currentCreatures = Instantiate(currentMapCreatures.objects[tempList[creatureNumber]].prefab, RandomPositionByObjectCircle(), Quaternion.identity);
                 currentCreatures.transform.SetParent(this.transform);
                 currentCreatures.GetComponent<EnemySkeleton>().creaturesGroup = this.gameObject.GetComponent<CreaturesGroup>();
                 currentCreaturesNumber++;

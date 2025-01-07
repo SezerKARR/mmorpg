@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Script.DroppedItem;
 using Script.Inventory;
 using Script.Inventory.Objects;
+using Script.ObjectInstances;
 using Script.Player;
 using Script.ScriptableObject;
 using Unity.VisualScripting;
@@ -13,9 +15,7 @@ public class PickUpDetector : MonoBehaviour
     private readonly List<IPickedUpAble> _pickedUpables = new List<IPickedUpAble>();
     public int pickedCount;
     private readonly float _minDistance = int.MaxValue;
-    private ObjectAbstract _selectedObjectAbstract;
-    private GameObject _selectedGameObject;
-    private int _selectedSoHowMany;
+    private IPickedUpAble _pickedUp;
     private void Awake()
     {
         InputPlayer.OnPickUpPressed += PickUp;
@@ -27,16 +27,13 @@ public class PickUpDetector : MonoBehaviour
 
             foreach (IPickedUpAble pickedable in _pickedUpables)
             {
-                if (Vector2.Distance(new Vector2(this.gameObject.transform.position.x, this.gameObject.transform.position.y),
-                    new Vector2(pickedable.GetGameObject().transform.position.x, pickedable.GetGameObject().transform.position.y)) < _minDistance)
+                if (Vector2.Distance(this.transform.position,pickedable.GetPosition()) < _minDistance)
                 {
-                    _selectedGameObject = pickedable.GetGameObject();
-                    _selectedObjectAbstract = pickedable.GetObject();
-                    _selectedSoHowMany = pickedable.GetHowMany();
+                    _pickedUp=pickedable;
                 }
 
             }
-            ObjectEvents.OnPickUp?.Invoke(_selectedObjectAbstract,_selectedSoHowMany,_selectedGameObject);
+            ObjectEvents.OnPickUp?.Invoke(_pickedUp);
             
         }
         else {  Debug.Log(_pickedUpables.Count+""+"al�nabilecek hi� bir e�ya yok"); }
@@ -47,7 +44,7 @@ public class PickUpDetector : MonoBehaviour
         /*var interactable = collision.GetComponent<IInteractable>();
         if(interactable != null && interactable.CanInteract())
         {
-            _interactablesInRange.Add(interactable);
+            _interactablesInRange.IsAdd(interactable);
         }*/
         var interactable = collision.GetComponent<IPickedUpAble>();
         if (interactable != null)

@@ -7,23 +7,17 @@ using UnityEngine;
 
 namespace Script.DamageText.DamageTexts
 {
-    public  class DamageTextBone : MonoBehaviour,IPool
+    public abstract class DamageTextBone : MonoBehaviour,IPool
     {
     
-        public Vector2 initialVelocity; // Ba�lang�� h�z�
+        public Vector2 initialVelocity=new Vector2(4,5); // Ba�lang�� h�z�
         public float lifetime = 2f;     // Objenin yok olma s�resi
-        public DamageType damageType=DamageType.None;
         protected Vector2 _startPosition;
         [SerializeField]
         protected TextMeshPro damageText;
 
-        private IPool _ıIPoolImplementation;
 
-        public virtual string GetPoolType()
-        {
-            return damageType.ToString();
-        }
-
+        public abstract string GetPoolType();
         public GameObject GetGameObject()
         {
             return this.gameObject;
@@ -36,10 +30,6 @@ namespace Script.DamageText.DamageTexts
             _startPosition = transform.position;
         }
 
-        protected virtual void OnEnable()
-        {
-            
-        }
 
        
 

@@ -6,5 +6,6 @@ namespace Script.DamageText.DamageTexts
     {
         public DamageType damageType=DamageType.Normal;
         //protected override DamageType DamageType=>damageType;
+        public override string GetPoolType()=>damageType.ToString();
     }
 }

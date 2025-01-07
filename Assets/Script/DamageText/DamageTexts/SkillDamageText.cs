@@ -1,10 +1,11 @@
-﻿using Script.DamageText.DamageTexts;
+﻿using Script.Damage;
 
-namespace Script.Damage.DamageTexts
+namespace Script.DamageText.DamageTexts
 {
     public class SkillDamageText:DamageTextBone
     {
-        public DamageType damageType = DamageType.Magical;
+        public  DamageType damageType = DamageType.Magical;
         // protected override DamageType DamageType { get; }
+        public override string GetPoolType() => damageType.ToString();
     }
 }

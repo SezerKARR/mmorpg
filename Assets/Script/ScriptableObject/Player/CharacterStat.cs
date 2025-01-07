@@ -27,16 +27,16 @@ namespace Script.ScriptableObject.Player
         //  
         // public void UpdateStats(CharStat upgradeCharStat,bool isEquipped)
         // {
-        //     foreach (var charStat in upgradeCharStat)
+        //     foreach (var itemStat in upgradeCharStat)
         //     {
         //         int equipVal = isEquipped ? 1 : -1;
-        //         if (this.charStats.ContainsKey(charStat.Key))
+        //         if (this.charStats.ContainsKey(itemStat.Key))
         //         {
-        //             this.charStats[charStat.Key]+= equipVal*charStat.Value;
+        //             this.charStats[itemStat.Key]+= equipVal*itemStat.Value;
         //         }
         //         else
         //         {
-        //             this.charStats[charStat.Key] = charStat.Value;
+        //             this.charStats[itemStat.Key] = itemStat.Value;
         //         }
         //     }
         // }

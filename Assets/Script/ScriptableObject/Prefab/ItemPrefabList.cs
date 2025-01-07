@@ -1,17 +1,14 @@
 using System;
 using System.Linq;
 using Script.Interface;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.InputSystem;
-using UnityEngine.Serialization;
 
 namespace Script.ScriptableObject.Prefab
 {
-    [Serializable]
-    public class ObjectClass<T>
+    [System.Serializable]
+    public class ObjectClass
     {
-        public T prefab; // Generic olarak Component türü
+        public GameObject prefab; // Generic olarak Component türü
         public int howMany = -1;
     }
 
@@ -21,7 +18,7 @@ namespace Script.ScriptableObject.Prefab
         [SerializeField]
         public Obje objects=new Obje();
         [Serializable]
-        public class Obje: UnityDictionary<string, ObjectClass<IPool>> { };
+        public class Obje: UnityDictionary<string, ObjectClass> { };
         
         [SerializeField] public GameObject[] prefabs;
         public IPool GetPrefabByType(string type)
@@ -30,7 +27,7 @@ namespace Script.ScriptableObject.Prefab
             {
                 if (obj.Key == type)
                 {
-                    return obj.Value.prefab;
+                    return obj.Value.prefab.GetComponent<IPool>();
                 }
             }
             return null;
@@ -46,7 +43,7 @@ namespace Script.ScriptableObject.Prefab
                 if (!objects.Keys.Contains(ıPool.GetPoolType()))
                 {
                     
-                    objects.Add(ıPool.GetPoolType(),new ObjectClass<IPool>{ prefab=ıPool});
+                    objects.Add(ıPool.GetPoolType(),new ObjectClass{ prefab=prefab});
                 }
                 index++;
             }
