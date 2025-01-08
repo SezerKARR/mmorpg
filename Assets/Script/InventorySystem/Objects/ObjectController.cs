@@ -55,13 +55,11 @@ namespace Script.InventorySystem.Objects
         public virtual void Place(Transform parentTransform, CellsInfo cellsInfo)
         {
             this.objectInstance.cellsInfo = cellsInfo;
-            transform.SetParent(parentTransform);
-            this.objectInstance.parentTransform = parentTransform;
             objectView.SetPosition(cellsInfo.cells);
         }
         public virtual void Place(ObjectInstance objectInstancePlace)
-        { 
-            transform.SetParent(objectInstancePlace.parentTransform);
+        {
+            objectInstancePlace.controllerPool = this;
             this.objectInstance = objectInstancePlace;
             objectView.SetObject(objectInstancePlace);
             this.gameObject.SetActive(true);

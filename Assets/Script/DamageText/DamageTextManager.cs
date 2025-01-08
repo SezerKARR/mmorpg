@@ -1,6 +1,7 @@
 using Script.Damage;
 using Script.DamageText.DamageTexts;
 using Script.Inventory.Objects;
+using Script.InventorySystem.Objects;
 using Script.ScriptableObject.Prefab;
 using UnityEngine;
 
@@ -40,7 +41,7 @@ namespace Script.DamageText
         private void CloseDamageText(DamageTextBone damageTextBone)
         {
             Debug.Log(            damageTextBone.GetPoolType());
-            _objectPooler.ReturnObject(damageTextBone.GetPoolType(), damageTextBone.gameObject);
+            _objectPooler.ReturnObject(damageTextBone);
         }
     }
 }

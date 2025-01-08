@@ -2,6 +2,7 @@ using Script.DroppedItem;
 using Script.Interface;
 using Script.Inventory.Objects;
 using Script.InventorySystem.inventory;
+using Script.InventorySystem.Objects;
 using Script.ObjectInstances;
 using Script.Player;
 using Script.ScriptableObject.Player;
@@ -36,7 +37,7 @@ namespace Script.Game
 
         private void ItemDropReturn(IPool poolAble)
         {
-            _ıtemDropPooler.ReturnObject(poolAble.GetPoolType(),poolAble.GetGameObject());
+            _ıtemDropPooler.ReturnObject(poolAble);
         }
         private void CreateDropItem(Vector3 position, ObjectInstance objectInstance,string playerName)
         {

@@ -1,5 +1,6 @@
 using Script.ObjectInstances;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Script.Inventory.Page
 {
@@ -17,20 +18,25 @@ namespace Script.Inventory.Page
     public class PageData:UnityEngine.ScriptableObject
     {
        
-       public ObjectsRow[] cotroller;
+       [FormerlySerializedAs("cotroller")] public ObjectsRow[] controller;
         
         public void Initialize(int rowCountInit, int columnCountInit)
         {
-            
-                cotroller = new ObjectsRow[rowCount];
-                for (int i = 0; i< rowCount; i++)
+            if(rowCountInit==rowCount&&columnCountInit==columnCount)return;
+            if (controller.Length==0)
+            {
+                controller = new ObjectsRow[rowCountInit];
+                for (int i = 0; i< rowCountInit; i++)
                 {
-                    cotroller[i] = new ObjectsRow(columnCount); 
+                    controller[i] = new ObjectsRow(columnCountInit); 
                 }
+            }
+            
+                
             
         }
 
-        public int rowCount => cotroller.Length;
-        public int columnCount => cotroller.Length>0? cotroller[0].objectController.Length:0;
+        public int rowCount => controller.Length;
+        public int columnCount => controller!=null? controller[0].objectController.Length:0;
     }
 }

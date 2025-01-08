@@ -1,15 +1,16 @@
 using System.Collections.Generic;
+using Script.Interface;
 using Script.ScriptableObject.Prefab;
 using UnityEngine;
 
-namespace Script.Inventory.Objects
+namespace Script.InventorySystem.Objects
 {
     public class ObjectPooler
     {
         private readonly ıtem _objectsToPooled;
         private class ıtem: UnityDictionary<string, Queue<GameObject>> { };
-        
-        ItemPrefabList _itemPrefabList;
+
+        private readonly ItemPrefabList _itemPrefabList;
         private readonly Transform _parentTransform;
         public ObjectPooler(ItemPrefabList  itemPrefabList,Transform parentTransform,int count =5)
         {
@@ -24,7 +25,7 @@ namespace Script.Inventory.Objects
             
         }
 
-        public T SpawnFromPool<T>(string objectType) where T : Component
+        public T SpawnFromPool<T>(string objectType,Transform parentTransform=null) where T : Component
         {
             foreach (var key in _objectsToPooled.Keys)
             {
@@ -32,13 +33,11 @@ namespace Script.Inventory.Objects
             }
             Debug.Log(_objectsToPooled[objectType].Count);
             if(_objectsToPooled[objectType].Count <= 1)_objectsToPooled[objectType].Enqueue(CreateObject(_itemPrefabList.objects[objectType].prefab));
-            // Pool'dan bir nesne al
             GameObject objectToSpawn = _objectsToPooled[objectType].Dequeue();
-
-            // GameObject'ten T tipinde bir bileşen al ve döndür
+            if(parentTransform!=null)objectToSpawn.transform.SetParent(parentTransform);
             return objectToSpawn.GetComponent<T>();
         }
-
+       
         private Queue<GameObject> SpawnObject(string objectClass,int count=5)
         {
             Queue<GameObject> objectPool = new Queue<GameObject>() ;
@@ -56,13 +55,15 @@ namespace Script.Inventory.Objects
             objectGo.SetActive(false);
             return objectGo;
         }
-        public void ReturnObject(string objectType, GameObject obj)
+        public void ReturnObject(IPool pool)
         {
-            Debug.Log(_objectsToPooled.ContainsKey(objectType));
-            if (_objectsToPooled.ContainsKey(objectType))
+            string objectType = pool.GetPoolType();
+            GameObject obj = pool.GetGameObject();
+            if (_objectsToPooled.TryGetValue(objectType, out var value))
             {
                 obj.SetActive(false);
-                _objectsToPooled[objectType].Enqueue(obj);
+                obj.transform.SetParent(_parentTransform);
+                value.Enqueue(obj);
             }
         }
     }

@@ -27,8 +27,6 @@ namespace Script.InventorySystem.inventory
         public PageController[] inventoryPage;
         public int rowCount;
         public int columnCount;
-        public static int RowCount;
-        public static int ColumnCount;
         private ObjectController _currentObjectController;
         private PageController _activePageController;
         public InventoryStorage inventoryStorage;
@@ -41,8 +39,6 @@ namespace Script.InventorySystem.inventory
 
         private void Awake()
         {
-            RowCount = rowCount;
-            ColumnCount = columnCount;
             CellWeight = pagesStorage.rect.width / rowCount;
             CellHeight = pagesStorage.rect.height / columnCount;
             _activePageController = inventoryPage[0];
@@ -51,26 +47,29 @@ namespace Script.InventorySystem.inventory
             _objectPooler = new ObjectPooler(objectsPrefab,this.transform,30);
         }
 
+        private InventoryStorageSo _storage;
         private void OnEnable()
         {
-            InventoryStorageSo storage = Resources.Load<InventoryStorageSo>("Inventory/InventoryStorageSo");
-            storage.pageModels.Clear();
+             _storage = Resources.Load<InventoryStorageSo>("Inventory/InventoryStorageSo");
+            _storage.pageModels.Clear();
+            _storage.rowCount=rowCount;
+            _storage.columnCount = columnCount;
             foreach (PageController pageController in inventoryPage)
             {
-                storage.pageModels.Add(pageController.PageModel);
+                _storage.pageModels.Add(pageController.PageModel);
             }
 
-            InventoryEvent.OnDropObject += DeleteObjectInventory;
+            InventoryEvent.OnDropObject += RemoveObject;
             ObjectEvents.OnPickUp += PickUp;
             PageChangeButton.OnChangePageClicked += ChangePage;
             InputPlayer.OnGroundClicked += GroundClicked;
             ObjectEvents.ObjectClicked += ObjectSelected;
-            InventoryEvent.OnItemPickUp += CreateObjectModel;
+            InventoryEvent.OnItemPickUp += AddObject;
             InventoryEvent.OnInitializeStoreageItem += SpawnObject;
             InventoryEvent.OnUnEquipItem += ChangePosition;
             PageEvent.OnClickPage += OnClickPage;
             InventoryEvent.OnChangedObjectPosition += ChangePosition;
-            inventoryStorage = new InventoryStorage(storage);
+            inventoryStorage = new InventoryStorage(_storage);
             EquipmentEvent.OnEquip += inventoryStorage.RemoveObject;
             InventoryEvent.OnGetEmptyCells = inventoryStorage.ControlEmptyCellAndPage;
         }
@@ -84,10 +83,12 @@ namespace Script.InventorySystem.inventory
         {
             if (this._currentObjectController != null)
             {
-                if (inventoryStorage.IsCanChangePos(this._currentObjectController, GridPositionCalculate(position),
-                        pageIndex))
+                CellsInfo changePos = inventoryStorage.GetChangePos(this._currentObjectController.ObjectInstance, GridPositionCalculate(position), pageIndex);
+                if (changePos!=null)
                 {
+                    RemoveObject(this._currentObjectController.ObjectInstance);
                     this._currentObjectController = null;
+                    ImageUnderCursor.OnCloseImageUnderCursor?.Invoke();
                 }
                 
             }
@@ -107,17 +108,7 @@ namespace Script.InventorySystem.inventory
         }
 
       
-        public void CreateObjectModel(ObjectInstance objectToAdd)
-        {
-            objectToAdd.parentTransform=inventoryPage[objectToAdd.cellsInfo.pageIndex].transform;
-            SpawnObject(objectToAdd);
-        }
-
-        private void SpawnObject(ObjectInstance objectToAdd)
-        {
-            _objectPooler.SpawnFromPool<ObjectController>(objectToAdd.type).Place(objectToAdd);
-
-        }
+        
         private void ObjectSelected(ObjectController objectController)
         {
             this._currentObjectController = objectController;
@@ -143,16 +134,25 @@ namespace Script.InventorySystem.inventory
         private void DropObject()
         {
             InventoryEvent.OnDropObject?.Invoke(_currentObjectController.ObjectInstance);
-            
-            
+        }
+        private void RemoveObject(ObjectInstance objectInstanceToRemove)
+        {
             this._currentObjectController = null;
+            inventoryStorage.RemoveObject(objectInstanceToRemove);
+            _objectPooler.ReturnObject(objectInstanceToRemove.controllerPool);
+        }
+        public void AddObject(ObjectInstance objectToAdd)
+        {
+            inventoryStorage.AddObjectsToInventory(objectToAdd);
+            SpawnObject(objectToAdd);
         }
 
-        private void DeleteObjectInventory(ObjectInstance objectToDelete)
+        public void SpawnObject(ObjectInstance objectToSpawn)
         {
-            inventoryStorage.RemoveObject(objectToDelete);
-            _objectPooler.ReturnObject(objectToDelete.type,
-                this._currentObjectController.gameObject);
+            _objectPooler.SpawnFromPool<ObjectController>(objectToSpawn.type,inventoryPage[objectToSpawn.cellsInfo.pageIndex].transform).Place(objectToSpawn);
+
         }
+
+        
     }
 }

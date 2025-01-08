@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Script.Enemy;
 using Script.Inventory.Objects;
+using Script.InventorySystem.Objects;
 using Script.ScriptableObject.Prefab;
 using UnityEngine;
 using UnityEngine.Serialization;

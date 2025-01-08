@@ -20441,7 +20441,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1539298547710127121, guid: 2cec70ab26e0ad1428917c7a090dbfcb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 142
       objectReference: {fileID: 0}
     - target: {fileID: 1539298547710127121, guid: 2cec70ab26e0ad1428917c7a090dbfcb, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -20489,7 +20489,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2448596118196188534, guid: 2cec70ab26e0ad1428917c7a090dbfcb, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 142
       objectReference: {fileID: 0}
     - target: {fileID: 2448596118196188534, guid: 2cec70ab26e0ad1428917c7a090dbfcb, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -22461,7 +22461,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02423269ea9876c448c49ccdab03c2a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  "\u0131temDropPrefabs": {fileID: 11400000, guid: c883a1e159b3897499c7e72fd8c003ba, type: 2}
+  itemDropPrefabs: {fileID: 11400000, guid: c883a1e159b3897499c7e72fd8c003ba, type: 2}
   charactersModel: {fileID: 11400000, guid: f5a328711a2ddb143aaa6bc0488e2061, type: 2}
 --- !u!1001 &1030179933
 PrefabInstance:

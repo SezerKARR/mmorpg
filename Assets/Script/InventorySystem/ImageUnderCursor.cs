@@ -2,6 +2,7 @@ using System;
 using Script.Inventory;
 using Script.Inventory.Objects;
 using Script.InventorySystem.Objects;
+using Script.InventorySystem.Page;
 using Script.ObjectInstances;
 using Script.ScriptableObject;
 using UnityEngine;

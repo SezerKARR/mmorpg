@@ -20,44 +20,49 @@ namespace Script.InventorySystem.inventory
     [Serializable]
     public class InventoryStorage 
     {
-        public InventoryStorageSo inventoryStorageSo;
+        private InventoryStorageSo _inventoryStorageSo;
 
         public  InventoryStorage(InventoryStorageSo storageSo)
         {
-            inventoryStorageSo = storageSo;
+            _inventoryStorageSo = storageSo;
+            foreach (var pageModel in storageSo.pageModels)
+            {
+                pageModel.Initialize(rowCount:storageSo.rowCount,columnCount:storageSo.columnCount);
+            }
             // foreach (PageModel pageModel in inventoryStorageSo.pageModels)
             // {
             //     pageModel.Initialize(storageSo.rowCount, storageSo.columnCount);
             // }
-            foreach (ObjectInstance objectInstance in inventoryStorageSo.objectInstances)
+            foreach (ObjectInstance objectInstance in storageSo.objectInstances)
             {
                 InventoryEvent.OnInitializeStoreageItem(objectInstance);
 
             }
-        }
 
+        }
 
         
         public void AddObjectsToInventory(ObjectInstance objectInstance)
         {
-            inventoryStorageSo.objectInstances.Add(objectInstance);
-            if (inventoryStorageSo.haveObjects.ContainsKey(objectInstance.objectAbstract))
+            _inventoryStorageSo.pageModels[objectInstance.cellsInfo.pageIndex].AddObjectToPage(objectInstance);
+
+            _inventoryStorageSo.objectInstances.Add(objectInstance);
+            if (_inventoryStorageSo.haveObjects.ContainsKey(objectInstance.objectAbstract))
             {
-                // Eğer key mevcutsa, listenin sonuna item ekle
-                inventoryStorageSo.haveObjects[objectInstance.objectAbstract]+=objectInstance.howMany;
+                _inventoryStorageSo.haveObjects[objectInstance.objectAbstract]+=objectInstance.howMany;
                 return;
             }
            
-            inventoryStorageSo.haveObjects.Add(objectInstance.objectAbstract,objectInstance.howMany);
+            _inventoryStorageSo.haveObjects.Add(objectInstance.objectAbstract,objectInstance.howMany);
             
         }
         private void RemoveObjectInventory(ObjectInstance removeObject)
         {
-            inventoryStorageSo.objectInstances.Remove(removeObject);
-            inventoryStorageSo.haveObjects[removeObject.objectAbstract]-=removeObject.howMany;
-            if (inventoryStorageSo.haveObjects[removeObject.objectAbstract] == 0)
+            _inventoryStorageSo.objectInstances.Remove(removeObject);
+            _inventoryStorageSo.haveObjects[removeObject.objectAbstract]-=removeObject.howMany;
+            if (_inventoryStorageSo.haveObjects[removeObject.objectAbstract] == 0)
             {
-                inventoryStorageSo.haveObjects.Remove(removeObject.objectAbstract);
+                _inventoryStorageSo.haveObjects.Remove(removeObject.objectAbstract);
             }
            
         }
@@ -72,21 +77,21 @@ namespace Script.InventorySystem.inventory
             
             AddObjectsToInventory(unEquipObject.ObjectInstance);
             InventoryEvent.OnUnEquipItem?.Invoke(unEquipObject,cellsInfo);
-            inventoryStorageSo.pageModels[cellsInfo.pageIndex].AddObjectToPage(unEquipObject.ObjectInstance);
+            _inventoryStorageSo.pageModels[cellsInfo.pageIndex].AddObjectToPage(unEquipObject.ObjectInstance);
             
         }
-        public bool IsCanChangePos(ObjectController objectController,int2 cell,int pageIndex)
+        public CellsInfo GetChangePos(ObjectInstance objectInstance,int2 cell,int pageIndex)
         {
-            List<int2> cells = inventoryStorageSo.pageModels[pageIndex].ControlEmptyCell(cell, objectController.ObjectInstance.weightInInventory,
-                objectController.ObjectInstance.howMany);
-            if (cells != null)
-            {
-                inventoryStorageSo.pageModels[objectController.ObjectInstance.cellsInfo.pageIndex].ResetButtons(objectController.ObjectInstance.cellsInfo.cells);
-                InventoryEvent.OnChangedObjectPosition?.Invoke(objectController,new CellsInfo{cells = cells,pageIndex = pageIndex}); 
-                inventoryStorageSo.pageModels[objectController.ObjectInstance.cellsInfo.pageIndex].AddObjectToPage(objectController.ObjectInstance);
-                return true;
-            }
-            return false;
+           return new CellsInfo{cells = _inventoryStorageSo.pageModels[pageIndex].ControlEmptyCell(cell, objectInstance.weightInInventory,
+               objectInstance.howMany),pageIndex = pageIndex};
+            // if (cells != null)
+            // {
+            //     _inventoryStorageSo.pageModels[objectController.ObjectInstance.cellsInfo.pageIndex].ResetButtons(objectController.ObjectInstance.cellsInfo.cells);
+            //     InventoryEvent.OnChangedObjectPosition?.Invoke(objectController,new CellsInfo{cells = cells,pageIndex = pageIndex}); 
+            //     _inventoryStorageSo.pageModels[objectController.ObjectInstance.cellsInfo.pageIndex].AddObjectToPage(objectController.ObjectInstance);
+            //     return true;
+            // }
+            // return false;
         }
 
         // public bool IsCanChangeItem(ItemController unEquipObject, ItemController equipItem)
@@ -105,7 +110,7 @@ namespace Script.InventorySystem.inventory
 
         public void RemoveObject(ObjectInstance objectInstance)
         {
-            inventoryStorageSo.pageModels[objectInstance.cellsInfo.pageIndex].ResetButtons(objectInstance.cellsInfo.cells);
+            _inventoryStorageSo.pageModels[objectInstance.cellsInfo.pageIndex].ResetButtons(objectInstance.cellsInfo.cells);
             RemoveObjectInventory(objectInstance);
         }
 
@@ -126,8 +131,6 @@ namespace Script.InventorySystem.inventory
             if (result != null)
             {
                 objectInstance.cellsInfo = result;
-                AddObjectsToInventory(objectInstance);
-                inventoryStorageSo.pageModels[result.pageIndex].AddObjectToPage(objectInstance);
                 InventoryEvent.OnItemPickUp?.Invoke(objectInstance);
                 return true;
             }
@@ -138,7 +141,7 @@ namespace Script.InventorySystem.inventory
         }
         public CellsInfo ControlEmptyCellAndPage(int weightInInventory,int howMany)
         {
-            foreach (PageModel page in inventoryStorageSo.pageModels)
+            foreach (PageModel page in _inventoryStorageSo.pageModels)
             {
                 
                 List<int2> cells = page.ControlEmpty(weightInInventory, howMany);
@@ -157,7 +160,7 @@ namespace Script.InventorySystem.inventory
         {
             if (objectInstance.objectAbstract.stackLimit > 1)
             {
-                foreach (PageModel page in inventoryStorageSo.pageModels)
+                foreach (PageModel page in _inventoryStorageSo.pageModels)
                 {
 
           

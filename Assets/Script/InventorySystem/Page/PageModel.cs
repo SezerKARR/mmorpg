@@ -22,7 +22,8 @@ namespace Script.InventorySystem.Page
 
         public void Initialize(int rowCount, int columnCount)
         {
-            
+           
+            pageData.Initialize(rowCount, columnCount); //todo if row or column count changed chang the page system
         }
         // private void OnApplicationQuit()
         // {
@@ -57,7 +58,7 @@ namespace Script.InventorySystem.Page
                 string loadedJson = File.ReadAllText(path);
                 PageData pageData = UnityEngine.ScriptableObject.CreateInstance<PageData>();
                 JsonUtility.FromJsonOverwrite(loadedJson, pageData);
-                Debug.Log("Yüklendi: Satır=" + pageData.cotroller.Length );
+                Debug.Log("Yüklendi: Satır=" + pageData.controller.Length );
                 return pageData;
             }
             return null;   
@@ -67,7 +68,7 @@ namespace Script.InventorySystem.Page
         public float RowCount => pageData.rowCount;
         // public bool AddStack(ObjectAbstract inventorObjectable, int howMany)
         // {
-        //     var filteredControllers = pageData.cotroller.Cast<ObjectController>()
+        //     var filteredControllers = pageData.controller.Cast<ObjectController>()
         //         .Where(item => item != null && item.ObjectInstance == inventorObjectable)
         //         .ToList();
         //     foreach (var item in filteredControllers)
@@ -88,7 +89,7 @@ namespace Script.InventorySystem.Page
             // List<int2> cells =ControlEmpty(inventorObjectable.Model.WeightInInventory, inventorObjectable.howMany);
             // if ( cells != null)
             // {
-            //     CreateObjectModel(cells, inventorObjectable, howMany);
+            //     AddObject(cells, inventorObjectable, howMany);
             //     return true;
             // }
             return false;
@@ -125,7 +126,7 @@ namespace Script.InventorySystem.Page
                 for (int j = 0; j < ColumnCount; j++)
                 {
                     List<int2> cells=new List<int2>();
-                    if (pageData.cotroller[i].objectController[j].objectAbstract == null)
+                    if (pageData.controller[i].objectController[j].objectAbstract == null)
                     {
                         cells.Add(new int2(i,j));
                         if (weightInInventory == 1)
@@ -161,7 +162,7 @@ namespace Script.InventorySystem.Page
             for (int i = 0; i < weightInInventory; i++)
             {
                 // Nesnenin sütunu aşmaması gerektiğini kontrol et
-                if (pageData.cotroller[rowAndColumnCount.x].objectController[rowAndColumnCount.y+i].objectAbstract ==null)
+                if (pageData.controller[rowAndColumnCount.x].objectController[rowAndColumnCount.y+i].objectAbstract ==null)
                 {
                     cells.Add(new int2(rowAndColumnCount.x, rowAndColumnCount.y+i));
                     if (cells.Count == weightInInventory)
@@ -183,7 +184,7 @@ namespace Script.InventorySystem.Page
         {
             foreach (var cell in objectInstance.cellsInfo.cells)
             {
-                pageData.cotroller[ cell.x].objectController[cell.y] = objectInstance;
+                pageData.controller[ cell.x].objectController[cell.y] = objectInstance;
             }
         }
         
@@ -194,8 +195,8 @@ namespace Script.InventorySystem.Page
         {
             foreach (var cell in resetCells)
             {
-                pageData.cotroller[ cell.x].objectController[cell.y].cellsInfo=null;
-                pageData.cotroller[ cell.x].objectController[cell.y] = null;
+                pageData.controller[ cell.x].objectController[cell.y].cellsInfo=null;
+                pageData.controller[ cell.x].objectController[cell.y] = null;
             }
         }
 

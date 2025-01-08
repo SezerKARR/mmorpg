@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Script.Inventory
+namespace Script.InventorySystem.Page
 {
     public class PageEvent
     {
