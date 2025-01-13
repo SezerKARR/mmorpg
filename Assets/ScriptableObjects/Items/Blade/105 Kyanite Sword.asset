@@ -12,30 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: 105 Kyanite Sword
   m_EditorClassIdentifier: 
-  Place: 0
-  Image: {fileID: 0}
-  ItemName: Kyanite Sword
+  place: 0
+  "\u0131mage": {fileID: 0}
+  "\u0131temName": Kyanite Sword
   dropsFrom: 
-  DropMetins: 
+  dropMetins: 
   info: 
   playerCanDrop: 1
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 2
-  DropName: Kyanite Sword+0
+  dropName: Kyanite Sword+0
   price: 0
   objectType: 4
   levelWithPlus: 0
-  currentPlus: 0
-  itemstats:
-    tKeys: 0200000003000000000000000100000006000000
-    tValues:
-    - 289
-    - 351
-    - 227
-    - 277
-    - 15
-  canUseCharacters: 01000000
+  itemStat:
+    tKeys: 
+    tValues: []
+  canUseCharacters: 0100000002000000
   Requirements:
   - upgradeItems:
     - upgradeItemName: {fileID: 11400000, guid: 0673cb18afdcb7242a3faf2ef676e97f, type: 2}
@@ -91,6 +85,7 @@ MonoBehaviour:
     - upgradeItemName: {fileID: 11400000, guid: b527f055fe6af974bb9e7ea059877de1, type: 2}
       howMany: 1
     upgradeMoney: 1500000
+  equipmentType: 1
   level: 105
   minAndMaxAttackValue:
   - {x: 227, y: 277}

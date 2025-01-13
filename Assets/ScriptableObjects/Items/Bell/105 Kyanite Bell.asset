@@ -12,30 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: 105 Kyanite Bell
   m_EditorClassIdentifier: 
-  Place: 0
-  Image: {fileID: 0}
-  ItemName: Kyanite Bell
+  place: 0
+  "\u0131mage": {fileID: 0}
+  "\u0131temName": Kyanite Bell
   dropsFrom: 
-  DropMetins: 
+  dropMetins: 
   info: 
   playerCanDrop: 1
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  DropName: Kyanite Bell+0
+  dropName: Kyanite Bell+0
   price: 0
   objectType: 4
   levelWithPlus: 0
-  currentPlus: 0
-  itemstats:
-    tKeys: 0200000003000000000000000100000006000000
-    tValues:
-    - 224
-    - 256
-    - 277
-    - 307
-    - 15
-  canUseCharacters: 03000000
+  itemStat:
+    tKeys: 
+    tValues: []
+  canUseCharacters: 04000000
   Requirements:
   - upgradeItems:
     - upgradeItemName: {fileID: 11400000, guid: 0673cb18afdcb7242a3faf2ef676e97f, type: 2}
@@ -91,6 +85,7 @@ MonoBehaviour:
     - upgradeItemName: {fileID: 11400000, guid: b527f055fe6af974bb9e7ea059877de1, type: 2}
       howMany: 1
     upgradeMoney: 1500000
+  equipmentType: 1
   level: 105
   minAndMaxAttackValue:
   - {x: 277, y: 307}

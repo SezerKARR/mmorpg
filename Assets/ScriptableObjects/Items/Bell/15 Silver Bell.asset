@@ -12,30 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: 15 Silver Bell
   m_EditorClassIdentifier: 
-  Place: 0
-  Image: {fileID: 0}
-  ItemName: Silver Bell
+  place: 0
+  "\u0131mage": {fileID: 0}
+  "\u0131temName": Silver Bell
   dropsFrom: 
-  DropMetins: 
+  dropMetins: 
   info: 
   playerCanDrop: 1
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  DropName: Silver Bell+0
+  dropName: Silver Bell+0
   price: 0
   objectType: 4
   levelWithPlus: 0
-  currentPlus: 0
-  itemstats:
-    tKeys: 0200000003000000000000000100000006000000
-    tValues:
-    - 4
-    - 30
-    - 20
-    - 26
-    - 23
-  canUseCharacters: 03000000
+  itemStat:
+    tKeys: 
+    tValues: []
+  canUseCharacters: 04000000
   Requirements:
   - upgradeItems: []
     upgradeMoney: 600
@@ -61,6 +55,7 @@ MonoBehaviour:
     - upgradeItemName: {fileID: 11400000, guid: 7e5fc29b8dc64ac42bf1122090e3741d, type: 2}
       howMany: 2
     upgradeMoney: 75000
+  equipmentType: 1
   level: 15
   minAndMaxAttackValue:
   - {x: 20, y: 26}

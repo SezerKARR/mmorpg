@@ -12,30 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: 105 Zodiac Bell
   m_EditorClassIdentifier: 
-  Place: 0
-  Image: {fileID: 0}
-  ItemName: Zodiac Bell
+  place: 0
+  "\u0131mage": {fileID: 0}
+  "\u0131temName": Zodiac Bell
   dropsFrom: 
-  DropMetins: 
+  dropMetins: 
   info: 
   playerCanDrop: 1
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  DropName: Zodiac Bell+0
+  dropName: Zodiac Bell+0
   price: 0
   objectType: 4
   levelWithPlus: 0
-  currentPlus: 0
-  itemstats:
-    tKeys: 0200000003000000000000000100000006000000
-    tValues:
-    - 84
-    - 116
-    - 166
-    - 194
-    - 18
-  canUseCharacters: 03000000
+  itemStat:
+    tKeys: 
+    tValues: []
+  canUseCharacters: 04000000
   Requirements:
   - upgradeItems:
     - upgradeItemName: {fileID: 11400000, guid: 3e4508791cac136419a25df877db101a, type: 2}
@@ -89,6 +83,7 @@ MonoBehaviour:
     - upgradeItemName: {fileID: 11400000, guid: 127f243f2dd69f440b9094d27a7a74d5, type: 2}
       howMany: 1
     upgradeMoney: 2560000
+  equipmentType: 1
   level: 105
   minAndMaxAttackValue:
   - {x: 166, y: 194}

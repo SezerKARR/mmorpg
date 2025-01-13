@@ -23,18 +23,13 @@ MonoBehaviour:
   stackLimit: 1
   weightInInventory: 3
   dropName: Spear+0
-  howMany: 1
   price: 0
   objectType: 4
   levelWithPlus: 0
-  currentPlus: 0
-  stat:
-    tKeys: 000000000100000006000000
-    tValues:
-    - 23
-    - 33
-    - 28
-  canUseCharacters: 00000000
+  itemStat:
+    tKeys: 
+    tValues: []
+  canUseCharacters: 01000000
   Requirements:
   - upgradeItems: []
     upgradeMoney: 600
@@ -60,6 +55,7 @@ MonoBehaviour:
     - upgradeItemName: {fileID: 11400000, guid: 18d6e77189fc65c4d8b95ddbadc059c3, type: 2}
       howMany: 2
     upgradeMoney: 75000
+  equipmentType: 1
   level: 5
   minAndMaxAttackValue:
   - {x: 23, y: 33}

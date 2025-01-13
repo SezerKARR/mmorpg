@@ -38,8 +38,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 60, y: 60}
+  m_AnchoredPosition: {x: 0, y: 63}
+  m_SizeDelta: {x: 60, y: 126}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5214520043822416991
 CanvasRenderer:
@@ -135,13 +135,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 746761d4c90c442418faf6a82d179be8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cells: []
-  page: 0
-  size: 0
   objectView: {fileID: 6119073459737030524}
-  objectAbstract: {fileID: 0}
-  howMany: 0
-  itemModel: {fileID: 0}
+  objectInstance:
+    howMany: 0
+    objectAbstract: {fileID: 0}
+    cellsInfo:
+      cells: []
+      pageIndex: 0
+  itemInstance:
+    howMany: 0
+    objectAbstract: {fileID: 0}
+    cellsInfo:
+      cells: []
+      pageIndex: 0
+    scriptableItemsAbstract: {fileID: 0}
+    currentPlus: 0
 --- !u!114 &6119073459737030524
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,8 +162,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1e71679c123744f0948bdf0b5d494165, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _image: {fileID: 7125167582915035149}
-  _howManyText: {fileID: 7427987353664869521}
+  image: {fileID: 7125167582915035149}
+  howManyText: {fileID: 7427987353664869521}
 --- !u!1 &8361876392663436673
 GameObject:
   m_ObjectHideFlags: 0
@@ -188,10 +196,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 3120426130286261861}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 20.4182, y: -22.5123}
-  m_SizeDelta: {x: -46.5954, y: -49.7366}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -11.1, y: 6.3}
+  m_SizeDelta: {x: 17.514599, y: 7.880615}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4506461174972147994
 CanvasRenderer:
@@ -248,7 +256,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 4.6
+  m_fontSize: 6
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1

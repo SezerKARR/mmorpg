@@ -12,30 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: 96 Gloom Dragon Bell
   m_EditorClassIdentifier: 
-  Place: 0
-  Image: {fileID: 0}
-  ItemName: Gloom Dragon Bell
+  place: 0
+  "\u0131mage": {fileID: 0}
+  "\u0131temName": Gloom Dragon Bell
   dropsFrom: 
-  DropMetins: 
+  dropMetins: 
   info: 
   playerCanDrop: 1
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  DropName: Gloom Dragon Bell+0
+  dropName: Gloom Dragon Bell+0
   price: 0
   objectType: 4
   levelWithPlus: 0
-  currentPlus: 0
-  itemstats:
-    tKeys: 0200000003000000000000000100000006000000
-    tValues:
-    - 81
-    - 120
-    - 162
-    - 197
-    - 15
-  canUseCharacters: 03000000
+  itemStat:
+    tKeys: 
+    tValues: []
+  canUseCharacters: 04000000
   Requirements:
   - upgradeItems:
     - upgradeItemName: {fileID: 11400000, guid: 7e43096a89ea1974784a8a1f70b9277e, type: 2}
@@ -135,6 +129,7 @@ MonoBehaviour:
     - upgradeItemName: {fileID: 11400000, guid: fcd614b32a496c74f839681199891b11, type: 2}
       howMany: 1
     upgradeMoney: 19200000
+  equipmentType: 1
   level: 96
   minAndMaxAttackValue:
   - {x: 162, y: 197}

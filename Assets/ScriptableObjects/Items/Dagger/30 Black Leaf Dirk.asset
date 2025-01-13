@@ -12,28 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: 30 Black Leaf Dirk
   m_EditorClassIdentifier: 
-  Place: 0
-  Image: {fileID: 0}
-  ItemName: Black Leaf Dirk
+  place: 0
+  "\u0131mage": {fileID: 0}
+  "\u0131temName": Black Leaf Dirk
   dropsFrom: 
-  DropMetins: 
+  dropMetins: 
   info: 
   playerCanDrop: 1
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  DropName: Black Leaf Dirk+0
+  dropName: Black Leaf Dirk+0
   price: 0
   objectType: 4
   levelWithPlus: 0
-  currentPlus: 0
-  itemstats:
-    tKeys: 000000000100000006000000
-    tValues:
-    - 40
-    - 44
-    - 15
-  canUseCharacters: 02000000
+  itemStat:
+    tKeys: 
+    tValues: []
+  canUseCharacters: 03000000
   Requirements:
   - upgradeItems: []
     upgradeMoney: 3000

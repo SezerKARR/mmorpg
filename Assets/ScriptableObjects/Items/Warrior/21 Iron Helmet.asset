@@ -12,26 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa2b9a8926a336408051b3ee5644ae0, type: 3}
   m_Name: 21 Iron Helmet
   m_EditorClassIdentifier: 
-  Place: 0
-  Image: {fileID: 0}
-  ItemName: Iron Helmet
+  place: 0
+  "\u0131mage": {fileID: 0}
+  "\u0131temName": Iron Helmet
   dropsFrom: 
-  DropMetins: 
+  dropMetins: 
   info: 
   playerCanDrop: 1
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  DropName: Iron Helmet+0
+  dropName: Iron Helmet+0
   price: 0
   objectType: 4
   levelWithPlus: 0
-  currentPlus: 0
-  itemstats:
-    tKeys: 04000000
-    tValues:
-    - 9
-  canUseCharacters: 00000000
+  itemStat:
+    tKeys: 
+    tValues: []
+  canUseCharacters: 01000000
   Requirements:
   - upgradeItems: []
     upgradeMoney: 1000
@@ -58,14 +56,15 @@ MonoBehaviour:
   - upgradeItems:
     - upgradeItemName: {fileID: 11400000, guid: a0561bc29fa71374f9de2af96458568a, type: 2}
       howMany: 2
-    - upgradeItemName: {fileID: 11400000, guid: d6fd3e7c7ce66f142be3013f1eb7c234, type: 2}
+    - upgradeItemName: {fileID: 0}
       howMany: 1
     upgradeMoney: 70000
   - upgradeItems:
     - upgradeItemName: {fileID: 11400000, guid: 06f3ef5adbe46ca49aa497cd09b4c076, type: 2}
       howMany: 2
-    - upgradeItemName: {fileID: 11400000, guid: d6fd3e7c7ce66f142be3013f1eb7c234, type: 2}
+    - upgradeItemName: {fileID: 0}
       howMany: 1
     upgradeMoney: 120000
+  equipmentType: 2
   level: 21
   defence: 090000000d0000001100000015000000190000002100000029000000310000003900000041000000

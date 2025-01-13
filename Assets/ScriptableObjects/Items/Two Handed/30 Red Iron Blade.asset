@@ -12,28 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: 30 Red Iron Blade
   m_EditorClassIdentifier: 
-  Place: 0
-  Image: {fileID: 0}
-  ItemName: Red Iron Blade
+  place: 0
+  "\u0131mage": {fileID: 0}
+  "\u0131temName": Red Iron Blade
   dropsFrom: 
-  DropMetins: 
+  dropMetins: 
   info: 
   playerCanDrop: 1
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 3
-  DropName: Red Iron Blade+0
+  dropName: Red Iron Blade+0
   price: 0
   objectType: 4
   levelWithPlus: 0
-  currentPlus: 0
-  itemstats:
-    tKeys: 000000000100000006000000
-    tValues:
-    - 72
-    - 109
-    - 15
-  canUseCharacters: 00000000
+  itemStat:
+    tKeys: 
+    tValues: []
+  canUseCharacters: 01000000
   Requirements:
   - upgradeItems: []
     upgradeMoney: 3000
@@ -53,6 +49,7 @@ MonoBehaviour:
     upgradeMoney: 120000
   - upgradeItems: []
     upgradeMoney: 150000
+  equipmentType: 1
   level: 30
   minAndMaxAttackValue:
   - {x: 72, y: 109}

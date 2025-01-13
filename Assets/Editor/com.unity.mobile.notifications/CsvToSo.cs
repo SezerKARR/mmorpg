@@ -113,9 +113,9 @@ namespace Editor.com.unity.mobile.notifications
          {
 
              string upgradeItemsPath = "Assets/ScriptableObjects/Items";
-             string[] upgradeItemsGuids = AssetDatabase.FindAssets("t:ScriptableItemsAbstact", new[] { upgradeItemsPath });
+             string[] upgradeItemsGuids = AssetDatabase.FindAssets("t:ScriptableItemsAbstract", new[] { upgradeItemsPath });
              Debug.Log($"Found {upgradeItemsGuids.Length} upgrade item SOs");
-             List<ScriptableItemsAbstact> upgradeItemSO = new List<ScriptableItemsAbstact>();
+             List<ScriptableItemsAbstract> upgradeItemSO = new List<ScriptableItemsAbstract>();
              string monsterpath = "Assets/ScriptableObjects/Monsters";
              string[] monsterGuids = AssetDatabase.FindAssets("t:MonsterSO", new[] { monsterpath });
              List<MonsterSO> monsterSO = new List<MonsterSO>();
@@ -130,15 +130,15 @@ namespace Editor.com.unity.mobile.notifications
              foreach (string upgradeItemsguid in upgradeItemsGuids)
              {
                  string upgradePath = AssetDatabase.GUIDToAssetPath(upgradeItemsguid);
-                 upgradeItemSO.Add(AssetDatabase.LoadAssetAtPath<ScriptableItemsAbstact>(upgradePath));
+                 upgradeItemSO.Add(AssetDatabase.LoadAssetAtPath<ScriptableItemsAbstract>(upgradePath));
 
              }
              Debug.Log(monsterSO.Count+"+"+upgradeItemSO.Count);
              foreach (MonsterSO monsterSO1 in monsterSO)
              {
-                 Dictionary<string, ScriptableItemsAbstact>
-                     items = new Dictionary<string, ScriptableItemsAbstact>();
-                 foreach (ScriptableItemsAbstact upgradeItem in upgradeItemSO)
+                 Dictionary<string, ScriptableItemsAbstract>
+                     items = new Dictionary<string, ScriptableItemsAbstract>();
+                 foreach (ScriptableItemsAbstract upgradeItem in upgradeItemSO)
                  
                  {
                      

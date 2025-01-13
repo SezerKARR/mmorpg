@@ -12,26 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa2b9a8926a336408051b3ee5644ae0, type: 3}
   m_Name: 60 Fear Mask
   m_EditorClassIdentifier: 
-  Place: 0
-  Image: {fileID: 0}
-  ItemName: Fear Mask
+  place: 0
+  "\u0131mage": {fileID: 0}
+  "\u0131temName": Fear Mask
   dropsFrom: 
-  DropMetins: 
+  dropMetins: 
   info: 
   playerCanDrop: 1
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  DropName: Fear Mask+0
+  dropName: Fear Mask+0
   price: 0
   objectType: 4
   levelWithPlus: 0
-  currentPlus: 0
-  itemstats:
-    tKeys: 04000000
-    tValues:
-    - 17
-  canUseCharacters: 00000000
+  itemStat:
+    tKeys: 
+    tValues: []
+  canUseCharacters: 01000000
   Requirements:
   - upgradeItems: []
     upgradeMoney: 1200
@@ -67,5 +65,6 @@ MonoBehaviour:
     - upgradeItemName: {fileID: 11400000, guid: a4d2cfbc09aac5041a3623b6f30c78ac, type: 2}
       howMany: 8
     upgradeMoney: 120000
+  equipmentType: 2
   level: 60
   defence: 1100000015000000190000001d00000027000000310000003b000000450000004f00000059000000

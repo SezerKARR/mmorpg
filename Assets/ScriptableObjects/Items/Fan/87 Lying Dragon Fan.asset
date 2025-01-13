@@ -12,30 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: 87 Lying Dragon Fan
   m_EditorClassIdentifier: 
-  Place: 0
-  Image: {fileID: 0}
-  ItemName: Lying Dragon Fan
+  place: 0
+  "\u0131mage": {fileID: 0}
+  "\u0131temName": Lying Dragon Fan
   dropsFrom: 
-  DropMetins: 
+  dropMetins: 
   info: 
   playerCanDrop: 1
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  DropName: Lying Dragon Fan+0
+  dropName: Lying Dragon Fan+0
   price: 0
   objectType: 4
   levelWithPlus: 0
-  currentPlus: 0
-  itemstats:
-    tKeys: 0200000003000000000000000100000006000000
-    tValues:
-    - 160
-    - 240
-    - 115
-    - 173
-    - 15
-  canUseCharacters: 03000000
+  itemStat:
+    tKeys: 
+    tValues: []
+  canUseCharacters: 04000000
   Requirements:
   - upgradeItems:
     - upgradeItemName: {fileID: 11400000, guid: 1453f5c14657e6f4b87bf77f641cfeb4, type: 2}

@@ -16,7 +16,6 @@ namespace Script.InventorySystem.Page
         [FormerlySerializedAs("PageData")] public PageData pageData;
         [FormerlySerializedAs("PageIndex")] public int pageIndex;
         private string path;
-        public Transform transform;
 
        
 
@@ -94,17 +93,16 @@ namespace Script.InventorySystem.Page
             // }
             return false;
         }
-        public List<int2> ControlUnequipSamePos(ItemController unEquipObject, List<int2> tempcells ,int weightInInventory)
+        public List<int2> ControlUnequipSamePos(ItemInstance unEquipObject, List<int2> tempcells ,int weightInInventory)
         {
-            if (unEquipObject.ObjectInstance.weightInInventory <= weightInInventory)
+            if (unEquipObject.weightInInventory <= weightInInventory)
             {
                
-                return tempcells.GetRange(0,unEquipObject.ObjectInstance.weightInInventory);
+                return tempcells.GetRange(0,unEquipObject.weightInInventory);
             }
             
-            List<int2> tempcel2 = ControlEmptyCell(
-                new int2(tempcells[0].x, tempcells[^1 ].y+1),
-                unEquipObject.ObjectInstance.weightInInventory -weightInInventory, 1);
+            List<int2> tempcel2 = ControlEmptyCell(new int2(tempcells[0].x, tempcells[^1 ].y+1),
+                unEquipObject.weightInInventory -weightInInventory, 1);
             if( tempcel2!=null)
             {
                 foreach (var cell in tempcel2)
@@ -126,7 +124,7 @@ namespace Script.InventorySystem.Page
                 for (int j = 0; j < ColumnCount; j++)
                 {
                     List<int2> cells=new List<int2>();
-                    if (pageData.controller[i].objectController[j].objectAbstract == null)
+                    if (pageData.controller[i].objectController[j]==null||pageData.controller[i].objectController[j].objectAbstract == null )
                     {
                         cells.Add(new int2(i,j));
                         if (weightInInventory == 1)
@@ -162,7 +160,7 @@ namespace Script.InventorySystem.Page
             for (int i = 0; i < weightInInventory; i++)
             {
                 // Nesnenin sütunu aşmaması gerektiğini kontrol et
-                if (pageData.controller[rowAndColumnCount.x].objectController[rowAndColumnCount.y+i].objectAbstract ==null)
+                if (pageData.controller[rowAndColumnCount.x].objectController[rowAndColumnCount.y+i]==null||pageData.controller[rowAndColumnCount.x].objectController[rowAndColumnCount.y+i].objectAbstract ==null)
                 {
                     cells.Add(new int2(rowAndColumnCount.x, rowAndColumnCount.y+i));
                     if (cells.Count == weightInInventory)

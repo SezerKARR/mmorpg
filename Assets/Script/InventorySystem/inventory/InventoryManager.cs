@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Script.DroppedItem;
 using Script.Equipment;
@@ -29,6 +30,7 @@ namespace Script.InventorySystem.inventory
         public int columnCount;
         private ObjectController _currentObjectController;
         private PageController _activePageController;
+        [SerializeField]
         public InventoryStorage inventoryStorage;
         [FormerlySerializedAs("pages")] [SerializeField] private RectTransform pagesStorage;
         public ItemPrefabList objectsPrefab;
@@ -46,17 +48,15 @@ namespace Script.InventorySystem.inventory
 
             _objectPooler = new ObjectPooler(objectsPrefab,this.transform,30);
         }
-
-        private InventoryStorageSo _storage;
+        public InventoryStorageSo storage;
         private void OnEnable()
         {
-             _storage = Resources.Load<InventoryStorageSo>("Inventory/InventoryStorageSo");
-            _storage.pageModels.Clear();
-            _storage.rowCount=rowCount;
-            _storage.columnCount = columnCount;
+            storage.pageModels.Clear();
+            storage.rowCount=rowCount;
+            storage.columnCount = columnCount;
             foreach (PageController pageController in inventoryPage)
             {
-                _storage.pageModels.Add(pageController.PageModel);
+                storage.pageModels.Add(pageController.PageModel);
             }
 
             InventoryEvent.OnDropObject += RemoveObject;
@@ -69,8 +69,7 @@ namespace Script.InventorySystem.inventory
             InventoryEvent.OnUnEquipItem += ChangePosition;
             PageEvent.OnClickPage += OnClickPage;
             InventoryEvent.OnChangedObjectPosition += ChangePosition;
-            inventoryStorage = new InventoryStorage(_storage);
-            EquipmentEvent.OnEquip += inventoryStorage.RemoveObject;
+            EquipmentEvent.OnEquip += RemoveObject;
             InventoryEvent.OnGetEmptyCells = inventoryStorage.ControlEmptyCellAndPage;
         }
 
@@ -149,7 +148,7 @@ namespace Script.InventorySystem.inventory
 
         public void SpawnObject(ObjectInstance objectToSpawn)
         {
-            _objectPooler.SpawnFromPool<ObjectController>(objectToSpawn.type,inventoryPage[objectToSpawn.cellsInfo.pageIndex].transform).Place(objectToSpawn);
+            _objectPooler.SpawnFromPool<ObjectController>(objectToSpawn.type.ToString(),inventoryPage[objectToSpawn.cellsInfo.pageIndex].transform).Place(objectToSpawn);
 
         }
 

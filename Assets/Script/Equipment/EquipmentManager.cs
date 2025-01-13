@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using Script.Inventory.Objects;
 using Script.InventorySystem.Objects;
+using Script.ObjectInstances;
 using UnityEngine;
 using Script.Player;
 using Script.ScriptableObject.Equipment;
@@ -9,6 +10,7 @@ using Zenject;
 
 namespace Script.Equipment
 {
+    [Serializable]
     public enum EquipmentType
     {
         None,
@@ -55,11 +57,11 @@ namespace Script.Equipment
         {
             return _playerController.level>=itemLevel;
         }
-        public void ControlCanEquip(ItemController itemController)
+        public void ControlCanEquip(ItemInstance itemInstance)
         {
-            if (IsLevelEnough(itemController.itemInstance.level) && IsCharacterMatch(itemController.itemInstance.canUseCharacters))
+            if (IsLevelEnough(itemInstance.level) && IsCharacterMatch(itemInstance.canUseCharacters))
             {
-                equipmentSlots[itemController.itemInstance.equipmentType].SetItem(itemController);
+                equipmentSlots[itemInstance.equipmentType].SetItem(itemInstance);
                 
             }
         }

@@ -13,9 +13,21 @@ namespace Script.InventorySystem.inventory
     {
         public int rowCount,columnCount;
         public List<PageModel> pageModels=new List<PageModel>();
-        public HaveObjects haveObjects=new HaveObjects();
-        [Serializable]
-        public class HaveObjects : UnityDictionary<ObjectAbstract, int> { };
         [SerializeField]public List<ObjectInstance> objectInstances = new List<ObjectInstance>();
+        [SerializeField]public  List<ItemInstance> itemInstances = new List<ItemInstance>();
+        [SerializeField]public  List<StackInstance> stackInstances = new List<StackInstance>();
+
+        [Serializable]
+        public class ObjectsDictionary : UnityDictionary<ObjectType, List<ObjectInstance>> { };
+
+        public ObjectsDictionary objects = new ObjectsDictionary();
+        public void İnitialize()
+        {
+            objects= new ObjectsDictionary(){
+            { ObjectType.Item, new List<ObjectInstance>(itemInstances) },
+            { ObjectType.Stack, new List<ObjectInstance>(stackInstances) }
+            };
+        }
+        
     }
 }

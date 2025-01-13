@@ -1,36 +1,35 @@
-using System.Collections;
 using System.Collections.Generic;
-using Script.Equipment;
-using Script.Inventory;
-using Script.ScriptableObject;
 using Script.ScriptableObject.Equipment;
 using UnityEngine;
-[CreateAssetMenu(menuName = "ScriptableObject/Helmet")]
 
-public class HelmetSo : ScriptableItemsAbstact
+namespace Script.ScriptableObject.Objects.Equipment
 {
-    public override EquipmentType equipmentType=> EquipmentType.Helmet;
-    // public override void SetStats()
-    // {
-    //     
-    //     charStats.IsAdd(StatType.Defense, defence[currentPlus]);
-    // }
+    [CreateAssetMenu(menuName = "ScriptableObject/Helmet")]
 
-    public List<int> defence=new List<int>();
-    public override ObjectType Type => ObjectType.Item; 
-    // public override Dictionary<StatType, float> GetStats()
-    // {
-    //     return new Dictionary<StatType, float>
-    //     {
-    //         { StatType.Defense, defence[currentPlus] },
-    //     };
-    // }
-    //
-    // public override EquipmentType GetEquipmentType()
-    // {
-    //     return weaponType;
-    // }
+    public class HelmetSo : ScriptableItemsAbstract
+    {
+        // public override void SetStats()
+        // {
+        //     
+        //     charStats.IsAdd(StatType.Defense, defence[currentPlus]);
+        // }
+
+        public List<int> defence=new List<int>();
+        public override ObjectType Type => ObjectType.Item; 
+        // public override Dictionary<StatType, float> GetStats()
+        // {
+        //     return new Dictionary<StatType, float>
+        //     {
+        //         { StatType.Defense, defence[currentPlus] },
+        //     };
+        // }
+        //
+        // public override EquipmentType GetEquipmentType()
+        // {
+        //     return weaponType;
+        // }
 
 
     
+    }
 }

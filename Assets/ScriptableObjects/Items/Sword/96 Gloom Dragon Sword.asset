@@ -12,28 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d29e21f3296954f992f45d9f75f3c1, type: 3}
   m_Name: 96 Gloom Dragon Sword
   m_EditorClassIdentifier: 
-  Place: 0
-  Image: {fileID: 0}
-  ItemName: Gloom Dragon Sword
+  place: 0
+  "\u0131mage": {fileID: 0}
+  "\u0131temName": Gloom Dragon Sword
   dropsFrom: 
-  DropMetins: 
+  dropMetins: 
   info: 
   playerCanDrop: 1
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 2
-  DropName: Gloom Dragon Sword+0
+  dropName: Gloom Dragon Sword+0
   price: 0
   objectType: 4
   levelWithPlus: 0
-  currentPlus: 0
-  itemstats:
-    tKeys: 000000000100000006000000
-    tValues:
-    - 135
-    - 214
-    - 15
-  canUseCharacters: 010000000000000002000000
+  itemStat:
+    tKeys: 
+    tValues: []
+  canUseCharacters: 010000000200000003000000
   Requirements:
   - upgradeItems:
     - upgradeItemName: {fileID: 11400000, guid: 7e43096a89ea1974784a8a1f70b9277e, type: 2}

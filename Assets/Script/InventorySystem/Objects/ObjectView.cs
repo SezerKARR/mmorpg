@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Script.InventorySystem.inventory;
 using Script.ObjectInstances;
+using Script.ScriptableObject;
 using TMPro;
 using Unity.Mathematics;
 using UnityEngine;
@@ -40,24 +41,17 @@ namespace Script.InventorySystem.Objects
             _imageHeight=InventoryManager.CellHeight;
             SetPosition(objectInstance.cellsInfo.cells);
         }
-        public virtual void SetPosition(Vector2 size)
-    
+        public virtual void SetPosition(ObjectAbstract objectAbstract)
         {
-            _imageWidth=size.x;
-            _imageHeight=size.y;
-            _imageRectTransform.anchorMin = new Vector2(0, 1); 
-            _imageRectTransform.anchorMax = new Vector2(0, 1); 
-            _imageRectTransform.anchoredPosition = new Vector3(_imageWidth/2,-_imageHeight/2,transform.position.z);
-       
-       
+            this.image.sprite = objectAbstract.ımage;
         }
         public void SetPosition(List<int2> cellInt2)
         {
-        
+            this._imageRectTransform.sizeDelta =new Vector2(InventoryManager.CellWeight,InventoryManager.CellHeight);
             _imageRectTransform.anchorMin = new Vector2(0, 1); 
             _imageRectTransform.anchorMax = new Vector2(0, 1);  
         
-            _imageRectTransform.anchoredPosition = new Vector3(cellInt2[0].x*_imageWidth+_imageWidth/2,-cellInt2[0].y*_imageHeight-_imageHeight/2,transform.position.z);
+            _imageRectTransform.anchoredPosition = new Vector3(cellInt2[0].x*InventoryManager.CellWeight+InventoryManager.CellWeight/2,-cellInt2[0].y*InventoryManager.CellHeight-InventoryManager.CellHeight/ 2,transform.position.z);
         
             //+new Vector3(cellInt2.x*_imageWidth+_imageWidth/2,cellInt2.y*_imageHeight+_imageHeight/2,transform.position.z);
         }

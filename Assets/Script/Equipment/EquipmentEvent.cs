@@ -8,6 +8,6 @@ namespace Script.Equipment
     public class EquipmentEvent
     {
         public static Action<ItemInstance> OnEquip;
-        public static Action<ItemController> OnUnequip;
+        public static Action<ItemInstance> OnUnequip;
     }
 }

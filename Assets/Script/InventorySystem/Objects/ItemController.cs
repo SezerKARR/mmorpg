@@ -8,13 +8,10 @@ namespace Script.InventorySystem.Objects
     public class ItemController : ObjectController
     {
        
-        [FormerlySerializedAs("scriptableItemsAbstact")] public ItemInstance itemInstance;
-        private void OnEnable()
-        {
-            itemInstance=objectInstance is ItemInstance ? objectInstance as ItemInstance :null ;
-        }
+        [FormerlySerializedAs("scriptableItemsAbstract")] public ItemInstance itemInstance;
+        
 
-
+        
         public override string GetPoolType()
         {
             return ObjectType.Item.ToString();
@@ -22,7 +19,7 @@ namespace Script.InventorySystem.Objects
 
         public override void RightClick()
         {
-            ItemEvents.OnItemRightClickedInventory(this);
+            ItemEvents.OnItemRightClickedInventory(this.itemInstance);
             /*if (inventorObjectable.GetItemPlace() == ItemPlace.InventorySystem)
             {
                 
@@ -34,6 +31,11 @@ namespace Script.InventorySystem.Objects
             
         }
 
+        public override void Place(ObjectInstance objectInstancePlace)
+        {
+            base.Place(objectInstancePlace);
+            this.itemInstance=objectInstancePlace is ItemInstance ? objectInstancePlace as ItemInstance :null ;
+        }
 
         // public CharStat GetStats()
         // {
@@ -43,6 +45,11 @@ namespace Script.InventorySystem.Objects
         // {
         //     itemInstance.SetOldStats();
         // }
+        public void Reset()
+        {
+            this.itemInstance = null;
+            this.gameObject.SetActive(false);
+        }
     }
 }
 

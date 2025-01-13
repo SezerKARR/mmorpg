@@ -1,10 +1,13 @@
+using System;
 using System.Collections.Generic;
 using Script.Bonus;
 using Script.Equipment;
+using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace Script.ScriptableObject.Equipment
 {
+    [Serializable]
     public enum CharacterType
     {
        None, Warrior, Sura, Ninja, Shaman, Lycan
@@ -25,20 +28,20 @@ namespace Script.ScriptableObject.Equipment
     
     }
 
-    public abstract  class ScriptableItemsAbstact : ObjectAbstract 
+    public abstract  class ScriptableItemsAbstract : ObjectAbstract 
 
     {
     
         public float price;
         public ObjectType objectType=ObjectType.Item;
-        public List<(string bonusName, List<float> bonusValue)> ItemBonuses = new List<(string bonusName, List<float> bonusValue)>();
+        public List<(string bonusName, List<float> bonusValue)> ıtemBonuses = new List<(string bonusName, List<float> bonusValue)>();
     
         public int levelWithPlus;
         public CharStat  itemStat;
-   
+        [SerializeField]
         public List<CharacterType> canUseCharacters = new List<CharacterType>();
         public RequirementClass[] Requirements =new RequirementClass[0];
-        public abstract EquipmentType equipmentType { get; }
+        public EquipmentType equipmentType;
     
         public int level;
         // public void SetNewStats()
@@ -60,7 +63,7 @@ namespace Script.ScriptableObject.Equipment
         // }
         //
         //
-        // public ScriptableItemsAbstact GetScriptableItemsAbstact()
+        // public ScriptableItemsAbstract GetScriptableItemsAbstact()
         // {
         //     return this;
         // }

@@ -12,26 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afa2b9a8926a336408051b3ee5644ae0, type: 3}
   m_Name: 100 Dragon Steel Helm
   m_EditorClassIdentifier: 
-  Place: 0
-  Image: {fileID: 0}
-  ItemName: Dragon Steel Helm
+  place: 0
+  "\u0131mage": {fileID: 0}
+  "\u0131temName": Dragon Steel Helm
   dropsFrom: 
-  DropMetins: 
+  dropMetins: 
   info: 
   playerCanDrop: 1
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  DropName: Dragon Steel Helm+0
+  dropName: Dragon Steel Helm+0
   price: 0
   objectType: 4
   levelWithPlus: 0
-  currentPlus: 0
-  itemstats:
-    tKeys: 04000000
-    tValues:
-    - 23
-  canUseCharacters: 00000000
+  itemStat:
+    tKeys: 
+    tValues: []
+  canUseCharacters: 01000000
   Requirements:
   - upgradeItems: []
     upgradeMoney: 1200
@@ -67,5 +65,6 @@ MonoBehaviour:
     - upgradeItemName: {fileID: 11400000, guid: a4d2cfbc09aac5041a3623b6f30c78ac, type: 2}
       howMany: 8
     upgradeMoney: 150000
+  equipmentType: 2
   level: 100
   defence: 170000001b0000001f00000029000000330000003d00000047000000510000005b00000065000000

@@ -17,17 +17,14 @@ MonoBehaviour:
   pageModels:
   - pageData: {fileID: 11400000, guid: b00ce8d406fae5144b001a4f5eefacb3, type: 2}
     pageIndex: 0
-    transform: {fileID: 0}
   - pageData: {fileID: 11400000, guid: 59df12752ae2fea478a50fcb7f012eb3, type: 2}
     pageIndex: 1
-    transform: {fileID: 0}
   - pageData: {fileID: 11400000, guid: e4b5f4fc0fd229e4e84f679ad874a0c6, type: 2}
     pageIndex: 2
-    transform: {fileID: 0}
   - pageData: {fileID: 11400000, guid: bec1d7b6a17d2074d9fbc39831c41933, type: 2}
     pageIndex: 3
-    transform: {fileID: 0}
-  haveObjects:
-    tKeys: []
-    tValues: 
   objectInstances: []
+  itemInstances: []
+  stackInstances: []
+  objects:
+    tKeys: 

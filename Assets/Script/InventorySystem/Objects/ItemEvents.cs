@@ -1,15 +1,14 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Script.Inventory.Objects;
-using Script.InventorySystem.Objects;
-using UnityEngine;
+using Script.ObjectInstances;
 
-public static class ItemEvents
+namespace Script.InventorySystem.Objects
 {
-    public static Action<ItemController> OnItemRightClickedInventory;
+    public static class ItemEvents
+    {
+        public static Action<ItemInstance> OnItemRightClickedInventory;
 
-    public static Action<ItemController> OnItemRightClickedEquipment;
+        public static Action<ItemController> OnItemRightClickedEquipment;
 
     
+    }
 }

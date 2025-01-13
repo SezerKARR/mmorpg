@@ -9,9 +9,8 @@ namespace Script.ScriptableObject.Equipment
         None,Swords, TwoHandedWeapons, Blades, Fans, Bells, Daggers, Bows, Claws
     }
     [CreateAssetMenu(menuName = "ScriptableObject/Weapon")]
-    public class SwordSo : ScriptableItemsAbstact
+    public class SwordSo : ScriptableItemsAbstract
     {
-        public override EquipmentType equipmentType => EquipmentType.Weapon;
         public override ObjectType Type => ObjectType.Item; 
         public List<Vector2> minAndMaxAttackValue=new List<Vector2>();
         public List<Vector2> minAndMaxMagicalAttackValue = new List<Vector2>();

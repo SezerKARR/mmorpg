@@ -1,5 +1,6 @@
 using Script.InventorySystem.inventory;
 using Script.InventorySystem.Objects;
+using Script.ObjectInstances;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Zenject;
@@ -10,17 +11,17 @@ namespace Script.Equipment
     {
         [FormerlySerializedAs("_type")] [SerializeField]
         private EquipmentType type;
-
-        [SerializeField] private ItemController currentItem;
+         private ItemInstance _currentItemInstance;
+        [SerializeField]private ItemController currentItemController;
         [Inject] private InventoryManager _inventoryManager;
-        
 
-        public void SetItem(ItemController equipItem)
+        public EquipmentType GetEquipmentType() => type;
+        public void SetItem(ItemInstance equipItem)
         {
             Debug.Log("SetItem");
-            if (currentItem == equipItem)
+            if (_currentItemInstance == equipItem)
             {
-                CellsInfo cellsInfo = InventoryEvent.OnGetEmptyCells?.Invoke(currentItem.itemInstance.weightInInventory, currentItem.itemInstance.howMany);
+                CellsInfo cellsInfo = InventoryEvent.OnGetEmptyCells?.Invoke(_currentItemInstance.weightInInventory, _currentItemInstance.howMany);
                 if (cellsInfo!=null)
                 {
                     UnEquip();
@@ -28,36 +29,33 @@ namespace Script.Equipment
                 return;
             }
 
-            if (currentItem == null)
+            if (_currentItemInstance == null)
             {
                 //OnEquip?.Invoke(item);
                 Equip(equipItem);
                 return;
             }
 
-            // if (_inventoryManager.inventoryStorage.IsCanChangeItem(this.currentItem, equipItem))
-            // {
-            //     UnEquip();
-            //     Equip(equipItem);
-            // }
+            if (_inventoryManager.inventoryStorage.IsCanChangeItem(this._currentItemInstance, equipItem))
+            {
+                UnEquip();
+                Equip(equipItem);
+            }
         }
 
-        public void Equip(ItemController equipItem)
+        public void Equip(ItemInstance equipItemInstance)
         {
-            EquipmentEvent.OnEquip?.Invoke(equipItem.itemInstance);
-            equipItem.Place(this);
-            this.currentItem = equipItem;
+            EquipmentEvent.OnEquip?.Invoke(equipItemInstance);
+            this._currentItemInstance = equipItemInstance;
+            currentItemController.Place(equipItemInstance.objectAbstract);
         }
 
         public void UnEquip()
         {
-            EquipmentEvent.OnUnequip?.Invoke(currentItem);
-            this.currentItem = null;
+            EquipmentEvent.OnUnequip?.Invoke(_currentItemInstance);
+            currentItemController.Reset();
         }
 
-        public EquipmentType GetEquipmentType()
-        {
-            return type;
-        }
+        
     }
 }

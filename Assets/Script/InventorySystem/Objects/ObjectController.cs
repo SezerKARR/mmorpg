@@ -3,6 +3,7 @@ using Script.Interface;
 using Script.Inventory.Objects;
 using Script.InventorySystem.inventory;
 using Script.ObjectInstances;
+using Script.ScriptableObject;
 using Script.UI.Tooltip;
 using UnityEngine;
 
@@ -40,11 +41,10 @@ namespace Script.InventorySystem.Objects
         }
 
         public virtual void RightClick() { }
-        public virtual void Place(EquipmentSlot equipmentSlot)
+        public virtual void Place(ObjectAbstract objectAbstract)
         {
             objectInstance.cellsInfo = null;
-            transform.SetParent(equipmentSlot.transform);
-            objectView.SetPosition( equipmentSlot.gameObject.GetComponent<RectTransform>().rect.size);
+            objectView.SetPosition( objectAbstract);
         }
         protected virtual void OnButtonClick()
         {

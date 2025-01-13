@@ -17,7 +17,7 @@ namespace Script.ObjectInstances
         public IPool controllerPool;
         public Sprite ımage => objectAbstract.ımage;
         public int weightInInventory=> objectAbstract.weightInInventory;
-        public string type => objectAbstract.Type.ToString();
+        public ObjectType type => objectAbstract.Type;
 
 
     }
