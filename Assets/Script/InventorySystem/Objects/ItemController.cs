@@ -1,4 +1,6 @@
 using Script.Bonus;
+using Script.Equipment;
+using Script.InventorySystem.inventory;
 using Script.ObjectInstances;
 using Script.ScriptableObject;
 using UnityEngine.Serialization;
@@ -37,6 +39,12 @@ namespace Script.InventorySystem.Objects
             this.itemInstance=objectInstancePlace is ItemInstance ? objectInstancePlace as ItemInstance :null ;
         }
 
+        // public override void Place(ObjectInstance objectInstancePlace,CellsInfo cellsInfo,IInstanceHolder<ObjectInstance> objectInstanceHolder)
+        // {
+        //     base.Place(objectInstancePlace,cellsInfo,objectInstanceHolder);
+        //     this.itemInstance=objectInstancePlace is ItemInstance ? objectInstancePlace as ItemInstance :null ;
+        // }
+       
         // public CharStat GetStats()
         // {
         //     return itemInstance.itemStat;
@@ -45,10 +53,11 @@ namespace Script.InventorySystem.Objects
         // {
         //     itemInstance.SetOldStats();
         // }
-        public void Reset()
+        public override void Reset()
         {
             this.itemInstance = null;
             this.gameObject.SetActive(false);
+            base.Reset();   
         }
     }
 }

@@ -12,8 +12,9 @@ namespace Script.InventorySystem.inventory
 {
     public class InventoryEvent
     {
-        public static Action<ObjectInstance> OnInitializeStorageItem;
+        public static Action<ObjectInstance,CellsInfo> OnInitializeStorageItem;
         public static Action<ObjectInstance> OnDropObject;
+        public static Action<ObjectInstance> OnGetObject;
         public static Action<ObjectInstance,CellsInfo> OnCreateItem;
         
     }

@@ -1,4 +1,5 @@
 using System;
+using Script.Equipment;
 using Script.Interface;
 using Script.InventorySystem.inventory;
 using Script.ScriptableObject;
@@ -7,9 +8,9 @@ using UnityEngine;
 namespace Script.ObjectInstances
 {
     [Serializable]
-    public class ObjectInstance:IObject
+    public class ObjectInstance
     {
-        
+        public IInstanceHolder<ObjectInstance> currentHolder;
         public int howMany;
         public ObjectAbstract objectAbstract;
         public CellsInfo cellsInfo;

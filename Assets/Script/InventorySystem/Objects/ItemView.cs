@@ -13,7 +13,7 @@ namespace Script.InventorySystem.Objects
             Destroy(howManyText.gameObject);
         }
 
-        public  void ImageChangeSize(int spriteHeight,int val=-1)
+        public  void ImageChangeSize(int spriteHeight,int val)
         {
             var imageHeight = this.GetComponent<RectTransform>().rect.height;
             var imageWidth = this.GetComponent<RectTransform>().rect.width;
@@ -36,9 +36,18 @@ namespace Script.InventorySystem.Objects
         public override void SetObject(ObjectInstance objectInstance)
         {
             base.SetObject(objectInstance);
-            ImageChangeSize(objectInstance.weightInInventory);
+            if (objectInstance.cellsInfo != null)
+            {
+                ImageChangeSize(objectInstance.weightInInventory,-1);
+                return;
+            }
+            ImageChangeSize(objectInstance.weightInInventory,1);
         }
 
+        public override void Reset()
+        {
+            base.Reset();
+        }
         
     }
 }

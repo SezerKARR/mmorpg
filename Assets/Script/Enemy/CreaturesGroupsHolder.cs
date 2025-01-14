@@ -36,7 +36,7 @@ public class CreaturesGroupsHolder : MonoBehaviour
     //
     //     for (int i = 0; i < len; i++)
     //     {
-    //         CreaturesGroups.IsAdd(transform.GetChild(i).gameObject);
+    //         CreaturesGroups.Add(transform.GetChild(i).gameObject);
     //
     //         if (transform.GetChild(i).childCount > 0)
     //             FindAllChildren(transform.GetChild(i).transform);

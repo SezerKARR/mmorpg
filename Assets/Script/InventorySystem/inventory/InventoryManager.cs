@@ -19,7 +19,7 @@ using Zenject;
 namespace Script.InventorySystem.inventory
 {
     
-    public class InventoryManager : MonoBehaviour
+    public class InventoryManager : ObjectInstanceHolder
     {
 
        [Inject] [SerializeField] private EquipmentManager equipmentManager;
@@ -59,12 +59,11 @@ namespace Script.InventorySystem.inventory
             InputPlayer.OnGroundClicked += GroundClicked;
             ObjectEvents.ObjectClicked += ObjectSelected;
             InventoryEvent.OnCreateItem += AddObject;
-            InventoryEvent.OnInitializeStorageItem += SpawnObject;
+            InventoryEvent.OnInitializeStorageItem += AddObject;
             // InventoryEvent.OnUnEquipItem += ChangePosition;
             PageEvent.OnClickPage += OnClickPage;
             // InventoryEvent.OnChangedObjectPosition += ChangePosition;
-            EquipmentEvent.OnEquip += RemoveObject;
-            EquipmentEvent.OnUnequipItem = inventoryStorage.IsCreateObjectEmptyCell;
+            InventoryEvent.OnGetObject += inventoryStorage.Add;
             EquipmentEvent.OnChangeItem = inventoryStorage.ChangeItem;
             storage.rowCount=rowCount;
             storage.columnCount = columnCount;
@@ -73,7 +72,7 @@ namespace Script.InventorySystem.inventory
 
         private void PickUp(IPickedUpAble pickedUp)
         {
-            if (inventoryStorage.IsAdd(pickedUp.GetObjectInstance())) GameEvent.OnPickup?.Invoke(pickedUp);
+            inventoryStorage.Add(pickedUp.GetObjectInstance());
         }
 
         private void OnClickPage( Vector2 position,int pageIndex )
@@ -132,24 +131,32 @@ namespace Script.InventorySystem.inventory
         {
             InventoryEvent.OnDropObject?.Invoke(_currentObjectController.ObjectInstance);
         }
-        private void RemoveObject(ObjectInstance objectInstanceToRemove)
+
+        public void AddObject(ObjectInstance objectToAdd)
         {
+            throw new NotImplementedException();
+        }
+
+        public override void RemoveObject(ObjectInstance objectInstanceToRemove)
+        {
+            base.RemoveObject(objectInstanceToRemove);
             this._currentObjectController = null;
             inventoryStorage.RemoveObject(objectInstanceToRemove);
             _objectPooler.ReturnObject(objectInstanceToRemove.controllerPool);
 
         }
-        public void AddObject(ObjectInstance objectToAdd,CellsInfo cellsInfo)
+        public override void AddObject(ObjectInstance objectToAdd,CellsInfo cellsInfo)
         {
-            objectToAdd.cellsInfo = cellsInfo;
+            
+            base.AddObject(objectToAdd,cellsInfo);
             inventoryStorage.AddObjectsToInventory(objectToAdd);
-            SpawnObject(objectToAdd);
+            SpawnObject(objectToAdd,cellsInfo);
         }
 
-        public void SpawnObject(ObjectInstance objectToSpawn)
+        public void SpawnObject(ObjectInstance objectToSpawn,CellsInfo cellsInfo)
         {
             _objectPooler.SpawnFromPool<ObjectController>(objectToSpawn.type.ToString(),inventoryPage[objectToSpawn.cellsInfo.pageIndex].transform).Place(objectToSpawn);
-
+        
         }
 
         

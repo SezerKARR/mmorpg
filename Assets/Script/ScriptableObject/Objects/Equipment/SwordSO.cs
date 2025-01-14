@@ -28,24 +28,24 @@ namespace Script.ScriptableObject.Equipment
         //     Dictionary<StatType, float> charStats= new Dictionary<StatType, float>();
         //     if (minAndMaxMagicalAttackValue.Count > 0)
         //     {
-        //         charStats.IsAdd(StatType.MinMagicAttack, minAndMaxMagicalAttackValue[currentPlus].x);
-        //         charStats.IsAdd(StatType.MaxMagicAttack, minAndMaxMagicalAttackValue[currentPlus].y);
+        //         charStats.Add(StatType.MinMagicAttack, minAndMaxMagicalAttackValue[currentPlus].x);
+        //         charStats.Add(StatType.MaxMagicAttack, minAndMaxMagicalAttackValue[currentPlus].y);
         //     }
-        //     charStats.IsAdd(StatType.MinAttack, minAndMaxAttackValue[currentPlus].x);
-        //     charStats.IsAdd(StatType.MaxAttack, minAndMaxAttackValue[currentPlus].y);
-        //     charStats.IsAdd(StatType.AttackSpeed, attackSpeed[currentPlus]);
+        //     charStats.Add(StatType.MinAttack, minAndMaxAttackValue[currentPlus].x);
+        //     charStats.Add(StatType.MaxAttack, minAndMaxAttackValue[currentPlus].y);
+        //     charStats.Add(StatType.AttackSpeed, attackSpeed[currentPlus]);
         //     return charStats;
         // }
         // public override void SetStats()
         // {
         //     if (minAndMaxMagicalAttackValue.Count > 0)
         //     {
-        //         charStats.IsAdd(StatType.MinMagicAttack, minAndMaxMagicalAttackValue[currentPlus].x);
-        //         charStats.IsAdd(StatType.MaxMagicAttack, minAndMaxMagicalAttackValue[currentPlus].y);
+        //         charStats.Add(StatType.MinMagicAttack, minAndMaxMagicalAttackValue[currentPlus].x);
+        //         charStats.Add(StatType.MaxMagicAttack, minAndMaxMagicalAttackValue[currentPlus].y);
         //     }
-        //     charStats.IsAdd(StatType.MinAttack, minAndMaxAttackValue[currentPlus].x);
-        //     charStats.IsAdd(StatType.MaxAttack, minAndMaxAttackValue[currentPlus].y);
-        //     charStats.IsAdd(StatType.AttackSpeed, attackSpeed[currentPlus]);
+        //     charStats.Add(StatType.MinAttack, minAndMaxAttackValue[currentPlus].x);
+        //     charStats.Add(StatType.MaxAttack, minAndMaxAttackValue[currentPlus].y);
+        //     charStats.Add(StatType.AttackSpeed, attackSpeed[currentPlus]);
         // }
 
 

@@ -27,11 +27,7 @@ namespace Script.InventorySystem.Objects
 
         public T SpawnFromPool<T>(string objectType,Transform parentTransform=null) where T : Component
         {
-            foreach (var key in _objectsToPooled.Keys)
-            {
-                Debug.Log(key);
-            }
-            Debug.Log(_objectsToPooled[objectType].Count);
+           
             if(_objectsToPooled[objectType].Count <= 1)_objectsToPooled[objectType].Enqueue(CreateObject(_itemPrefabList.objects[objectType].prefab));
             GameObject objectToSpawn = _objectsToPooled[objectType].Dequeue();
             if(parentTransform!=null)objectToSpawn.transform.SetParent(parentTransform);

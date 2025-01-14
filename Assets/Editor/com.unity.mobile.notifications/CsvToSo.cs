@@ -343,7 +343,7 @@ namespace Editor.com.unity.mobile.notifications
 //         //        string monsterpaths = AssetDatabase.GUIDToAssetPath(monsterGuid);
 //         //        MonsterSO addedablemonsterso = AssetDatabase.LoadAssetAtPath<MonsterSO>(monsterpaths);
 //         //        addedablemonsterso.canDrop = new List<ScriptableObject>();
-//         //        monsterSO.IsAdd(addedablemonsterso);
+//         //        monsterSO.Add(addedablemonsterso);
 //
 //
 //         //    }
@@ -531,10 +531,10 @@ namespace Editor.com.unity.mobile.notifications
 //         {
 //             string bonusPaths = AssetDatabase.GUIDToAssetPath(bonusGuid);
 //             BonusSO addedableBonusSO = AssetDatabase.LoadAssetAtPath<BonusSO>(bonusPaths);
-//             bonusSO.IsAdd(addedableBonusSO);
+//             bonusSO.Add(addedableBonusSO);
 //             foreach (var bonus in addedableBonusSO.bonuses)
 //             {
-//                 bonusesName.IsAdd(bonus.bonusName);
+//                 bonusesName.Add(bonus.bonusName);
 //             }
 //             
 //
@@ -588,7 +588,7 @@ namespace Editor.com.unity.mobile.notifications
 //                         break;
 //                     }
 //                     swordSO.levelWithPlus=int.Parse(splitData[j + 2].Replace(".", ""));
-//                     upgradeLevel.IsAdd(int.Parse(splitData[j + 2].Replace(".", "")));
+//                     upgradeLevel.Add(int.Parse(splitData[j + 2].Replace(".", "")));
 //                     
 //
 //                 }
@@ -609,7 +609,7 @@ namespace Editor.com.unity.mobile.notifications
 //                     }
 //                     string[] floats = splitData[j + 2].Split((new char[] { '-', '�' }));
 //                     
-//                     swordSO.minAndMaxAttackValue.IsAdd(new Vector2(float.Parse(floats[0]), float.Parse(floats[1])));
+//                     swordSO.minAndMaxAttackValue.Add(new Vector2(float.Parse(floats[0]), float.Parse(floats[1])));
 //
 //                 }
 //             }
@@ -622,7 +622,7 @@ namespace Editor.com.unity.mobile.notifications
 //                         break;
 //                     }
 //                     string[] floats = splitData[j + 2].Split("-");
-//                     swordSO.minAndMaxMagicalAttackValue.IsAdd(new Vector2(float.Parse(floats[0]), float.Parse(floats[1])));
+//                     swordSO.minAndMaxMagicalAttackValue.Add(new Vector2(float.Parse(floats[0]), float.Parse(floats[1])));
 //                 }
 //             }
 //             else if (splitData[1].Contains("Attack Speed"))
@@ -635,7 +635,7 @@ namespace Editor.com.unity.mobile.notifications
 //                     }
 //                     float attackSpeed = float.Parse(splitData[j + 2].Replace("%", ""));
 //
-//                     swordSO.attackSpeed.IsAdd(attackSpeed);
+//                     swordSO.attackSpeed.Add(attackSpeed);
 //                 }
 //                 haveSwordBonus = true;
 //             }
@@ -650,10 +650,10 @@ namespace Editor.com.unity.mobile.notifications
 //                     }
 //                     float bonusValue = float.Parse(splitData[j + 2].Replace("%", ""));
 //                     //new string(splitData[j + 2].Where(char.IsDigit).ToArray());
-//                     bonusValues.IsAdd(bonusValue);    
+//                     bonusValues.Add(bonusValue);    
 //                     
 //                 }
-//                 swordSO.ItemBonuses.IsAdd((splitData[1], bonusValues));
+//                 swordSO.ItemBonuses.Add((splitData[1], bonusValues));
 //
 //                 if (!bonusCantFind.GetStats().Contains(splitData[1].Replace("�", "")))
 //                 {
@@ -676,7 +676,7 @@ namespace Editor.com.unity.mobile.notifications
 //                         break;
 //                     }
 //                     AddObject(ref swordSO.Requirements, (splitData[j + 2].Contains("%")) ? float.Parse(splitData[j + 2].Replace(".", "").Replace("%", "")) / 100 : float.Parse(splitData[j + 2].Replace(".", "")));
-//                     upgradeMoney.IsAdd((splitData[j + 2].Contains("%"))?float.Parse(splitData[j + 2].Replace(".", "").Replace("%",""))/100 : float.Parse(splitData[j + 2].Replace(".", "")));
+//                     upgradeMoney.Add((splitData[j + 2].Contains("%"))?float.Parse(splitData[j + 2].Replace(".", "").Replace("%",""))/100 : float.Parse(splitData[j + 2].Replace(".", "")));
 //                     
 //
 //                 }
@@ -690,7 +690,7 @@ namespace Editor.com.unity.mobile.notifications
 //                 {
 //                     if (splitData[j + 2].Length != 0)
 //                     {
-//                         upgradeItemRequire.IsAdd(int.Parse(splitData[j + 2].Replace("-", "0").Replace("x", "")));
+//                         upgradeItemRequire.Add(int.Parse(splitData[j + 2].Replace("-", "0").Replace("x", "")));
 //                     }
 //                     
 //                     
@@ -707,7 +707,7 @@ namespace Editor.com.unity.mobile.notifications
 //                 foreach (string upgradeItemsguid in upgradeItemsGuids)
 //                 {
 //                     string upgradePath = AssetDatabase.GUIDToAssetPath(upgradeItemsguid);
-//                     upgradeItemSOs.IsAdd(AssetDatabase.LoadAssetAtPath<UpgradeItemsSO>(upgradePath));
+//                     upgradeItemSOs.Add(AssetDatabase.LoadAssetAtPath<UpgradeItemsSO>(upgradePath));
 //
 //                 }
 //                 for (int j = 1; j < splitData.Length - 2; j++)
@@ -742,8 +742,8 @@ namespace Editor.com.unity.mobile.notifications
 //                         }
 //                     }
 //                     
-//                     // upgradeItemRequire.IsAdd(int.Parse(splitData[j + 2].Replace("-", "0").Replace("x", "")));
-//                      //swordSO.Requirement.IsAdd()
+//                     // upgradeItemRequire.Add(int.Parse(splitData[j + 2].Replace("-", "0").Replace("x", "")));
+//                      //swordSO.Requirement.Add()
 //                     // Debug.Log(upgradeItemRequire[j - 1]);
 //                    
 //
@@ -781,10 +781,10 @@ namespace Editor.com.unity.mobile.notifications
 //             {
 //                 string bonusPaths = AssetDatabase.GUIDToAssetPath(bonusGuid);
 //                 BonusSO addedableBonusSO = AssetDatabase.LoadAssetAtPath<BonusSO>(bonusPaths);
-//                 bonusSO.IsAdd(addedableBonusSO);
+//                 bonusSO.Add(addedableBonusSO);
 //                 foreach (var bonus in addedableBonusSO.bonuses)
 //                 {
-//                     bonusesName.IsAdd(bonus.bonusName);
+//                     bonusesName.Add(bonus.bonusName);
 //                 }
 //
 //
@@ -837,7 +837,7 @@ namespace Editor.com.unity.mobile.notifications
 //                             break;
 //                         }
 //                         helmetSo.levelWithPlus = int.Parse(splitData[j + 2].Replace(".", ""));
-//                         upgradeLevel.IsAdd(int.Parse(splitData[j + 2].Replace(".", "")));
+//                         upgradeLevel.Add(int.Parse(splitData[j + 2].Replace(".", "")));
 //
 //
 //                     }
@@ -857,7 +857,7 @@ namespace Editor.com.unity.mobile.notifications
 //                             break;
 //                         }
 //
-//                         helmetSo.defence.IsAdd(int.Parse(splitData[j + 2]));
+//                         helmetSo.defence.Add(int.Parse(splitData[j + 2]));
 //                     
 //                     }
 //                     haveSwordBonus = true;
@@ -874,10 +874,10 @@ namespace Editor.com.unity.mobile.notifications
 //                         }
 //                         float bonusValue = float.Parse(splitData[j + 2].Replace("%", ""));
 //                         //new string(splitData[j + 2].Where(char.IsDigit).ToArray());
-//                         bonusValues.IsAdd(bonusValue);
+//                         bonusValues.Add(bonusValue);
 //
 //                     }
-//                     helmetSo.ItemBonuses.IsAdd((splitData[1], bonusValues));
+//                     helmetSo.ItemBonuses.Add((splitData[1], bonusValues));
 //
 //                     if (!bonusCantFind.GetStats().Contains(splitData[1].Replace("�", "")))
 //                     {
@@ -900,7 +900,7 @@ namespace Editor.com.unity.mobile.notifications
 //                             break;
 //                         }
 //                         AddObject(ref helmetSo.Requirements, (splitData[j + 2].Contains("%")) ? float.Parse(splitData[j + 2].Replace(".", "").Replace("%", "")) / 100 : float.Parse(splitData[j + 2].Replace(".", "")));
-//                         upgradeMoney.IsAdd((splitData[j + 2].Contains("%")) ? float.Parse(splitData[j + 2].Replace(".", "").Replace("%", "")) / 100 : float.Parse(splitData[j + 2].Replace(".", "")));
+//                         upgradeMoney.Add((splitData[j + 2].Contains("%")) ? float.Parse(splitData[j + 2].Replace(".", "").Replace("%", "")) / 100 : float.Parse(splitData[j + 2].Replace(".", "")));
 //
 //
 //                     }
@@ -914,7 +914,7 @@ namespace Editor.com.unity.mobile.notifications
 //                     {
 //                         if (splitData[j + 2].Length != 0)
 //                         {
-//                             upgradeItemRequire.IsAdd(int.Parse(splitData[j + 2].Replace("-", "0").Replace("x", "")));
+//                             upgradeItemRequire.Add(int.Parse(splitData[j + 2].Replace("-", "0").Replace("x", "")));
 //                         }
 //
 //
@@ -931,7 +931,7 @@ namespace Editor.com.unity.mobile.notifications
 //                     foreach (string upgradeItemsguid in upgradeItemsGuids)
 //                     {
 //                         string upgradePath = AssetDatabase.GUIDToAssetPath(upgradeItemsguid);
-//                         upgradeItemSOs.IsAdd(AssetDatabase.LoadAssetAtPath<ObjectAbstract>(upgradePath));
+//                         upgradeItemSOs.Add(AssetDatabase.LoadAssetAtPath<ObjectAbstract>(upgradePath));
 //
 //                     }
 //                     for (int j = 1; j < splitData.Length - 2; j++)
@@ -966,8 +966,8 @@ namespace Editor.com.unity.mobile.notifications
 //                             }
 //                         }
 //
-//                         /* upgradeItemRequire.IsAdd(int.Parse(splitData[j + 2].Replace("-", "0").Replace("x", "")));
-//                      //swordSO.Requirement.IsAdd()
+//                         /* upgradeItemRequire.Add(int.Parse(splitData[j + 2].Replace("-", "0").Replace("x", "")));
+//                      //swordSO.Requirement.Add()
 //                      Debug.Log(upgradeItemRequire[j - 1]);*/
 //
 //
@@ -1058,7 +1058,7 @@ namespace Editor.com.unity.mobile.notifications
 //         }
 //         public static void SetCanUseCharacter(CharacterType characterType, ItemInstance ıtemInstance)
 //         {
-//             ıtemInstance.canUseCharacters.IsAdd(characterType);
+//             ıtemInstance.canUseCharacters.Add(characterType);
 //         }
 //         public static CharacterType FindCharacter(string character="Warrior")
 //         {
@@ -1074,7 +1074,7 @@ namespace Editor.com.unity.mobile.notifications
 //         public static void SetCanUseCharacter(string character,ItemInstance ıtemInstance)
 //         {
 //         
-//             ıtemInstance.canUseCharacters.IsAdd(FindCharacter(character));
+//             ıtemInstance.canUseCharacters.Add(FindCharacter(character));
 //         }
 //         
 //         /*[MenuItem("Tools/Generate Sword")]
@@ -1105,7 +1105,7 @@ namespace Editor.com.unity.mobile.notifications
 //                 for (int j = 0; j < splitData.Length-2; j++) {
 //                     Debug.Log(splitData.Length);
 //                     string[] floats=splitData[j+2].Split("-");
-//                     swordSO.minAndMaxAttackValue.IsAdd(new Vector2(float.Parse(floats[0]), float.Parse(floats[1])))  ;
+//                     swordSO.minAndMaxAttackValue.Add(new Vector2(float.Parse(floats[0]), float.Parse(floats[1])))  ;
 //                     if (splitData[j].Length == 0)
 //                     {
 //                         return;
@@ -1120,7 +1120,7 @@ namespace Editor.com.unity.mobile.notifications
 //                     Debug.Log(splitData[j + 2]);
 //                     string[] floats = splitData[j + 2].Split("-");
 //                     Debug.Log(new Vector2(float.Parse(floats[0]), float.Parse(floats[1])));
-//                     swordSO.minAndMaxMagicalAttackValue.IsAdd(new Vector2(float.Parse(floats[0]), float.Parse(floats[1])));
+//                     swordSO.minAndMaxMagicalAttackValue.Add(new Vector2(float.Parse(floats[0]), float.Parse(floats[1])));
 //                 }
 //                 i++;
 //             }
@@ -1131,7 +1131,7 @@ namespace Editor.com.unity.mobile.notifications
 //                     float attackSpeed = float.Parse(splitData[j + 2].Replace("%", ""));
 //
 //                     Debug.Log(attackSpeed);
-//                     swordSO.attackSpeed.IsAdd(attackSpeed);
+//                     swordSO.attackSpeed.Add(attackSpeed);
 //                 }
 //                 i++;
 //             }
@@ -1145,7 +1145,7 @@ namespace Editor.com.unity.mobile.notifications
 //                 for (int j = 1; j < splitData.Length - 2; j++)
 //                 {
 //                     
-//                     upgradeMoney.IsAdd(float.Parse(splitData[j + 2].Replace(".", "")));
+//                     upgradeMoney.Add(float.Parse(splitData[j + 2].Replace(".", "")));
 //                     Debug.Log(upgradeMoney[j-1]);
 //                     
 //                 }
@@ -1209,7 +1209,7 @@ namespace Editor.com.unity.mobile.notifications
 //         for (int j = 1; j < splitData.Length - 2; j++)
 //         {
 //
-//             upgradeItemRequire.IsAdd(int.Parse(splitData[j + 2].Replace("-", "0").Replace("x", "")));
+//             upgradeItemRequire.Add(int.Parse(splitData[j + 2].Replace("-", "0").Replace("x", "")));
 //             Debug.Log(upgradeItemRequire[j - 1]);
 //
 //         }
@@ -1224,7 +1224,7 @@ namespace Editor.com.unity.mobile.notifications
 //         foreach (string upgradeItemsguid in upgradeItemsGuids)
 //         {
 //             string upgradePath = AssetDatabase.GUIDToAssetPath(upgradeItemsguid);
-//             upgradeItemSOs.IsAdd(AssetDatabase.LoadAssetAtPath<UpgradeItemsSO>(upgradePath));
+//             upgradeItemSOs.Add(AssetDatabase.LoadAssetAtPath<UpgradeItemsSO>(upgradePath));
 //
 //         }
 //         for (int j = 1; j < splitData.Length - 2; j++)
@@ -1239,7 +1239,7 @@ namespace Editor.com.unity.mobile.notifications
 //                     {
 //                         conditionMet = true;
 //                         Debug.Log("geldi");
-//                         swordSO.Requirement.IsAdd((upgradeItemSO, upgradeItemRequire[j - 1], upgradeMoney[j - 1],));
+//                         swordSO.Requirement.Add((upgradeItemSO, upgradeItemRequire[j - 1], upgradeMoney[j - 1],));
 //                         break;
 //                     }
 //                     if (conditionMet)
@@ -1247,8 +1247,8 @@ namespace Editor.com.unity.mobile.notifications
 //                         Debug.Log("buldu ama devam etti");
 //                     }
 //                 }
-//                 /* upgradeItemRequire.IsAdd(int.Parse(splitData[j + 2].Replace("-", "0").Replace("x", "")));
-//                  //swordSO.Requirement.IsAdd()
+//                 /* upgradeItemRequire.Add(int.Parse(splitData[j + 2].Replace("-", "0").Replace("x", "")));
+//                  //swordSO.Requirement.Add()
 //                  Debug.Log(upgradeItemRequire[j - 1
 //                 if (!conditionMet)
 //                 {

@@ -11,7 +11,7 @@ namespace Script.ScriptableObject.Objects.Equipment
         // public override void SetStats()
         // {
         //     
-        //     charStats.IsAdd(StatType.Defense, defence[currentPlus]);
+        //     charStats.Add(StatType.Defense, defence[currentPlus]);
         // }
 
         public List<int> defence=new List<int>();

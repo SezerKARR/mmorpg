@@ -44,7 +44,7 @@ public class PickUpDetector : MonoBehaviour
         /*var interactable = collision.GetComponent<IInteractable>();
         if(interactable != null && interactable.CanInteract())
         {
-            _interactablesInRange.IsAdd(interactable);
+            _interactablesInRange.Add(interactable);
         }*/
         var interactable = collision.GetComponent<IPickedUpAble>();
         if (interactable != null)

@@ -1,9 +1,12 @@
+using Script.Equipment;
 using Script.Interface;
+using Script.InventorySystem.inventory;
 using Script.ObjectInstances;
 using Script.ScriptableObject;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
+using Zenject;
 
 namespace Script.DroppedItem
 {
@@ -13,7 +16,7 @@ namespace Script.DroppedItem
         WithPlayerName,
         WithoutPlayerName,
     }
-    public abstract class ItemDrop : MonoBehaviour, IPickedUpAble
+    public abstract class ItemDrop : MonoBehaviour, IPickedUpAble,IInstanceHolder<ObjectInstance>
     {
         public TMP_Text itemName;
         protected ObjectInstance _objectInstance;
@@ -37,6 +40,7 @@ namespace Script.DroppedItem
         }
         public virtual void OnActivate(ObjectInstance item ,string playerName, Vector3 position)
         {
+            item.currentHolder=this;
             _objectInstance = item ;
             SetDropName();
             this.transform.position = position;
@@ -74,6 +78,15 @@ namespace Script.DroppedItem
         }
 
         public abstract string GetPoolType();
-        
+
+        public void AddObject(ObjectInstance objectToAdd, CellsInfo cellsInfo)
+        {
+            throw new System.NotImplementedException();
+        }
+
+        public void RemoveObject(ObjectInstance objectToRemove)
+        {
+            GameEvent.OnPickup?.Invoke(this);
+        }
     }
 }

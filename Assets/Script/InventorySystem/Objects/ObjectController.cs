@@ -1,3 +1,4 @@
+using System;
 using Script.Equipment;
 using Script.Interface;
 using Script.Inventory.Objects;
@@ -43,9 +44,8 @@ namespace Script.InventorySystem.Objects
         public virtual void RightClick() { }
         public virtual void Place(ObjectAbstract objectAbstract)
         {
-            this.gameObject.SetActive(true);
             objectInstance.cellsInfo = null;
-            objectView.SetPosition( objectAbstract);
+            
         }
         protected virtual void OnButtonClick()
         {
@@ -58,11 +58,14 @@ namespace Script.InventorySystem.Objects
             this.objectInstance.cellsInfo = cellsInfo;
             objectView.SetPosition(cellsInfo.cells);
         }
+       
         public virtual void Place(ObjectInstance objectInstancePlace)
         {
+          
             objectInstancePlace.controllerPool = this;
             this.objectInstance = objectInstancePlace;
-            objectView.SetObject(objectInstancePlace);
+            objectView.SetObject(objectInstance);
+
             this.gameObject.SetActive(true);
             // page = pageController.PageModel.pageIndex;
             // pageController.PageModel.AddObjectToPage(objectInstancePlace, placeCells);
@@ -81,6 +84,9 @@ namespace Script.InventorySystem.Objects
             objectView.SetHowManyText(newCount);
         }
 
-        
+        public virtual void Reset()
+        {
+            objectView.Reset();
+        }
     }
 }

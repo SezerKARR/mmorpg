@@ -38,8 +38,8 @@ namespace Script.InventorySystem.inventory
                 {
                     Debug.Log(objectInstance.objectAbstract);
                     Debug.Log(objectInstance);
-                    
-                    InventoryEvent.OnInitializeStorageItem(objectInstance);
+                    RemoveObject(objectInstance);
+                    InventoryEvent.OnInitializeStorageItem(objectInstance,objectInstance.cellsInfo);
                 }
                 
             }
@@ -90,15 +90,20 @@ namespace Script.InventorySystem.inventory
         }
         public bool ChangeItem(ItemInstance unequipped, ItemInstance equipped)
         {
-            List<int2>temp = equipped.cellsInfo.cells;
-            int page=equipped.cellsInfo.pageIndex;
-            List<int2> unequipcells = inventoryStorageSo.pageModels[page].ControlUnequipSamePos(unequipped,temp, equipped.weightInInventory);
-            if ( unequipcells!=null)
-            {
-                InventoryEvent.OnCreateItem( unequipped, new CellsInfo() { cells = unequipcells, pageIndex = page });
-                return true;
-            }
-            
+            // List<int2>temp = equipped.cellsInfo.cells;
+            //
+            // int page=equipped.cellsInfo.pageIndex;
+            //
+            //
+            // List<int2> unequipcells = inventoryStorageSo.pageModels[page].ControlUnequipSamePos(unequipped,temp, equipped.weightInInventory);
+            //
+            // if ( unequipcells!=null)
+            // {
+            //     InventoryEvent.OnCreateItem( unequipped, new CellsInfo() { cells = unequipcells, pageIndex = page });
+            //     return true;
+            // }
+            // equipped.cellsInfo = new CellsInfo(){cells = temp, pageIndex = page};
+            // AddObjectsToInventory(equipped);
 
             return IsCreateObjectEmptyCell(unequipped);
         }
@@ -106,6 +111,7 @@ namespace Script.InventorySystem.inventory
 
         public void RemoveObject(ObjectInstance objectInstance)
         {
+            
             inventoryStorageSo.pageModels[objectInstance.cellsInfo.pageIndex].ResetButtons(objectInstance.cellsInfo.cells);
             RemoveObjectInventory(objectInstance);
         }
@@ -119,13 +125,9 @@ namespace Script.InventorySystem.inventory
         
 
         
-        public bool IsAdd(ObjectInstance objectInstance)
+        public void Add(ObjectInstance objectInstance)
         {
-
-            if (CanAddStack(objectInstance))return true;
-            return IsCreateObjectEmptyCell(objectInstance);
-
-
+            if (!CanAddStack(objectInstance)) IsCreateObjectEmptyCell(objectInstance);
         }
 
         public bool IsCreateObjectEmptyCell(ObjectInstance objectInstance)

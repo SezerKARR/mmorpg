@@ -12,7 +12,5 @@ namespace Script.Equipment
         public static Action<ItemInstance> OnUnEquip;
         public delegate bool ChangeItem(ItemInstance unequipped,ItemInstance equipped);
         public static ChangeItem OnChangeItem;
-        public delegate bool UnequipItem(ObjectInstance objectInstance);
-        public static UnequipItem OnUnequipItem;
     }
 }

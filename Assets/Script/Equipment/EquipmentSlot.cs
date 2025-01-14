@@ -8,13 +8,12 @@ using Zenject;
 
 namespace Script.Equipment
 {
-    public class EquipmentSlot : MonoBehaviour
+    public class EquipmentSlot : ObjectInstanceHolder
     {
         [FormerlySerializedAs("_type")] [SerializeField]
         private EquipmentType type;
         [SerializeField]private ItemController currentItemController;
         [Inject] private InventoryManager _inventoryManager;
-        private ItemInstance _oldItemInstance;
         private ItemInstance currentItemInstance
         {
             get => currentItemController.itemInstance;
@@ -33,50 +32,50 @@ namespace Script.Equipment
             if (currentItemInstance == null||currentItemInstance.scriptableItemsAbstract==null)
             {
                 //OnEquip?.Invoke(item);
-                Equip(equipItem);
+                AddObject(equipItem,null);
                 return;
             }
             
          
             if (currentItemInstance == equipItem)
             {
-                
-                if (EquipmentEvent.OnUnequipItem?.Invoke(equipItem)==true)
-                {
-                    UnEquip();
-                }
+                InventoryEvent.OnGetObject?.Invoke(this.currentItemInstance);
                 return;
             }
             
-            _oldItemInstance = currentItemInstance;
             if (EquipmentEvent.OnChangeItem?.Invoke(this.currentItemInstance,equipItem)==true)
             {
                
-                UnEquip();
-                Equip(equipItem);
+                AddObject(equipItem,null);
                 return;
             }
           
           
            
         }
-
-        
         public void Equip(ItemInstance equipItemInstance)
         {
-            EquipmentEvent.OnEquip?.Invoke(equipItemInstance);
-            currentItemController.Place(equipItemInstance.objectAbstract);
+            currentItemController.Place(equipItemInstance);
             this.currentItemInstance = equipItemInstance;
-
-           
         }
 
-        public void UnEquip()
+        public void UnEquip(ItemInstance objectToRemove)
         {
-            //old stat
             currentItemController.Reset();
+            //old stat
         }
 
-        
+        public override void AddObject(ObjectInstance objectToAdd, CellsInfo cellsInfo)
+        {           
+            base.AddObject(objectToAdd, cellsInfo);
+            Equip((ItemInstance)objectToAdd);
+        }
+
+        public override void RemoveObject(ObjectInstance objectToRemove)
+        {
+            
+            UnEquip((ItemInstance)objectToRemove);
+            base.RemoveObject(objectToRemove);
+        }
     }
 }

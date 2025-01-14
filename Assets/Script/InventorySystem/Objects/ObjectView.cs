@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Script.InventorySystem.inventory;
 using Script.ObjectInstances;
@@ -24,12 +25,15 @@ namespace Script.InventorySystem.Objects
         public UnityAction onRightClick;
         public UnityAction onEnter;
         public UnityAction onExit;
-    
+        private Vector2 _originalSizeDelta;
+
         protected virtual void Awake()
         {
             image=gameObject.GetComponent<Image>();
             howManyText = gameObject.GetComponentInChildren<TextMeshProUGUI>();
             _imageRectTransform = image.GetComponent<RectTransform>();
+            _originalSizeDelta = _imageRectTransform.sizeDelta; 
+
         
         }
 
@@ -37,9 +41,14 @@ namespace Script.InventorySystem.Objects
         public virtual void SetObject(ObjectInstance objectInstance)
         {
             image.sprite = objectInstance.ımage;
-            _imageWidth=InventoryManager.CellWeight;
-            _imageHeight=InventoryManager.CellHeight;
-            SetPosition(objectInstance.cellsInfo.cells);
+            if (objectInstance.cellsInfo != null)
+            {
+                
+                _imageWidth=InventoryManager.CellWeight;
+                _imageHeight=InventoryManager.CellHeight;
+                SetPosition(objectInstance.cellsInfo.cells);
+            }
+            
         }
         public virtual void SetPosition(ObjectAbstract objectAbstract)
         {
@@ -85,6 +94,12 @@ namespace Script.InventorySystem.Objects
         public void OnPointerExit(PointerEventData eventData)
         {
             onExit?.Invoke();
+        }
+
+        public virtual void Reset()
+        {
+            _imageRectTransform.sizeDelta = _originalSizeDelta;
+            _imageRectTransform.anchoredPosition = Vector2.zero;
         }
     }
 }
