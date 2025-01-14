@@ -12,13 +12,9 @@ namespace Script.InventorySystem.inventory
 {
     public class InventoryEvent
     {
-        public static  Action<ObjectInstance> OnAdd;
-        public static Action<ObjectInstance> OnInitializeStoreageItem;
-        public static  Action<ItemController,CellsInfo> OnUnEquipItem;
-        public static  Action<ObjectController,CellsInfo> OnChangedObjectPosition;
+        public static Action<ObjectInstance> OnInitializeStorageItem;
         public static Action<ObjectInstance> OnDropObject;
-        public static Action<ObjectInstance> OnItemPickUp;
-        public delegate CellsInfo GetEmptyCells(int weightInInventory,int howMany);
-        public static GetEmptyCells OnGetEmptyCells;
+        public static Action<ObjectInstance,CellsInfo> OnCreateItem;
+        
     }
 }

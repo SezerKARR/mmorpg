@@ -8,7 +8,7 @@ namespace Script.InventorySystem.Objects
     public class ItemController : ObjectController
     {
        
-        [FormerlySerializedAs("scriptableItemsAbstract")] public ItemInstance itemInstance;
+        [FormerlySerializedAs("scriptableItemsAbstract")] public ItemInstance itemInstance=null;
         
 
         

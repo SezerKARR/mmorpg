@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Script.Equipment;
+using Script.ScriptableObject;
 using Script.ScriptableObject.Equipment;
 
 namespace Script.ObjectInstances
@@ -14,6 +15,6 @@ namespace Script.ObjectInstances
         public int level=>scriptableItemsAbstract.level;
         public List<CharacterType> canUseCharacters=>scriptableItemsAbstract.canUseCharacters;
         public EquipmentType equipmentType => scriptableItemsAbstract.equipmentType;
-        
+      
     }
 }

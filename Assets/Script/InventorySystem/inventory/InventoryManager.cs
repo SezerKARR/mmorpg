@@ -51,26 +51,24 @@ namespace Script.InventorySystem.inventory
         public InventoryStorageSo storage;
         private void OnEnable()
         {
-            storage.pageModels.Clear();
-            storage.rowCount=rowCount;
-            storage.columnCount = columnCount;
-            foreach (PageController pageController in inventoryPage)
-            {
-                storage.pageModels.Add(pageController.PageModel);
-            }
+           
 
             InventoryEvent.OnDropObject += RemoveObject;
             ObjectEvents.OnPickUp += PickUp;
             PageChangeButton.OnChangePageClicked += ChangePage;
             InputPlayer.OnGroundClicked += GroundClicked;
             ObjectEvents.ObjectClicked += ObjectSelected;
-            InventoryEvent.OnItemPickUp += AddObject;
-            InventoryEvent.OnInitializeStoreageItem += SpawnObject;
-            InventoryEvent.OnUnEquipItem += ChangePosition;
+            InventoryEvent.OnCreateItem += AddObject;
+            InventoryEvent.OnInitializeStorageItem += SpawnObject;
+            // InventoryEvent.OnUnEquipItem += ChangePosition;
             PageEvent.OnClickPage += OnClickPage;
-            InventoryEvent.OnChangedObjectPosition += ChangePosition;
+            // InventoryEvent.OnChangedObjectPosition += ChangePosition;
             EquipmentEvent.OnEquip += RemoveObject;
-            InventoryEvent.OnGetEmptyCells = inventoryStorage.ControlEmptyCellAndPage;
+            EquipmentEvent.OnUnequipItem = inventoryStorage.IsCreateObjectEmptyCell;
+            EquipmentEvent.OnChangeItem = inventoryStorage.ChangeItem;
+            storage.rowCount=rowCount;
+            storage.columnCount = columnCount;
+            inventoryStorage.Initialize();
         }
 
         private void PickUp(IPickedUpAble pickedUp)
@@ -139,9 +137,11 @@ namespace Script.InventorySystem.inventory
             this._currentObjectController = null;
             inventoryStorage.RemoveObject(objectInstanceToRemove);
             _objectPooler.ReturnObject(objectInstanceToRemove.controllerPool);
+
         }
-        public void AddObject(ObjectInstance objectToAdd)
+        public void AddObject(ObjectInstance objectToAdd,CellsInfo cellsInfo)
         {
+            objectToAdd.cellsInfo = cellsInfo;
             inventoryStorage.AddObjectsToInventory(objectToAdd);
             SpawnObject(objectToAdd);
         }

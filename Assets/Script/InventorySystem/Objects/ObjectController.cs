@@ -43,6 +43,7 @@ namespace Script.InventorySystem.Objects
         public virtual void RightClick() { }
         public virtual void Place(ObjectAbstract objectAbstract)
         {
+            this.gameObject.SetActive(true);
             objectInstance.cellsInfo = null;
             objectView.SetPosition( objectAbstract);
         }

@@ -1,6 +1,7 @@
 using Script.Equipment;
 using Script.Exp;
 using Script.Inventory.Objects;
+using Script.InventorySystem.inventory;
 using Script.InventorySystem.Objects;
 using Script.ObjectInstances;
 using Script.Player.Character;
@@ -23,8 +24,7 @@ namespace Script.Player
             _expController = new PlayerExp(this);
             _mainCamera = Camera.main;
             // EquipmentEvent.OnEquip += OnEquipItem;
-            // EquipmentEvent.OnUnequip += OnUnEquipItem;
-
+            // EquipmentEvent.OnUnEquip += OnUnEquipItem;
         }
         //public Sprite[] playerIdleSprite;
         

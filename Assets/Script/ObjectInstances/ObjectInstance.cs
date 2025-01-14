@@ -3,14 +3,13 @@ using Script.Interface;
 using Script.InventorySystem.inventory;
 using Script.ScriptableObject;
 using UnityEngine;
-using UnityEngine.Events;
-using UnityEngine.Serialization;
 
 namespace Script.ObjectInstances
 {
     [Serializable]
-    public class ObjectInstance
+    public class ObjectInstance:IObject
     {
+        
         public int howMany;
         public ObjectAbstract objectAbstract;
         public CellsInfo cellsInfo;
@@ -19,6 +18,7 @@ namespace Script.ObjectInstances
         public int weightInInventory=> objectAbstract.weightInInventory;
         public ObjectType type => objectAbstract.Type;
 
+       
 
     }
 }

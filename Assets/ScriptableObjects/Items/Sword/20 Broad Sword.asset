@@ -55,6 +55,7 @@ MonoBehaviour:
     - upgradeItemName: {fileID: 11400000, guid: b15699c4af6728e4897bc8d3bb24621e, type: 2}
       howMany: 2
     upgradeMoney: 75000
+  equipmentType: 1
   level: 20
   minAndMaxAttackValue:
   - {x: 25, y: 35}

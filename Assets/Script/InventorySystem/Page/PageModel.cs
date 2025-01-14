@@ -193,7 +193,6 @@ namespace Script.InventorySystem.Page
         {
             foreach (var cell in resetCells)
             {
-                pageData.controller[ cell.x].objectController[cell.y].cellsInfo=null;
                 pageData.controller[ cell.x].objectController[cell.y] = null;
             }
         }

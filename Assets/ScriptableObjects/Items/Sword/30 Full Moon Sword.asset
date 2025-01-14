@@ -49,6 +49,7 @@ MonoBehaviour:
     upgradeMoney: 120000
   - upgradeItems: []
     upgradeMoney: 150000
+  equipmentType: 1
   level: 30
   minAndMaxAttackValue:
   - {x: 57, y: 73}

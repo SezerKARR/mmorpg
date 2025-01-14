@@ -83,6 +83,7 @@ MonoBehaviour:
     - upgradeItemName: {fileID: 0}
       howMany: 1
     upgradeMoney: 2560000
+  equipmentType: 1
   level: 105
   minAndMaxAttackValue:
   - {x: 149, y: 211}
