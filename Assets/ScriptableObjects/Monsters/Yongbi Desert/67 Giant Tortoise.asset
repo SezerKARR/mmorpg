@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - Wind
+  elements: 0
   race: Desert
+  raceEnum: 0
   level: 67
   levelint: 67
   stage: Boss
+  blockNormalAttackChange: 0
   stageint: 0
   monsterName: Giant Tortoise
   location: Yongbi Desert
@@ -27,4 +30,11 @@ MonoBehaviour:
   exp: 21520
   expint: 21520
   health: 321
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 64dc6378417d69f43b8545c48d072bee, type: 2}
+  - {fileID: 11400000, guid: 35e14a5a6e883c74183c2566e91689a9, type: 2}
+  - {fileID: 11400000, guid: c42e9d13a13e14c4d897b282cfcd2f84, type: 2}

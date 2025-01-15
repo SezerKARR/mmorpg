@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - Wind
+  elements: 0
   race: Devil
+  raceEnum: 0
   level: 105
   levelint: 105
   stage: 3
+  blockNormalAttackChange: 0
   stageint: 3
   monsterName: En-Tai Healer
   location: Enchanted Forest,Erebus
@@ -28,4 +31,11 @@ MonoBehaviour:
   exp: 37900
   expint: 37900
   health: 1440
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 110a72af547c0fa45bdd30dd4a0be2ca, type: 2}
+  - {fileID: 11400000, guid: 77ad5bbee2e66c44fb351ce9a70a5e68, type: 2}
+  - {fileID: 11400000, guid: 47363c4d1f5c37e489c59859c37e0330, type: 2}

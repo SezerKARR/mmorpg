@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 21 Iron Helmet
   m_EditorClassIdentifier: 
   place: 0
-  "\u0131mage": {fileID: 0}
+  "\u0131mage": {fileID: 21300000, guid: 51bd61f9a3770224fb1c76ba832ce0d2, type: 3}
   "\u0131temName": Iron Helmet
   dropsFrom: 
   dropMetins: 

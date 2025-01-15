@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - Ice
+  elements: 0
   race: 
+  raceEnum: 0
   level: 125
   levelint: 125
   stage: 4
+  blockNormalAttackChange: 0
   stageint: 4
   monsterName: Serpent Soldier (Ice)
   location: Serpent Temple
@@ -27,4 +30,11 @@ MonoBehaviour:
   exp: 41
   expint: 41
   health: 0
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 274f12cf467abe148bcb5788f5955d82, type: 2}
+  - {fileID: 11400000, guid: 8a319a3a4ac5b5448becffc771c3749b, type: 2}
+  - {fileID: 11400000, guid: 47363c4d1f5c37e489c59859c37e0330, type: 2}

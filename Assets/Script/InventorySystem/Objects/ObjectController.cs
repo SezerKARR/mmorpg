@@ -33,12 +33,13 @@ namespace Script.InventorySystem.Objects
 
         protected virtual void OnExit()
         {
-            ToolTipEvent.OnTooltip?.Invoke(objectInstance);
+            ToolTipEvent.OnTooltipClose?.Invoke();
+
         }
 
-        private void OnEnter()
+        protected virtual void OnEnter()
         {
-            ToolTipEvent.OnTooltipClose?.Invoke();
+            ToolTipEvent.OnTooltip?.Invoke(objectInstance);
         }
 
         public virtual void RightClick() { }

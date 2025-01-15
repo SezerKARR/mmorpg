@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 5 Iron Fan
   m_EditorClassIdentifier: 
   place: 0
-  "\u0131mage": {fileID: 0}
+  "\u0131mage": {fileID: 21300000, guid: 4258ff4b02931cc4aa8e0bcf6f876822, type: 3}
   "\u0131temName": Iron Fan
   dropsFrom: 
   dropMetins: 
@@ -55,6 +55,7 @@ MonoBehaviour:
     - upgradeItemName: {fileID: 11400000, guid: d0456432b8da0a949bb1366be1cd8d3e, type: 2}
       howMany: 2
     upgradeMoney: 75000
+  equipmentType: 0
   level: 5
   minAndMaxAttackValue:
   - {x: 11, y: 17}

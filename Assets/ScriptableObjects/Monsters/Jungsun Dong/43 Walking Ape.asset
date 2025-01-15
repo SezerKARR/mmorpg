@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Animal
+  raceEnum: 0
   level: 43
   levelint: 43
   stage: Boss
+  blockNormalAttackChange: 0
   stageint: 0
   monsterName: Walking Ape
   location: Jungsun Dong
@@ -27,4 +30,11 @@ MonoBehaviour:
   exp: 27680
   expint: 27680
   health: 643
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 0a62c7ec7a771014db77d9238ea296ed, type: 2}
+  - {fileID: 11400000, guid: 138735fdb7dd95f488902d2e199bb045, type: 2}
+  - {fileID: 11400000, guid: da6ddb56efb3fda4c90d66ef8eb323d9, type: 2}

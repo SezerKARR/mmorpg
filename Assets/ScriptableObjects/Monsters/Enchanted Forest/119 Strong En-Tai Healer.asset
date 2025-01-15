@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - Wind
+  elements: 0
   race: Devil
+  raceEnum: 0
   level: 119
   levelint: 119
   stage: 3
+  blockNormalAttackChange: 0
   stageint: 3
   monsterName: Strong En-Tai Healer
   location: Enchanted Forest
@@ -27,4 +30,11 @@ MonoBehaviour:
   exp: 40900
   expint: 40900
   health: 1372
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 274f12cf467abe148bcb5788f5955d82, type: 2}
+  - {fileID: 11400000, guid: 00770b2b4b39da640b0f193362ba6d1a, type: 2}
+  - {fileID: 11400000, guid: 47363c4d1f5c37e489c59859c37e0330, type: 2}

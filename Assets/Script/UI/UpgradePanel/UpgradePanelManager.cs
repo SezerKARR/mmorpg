@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Script.ObjectInstances;
 using Script.ScriptableObject;
 using Script.UI;
+using Script.UI.Tooltip;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -17,7 +18,7 @@ public class UpgradePanelManager : MonoBehaviour
     }
     
     public ObjectInstance inventorObjectable;
-    public ToolTip tooltip;
+    public ItemToolTip tooltip;
     public UpgradeItemImage UpgradeItemImage;
     public Button okeyButton;
     public Button cancelButton;
@@ -25,7 +26,7 @@ public class UpgradePanelManager : MonoBehaviour
     {
         this.gameObject.SetActive(true);
         tooltip.gameObject.SetActive(true);
-        tooltip.Screen(inventorObjectable);
+        //tooltip.Screen(inventorObjectable);
         
         this.inventorObjectable = inventorObjectable;
         this.gameObject.SetActive(true);

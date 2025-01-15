@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Animal
+  raceEnum: 0
   level: 3
   levelint: 3
   stage: 1
+  blockNormalAttackChange: 0
   stageint: 1
   monsterName: Wild Boar (Colony)
   location: Colony
@@ -27,4 +30,11 @@ MonoBehaviour:
   exp: 6
   expint: 6
   health: 4
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 68621383de52438469cb65ce44b4a0fc, type: 2}
+  - {fileID: 11400000, guid: 17df349b3c1e9fd4cb17b30eee257f40, type: 2}
+  - {fileID: 11400000, guid: 6b941db5b9adf434d8a0252b8dd33ba0, type: 2}

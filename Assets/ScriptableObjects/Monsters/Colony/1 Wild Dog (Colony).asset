@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Animal
+  raceEnum: 0
   level: 1
   levelint: 1
   stage: 1
+  blockNormalAttackChange: 0
   stageint: 1
   monsterName: Wild Dog (Colony)
   location: Colony
@@ -27,4 +30,9 @@ MonoBehaviour:
   exp: 4
   expint: 4
   health: 8
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 6b941db5b9adf434d8a0252b8dd33ba0, type: 2}

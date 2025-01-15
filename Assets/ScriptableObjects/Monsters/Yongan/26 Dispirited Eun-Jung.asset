@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Half H.
+  raceEnum: 0
   level: 26
   levelint: 26
   stage: 4
+  blockNormalAttackChange: 0
   stageint: 4
   monsterName: Dispirited Eun-Jung
   location: Joan,Pyungmoo,Yongan
@@ -29,4 +32,12 @@ MonoBehaviour:
   exp: 2058
   expint: 2058
   health: 395
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 7e5fc29b8dc64ac42bf1122090e3741d, type: 2}
+  - {fileID: 11400000, guid: 506e90226e5ab9c42babd8cccebdf432, type: 2}
+  - {fileID: 11400000, guid: 8a78853fd60558c49aa2341006c1582e, type: 2}
+  - {fileID: 11400000, guid: e06a102f042b4c349a2d5c6fa63d998e, type: 2}

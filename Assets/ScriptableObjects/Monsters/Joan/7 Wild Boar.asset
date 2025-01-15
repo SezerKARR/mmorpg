@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Animal
+  raceEnum: 0
   level: 7
   levelint: 7
   stage: 1
+  blockNormalAttackChange: 0
   stageint: 1
   monsterName: Wild Boar
   location: Joan,Pyungmoo,Yongan
@@ -29,4 +32,12 @@ MonoBehaviour:
   exp: 87
   expint: 87
   health: 24
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: df959ad6174e1714e9d4abe7c80fe406, type: 2}
+  - {fileID: 11400000, guid: b67d6ef58c5274341bf26680aeaf9eae, type: 2}
+  - {fileID: 11400000, guid: d9035886eb23c2c489cb4448cd061380, type: 2}
+  - {fileID: 11400000, guid: 6b941db5b9adf434d8a0252b8dd33ba0, type: 2}

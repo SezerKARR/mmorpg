@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Animal
+  raceEnum: 0
   level: 6
   levelint: 6
   stage: 2
+  blockNormalAttackChange: 0
   stageint: 2
   monsterName: Hungry Brown Bear (Colony)
   location: Colony
@@ -27,4 +30,11 @@ MonoBehaviour:
   exp: 12
   expint: 12
   health: 6
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 51ae9a5e1e206cd4f8a1e82da7e46c3c, type: 2}
+  - {fileID: 11400000, guid: 798aa66f481423441b933488789c7549, type: 2}
+  - {fileID: 11400000, guid: 6b941db5b9adf434d8a0252b8dd33ba0, type: 2}

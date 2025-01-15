@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - Lightning
+  elements: 0
   race: Devil
+  raceEnum: 0
   level: 87
   levelint: 87
   stage: 1
+  blockNormalAttackChange: 0
   stageint: 1
   monsterName: Setaou Fighter
   location: Grotto of Exile,Grotto of Exile V2
@@ -28,4 +31,11 @@ MonoBehaviour:
   exp: 7050
   expint: 7050
   health: 162
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 2106ff0e547943b40b8e37b9b6ea8fef, type: 2}
+  - {fileID: 11400000, guid: 710382ee60c815148a26c357e19f4206, type: 2}
+  - {fileID: 11400000, guid: ad3897b5ada7eb24a8a5b56882ecfcb0, type: 2}

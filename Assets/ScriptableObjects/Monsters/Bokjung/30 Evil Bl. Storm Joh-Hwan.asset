@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - Wind
+  elements: 0
   race: Half H.
+  raceEnum: 0
   level: 30
   levelint: 30
   stage: 2
+  blockNormalAttackChange: 0
   stageint: 2
   monsterName: Evil Bl. Storm Joh-Hwan
   location: Bokjung,Yayang,Bakra
@@ -29,4 +32,13 @@ MonoBehaviour:
   exp: 711
   expint: 711
   health: 69
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 58ce43fa4bf548944ac33e63e1829752, type: 2}
+  - {fileID: 11400000, guid: 3457b4a42f55a1845882691c6bb14b7c, type: 2}
+  - {fileID: 11400000, guid: 0f50da58ac882a04f8642423b2f47033, type: 2}
+  - {fileID: 11400000, guid: fba4133243096fb4fb405a669c9aa875, type: 2}
+  - {fileID: 11400000, guid: e06a102f042b4c349a2d5c6fa63d998e, type: 2}

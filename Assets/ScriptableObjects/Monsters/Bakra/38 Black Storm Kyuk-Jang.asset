@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - Wind
+  elements: 0
   race: Half H.
+  raceEnum: 0
   level: 38
   levelint: 38
   stage: 4
+  blockNormalAttackChange: 0
   stageint: 4
   monsterName: Black Storm Kyuk-Jang
   location: Bokjung,Yayang,Bakra
@@ -29,4 +32,12 @@ MonoBehaviour:
   exp: 3314
   expint: 3314
   health: 435
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 587739980e29fc64da3b669cb947e49f, type: 2}
+  - {fileID: 11400000, guid: 0c00ff9e4d1225f4b9c8f19abc655599, type: 2}
+  - {fileID: 11400000, guid: f4d7a8d74a7589141a02519b991ebc4c, type: 2}
+  - {fileID: 11400000, guid: e06a102f042b4c349a2d5c6fa63d998e, type: 2}

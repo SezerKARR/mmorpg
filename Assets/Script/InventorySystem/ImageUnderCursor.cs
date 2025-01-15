@@ -1,6 +1,7 @@
 using System;
 using Script.Inventory;
 using Script.Inventory.Objects;
+using Script.InventorySystem.inventory;
 using Script.InventorySystem.Objects;
 using Script.InventorySystem.Page;
 using Script.ObjectInstances;
@@ -19,10 +20,16 @@ namespace Script.InventorySystem
             OnCloseImageUnderCursor += Close;
             PageEvent.OnClickPage += Close;
             GameEvent.OnItemDroppedWithoutPlayer += Close;
+            InventoryEvent.OnDropObject += Close;
             ObjectEvents.ObjectClicked += Open;
             _rectTransform = GetComponent<RectTransform>();
             _rectTransform.position = Input.mousePosition;
             if(GetComponent<Image>().sprite==null )gameObject.SetActive(false);
+        }
+
+        private void Close<T>(T obj)
+        {
+            this.gameObject.SetActive(false);
         }
 
         private void Close(Vector2 arg1, int arg2)
@@ -30,6 +37,7 @@ namespace Script.InventorySystem
             this.gameObject.SetActive(false);
         }
 
+        
         public void Close(ObjectInstance dummy,Vector3 dummyTransform)
         {
             this.gameObject.SetActive(false);

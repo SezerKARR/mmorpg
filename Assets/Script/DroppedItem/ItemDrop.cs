@@ -16,7 +16,7 @@ namespace Script.DroppedItem
         WithPlayerName,
         WithoutPlayerName,
     }
-    public abstract class ItemDrop : MonoBehaviour, IPickedUpAble,IInstanceHolder<ObjectInstance>
+    public abstract class ItemDrop : ObjectInstanceHolder, IPickedUpAble
     {
         public TMP_Text itemName;
         protected ObjectInstance _objectInstance;
@@ -31,16 +31,12 @@ namespace Script.DroppedItem
         {
             if (this._howMany > 1)
             {
-                itemName.text = _objectInstance.objectAbstract.dropName + " x" + this._howMany;
-            }
-            else
-            {
-                itemName.text = _objectInstance.objectAbstract.dropName ;
+                itemName.text = _objectInstance.DropName();
             }
         }
         public virtual void OnActivate(ObjectInstance item ,string playerName, Vector3 position)
         {
-            item.currentHolder=this;
+            base.AddObject(item, null);
             _objectInstance = item ;
             SetDropName();
             this.transform.position = position;
@@ -79,12 +75,7 @@ namespace Script.DroppedItem
 
         public abstract string GetPoolType();
 
-        public void AddObject(ObjectInstance objectToAdd, CellsInfo cellsInfo)
-        {
-            throw new System.NotImplementedException();
-        }
-
-        public void RemoveObject(ObjectInstance objectToRemove)
+        public override void RemoveObject(ObjectInstance objectToRemove)
         {
             GameEvent.OnPickup?.Invoke(this);
         }

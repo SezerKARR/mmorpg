@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - Wind
+  elements: 0
   race: 
+  raceEnum: 0
   level: 75
   levelint: 75
   stage: Boss
+  blockNormalAttackChange: 0
   stageint: 0
   monsterName: Yellow Tiger Ghost
   location: Hwang Temple
@@ -27,4 +30,11 @@ MonoBehaviour:
   exp: 24080
   expint: 24080
   health: 321
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: a63ca53407f56d04ca53d334c3136af8, type: 2}
+  - {fileID: 11400000, guid: 1a7fa16f262b48e43b76895a6fb5f89b, type: 2}
+  - {fileID: 11400000, guid: c42e9d13a13e14c4d897b282cfcd2f84, type: 2}

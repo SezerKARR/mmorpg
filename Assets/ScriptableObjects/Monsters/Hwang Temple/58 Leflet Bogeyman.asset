@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - Wind
+  elements: 0
   race: 
+  raceEnum: 0
   level: 58
   levelint: 58
   stage: 2
+  blockNormalAttackChange: 0
   stageint: 2
   monsterName: Leflet Bogeyman
   location: Hwang Temple
@@ -27,4 +30,12 @@ MonoBehaviour:
   exp: 1117
   expint: 1117
   health: 57
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 21f784bf79df73d48b7987be4ce3ef19, type: 2}
+  - {fileID: 11400000, guid: c5f46a0f8c4667647a29aa8bcfac2175, type: 2}
+  - {fileID: 11400000, guid: 45e65869fc27c514dbc8d8342e2dc8a3, type: 2}
+  - {fileID: 11400000, guid: da6ddb56efb3fda4c90d66ef8eb323d9, type: 2}

@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Animal
+  raceEnum: 0
   level: 21
   levelint: 21
   stage: 4
+  blockNormalAttackChange: 0
   stageint: 4
   monsterName: Young-Ji
   location: Joan,Pyungmoo,Yongan
@@ -29,4 +32,11 @@ MonoBehaviour:
   exp: 220
   expint: 220
   health: 50
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: e69e4a84ff3a8f444b1ffeb4c81fca0c, type: 2}
+  - {fileID: 11400000, guid: 76f745738de87e0458ba69736a355bcd, type: 2}
+  - {fileID: 11400000, guid: 6b941db5b9adf434d8a0252b8dd33ba0, type: 2}

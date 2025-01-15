@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Half H.
+  raceEnum: 0
   level: 32
   levelint: 32
   stage: 1
+  blockNormalAttackChange: 0
   stageint: 1
   monsterName: Savage Minion
   location: Bokjung,Yayang,Bakra
@@ -29,4 +32,12 @@ MonoBehaviour:
   exp: 903
   expint: 903
   health: 56
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: f0628c8c40d1e4c4388cddf5d7cb6285, type: 2}
+  - {fileID: 11400000, guid: 6249442425ca9ab43b37dc87d184d7d4, type: 2}
+  - {fileID: 11400000, guid: ad6e68eacdd00ea48b90c31d806525f7, type: 2}
+  - {fileID: 11400000, guid: e06a102f042b4c349a2d5c6fa63d998e, type: 2}

@@ -28,7 +28,7 @@ namespace Script.ScriptableObject
     {
         [FormerlySerializedAs("Place")] public ItemPlace place;
         [FormerlySerializedAs("Image")] public Sprite ımage;
-        [FormerlySerializedAs("ItemName")] public string ıtemName;
+        [FormerlySerializedAs("ıtemName")]  public string itemName;
         public string dropsFrom;
         [FormerlySerializedAs("DropMetins")] public string dropMetins;
         public string info;
@@ -36,9 +36,9 @@ namespace Script.ScriptableObject
         public bool canEveryBodyTake=true;
         public int stackLimit=1;
         public int weightInInventory = 1;
-        [FormerlySerializedAs("DropName")] public string dropName;
         public abstract ObjectType Type { get; }
-    
+        
+
         // public virtual void SetDropName()
         // {
         //     DropName= ItemName;

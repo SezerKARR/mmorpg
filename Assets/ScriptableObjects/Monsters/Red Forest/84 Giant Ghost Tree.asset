@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - Earth
+  elements: 0
   race: 
+  raceEnum: 0
   level: 84
   levelint: 84
   stage: Boss
+  blockNormalAttackChange: 0
   stageint: 0
   monsterName: Giant Ghost Tree
   location: Red Forest
@@ -27,4 +30,11 @@ MonoBehaviour:
   exp: 27236
   expint: 27236
   health: 324
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 2106ff0e547943b40b8e37b9b6ea8fef, type: 2}
+  - {fileID: 11400000, guid: 710382ee60c815148a26c357e19f4206, type: 2}
+  - {fileID: 11400000, guid: ad3897b5ada7eb24a8a5b56882ecfcb0, type: 2}

@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - Wind
+  elements: 0
   race: Mystic
+  raceEnum: 0
   level: 48
   levelint: 48
   stage: 2
+  blockNormalAttackChange: 0
   stageint: 2
   monsterName: High Deathsman
   location: Valley of Seungryong
@@ -27,4 +30,11 @@ MonoBehaviour:
   exp: 811
   expint: 811
   health: 48
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 72b16789ac7b5df4493d43c0023ed34b, type: 2}
+  - {fileID: 11400000, guid: 109bdf227f17d884bba2054940c84e21, type: 2}
+  - {fileID: 11400000, guid: da6ddb56efb3fda4c90d66ef8eb323d9, type: 2}

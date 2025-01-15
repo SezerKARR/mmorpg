@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - Lightning
+  elements: 0
   race: Devil
+  raceEnum: 0
   level: 97
   levelint: 97
   stage: 4
+  blockNormalAttackChange: 0
   stageint: 4
   monsterName: Setaou Commander
   location: Grotto of Exile V2,Dragon's Temple
@@ -28,4 +31,12 @@ MonoBehaviour:
   exp: 41580
   expint: 41580
   health: 2140
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: b141df2d5a4aae14a91b9a5ae24ca48b, type: 2}
+  - {fileID: 11400000, guid: 110a72af547c0fa45bdd30dd4a0be2ca, type: 2}
+  - {fileID: 11400000, guid: 77ad5bbee2e66c44fb351ce9a70a5e68, type: 2}
+  - {fileID: 11400000, guid: 7cc58af4687f95d4c9a297f2bba55f49, type: 2}

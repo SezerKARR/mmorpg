@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - Fire
+  elements: 0
   race: Insect
+  raceEnum: 0
   level: 68
   levelint: 68
   stage: 4
+  blockNormalAttackChange: 0
   stageint: 4
   monsterName: Best. Strg Poison Spider
   location: Spider Queen's Nest
@@ -27,4 +30,11 @@ MonoBehaviour:
   exp: 10441
   expint: 10441
   health: 765
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 58de9b34773b78f49a1f6f3b4d08cb46, type: 2}
+  - {fileID: 11400000, guid: 7a06774a7958b1a40a86f6ea803315f7, type: 2}
+  - {fileID: 11400000, guid: c42e9d13a13e14c4d897b282cfcd2f84, type: 2}

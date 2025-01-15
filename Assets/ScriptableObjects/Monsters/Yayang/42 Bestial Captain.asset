@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Half H.
+  raceEnum: 0
   level: 42
   levelint: 42
   stage: Boss
+  blockNormalAttackChange: 0
   stageint: 0
   monsterName: Bestial Captain
   location: Bokjung,Yayang,Bakra
@@ -29,4 +32,12 @@ MonoBehaviour:
   exp: 20280
   expint: 20280
   health: 482
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 3d85145b5a9cfec408e37cc2f27d8a05, type: 2}
+  - {fileID: 11400000, guid: f9fc8965710a3eb499b71e02aab73851, type: 2}
+  - {fileID: 11400000, guid: 138735fdb7dd95f488902d2e199bb045, type: 2}
+  - {fileID: 11400000, guid: da6ddb56efb3fda4c90d66ef8eb323d9, type: 2}

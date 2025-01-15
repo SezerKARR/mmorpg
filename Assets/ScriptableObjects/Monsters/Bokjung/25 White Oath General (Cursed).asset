@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Half H.
+  raceEnum: 0
   level: 25
   levelint: 25
   stage: 3
+  blockNormalAttackChange: 0
   stageint: 3
   monsterName: White Oath General (Cursed)
   location: Bokjung,Yayang,Bakra
@@ -29,4 +32,11 @@ MonoBehaviour:
   exp: 1452
   expint: 1452
   health: 232
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: e69e4a84ff3a8f444b1ffeb4c81fca0c, type: 2}
+  - {fileID: 11400000, guid: 8c143813ea1d60c4caa0f4c925847b9c, type: 2}
+  - {fileID: 11400000, guid: e06a102f042b4c349a2d5c6fa63d998e, type: 2}

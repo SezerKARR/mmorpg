@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Animal
+  raceEnum: 0
   level: 22
   levelint: 22
   stage: 1
+  blockNormalAttackChange: 0
   stageint: 1
   monsterName: Weak Ape Soldier
   location: Hasun Dong
@@ -27,4 +30,11 @@ MonoBehaviour:
   exp: 356
   expint: 356
   health: 32
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: aa386b1ffee0267429618b6a394a9c04, type: 2}
+  - {fileID: 11400000, guid: 76f745738de87e0458ba69736a355bcd, type: 2}
+  - {fileID: 11400000, guid: e06a102f042b4c349a2d5c6fa63d998e, type: 2}

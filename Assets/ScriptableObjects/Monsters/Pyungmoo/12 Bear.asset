@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Animal
+  raceEnum: 0
   level: 12
   levelint: 12
   stage: 1
+  blockNormalAttackChange: 0
   stageint: 1
   monsterName: Bear
   location: Joan,Pyungmoo,Yongan
@@ -29,4 +32,12 @@ MonoBehaviour:
   exp: 147
   expint: 147
   health: 24
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: cc8e6de1f4adbe349b0d981aca3e06e6, type: 2}
+  - {fileID: 11400000, guid: f6861860673cd9a4e854a062e1ee469d, type: 2}
+  - {fileID: 11400000, guid: fe205cc7691d1b146a7741ae4258ba93, type: 2}
+  - {fileID: 11400000, guid: 6b941db5b9adf434d8a0252b8dd33ba0, type: 2}

@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Animal
+  raceEnum: 0
   level: 16
   levelint: 16
   stage: 2
+  blockNormalAttackChange: 0
   stageint: 2
   monsterName: Hungry Alpha Grey Wolf
   location: Joan,Pyungmoo,Yongan
@@ -29,4 +32,11 @@ MonoBehaviour:
   exp: 164
   expint: 164
   health: 30
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 7ec1aeca6c3f20f4f8b122026af532de, type: 2}
+  - {fileID: 11400000, guid: 0a8ff7cd1666fde4e835388aa69190ca, type: 2}
+  - {fileID: 11400000, guid: 6b941db5b9adf434d8a0252b8dd33ba0, type: 2}

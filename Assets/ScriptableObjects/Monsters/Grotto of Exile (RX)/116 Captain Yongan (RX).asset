@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - Lightning
+  elements: 0
   race: Devil
+  raceEnum: 0
   level: 116
   levelint: 116
   stage: 4
+  blockNormalAttackChange: 0
   stageint: 4
   monsterName: Captain Yongan (RX)
   location: Grotto of Exile (RX)
@@ -27,4 +30,11 @@ MonoBehaviour:
   exp: 53640
   expint: 53640
   health: 2310
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 274f12cf467abe148bcb5788f5955d82, type: 2}
+  - {fileID: 11400000, guid: 8a319a3a4ac5b5448becffc771c3749b, type: 2}
+  - {fileID: 11400000, guid: 47363c4d1f5c37e489c59859c37e0330, type: 2}

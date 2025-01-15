@@ -42,8 +42,8 @@ namespace Script.ScriptableObject.Equipment
         public List<CharacterType> canUseCharacters = new List<CharacterType>();
         public RequirementClass[] Requirements =new RequirementClass[0];
         public EquipmentType equipmentType;
-    
         public int level;
+        public abstract List<string> GetStatsString(int level);
         // public void SetNewStats()
         // {
         //     foreach (var itemstat in charStats)

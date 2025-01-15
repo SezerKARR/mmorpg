@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - Ice
+  elements: 0
   race: 
+  raceEnum: 0
   level: 85
   levelint: 85
   stage: 4
+  blockNormalAttackChange: 0
   stageint: 4
   monsterName: Underworld Ice Golem
   location: Grotto of Exile
@@ -27,4 +30,13 @@ MonoBehaviour:
   exp: 18656
   expint: 18656
   health: 1095
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: dfefda7c8c0d16044bfc7fc8019d7266, type: 2}
+  - {fileID: 11400000, guid: 60c7426a14debff42aa7a4fea94c701b, type: 2}
+  - {fileID: 11400000, guid: 2106ff0e547943b40b8e37b9b6ea8fef, type: 2}
+  - {fileID: 11400000, guid: 710382ee60c815148a26c357e19f4206, type: 2}
+  - {fileID: 11400000, guid: ad3897b5ada7eb24a8a5b56882ecfcb0, type: 2}

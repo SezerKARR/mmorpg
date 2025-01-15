@@ -30,6 +30,9 @@ namespace Script.ScriptableObject.Objects.Equipment
         // }
 
 
-    
+        public override List<string> GetStatsString(int level)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }

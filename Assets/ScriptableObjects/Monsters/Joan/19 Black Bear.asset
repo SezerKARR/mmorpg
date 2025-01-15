@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Animal
+  raceEnum: 0
   level: 19
   levelint: 19
   stage: 1
+  blockNormalAttackChange: 0
   stageint: 1
   monsterName: Black Bear
   location: Joan,Pyungmoo,Yongan
@@ -29,4 +32,12 @@ MonoBehaviour:
   exp: 385
   expint: 385
   health: 40
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: c4a01e2f3f0caec4d8a6f2126f366f39, type: 2}
+  - {fileID: 11400000, guid: db75a9cf4ead4f3448aa9006404dde26, type: 2}
+  - {fileID: 11400000, guid: b3aa216225d60b9408a23006eefd550e, type: 2}
+  - {fileID: 11400000, guid: 6b941db5b9adf434d8a0252b8dd33ba0, type: 2}

@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Animal
+  raceEnum: 0
   level: 16
   levelint: 16
   stage: 2
+  blockNormalAttackChange: 0
   stageint: 2
   monsterName: Alpha Grey Wolf
   location: Joan,Pyungmoo,Yongan
@@ -29,4 +32,11 @@ MonoBehaviour:
   exp: 234
   expint: 234
   health: 42
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: db75a9cf4ead4f3448aa9006404dde26, type: 2}
+  - {fileID: 11400000, guid: 0047555abe58e3242a9302f0b06c6eb9, type: 2}
+  - {fileID: 11400000, guid: 6b941db5b9adf434d8a0252b8dd33ba0, type: 2}

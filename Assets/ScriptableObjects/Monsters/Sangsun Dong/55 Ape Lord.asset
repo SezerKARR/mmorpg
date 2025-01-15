@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Animal
+  raceEnum: 0
   level: 55
   levelint: 55
   stage: Boss
+  blockNormalAttackChange: 0
   stageint: 0
   monsterName: Ape Lord
   location: Sangsun Dong
@@ -27,4 +30,11 @@ MonoBehaviour:
   exp: 35360
   expint: 35360
   health: 642
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 387efa0d206f29140bce0357ac5b78d3, type: 2}
+  - {fileID: 11400000, guid: 36402463a6169f042bb06832631cf4ec, type: 2}
+  - {fileID: 11400000, guid: da6ddb56efb3fda4c90d66ef8eb323d9, type: 2}

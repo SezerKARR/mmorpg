@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Half H.
+  raceEnum: 0
   level: 40
   levelint: 40
   stage: 4
+  blockNormalAttackChange: 0
   stageint: 4
   monsterName: Bestial Archer
   location: Bokjung,Yayang,Bakra,Valley of Seungryong
@@ -30,4 +33,12 @@ MonoBehaviour:
   exp: 1171
   expint: 1171
   health: 145
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 3d85145b5a9cfec408e37cc2f27d8a05, type: 2}
+  - {fileID: 11400000, guid: 0c00ff9e4d1225f4b9c8f19abc655599, type: 2}
+  - {fileID: 11400000, guid: f4d7a8d74a7589141a02519b991ebc4c, type: 2}
+  - {fileID: 11400000, guid: e06a102f042b4c349a2d5c6fa63d998e, type: 2}

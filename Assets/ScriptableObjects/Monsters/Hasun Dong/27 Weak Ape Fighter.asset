@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Animal
+  raceEnum: 0
   level: 27
   levelint: 27
   stage: 3
+  blockNormalAttackChange: 0
   stageint: 3
   monsterName: Weak Ape Fighter
   location: Hasun Dong
@@ -27,4 +30,11 @@ MonoBehaviour:
   exp: 872
   expint: 872
   health: 128
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 0f50da58ac882a04f8642423b2f47033, type: 2}
+  - {fileID: 11400000, guid: fba4133243096fb4fb405a669c9aa875, type: 2}
+  - {fileID: 11400000, guid: e06a102f042b4c349a2d5c6fa63d998e, type: 2}

@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Animal
+  raceEnum: 0
   level: 15
   levelint: 15
   stage: 2
+  blockNormalAttackChange: 0
   stageint: 2
   monsterName: Grizzly Bear
   location: Joan,Pyungmoo,Yongan
@@ -29,4 +32,12 @@ MonoBehaviour:
   exp: 220
   expint: 220
   health: 42
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 01c7607e9cb77ec4ba6189e39b33b10f, type: 2}
+  - {fileID: 11400000, guid: f6861860673cd9a4e854a062e1ee469d, type: 2}
+  - {fileID: 11400000, guid: 4e2475945452abb4bb82a10eb36ab4e3, type: 2}
+  - {fileID: 11400000, guid: 6b941db5b9adf434d8a0252b8dd33ba0, type: 2}

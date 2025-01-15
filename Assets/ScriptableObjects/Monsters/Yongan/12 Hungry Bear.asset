@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Animal
+  raceEnum: 0
   level: 12
   levelint: 12
   stage: 1
+  blockNormalAttackChange: 0
   stageint: 1
   monsterName: Hungry Bear
   location: Joan,Pyungmoo,Yongan
@@ -29,4 +32,11 @@ MonoBehaviour:
   exp: 103
   expint: 103
   health: 16
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 49838bac4f5e9f34ab55e7603e280511, type: 2}
+  - {fileID: 11400000, guid: 4e2475945452abb4bb82a10eb36ab4e3, type: 2}
+  - {fileID: 11400000, guid: 6b941db5b9adf434d8a0252b8dd33ba0, type: 2}

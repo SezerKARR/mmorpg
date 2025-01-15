@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Undead
+  raceEnum: 0
   level: 55
   levelint: 55
   stage: 3
+  blockNormalAttackChange: 0
   stageint: 3
   monsterName: Angry Plagued Fighter
   location: Mount Sohan
@@ -27,4 +30,11 @@ MonoBehaviour:
   exp: 1327
   expint: 1327
   health: 96
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 387efa0d206f29140bce0357ac5b78d3, type: 2}
+  - {fileID: 11400000, guid: 36402463a6169f042bb06832631cf4ec, type: 2}
+  - {fileID: 11400000, guid: da6ddb56efb3fda4c90d66ef8eb323d9, type: 2}

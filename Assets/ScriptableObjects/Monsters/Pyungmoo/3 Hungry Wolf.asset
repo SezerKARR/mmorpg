@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Animal
+  raceEnum: 0
   level: 3
   levelint: 3
   stage: 1
+  blockNormalAttackChange: 0
   stageint: 1
   monsterName: Hungry Wolf
   location: Joan,Pyungmoo,Yongan
@@ -29,4 +32,11 @@ MonoBehaviour:
   exp: 27
   expint: 27
   health: 18
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 79f4db075fd46884d8bd7e76d0930aad, type: 2}
+  - {fileID: 11400000, guid: 7a673913b1143f74eb24c02144d68142, type: 2}
+  - {fileID: 11400000, guid: 6b941db5b9adf434d8a0252b8dd33ba0, type: 2}

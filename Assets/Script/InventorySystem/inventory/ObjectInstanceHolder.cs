@@ -7,23 +7,20 @@ namespace Script.InventorySystem.inventory
 {
     public abstract class ObjectInstanceHolder:MonoBehaviour ,IInstanceHolder<ObjectInstance>
     {
-        protected ObjectInstance _currentInstance;
         
 
         public virtual void AddObject(ObjectInstance objectToAdd, CellsInfo cellsInfo)
         {
-            _currentInstance = objectToAdd;
-            _currentInstance.currentHolder?.RemoveObject(_currentInstance);
+            objectToAdd.currentHolder?.RemoveObject(objectToAdd);
 
 
-            _currentInstance.cellsInfo = cellsInfo;
-            _currentInstance.currentHolder = this;
+            objectToAdd.cellsInfo = cellsInfo;
+            objectToAdd.currentHolder = this;
         }
 
         public virtual void RemoveObject(ObjectInstance objectToRemove)
         {
             objectToRemove.currentHolder=null;
-            _currentInstance=null;
             
         }
     }

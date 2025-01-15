@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - Fire
+  elements: 0
   race: Insect
+  raceEnum: 0
   level: 64
   levelint: 64
   stage: 3
+  blockNormalAttackChange: 0
   stageint: 3
   monsterName: Red Deadly Poison Spider
   location: Spider Dungeon 2
@@ -27,4 +30,11 @@ MonoBehaviour:
   exp: 9648
   expint: 9648
   health: 600
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 3b9b9578910e54e48891de969be7fc14, type: 2}
+  - {fileID: 11400000, guid: 4caa5e62b2569284d8f1c481e29f9e6d, type: 2}
+  - {fileID: 11400000, guid: c42e9d13a13e14c4d897b282cfcd2f84, type: 2}

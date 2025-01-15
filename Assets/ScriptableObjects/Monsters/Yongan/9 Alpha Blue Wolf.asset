@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Animal
+  raceEnum: 0
   level: 9
   levelint: 9
   stage: 1
+  blockNormalAttackChange: 0
   stageint: 1
   monsterName: Alpha Blue Wolf
   location: Joan,Pyungmoo,Yongan
@@ -29,4 +32,11 @@ MonoBehaviour:
   exp: 111
   expint: 111
   health: 24
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 23847ba3736ce414e9882972e6f19485, type: 2}
+  - {fileID: 11400000, guid: d9035886eb23c2c489cb4448cd061380, type: 2}
+  - {fileID: 11400000, guid: 6b941db5b9adf434d8a0252b8dd33ba0, type: 2}

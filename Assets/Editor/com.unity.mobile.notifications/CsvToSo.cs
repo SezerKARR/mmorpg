@@ -44,12 +44,12 @@ namespace Editor.com.unity.mobile.notifications
 //         //
 //         //         UpgradeItemsSO upgradeItemsSO = ScriptableObject.CreateInstance<UpgradeItemsSO>();
 //         //
-//         //         upgradeItemsSO.ıtemName = splitData[0];
+//         //         upgradeItemsSO.itemName = splitData[0];
 //         //         upgradeItemsSO.dropsFrom = splitData[1];
 //         //         upgradeItemsSO.info = splitData[2];
 //         //
 //         //         AssetDatabase.CreateAsset(upgradeItemsSO,
-//         //             $"Assets/ScriptableObjects/UpgradeItem/{upgradeItemsSO.ıtemName}.asset");
+//         //             $"Assets/ScriptableObjects/UpgradeItem/{upgradeItemsSO.itemName}.asset");
 //         //     }
 //         //
 //         //     AssetDatabase.SaveAssets();
@@ -98,7 +98,7 @@ namespace Editor.com.unity.mobile.notifications
                          {
 
                              MonsterUpdate(monsterSO1, upgradeItem);
-                             
+                             EditorUtility.SetDirty(monsterSO1);
                          }
                        
                      }
@@ -166,6 +166,7 @@ namespace Editor.com.unity.mobile.notifications
                  foreach (var item in items)
                  {
                      MonsterUpdate(monsterSO1, item.Value);
+                     EditorUtility.SetDirty(monsterSO1);
                  }
                  
              }
@@ -814,7 +815,7 @@ namespace Editor.com.unity.mobile.notifications
 //                     if (helmetSo != null)
 //                     {
 //                         helmetSo.weightInInventory = 1;
-//                         AssetDatabase.CreateAsset(helmetSo, $"{path}/{helmetSo.level + " " + helmetSo.ıtemName}.asset");
+//                         AssetDatabase.CreateAsset(helmetSo, $"{path}/{helmetSo.level + " " + helmetSo.itemName}.asset");
 //
 //                         upgradeMoney.Clear();
 //                         upgradeItemRequire.Clear();
@@ -844,7 +845,7 @@ namespace Editor.com.unity.mobile.notifications
 //                 }
 //                 else if (splitData[1].Contains("BoardNewM.png"))
 //                 {
-//                     helmetSo.ıtemName = splitData[0].Replace(".png", "");
+//                     helmetSo.itemName = splitData[0].Replace(".png", "");
 //
 //                 }
 //                 else if (splitData[1].Contains("Defence") )
@@ -960,8 +961,8 @@ namespace Editor.com.unity.mobile.notifications
 //                             if (!conditionMet)
 //                             {
 //                                 ObjectAbstract upgradesItemSO = ScriptableObject.CreateInstance<ObjectAbstract>();
-//                                 upgradesItemSO.ıtemName = splitData[j + 2].Replace(".png", "");
-//                                 AssetDatabase.CreateAsset(upgradesItemSO, $"Assets/ScriptableObjects/UpgradeItem/{upgradesItemSO.ıtemName}.asset");
+//                                 upgradesItemSO.itemName = splitData[j + 2].Replace(".png", "");
+//                                 AssetDatabase.CreateAsset(upgradesItemSO, $"Assets/ScriptableObjects/UpgradeItem/{upgradesItemSO.itemName}.asset");
 //
 //                             }
 //                         }

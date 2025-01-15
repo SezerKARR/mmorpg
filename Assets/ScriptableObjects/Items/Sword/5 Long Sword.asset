@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: 5 Long Sword
   m_EditorClassIdentifier: 
   place: 0
-  "\u0131mage": {fileID: 0}
+  "\u0131mage": {fileID: 21300000, guid: 9e5e2ed6d5494774f990fcc6264638cb, type: 3}
   "\u0131temName": Long Sword
   dropsFrom: 
   dropMetins: 
@@ -52,7 +52,7 @@ MonoBehaviour:
       howMany: 2
     upgradeMoney: 45000
   - upgradeItems:
-    - upgradeItemName: {fileID: 11400000, guid: b15699c4af6728e4897bc8d3bb24621e, type: 2}
+    - upgradeItemName: {fileID: 0}
       howMany: 2
     upgradeMoney: 75000
   equipmentType: 1

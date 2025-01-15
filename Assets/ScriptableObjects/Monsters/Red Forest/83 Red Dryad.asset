@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - Earth
+  elements: 0
   race: 
+  raceEnum: 0
   level: 83
   levelint: 83
   stage: 3
+  blockNormalAttackChange: 0
   stageint: 3
   monsterName: Red Dryad
   location: Red Forest
@@ -27,4 +30,12 @@ MonoBehaviour:
   exp: 2781
   expint: 2781
   health: 132
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: a5096d4f1d5715041bdb5ac5fd906e18, type: 2}
+  - {fileID: 11400000, guid: 2106ff0e547943b40b8e37b9b6ea8fef, type: 2}
+  - {fileID: 11400000, guid: 710382ee60c815148a26c357e19f4206, type: 2}
+  - {fileID: 11400000, guid: ad3897b5ada7eb24a8a5b56882ecfcb0, type: 2}

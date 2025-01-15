@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Animal
+  raceEnum: 0
   level: 49
   levelint: 49
   stage: 3
+  blockNormalAttackChange: 0
   stageint: 3
   monsterName: Strong Ape Fighter
   location: Sangsun Dong
@@ -27,4 +30,11 @@ MonoBehaviour:
   exp: 1576
   expint: 1576
   health: 128
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 5575e81e6b6c81f4c84fa43fcfedc6a3, type: 2}
+  - {fileID: 11400000, guid: 109bdf227f17d884bba2054940c84e21, type: 2}
+  - {fileID: 11400000, guid: da6ddb56efb3fda4c90d66ef8eb323d9, type: 2}

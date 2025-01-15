@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Half H.
+  raceEnum: 0
   level: 36
   levelint: 36
   stage: 3
+  blockNormalAttackChange: 0
   stageint: 3
   monsterName: Strong Savage General
   location: Bokjung,Yayang,Bakra
@@ -29,4 +32,12 @@ MonoBehaviour:
   exp: 2030
   expint: 2030
   health: 224
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 06726c700fc49f541a4e0b67ca913bb2, type: 2}
+  - {fileID: 11400000, guid: b8ccd662560f6f04eb1aac3779723d26, type: 2}
+  - {fileID: 11400000, guid: aad0302a4e9fca74e9992165a3a38631, type: 2}
+  - {fileID: 11400000, guid: e06a102f042b4c349a2d5c6fa63d998e, type: 2}

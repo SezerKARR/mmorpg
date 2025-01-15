@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Animal
+  raceEnum: 0
   level: 24
   levelint: 24
   stage: 3
+  blockNormalAttackChange: 0
   stageint: 3
   monsterName: Cursed Black Bear
   location: Imha,Jungrang,Waryong,Snakefield
@@ -30,4 +33,12 @@ MonoBehaviour:
   exp: 582
   expint: 582
   health: 96
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: c4a01e2f3f0caec4d8a6f2126f366f39, type: 2}
+  - {fileID: 11400000, guid: a4c24c69179996e41a1c5aa90bbbbf68, type: 2}
+  - {fileID: 11400000, guid: 76f745738de87e0458ba69736a355bcd, type: 2}
+  - {fileID: 11400000, guid: e06a102f042b4c349a2d5c6fa63d998e, type: 2}

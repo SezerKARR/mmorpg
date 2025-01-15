@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - Wind
+  elements: 0
   race: 
+  raceEnum: 0
   level: 61
   levelint: 61
   stage: 4
+  blockNormalAttackChange: 0
   stageint: 4
   monsterName: Bullfrog General
   location: Hwang Temple
@@ -27,4 +30,11 @@ MonoBehaviour:
   exp: 3920
   expint: 3920
   health: 320
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 3b9b9578910e54e48891de969be7fc14, type: 2}
+  - {fileID: 11400000, guid: 4caa5e62b2569284d8f1c481e29f9e6d, type: 2}
+  - {fileID: 11400000, guid: c42e9d13a13e14c4d897b282cfcd2f84, type: 2}

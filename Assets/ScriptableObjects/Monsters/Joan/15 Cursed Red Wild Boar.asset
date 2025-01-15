@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Animal
+  raceEnum: 0
   level: 15
   levelint: 15
   stage: 4
+  blockNormalAttackChange: 0
   stageint: 4
   monsterName: Cursed Red Wild Boar
   location: Joan,Pyungmoo,Yongan,Imha,Jungrang,Waryong,Snakefield
@@ -33,4 +36,12 @@ MonoBehaviour:
   exp: 732
   expint: 732
   health: 240
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: e0d9dbce29f394b43adde691eb9ba1a3, type: 2}
+  - {fileID: 11400000, guid: f6861860673cd9a4e854a062e1ee469d, type: 2}
+  - {fileID: 11400000, guid: fe205cc7691d1b146a7741ae4258ba93, type: 2}
+  - {fileID: 11400000, guid: 6b941db5b9adf434d8a0252b8dd33ba0, type: 2}

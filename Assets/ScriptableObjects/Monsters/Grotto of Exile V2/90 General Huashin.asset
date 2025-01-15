@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - Lightning
+  elements: 0
   race: Devil
+  raceEnum: 0
   level: 90
   levelint: 90
   stage: Boss
+  blockNormalAttackChange: 0
   stageint: 0
   monsterName: General Huashin
   location: Grotto of Exile V2
@@ -27,4 +30,11 @@ MonoBehaviour:
   exp: 456600
   expint: 456600
   health: 5073
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 4e70fef8b2c3031438b0d22d47ddce26, type: 2}
+  - {fileID: 11400000, guid: a63ccc66c8f3ea44eba0d6d8f1069629, type: 2}
+  - {fileID: 11400000, guid: ad3897b5ada7eb24a8a5b56882ecfcb0, type: 2}

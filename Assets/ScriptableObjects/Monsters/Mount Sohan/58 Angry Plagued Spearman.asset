@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Undead
+  raceEnum: 0
   level: 58
   levelint: 58
   stage: 3
+  blockNormalAttackChange: 0
   stageint: 3
   monsterName: Angry Plagued Spearman
   location: Mount Sohan
@@ -27,4 +30,11 @@ MonoBehaviour:
   exp: 1304
   expint: 1304
   health: 88
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 0c683b6f69efa8c449613c3bb8f78cda, type: 2}
+  - {fileID: 11400000, guid: 45e65869fc27c514dbc8d8342e2dc8a3, type: 2}
+  - {fileID: 11400000, guid: da6ddb56efb3fda4c90d66ef8eb323d9, type: 2}

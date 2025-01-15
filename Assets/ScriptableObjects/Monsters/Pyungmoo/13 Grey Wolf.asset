@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Animal
+  raceEnum: 0
   level: 13
   levelint: 13
   stage: 1
+  blockNormalAttackChange: 0
   stageint: 1
   monsterName: Grey Wolf
   location: Joan,Pyungmoo,Yongan
@@ -29,4 +32,12 @@ MonoBehaviour:
   exp: 159
   expint: 159
   health: 24
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 7a13670bd3faf5341a95d6b0dd005a18, type: 2}
+  - {fileID: 11400000, guid: 49838bac4f5e9f34ab55e7603e280511, type: 2}
+  - {fileID: 11400000, guid: fe205cc7691d1b146a7741ae4258ba93, type: 2}
+  - {fileID: 11400000, guid: 6b941db5b9adf434d8a0252b8dd33ba0, type: 2}

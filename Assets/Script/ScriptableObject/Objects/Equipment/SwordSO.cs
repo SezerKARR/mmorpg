@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Script.Equipment;
 using UnityEngine;
 
@@ -17,6 +18,23 @@ namespace Script.ScriptableObject.Equipment
         public List<float> attackSpeed = new List<float>();
         public TypeWeapon typeWeapon;
         public int sockets;
+        public override List<string> GetStatsString( int itemPlus )
+        {
+            string magicString = "";
+            if (minAndMaxMagicalAttackValue != null&& minAndMaxMagicalAttackValue.Count>0)
+            {
+                magicString = "Magic Attack Value: " + minAndMaxMagicalAttackValue[itemPlus].x + "-" +
+                              minAndMaxMagicalAttackValue[itemPlus].y;
+
+            }
+            
+            return new List<string>()
+            {
+                "Attack Value: "+ minAndMaxAttackValue[itemPlus].x+"-"+minAndMaxAttackValue[itemPlus].y,
+                magicString,
+                "Attack Speed:"+attackSpeed[itemPlus]+"%"
+            };
+        }
         // public override EquipmentType GetEquipmentType()
         // {
         //     return weaponType;
@@ -49,6 +67,6 @@ namespace Script.ScriptableObject.Equipment
         // }
 
 
-    
+        
     }
 }

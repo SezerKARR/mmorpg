@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Undead
+  raceEnum: 0
   level: 53
   levelint: 53
   stage: 2
+  blockNormalAttackChange: 0
   stageint: 2
   monsterName: Angry Plagued Man
   location: Mount Sohan
@@ -27,4 +30,12 @@ MonoBehaviour:
   exp: 715
   expint: 715
   health: 39
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 7a298623f60ee4d43baa10dd0a5c86cb, type: 2}
+  - {fileID: 11400000, guid: 387efa0d206f29140bce0357ac5b78d3, type: 2}
+  - {fileID: 11400000, guid: 36402463a6169f042bb06832631cf4ec, type: 2}
+  - {fileID: 11400000, guid: da6ddb56efb3fda4c90d66ef8eb323d9, type: 2}

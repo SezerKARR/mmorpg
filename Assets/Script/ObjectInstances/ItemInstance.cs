@@ -15,6 +15,17 @@ namespace Script.ObjectInstances
         public int level=>scriptableItemsAbstract.level;
         public List<CharacterType> canUseCharacters=>scriptableItemsAbstract.canUseCharacters;
         public EquipmentType equipmentType => scriptableItemsAbstract.equipmentType;
-      
+        public string ItemName() => scriptableItemsAbstract.itemName+" "+currentPlus;
+        public List<string> itemStats => scriptableItemsAbstract.GetStatsString(currentPlus);
+        public List<string> ItemBonuses(){
+            List<string> bonusesString = new List<string>();
+            foreach (var bonus in bonuses)
+            {
+                bonusesString.Add($"{bonus.bonusName}"+": "+"{bonus.bonusValue}"); 
+            }
+            return bonusesString;
+        }
+        public override string DropName() {return ItemName(); }
+
     }
 }

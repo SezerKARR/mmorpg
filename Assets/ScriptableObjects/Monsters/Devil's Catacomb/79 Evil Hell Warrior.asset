@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - Darkness
+  elements: 0
   race: Undead
+  raceEnum: 0
   level: 79
   levelint: 79
   stage: 1
+  blockNormalAttackChange: 0
   stageint: 1
   monsterName: Evil Hell Warrior
   location: Devil's Catacomb
@@ -27,4 +30,11 @@ MonoBehaviour:
   exp: 739
   expint: 739
   health: 18
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 2106ff0e547943b40b8e37b9b6ea8fef, type: 2}
+  - {fileID: 11400000, guid: 1a7fa16f262b48e43b76895a6fb5f89b, type: 2}
+  - {fileID: 11400000, guid: c42e9d13a13e14c4d897b282cfcd2f84, type: 2}

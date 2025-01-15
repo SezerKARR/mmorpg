@@ -2,7 +2,7 @@ using Script.ObjectInstances;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Script.Inventory.Page
+namespace Script.InventorySystem.Page
 {
     [System.Serializable]
     public class ObjectsRow

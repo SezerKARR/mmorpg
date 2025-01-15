@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Orc
+  raceEnum: 0
   level: 31
   levelint: 31
   stage: 2
+  blockNormalAttackChange: 0
   stageint: 2
   monsterName: Orc Fighter
   location: Valley of Seungryong
@@ -27,4 +30,11 @@ MonoBehaviour:
   exp: 1086
   expint: 1086
   health: 105
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 6249442425ca9ab43b37dc87d184d7d4, type: 2}
+  - {fileID: 11400000, guid: ad6e68eacdd00ea48b90c31d806525f7, type: 2}
+  - {fileID: 11400000, guid: e06a102f042b4c349a2d5c6fa63d998e, type: 2}

@@ -74,10 +74,14 @@ namespace Script.InventorySystem.inventory
         //     inventoryStorageSo.pageModels[cellsInfo.pageIndex].AddObjectToPage(changeInstance.ObjectInstance);
         //     
         // }
-        public CellsInfo GetChangePos(ObjectInstance objectInstance,int2 cell,int pageIndex)
+        public void GetChangePos(ObjectInstance objectInstance,int2 cell,int pageIndex)
         {
-           return new CellsInfo{cells = inventoryStorageSo.pageModels[pageIndex].ControlEmptyCell(cell, objectInstance.weightInInventory,
-               objectInstance.howMany),pageIndex = pageIndex};
+            CellsInfo cellsInfo= inventoryStorageSo.pageModels[pageIndex].ControlEmptyCell(cell, objectInstance.weightInInventory,
+                objectInstance.howMany);
+            if (cellsInfo != null)
+            {
+                InventoryEvent.OnCreateItem(objectInstance,cellsInfo);
+            }
             // if (cells != null)
             // {
             //     _inventoryStorageSo.pageModels[objectController.ObjectInstance.cellsInfo.pageIndex].ResetButtons(objectController.ObjectInstance.cellsInfo.cells);
@@ -93,13 +97,13 @@ namespace Script.InventorySystem.inventory
             
             int page=equipped.cellsInfo.pageIndex;
             
-            List<int2> unequipcells = inventoryStorageSo.pageModels[page].ControlUnequipSamePos(unequipped,temp, equipped.weightInInventory);
+            CellsInfo unequipcells = inventoryStorageSo.pageModels[page].ControlUnequipSamePos(unequipped,temp, equipped.weightInInventory);
             
             if ( unequipcells!=null)
             {
                 equipped.currentHolder.RemoveObject(equipped);
 
-                InventoryEvent.OnCreateItem( unequipped, new CellsInfo() { cells = unequipcells, pageIndex = page });
+                InventoryEvent.OnCreateItem( unequipped,unequipcells);
                 return true;
             }
 
@@ -144,10 +148,10 @@ namespace Script.InventorySystem.inventory
             foreach (PageModel page in inventoryStorageSo.pageModels)
             {
                 
-                List<int2> cells = page.ControlEmpty(weightInInventory, howMany);
+                CellsInfo cells = page.ControlEmpty(weightInInventory, howMany);
                 if (cells != null)
                 {
-                    return new CellsInfo { cells = cells, pageIndex = page.pageIndex };
+                    return cells;
                 }
             }
 

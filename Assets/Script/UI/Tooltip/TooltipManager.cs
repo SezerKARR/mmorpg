@@ -12,7 +12,7 @@ using UnityEngine;
 public class TooltipManager : MonoBehaviour
 {
     public static TooltipManager Instance;
-    public ToolTip tooltip;
+    public ItemToolTip tooltip;
     [SerializeField]
     private ScriptableObject swords;
     public RectTransform rectTransform;
@@ -24,8 +24,13 @@ public class TooltipManager : MonoBehaviour
 
     private void OnEnable()
     {
-        ToolTipEvent.OnTooltip += Screen;
+        ToolTipEvent.OnTooltip += Open;
         ToolTipEvent.OnTooltipClose += Hide;
+    }
+
+    private void Open(ObjectInstance obj)
+    {
+        if(obj is ItemInstance a){Screen(a);}
     }
 
     private void Start()
@@ -52,11 +57,18 @@ public class TooltipManager : MonoBehaviour
     }
 
 
-    public void Screen(ObjectInstance objectInstance)
+    // public void Screen(ObjectInstance objectInstance)
+    // {
+    //     
+    //     tooltip.GameObject().SetActive(true);
+    //     tooltip.Screen(objectInstance);
+    //
+    // }
+    public void Screen(ItemInstance itemInstance)
     {
         
         tooltip.GameObject().SetActive(true);
-        tooltip.Screen(objectInstance);
+        tooltip.Screen(itemInstance);
 
     }
     public void Hide()

@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - Lightning
+  elements: 0
   race: 
+  raceEnum: 0
   level: 73
   levelint: 73
   stage: 3
+  blockNormalAttackChange: 0
   stageint: 3
   monsterName: Ogre Butcher
   location: Land of Giants
@@ -27,4 +30,12 @@ MonoBehaviour:
   exp: ???
   expint: 2147483647
   health: 117670336
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 65c625339babca24b840ae2a993293e7, type: 2}
+  - {fileID: 11400000, guid: a63ca53407f56d04ca53d334c3136af8, type: 2}
+  - {fileID: 11400000, guid: 1a7fa16f262b48e43b76895a6fb5f89b, type: 2}
+  - {fileID: 11400000, guid: c42e9d13a13e14c4d897b282cfcd2f84, type: 2}

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7957775936787354902}
   - component: {fileID: 6410966199706208368}
   m_Layer: 5
-  m_Name: AtackDamage
+  m_Name: ToolTipText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,8 +34,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.4262, y: 2.1889}
-  m_SizeDelta: {x: 129.2536, y: 13.4647}
+  m_AnchoredPosition: {x: -0.646, y: 20.969}
+  m_SizeDelta: {x: 127.1092, y: 51.0244}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7957775936787354902
 CanvasRenderer:
@@ -92,7 +92,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12.05
+  m_fontSize: 31.15
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

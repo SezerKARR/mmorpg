@@ -15,9 +15,9 @@ MonoBehaviour:
   characterName: Satisfaction
   characterType: 1
   typeWeapon: 0
-  level: 3
-  exp: 0
-  stats:
+  level: 25
+  exp: 39530
+  charStats:
     tKeys: 0600000008000000010000000200000007000000
     tValues:
     - 0
@@ -28,3 +28,4 @@ MonoBehaviour:
   haveGroup: 0
   groupType: 0
   element: 0
+  expRate: 52.01

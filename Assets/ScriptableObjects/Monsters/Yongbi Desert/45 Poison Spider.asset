@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Insect
+  raceEnum: 0
   level: 45
   levelint: 45
   stage: 1
+  blockNormalAttackChange: 0
   stageint: 1
   monsterName: Poison Spider
   location: Yongbi Desert
@@ -27,4 +30,12 @@ MonoBehaviour:
   exp: 1267
   expint: 1267
   health: 56
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 1128d7430be684947b2daf7e6309aa72, type: 2}
+  - {fileID: 11400000, guid: f9fc8965710a3eb499b71e02aab73851, type: 2}
+  - {fileID: 11400000, guid: 138735fdb7dd95f488902d2e199bb045, type: 2}
+  - {fileID: 11400000, guid: da6ddb56efb3fda4c90d66ef8eb323d9, type: 2}

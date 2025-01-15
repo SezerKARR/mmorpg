@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Insect
+  raceEnum: 0
   level: 43
   levelint: 43
   stage: 1
+  blockNormalAttackChange: 0
   stageint: 1
   monsterName: Mean Baby Poison Spider
   location: Yongbi Desert
@@ -27,4 +30,11 @@ MonoBehaviour:
   exp: 848
   expint: 848
   health: 38
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: f9fc8965710a3eb499b71e02aab73851, type: 2}
+  - {fileID: 11400000, guid: 138735fdb7dd95f488902d2e199bb045, type: 2}
+  - {fileID: 11400000, guid: da6ddb56efb3fda4c90d66ef8eb323d9, type: 2}

@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Script.Inventory.Page;
+using Script.InventorySystem.inventory;
 using Script.InventorySystem.Objects;
 using Script.ObjectInstances;
 using Unity.Mathematics;
@@ -93,30 +93,32 @@ namespace Script.InventorySystem.Page
             // }
             return false;
         }
-        public List<int2> ControlUnequipSamePos(ItemInstance unEquipObject, List<int2> tempcells ,int weightInInventory)
+        public CellsInfo ControlUnequipSamePos(ItemInstance unEquipObject, List<int2> tempcells ,int weightInInventory)
         {
             if (unEquipObject.weightInInventory <= weightInInventory)
             {
-               
-                return tempcells.GetRange(0,unEquipObject.weightInInventory);
+
+                return new CellsInfo()
+                    { cells = tempcells.GetRange(0, unEquipObject.weightInInventory), pageIndex = pageIndex };
             }
             
-            List<int2> tempcel2 = ControlEmptyCell(new int2(tempcells[0].x, tempcells[^1 ].y+1),
+            CellsInfo tempcel2 = ControlEmptyCell(new int2(tempcells[0].x, tempcells[^1 ].y+1),
                 unEquipObject.weightInInventory -weightInInventory, 1);
             if( tempcel2!=null)
             {
-                foreach (var cell in tempcel2)
+                foreach (var cell in tempcel2.cells)
                 {
                     tempcells.Add(cell);
                 }
-                return tempcells;
-                
+
+                return new CellsInfo() { cells = tempcells, pageIndex = pageIndex };
+
             }
             return null;
         }
 
         
-        public List<int2>  ControlEmpty(int weightInInventory,int howMany)
+        public CellsInfo  ControlEmpty(int weightInInventory,int howMany)
         {   
             
             for (int i = 0; i < RowCount; i++)
@@ -129,16 +131,16 @@ namespace Script.InventorySystem.Page
                         cells.Add(new int2(i,j));
                         if (weightInInventory == 1)
                         {
-                            return cells;
+                            return new CellsInfo() { cells = cells, pageIndex = pageIndex };
                         }
 
                         if (weightInInventory > 1)
                         {
-                            List<int2> tempCells = ControlEmptyCell(new int2(i, j + 1), weightInInventory - 1, howMany);
+                            CellsInfo tempCells = ControlEmptyCell(new int2(i, j + 1), weightInInventory - 1, howMany);
                             if (tempCells != null)
                             {
-                                cells.AddRange(tempCells);
-                                return cells;
+                                cells.AddRange(tempCells.cells);
+                                return new CellsInfo() { cells = cells, pageIndex = pageIndex };
 
                             }
                             
@@ -149,7 +151,7 @@ namespace Script.InventorySystem.Page
             }
             return null;
         }
-        public  List<int2> ControlEmptyCell(int2 rowAndColumnCount, int weightInInventory,int howMany)
+        public  CellsInfo ControlEmptyCell(int2 rowAndColumnCount, int weightInInventory,int howMany)
         {
             if (weightInInventory + rowAndColumnCount.y>ColumnCount)
             {
@@ -165,7 +167,7 @@ namespace Script.InventorySystem.Page
                     cells.Add(new int2(rowAndColumnCount.x, rowAndColumnCount.y+i));
                     if (cells.Count == weightInInventory)
                     {
-                        return cells;
+                        return new CellsInfo() { cells = cells, pageIndex = pageIndex };
                     }
                 }
                 else

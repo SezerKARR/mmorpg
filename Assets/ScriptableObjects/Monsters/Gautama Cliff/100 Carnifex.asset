@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Half H.
+  raceEnum: 0
   level: 100
   levelint: 100
   stage: 3
+  blockNormalAttackChange: 0
   stageint: 3
   monsterName: Carnifex
   location: Gautama Cliff
@@ -27,4 +30,11 @@ MonoBehaviour:
   exp: 8661
   expint: 8661
   health: 344
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 110a72af547c0fa45bdd30dd4a0be2ca, type: 2}
+  - {fileID: 11400000, guid: 77ad5bbee2e66c44fb351ce9a70a5e68, type: 2}
+  - {fileID: 11400000, guid: 7cc58af4687f95d4c9a297f2bba55f49, type: 2}

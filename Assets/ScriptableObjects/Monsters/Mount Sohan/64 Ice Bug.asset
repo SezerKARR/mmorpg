@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - Ice
+  elements: 0
   race: 
+  raceEnum: 0
   level: 64
   levelint: 64
   stage: 2
+  blockNormalAttackChange: 0
   stageint: 2
   monsterName: Ice Bug
   location: Mount Sohan
@@ -27,4 +30,12 @@ MonoBehaviour:
   exp: 679
   expint: 679
   health: 30
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 13116d1125a01e54cac9866b6c941195, type: 2}
+  - {fileID: 11400000, guid: 3b9b9578910e54e48891de969be7fc14, type: 2}
+  - {fileID: 11400000, guid: 4caa5e62b2569284d8f1c481e29f9e6d, type: 2}
+  - {fileID: 11400000, guid: c42e9d13a13e14c4d897b282cfcd2f84, type: 2}

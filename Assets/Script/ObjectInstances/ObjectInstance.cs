@@ -4,11 +4,12 @@ using Script.Interface;
 using Script.InventorySystem.inventory;
 using Script.ScriptableObject;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Script.ObjectInstances
 {
     [Serializable]
-    public class ObjectInstance
+    public  class ObjectInstance
     {
         public IInstanceHolder<ObjectInstance> currentHolder;
         public int howMany;
@@ -19,7 +20,12 @@ namespace Script.ObjectInstances
         public int weightInInventory=> objectAbstract.weightInInventory;
         public ObjectType type => objectAbstract.Type;
 
-       
+        public virtual string DropName()
+        {
+            return null;
+        }
+
+
 
     }
 }

@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Animal
+  raceEnum: 0
   level: 15
   levelint: 15
   stage: 2
+  blockNormalAttackChange: 0
   stageint: 2
   monsterName: Hungry Grizzly
   location: Joan,Pyungmoo,Yongan
@@ -29,4 +32,12 @@ MonoBehaviour:
   exp: 154
   expint: 154
   health: 30
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 01c7607e9cb77ec4ba6189e39b33b10f, type: 2}
+  - {fileID: 11400000, guid: b0758e50dbba2fa448553f4e7a456ddf, type: 2}
+  - {fileID: 11400000, guid: fe205cc7691d1b146a7741ae4258ba93, type: 2}
+  - {fileID: 11400000, guid: 6b941db5b9adf434d8a0252b8dd33ba0, type: 2}

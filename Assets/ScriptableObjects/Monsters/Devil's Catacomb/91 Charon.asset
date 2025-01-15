@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - Darkness
+  elements: 0
   race: Undead
+  raceEnum: 0
   level: 91
   levelint: 91
   stage: 5
+  blockNormalAttackChange: 0
   stageint: 5
   monsterName: Charon
   location: Devil's Catacomb
@@ -27,4 +30,11 @@ MonoBehaviour:
   exp: 333600
   expint: 333600
   health: 21990
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 4e70fef8b2c3031438b0d22d47ddce26, type: 2}
+  - {fileID: 11400000, guid: a63ccc66c8f3ea44eba0d6d8f1069629, type: 2}
+  - {fileID: 11400000, guid: ad3897b5ada7eb24a8a5b56882ecfcb0, type: 2}

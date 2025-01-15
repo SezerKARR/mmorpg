@@ -17,11 +17,11 @@ namespace Script.ObjectInstances
                 };
                 return tempItemInstance;
             }
-            ObjectInstance tempObjectInstance = new ObjectInstance
-            {
-                objectAbstract = objectAbstract
-            };
-            return tempObjectInstance;
+            // ObjectInstance tempObjectInstance = new ObjectInstance
+            // {
+            //     objectAbstract = objectAbstract
+            // };
+            return null;
         }
         public static ObjectInstance ObjectInstance(ObjectInstance objectAbstract)
         {

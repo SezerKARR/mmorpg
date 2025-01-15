@@ -53,7 +53,6 @@ namespace Script.InventorySystem.inventory
         {
            
 
-            InventoryEvent.OnDropObject += RemoveObject;
             ObjectEvents.OnPickUp += PickUp;
             PageChangeButton.OnChangePageClicked += ChangePage;
             InputPlayer.OnGroundClicked += GroundClicked;
@@ -79,14 +78,7 @@ namespace Script.InventorySystem.inventory
         {
             if (this._currentObjectController != null)
             {
-                CellsInfo changePos = inventoryStorage.GetChangePos(this._currentObjectController.ObjectInstance, GridPositionCalculate(position), pageIndex);
-                if (changePos!=null)
-                {
-                    RemoveObject(this._currentObjectController.ObjectInstance);
-                    this._currentObjectController = null;
-                    ImageUnderCursor.OnCloseImageUnderCursor?.Invoke();
-                }
-                
+               inventoryStorage.GetChangePos(this._currentObjectController.ObjectInstance, GridPositionCalculate(position), pageIndex);
             }
         }
 
@@ -122,19 +114,15 @@ namespace Script.InventorySystem.inventory
             if (this._currentObjectController != null)
             {
                 UIEvent.OnOpenConfirm?.Invoke(
-                    $"{_currentObjectController.ObjectInstance.objectAbstract.dropName} Do you want drop this object?.",
+                    $"{_currentObjectController.ObjectInstance.DropName()} Do you want drop this object?.",
                     DropObject);
             }
         }
 
         private void DropObject()
         {
+            
             InventoryEvent.OnDropObject?.Invoke(_currentObjectController.ObjectInstance);
-        }
-
-        public void AddObject(ObjectInstance objectToAdd)
-        {
-            throw new NotImplementedException();
         }
 
         public override void RemoveObject(ObjectInstance objectInstanceToRemove)
@@ -155,6 +143,7 @@ namespace Script.InventorySystem.inventory
 
         public void SpawnObject(ObjectInstance objectToSpawn,CellsInfo cellsInfo)
         {
+            objectToSpawn.currentHolder = this;
             _objectPooler.SpawnFromPool<ObjectController>(objectToSpawn.type.ToString(),inventoryPage[objectToSpawn.cellsInfo.pageIndex].transform).Place(objectToSpawn);
         
         }

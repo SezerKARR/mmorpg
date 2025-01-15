@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - Darkness
+  elements: 0
   race: Undead
+  raceEnum: 0
   level: 67
   levelint: 67
   stage: 3
+  blockNormalAttackChange: 0
   stageint: 3
   monsterName: Brutal Demon Soldier
   location: Demon Tower
@@ -27,4 +30,11 @@ MonoBehaviour:
   exp: 2152
   expint: 2152
   health: 128
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 58de9b34773b78f49a1f6f3b4d08cb46, type: 2}
+  - {fileID: 11400000, guid: 107d9e1751d9995458d96abe0ae34315, type: 2}
+  - {fileID: 11400000, guid: c42e9d13a13e14c4d897b282cfcd2f84, type: 2}

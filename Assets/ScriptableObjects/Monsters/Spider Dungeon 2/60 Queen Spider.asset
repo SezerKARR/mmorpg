@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - Wind
+  elements: 0
   race: Insect
+  raceEnum: 0
   level: 60
   levelint: 60
   stage: Boss
+  blockNormalAttackChange: 0
   stageint: 0
   monsterName: Queen Spider
   location: Kuahlo Dong,Spider Dungeon 2
@@ -28,4 +31,11 @@ MonoBehaviour:
   exp: 19280
   expint: 19280
   health: 321
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: c5f46a0f8c4667647a29aa8bcfac2175, type: 2}
+  - {fileID: 11400000, guid: 45e65869fc27c514dbc8d8342e2dc8a3, type: 2}
+  - {fileID: 11400000, guid: da6ddb56efb3fda4c90d66ef8eb323d9, type: 2}

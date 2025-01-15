@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Animal
+  raceEnum: 0
   level: 24
   levelint: 24
   stage: 2
+  blockNormalAttackChange: 0
   stageint: 2
   monsterName: White Tiger
   location: Joan,Pyungmoo,Yongan
@@ -29,4 +32,12 @@ MonoBehaviour:
   exp: 582
   expint: 582
   health: 72
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 8867621b74e7ec5458fdee4550869571, type: 2}
+  - {fileID: 11400000, guid: e69e4a84ff3a8f444b1ffeb4c81fca0c, type: 2}
+  - {fileID: 11400000, guid: 8c143813ea1d60c4caa0f4c925847b9c, type: 2}
+  - {fileID: 11400000, guid: e06a102f042b4c349a2d5c6fa63d998e, type: 2}

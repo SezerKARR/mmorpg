@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - 
+  elements: 0
   race: Insect
+  raceEnum: 0
   level: 52
   levelint: 52
   stage: 2
+  blockNormalAttackChange: 0
   stageint: 2
   monsterName: Soldier Spider
   location: Yongbi Desert
@@ -27,4 +30,12 @@ MonoBehaviour:
   exp: 1756
   expint: 1756
   health: 99
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 06cf2a83b7b7ac64e9fe1356e869314f, type: 2}
+  - {fileID: 11400000, guid: 387efa0d206f29140bce0357ac5b78d3, type: 2}
+  - {fileID: 11400000, guid: 36402463a6169f042bb06832631cf4ec, type: 2}
+  - {fileID: 11400000, guid: da6ddb56efb3fda4c90d66ef8eb323d9, type: 2}

@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - Wind
+  elements: 0
   race: Half H.
+  raceEnum: 0
   level: 35
   levelint: 35
   stage: 3
+  blockNormalAttackChange: 0
   stageint: 3
   monsterName: Black Storm Archer
   location: Bokjung,Yayang,Bakra
@@ -29,4 +32,11 @@ MonoBehaviour:
   exp: 946
   expint: 946
   health: 108
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: b8ccd662560f6f04eb1aac3779723d26, type: 2}
+  - {fileID: 11400000, guid: aad0302a4e9fca74e9992165a3a38631, type: 2}
+  - {fileID: 11400000, guid: e06a102f042b4c349a2d5c6fa63d998e, type: 2}

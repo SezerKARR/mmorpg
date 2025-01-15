@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - Darkness
+  elements: 0
   race: Undead
+  raceEnum: 0
   level: 59
   levelint: 59
   stage: 2
+  blockNormalAttackChange: 0
   stageint: 2
   monsterName: Demon Spearman
   location: Demon Tower
@@ -27,4 +30,11 @@ MonoBehaviour:
   exp: 1182
   expint: 1182
   health: 60
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 0c683b6f69efa8c449613c3bb8f78cda, type: 2}
+  - {fileID: 11400000, guid: 45e65869fc27c514dbc8d8342e2dc8a3, type: 2}
+  - {fileID: 11400000, guid: da6ddb56efb3fda4c90d66ef8eb323d9, type: 2}

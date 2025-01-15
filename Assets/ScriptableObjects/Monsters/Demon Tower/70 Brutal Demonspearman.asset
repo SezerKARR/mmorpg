@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - Darkness
+  elements: 0
   race: Undead
+  raceEnum: 0
   level: 70
   levelint: 70
   stage: 3
+  blockNormalAttackChange: 0
   stageint: 3
   monsterName: Brutal Demonspearman
   location: Demon Tower
@@ -27,4 +30,11 @@ MonoBehaviour:
   exp: 2248
   expint: 2248
   health: 128
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: 7a0e73e1ab380f64f888f263c8ce3fd1, type: 2}
+  - {fileID: 11400000, guid: 35e14a5a6e883c74183c2566e91689a9, type: 2}
+  - {fileID: 11400000, guid: c42e9d13a13e14c4d897b282cfcd2f84, type: 2}

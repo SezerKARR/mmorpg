@@ -15,10 +15,13 @@ MonoBehaviour:
   Image: {fileID: 0}
   Resistance:
   - Ice
+  elements: 0
   race: 
+  raceEnum: 0
   level: 62
   levelint: 62
   stage: 2
+  blockNormalAttackChange: 0
   stageint: 2
   monsterName: Enchanted Ice
   location: Mount Sohan
@@ -27,4 +30,12 @@ MonoBehaviour:
   exp: 1315
   expint: 1315
   health: 63
-  canDrops: []
+  defense: 0
+  waponTypeDefence:
+    tKeys: 
+    tValues: []
+  canDrops:
+  - {fileID: 11400000, guid: cd131f4d60734764ba94e1b87b2d6884, type: 2}
+  - {fileID: 11400000, guid: 3b9b9578910e54e48891de969be7fc14, type: 2}
+  - {fileID: 11400000, guid: 4caa5e62b2569284d8f1c481e29f9e6d, type: 2}
+  - {fileID: 11400000, guid: c42e9d13a13e14c4d897b282cfcd2f84, type: 2}
