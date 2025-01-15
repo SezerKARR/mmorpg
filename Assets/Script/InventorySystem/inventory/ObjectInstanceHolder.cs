@@ -13,22 +13,18 @@ namespace Script.InventorySystem.inventory
         public virtual void AddObject(ObjectInstance objectToAdd, CellsInfo cellsInfo)
         {
             _currentInstance = objectToAdd;
-            try
-            {
-                _currentInstance.currentHolder.RemoveObject(_currentInstance);
+            _currentInstance.currentHolder?.RemoveObject(_currentInstance);
 
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-            }
+
             _currentInstance.cellsInfo = cellsInfo;
             _currentInstance.currentHolder = this;
         }
 
         public virtual void RemoveObject(ObjectInstance objectToRemove)
         {
+            objectToRemove.currentHolder=null;
             _currentInstance=null;
+            
         }
     }
 }

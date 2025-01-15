@@ -59,7 +59,7 @@ namespace Script.InventorySystem.inventory
             InputPlayer.OnGroundClicked += GroundClicked;
             ObjectEvents.ObjectClicked += ObjectSelected;
             InventoryEvent.OnCreateItem += AddObject;
-            InventoryEvent.OnInitializeStorageItem += AddObject;
+            InventoryEvent.OnInitializeStorageItem += SpawnObject;
             // InventoryEvent.OnUnEquipItem += ChangePosition;
             PageEvent.OnClickPage += OnClickPage;
             // InventoryEvent.OnChangedObjectPosition += ChangePosition;

@@ -38,7 +38,6 @@ namespace Script.InventorySystem.inventory
                 {
                     Debug.Log(objectInstance.objectAbstract);
                     Debug.Log(objectInstance);
-                    RemoveObject(objectInstance);
                     InventoryEvent.OnInitializeStorageItem(objectInstance,objectInstance.cellsInfo);
                 }
                 
@@ -90,20 +89,19 @@ namespace Script.InventorySystem.inventory
         }
         public bool ChangeItem(ItemInstance unequipped, ItemInstance equipped)
         {
-            // List<int2>temp = equipped.cellsInfo.cells;
-            //
-            // int page=equipped.cellsInfo.pageIndex;
-            //
-            //
-            // List<int2> unequipcells = inventoryStorageSo.pageModels[page].ControlUnequipSamePos(unequipped,temp, equipped.weightInInventory);
-            //
-            // if ( unequipcells!=null)
-            // {
-            //     InventoryEvent.OnCreateItem( unequipped, new CellsInfo() { cells = unequipcells, pageIndex = page });
-            //     return true;
-            // }
-            // equipped.cellsInfo = new CellsInfo(){cells = temp, pageIndex = page};
-            // AddObjectsToInventory(equipped);
+            List<int2>temp = equipped.cellsInfo.cells;
+            
+            int page=equipped.cellsInfo.pageIndex;
+            
+            List<int2> unequipcells = inventoryStorageSo.pageModels[page].ControlUnequipSamePos(unequipped,temp, equipped.weightInInventory);
+            
+            if ( unequipcells!=null)
+            {
+                equipped.currentHolder.RemoveObject(equipped);
+
+                InventoryEvent.OnCreateItem( unequipped, new CellsInfo() { cells = unequipcells, pageIndex = page });
+                return true;
+            }
 
             return IsCreateObjectEmptyCell(unequipped);
         }
