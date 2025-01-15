@@ -19241,7 +19241,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4024506205104309778, guid: 71068ed24ae6b1a448679ccc8520518b, type: 3}
       propertyPath: creatureCount
-      value: 10
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 6661815738855771289, guid: 71068ed24ae6b1a448679ccc8520518b, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23889,6 +23889,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectView: {fileID: 0}
+  objectInstance:
+    howMany: 0
+    objectAbstract: {fileID: 0}
+    cellsInfo:
+      cells: []
+      pageIndex: 0
 --- !u!1 &1113808485 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1985636822569028950, guid: 2cec70ab26e0ad1428917c7a090dbfcb, type: 3}
@@ -27047,6 +27053,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 516cbcb89e687d0459b37a626776d2b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inventorObjectable:
+    howMany: 0
+    objectAbstract: {fileID: 0}
+    cellsInfo:
+      cells: []
+      pageIndex: 0
   tooltip: {fileID: 505758878}
   UpgradeItemImage: {fileID: 1193567678}
   okeyButton: {fileID: 2109925161}
@@ -101408,8 +101420,12 @@ PrefabInstance:
     m_TransformParent: {fileID: 470786338}
     m_Modifications:
     - target: {fileID: 6410966199706208368, guid: 351cfb27448ce3044930972ba9ce29cc, type: 3}
+      propertyPath: m_text
+      value: '[WearAble]'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6410966199706208368, guid: 351cfb27448ce3044930972ba9ce29cc, type: 3}
       propertyPath: m_fontSize
-      value: 72
+      value: 18.9
       objectReference: {fileID: 0}
     - target: {fileID: 8284386678436517419, guid: 351cfb27448ce3044930972ba9ce29cc, type: 3}
       propertyPath: m_Pivot.x

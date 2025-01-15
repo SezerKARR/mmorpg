@@ -3,6 +3,7 @@ using Script.Equipment;
 using Script.InventorySystem.inventory;
 using Script.ObjectInstances;
 using Script.ScriptableObject;
+using Script.UI.Tooltip;
 using UnityEngine.Serialization;
 
 namespace Script.InventorySystem.Objects
@@ -31,6 +32,18 @@ namespace Script.InventorySystem.Objects
                 ItemEvents.OnItemRightClickedEquipment(this);
             }*/
             
+        }
+
+        protected override void OnExit()
+        {
+            base.OnExit();
+            ItemToolTip.OnHide?.Invoke();
+        }
+
+        protected override void OnEnter()
+        {
+            base.OnEnter();
+            ItemToolTip.OnScreen?.Invoke(itemInstance);
         }
 
         public override void Place(ObjectInstance objectInstancePlace)

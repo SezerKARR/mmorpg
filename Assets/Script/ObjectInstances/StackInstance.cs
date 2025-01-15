@@ -7,7 +7,7 @@ namespace Script.ObjectInstances
     {
         public override string DropName()
         {
-            throw new NotImplementedException();
+           return base.DropName();
         }
     }
 }

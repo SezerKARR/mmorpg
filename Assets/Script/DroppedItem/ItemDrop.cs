@@ -29,10 +29,9 @@ namespace Script.DroppedItem
         public abstract DropType GetDropType();
         protected virtual void SetDropName()
         {
-            if (this._howMany > 1)
-            {
+           
                 itemName.text = _objectInstance.DropName();
-            }
+            
         }
         public virtual void OnActivate(ObjectInstance item ,string playerName, Vector3 position)
         {

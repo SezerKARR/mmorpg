@@ -20,9 +20,15 @@ namespace Script.ObjectInstances
         public int weightInInventory=> objectAbstract.weightInInventory;
         public ObjectType type => objectAbstract.Type;
 
+        public virtual string ObjectName()
+        {
+            return objectAbstract.itemName;}
+
+        public virtual string Description(){return null;}
+
         public virtual string DropName()
         {
-            return null;
+            return objectAbstract.itemName + " x " + howMany;
         }
 
 

@@ -17,6 +17,12 @@ namespace Script.ObjectInstances
                 };
                 return tempItemInstance;
             }
+
+            if (objectAbstract.Type == ObjectType.Stack)
+            {
+                StackInstance stackInstance = new StackInstance() { objectAbstract = objectAbstract };
+                return stackInstance;
+            }
             // ObjectInstance tempObjectInstance = new ObjectInstance
             // {
             //     objectAbstract = objectAbstract

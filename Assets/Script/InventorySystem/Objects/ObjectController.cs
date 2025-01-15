@@ -39,7 +39,7 @@ namespace Script.InventorySystem.Objects
 
         protected virtual void OnEnter()
         {
-            ToolTipEvent.OnTooltip?.Invoke(objectInstance);
+            
         }
 
         public virtual void RightClick() { }
