@@ -1,75 +1,86 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using Script.ObjectInstances;
-using Script.ScriptableObject;
-using Script.UI.Tooltip;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-
-public class TooltipManager : MonoBehaviour
+namespace Script.UI.Tooltip
 {
-    public static TooltipManager Instance;
-    public ToolTip tooltip;
-    [SerializeField]
-    private ScriptableObject swords;
-    public RectTransform rectTransform;
-    private ToolTip _currentTooltip;
-    private void Awake()
+    public class TooltipManager : MonoBehaviour
     {
-        Instance = this;
-    }
+        public ItemToolTip itemTooltip;
+        public ObjectToolTip objectTooltip;
+        
+        private ToolTip _currentTooltip;
 
-    private void OnEnable()
-    {
-        //ToolTipEvent.OnTooltip += Open;
-        // ToolTipEvent.OnTooltipClose += Hide;
-    }
+        private void Awake()
+        {
+           ToolTipEvent.OnTooltip += OpenTooltip;
+           ToolTipEvent.OnItemTooltip += OpenTooltip;
+           ToolTipEvent.OnTooltipClose += CloseToolTip;
 
-   
+        }
 
-   
+        private void CloseToolTip()
+        {
+            _currentTooltip.Hide();
+        }
 
-    private void Start()
-    {
+        public void OpenTooltip(ItemInstance objectInstance)
+        {
+            
+            Opened(itemTooltip, objectInstance);
+        }
+        private void OpenTooltip(ObjectInstance objectInstance)
+        {
+            
+            Opened(objectTooltip, objectInstance);
+        }
+
+        public void Opened(ToolTip toolTip,ObjectInstance objectInstance)
+        {
+            _currentTooltip = toolTip;
+            _currentTooltip.Screen(objectInstance);
+        }
+
+        private void Start()
+        {
         
               
-    }
-    private void Update() {
-        /*if (UIManager.Instance.GetUIElementUnderPointer() != null&&tooltip.GameObject().activeSelf==false)
+        }
+        private void Update() {
+            /*if (UIManager.Instance.GetUIElementUnderPointer() != null&&ItemTooltip.GameObject().activeSelf==false)
         {
             if (UIManager.Instance.GetUIElementUnderPointer().GetComponent<IViewable>() != null)
             {
                 rectTransform=UIManager.Instance.GetUIElementUnderPointer().GetComponent<RectTransform>();
-                Screen(UIManager.Instance.GetUIElementUnderPointer().GetComponent<IViewable>());
+                SetName(UIManager.Instance.GetUIElementUnderPointer().GetComponent<IViewable>());
             }
         }
-        if (tooltip.GameObject().activeSelf == true) {
+        if (ItemTooltip.GameObject().activeSelf == true) {
             if (UIManager.Instance.IsPointerOutsideUI(rectTransform))
             {
                 Debug.Log(rectTransform.gameObject.name);
                 Hide();
             }
         }*/
-    }
+        }
 
 
-    // public void Screen(ObjectInstance objectInstance)
-    // {
-    //     
-    //     tooltip.GameObject().SetActive(true);
-    //     tooltip.Screen(objectInstance);
-    //
-    // }
-    // public void Screen(ItemInstance itemInstance)
-    // {
-    //     _currentTooltip = tooltip;
-    //     tooltip.GameObject().SetActive(true);
-    //     tooltip.Screen(itemInstance);
-    //
-    // }
+        // public void SetName(ObjectInstance objectInstance)
+        // {
+        //     
+        //     ItemTooltip.GameObject().SetActive(true);
+        //     ItemTooltip.SetName(objectInstance);
+        //
+        // }
+        // public void SetName(ItemInstance itemInstance)
+        // {
+        //     _currentTooltip = ItemTooltip;
+        //     ItemTooltip.GameObject().SetActive(true);
+        //     ItemTooltip.SetName(itemInstance);
+        //
+        // }
     
 
+    }
 }

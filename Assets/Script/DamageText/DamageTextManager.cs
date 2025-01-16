@@ -21,26 +21,10 @@ namespace Script.DamageText
         private void CreateDamageText(string damage,Vector2 position,DamageType damageType)
         {
             _objectPooler.SpawnFromPool<DamageTextBone>(damageType.ToString()).OnActivate(damage,position);
-            // if(damageTexts.Keys.Contains(da))
-            // GameObject damageText=null;
-            // switch (damageType)
-            // {
-            //     case DamageType.Normal:
-            //         damageText = Instantiate(damageTextPrefab, new Vector3(position.x, position.y, 0), Quaternion.identity);
-            //         break;
-            //     case DamageType.Crit:
-            //         damageText = Instantiate(critDamageTextPrefab, new Vector3(position.x, position.y, 0), Quaternion.identity);
-            //         break;
-            //     case DamageType.Magical:
-            //         damageText = Instantiate(critDamageTextPrefab, new Vector3(position.x, position.y, 0), Quaternion.identity);
-            //         break;
-            // }
-            //
-            // if (damageText != null) damageText.GetComponent<NormalDamageText>().Initialize(damage);
+           
         }
         private void CloseDamageText(DamageTextBone damageTextBone)
         {
-            Debug.Log(            damageTextBone.GetPoolType());
             _objectPooler.ReturnObject(damageTextBone);
         }
     }

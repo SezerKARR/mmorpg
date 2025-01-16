@@ -16,7 +16,7 @@ namespace Script.ObjectInstances
         public ObjectAbstract objectAbstract;
         public CellsInfo cellsInfo;
         public IPool controllerPool;
-        public Sprite ımage => objectAbstract.ımage;
+        public Sprite image => objectAbstract.image;
         public int weightInInventory=> objectAbstract.weightInInventory;
         public ObjectType type => objectAbstract.Type;
 
@@ -30,6 +30,7 @@ namespace Script.ObjectInstances
         {
             return objectAbstract.itemName + " x " + howMany;
         }
+
 
 
 

@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using Script.ScriptableObject;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 namespace Script.UI
 {
     public class UIManager : MonoBehaviour
     {
-        public Confirm Confirm;
-        public static Action<ObjectAbstract> OnUpgradePane11lNeed;
+        public Confirm confirm;
         private void Awake()
         {
        

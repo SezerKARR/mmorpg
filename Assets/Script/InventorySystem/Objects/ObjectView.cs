@@ -40,7 +40,7 @@ namespace Script.InventorySystem.Objects
     
         public virtual void SetObject(ObjectInstance objectInstance)
         {
-            image.sprite = objectInstance.ımage;
+            image.sprite = objectInstance.image;
             if (objectInstance.cellsInfo != null)
             {
                 
@@ -52,7 +52,7 @@ namespace Script.InventorySystem.Objects
         }
         public virtual void SetPosition(ObjectAbstract objectAbstract)
         {
-            this.image.sprite = objectAbstract.ımage;
+            this.image.sprite = objectAbstract.image;
         }
         public void SetPosition(List<int2> cellInt2)
         {
@@ -64,10 +64,10 @@ namespace Script.InventorySystem.Objects
         
             //+new Vector3(cellInt2.x*_imageWidth+_imageWidth/2,cellInt2.y*_imageHeight+_imageHeight/2,transform.position.z);
         }
-        public void SetHowManyText(int howMany)
-        {
-            howManyText.text = howMany.ToString();
-        }
+        // public void SetHowManyText(int howMany)
+        // {
+        //     howManyText.text = howMany.ToString();
+        // }
     
         public  void OnPointerClick(PointerEventData eventData)
         {

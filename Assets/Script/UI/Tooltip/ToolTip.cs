@@ -16,6 +16,10 @@ namespace Script.UI.Tooltip
             OnHide += Hide;
         }
 
+        public virtual void Screen(ObjectInstance obj)
+        {
+            SetText(itemName,obj.ObjectName());
+        }
         protected void SetText(TextMeshProUGUI textMeshProUGUI,string writeText)
         {
             if (writeText != "")
@@ -24,7 +28,7 @@ namespace Script.UI.Tooltip
                 textMeshProUGUI.text = writeText;
             }
         }
-        protected void Hide()
+        public void Hide()
         {
             foreach (Transform child in transform)
             {

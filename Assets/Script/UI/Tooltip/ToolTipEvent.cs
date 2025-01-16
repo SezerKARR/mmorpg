@@ -9,6 +9,7 @@ namespace Script.UI.Tooltip
     public class ToolTipEvent
     {
         public static Action<ObjectInstance> OnTooltip;
+        public static Action<ItemInstance> OnItemTooltip;
         public static UnityAction OnTooltipClose;
     }
 }

@@ -10,8 +10,10 @@ using Script.ObjectInstances;
 using Script.Player;
 using Script.ScriptableObject;
 using Script.ScriptableObject.Prefab;
+using Script.ScriptableObject.UpObject;
 using Script.UI;
 using Unity.Mathematics;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Serialization;
 using Zenject;
@@ -90,16 +92,19 @@ namespace Script.InventorySystem.inventory
              return gridposition;
         }
 
-        public void ChangePosition(ObjectController objectController, CellsInfo cellsInfo)
-        {
-            objectController.Place(inventoryPage[cellsInfo.pageIndex].transform, cellsInfo);
-        }
+       
 
       
         
         private void ObjectSelected(ObjectController objectController)
         {
-            this._currentObjectController = objectController;
+            if (_currentObjectController == null)
+            {
+                this._currentObjectController = objectController;
+                ImageUnderCursor.OnOpen?.Invoke(objectController.ObjectInstance);
+                return;
+            }
+            this._currentObjectController.ObjectInstance.objectAbstract.LeftClick(objectController.ObjectInstance);
         }
 
         public void ChangePage(int pageIndex)

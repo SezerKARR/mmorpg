@@ -1,3 +1,4 @@
+using Script.ObjectInstances;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -27,7 +28,7 @@ namespace Script.ScriptableObject
     public abstract class ObjectAbstract : UnityEngine.ScriptableObject
     {
         [FormerlySerializedAs("Place")] public ItemPlace place;
-        [FormerlySerializedAs("Image")] public Sprite ımage;
+        [FormerlySerializedAs("ımage")] [FormerlySerializedAs("Image")] public Sprite image;
         [FormerlySerializedAs("ıtemName")]  public string itemName;
         public string dropsFrom;
         [FormerlySerializedAs("DropMetins")] public string dropMetins;
@@ -37,8 +38,8 @@ namespace Script.ScriptableObject
         public int stackLimit=1;
         public int weightInInventory = 1;
         public abstract ObjectType Type { get; }
-        
 
+        public virtual void LeftClick(ObjectInstance objectInstance){}
         // public virtual void SetDropName()
         // {
         //     DropName= ItemName;
@@ -97,6 +98,6 @@ namespace Script.ScriptableObject
         // }
 
 
-    
+
     }
 }

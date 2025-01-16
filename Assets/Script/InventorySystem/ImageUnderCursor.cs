@@ -14,6 +14,7 @@ namespace Script.InventorySystem
     public class ImageUnderCursor : MonoBehaviour
     {
         public static Action OnCloseImageUnderCursor;
+        public static Action<ObjectInstance> OnOpen;
         private RectTransform _rectTransform;
         private void Awake()
         {
@@ -21,7 +22,7 @@ namespace Script.InventorySystem
             PageEvent.OnClickPage += Close;
             GameEvent.OnItemDroppedWithoutPlayer += Close;
             InventoryEvent.OnDropObject += Close;
-            ObjectEvents.ObjectClicked += Open;
+            OnOpen += Open;
             _rectTransform = GetComponent<RectTransform>();
             _rectTransform.position = Input.mousePosition;
             if(GetComponent<Image>().sprite==null )gameObject.SetActive(false);
@@ -46,14 +47,14 @@ namespace Script.InventorySystem
         {
             this.gameObject.SetActive(false);
         }
-        public void Open(ObjectController objectAbstract)
+        public void Open(ObjectInstance objectInstance)
         {
-            GetComponent<Image>().sprite = objectAbstract.ObjectInstance.ımage;
+            GetComponent<Image>().sprite = objectInstance.image;
             gameObject.SetActive(true);
         }
         public void Open(ObjectAbstract objectAbstract)
         {
-            GetComponent<Image>().sprite = objectAbstract.ımage;
+            GetComponent<Image>().sprite = objectAbstract.image;
             gameObject.SetActive(true);
         }
         void Update()

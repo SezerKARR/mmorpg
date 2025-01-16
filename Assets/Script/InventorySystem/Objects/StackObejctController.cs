@@ -1,5 +1,8 @@
+using Script.ObjectInstances;
 using Script.ScriptableObject;
+using Script.ScriptableObject.UpObject;
 using Script.UI.Tooltip;
+using Unity.VisualScripting;
 
 namespace Script.InventorySystem.Objects
 {
@@ -8,18 +11,21 @@ namespace Script.InventorySystem.Objects
         protected override void OnEnter()
         {
             base.OnEnter();
-            ObjectToolTip.OnScreen?.Invoke(objectInstance);
+            ToolTipEvent.OnTooltip?.Invoke(objectInstance);
         }
 
         protected override void OnExit()
         {
             base.OnExit();
-            ObjectToolTip.OnHide?.Invoke();
+            ToolTipEvent.OnTooltipClose?.Invoke();
         }
 
         public override string GetPoolType()
         {
             return ObjectType.Stack.ToString();
         }
+
+       
+
     }
 }

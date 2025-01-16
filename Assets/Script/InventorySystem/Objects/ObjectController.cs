@@ -5,7 +5,9 @@ using Script.Inventory.Objects;
 using Script.InventorySystem.inventory;
 using Script.ObjectInstances;
 using Script.ScriptableObject;
+using Script.ScriptableObject.UpObject;
 using Script.UI.Tooltip;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Script.InventorySystem.Objects
@@ -43,22 +45,14 @@ namespace Script.InventorySystem.Objects
         }
 
         public virtual void RightClick() { }
-        public virtual void Place(ObjectAbstract objectAbstract)
-        {
-            objectInstance.cellsInfo = null;
-            
-        }
+        
         protected virtual void OnButtonClick()
         {
             
             ObjectEvents.ObjectClicked.Invoke(this);
             Debug.Log("OnButtonClick");
         }
-        public virtual void Place(Transform parentTransform, CellsInfo cellsInfo)
-        {
-            this.objectInstance.cellsInfo = cellsInfo;
-            objectView.SetPosition(cellsInfo.cells);
-        }
+       
        
         public virtual void Place(ObjectInstance objectInstancePlace)
         {
@@ -68,22 +62,16 @@ namespace Script.InventorySystem.Objects
             objectView.SetObject(objectInstance);
 
             this.gameObject.SetActive(true);
-            // page = pageController.PageModel.pageIndex;
-            // pageController.PageModel.AddObjectToPage(objectInstancePlace, placeCells);
-            // this.objectInstance = objectInstancePlace;
-            // //this.objectInstance.SetObjectAbstract(objectInstance);
-            // this.objectInstance.howMany = howMany; 
-            // cells = placeCells;
-            // 
-            // objectView.SetObject(placeCells,this.objectInstance.ımage,this.objectInstance.weightInInventory,weigh,height,howMany);
-            // this.gameObject.SetActive(true);
+            
+        }
+        public void LeftClick(ObjectInstance objectInstanceTemp)
+        {
+            ILeftClickAble leftClick = objectInstance.objectAbstract.GetComponent<ILeftClickAble>();
+            if (leftClick != null)
+                leftClick.DoLeftClick(objectInstanceTemp);
         }
         
-        public void UpdateCount(int newCount)
-        {
-            objectInstance.howMany = newCount;
-            objectView.SetHowManyText(newCount);
-        }
+       
 
         public virtual void Reset()
         {

@@ -37,13 +37,13 @@ namespace Script.InventorySystem.Objects
         protected override void OnExit()
         {
             base.OnExit();
-            ItemToolTip.OnHide?.Invoke();
+            ToolTipEvent.OnTooltipClose?.Invoke();
         }
 
         protected override void OnEnter()
         {
             base.OnEnter();
-            ItemToolTip.OnScreen?.Invoke(itemInstance);
+            ToolTipEvent.OnItemTooltip?.Invoke(itemInstance);
         }
 
         public override void Place(ObjectInstance objectInstancePlace)

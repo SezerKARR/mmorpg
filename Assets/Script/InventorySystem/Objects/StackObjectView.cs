@@ -10,5 +10,6 @@ namespace Script.InventorySystem.Objects
             howManyText.text=objectInstance.howMany.ToString();
             base.SetObject(objectInstance);
         }
+       
     }
 }

@@ -8,18 +8,14 @@ namespace Script.UI.Tooltip
 {
     public class ObjectToolTip:ToolTip
     {
-        public static Action<ObjectInstance> OnScreen;
         public TextMeshProUGUI description;
-        protected override void Awake()
-        {
-            OnScreen += Screen;
-            base.Awake();
-        }
 
-        private void Screen(ObjectInstance obj)
+
+        public override void Screen(ObjectInstance obj)
         {
-            SetText(itemName,obj.ObjectName());
+            base.Screen(obj);
             SetText(description,obj.Description());
+            
         }
     }
 }
