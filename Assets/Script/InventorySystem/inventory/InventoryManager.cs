@@ -54,7 +54,8 @@ namespace Script.InventorySystem.inventory
         private void OnEnable()
         {
            
-
+            InventoryEvent.OnDeselect += OnDeselect;
+            InventoryEvent.OnSelect += OnSelect;
             ObjectEvents.OnPickUp += PickUp;
             PageChangeButton.OnChangePageClicked += ChangePage;
             InputPlayer.OnGroundClicked += GroundClicked;
@@ -69,6 +70,18 @@ namespace Script.InventorySystem.inventory
             storage.rowCount=rowCount;
             storage.columnCount = columnCount;
             inventoryStorage.Initialize();
+        }
+
+        private void OnSelect(ObjectController obj)
+        {
+            _currentObjectController = obj;
+            ImageUnderCursor.OnOpen?.Invoke(obj.ObjectInstance);
+        }
+
+        private void OnDeselect()
+        {
+            _currentObjectController = null;
+            ImageUnderCursor.OnCloseImageUnderCursor?.Invoke();
         }
 
         private void PickUp(IPickedUpAble pickedUp)
@@ -100,11 +113,11 @@ namespace Script.InventorySystem.inventory
         {
             if (_currentObjectController == null)
             {
-                this._currentObjectController = objectController;
-                ImageUnderCursor.OnOpen?.Invoke(objectController.ObjectInstance);
+                InventoryEvent.OnSelect?.Invoke(objectController);
                 return;
             }
-            this._currentObjectController.ObjectInstance.objectAbstract.LeftClick(objectController.ObjectInstance);
+            this._currentObjectController.ObjectInstance.LeftClick(objectController.ObjectInstance);
+            InventoryEvent.OnDeselect?.Invoke();
         }
 
         public void ChangePage(int pageIndex)
@@ -120,15 +133,11 @@ namespace Script.InventorySystem.inventory
             {
                 UIEvent.OnOpenConfirm?.Invoke(
                     $"{_currentObjectController.ObjectInstance.DropName()} Do you want drop this object?.",
-                    DropObject);
+                    ()=>InventoryEvent.OnDropObject?.Invoke(_currentObjectController.ObjectInstance),null);
             }
         }
 
-        private void DropObject()
-        {
-            
-            InventoryEvent.OnDropObject?.Invoke(_currentObjectController.ObjectInstance);
-        }
+        
 
         public override void RemoveObject(ObjectInstance objectInstanceToRemove)
         {

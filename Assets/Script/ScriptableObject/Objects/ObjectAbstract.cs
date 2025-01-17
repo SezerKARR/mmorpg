@@ -1,5 +1,7 @@
+using System;
 using Script.ObjectInstances;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
 namespace Script.ScriptableObject
@@ -20,7 +22,7 @@ namespace Script.ScriptableObject
         LeftClickStack,
         Stack,
         Item,
-    
+        UpItem
     }
 
 
@@ -38,8 +40,7 @@ namespace Script.ScriptableObject
         public int stackLimit=1;
         public int weightInInventory = 1;
         public abstract ObjectType Type { get; }
-
-        public virtual void LeftClick(ObjectInstance objectInstance){}
+        public  Action<int> onDecrease;
         // public virtual void SetDropName()
         // {
         //     DropName= ItemName;

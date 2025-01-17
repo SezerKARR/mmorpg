@@ -28,7 +28,7 @@ namespace Script.InventorySystem.Objects
         public T SpawnFromPool<T>(string objectType,Transform parentTransform=null) where T : Component
         {
            
-            if(_objectsToPooled[objectType].Count <= 1)_objectsToPooled[objectType].Enqueue(CreateObject(_itemPrefabList.objects[objectType].prefab));
+            if(_objectsToPooled[objectType].Count <= 1)_objectsToPooled[objectType].Enqueue(CreateObject(_itemPrefabList.objects[objectType].ıPool.GetGameObject()));
             GameObject objectToSpawn = _objectsToPooled[objectType].Dequeue();
             if(parentTransform!=null)objectToSpawn.transform.SetParent(parentTransform);
             return objectToSpawn.GetComponent<T>();
@@ -40,7 +40,7 @@ namespace Script.InventorySystem.Objects
             for (int i = 0; i < count; i++)
             {
                
-                objectPool.Enqueue(CreateObject(_itemPrefabList.objects[objectClass].prefab));
+                objectPool.Enqueue(CreateObject(_itemPrefabList.objects[objectClass].ıPool.GetGameObject()));
             }
             return objectPool;
         }

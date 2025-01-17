@@ -1,3 +1,5 @@
+using UnityEngine;
+
 namespace Script.ScriptableObject.UpObject
 {
     public class ScrollOfWar : ObjectAbstract, IUpgradeItem
@@ -16,6 +18,16 @@ namespace Script.ScriptableObject.UpObject
 
 
         public int GetPlus(bool upResult) => upResult ? upResultTrue : upResultFalse;
+        public string GetPlusDescription()
+        {
+            if (Mathf.Approximately(GetChangeUp(), 100f))
+            {
+                return "Do you want to upgrade this item?";
+            }
+            
+            return "Are you sure you want to upgrade this item? The item's level may decrease.";
+            
+        }
 
 
         // public override ObjectType GetTypeController()

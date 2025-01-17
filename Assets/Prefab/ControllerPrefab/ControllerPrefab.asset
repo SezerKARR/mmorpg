@@ -16,11 +16,12 @@ MonoBehaviour:
     tKeys:
     - Item
     - Stack
+    - UpItem
     tValues:
-    - prefab: {fileID: 807280952830508194, guid: 59266baf08002bc4dbd2044eaf358ec6, type: 3}
-      howMany: -1
-    - prefab: {fileID: 5027961957190823290, guid: 13d044feb9f1c564b8e32a7850be990c, type: 3}
-      howMany: -1
+    - howMany: -1
+    - howMany: -1
+    - howMany: -1
   prefabs:
   - {fileID: 807280952830508194, guid: 59266baf08002bc4dbd2044eaf358ec6, type: 3}
   - {fileID: 5027961957190823290, guid: 13d044feb9f1c564b8e32a7850be990c, type: 3}
+  - {fileID: 5027961957190823290, guid: 0dafb99e0a25d2340a958eea5747a25f, type: 3}

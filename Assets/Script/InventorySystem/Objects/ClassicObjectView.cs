@@ -2,7 +2,7 @@ using Script.ObjectInstances;
 
 namespace Script.InventorySystem.Objects
 {
-    public class StackObjectView:ObjectView
+    public class ClassicObjectView:ObjectView
     {
         public override void SetObject(ObjectInstance objectInstance)
         {

@@ -3,6 +3,7 @@ using Script.Equipment;
 using Script.InventorySystem.inventory;
 using Script.ObjectInstances;
 using Script.ScriptableObject;
+using Script.ScriptableObject.Equipment;
 using Script.UI.Tooltip;
 using UnityEngine.Serialization;
 
@@ -50,6 +51,10 @@ namespace Script.InventorySystem.Objects
         {
             base.Place(objectInstancePlace);
             this.itemInstance=objectInstancePlace is ItemInstance ? objectInstancePlace as ItemInstance :null ;
+        }
+        public  void Place(ObjectAbstract objectAbstract)
+        {
+           objectView.SetPosition(objectAbstract);
         }
 
         // public override void Place(ObjectInstance objectInstancePlace,CellsInfo cellsInfo,IInstanceHolder<ObjectInstance> objectInstanceHolder)

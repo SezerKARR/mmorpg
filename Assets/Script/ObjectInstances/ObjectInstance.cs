@@ -11,6 +11,10 @@ namespace Script.ObjectInstances
     [Serializable]
     public  class ObjectInstance
     {
+        public ObjectInstance(ObjectAbstract objectAbstract)
+        {
+            this.objectAbstract = objectAbstract;
+        }
         public IInstanceHolder<ObjectInstance> currentHolder;
         public int howMany;
         public ObjectAbstract objectAbstract;
@@ -20,6 +24,11 @@ namespace Script.ObjectInstances
         public int weightInInventory=> objectAbstract.weightInInventory;
         public ObjectType type => objectAbstract.Type;
 
+        public void DecreaseHowMany(int amount = 1)
+        {
+            howMany -= amount;
+            if(howMany == 0) currentHolder.RemoveObject(this);
+        }
         public virtual string ObjectName()
         {
             return objectAbstract.itemName;}
@@ -31,6 +40,8 @@ namespace Script.ObjectInstances
             return objectAbstract.itemName + " x " + howMany;
         }
 
+        public virtual void LeftClick(ObjectInstance objectInstance){}
+       
 
 
 

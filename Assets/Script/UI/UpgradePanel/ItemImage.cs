@@ -1,3 +1,5 @@
+using Script.InventorySystem.Objects;
+using Script.ObjectInstances;
 using Script.ScriptableObject;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -8,37 +10,30 @@ namespace Script.UI.UpgradePanel
     public class ItemImage : MonoBehaviour
     {
         public RectTransform imageRectTransform;
-        public Image image;
-        public float buttonOrginalHeight;
-        private void Awake()
-        {
-            
-            imageRectTransform = this.image.GameObject().GetComponent<RectTransform>();
-            buttonOrginalHeight = imageRectTransform.rect.height;
-        }
-    
+        public Image itemController;
+        public GameObject[] backGround;
+        private float _startHeight=0;
 
-        public void Open(ObjectAbstract inventorObjectable)
+        public void Open(ObjectAbstract objectAbstract)
         {
+            if(_startHeight==0)_startHeight=itemController.rectTransform.sizeDelta.y;
+            for (int i = 0; i < backGround.Length; i++)
+            {
+                if(i<=objectAbstract.weightInInventory-1)backGround[i].SetActive(true);
+                else
+                {
+                    backGround[i].SetActive(false);
+                }
+                
+            }
+            itemController.gameObject.SetActive(true);
+            itemController.sprite = objectAbstract.image;
+            itemController.rectTransform.sizeDelta = new Vector2(itemController.rectTransform.sizeDelta.x, _startHeight*objectAbstract.weightInInventory);
+            float a = _startHeight / 2*(objectAbstract.weightInInventory - 1);
+            itemController.rectTransform.localPosition = new Vector3(0,a, 0);
             gameObject.SetActive(true);
-            ChangeSprite(inventorObjectable);
-        }
-        public virtual void ImageChangeSize(int spriteHeight)
-        {
-            float newHeight = buttonOrginalHeight * spriteHeight;
-            imageRectTransform.sizeDelta = new Vector2(imageRectTransform.sizeDelta.x, newHeight);
-            float heightDifference = (newHeight - buttonOrginalHeight) / 2f;
-            imageRectTransform.anchoredPosition = -new Vector2(imageRectTransform.anchoredPosition.x, imageRectTransform.anchoredPosition.y - heightDifference);
-        }
-        public virtual void ChangeSprite(ObjectAbstract inventorObjectAble)
-        {
-
-
-            ImageChangeSize(inventorObjectAble.weightInInventory);
-            image.sprite = inventorObjectAble.image;
-            image.color = new Color(image.color.r, image.color.g, image.color.b, 1f);
-
 
         }
+      
     }
 }

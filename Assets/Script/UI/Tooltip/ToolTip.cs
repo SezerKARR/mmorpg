@@ -12,12 +12,14 @@ namespace Script.UI.Tooltip
         public static UnityAction OnHide;
         protected virtual void Awake()
         {
-            Hide();
             OnHide += Hide;
+
+            Hide();
         }
 
         public virtual void Screen(ObjectInstance obj)
         {
+            this.gameObject.SetActive(true);
             SetText(itemName,obj.ObjectName());
         }
         protected void SetText(TextMeshProUGUI textMeshProUGUI,string writeText)
@@ -34,6 +36,7 @@ namespace Script.UI.Tooltip
             {
                 child.gameObject.SetActive(false);
             }
+            this.gameObject.SetActive(false);
             
         }
     }

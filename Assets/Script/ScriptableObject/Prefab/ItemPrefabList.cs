@@ -8,7 +8,7 @@ namespace Script.ScriptableObject.Prefab
     [System.Serializable]
     public class ObjectClass
     {
-        public GameObject prefab; // Generic olarak Component türü
+        public IPool ıPool; // Generic olarak Component türü
         public int howMany = -1;
     }
 
@@ -27,7 +27,7 @@ namespace Script.ScriptableObject.Prefab
             {
                 if (obj.Key == type)
                 {
-                    return obj.Value.prefab.GetComponent<IPool>();
+                    return obj.Value.ıPool;
                 }
             }
             return null;
@@ -43,7 +43,7 @@ namespace Script.ScriptableObject.Prefab
                 if (!objects.Keys.Contains(ıPool.GetPoolType()))
                 {
                     
-                    objects.Add(ıPool.GetPoolType(),new ObjectClass{ prefab=prefab});
+                    objects.Add(ıPool.GetPoolType(),new ObjectClass{ ıPool=prefab.GetComponent<IPool>()});
                 }
                 index++;
             }

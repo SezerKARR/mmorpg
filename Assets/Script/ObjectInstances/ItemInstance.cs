@@ -9,9 +9,16 @@ namespace Script.ObjectInstances
     [Serializable]
     public class ItemInstance:ObjectInstance
     {
+        public ItemInstance(ObjectAbstract objectAbstract) : base(objectAbstract)
+        {
+            scriptableItemsAbstract = (ScriptableItemsAbstract)objectAbstract;
+        }
         public ScriptableItemsAbstract scriptableItemsAbstract;
         public List<(string bonusName ,float bonusValue)> bonuses=new List<(string bonusName ,float bonusValue)>() ;
         public int currentPlus = 0;
+
+        
+
         public int level=>scriptableItemsAbstract.level;
         public List<CharacterType> canUseCharacters=>scriptableItemsAbstract.canUseCharacters;
         public EquipmentType equipmentType => scriptableItemsAbstract.equipmentType;
@@ -19,10 +26,19 @@ namespace Script.ObjectInstances
         public List<string> itemStats => scriptableItemsAbstract.GetStatsString(currentPlus);
         public List<string> ItemBonuses(){
             List<string> bonusesString = new List<string>();
-            foreach (var bonus in bonuses)
+            try
             {
-                bonusesString.Add($"{bonus.bonusName}"+": "+"{bonus.bonusValue}"); 
+                foreach (var bonus in bonuses)
+                {
+                    bonusesString.Add($"{bonus.bonusName}"+": "+"{bonus.bonusValue}"); 
+                }
+               
             }
+            catch (Exception e)
+            {
+                // ignored
+            }
+
             return bonusesString;
         }
         public override string DropName() {return ObjectName(); }

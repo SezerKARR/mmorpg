@@ -16,6 +16,8 @@ namespace Script.InventorySystem.inventory
         public static Action<ObjectInstance> OnDropObject;
         public static Action<ObjectInstance> OnGetObject;
         public static Action<ObjectInstance,CellsInfo> OnCreateItem;
-        
+        public static Action OnDeselect;
+        public static Action<ObjectController> OnSelect;
+
     }
 }

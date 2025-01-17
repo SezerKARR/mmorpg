@@ -1,34 +1,21 @@
+using System;
+using System.Collections.Generic;
 using Script.ScriptableObject;
-using Script.ScriptableObject.Equipment;
 
 namespace Script.ObjectInstances
 {
-    public class ObjectInstanceCreator
+    public static class ObjectInstanceCreator
     {
-        public static ObjectInstance ObjectInstance(ObjectAbstract objectAbstract)
+        public static Dictionary<ObjectType, Func<ObjectAbstract, ObjectInstance>> ObjectFactories = new()
         {
-            if (objectAbstract is ScriptableItemsAbstract scriptableItemsAbstact)
-            {
-                ItemInstance tempItemInstance = new ItemInstance
-                {
-                    scriptableItemsAbstract = scriptableItemsAbstact,
-                    objectAbstract = objectAbstract
-                    
-                };
-                return tempItemInstance;
-            }
-
-            if (objectAbstract.Type == ObjectType.Stack)
-            {
-                StackInstance stackInstance = new StackInstance() { objectAbstract = objectAbstract };
-                return stackInstance;
-            }
-            // ObjectInstance tempObjectInstance = new ObjectInstance
-            // {
-            //     objectAbstract = objectAbstract
-            // };
-            return null;
-        }
+            { ObjectType.Item, obj => new ItemInstance(obj) },
+            { ObjectType.Stack, obj => new StackInstance(obj) },
+            { ObjectType.UpItem ,obj=>new UpItemInstance(obj)}
+        };
+        public static ObjectInstance GetObjectInstance(ObjectAbstract objectAbstract) =>
+            ObjectFactories.TryGetValue(objectAbstract.Type, out var createInstance) 
+                ? createInstance(objectAbstract) 
+                : null;
         public static ObjectInstance ObjectInstance(ObjectInstance objectAbstract)
         {
             if (objectAbstract is ItemInstance scriptableItemsAbstact)

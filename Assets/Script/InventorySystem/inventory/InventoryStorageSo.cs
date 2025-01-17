@@ -53,15 +53,17 @@ namespace Script.InventorySystem.inventory
         [SerializeField]public List<ObjectInstance> objectInstances = new List<ObjectInstance>();
         [SerializeField]public  ObjectClass<ItemInstance> itemInstances = new ObjectClass<ItemInstance>();
         [SerializeField]public  ObjectClass<StackInstance> stackInstances = new ObjectClass<StackInstance>();
+        [SerializeField]public  ObjectClass<UpItemInstance> upItemInstances = new ObjectClass<UpItemInstance>();
         [Serializable]
         public class ObjectsDictionary : UnityDictionary<ObjectType, IVariable > { };
-
-        public ObjectsDictionary objects = new ObjectsDictionary();
+        [SerializeField]
+        public ObjectsDictionary objects = new ObjectsDictionary(){ };
         public void Initialize()
         {
             objects= new ObjectsDictionary(){
                 { ObjectType.Item, itemInstances},
-                { ObjectType.Stack,stackInstances }
+                { ObjectType.Stack,stackInstances },
+                { ObjectType.UpItem ,upItemInstances}
             };
             foreach (var pageModel in pageModels)  
             {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Script.DroppedItem;
 using Script.Inventory;
 using Script.Inventory.Objects;
+using Script.InventorySystem.Objects;
 using Script.ObjectInstances;
 using Script.Player;
 using Script.ScriptableObject;

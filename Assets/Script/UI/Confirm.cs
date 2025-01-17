@@ -1,5 +1,7 @@
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
 
@@ -7,30 +9,31 @@ namespace Script.UI
 {
     public class Confirm : MonoBehaviour
     {
-        [FormerlySerializedAs("ConfirmYesToDropButton")] public Button confirmYesToDropButton;
-        [FormerlySerializedAs("ConfirmNoButton")] public Button confirmNoButton;
-        
+        public Button confirmYesButton;
+        public Button confirmNoButton;
+        private UnityAction _confirmYesAction, _confirmNoAction;
         public TextMeshProUGUI confirmText;
-        private UIEvent.ConfirmAction _yes;
         private void Awake()
         {
-            UIEvent.OnOpenConfirm += OpenConfirm;
-            confirmNoButton.onClick.AddListener(CloseConfirm);
-            confirmYesToDropButton.onClick.AddListener(() => _yes?.Invoke());
-            confirmYesToDropButton.onClick.AddListener(CloseConfirm);
+            UIEvent.OnOpenConfirm += Open;
+            confirmNoButton.onClick.AddListener(()=>ButtonPressed(_confirmNoAction));
+            confirmYesButton.onClick.AddListener(()=>ButtonPressed(_confirmYesAction));
             this.gameObject.SetActive(false);
        
         }
 
-        private void OpenConfirm(string confirmString, UIEvent.ConfirmAction yesConfirm)
+        private void Open(string confirmString, UnityAction yesConfirm, UnityAction cancelConfirm)
         {
-            this.confirmText.text = confirmString;
-            _yes = yesConfirm;
+            confirmText.text = confirmString;
+            _confirmYesAction = yesConfirm;
+            _confirmNoAction = cancelConfirm;
             this.gameObject.SetActive(true);
         }
-        private void CloseConfirm()
+        
+        private void ButtonPressed(UnityAction buttonEvent)
         {
-           this.gameObject.SetActive(false);
+            buttonEvent?.Invoke();
+            this.gameObject.SetActive(false);
 
         }
     }

@@ -1,10 +1,7 @@
 using System;
 using Script.DroppedItem;
-using Script.InventorySystem.Objects;
-using Script.ScriptableObject;
-using UnityEngine;
 
-namespace Script.Inventory.Objects
+namespace Script.InventorySystem.Objects
 {
     public static class ObjectEvents
     {

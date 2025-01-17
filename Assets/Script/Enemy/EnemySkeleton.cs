@@ -109,7 +109,7 @@ namespace Script.Enemy
             foreach (var canDrop in enemySo.canDrops)
             {
                 
-                GameEvent.OnItemDroppedWithPlayer?.Invoke(transform.position, ObjectInstanceCreator.ObjectInstance(canDrop), player);
+                GameEvent.OnItemDroppedWithPlayer?.Invoke(transform.position, ObjectInstanceCreator.GetObjectInstance(canDrop), player);
 
 
             }

@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6759714323483460988}
   - component: {fileID: 1281166042660081518}
   m_Layer: 5
-  m_Name: StackObjectController
+  m_Name: UpItemController
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -142,7 +142,7 @@ MonoBehaviour:
     cellsInfo:
       cells: []
       pageIndex: 0
-  objectType: 3
+  objectType: 5
 --- !u!114 &1281166042660081518
 MonoBehaviour:
   m_ObjectHideFlags: 0

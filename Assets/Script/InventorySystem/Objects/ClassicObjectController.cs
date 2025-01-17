@@ -6,8 +6,9 @@ using Unity.VisualScripting;
 
 namespace Script.InventorySystem.Objects
 {
-    public class StackObejctController:ObjectController
+    public class ClassicObjectController:ObjectController
     {
+        public ObjectType objectType;
         protected override void OnEnter()
         {
             base.OnEnter();
@@ -22,7 +23,7 @@ namespace Script.InventorySystem.Objects
 
         public override string GetPoolType()
         {
-            return ObjectType.Stack.ToString();
+            return objectType.ToString();
         }
 
        

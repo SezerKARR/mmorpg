@@ -27,7 +27,7 @@ namespace Script.InventorySystem.Objects
 
         public override void SetPosition(ObjectAbstract objectAbstract )
         {
-            
+            if(_imageRectTransform==null) _imageRectTransform = image.GetComponent<RectTransform>();
             base.SetPosition(objectAbstract);
             ImageChangeSize(objectAbstract.weightInInventory,1);
             

@@ -24,9 +24,5 @@ MonoBehaviour:
   - pageData: {fileID: 11400000, guid: bec1d7b6a17d2074d9fbc39831c41933, type: 2}
     pageIndex: 3
   objectInstances: []
-  itemInstances:
-    objects: []
-  stackInstances:
-    objects: []
   objects:
-    tKeys: 0400000003000000
+    tKeys: 
