@@ -5,7 +5,7 @@ using Script.InventorySystem.Objects;
 using Script.ObjectInstances;
 using UnityEngine;
 using Script.Player;
-using Script.ScriptableObject.Equipment;
+using Script.ScriptableObject.Objects.Equipment;
 using Zenject;
 
 namespace Script.Equipment

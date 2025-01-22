@@ -2,7 +2,7 @@ using System;
 using Script.Damage;
 using Script.Exp;
 using Script.Interface;
-using Script.ScriptableObject.Equipment;
+using Script.ScriptableObject.Objects.Equipment;
 using Script.ScriptableObject.Player;
 using Unity.VisualScripting;
 using UnityEngine;

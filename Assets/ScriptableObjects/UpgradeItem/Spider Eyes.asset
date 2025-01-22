@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Spider Eyes
   m_EditorClassIdentifier: 
   place: 0
-  "\u0131mage": {fileID: 0}
-  "\u0131temName": Spider Eyes
+  image: {fileID: 0}
+  itemName: Spider Eyes
   dropsFrom: Baby Spider
   dropMetins: 
   info: Spider eyes are popular with collectors.
@@ -22,5 +22,3 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  dropName: 
-  howMany: 0

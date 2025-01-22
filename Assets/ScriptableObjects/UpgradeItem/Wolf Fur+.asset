@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Wolf Fur+
   m_EditorClassIdentifier: 
   place: 0
-  "\u0131mage": {fileID: 0}
-  "\u0131temName": Wolf Fur+
+  image: {fileID: 0}
+  itemName: Wolf Fur+
   dropsFrom: Grey Wolf, Lykos
   dropMetins: 
   info: The thickest hair of the wolf are used to make grooming and brushing.
@@ -22,5 +22,3 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  dropName: 
-  howMany: 0

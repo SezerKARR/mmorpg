@@ -58,5 +58,7 @@ namespace Script.UI.Tooltip
                 SetText(this.wearAbleText, wearableText);
             }
         }
+        
+        
     }
 }

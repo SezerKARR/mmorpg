@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Script.Inventory;
 using Script.ScriptableObject;
 using UnityEngine;
-[CreateAssetMenu(menuName = "ScriptableObject/UpgradeItem")]
+[CreateAssetMenu(menuName = "ScriptableObject/Require")]
 public class UpgradeItemsSO : ObjectAbstract
 {
     public override ObjectType Type => ObjectType.Stack; 

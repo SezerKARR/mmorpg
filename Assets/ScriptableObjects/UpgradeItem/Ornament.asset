@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Ornament
   m_EditorClassIdentifier: 
   place: 0
-  "\u0131mage": {fileID: 0}
-  "\u0131temName": Ornament
+  image: {fileID: 0}
+  itemName: Ornament
   dropsFrom: White Oath Archer
   dropMetins: 
   info: A favorite among girls ornament.
@@ -22,5 +22,3 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  dropName: 
-  howMany: 0

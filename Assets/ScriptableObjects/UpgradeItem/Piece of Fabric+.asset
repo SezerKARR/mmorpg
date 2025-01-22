@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Piece of Fabric+
   m_EditorClassIdentifier: 
   place: 0
-  "\u0131mage": {fileID: 0}
-  "\u0131temName": Piece of Fabric+
+  image: {fileID: 0}
+  itemName: Piece of Fabric+
   dropsFrom: Plagued Spearman
   dropMetins: 
   info: Fabric, which is used for covering a wound
@@ -22,5 +22,3 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  dropName: 
-  howMany: 0

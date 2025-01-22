@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Yeti Fur
   m_EditorClassIdentifier: 
   place: 0
-  "\u0131mage": {fileID: 0}
-  "\u0131temName": Yeti Fur
+  image: {fileID: 0}
+  itemName: Yeti Fur
   dropsFrom: Ice Lion
   dropMetins: 
   info: The coat of the Yeti, the legendary creature, protects against the cold.
@@ -22,5 +22,3 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  dropName: 
-  howMany: 0

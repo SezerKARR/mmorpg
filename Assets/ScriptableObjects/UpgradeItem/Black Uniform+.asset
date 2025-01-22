@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Black Uniform+
   m_EditorClassIdentifier: 
   place: 0
-  "\u0131mage": {fileID: 0}
-  "\u0131temName": Black Uniform+
+  image: {fileID: 0}
+  itemName: Black Uniform+
   dropsFrom: Black Wind Maniac
   dropMetins: 
   info: A worn out black uniform.
@@ -22,5 +22,3 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  dropName: 
-  howMany: 0

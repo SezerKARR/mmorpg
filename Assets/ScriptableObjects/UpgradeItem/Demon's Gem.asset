@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Demon's Gem
   m_EditorClassIdentifier: 
   place: 0
-  "\u0131mage": {fileID: 0}
-  "\u0131temName": Demon's Gem
+  image: {fileID: 0}
+  itemName: Demon's Gem
   dropsFrom: Demon Soldier
   dropMetins: 
   info: A gem known for holding souls of the dead.
@@ -22,5 +22,3 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  dropName: 
-  howMany: 0

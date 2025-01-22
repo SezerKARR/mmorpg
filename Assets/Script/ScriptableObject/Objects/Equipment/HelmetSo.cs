@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Script.ScriptableObject.Equipment;
 using UnityEngine;
 
 namespace Script.ScriptableObject.Objects.Equipment

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Fishbones
   m_EditorClassIdentifier: 
   place: 0
-  "\u0131mage": {fileID: 0}
-  "\u0131temName": Fishbones
+  image: {fileID: 0}
+  itemName: Fishbones
   dropsFrom: These can be obtained from killing each fish at random.
   dropMetins: 
   info: The bones of a fish.
@@ -22,5 +22,3 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  dropName: 
-  howMany: 0

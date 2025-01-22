@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Unknown Medicine+
   m_EditorClassIdentifier: 
   place: 0
-  "\u0131mage": {fileID: 0}
-  "\u0131temName": Unknown Medicine+
+  image: {fileID: 0}
+  itemName: Unknown Medicine+
   dropsFrom: Plagued Man, Angry Plagued Man
   dropMetins: 
   info: Unknown medicine with unknown ingredients.
@@ -22,5 +22,3 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  dropName: 
-  howMany: 0

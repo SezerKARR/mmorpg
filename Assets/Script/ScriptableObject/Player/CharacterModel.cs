@@ -1,7 +1,7 @@
 using Script.Bonus;
 using Script.Damage;
 using Script.Player.Character;
-using Script.ScriptableObject.Equipment;
+using Script.ScriptableObject.Objects.Equipment;
 using UnityEngine;
 using UnityEngine.Serialization;
 

@@ -1,6 +1,6 @@
 using System;
 using Script.Player.Character;
-using Script.ScriptableObject.Equipment;
+using Script.ScriptableObject.Objects.Equipment;
 
 namespace Script.Damage
 {

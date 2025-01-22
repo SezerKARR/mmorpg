@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Bear Gall+
   m_EditorClassIdentifier: 
   place: 0
-  "\u0131mage": {fileID: 0}
-  "\u0131temName": Bear Gall+
+  image: {fileID: 0}
+  itemName: Bear Gall+
   dropsFrom: Grizzly Bear, Hungry Grizzly
   dropMetins: 
   info: Bear gall is known for reviving the sense of taste.
@@ -22,5 +22,3 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  dropName: 
-  howMany: 0

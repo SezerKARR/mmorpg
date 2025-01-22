@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Tiger Fang
   m_EditorClassIdentifier: 
   place: 0
-  "\u0131mage": {fileID: 0}
-  "\u0131temName": Tiger Fang
+  image: {fileID: 0}
+  itemName: Tiger Fang
   dropsFrom: Fighting Tiger Minion
   dropMetins: 
   info: Solid Fang.
@@ -22,5 +22,3 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  dropName: 
-  howMany: 0

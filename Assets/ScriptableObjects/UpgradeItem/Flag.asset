@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Flag
   m_EditorClassIdentifier: 
   place: 0
-  "\u0131mage": {fileID: 0}
-  "\u0131temName": Flag
+  image: {fileID: 0}
+  itemName: Flag
   dropsFrom: Strong Savage Archer, Savage Archer
   dropMetins: 
   info: A flag to mark savage troops.
@@ -22,5 +22,3 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  dropName: 
-  howMany: 0

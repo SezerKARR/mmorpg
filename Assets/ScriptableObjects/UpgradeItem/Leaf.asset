@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Leaf
   m_EditorClassIdentifier: 
   place: 0
-  "\u0131mage": {fileID: 0}
-  "\u0131temName": Leaf
+  image: {fileID: 0}
+  itemName: Leaf
   dropsFrom: Leflet Bogeyman
   dropMetins: 
   info: Leaf of an unknown plant.
@@ -22,5 +22,3 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  dropName: 
-  howMany: 0

@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Orc Amulet+
   m_EditorClassIdentifier: 
   place: 0
-  "\u0131mage": {fileID: 0}
-  "\u0131temName": Orc Amulet+
+  image: {fileID: 0}
+  itemName: Orc Amulet+
   dropsFrom: Bold Big Orc General, Bold Big Orc Scout, Elite Orc Fighter, Elite Orc
     Scout, Elite Orc General
   dropMetins: 
@@ -23,5 +23,3 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  dropName: 
-  howMany: 0

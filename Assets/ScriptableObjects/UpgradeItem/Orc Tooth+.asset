@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Orc Tooth+
   m_EditorClassIdentifier: 
   place: 0
-  "\u0131mage": {fileID: 0}
-  "\u0131temName": Orc Tooth+
+  image: {fileID: 0}
+  itemName: Orc Tooth+
   dropsFrom: Black Giant Orc, Bold Black Giant Orc, Silver Treasure Chest+
   dropMetins: 
   info: The tooth of a stinking orcs.
@@ -22,5 +22,3 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  dropName: 
-  howMany: 0

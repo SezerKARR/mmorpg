@@ -5,7 +5,7 @@ using Script.Equipment;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Script.ScriptableObject.Equipment
+namespace Script.ScriptableObject.Objects.Equipment
 {
     [Serializable]
     public enum CharacterType
@@ -14,15 +14,16 @@ namespace Script.ScriptableObject.Equipment
     }
 
     [System.Serializable]
-    public class UpgradeItem
+    public class Require
     {
         public UnityEngine.ScriptableObject upgradeItemName;
+        public UpgradeItemsSO upgradeItem;
         public int howMany;
     }
     [System.Serializable]
     public class RequirementClass
     {
-        public UpgradeItem[] upgradeItems=new UpgradeItem[0];
+        public Require[] upgradeItems=new Require[0];
     
         public float upgradeMoney;
     
@@ -40,7 +41,7 @@ namespace Script.ScriptableObject.Equipment
         public CharStat  itemStat;
         [SerializeField]
         public List<CharacterType> canUseCharacters = new List<CharacterType>();
-        public RequirementClass[] Requirements =new RequirementClass[0];
+        [FormerlySerializedAs("Requirements")] public RequirementClass[] requirements =new RequirementClass[0];
         public EquipmentType equipmentType;
         public int level;
         public abstract List<string> GetStatsString(int level);

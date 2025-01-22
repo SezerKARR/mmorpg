@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Ice Marble
   m_EditorClassIdentifier: 
   place: 0
-  "\u0131mage": {fileID: 0}
-  "\u0131temName": Ice Marble
+  image: {fileID: 0}
+  itemName: Ice Marble
   dropsFrom: Ice Golem, Underworld Ice Golem
   dropMetins: 
   info: A marble made out of ice. It does not melt in the hot weather.
@@ -22,5 +22,3 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  dropName: 
-  howMany: 0

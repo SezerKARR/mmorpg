@@ -3,7 +3,6 @@ using Script.Equipment;
 using Script.InventorySystem.inventory;
 using Script.ObjectInstances;
 using Script.ScriptableObject;
-using Script.ScriptableObject.Equipment;
 using Script.UI.Tooltip;
 using UnityEngine.Serialization;
 

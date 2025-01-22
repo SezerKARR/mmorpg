@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using Script.Equipment;
 using Script.ScriptableObject;
-using Script.ScriptableObject.Equipment;
+using Script.ScriptableObject.Objects.Equipment;
 
 namespace Script.ObjectInstances
 {
@@ -17,13 +17,16 @@ namespace Script.ObjectInstances
         public List<(string bonusName ,float bonusValue)> bonuses=new List<(string bonusName ,float bonusValue)>() ;
         public int currentPlus = 0;
 
-        
+
+        public int maxPlus => scriptableItemsAbstract.requirements.Length - 1;
 
         public int level=>scriptableItemsAbstract.level;
         public List<CharacterType> canUseCharacters=>scriptableItemsAbstract.canUseCharacters;
         public EquipmentType equipmentType => scriptableItemsAbstract.equipmentType;
         public override string ObjectName() => scriptableItemsAbstract.itemName+" "+currentPlus;
         public List<string> itemStats => scriptableItemsAbstract.GetStatsString(currentPlus);
+        
+
         public List<string> ItemBonuses(){
             List<string> bonusesString = new List<string>();
             try
@@ -42,6 +45,13 @@ namespace Script.ObjectInstances
             return bonusesString;
         }
         public override string DropName() {return ObjectName(); }
-
+        public ItemInstance Clone( )
+        {
+            ItemInstance clone = new ItemInstance(scriptableItemsAbstract);
+            clone.currentPlus = currentPlus;
+            clone.bonuses=bonuses;
+            
+            return clone;
+        }
     }
 }

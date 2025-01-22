@@ -13,8 +13,6 @@ namespace Script.UI.Tooltip
         protected virtual void Awake()
         {
             OnHide += Hide;
-
-            Hide();
         }
 
         public virtual void Screen(ObjectInstance obj)

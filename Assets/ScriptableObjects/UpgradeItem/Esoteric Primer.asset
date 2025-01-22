@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Esoteric Primer
   m_EditorClassIdentifier: 
   place: 0
-  "\u0131mage": {fileID: 0}
-  "\u0131temName": Esoteric Primer
+  image: {fileID: 0}
+  itemName: Esoteric Primer
   dropsFrom: Dark Fanatic, High Fanatic
   dropMetins: 
   info: A beginner's handbook of esoteric doctrine.
@@ -22,5 +22,3 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  dropName: 
-  howMany: 0

@@ -38,6 +38,6 @@ MonoBehaviour:
     tKeys: 
     tValues: []
   canDrops:
-  - {fileID: 11400000, guid: b67d6ef58c5274341bf26680aeaf9eae, type: 2}
+  - {fileID: 11400000, guid: 23847ba3736ce414e9882972e6f19485, type: 2}
   - {fileID: 11400000, guid: d9035886eb23c2c489cb4448cd061380, type: 2}
   - {fileID: 11400000, guid: 6b941db5b9adf434d8a0252b8dd33ba0, type: 2}

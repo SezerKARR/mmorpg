@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Scorpion Claw
   m_EditorClassIdentifier: 
   place: 0
-  "\u0131mage": {fileID: 0}
-  "\u0131temName": Scorpion Claw
+  image: {fileID: 0}
+  itemName: Scorpion Claw
   dropsFrom: Scorpion Archer
   dropMetins: 
   info: A pair of scissors by a scorpion.
@@ -22,5 +22,3 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  dropName: 
-  howMany: 0

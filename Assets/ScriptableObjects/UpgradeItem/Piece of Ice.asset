@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Piece of Ice
   m_EditorClassIdentifier: 
   place: 0
-  "\u0131mage": {fileID: 0}
-  "\u0131temName": Piece of Ice
+  image: {fileID: 0}
+  itemName: Piece of Ice
   dropsFrom: Enchanted Ice, Mean Enchanted Ice, Underworld Ice Splinters
   dropMetins: 
   info: A clump of frozen water that consistently exudes cold air.
@@ -22,5 +22,3 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  dropName: 
-  howMany: 0

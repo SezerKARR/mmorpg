@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Spider Legs
   m_EditorClassIdentifier: 
   place: 0
-  "\u0131mage": {fileID: 0}
-  "\u0131temName": Spider Legs
+  image: {fileID: 0}
+  itemName: Spider Legs
   dropsFrom: Soldier Spider
   dropMetins: 
   info: Shamans use the hairy legs of spiders in their work.
@@ -22,5 +22,3 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  dropName: 
-  howMany: 0

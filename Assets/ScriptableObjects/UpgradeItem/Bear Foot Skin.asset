@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Bear Foot Skin
   m_EditorClassIdentifier: 
   place: 0
-  "\u0131mage": {fileID: 0}
-  "\u0131temName": Bear Foot Skin
+  image: {fileID: 0}
+  itemName: Bear Foot Skin
   dropsFrom: Black Bear, Hungry Black Bear, Cursed Black Bear
   dropMetins: 
   info: A favourite stamina food among many people.
@@ -22,5 +22,3 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  dropName: 
-  howMany: 0

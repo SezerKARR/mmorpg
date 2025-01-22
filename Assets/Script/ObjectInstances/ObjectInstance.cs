@@ -27,7 +27,7 @@ namespace Script.ObjectInstances
         public void DecreaseHowMany(int amount = 1)
         {
             howMany -= amount;
-            if(howMany == 0) currentHolder.RemoveObject(this);
+            if(howMany <= 0) currentHolder.RemoveObject(this);
         }
         public virtual string ObjectName()
         {

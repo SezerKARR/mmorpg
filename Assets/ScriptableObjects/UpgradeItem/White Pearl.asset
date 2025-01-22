@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: White Pearl
   m_EditorClassIdentifier: 
   place: 0
-  "\u0131mage": {fileID: 0}
-  "\u0131temName": White Pearl
+  image: {fileID: 0}
+  itemName: White Pearl
   dropsFrom: Beran-Setaou, Halloween-Chest, Eternal Winter Chest, Athena's Chest,
     Milon's Chest, Clam, Tombola, Basket with Easter Eggs, Magic Egg
   dropMetins: 
@@ -23,5 +23,3 @@ MonoBehaviour:
   canEveryBodyTake: 1
   stackLimit: 1
   weightInInventory: 1
-  dropName: 
-  howMany: 0

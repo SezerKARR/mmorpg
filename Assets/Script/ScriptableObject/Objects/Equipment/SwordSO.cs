@@ -1,9 +1,7 @@
 using System.Collections.Generic;
-using System.Linq;
-using Script.Equipment;
 using UnityEngine;
 
-namespace Script.ScriptableObject.Equipment
+namespace Script.ScriptableObject.Objects.Equipment
 {
     public enum TypeWeapon
     {
